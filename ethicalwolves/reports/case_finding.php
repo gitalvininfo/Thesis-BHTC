@@ -65,7 +65,7 @@ require ('../config.php');
                         </div>
                     </li>
                     <li class="active">
-                        <a href="home.php"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
+                        <a href="../home.php"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
                     </li>
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-folder-open"></span> <span class="xn-text">Master File</span></a>       

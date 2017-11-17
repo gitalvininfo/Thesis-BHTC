@@ -32,11 +32,28 @@ if(ISSET($_POST['edit_medicine'])){
     $medicine_id = $_POST['medicine_id'];
     $medicine_name= $_POST['medicine_name'];    
     $medicine_description = $_POST['medicine_description'];
-    
+
     require ('config.php');
     $conn->query("UPDATE `medicine` SET `medicine_name` = '$medicine_name', `medicine_description` = '$medicine_description' WHERE `medicine_id` = '$medicine_id'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully updated medicine!');</script>";
+    echo "<script>document.location='medication_dispensation.php'</script>";  
+}
+
+if(ISSET($_POST['edit_dispensed'])){
+    $dispensation_id = $_POST['dispensation_id'];
+    $health_center= $_POST['health_center'];    
+    $medicine_name = $_POST['medicine_name'];
+    $date_given = $_POST['date_given'];
+    $quantity = $_POST['quantity'];
+    $received_by = $_POST['received_by'];
+
+    require ('config.php');
+    $conn->query("UPDATE `medication_dispensation` SET `health_center` = '$health_center', `medicine_name` = '$medicine_name', `date_given` = '$date_given', `quantity` = '$quantity', `received_by` = '$received_by' WHERE `dispensation_id` = '$dispensation_id'") or die(mysqli_error());
+    
+    $conn->query("UPDATE `medicine` SET `running_balance` = `running_balance` + '$quantity' WHERE `medicine_name` = '$medicine_name'") or die(mysqli_error());
+    $conn->close();
+    echo "<script type='text/javascript'>alert('Successfully updated dispensed medicine!');</script>";
     echo "<script>document.location='medication_dispensation.php'</script>";  
 }
 
