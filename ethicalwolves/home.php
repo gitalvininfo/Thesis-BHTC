@@ -172,7 +172,7 @@ $f = $q->fetch_array();
                                         $fetch2 = $q3->fetch_array();
                                         $q4 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary'") or die(mysqli_error());
                                         $fetch3 = $q4->fetch_array();
-                                        $q5 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary'") or die(mysqli_error());
+                                        $q5 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extrapulmonary'") or die(mysqli_error());
                                         $fetch4 = $q5->fetch_array();
                                         $q6 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'New'") or die(mysqli_error());
                                         $fetch5 = $q6->fetch_array();

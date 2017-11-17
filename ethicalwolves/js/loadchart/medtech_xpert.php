@@ -83,7 +83,7 @@ $fetch5 = $xpert5->fetch_array();
                          }else{
                              echo $fetch5['total'];
                          }	
-                         ?>, legendText: "Invalid / No Result"},
+                         ?>, legendText: "[I] - Invalid / No Result"},
                         
                         
                     ] 

@@ -802,74 +802,32 @@ require ('config.php');
                         $query = $conn->query("SELECT * FROM `dssm_examination` ORDER BY `dssm_id` DESC") or die(mysqli_error());
                         while($fetch = $query->fetch_array()){
                         ?>
-                        <div id="viewdssm<?php echo $fetch['dssm_id'];?>"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true" style="display:none;">
-                            <div class="modal-dialog modal-sm">
+                        <div id="viewdssm<?php echo $fetch['dssm_id'];?>"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true" style="display:none;">
+                            <div class="modal-dialog">
                                 <div class="modal-content" style="height:auto">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="smallModalHead"><span class="fa fa-file-text"></span> DSSM Examination</h4>
+                                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-file-text"></span> DSSM Examination</h4>
                                     </div>
                                     <form role="form" class="form-horizontal" method="post">
                                         <div class="modal-body">
                                             <div class="panel-body">
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Date Examined" type="text" class="form-control" name="date_examined" style="color:black;" value="<?php echo $fetch['date_examined']?>"disabled/>
-                                                        </div>
-                                                    </div>
+                                                <div class="panel panel-info">
+                                                    <div class="panel-body profile">
+                                                        <div class="panel-body">                                    
+                                                            <div class="contact-info">
+                                                                <p><small style="font-size:13px;">Date Examined</small><br/><?php echo $fetch['date_examined']?></p>
+                                                                <p><small style="font-size:13px;">Laboratory Number</small><br/><?php echo $fetch['laboratory_number']?></p>
+                                                                <p><small style="font-size:13px;">Visual Appearance</small><br/><?php echo $fetch['visual_appearance']?></p>
+                                                                <p><small style="font-size:13px;">Reading</small><br/><?php echo $fetch['reading']?></p>
+                                                                <p><small style="font-size:13px;">Laboratory Diagnosis</small><br/><?php echo $fetch['laboratory_diagnosis']?></p>
+                                                                <p><small style="font-size:13px;">Examined By</small><br/><?php echo $fetch['examined_by']?></p>
+                                                                <p><small style="font-size:13px;">Date Released</small><br/><?php echo $fetch['date_released']?></p>
+                                                            </div>
+                                                        </div>    
+                                                    </div>    
                                                 </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Laboratory Number" type="text" class="form-control" name="laboratory_number" style="color:black;" value="<?php echo $fetch['laboratory_number']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Visual Appearance" type="text" class="form-control" name="visual_appearance" style="color:black;" value="<?php echo $fetch['visual_appearance']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Reading" type="text" class="form-control" name="reading" style="color:black;" value="<?php echo $fetch['reading']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Laboratory Diagnosis" type="text" class="form-control" name="laboratory_diagnosis" style="color:black;" value="<?php echo $fetch['laboratory_diagnosis']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Examined By" type="text" class="form-control" name="examined_by" style="color:black;" value="<?php echo $fetch['examined_by']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Date Released" type="text" class="form-control" name="date_released" style="color:black;" value="<?php echo $fetch['date_released']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            </div>     </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
                                         </div>

@@ -24,7 +24,7 @@ if(ISSET($_POST['edit_patient'])){
 			`age` = '$age', `address` = '$address', `gender` = '$gender', `address` = '$address', `birthdate` = '$birthdate', `height` = '$height', `contact_number` = '$contact_number', `province` = '$province', `occupation` = '$occupation', `philhealth_no` = '$philhealth_no', `contact_person` = '$contact_person', `emergency_no` = '$emergency_no', `household_member` = '$household_member', `household_member_age` = '$household_member_age', `date_screened` = '$date_screened' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully updated patient record!');</script>";
-    echo "<script>document.location='laboratory_request_table.php'</script>";  
+    echo "<script>document.location='master_file_patient.php'</script>";  
 }
 
 

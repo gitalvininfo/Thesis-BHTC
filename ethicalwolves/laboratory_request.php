@@ -167,7 +167,15 @@ require ('config.php');
                                                 <div class="col-md-12 col-xs-12">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                        <input data-toggle="tooltip" data-placement="right" title="Date Sample Collected" type="text" class="form-control datepicker" name="date_sample_collected" placeholder="Date Sample Collected" required/>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Date Sample 2 Collected" type="text" class="form-control datepicker" name="date_sample_collected" placeholder="Date Sample 1 Collected" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Date Sample 2 Collected" type="text" class="form-control datepicker" name="date_sample_collected2" placeholder="Date Sample 2 Collected" required/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -418,7 +426,8 @@ require ('config.php');
                                                 <p><small style="font-size:13px;">Name of Collection Unit</small><br/><?php echo $fetch['collection_unit']?></p>
                                                 <p><small style="font-size:13px;">Date of Request</small><br/><?php echo $fetch['date_of_request']?></p>
                                                 <p><small style="font-size:13px;">Requesting Physician</small><br/><?php echo $fetch['requesting_physician']?></p>
-                                                <p><small style="font-size:13px;">Date Sample Collected</small><br/><?php echo $fetch['date_sample_collected']?></p>
+                                                <p><small style="font-size:13px;">Date Sample 1 Collected</small><br/><?php echo $fetch['date_sample_collected']?></p>
+                                                <p><small style="font-size:13px;">Date Sample 2 Collected</small><br/><?php echo $fetch['date_sample_collected2']?></p>
                                                 <p><small style="font-size:13px;">Name of Sample Collector</small><br/><?php echo $fetch['sample_collector']?></p>
                                                 <p><small style="font-size:13px;">Contact Number</small><br/><?php echo $fetch['contact_number']?></p>
                                                 <p><small style="font-size:13px;">Reason For Examination</small><br/><?php echo $fetch['reason_for_examination']?></p>

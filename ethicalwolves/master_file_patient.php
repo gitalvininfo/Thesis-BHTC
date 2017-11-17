@@ -204,6 +204,7 @@ require ('config.php');
                                                     <td><center><?php echo $f['registration_group']?></center></td>
                                                     <td><center><?php echo $f['diagnosis']?></center></td>
                                                     <td><center>
+                                                        <a href="#updatepatient<?php echo $fetch['patient_id'];?>" data-target="#updatepatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
                                                         <a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
                                                 </tr>
                                                 <?php
@@ -226,9 +227,199 @@ require ('config.php');
             </div>
         </div>
 
+    <!-- Edit Patient -->
+        <?php
+        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+        $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+        while($fetch = $query->fetch_array()){
+        ?>
+        <div id="updatepatient<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-male"></span> Update Patient Information</h4>
+                    </div>
+                    <form role="form" class="form-horizontal" action="edit_query.php" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="panel-body">
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Patient Name" type="text" class="form-control" name="patient_name" value="<?php echo $fetch['patient_name']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Patient Age" type="number" class="form-control" name="age" value="<?php echo $fetch['age']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">                                        
+                                                <select class="form-control select" name="gender">
+                                                    <option value="<?php echo $fetch['gender'];?>"><?php echo $fetch['gender'];?></option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Home Address" type="text" class="form-control" name="address" value="<?php echo $fetch['address']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">                                                    
+                                                <select class="form-control select" data-live-search="true" name="barangay" required>
+                                                    <option value="<?php echo $fetch['barangay'];?>"><?php echo $fetch['barangay'];?></option>
+                                                    <option value="Abcasa">Brgy. Abcasa</option>
+                                                    <option value="Alangilan">Brgy. Alangilan</option>
+                                                    <option value="Alijis">Brgy. Alijis</option>
+                                                    <option value="Banago">Brgy. Banago</option>
+                                                    <option value="Bata">Brgy. Bata</option>
+                                                    <option value="Cabug">Brgy. Cabug </option>
+                                                    <option value="Estefania ">Brgy. Estefania</option>
+                                                    <option value="Felisa">Brgy. Felisa</option>
+                                                    <option value="Granada ">Brgy. Granada</option>
+                                                    <option value="Handumanan">Brgy. Handumanan</option>
+                                                    <option value="Lopez Jaena">Brgy. Lopez Jaena</option>
+                                                    <option value="Mabini">Brgy. Mabini</option>
+                                                    <option value="Mandalagan">Brgy. Mandalagan</option>
+                                                    <option value="Mansilingan">Brgy. Mansilingan</option>
+                                                    <option value="Montevista">Brgy. Montevista</option>
+                                                    <option value="Pahanocoy">Brgy. Pahanocoy</option>
+                                                    <option value="Punta Taytay ">Brgy. Punta Taytay</option>
+                                                    <option value="Singcang">Brgy. Singcang</option>
+                                                    <option value="Brgy. Sumag ">Brgy. Sum-ag</option>
+                                                    <option value="Taculing">Brgy. Taculing</option>
+                                                    <option value="Tangub">Brgy. Tangub</option>
+                                                    <option value="Villa Esperanza">Brgy. Villa Esperanza</option>
+                                                    <option value="Villamonte">Brgy. Villamonte</option>
+                                                    <option value="Vista Alegre">Brgy. Vista Alegre</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Birthdate" type="text" class="form-control datepicker" name="birthdate" value="<?php echo $fetch['birthdate']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Patient Height" type="text" class="form-control" name="height" value="<?php echo $fetch['height']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Contact Number" type="text" class="form-control" name="contact_number" value="<?php echo $fetch['contact_number']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Province" type="text" class="form-control" name="province" value="<?php echo $fetch['province']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Occupation * optional" type="text" class="form-control" name="occupation" value="<?php echo $fetch['occupation']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Philhealth Number * optional" type="text" class="form-control" name="philhealth_no" value="<?php echo $fetch['philhealth_no']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Contact Person" type="text" class="form-control" name="contact_person" value="<?php echo $fetch['contact_person']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Emergency Number" type="text" class="form-control" name="emergency_no" value="<?php echo $fetch['emergency_no']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Household Member" type="text" class="form-control" name="household_member" value="<?php echo $fetch['household_member']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Household Age" type="number" class="form-control" name="household_member_age" value="<?php echo $fetch['household_member_age']?>" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Date Screened" type="text" class="form-control datepicker" value="Date Screened" name="date_screened" value="<?php echo $fetch['date_screened']?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-        <!-- END PAGE CONTAINER -->    
-        <!-- MESSAGE BOX-->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info" name="edit_patient"><span class="fa fa-pencil-square-o"></span>Update</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <?php
+        }
+        $conn->close();
+        ?> 
+        <!-- End Edit Patient -->
+
+       
         <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">
                 <div class="mb-middle">
@@ -246,28 +437,18 @@ require ('config.php');
                 </div>
             </div>
         </div>
-        <!-- END MESSAGE BOX-->
-
-
-        <!-- START PRELOADS -->
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-        <!-- END PRELOADS -->                      
-
-        <!-- START SCRIPTS -->
-        <!-- START PLUGINS -->
-        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+       <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>
         <script type="text/javascript" src="js/actions.js"></script>
-        <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-        <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
-
-        <!-- END TEMPLATE -->
-        <!-- END SCRIPTS -->                 
     </body>
 </html>
 

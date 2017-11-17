@@ -11,6 +11,7 @@ require ('config.php');
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css"/>
+        <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
         <style type="text/css">
             @media print{
                 @page{
@@ -39,48 +40,46 @@ require ('config.php');
                         <a href="home.php">BHTC-PMIS</a>
                         <a href="#" class="x-navigation-control"></a>
                     </li>
-                    <div class="profile">
-                        <div class="profile-image">
-                            <img src="assets/images/project_logo.png" alt="John Doe"/>
-                        </div>
-                        <div class="profile-data">
-                            <div class="profile-data-name">
-                                <?php 
-                                echo $find['firstname']." ".$find['lastname'];
-                                ?>
+                    <li class="xn-profile">
+                        <a href="#" class="profile-mini">
+                            <img src="assets/images/project_logo.png" alt="User" />
+                        </a>
+                        <div class="profile">
+                            <div class="profile-image">
+                                <img src="assets/images/project_logo.png" alt="User" />
                             </div>
-                            <div class="profile-data-title">
-                                <?php 
-                                echo $find['position'];
-                                ?></div>
+                            <div class="profile-data">
+                                <div class="profile-data-name">
+                                    <?php 
+                                    echo $find['firstname']." ".$find['lastname'];
+                                    ?>
+                                </div>
+                                <div class="profile-data-title">
+                                    <?php 
+                                    echo $find['position'];
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="profile-controls">
+                                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
+                            </div>
                         </div>
-                        <div class="profile-controls">
-                            <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
-                        </div>
-                    </div>        
+                    </li>
                     <li class="active">
-                        <a href="dashboard_medtech.php"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>                  
-                    </li> 
+                        <a href="dashboard_medtech.php"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
+                    </li>
                     <li>
-                        <a href="medtech_patient_master_file.php"><span class="fa fa-folder-open"></span> <span class="xn-text">Patient Master Data</span></a>                        
-                    </li>  
+                        <a href="medtech_patient_master_file.php"><span class="fa fa-folder-open"></span> <span class="xn-text">Patient Master File</span></a>
+                    </li>
                     <li>
-                        <a href="medtech_laboratory_request.php"><span class="fa fa-flask"></span> <span class="xn-text">Laboratory Request</span></a>                        
-                    </li>  
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-bar-chart-o"></span> <span class="xn-text">Reports</span></a>
-                        <ul>
-                            <li><a href="charts-morris.html"><span class="fa fa-group"></span><span class="xn-text">Patient Population</span></a></li>
-                            <li><a href="charts-nvd3.html"><span class="fa fa-tint"></span><span class="xn-text">Drugs Dispensation</span></a></li>
-
-                        </ul>
-                    </li> 
+                        <a href="medtech_laboratory_request.php"><span class="fa fa-flask"></span> <span class="xn-text">Laboratory Request</span></a>
+                    </li>
+                    <li>
+                        <a href="medtech_examination_reports.php"><span class="fa fa-bar-chart"></span> <span class="xn-text">Examination Reports</span></a>
+                    </li>
                 </ul>
                 <!-- END X-NAVIGATION -->
             </div>
-            <!-- END PAGE SIDEBAR -->
-
-            <!-- PAGE CONTENT -->
             <div class="page-content">
 
                 <!-- START X-NAVIGATION VERTICAL -->
@@ -144,8 +143,8 @@ require ('config.php');
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
-                    <li><a href="home.php">Home</a></li>
-                    <li class="active">Examination Report</li>
+                    <li><a href="dashboard_medtech.php">Home</a></li>
+                    <li class="active">Examination Reports</li>
                 </ul>
                 <!-- END BREADCRUMB -->      
 
@@ -179,8 +178,9 @@ require ('config.php');
                                     <div id="print">
                                         <div class="panel-body">
                                             <?php
+                                            $date = date("Y", strtotime("+ 8 HOURS"));
                                             $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                            $query1 = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination`") or die(mysqli_error());
+                                            $query1 = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` where `year` = '$date'") or die(mysqli_error());
                                             $fetch1 = $query1->fetch_array();
                                             $query2 = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `laboratory_diagnosis` = 'Positive'") or die(mysqli_error());
                                             $fetch2 = $query2->fetch_array();
@@ -192,8 +192,17 @@ require ('config.php');
                                             $fetch5 = $query5->fetch_array();
                                             $query6 = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `laboratory_diagnosis` = 'Positive'  ") or die(mysqli_error());
                                             $fetch6 = $query6->fetch_array();
+                                            $query7 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'RR' && `year` = '$date'") or die(mysqli_error());
+                                            $fetch7 = $query7->fetch_array();
+                                            $query8 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'T' && `year` = '$date' ") or die(mysqli_error());
+                                            $fetch8 = $query8->fetch_array();
+                                            $query9 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'TI' && `year` = '$date' ") or die(mysqli_error());
+                                            $fetch9 = $query9->fetch_array();
+                                            $query10 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'I' && `year` = '$date' ") or die(mysqli_error());
+                                            $fetch10 = $query10->fetch_array();
+                                            $query11 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'N' && `year` = '$date' ") or die(mysqli_error());
+                                            $fetch11 = $query11->fetch_array();
                                             ?>
-
                                             <center><img style="height:50px;width:50px;" src="assets/images/bc.png"> <br>
                                                 <p>Bacolod City Health TB DOTS Center</p>
                                                 <p><small>BBB St., Bacolod City, Philippines <br>
@@ -229,37 +238,37 @@ require ('config.php');
                                                         <td></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><strong>3. No. with Rifampicin Resistance</strong></td>
-                                                        <td><center> </center></td>
-                                                        <td></td>
+                                                        <td><strong>3. No. with Rifampicin Resistance [RR]</strong></td>
+                                                        <td bgcolor="#b8b2b2"><center> </center></td>
+                                                        <td><center><?php echo $fetch7['total'] + $fetch3['total']?></center></td>
                                                         <td></td>
                                                         <td></td>
                                                     </tr>
                                                     <tr >
-                                                        <td><strong>4. No. with Rifampicin not Detected</strong></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>5. No. with Rifampicin Resistance Undetermine</strong></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td><strong>4. No. with Rifampicin not Detected [T]</strong></td>
+                                                        <td bgcolor="#b8b2b2"></td>
+                                                        <td><center><?php echo $fetch8['total']?></center></td>
                                                         <td></td>
                                                         <td></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><strong>6. No. with error or invalid result</strong></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td><strong>5. No. with Rifampicin Resistance Undetermine [TI]</strong></td>
+                                                        <td bgcolor="#b8b2b2"></td>
+                                                        <td><center><?php echo $fetch9['total']?></center></td>
                                                         <td></td>
                                                         <td></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><strong>7. No. with MTB not Detected</strong></td>
+                                                        <td><strong>6. No. with error or invalid result [I]</strong></td>
+                                                        <td bgcolor="#b8b2b2"></td>
+                                                        <td><center><?php echo $fetch10['total']?></center></td>
                                                         <td></td>
                                                         <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>7. No. with MTB not Detected [N]</strong></td>
+                                                        <td bgcolor="#b8b2b2"></td>
+                                                        <td><center><?php echo $fetch11['total']?></center></td>
                                                         <td></td>
                                                         <td></td>
                                                     </tr>
