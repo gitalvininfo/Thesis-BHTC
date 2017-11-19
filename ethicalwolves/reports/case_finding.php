@@ -160,16 +160,12 @@ require ('../config.php');
                         </div>
                     </li>
                 </ul>
-                <!-- END X-NAVIGATION VERTICAL -->                     
-
-                <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
-                    <li><a href="dashboard_medtech.php">Home</a></li>
-                    <li class="active">Examination Reports</li>
-                </ul>
-                <!-- END BREADCRUMB -->      
+                    <li><a href="../home.php">Home</a></li>
+                    <li><a href="../reports.php">Reports</a></li>
+                    <li>Case Finding</li>
 
-                <!-- PAGE CONTENT WRAPPER -->
+                </ul>
                 <div class="page-content-wrap">
                     <!-- Export Code -->
                     <div class="row">

@@ -1,14 +1,18 @@
 <?php
 
-$date = date("Y", strtotime("+ 8 HOURS"));
+$year = date('Y');
+if(isset($_GET['year']))
+{
+    $year=$_GET['year'];
+}
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$phc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Public Health Center' && `year` = '$date'") or die(mysqli_error());
+$phc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Public Health Center' && `year` = '$year'") or die(mysqli_error());
 $fetch1 = $phc->fetch_array();
-$oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Other Government Facilities' && `year` = '$date'") or die(mysqli_error());
+$oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Other Government Facilities' && `year` = '$year'") or die(mysqli_error());
 $fetch2 = $oth->fetch_array();
-$pri = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Private Hospitals' && `year` = '$date'") or die(mysqli_error());
+$pri = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Private Hospitals' && `year` = '$year'") or die(mysqli_error());
 $fetch3 = $pri->fetch_array();
-$com = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Community' && `year` = '$date'") or die(mysqli_error());
+$com = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Community' && `year` = '$year'") or die(mysqli_error());
 $fetch4 = $com->fetch_array();
 
 ?>
@@ -20,7 +24,7 @@ $fetch4 = $com->fetch_array();
             exportFileName: "Source of Patient", 
             exportEnabled: true,
             title: { 
-                text: "Source of Patient as of <?php echo $date?>",
+                text: "Source of Patient as of Year <?php echo $year?>",
                 fontSize: 20
             }, 
             axisY: { 

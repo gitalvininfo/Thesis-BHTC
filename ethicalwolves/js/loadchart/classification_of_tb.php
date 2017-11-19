@@ -1,10 +1,14 @@
 <?php
+$year = date('Y');
+if(isset($_GET['year']))
+{
+    $year=$_GET['year'];
+}
 
-$date = date("Y", strtotime("+ 8 HOURS"));
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$pul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$date'") or die(mysqli_error());
+$pul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
 $fetch1 = $pul->fetch_array();
-$ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extrapulmonary' && `year` = '$date'") or die(mysqli_error());
+$ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extrapulmonary' && `year` = '$year'") or die(mysqli_error());
 $fetch2 = $ext->fetch_array();
 
 ?>
@@ -16,7 +20,7 @@ $fetch2 = $ext->fetch_array();
             exportFileName: "TB Classification", 
             exportEnabled: true,
             title: { 
-                text: "Classification of Tuberculosis as of <?php echo $date?>",
+                text: "Classification of Tuberculosis as of Year <?php echo $year?>",
                 fontSize: 20
             }, 
             axisY: { 

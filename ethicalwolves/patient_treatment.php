@@ -30,7 +30,7 @@ if(ISSET($_POST['add_treatment_details'])){
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
         <script src="js/plugins/jquery/jquery.min.js"></script>
         <script src = "js/jquery.canvasjs.min.js"></script>
-        <?php include_once 'js/loadchart/patient_population.php'?>
+        <?php include_once 'js/loadchart/show_weight.php'?>
 
     </head>
 
@@ -196,14 +196,12 @@ if(ISSET($_POST['add_treatment_details'])){
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">Continuation Phase</a></li>
                                     <li><a href="#tab-third" role="tab" data-toggle="tab">Clinical Findings</a></li>
                                     <li><a href="#tab-fourth" role="tab" data-toggle="tab">Drug Preparations</a></li>
-                                    <li><a href="#tab-fifth" role="tab" data-toggle="tab">Treatment Details</a></li>
                                     <li><a href="#tab-sixth" role="tab" data-toggle="tab">Overview</a></li>
                                     <h3 class="panel-title pull-right"> <span class="fa fa-exclamation-circle"></span> <strong><?php echo $f['patient_name']?></strong></h3>
                                 </ul>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
                                     <div class="panel-body tab-content">
                                         <div class="tab-pane active" id="tab-first">
-
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <!-- START ACCORDION -->        
@@ -221,7 +219,7 @@ if(ISSET($_POST['add_treatment_details'])){
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                                         $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
                                         $f = $q->fetch_array();
-                                        $q2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                        $q2 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Present'") or die(mysqli_error());
                                         $f2 = $q2->fetch_array();
                                         $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
                                         $f3 = $q3->fetch_array();
@@ -247,7 +245,7 @@ if(ISSET($_POST['add_treatment_details'])){
                                                                         <div class="col-md-12 col-xs-12">
                                                                             <div class="input-group">
                                                                                 <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                                <input data-toggle="tooltip" data-placement="bottom" title="Total Dosage Taken" class="form-control" style="color:red" name="dosage" value="<?php echo $f2['sum(dosage)']; ?>" disabled/>
+                                                                                <input data-toggle="tooltip" data-placement="bottom" title="Total Days Present" class="form-control" style="color:red" name="dosage" value="<?php echo $f2['total']; ?>" disabled/>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -654,45 +652,6 @@ if(ISSET($_POST['add_treatment_details'])){
                                             </div>
 
                                         </div>
-                                        <div class="tab-pane" id="tab-fifth">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <?php
-
-                                                    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                    $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());                                                        
-                                                    $f = $q->fetch_array();
-                                                    $id=$f['patient_id'];
-                                                    $query5 = $conn->query("SELECT * FROM `treatment_record` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                                                    $fetch5 = $query5->fetch_array();    
-                                                    ?>
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
-                                                                <img src="assets/images/project_logo.png" alt="Nadia Ali"/>
-                                                            </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Treatment Details</div>
-                                                                <div class="profile-data-title"><?php echo $fetch5['treatment_regimen_category']?></div>
-                                                            </div>
-                                                            <div class="profile-controls">
-                                                                <a href="#" class="profile-control-left"><span class="fa fa-info"></span></a>
-                                                                <a href="#" class="profile-control-right"><span class="fa fa-info"></span></a>
-                                                            </div>
-                                                        </div>                                
-                                                        <div class="panel-body">                                    
-                                                            <div class="contact-info">
-                                                                <p><small>Treatment Partner Name</small><br/><?php echo $fetch5['treatment_partner_name']?></p>
-                                                                <p><small>Designation of Treatment Partner</small><br/><?php echo $fetch5['designation_treatment_partner']?></p>
-                                                                <p><small>Date Treatment Started</small><br/><?php echo $fetch5['date_treatment_started']?></p>                                   
-                                                            </div>
-                                                        </div>                                
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="tab-pane" id="tab-sixth">
                                             <div class="row">
                                                 <?php
@@ -702,7 +661,7 @@ if(ISSET($_POST['add_treatment_details'])){
 
                                                 <div class="col-md-3">
                                                     <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-default">
+                                                    <div class="panel panel-info">
                                                         <div class="panel-body profile">
                                                             <div class="profile-image">
 
@@ -734,7 +693,7 @@ if(ISSET($_POST['add_treatment_details'])){
                                                 </div>
                                                 <div class="col-md-3">
                                                     <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-default">
+                                                    <div class="panel panel-info">
                                                         <div class="panel-body profile">
                                                             <div class="profile-image">
 
@@ -766,7 +725,7 @@ if(ISSET($_POST['add_treatment_details'])){
                                                 </div>
                                                 <div class="col-md-3">
                                                     <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-default">
+                                                    <div class="panel panel-info">
                                                         <div class="panel-body profile">
                                                             <div class="profile-image">
 
@@ -802,7 +761,7 @@ if(ISSET($_POST['add_treatment_details'])){
                                                 </div>
                                                 <div class="col-md-3">
                                                     <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-default">
+                                                    <div class="panel panel-info">
                                                         <div class="panel-body profile">
                                                             <div class="profile-image">
                                                             </div>
@@ -850,148 +809,7 @@ if(ISSET($_POST['add_treatment_details'])){
             </div>
             <!-- END PAGE CONTENT -->
         </div>
-        <div class="modal" id="modal_small" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="smallModalHead"><span class="fa fa-male"></span> Patient Information</h4>
-                    </div>
-                    <form role="form" class="form-horizontal" action="laboratory_request_table.php" method="post">
-                        <div class="modal-body">
-                            <div class="panel-body">
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Patient Name" type="text" class="form-control" name="patient_name" placeholder="Patient Name" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-3">
-                                        <select class="validate[required] select" id="formStatus" name="gender" required>
-                                            <option value="">Gender</option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Home Address" type="text" class="form-control" name="address" placeholder="Address" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Patient Height" type="text" class="form-control" name="height" placeholder="Height" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Contact Number" type="text" class="form-control" name="contact_number" placeholder="Contact Number" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Province" type="text" class="form-control" name="province" placeholder="Province" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Occupation * optional" type="text" class="form-control" name="occupation" placeholder="Occupation" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Philhealth Number * optional" type="text" class="form-control" name="philhealth_no" placeholder="Philhealth Number" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Contact Person" type="text" class="form-control" name="contact_person" placeholder="Contact Person" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Household Member" type="text" class="form-control" name="household_member" placeholder="Household Member" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Household Age" type="number" class="form-control" name="household_member_age" placeholder="Household Member Age" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Date Screened" type="text" class="form-control datepicker" value="Date Screened" name="date_screened" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success" name="add_new_patient"><span class="fa fa-save"></span>Save</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
+    
         <div class="modal" id="modal_basic" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -1000,7 +818,7 @@ if(ISSET($_POST['add_treatment_details'])){
                         <h4 class="modal-title" id="defModalHead">Basic Modal</h4>
                     </div>
                     <div class="modal-body">
-                        <div id="patient_population" style="width: 100%; height: 400px"></div>
+                        <div id="show_weight" style="width: 100%; height: 400px"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

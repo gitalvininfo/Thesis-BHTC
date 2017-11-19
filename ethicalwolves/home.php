@@ -70,7 +70,7 @@ $f = $q->fetch_array();
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-pencil-square-o"></span> <span class="xn-text">Transactions</span></a>
                         <ul>
-                            <li> <a href="patient_examination_schedule_table.php"><span class="fa fa-calendar"></span> <span class="xn-text">Follow-up Examination</span></a> </li>
+                            <li> <a href="patient_examination_schedule_table.php"><span class="fa fa-calendar"></span> <span class="xn-text">Follow-up Visit</span></a> </li>
                             <li> <a href="laboratory_request_table.php"><span class="fa fa-plus"></span> <span class="xn-text">Laboratory Request</span></a> </li>
                             <li> <a href="registration_table.php"><span class="fa fa-file-text"></span> <span class="xn-text">Registration</span></a> </li>
                             <li> <a href="patient_treatment_table.php"><span class="fa fa-user-md"></span> <span class="xn-text">Treatment</span></a> </li>
@@ -157,7 +157,6 @@ $f = $q->fetch_array();
 
                 <div class="page-content-wrap">
                     <div class="row">
-
                         <div class="col-md-3">
                             <div class="widget widget-info widget-carousel">
                                 <div class="owl-carousel" id="owl-example">
@@ -302,14 +301,43 @@ $f = $q->fetch_array();
 
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><strong> <span class="fa fa-pie-chart"></span> Registration Group</strong></h3>
-                                    <ul class="panel-controls">
-                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
-                                    </ul>   
+                                    <div class="btn-group pull-right">
+                                        <div class="pull-left">
+                                            <select id="pyear" class="validate[required] select" data-style="btn-info">
+                                                <option>Please Select Year...</option>
+                                                <option value="<?php 
+                                                               if(isset($_GET['year'])){
+                                                                   $value=$_GET['year']; 
+                                                                   echo $value;
+                                                               }
+                                                               else{
+                                                                   echo date('Y');
+                                                               }
+                                                               ?>">
+                                                    <?php 
+                                                    if(isset($_GET['year'])){
+                                                        $value=$_GET['year']; 
+                                                        echo $value;
+                                                    }
+                                                    else{
+                                                        echo date('Y');
+                                                    }
+                                                    ?></option>
+                                                <?php
+                                                for($y=2015; $y<=2020; $y++){
+                                                ?>
+                                                <option value="<?php echo $y ?>"><?php echo $y; ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="panel-body">
-
                                     <div id="registration_group" style="width: 100%; height: 400px"></div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -317,7 +345,23 @@ $f = $q->fetch_array();
                 </div>
             </div>
         </div>
-        
+
+        <div class="modal" id="modal_small" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="smallModalHead">Small Modal</h4>
+                    </div>
+                    <div class="modal-body">
+                        Some content in modal example
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>        
 
         <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">
@@ -336,14 +380,25 @@ $f = $q->fetch_array();
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function(){
+                $("#pyear").on('change', function(){
+                    var year=$(this).val();
+                    window.location = 'home.php?year='+year;
+                });
+            });
+        </script>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-       <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
+        <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="js/plugins/owl/owl.carousel.min.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>
-        <script type="text/javascript" src="js/actions.js"></script>        
+        <script type="text/javascript" src="js/actions.js"></script>      
+
     </body>
 </html>

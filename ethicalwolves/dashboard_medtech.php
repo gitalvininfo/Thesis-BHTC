@@ -81,7 +81,7 @@ $f = $q->fetch_array();
                     <li>
                         <a href="medtech_laboratory_request.php"><span class="fa fa-flask"></span> <span class="xn-text">Laboratory Request</span></a>
                     </li>
-                   <li>
+                    <li>
                         <a href="medtech_examination_reports.php"><span class="fa fa-bar-chart"></span> <span class="xn-text">Examination Reports</span></a>
                     </li>
                 </ul>
@@ -127,7 +127,7 @@ $f = $q->fetch_array();
                             </div>
                             <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
                                 <?php 
-                            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
                             $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
                             $fetch = $query->fetch_array();
                             $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
@@ -319,9 +319,38 @@ $f = $q->fetch_array();
 
                                     <div class="panel-heading">
                                         <h3 class="panel-title"><strong> <span class="fa fa-bar-chart-o"></span> Examination Overview Per Category</strong></h3>
-                                        <ul class="panel-controls">
-                                            <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
-                                        </ul>   
+                                        <div class="btn-group pull-right">
+                                            <div class="pull-left">
+                                                <select id="pyear" class="validate[required] select" data-style="btn-info">
+                                                    <option>Please Select Year...</option>
+                                                    <option value="<?php 
+                                                                   if(isset($_GET['year'])){
+                                                                       $value=$_GET['year']; 
+                                                                       echo $value;
+                                                                   }
+                                                                   else{
+                                                                       echo date('Y');
+                                                                   }
+                                                                   ?>">
+                                                        <?php 
+                                                        if(isset($_GET['year'])){
+                                                            $value=$_GET['year']; 
+                                                            echo $value;
+                                                        }
+                                                        else{
+                                                            echo date('Y');
+                                                        }
+                                                        ?></option>
+                                                    <?php
+                                                    for($y=2015; $y<=2020; $y++){
+                                                    ?>
+                                                    <option value="<?php echo $y ?>"><?php echo $y; ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="panel-body">
                                         <div id="examination" style="width: 100%; height: 400px"></div>
@@ -351,8 +380,17 @@ $f = $q->fetch_array();
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function(){
+                $("#pyear").on('change', function(){
+                    var year=$(this).val();
+                    window.location = 'dashboard_medtech.php?year='+year;
+                });
+            });
+        </script>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>

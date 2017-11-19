@@ -103,8 +103,9 @@ require ('config.php');
                 </ul>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
-                    <li>Transactions</li>
-                    <li class="active">Add Follow-up examination</li>
+                    <li>Transaction</li>
+                    <li><a href="patient_examination_schedule_table.php">Follow-up Visit</a></li>
+                    <li class="active">Add Follow-up Visit</li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -117,7 +118,7 @@ require ('config.php');
                             <form role="form" class="form-horizontal" method="post">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><strong> <span class="fa fa-calendar"></span> Follow-up Examination</strong></h3>
+                                        <h3 class="panel-title"><strong> <span class="fa fa-calendar"></span> Follow-up Visit</strong></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="form-group">
@@ -131,19 +132,6 @@ require ('config.php');
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <select class="validate[required] select" id="formStatus" name="test_requested" required >
-                                                    <option value="">Test Requested</option>
-                                                    <option value="DSSM">DSSM</option>
-                                                    <option value="Xpert MTB/RIF">Xpert MTB/RIF</option>
-                                                    <option value="TB Culture">TB Culture</option>
-                                                    <option value="Drug Susceptible Testing">Drug Susceptible Testing</option>
-                                                    <option value="Tuberculin Skin Testing">Tuberculin Skin Testing</option>
-                                                    <option value="Chest X-ray">Chest X-ray</option>
-                                                </select>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="panel-footer">
                                         <button type="submit" name="add_examination_sched" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
@@ -155,7 +143,7 @@ require ('config.php');
                         <div class="col-md-6">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-folder-open"></span> <strong>Follow-up Examination of <?php echo $f['patient_name']?></strong></h3>
+                                    <h3 class="panel-title"><span class="fa fa-folder-open"></span> <strong>Follow-up Visit of <?php echo $f['patient_name']?></strong></h3>
                                 </div>
                                 <div class="panel-body">
                                     <table id="laboratory_request" class="table table-hover">
@@ -163,7 +151,6 @@ require ('config.php');
                                         <thead>
                                             <tr>
                                                 <th><center>Follow-up Examination Date</center></th>
-                                                <th><center>Test Requested</center></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -176,7 +163,6 @@ require ('config.php');
                                             ?>
                                             <tr>
                                                 <td><center><?php echo $fetch['examination_date']?></center></td>
-                                                <td><center><?php echo $fetch['test_requested']?></center></td>
                                             </tr>
                                             <?php
                                     }

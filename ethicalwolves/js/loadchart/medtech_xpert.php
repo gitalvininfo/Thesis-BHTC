@@ -1,16 +1,20 @@
 <?php
 
-$date = date("Y", strtotime("+ 8 HOURS"));
+$year = date('Y');
+if(isset($_GET['year']))
+{
+    $year=$_GET['year'];
+}
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$xpert = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'T' && `year` = '$date'") or die(mysqli_error());
+$xpert = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'T' && `year` = '$year'") or die(mysqli_error());
 $fetch1 = $xpert->fetch_array();
-$xpert2 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'RR' && `year` = '$date'") or die(mysqli_error());
+$xpert2 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'RR' && `year` = '$year'") or die(mysqli_error());
 $fetch2 = $xpert2->fetch_array();
-$xpert3 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'TI' && `year` = '$date'") or die(mysqli_error());
+$xpert3 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'TI' && `year` = '$year'") or die(mysqli_error());
 $fetch3 = $xpert3->fetch_array();
-$xpert4 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'N' && `year` = '$date'") or die(mysqli_error());
+$xpert4 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'N' && `year` = '$year'") or die(mysqli_error());
 $fetch4 = $xpert4->fetch_array();
-$xpert5 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'I' && `year` = '$date'") or die(mysqli_error());
+$xpert5 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'I' && `year` = '$year'") or die(mysqli_error());
 $fetch5 = $xpert5->fetch_array();
 
 ?>
@@ -23,7 +27,7 @@ $fetch5 = $xpert5->fetch_array();
             exportFileName: "XPERT", 
             exportEnabled: true,
             title: { 
-                text: "Xpert MTB/RIF Results as of Year <?php echo $date?>",
+                text: "Xpert MTB/RIF Results as of Year <?php echo $year?>",
                 fontSize: 22
             }, 
             axisY: { 
@@ -42,11 +46,11 @@ $fetch5 = $xpert5->fetch_array();
                     dataPoints: [ 
                         { label: "[T] - MTB detected, Rifampicin resistance not detected",  y: 
                          <?php
-                         if($fetch1 == ""){
-                            echo 0;
-                            }else{
-                            echo $fetch1['total'];
-                        }	
+    if($fetch1 == ""){
+        echo 0;
+    }else{
+        echo $fetch1['total'];
+    }	
                          ?>, legendText: "[T] - MTB detected, Rifampicin resistance not detected"},
 
                         { label: "[RR] - MTB detected, Rifampicin resistance detected",  y: 
@@ -57,7 +61,7 @@ $fetch5 = $xpert5->fetch_array();
                              echo $fetch2['total'];
                          }	
                          ?>, legendText: "[RR] - MTB detected, Rifampicin resistance detected"},
-                        
+
                         { label: "[TI] - MTB detected, Rifampicin resistance indeterminate",  y: 
                          <?php 
                          if($fetch3 == ""){
@@ -66,7 +70,7 @@ $fetch5 = $xpert5->fetch_array();
                              echo $fetch3['total'];
                          }	
                          ?>, legendText: "[TI] - MTB detected, Rifampicin resistance indeterminate"},
-                        
+
                         { label: "[N] - MTB not detected",  y: 
                          <?php 
                          if($fetch4 == ""){
@@ -75,7 +79,7 @@ $fetch5 = $xpert5->fetch_array();
                              echo $fetch4['total'];
                          }	
                          ?>, legendText: "[N] - MTB not detected"},
-                        
+
                         { label: "Invalid / No Result",  y: 
                          <?php 
                          if($fetch5 == ""){
@@ -84,8 +88,8 @@ $fetch5 = $xpert5->fetch_array();
                              echo $fetch5['total'];
                          }	
                          ?>, legendText: "[I] - Invalid / No Result"},
-                        
-                        
+
+
                     ] 
                 } 
             ] 

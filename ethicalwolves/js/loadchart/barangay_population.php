@@ -1,5 +1,10 @@
 <?php
-$year = date("Y", strtotime("+8 HOURS"));
+$year = date('Y');
+if(isset($_GET['year']))
+{
+    $year=$_GET['year'];
+}
+
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 
 $abcasa = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Abcasa'") or die(mysqli_error());

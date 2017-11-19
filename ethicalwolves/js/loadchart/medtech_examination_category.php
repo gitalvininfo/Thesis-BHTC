@@ -1,18 +1,22 @@
 <?php
 
-$date = date("Y", strtotime("+ 8 HOURS"));
+$year = date('Y');
+if(isset($_GET['year']))
+{
+    $year=$_GET['year'];
+}
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$dssm = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `year` = '$date'") or die(mysqli_error());
+$dssm = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `year` = '$year'") or die(mysqli_error());
 $fetch1 = $dssm->fetch_array();
-$xpert = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `year` = '$date'") or die(mysqli_error());
+$xpert = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `year` = '$year'") or die(mysqli_error());
 $fetch2 = $xpert->fetch_array();
-$tbculture = $conn->query("SELECT COUNT(*) as total FROM `tb_culture_examination` WHERE `year` = '$date'") or die(mysqli_error());
+$tbculture = $conn->query("SELECT COUNT(*) as total FROM `tb_culture_examination` WHERE `year` = '$year'") or die(mysqli_error());
 $fetch3 = $tbculture->fetch_array();
-$dst = $conn->query("SELECT COUNT(*) as total FROM `dst_examination` WHERE `year` = '$date'") or die(mysqli_error());
+$dst = $conn->query("SELECT COUNT(*) as total FROM `dst_examination` WHERE `year` = '$year'") or die(mysqli_error());
 $fetch4 = $dst->fetch_array();
-$tst = $conn->query("SELECT COUNT(*) as total FROM `tst` WHERE `year` = '$date'") or die(mysqli_error());
+$tst = $conn->query("SELECT COUNT(*) as total FROM `tst` WHERE `year` = '$year'") or die(mysqli_error());
 $fetch5 = $tst->fetch_array();
-$cxr = $conn->query("SELECT COUNT(*) as total FROM `cxr` WHERE `year` = '$date'") or die(mysqli_error());
+$cxr = $conn->query("SELECT COUNT(*) as total FROM `cxr` WHERE `year` = '$year'") or die(mysqli_error());
 $fetch6 = $cxr->fetch_array();
 
 ?>
@@ -25,7 +29,7 @@ $fetch6 = $cxr->fetch_array();
             exportFileName: "Examinations Conducted", 
             exportEnabled: true,
             title: { 
-                text: "Total Number of Examinations Conducted per Category as of <?php echo $date?>",
+                text: "Total Number of Examinations Conducted per Category as of Year <?php echo $year?>",
                 fontSize: 22
             }, 
             axisY: { 

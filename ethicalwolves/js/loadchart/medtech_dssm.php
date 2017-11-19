@@ -1,10 +1,14 @@
 <?php
 
-$date = date("Y", strtotime("+ 8 HOURS"));
+$year = date('Y');
+if(isset($_GET['year']))
+{
+    $year=$_GET['year'];
+}
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$dssm = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `laboratory_diagnosis` = 'Positive' && `year` = '$date'") or die(mysqli_error());
+$dssm = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `laboratory_diagnosis` = 'Positive' && `year` = '$year'") or die(mysqli_error());
 $fetch1 = $dssm->fetch_array();
-$dssm2 = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `laboratory_diagnosis` = 'Negative' && `year` = '$date'") or die(mysqli_error());
+$dssm2 = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `laboratory_diagnosis` = 'Negative' && `year` = '$year'") or die(mysqli_error());
 $fetch2 = $dssm2->fetch_array();
 ?>
 
@@ -16,7 +20,7 @@ $fetch2 = $dssm2->fetch_array();
             exportFileName: "DSSM", 
             exportEnabled: true,
             title: { 
-                text: "Direct Sputum Smear Microscopy Results as of Year <?php echo $date?>",
+                text: "Direct Sputum Smear Microscopy Results as of Year <?php echo $year?>",
                 fontSize: 22
             }, 
             axisY: { 

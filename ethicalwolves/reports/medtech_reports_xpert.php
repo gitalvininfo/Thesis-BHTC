@@ -96,6 +96,38 @@ require ('../config.php');
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
+                                            <div class="btn-group pull-right">
+                                                <div class="pull-left">
+                                                    <select id="pyear" class="validate[required] select" data-style="btn-info">
+                                                        <option>Please Select Year...</option>
+                                                        <option value="<?php 
+                                                                       if(isset($_GET['year'])){
+                                                                           $value=$_GET['year']; 
+                                                                           echo $value;
+                                                                       }
+                                                                       else{
+                                                                           echo date('Y');
+                                                                       }
+                                                                       ?>">
+                                                            <?php 
+                                                            if(isset($_GET['year'])){
+                                                                $value=$_GET['year']; 
+                                                                echo $value;
+                                                            }
+                                                            else{
+                                                                echo date('Y');
+                                                            }
+                                                            ?></option>
+                                                        <?php
+                                                        for($y=2015; $y<=2020; $y++){
+                                                        ?>
+                                                        <option value="<?php echo $y ?>"><?php echo $y; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="panel-body">
                                                 <div id="xpert" style="width: 100%; height: 350px"></div>
                                             </div>
@@ -125,25 +157,17 @@ require ('../config.php');
                 </div>
             </div>
         </div>
-        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
-            <div class="mb-container">
-                <div class="mb-middle">
-                    <div class="mb-title"><span class="fa fa-power-off"></span> Log <strong>Out</strong> ?</div>
-                    <div class="mb-content">
-                        <p>Are you sure you want to log out?</p>
-                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
-                    </div>
-                    <div class="mb-footer">
-                        <div class="pull-right">
-                            <a href="index.php" class="btn btn-success btn-lg">Yes</a>
-                            <button class="btn btn-default btn-lg mb-control-close">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <script>
+            $(document).ready(function(){
+                $("#pyear").on('change', function(){
+                    var year=$(this).val();
+                    window.location = 'medtech_reports_xpert.php?year='+year;
+                });
+            });
+        </script>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+        <script type='text/javascript' src='../js/plugins/bootstrap/bootstrap-select.js'></script>
         <script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>

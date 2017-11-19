@@ -120,6 +120,38 @@ require ('../config.php');
                                         <div class="row">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title"><strong> <span class="fa fa-pie-chart"></span> Classification of Tuberculosis</strong></h3>
+                                                <div class="btn-group pull-right">
+                                                    <div class="pull-left">
+                                                        <select id="pyear" class="validate[required] select" data-style="btn-info">
+                                                            <option>Please Select Year...</option>
+                                                            <option value="<?php 
+    if(isset($_GET['year'])){
+        $value=$_GET['year']; 
+        echo $value;
+    }
+                                   else{
+                                       echo date('Y');
+                                   }
+                                                                           ?>">
+                                                                <?php 
+                                                                if(isset($_GET['year'])){
+                                                                    $value=$_GET['year']; 
+                                                                    echo $value;
+                                                                }
+                                                                else{
+                                                                    echo date('Y');
+                                                                }
+                                                                ?></option>
+                                                            <?php
+                                                            for($y=2015; $y<=2020; $y++){
+                                                            ?>
+                                                            <option value="<?php echo $y ?>"><?php echo $y; ?></option>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="panel-body">
                                                 <div id="classification_of_tb" style="width: 100%; height: 400px"></div>
@@ -151,8 +183,17 @@ require ('../config.php');
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function(){
+                $("#pyear").on('change', function(){
+                    var year=$(this).val();
+                    window.location = 'reports_classification_of_tb.php?year='+year;
+                });
+            });
+        </script>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+        <script type='text/javascript' src='../js/plugins/bootstrap/bootstrap-select.js'></script>
         <script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>

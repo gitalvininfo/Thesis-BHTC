@@ -117,18 +117,40 @@ require ('../config.php');
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
-                                        <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $year = date("Y", strtotime("+8 HOURS"));
-                                   $q = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `status` = 'Registered' && `year` = '$year'") or die(mysqli_error());
-                                   $f = $q->fetch_array();
-                                        ?>
+
                                         <div class="row">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title"><strong> <span class="fa fa-bar-chart"></span> Patient Montly Population</strong></h3>
                                                 <div class="btn-group pull-right">
                                                     <div class="pull-left">
-                                                        <h3 class="panel-title"><strong>Total: <?php echo $f['total']?></strong></h3>
+                                                        <select id="pyear" class="validate[required] select" data-style="btn-info">
+                                                            <option>Please Select Year...</option>
+                                                            <option value="<?php 
+    if(isset($_GET['year'])){
+        $value=$_GET['year']; 
+        echo $value;
+    }
+                                   else{
+                                       echo date('Y');
+                                   }
+                                                                           ?>">
+                                                                <?php 
+                                                                if(isset($_GET['year'])){
+                                                                    $value=$_GET['year']; 
+                                                                    echo $value;
+                                                                }
+                                                                else{
+                                                                    echo date('Y');
+                                                                }
+                                                                ?></option>
+                                                            <?php
+                                                            for($y=2015; $y<=2020; $y++){
+                                                            ?>
+                                                            <option value="<?php echo $y ?>"><?php echo $y; ?></option>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -161,8 +183,17 @@ require ('../config.php');
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function(){
+                $("#pyear").on('change', function(){
+                    var year=$(this).val();
+                    window.location = 'reports_patient_population.php?year='+year;
+                });
+            });
+        </script>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+        <script type='text/javascript' src='../js/plugins/bootstrap/bootstrap-select.js'></script>
         <script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>
@@ -171,3 +202,6 @@ require ('../config.php');
         <script type="text/javascript" src="../js/actions.js"></script>
     </body>
 </html>
+
+
+<!-- -->

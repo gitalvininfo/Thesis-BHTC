@@ -1,10 +1,15 @@
 <?php
 
-$date = date("Y", strtotime("+ 8 HOURS"));
+$year = date('Y');
+if(isset($_GET['year']))
+{
+    $year=$_GET['year'];
+}
+
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$bs = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Bacteriologically Confirmed' && `year` = '$date'") or die(mysqli_error());
+$bs = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Bacteriologically Confirmed' && `year` = '$year'") or die(mysqli_error());
 $fetch1 = $bs->fetch_array();
-$cd = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Clinically Diagnosed' && `year` = '$date'") or die(mysqli_error());
+$cd = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Clinically Diagnosed' && `year` = '$year'") or die(mysqli_error());
 $fetch2 = $cd->fetch_array();
 
 ?>
@@ -16,7 +21,7 @@ $fetch2 = $cd->fetch_array();
             exportFileName: "Bacteriological Status", 
             exportEnabled: true,
             title: { 
-                text: "Patient Bacteriological Status as of <?php echo $date?>",
+                text: "Patient Bacteriological Status as of Year <?php echo $year?>",
                 fontSize: 20
             }, 
             axisY: { 

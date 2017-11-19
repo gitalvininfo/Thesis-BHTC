@@ -152,11 +152,11 @@ if(ISSET($_POST['add_new_patient'])){
                     </li>
                     <li class="xn-icon-button pull-right">
                         <?php
-                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                        $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                        $fetch = $query->fetch_array();
-                        $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
-                        $f = $q->fetch_array();
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                   $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                   $fetch = $query->fetch_array();
+                                   $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
+                                   $f = $q->fetch_array();
                         ?>
                         <a href="#"><span class="fa fa-bell-o"></span></a>
                         <div class="informer informer-danger">
@@ -212,7 +212,7 @@ if(ISSET($_POST['add_new_patient'])){
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-file-text"></span> Registration</h3>
+                                    <h3 class="panel-title"><span class="fa fa-file-text"></span> Patient Registration</h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
                                             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#new_patient"><span class="fa fa-plus"></span> New Patient </button>
@@ -236,6 +236,11 @@ if(ISSET($_POST['add_new_patient'])){
                                             </thead>
                                             <tbody>
                                                 <?php
+                                                $year = date('Y');
+                                                if(isset($_GET['year']))
+                                                {
+                                                    $year=$_GET['year'];
+                                                }
                                                 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
                                                 $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
                                                 while($fetch = $query->fetch_array()){
