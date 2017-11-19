@@ -1,5 +1,5 @@
 <?php
-if(ISSET($_POST['aasddd_continuation_phase'])){
+if(ISSET($_POST['add_continuation_phase'])){
     $dosage = $_POST['dosage'];
     $date_taken = $_POST['date_taken'];
     $patient_id = $_GET['id'];
