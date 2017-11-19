@@ -1,5 +1,5 @@
 <?php
-if(ISSET($_POST['add_continuation_phase'])){
+if(ISSET($_POST['adasdd_continuation_phase'])){
     $dosage = $_POST['dosage'];
     $date_taken = $_POST['date_taken'];
     $patient_id = $_GET['id'];
@@ -9,7 +9,7 @@ if(ISSET($_POST['add_continuation_phase'])){
     $conn->close();
 
 }
-if(ISSET($_POST['add_absent'])){
+if(ISSET($_POST['adasdd_absent'])){
     $date_absent = $_POST['date_absent'];
     $patient_id = $_GET['id'];
 
