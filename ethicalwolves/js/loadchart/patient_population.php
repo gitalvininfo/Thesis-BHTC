@@ -35,6 +35,9 @@ $fdec = $qdec->fetch_array();
     window.onload = function(){ 
         $("#patient_population").CanvasJSChart({
             animationEnabled: true,
+            animationDuration: 1000,
+            exportFileName: "Monthly Population", 
+            exportEnabled: true,
             title: { 
                 text: "Patient Population as of Year <?php echo $year?>",
                 fontSize: 20

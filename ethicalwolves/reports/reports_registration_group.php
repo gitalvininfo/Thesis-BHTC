@@ -158,6 +158,76 @@ require ('../config.php');
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 440px;">
+                                            <div class="row">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Registration Group</th>
+                                                            <th><center>Number of Patients per Category</center></th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+
+                                                        $year = date('Y');
+                                                        if(isset($_GET['year']))
+                                                        {
+                                                            $year=$_GET['year'];
+                                                        }
+                                                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                        $new = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'New' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch3 = $new->fetch_array();
+                                                        $relapse = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Relapse' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch4 = $relapse->fetch_array();
+                                                        $talf = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'TALF' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch5 = $talf->fetch_array();
+                                                        $taf = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Treatment After Failure' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch6 = $taf->fetch_array();
+                                                        $ptou = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'PTOU' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch7 = $ptou->fetch_array();
+                                                        $tra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Transfer-in' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch8 = $tra->fetch_array();
+                                                        $oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Others' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch9 = $oth->fetch_array();
+                                                        ?>
+
+                                                        <tr>
+                                                            <td>New</td>
+                                                            <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Relapse</td>
+                                                            <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Treatment After Loss Follow-up</td>
+                                                            <td><center><strong><?php echo $fetch5['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Treatment After Failure</td>
+                                                            <td><center><strong><?php echo $fetch6['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>PTOU</td>
+                                                            <td><center><strong><?php echo $fetch7['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Transfer-in</td>
+                                                            <td><center><strong></strong><?php echo $fetch8['total']?></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Others</td>
+                                                            <td><center><strong><?php echo $fetch9['total']?></strong></center></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+
+                                            </div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

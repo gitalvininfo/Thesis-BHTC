@@ -180,10 +180,11 @@ require ('config.php');
                                             <thead> 
                                                 <tr class="info">
                                                     <th><center>Patient Name</center></th>
-                                                    <th><center>TB Case Number</center></th>
-                                                    <th><center>Registration Date</center></th>
-                                                    <th><center>Registration Group</center></th>
-                                                    <th><center>Diagnosis</center></th>
+                                                    <th><center>Age</center></th>
+                                                    <th><center>Gender</center></th>
+                                                    <th><center>Birthdate</center></th>
+                                                    <th><center>Contact No</center></th>
+                                                    <th><center>Address</center></th>
                                                     <th><center>Action</center></th>
                                                 </tr>
 
@@ -191,18 +192,16 @@ require ('config.php');
                                             <tbody>
                                                 <?php
                                                 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                                $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
                                                 while($fetch = $query->fetch_array()){
-                                                    $id = $fetch['patient_id'];
-                                                    $q = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                                                    $f = $q->fetch_array();
                                                 ?>                                      
                                                 <tr>
                                                     <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
-                                                    <td><center><?php echo $f['tb_case_no']?></center></td>
-                                                    <td><center><?php echo $f['registration_date']?></center></td>				
-                                                    <td><center><?php echo $f['registration_group']?></center></td>
-                                                    <td><center><?php echo $f['diagnosis']?></center></td>
+                                                    <td><center><?php echo $fetch['age']?></center></td>
+                                                    <td><center><?php echo $fetch['gender']?></center></td>
+                                                    <td><center><?php echo $fetch['birthdate']?></center></td>
+                                                    <td><center><?php echo $fetch['contact_number']?></center></td>
+                                                    <td><center><?php echo $fetch['address']?></center></td>
                                                     <td><center>
                                                         <a href="#updatepatient<?php echo $fetch['patient_id'];?>" data-target="#updatepatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
                                                         <a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
@@ -227,7 +226,7 @@ require ('config.php');
             </div>
         </div>
 
-    <!-- Edit Patient -->
+        <!-- Edit Patient -->
         <?php
         $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
         $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
@@ -419,7 +418,7 @@ require ('config.php');
         ?> 
         <!-- End Edit Patient -->
 
-       
+
         <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">
                 <div class="mb-middle">
@@ -439,7 +438,7 @@ require ('config.php');
         </div>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-       <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>

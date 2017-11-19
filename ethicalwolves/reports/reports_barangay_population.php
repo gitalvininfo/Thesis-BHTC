@@ -158,6 +158,204 @@ require ('../config.php');
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
+                                            <div class="row">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Barangay</th>
+                                                            <th><center>Number of Patients per Barangay</center></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $year = date('Y');
+                                                        if(isset($_GET['year']))
+                                                        {
+                                                            $year=$_GET['year'];
+                                                        }
+
+                                                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+
+                                                        $abcasa = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Abcasa'") or die(mysqli_error());
+                                                        $fetch1 = $abcasa->fetch_array();
+
+                                                        $alangilan = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Alangilan'") or die(mysqli_error());
+                                                        $fetch2 = $alangilan->fetch_array();
+
+                                                        $alijis = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Alijis'") or die(mysqli_error());
+                                                        $fetch3 = $alijis->fetch_array();
+
+                                                        $banago = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Banago'") or die(mysqli_error());
+                                                        $fetch4 = $banago->fetch_array();
+
+                                                        $bata = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Bata'") or die(mysqli_error());
+                                                        $fetch5 = $bata->fetch_array();
+
+                                                        $cabug = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Cabug'") or die(mysqli_error());
+                                                        $fetch6 = $cabug->fetch_array();
+
+                                                        $estefania = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Estefania'") or die(mysqli_error());
+                                                        $fetch7 = $estefania->fetch_array();
+
+                                                        $felisa = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Felisa'") or die(mysqli_error());
+                                                        $fetch8 = $felisa->fetch_array();
+
+                                                        $granada = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Granada'") or die(mysqli_error());
+                                                        $fetch9 = $granada->fetch_array();
+
+                                                        $handumanan = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Handumanan'") or die(mysqli_error());
+                                                        $fetch10 = $handumanan->fetch_array();
+
+                                                        $lopezjaena = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Lopez Jaena'") or die(mysqli_error());
+                                                        $fetch11 = $lopezjaena->fetch_array();
+
+                                                        $mabini = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Mabini'") or die(mysqli_error());
+                                                        $fetch12 = $mabini->fetch_array();
+
+                                                        $mandalagan = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Mandalagan'") or die(mysqli_error());
+                                                        $fetch13 = $mandalagan->fetch_array();
+
+                                                        $mansilingan = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Mansilingan'") or die(mysqli_error());
+                                                        $fetch14 = $mansilingan->fetch_array();
+
+                                                        $montevista = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Montevista'") or die(mysqli_error());
+                                                        $fetch15 = $montevista->fetch_array();
+
+                                                        $pahanocoy = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Pahanocoy'") or die(mysqli_error());
+                                                        $fetch16 = $pahanocoy->fetch_array();
+
+                                                        $ptataytay= $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Punta Taytay'") or die(mysqli_error());
+                                                        $fetch17 = $ptataytay->fetch_array();
+
+                                                        $singcang = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Singcang'") or die(mysqli_error());
+                                                        $fetch18 = $singcang->fetch_array();
+
+                                                        $sumag = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Sumag'") or die(mysqli_error());
+                                                        $fetch19 = $sumag->fetch_array();
+
+                                                        $taculing = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Taculing'") or die(mysqli_error());
+                                                        $fetch20 = $taculing->fetch_array();
+
+                                                        $tangub = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Tangub'") or die(mysqli_error());
+                                                        $fetch21 = $tangub->fetch_array();
+
+                                                        $villaesperanza = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Villa Esperanza'") or die(mysqli_error());
+                                                        $fetch22 = $villaesperanza->fetch_array();
+
+                                                        $villamonte = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Villamonte'") or die(mysqli_error());
+                                                        $fetch23 = $villamonte->fetch_array();
+
+                                                        $vistaalegre = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Vista Alegre'") or die(mysqli_error());
+                                                        $fetch24 = $vistaalegre->fetch_array();
+
+                                                        ?>
+                                                        <tr>
+                                                            <td>Barangay Abcasa</td>
+                                                            <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Alangilan</td>
+                                                            <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Alijis</td>
+                                                            <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Banago</td>
+                                                            <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Bata</td>
+                                                            <td><center><strong><?php echo $fetch5['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Cabug</td>
+                                                            <td><center><strong><?php echo $fetch6['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Estefania</td>
+                                                            <td><center><strong><?php echo $fetch7['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Felisa</td>
+                                                            <td><center><strong><?php echo $fetch8['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Granda</td>
+                                                            <td><center><strong><?php echo $fetch9['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Handumanan</td>
+                                                            <td><center><strong><?php echo $fetch10['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Lopez Jaena</td>
+                                                            <td><center><strong><?php echo $fetch11['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Mabini</td>
+                                                            <td><center><strong><?php echo $fetch12['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Mandalagan</td>
+                                                            <td><center><strong><?php echo $fetch13['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Mansilingan</td>
+                                                            <td><center><strong><?php echo $fetch14['total']?></strong></center></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>Barangay Montevista</td>
+                                                            <td><center><strong><?php echo $fetch15['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Pahanocoy</td>
+                                                            <td><center><strong><?php echo $fetch16['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Punta Taytay</td>
+                                                            <td><center><strong><?php echo $fetch17['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Singcang</td>
+                                                            <td><center><strong><?php echo $fetch18['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Sum-ag</td>
+                                                            <td><center><strong><?php echo $fetch19['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Taculing</td>
+                                                            <td><center><strong><?php echo $fetch20['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Tangub</td>
+                                                            <td><center><strong><?php echo $fetch21['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Villa Esperanza</td>
+                                                            <td><center><strong><?php echo $fetch22['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Villamonte</td>
+                                                            <td><center><strong><?php echo $fetch23['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay Vista Alegre</td>
+                                                            <td><center><strong><?php echo $fetch24['total']?></strong></center></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+
+
+                                            </div></div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

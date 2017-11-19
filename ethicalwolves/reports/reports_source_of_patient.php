@@ -158,6 +158,58 @@ require ('../config.php');
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 440px;">
+                                            <div class="row">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Source of Patient</th>
+                                                            <th><center>Number of Patients per Category</center></th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+
+                                                        $year = date('Y');
+                                                        if(isset($_GET['year']))
+                                                        {
+                                                            $year=$_GET['year'];
+                                                        }
+                                                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                        $phc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Public Health Center' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch1 = $phc->fetch_array();
+                                                        $oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Other Government Facilities' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch2 = $oth->fetch_array();
+                                                        $pri = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Private Hospitals' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch3 = $pri->fetch_array();
+                                                        $com = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Community' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch4 = $com->fetch_array();
+
+                                                        ?>
+                                                        <tr>
+                                                            <td>Public Health Center</td>
+                                                            <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Other Government Facilities/Hospital</td>
+                                                            <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Private Hospitals/Clinics/Physicians/NGO's</td>
+                                                            <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Community</td>
+                                                            <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+
+                                            </div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

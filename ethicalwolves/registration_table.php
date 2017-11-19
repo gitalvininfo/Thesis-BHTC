@@ -333,30 +333,30 @@ if(ISSET($_POST['add_new_patient'])){
                                             <div class="col-md-12">                                                    
                                                 <select class="form-control select" data-live-search="true" name="barangay">
                                                     <option>Choose Barangay</option>
-                                                    <option value="Abcasa">Brgy. Abcasa</option>
-                                                    <option value="Alangilan">Brgy. Alangilan</option>
-                                                    <option value="Alijis">Brgy. Alijis</option>
-                                                    <option value="Banago">Brgy. Banago</option>
-                                                    <option value="Bata">Brgy. Bata</option>
-                                                    <option value="Cabug">Brgy. Cabug </option>
-                                                    <option value="Estefania ">Brgy. Estefania</option>
-                                                    <option value="Felisa">Brgy. Felisa</option>
-                                                    <option value="Granada ">Brgy. Granada</option>
-                                                    <option value="Handumanan">Brgy. Handumanan</option>
-                                                    <option value="Lopez Jaena">Brgy. Lopez Jaena</option>
-                                                    <option value="Mabini">Brgy. Mabini</option>
-                                                    <option value="Mandalagan">Brgy. Mandalagan</option>
-                                                    <option value="Mansilingan">Brgy. Mansilingan</option>
-                                                    <option value="Montevista">Brgy. Montevista</option>
-                                                    <option value="Pahanocoy">Brgy. Pahanocoy</option>
-                                                    <option value="Punta Taytay ">Brgy. Punta Taytay</option>
-                                                    <option value="Singcang">Brgy. Singcang</option>
+                                                    <option value="Brgy. Abcasa">Brgy. Abcasa</option>
+                                                    <option value="Brgy. Alangilan">Brgy. Alangilan</option>
+                                                    <option value="Brgy. Alijis">Brgy. Alijis</option>
+                                                    <option value="Brgy. Banago">Brgy. Banago</option>
+                                                    <option value="Brgy. Bata">Brgy. Bata</option>
+                                                    <option value="Brgy. Cabug">Brgy. Cabug </option>
+                                                    <option value="Brgy. Estefania ">Brgy. Estefania</option>
+                                                    <option value="Brgy. Felisa">Brgy. Felisa</option>
+                                                    <option value="Brgy. Granada ">Brgy. Granada</option>
+                                                    <option value="Brgy. Handumanan">Brgy. Handumanan</option>
+                                                    <option value="Brgy. Lopez Jaena">Brgy. Lopez Jaena</option>
+                                                    <option value="Brgy. Mabini">Brgy. Mabini</option>
+                                                    <option value="Brgy. Mandalagan">Brgy. Mandalagan</option>
+                                                    <option value="Brgy. Mansilingan">Brgy. Mansilingan</option>
+                                                    <option value="Brgy. Montevista">Brgy. Montevista</option>
+                                                    <option value="Brgy. Pahanocoy">Brgy. Pahanocoy</option>
+                                                    <option value="Brgy. Punta Taytay ">Brgy. Punta Taytay</option>
+                                                    <option value="Brgy. Singcang">Brgy. Singcang</option>
                                                     <option value="Brgy. Sumag ">Brgy. Sum-ag</option>
-                                                    <option value="Taculing">Brgy. Taculing</option>
-                                                    <option value="Tangub">Brgy. Tangub</option>
-                                                    <option value="Villa Esperanza">Brgy. Villa Esperanza</option>
-                                                    <option value="Villamonte">Brgy. Villamonte</option>
-                                                    <option value="Vista Alegre">Brgy. Vista Alegre</option>
+                                                    <option value="Brgy. Taculing">Brgy. Taculing</option>
+                                                    <option value="Brgy. Tangub">Brgy. Tangub</option>
+                                                    <option value="Brgy. Villa Esperanza">Brgy. Villa Esperanza</option>
+                                                    <option value="Brgy. Villamonte">Brgy. Villamonte</option>
+                                                    <option value="Brgy. Vista Alegre">Brgy. Vista Alegre</option>
                                                 </select>
                                             </div>
                                         </div>

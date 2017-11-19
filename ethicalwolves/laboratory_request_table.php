@@ -160,39 +160,6 @@ require ('config.php');
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><span class="fa fa-file-text"></span> Laboratory Request</h3>
-                                <div class="btn-group pull-right">
-                                    <div class="pull-left">
-                                        <select class="validate[required] select" id="formStatus" name="reason_for_examination" required >
-                                           <option>Select Year</option>
-                                            <option value="<?php 
-                                                           if(isset($_GET['year'])){
-                                                               $value=$_GET['year']; 
-                                                               echo $value;
-                                                           }
-                                                           else{
-                                                               echo date('Y');
-                                                           }
-                                                           ?>">
-                                                <?php 
-                                                if(isset($_GET['year'])){
-                                                    $value=$_GET['year']; 
-                                                    echo $value;
-                                                }
-                                                else{
-                                                    echo date('Y');
-                                                }
-                                                ?></option>
-                                            <?php
-                                            for($y=2015; $y<=2100; $y++){
-                                            ?>
-                                            <option value="<?php echo $y ?>"><?php echo $y; ?></option>
-                                            <?php
-                                            }
-
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
                             <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                 <div class="panel-body">
@@ -226,7 +193,6 @@ require ('config.php');
                                                 <td><center><?php echo $fetch['address']?></center></td>
                                                 <td>
                                                     <center>
-                                                        <a href="#updatepatient<?php echo $fetch['patient_id'];?>" data-target="#updatepatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
                                                         <a href="laboratory_request.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info">Request <span class = "badge"><?php echo $f['total']?></span></a>
                                                     </center>
                                                 </td>

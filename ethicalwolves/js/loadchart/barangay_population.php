@@ -101,10 +101,10 @@ $fetch24 = $vistaalegre->fetch_array();
             },
             data: [ 
                 { 
-                    type: "column",
+                    type: "bar",
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [ 
-                        { label: "Abcasa", y: <?php echo $fetch1['total']?> }, 
+                        { label: "Abcasa", y: <?php echo $fetch1['total']?>}, 
                          { label: "Alangilan", y: <?php echo $fetch2['total']?> },
                         { label: "Alijis", y: <?php echo $fetch3['total']?> },
                          { label: "Banago", y: <?php echo $fetch4['total']?> },
@@ -128,7 +128,6 @@ $fetch24 = $vistaalegre->fetch_array();
                          { label: "Villa Esperanza", y: <?php echo $fetch22['total']?> },
                         { label: "Villamonte", y: <?php echo $fetch23['total']?> },
                          { label: "Vista Alegre", y: <?php echo $fetch24['total']?> }
-
                     ] 
                 } 
             ] 

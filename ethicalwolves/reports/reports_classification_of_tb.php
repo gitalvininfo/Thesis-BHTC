@@ -158,8 +158,44 @@ require ('../config.php');
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 440px;">
+                                            <div class="row">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Classification of TB Patients</th>
+                                                            <th><center>Number of Patients per Category</center></th>
 
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $year = date('Y');
+                                                        if(isset($_GET['year']))
+                                                        {
+                                                            $year=$_GET['year'];
+                                                        }
+                                                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                        $pul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch1 = $pul->fetch_array();
+                                                        $ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extrapulmonary' && `year` = '$year'") or die(mysqli_error());
+                                                        $fetch2 = $ext->fetch_array();
+                                                        ?>
+                                                        <tr>
+                                                            <td>Pulmonary</td>
+                                                            <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Extra-pulmonary</td>
+                                                            <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
