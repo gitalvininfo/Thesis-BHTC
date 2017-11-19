@@ -325,7 +325,7 @@ if(ISSET($_POST['add_new_patient'])){
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Home Address" type="text" class="form-control" name="address" placeholder="Home Address" required/>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Complete Home Address" type="text" class="form-control" name="address" placeholder="Complete Home Address" required/>
                                                 </div>
                                             </div>
                                         </div>

@@ -15,7 +15,7 @@ require ('../config.php');
         <link rel="stylesheet" type="text/css" href="../assets2/vendor/font-awesome/css/font-awesome.min.css" />
         <script src="../js/plugins/jquery/jquery.min.js"></script>
         <script src = "../js/jquery.canvasjs.min.js"></script>
-        <?php include_once '../js/loadchart/registration_group.php'?>
+        <?php include_once '../js/loadchart/annual_population.php'?>
     </head>
     <body>
         <?php 
@@ -105,7 +105,7 @@ require ('../config.php');
                     <li><a href="../home.php">Home</a></li>
                     <li class="#">Reports</li>
                     <li><a href="../reports.php">TB Cases Report</a></li>
-                    <li class="#">Registration Group</li>
+                    <li class="#">Patient Population</li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -117,110 +117,74 @@ require ('../config.php');
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
+
                                         <div class="row">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title"><strong> <span class="fa fa-pie-chart"></span> Patient Registration Group</strong></h3>
-                                                <div class="btn-group pull-right">
-                                                    <div class="pull-left">
-                                                        <select id="pyear" class="validate[required] select" data-style="btn-info">
-                                                            <option>Please Select Year...</option>
-                                                            <option value="<?php 
-    if(isset($_GET['year'])){
-        $value=$_GET['year']; 
-        echo $value;
-    }
-                                   else{
-                                       echo date('Y');
-                                   }
-                                                                           ?>">
-                                                                <?php 
-                                                                if(isset($_GET['year'])){
-                                                                    $value=$_GET['year']; 
-                                                                    echo $value;
-                                                                }
-                                                                else{
-                                                                    echo date('Y');
-                                                                }
-                                                                ?></option>
-                                                            <?php
-                                                            for($y=2015; $y<=2020; $y++){
-                                                            ?>
-                                                            <option value="<?php echo $y ?>"><?php echo $y; ?></option>
-                                                            <?php
-                                                            }
-                                                            ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                <h3 class="panel-title"><strong> <span class="fa fa-bar-chart"></span> Patient Annual Population</strong></h3>
                                             </div>
                                             <div class="panel-body">
-                                                <div id="registration_group" style="width: 100%; height: 400px"></div>
+                                                <div id="annual_population" style="width: 100%; height: 350px"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab-second">
-                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 433px;">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 435px;">
                                             <div class="row">
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>Registration Group</th>
-                                                            <th><center>Number of Patients per Category</center></th>
+                                                            <th>Year</th>
+                                                            <th><center>Number of Patients Registererd per Year</center></th>
 
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
+    $year = date('Y');
+                                   $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                   $q1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$2016'") or die(mysqli_error());
+                                   $fetch1 = $q1->fetch_array();
+                                   $q2 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2017'") or die(mysqli_error());
+                                   $fetch2 = $q2->fetch_array();
+                                   $q3 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2018'") or die(mysqli_error());
+                                   $fetch3 = $q3->fetch_array();
+                                   $q4 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2019'") or die(mysqli_error());
+                                   $fetch4 = $q4->fetch_array();
+                                   $q5 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2020'") or die(mysqli_error());
+                                   $fetch5 = $q5->fetch_array();
+                                   $q6 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2021'") or die(mysqli_error());
+                                   $fetch6 = $q6->fetch_array();
+                                   $q7 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2022'") or die(mysqli_error());
+                                   $fetch7 = $q7->fetch_array();
 
-                                                        $year = date('Y');
-                                                        if(isset($_GET['year']))
-                                                        {
-                                                            $year=$_GET['year'];
-                                                        }
-                                                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                        $new = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'New' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch3 = $new->fetch_array();
-                                                        $relapse = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Relapse' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch4 = $relapse->fetch_array();
-                                                        $talf = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'TALF' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch5 = $talf->fetch_array();
-                                                        $taf = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Treatment After Failure' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch6 = $taf->fetch_array();
-                                                        $ptou = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'PTOU' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch7 = $ptou->fetch_array();
-                                                        $tra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Transfer-in' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch8 = $tra->fetch_array();
-                                                        $oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Others' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch9 = $oth->fetch_array();
                                                         ?>
-
                                                         <tr>
-                                                            <td>New</td>
+                                                            <td>2016</td>
+                                                            <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2017</td>
+                                                            <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2018</td>
                                                             <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Relapse</td>
+                                                            <td>2019</td>
                                                             <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Treatment After Loss Follow-up</td>
+                                                            <td>2020</td>
                                                             <td><center><strong><?php echo $fetch5['total']?></strong></center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Treatment After Failure</td>
+                                                            <td>2021</td>
                                                             <td><center><strong><?php echo $fetch6['total']?></strong></center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>PTOU</td>
+                                                            <td>2022</td>
                                                             <td><center><strong><?php echo $fetch7['total']?></strong></center></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Transfer-in</td>
-                                                            <td><center><strong><?php echo $fetch8['total']?></strong></center></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Others</td>
-                                                            <td><center><strong><?php echo $fetch9['total']?></strong></center></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -228,6 +192,7 @@ require ('../config.php');
 
                                             </div></div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -256,7 +221,7 @@ require ('../config.php');
             $(document).ready(function(){
                 $("#pyear").on('change', function(){
                     var year=$(this).val();
-                    window.location = 'reports_registration_group.php?year='+year;
+                    window.location = 'reports_patient_population.php?year='+year;
                 });
             });
         </script>
@@ -271,3 +236,6 @@ require ('../config.php');
         <script type="text/javascript" src="../js/actions.js"></script>
     </body>
 </html>
+
+
+<!-- -->

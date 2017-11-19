@@ -157,7 +157,7 @@ if(ISSET($_POST['medicine_stock'])){
                                     <div class="panel-body tab-content">
                                         <div class="tab-pane active" id="tab-first">
                                             <div class="row">
-                                                <div class="panel panel-info">
+                                                <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h3 class="panel-title"><span class="fa fa-file-text"></span> Medication Dispensation History <strong></strong></h3>
                                                         <div class="btn-group pull-right">
@@ -210,7 +210,7 @@ if(ISSET($_POST['medicine_stock'])){
                                         </div>
                                         <div class="tab-pane" id="tab-second">
                                             <div class="row">
-                                                <div class="panel panel-info">
+                                                <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h3 class="panel-title"><span class="fa fa-file-text"></span> Medicine Stockin List <strong></strong></h3>
                                                         <div class="btn-group pull-right">

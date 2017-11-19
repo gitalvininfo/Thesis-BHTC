@@ -108,7 +108,7 @@ require ('config.php');
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <?php $date = date("Y", strtotime("+ 8 HOURS"));?>
-                                <h3 class="panel-title"><span class="fa fa-bar-chart-o"></span> Reports as of <?php echo $date?></h3>
+                                <h3 class="panel-title"><span class="fa fa-bar-chart-o"></span> Reports as of Year <?php echo $date?></h3>
                                 <div class="btn-group pull-right">
                                     <div class="pull-left">
                                         <a href="reports/case_finding.php" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="left" title="Case Finding of Drug-Susceptible TB Cases and IPT"><span class="fa fa-file-text"></span> Case Finding</a>
@@ -202,6 +202,23 @@ require ('config.php');
                                     </div>
                                 </div>
                                 <div class="col-md-3">
+                                    <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_annual_population.php';" style="cursor:pointer;">
+                                        <div class="widget-item-left">
+                                            <span class="fa fa-bar-chart"></span>
+                                        </div>
+                                        <div class="widget-data">
+                                            <div class="widget-int num-count">
+                                                BHTC
+                                            </div>
+                                            <div class="widget-subtitle">Reports By</div>
+                                            <div class="widget-title">Annual Population</div>
+                                            <div class="widget-controls">
+                                                <a href="#" class="widget-control-right" data-toggle="tooltip" data-placement="top" title="View Detailed Reports"><span class="fa fa-info"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
                                     <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_barangay_population.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-bar-chart"></span>
@@ -218,7 +235,6 @@ require ('config.php');
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 
