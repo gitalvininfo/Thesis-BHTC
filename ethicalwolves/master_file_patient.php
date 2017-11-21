@@ -111,7 +111,6 @@ require ('config.php');
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                     <div class="panel-body">
                                         <table class="table datatable">
-
                                             <thead> 
                                                 <tr class="info">
                                                     <th><center>TB Case No</center></th>
