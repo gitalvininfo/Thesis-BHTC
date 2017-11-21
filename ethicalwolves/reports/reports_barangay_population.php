@@ -92,15 +92,9 @@ require ('../config.php');
                 </ul>
             </div>
 
+
             <div class="page-content">
-                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <li class="xn-icon-button">
-                        <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
-                    </li>
-                    <li class="xn-icon-button pull-right">
-                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
-                    </li>
-                </ul>
+               <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="../home.php">Home</a></li>
                     <li class="#">Reports</li>
@@ -166,6 +160,7 @@ require ('../config.php');
                                                         <tr>
                                                             <th>Barangay</th>
                                                             <th><center>Number of Patients per Barangay</center></th>
+                                                            <th><center>View Patients</center></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -253,106 +248,108 @@ require ('../config.php');
                                                         ?>
                                                         <tr>
                                                             <td>Barangay Abcasa</td>
-                                                            <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch1['total']?></span></strong></center></td>
+                                                            <td><center>
+                                                                <a href="#abcasa<?php echo $fetch['patient_id'];?>" data-target="#abcasa<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-group"></span> </a>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Alangilan</td>
-                                                            <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch2['total']?></span></strong></center></td>
+                                                            <td>dasds</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Alijis</td>
-                                                            <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch3['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Banago</td>
-                                                            <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch4['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Bata</td>
-                                                            <td><center><strong><?php echo $fetch5['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch5['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Cabug</td>
-                                                            <td><center><strong><?php echo $fetch6['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch6['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Estefania</td>
-                                                            <td><center><strong><?php echo $fetch7['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch7['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Felisa</td>
-                                                            <td><center><strong><?php echo $fetch8['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch8['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Granda</td>
-                                                            <td><center><strong><?php echo $fetch9['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch9['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Handumanan</td>
-                                                            <td><center><strong><?php echo $fetch10['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch10['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Lopez Jaena</td>
-                                                            <td><center><strong><?php echo $fetch11['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch11['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Mabini</td>
-                                                            <td><center><strong><?php echo $fetch12['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch12['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Mandalagan</td>
-                                                            <td><center><strong><?php echo $fetch13['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch13['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Mansilingan</td>
-                                                            <td><center><strong><?php echo $fetch14['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch14['total']?></span></strong></center></td>
                                                         </tr>
 
                                                         <tr>
                                                             <td>Barangay Montevista</td>
-                                                            <td><center><strong><?php echo $fetch15['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch15['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Pahanocoy</td>
-                                                            <td><center><strong><?php echo $fetch16['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch16['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Punta Taytay</td>
-                                                            <td><center><strong><?php echo $fetch17['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch17['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Singcang</td>
-                                                            <td><center><strong><?php echo $fetch18['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch18['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Sum-ag</td>
-                                                            <td><center><strong><?php echo $fetch19['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch19['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Taculing</td>
-                                                            <td><center><strong><?php echo $fetch20['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch20['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Tangub</td>
-                                                            <td><center><strong><?php echo $fetch21['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch21['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Villa Esperanza</td>
-                                                            <td><center><strong><?php echo $fetch22['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch22['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Villamonte</td>
-                                                            <td><center><strong><?php echo $fetch23['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch23['total']?></span></strong></center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Vista Alegre</td>
-                                                            <td><center><strong><?php echo $fetch24['total']?></strong></center></td>
+                                                            <td><center><strong><span class="label label-default"><?php echo $fetch24['total']?></span></strong></center></td>
                                                         </tr>
 
                                                     </tbody>
                                                 </table>
-
-
                                             </div></div>
                                     </div>
 
@@ -363,6 +360,7 @@ require ('../config.php');
                 </div>
             </div>
         </div>
+
         <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">
                 <div class="mb-middle">

@@ -2,26 +2,6 @@
 require_once 'logincheck.php';
 require ('config.php');
 
-if(ISSET($_POST['register_patient'])){
-    $tb_case_no = $_POST['tb_case_no'];
-    $registration_date = $_POST['registration_date'];
-    $dots_facility = $_POST['dots_facility'];
-    $source_of_patient = $_POST['source_of_patient'];
-    $registration_group = $_POST['registration_group'];
-    $diagnosis = $_POST['diagnosis'];
-    $bacteriological_status = $_POST['bacteriological_status'];
-    $classification_of_tb = $_POST['classification_of_tb'];
-    $bcg_scar = $_POST['bcg_scar'];
-    $history = $_POST['history'];
-    $duration = $_POST['duration'];
-    $patient_id = $_GET['id'];
-
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `registration` VALUES('$tb_case_no', '$registration_date', '$dots_facility', '$source_of_patient', '$registration_group', '$diagnosis', '$bacteriological_status', '$classification_of_tb', '$bcg_scar', '$history', '$duration', '$patient_id')") or die(mysqli_error());
-    header("location:registration_table.php");
-    $conn->close();
-}
-
 if(ISSET($_POST['add_new_patient'])){
     $patient_name = $_POST['patient_name'];
     $age = $_POST['age'];
@@ -47,6 +27,30 @@ if(ISSET($_POST['add_new_patient'])){
     echo "<script type='text/javascript'>alert('Successfully added new Patient!');</script>";
     echo "<script>document.location='registration_table.php'</script>";  
 
+}
+if(ISSET($_POST['register_patient'])){
+    $patient_id = $_POST['patient_id'];
+    $registration_date = $_POST['registration_date'];
+    $dots_facility = $_POST['dots_facility'];
+    $source_of_patient = $_POST['source_of_patient'];
+    $registration_group = $_POST['registration_group'];
+    $diagnosis = $_POST['diagnosis'];
+    $bacteriological_status = $_POST['bacteriological_status'];
+    $classification_of_tb = $_POST['classification_of_tb'];
+    $bcg_scar = $_POST['bcg_scar'];
+    $history = $_POST['history'];
+    $duration = $_POST['duration'];
+
+    $month = date("M", strtotime("+8 HOURS"));
+    $year = date("Y", strtotime("+8 HOURS"));
+
+    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+    $conn->query("INSERT INTO `registration` VALUES('', '$registration_date', '$dots_facility', '$source_of_patient', '$registration_group', '$diagnosis', '$bacteriological_status', '$classification_of_tb', '$bcg_scar', '$history', '$duration', '$patient_id', '$month', '$year')") or die(mysqli_error());
+
+    $conn->query("UPDATE `patient` SET `status` = 'Registered' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
+    $conn->close();
+    echo "<script type='text/javascript'>alert('Successfully registered!');</script>";
+    echo "<script>document.location='registration_table.php'</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -140,72 +144,12 @@ if(ISSET($_POST['add_new_patient'])){
                 </ul>
             </div>
             <div class="page-content">
-
-                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <!-- TOGGLE NAVIGATION -->
-                    <li class="xn-icon-button">
-                        <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
-                    </li>
-
-                    <li class="xn-icon-button pull-right">
-                        <a href="index.php" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
-                    </li>
-                    <li class="xn-icon-button pull-right">
-                        <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                   $fetch = $query->fetch_array();
-                                   $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
-                                   $f = $q->fetch_array();
-                        ?>
-                        <a href="#"><span class="fa fa-bell-o"></span></a>
-                        <div class="informer informer-danger">
-                            <?php echo $f['total']?>
-                        </div>
-                        <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><span class="fa fa-flask"></span> Laboratory Requests</h3>
-                                <div class="pull-right">
-                                    <span class="label label-danger"><?php echo $f['total']?></span>
-                                </div>
-                            </div>
-                            <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
-                                <?php 
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                            $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                            $fetch = $query->fetch_array();
-                            $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
-                            while($f = $q->fetch_array()){
-                                ?>
-                                <a href="#" class="list-group-item">
-                                    <div class="list-group-status status-offline"></div>
-                                    <img src="assets/images/users/no-image.jpg" class="pull-left" alt="John Doe" />
-                                    <span class="contacts-title">Patient ID: <?php echo $f['patient_id']. ' - ' .$f['collection_unit']?></span>
-                                    <p>
-                                        <?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?>
-                                    </p>
-                                </a>
-                                <?php
-                            }
-                            $conn->close();
-                                ?>
-                            </div>
-                            <div class="panel-footer text-center">
-                                <a href="medtech_laboratory_request.php">Show all laboratory requests</a>
-                            </div>
-                        </div>
-                    </li>
-
-                </ul>
-                <!-- START BREADCRUMB -->
+                <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li class="#">Transaction</li>
                     <li class="#">Registration</li>
                 </ul>
-                <!-- END BREADCRUMB -->
-
-                <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
                     <!-- Export Code -->
                     <div class="row">
@@ -215,7 +159,7 @@ if(ISSET($_POST['add_new_patient'])){
                                     <h3 class="panel-title"><span class="fa fa-file-text"></span> Patient Registration</h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
-                                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#new_patient"><span class="fa fa-plus"></span> New Patient </button>
+                                            <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_patient"><span class="fa fa-plus"></span> New Patient </button>
                                         </div>
                                     </div>
                                 </div>
@@ -225,6 +169,7 @@ if(ISSET($_POST['add_new_patient'])){
                                             <thead>
                                                 <tr class="info">
                                                     <th><center>Patient Name</center></th>
+                                                    <th><center>Age</center></th>
                                                     <th><center>Gender</center></th>
                                                     <th><center>Birthdate</center></th>
                                                     <th><center>Home Address</center></th>
@@ -236,53 +181,36 @@ if(ISSET($_POST['add_new_patient'])){
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $year = date('Y');
-                                                if(isset($_GET['year']))
-                                                {
-                                                    $year=$_GET['year'];
-                                                }
-                                                $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                                while($fetch = $query->fetch_array()){
-                                                    if($fetch['status'] == 'Registered'){  
-                                                        echo 
-                                                            "<tr>
-                                                            <td><center><strong>".$fetch['patient_name']." </strong></center></td>
-                                                            <td><center> ".$fetch['gender']." </center></td>
-                                                            <td><center> ".$fetch['birthdate']." </center></td>
-                                                            <td><center> ".$fetch['address']." </center></td>
-                                                            <td><center> ".$fetch['contact_number']." </center></td>
-                                                            <td></td>
-                                                            </tr>";
-                                                    }
-                                                    else {
-                                                        echo 
-                                                            "<tr>
-                                                            <td><center> <strong>".$fetch['patient_name']." </strong></center></td>
-                                                            <td><center> ".$fetch['gender']." </center></td>
-                                                            <td><center> ".$fetch['birthdate']." </center></td>
-                                                            <td><center> ".$fetch['address']."</center> </td>
-                                                            <td><center> ".$fetch['contact_number']." </center></td>
-                                                            <td><center> <a class = 'btn btn-danger btn-sm' href='registration_form.php?id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-pencil-square-o'></span> Register</a> </center></td>
-                                                            </tr>";
-                                                    }
-                                                }
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                   $query = $conn->query("SELECT * FROM `patient` where `status` = 'Unregister' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                   while($fetch = $query->fetch_array()){
+                                                ?>
+                                                <tr>
+                                                    <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
+                                                    <td><center><?php echo $fetch['age']?></center></td>
+                                                    <td><center><?php echo $fetch['gender']?></center></td>
+                                                    <td><center><?php echo $fetch['birthdate']?></center></td>
+                                                    <td><center><?php echo $fetch['contact_number']?></center></td>
+                                                    <td><center><?php echo $fetch['address']?></center></td>
+                                                    <td><center>
+                                                        <a href="#registerpatient<?php echo $fetch['patient_id'];?>" data-target="#registerpatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-plus"></span> Register</a>
+                                                        </center></td>
+                                                </tr>
+                                                <?php
+                                   }
+                                   $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-                            <!-- END DATATABLE EXPORT -->
                         </div>
                     </div>
-
                 </div>
-                <!-- END PAGE CONTENT WRAPPER -->
             </div>
-            <!-- END PAGE CONTENT -->
         </div>
-        <!-- END PAGE CONTAINER -->
+
         <!-- New Patient -->
         <div class="modal fade" id="new_patient" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -465,6 +393,167 @@ if(ISSET($_POST['add_new_patient'])){
         </div>
         <!-- End New Patient -->
 
+        <!-- Register Patient -->
+        <?php
+        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+        $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+        while($fetch = $query->fetch_array()){
+        ?>
+        <div id="registerpatient<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-male"></span> Register Patient</h4>
+                    </div>
+                    <form role="form" class="form-horizontal" action="registration_table.php" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="panel-body">
+                                    <div class="form-group ">
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
+                                                <input data-toggle="tooltip" data-placement="right" title="Registration Date" type="text" class="form-control datepicker" name="registration_date" placeholder="Registration Date" required/>
+                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
+                                                <input data-toggle="tooltip" data-placement="right" title="Name of DOTS Facility" type="text" class="form-control" name="dots_facility" placeholder="Name of DOTS Facility" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3> Source of Patient</h3>
+                                            <div class="form-group">
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Public Health Center"/> Public Health Center</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value ="Other Government Facilities"/> Other Government Facilities</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Private Hospitals"/>Private Hospitals/Clinics/NGO's</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Community"/>Community</label>
+                                                </div>
+                                            </div><hr>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h3> Registration Group</h3>
+                                            <div class="form-group">
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="New"/> New</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value ="Relapse"/> Relapse</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="Treatment After Failure"/> Treatment After Failure</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="TALF"/>Treatment After Loss Follow-up</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="PTOU"/> PTOU</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="Transfer-in"/> Transfer-in</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="Others"/> Others</label>
+                                                </div>
+                                            </div><hr>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h3> Diagnosis</h3>
+                                            <div class="form-group">
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value="TB Disease"/> TB Disease</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value ="TB Infection, for IPT"/> TB Infection, for IPT</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value="TB Exposior, for IPT"/> TB Exposior</label>
+                                                </div>
+                                            </div><hr>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h3> Bacteriological Status</h3>
+                                            <div class="form-group">
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="bacteriological_status" value="Bacteriologically Confirmed"/> Bacteriologically Confirmed</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="bacteriological_status" value ="Clinically Diagnosed"/> Clinically Diagnosed</label>
+                                                </div>
+                                            </div><hr>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h3> Classification of TB</h3>
+                                            <div class="form-group">
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="classification_of_tb" value="Pulmonary"/> Pulmonary</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="classification_of_tb" value ="Extra-pulmonary"/> Extra-pulmonary</label>
+                                                </div>
+                                            </div><hr>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h3>BCG Scar</h3>
+                                            <div class="form-group">
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="bcg_scar" value="Yes"/> Yes</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="bcg_scar" value ="No"/> No</label>
+                                                </div>
+                                            </div><hr>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h3>History of TB</h3>
+                                            <div class="form-group">
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="history" value="Yes"/> Yes</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="history" value ="No"/> No</label>
+                                                </div>
+                                            </div><hr>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h3>Duration</h3>
+                                            <div class="form-group">
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="duration" value="Less than 1 month"/> Less than 1 month</label>
+                                                </div>
+                                                <div class="col-md-3">                                    
+                                                    <label class="check"><input type="radio" class="iradio" name="duration" value ="1 month or more"/> 1 month or more</label>
+                                                </div>
+                                            </div><hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info" name="register_patient"><span class="fa fa-plus"></span>Register</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <?php
+        }
+        $conn->close();
+        ?> 
+        <!-- End Register Patient -->
+
+
         <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">
                 <div class="mb-middle">
@@ -482,13 +571,12 @@ if(ISSET($_POST['add_new_patient'])){
                 </div>
             </div>
         </div>
+
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
-        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
-        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>       
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>

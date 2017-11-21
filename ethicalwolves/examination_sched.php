@@ -93,14 +93,7 @@ require ('config.php');
                 </ul>
             </div>
             <div class="page-content">
-                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <li class="xn-icon-button">
-                        <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
-                    </li>
-                    <li class="xn-icon-button pull-right">
-                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
-                    </li>
-                </ul>
+               <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Transaction</li>

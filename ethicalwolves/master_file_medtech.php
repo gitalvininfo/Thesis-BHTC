@@ -89,38 +89,14 @@ require ('config.php');
                 </ul>
             </div>
             <div class="page-content">
-
-                <!-- START X-NAVIGATION VERTICAL -->
-                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <!-- TOGGLE NAVIGATION -->
-                    <li class="xn-icon-button">
-                        <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
-                    </li>
-                    <!-- END TOGGLE NAVIGATION -->
-                    <!-- SIGN OUT -->
-                    <li class="xn-icon-button pull-right">
-                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>                        
-                    </li> 
-                    <!-- END SIGN OUT -->
-
-                    <!-- END TASKS -->
-                </ul>
-                <!-- END X-NAVIGATION VERTICAL -->                     
-
-                <!-- START BREADCRUMB -->
+                <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li class="active">Medical Technologists</li>
                 </ul>
-                <!-- END BREADCRUMB -->      
-
-                <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
-                    <!-- Export Code -->
                     <div class="row">
                         <div class="col-md-12">
-
-                            <!-- START DATATABLE EXPORT -->
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><span class="fa fa-user-md"></span> Medical Technologists</h3>

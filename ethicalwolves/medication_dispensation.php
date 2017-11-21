@@ -123,23 +123,7 @@ if(ISSET($_POST['medicine_stock'])){
                 </ul>
             </div>
             <div class="page-content">
-
-                <!-- START X-NAVIGATION VERTICAL -->
-                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <!-- TOGGLE NAVIGATION -->
-                    <li class="xn-icon-button">
-                        <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
-                    </li>
-                    <!-- END TOGGLE NAVIGATION -->
-                    <!-- SIGN OUT -->
-                    <li class="xn-icon-button pull-right">
-                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>                        
-                    </li> 
-                    <!-- END SIGN OUT -->
-                </ul>
-                <!-- END X-NAVIGATION VERTICAL -->                    
-
-                <!-- START BREADCRUMB -->
+                <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
                     <li>Transaction</li>
@@ -459,12 +443,12 @@ if(ISSET($_POST['medicine_stock'])){
                                         <select class="form-control select" data-live-search="true" name="medicine_name">
                                             <option value="<?php echo $fetch['medicine_name']?>"><?php echo $fetch['medicine_name']?></option>
                                             <?php
-                                            $query2 = $conn->query("SELECT * FROM `medicine`") or die(mysqli_error());
-                                            while($fetch2 = $query2->fetch_array()){
+            $query2 = $conn->query("SELECT * FROM `medicine`") or die(mysqli_error());
+            while($fetch2 = $query2->fetch_array()){
                                             ?>
                                             <option value="<?php echo $fetch2['medicine_name'];?>"><?php echo $fetch2['medicine_name'];?></option>
                                             <?php
-                                            }
+            }
                                             ?> 
                                         </select>
                                     </div>

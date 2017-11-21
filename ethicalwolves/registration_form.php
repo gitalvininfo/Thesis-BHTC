@@ -139,14 +139,6 @@ require ('config.php');
                                         <div class="form-group ">
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="TB Case Number" type="text" class="form-control" name="tb_case_no" placeholder="TB Case Number" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
                                                     <input data-toggle="tooltip" data-placement="right" title="Registration Date" type="text" class="form-control datepicker" name="registration_date" placeholder="Registration Date" required/>
                                                 </div>

@@ -96,60 +96,7 @@ $f = $q->fetch_array();
                 </ul>
             </div>
             <div class="page-content">
-                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <li class="xn-icon-button">
-                        <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
-                    </li>
-                    <li class="xn-icon-button pull-right">
-                        <a href="index.php" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
-                    </li>
-                    <li class="xn-icon-button pull-right">
-                        <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                   $fetch = $query->fetch_array();
-                                   $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
-                                   $f = $q->fetch_array();
-                        ?>
-                        <a href="#"><span class="fa fa-bell-o"></span></a>
-                        <div class="informer informer-danger">
-                            <?php echo $f['total']?>
-                        </div>
-                        <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><span class="fa fa-spinner"></span> Pending Laboratory Requests</h3>
-                                <div class="pull-right">
-                                    <span class="label label-danger"><?php echo $f['total']?></span>
-                                </div>
-                            </div>
-                            <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
-                                <?php 
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                            $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                            $fetch = $query->fetch_array();
-                            $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
-                            while($f = $q->fetch_array()){
-                                ?>
-                                <a href="#" class="list-group-item">
-                                    <div class="list-group-status status-offline"></div>
-                                    <img src="assets/images/users/no-image.jpg" class="pull-left" alt="John Doe" />
-                                    <span class="contacts-title">Patient ID: <?php echo $f['patient_id']. ' - ' .$f['collection_unit']?></span>
-                                    <p>
-                                        <?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?>
-                                    </p>
-                                </a>
-                                <?php
-                            }
-                            $conn->close();
-                                ?>
-                            </div>
-                            <div class="panel-footer text-center">
-                                <a href="laboratory_request_table.php">Show all laboratory requests</a>
-                            </div>
-                        </div>
-                    </li>
-
-                </ul>
+                <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li class="active">Dashboard</li>
@@ -228,14 +175,11 @@ $f = $q->fetch_array();
                                 </div>
                                 <div class="widget-data">
                                     <?php
-    $queryCount = "
-                                    SELECT COUNT(*) AS total
-                                    FROM user WHERE `position` = 'Medical Technologist'";
-                                            $query = mysqli_query($conn, $queryCount);
-                                            $row = mysqli_fetch_object($query);
+                                    $q = $conn->query("SELECT COUNT(*) as total FROM `user` where `position` = 'Medical Technologist'") or die(mysqli_error());
+                                    $f = $q->fetch_array();
                                     ?>
                                     <div class="widget-int num-count">
-                                        <?php echo $row->total; ?>
+                                        <?php echo $f['total']?>
                                     </div>
                                     <div class="widget-title">Physician</div>
                                     <div class="widget-subtitle">In the system</div>
@@ -253,14 +197,16 @@ $f = $q->fetch_array();
                                 </div>
                                 <div class="widget-data">
                                     <?php
-                                    $queryCount = "
-                                    SELECT COUNT(*) AS total
-                                    FROM registration";
-                                    $query = mysqli_query($conn, $queryCount);
-                                    $row = mysqli_fetch_object($query);
+                                        $year = date('Y');
+                                        if(isset($_GET['year']))
+                                        {
+                                            $year=$_GET['year'];
+                                        }
+                                        $q2 = $conn->query("SELECT COUNT(*) as total FROM `registration` where `year` = '$year'") or die(mysqli_error());
+                                        $f2 = $q2->fetch_array();
                                     ?>
                                     <div class="widget-int num-count">
-                                        <?php echo $row->total; ?>
+                                        <?php echo $f2['total'] ?>
                                     </div>
                                     <div class="widget-title">TB Patients</div>
                                     <div class="widget-subtitle">Currently Registered</div>

@@ -90,81 +90,16 @@ require ('config.php');
                 </ul>
             </div>
             <div class="page-content">
+                <?php require 'require/header.php'?>
 
-                <!-- START X-NAVIGATION VERTICAL -->
-                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <!-- TOGGLE NAVIGATION -->
-                    <li class="xn-icon-button">
-                        <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
-                    </li>
-
-                    <li class="xn-icon-button pull-right">
-                        <a href="index.php" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
-                    </li>
-                    <li class="xn-icon-button pull-right">
-                        <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                   $fetch = $query->fetch_array();
-                                   $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
-                                   $f = $q->fetch_array();
-                        ?>
-                        <a href="#"><span class="fa fa-bell-o"></span></a>
-                        <div class="informer informer-danger">
-                            <?php echo $f['total']?>
-                        </div>
-                        <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><span class="fa fa-flask"></span> Laboratory Requests</h3>
-                                <div class="pull-right">
-                                    <span class="label label-danger"><?php echo $f['total']?></span>
-                                </div>
-                            </div>
-                            <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
-                                <?php 
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                            $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                            $fetch = $query->fetch_array();
-                            $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
-                            while($f = $q->fetch_array()){
-                                ?>
-                                <a href="#" class="list-group-item">
-                                    <div class="list-group-status status-offline"></div>
-                                    <img src="assets/images/users/no-image.jpg" class="pull-left" alt="John Doe" />
-                                    <span class="contacts-title">Patient ID: <?php echo $f['patient_id']. ' - ' .$f['collection_unit']?></span>
-                                    <p>
-                                        <?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?>
-                                    </p>
-                                </a>
-                                <?php
-                            }
-                            $conn->close();
-                                ?>
-                            </div>
-                            <div class="panel-footer text-center">
-                                <a href="medtech_laboratory_request.php">Show all laboratory requests</a>
-                            </div>
-                        </div>
-                    </li>
-
-                </ul>
-                <!-- END X-NAVIGATION VERTICAL -->                     
-
-                <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
-                    <li>Master File</li>
+                    <li>Data Entry</li>
                     <li class="active">Patient Master File</li>
                 </ul>
-                <!-- END BREADCRUMB -->      
-
-                <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
-                    <!-- Export Code -->
                     <div class="row">
                         <div class="col-md-12">
-
-                            <!-- START DATATABLE EXPORT -->
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><span class="fa fa-file-text"></span> Patient Master File</h3>
@@ -179,6 +114,7 @@ require ('config.php');
 
                                             <thead> 
                                                 <tr class="info">
+                                                    <th><center>TB Case No</center></th>
                                                     <th><center>Patient Name</center></th>
                                                     <th><center>Age</center></th>
                                                     <th><center>Gender</center></th>
@@ -191,11 +127,16 @@ require ('config.php');
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                                while($fetch = $query->fetch_array()){
+    $year = date('Y');
+                                   $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                   $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `status` DESC") or die(mysqli_error());
+                                   while($fetch = $query->fetch_array()){
+                                       $id = $fetch['patient_id'];
+                                       $query2 = $conn->query("SELECT `tb_case_no`, `year` FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                                       $fetch2 = $query2->fetch_array();
                                                 ?>                                      
                                                 <tr>
+                                                    <td><center><strong><?php echo $fetch2['year']. "-".$fetch2['tb_case_no']?></strong></center></td>
                                                     <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
                                                     <td><center><?php echo $fetch['age']?></center></td>
                                                     <td><center><?php echo $fetch['gender']?></center></td>
@@ -207,8 +148,8 @@ require ('config.php');
                                                         <a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
                                                 </tr>
                                                 <?php
-                                                }
-                                                $conn->close();
+                                   }
+                                   $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>                                    
