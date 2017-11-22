@@ -250,98 +250,98 @@ require ('../config.php');
                                                             <td>Barangay Abcasa</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch1['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#abcasa"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#abcasa"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Alangilan</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch2['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#alangilan"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#alangilan"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Alijis</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch3['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#alijis"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#alijis"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Banago</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch4['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#banago"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#banago"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Bata</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch5['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#bata"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#bata"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Cabug</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch6['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#cabug"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#cabug"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Estefania</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch7['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#estefania"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#estefania"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Felisa</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch8['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#felisa"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#felisa"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Granda</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch9['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#granada"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#granada"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Handumanan</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch10['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#handumanan"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#handumanan"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Lopez Jaena</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch11['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#lopezjaena"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#lopezjaena"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Mabini</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch12['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mabini"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mabini"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Mandalagan</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch13['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mandalagan"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mandalagan"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Mansilingan</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch14['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mansilingan"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mansilingan"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
 
@@ -349,70 +349,70 @@ require ('../config.php');
                                                             <td>Barangay Montevista</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch15['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#montevista"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#montevista"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Pahanocoy</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch16['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#pahanocoy"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#pahanocoy"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Punta Taytay</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch17['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ptataytay"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ptataytay"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Singcang</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch18['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#singcang"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#singcang"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Sum-ag</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch19['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#sum-ag"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#sum-ag"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Taculing</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch20['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#taculing"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#taculing"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Tangub</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch21['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tangub"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tangub"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Villa Esperanza</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch22['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#esperanza"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#villa-esperanza"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Villamonte</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch23['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#villamonte"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#villamonte"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Vista Alegre</td>
                                                             <td><center><strong><span class="label label-default"><?php echo $fetch24['total']?></span></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vistaalegre"><span class="fa fa-map-marker"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-book"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                     </tbody>
@@ -434,17 +434,10 @@ require ('../config.php');
                     <div class="modal-header">
                         <div class="btn-group pull-right">
                             <div class="pull-left">
-                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Content </button>
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
                             </div>
                         </div>
-                        <?php
-    $year = date('Y');
-                                                                if(isset($_GET['year']))
-                                                                {
-                                                                    $year=$_GET['year'];
-                                                                }
-                        ?>
-                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Abcasa Registered TB Patient as of Year <?php echo $year?></h4>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Abcasa Registered TB Patient as of Year <?php echo $year?></h4>
 
                     </div>
                     <div class="modal-body">
@@ -463,8 +456,8 @@ require ('../config.php');
                                 <tbody>
                                     <?php
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Abcasa' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
-                            while($fetch = $query->fetch_array()){
+                                                                $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Abcasa' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                                                while($fetch = $query->fetch_array()){
                                     ?>
                                     <tr>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
@@ -474,8 +467,8 @@ require ('../config.php');
                                         <td><center><?php echo $fetch['contact_number']?></center> </td>
                                     </tr>
                                     <?php
-                            }
-                            $conn->close();
+                                                                }
+                                                                $conn->close();
                                     ?>
 
                                 </tbody>
@@ -494,17 +487,10 @@ require ('../config.php');
                     <div class="modal-header">
                         <div class="btn-group pull-right">
                             <div class="pull-left">
-                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Content </button>
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
                             </div>
                         </div>
-                        <?php
-                        $year = date('Y');
-                        if(isset($_GET['year']))
-                        {
-                            $year=$_GET['year'];
-                        }
-                        ?>
-                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Alangilan Registered TB Patient as of Year <?php echo $year?></h4>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Alangilan Registered TB Patient as of Year <?php echo $year?></h4>
                     </div>
                     <div class="modal-body">
                         <div class="panel-body">
@@ -553,18 +539,10 @@ require ('../config.php');
                     <div class="modal-header">
                         <div class="btn-group pull-right">
                             <div class="pull-left">
-                                <button class="btn btn-default btn-md"><span class="fa fa-print"></span> Print Content </button>
+                                <a href="../print/alijis.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                             </div>
                         </div>
-                        <?php
-                        $year = date('Y');
-                        if(isset($_GET['year']))
-                        {
-                            $year=$_GET['year'];
-                        }
-
-                        ?>
-                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Alijis Registered TB Patient as of Year <?php echo $year?></h4>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Alijis Registered TB Patient as of Year <?php echo $year?></h4>
                     </div>
                     <div class="modal-body">
                         <div class="panel-body">
@@ -572,6 +550,7 @@ require ('../config.php');
                             <table class="table datatable">
                                 <thead>
                                     <tr class="info">
+                                        <th><center>TB Case No</center></th>
                                         <th><center>Patient Name</center></th>
                                         <th><center>Age</center></th>
                                         <th><center>Gender</center></th>
@@ -584,8 +563,12 @@ require ('../config.php');
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
                             $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Alijis' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                             while($fetch = $query->fetch_array()){
+                                $id = $fetch['patient_id'];
+                                $query2 = $conn->query("SELECT `tb_case_no` FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                                $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
+                                        <td><center><?php echo $year. "" .$fetch2['tb_case_no']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch['age']?></center></td>
                                         <td><center><?php echo $fetch['gender']?></center> </td>
@@ -613,18 +596,11 @@ require ('../config.php');
                     <div class="modal-header">
                         <div class="btn-group pull-right">
                             <div class="pull-left">
-                                <button class="btn btn-default btn-md"><span class="fa fa-print"></span> Print Content </button>
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
                             </div>
                         </div>
-                        <?php
-                        $year = date('Y');
-                        if(isset($_GET['year']))
-                        {
-                            $year=$_GET['year'];
-                        }
 
-                        ?>
-                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Alijis Registered TB Patient as of Year <?php echo $year?></h4>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Banago Registered TB Patient as of Year <?php echo $year?></h4>
                     </div>
                     <div class="modal-body">
                         <div class="panel-body">
@@ -673,18 +649,10 @@ require ('../config.php');
                     <div class="modal-header">
                         <div class="btn-group pull-right">
                             <div class="pull-left">
-                                <button class="btn btn-default btn-md"><span class="fa fa-print"></span> Print Content </button>
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
                             </div>
                         </div>
-                        <?php
-                        $year = date('Y');
-                        if(isset($_GET['year']))
-                        {
-                            $year=$_GET['year'];
-                        }
-
-                        ?>
-                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Alijis Registered TB Patient as of Year <?php echo $year?></h4>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Bata Registered TB Patient as of Year <?php echo $year?></h4>
                     </div>
                     <div class="modal-body">
                         <div class="panel-body">
@@ -733,7 +701,7 @@ require ('../config.php');
                     <div class="modal-header">
                         <div class="btn-group pull-right">
                             <div class="pull-left">
-                                <button class="btn btn-default btn-md"><span class="fa fa-print"></span> Print Content </button>
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
                             </div>
                         </div>
                         <?php
@@ -744,7 +712,7 @@ require ('../config.php');
                         }
 
                         ?>
-                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Alijis Registered TB Patient as of Year <?php echo $year?></h4>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Cabug Registered TB Patient as of Year <?php echo $year?></h4>
                     </div>
                     <div class="modal-body">
                         <div class="panel-body">
@@ -787,7 +755,1082 @@ require ('../config.php');
                 </div>
             </div>
         </div>      
+        <div class="modal fade" id="estefania" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
 
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Estefania Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Estefania' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <div class="modal fade" id="felisa" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Felisa Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Felisa' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="modal fade" id="granada" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Granada Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Granada' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="handumanan" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Handumanan Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Handumanan' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="modal fade" id="lopezjaena" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Lopez Jaena Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'lopezjaena' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="mabini" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Mabini Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Mabini' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="modal fade" id="mandalagan" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Mandalagan Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Mandalagan' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="mansilingan" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Mansilingan Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Mansilingan' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="montevista" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Montevista Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Montevista' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="pahanocoy" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Pahanocoy Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Pahanocoy' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ptataytay" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Punta Taytay Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Punta Taytay' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="singcang" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Singcang Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Singcang' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="sum-ag" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Sum-ag Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Sumag' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="taculing" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Taculing Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Taculing' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="tangub" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Tangub Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Tangub' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <div class="modal fade" id="villa-esperanza" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Villa Esperanza Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Villa Esperanza' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="villamonte" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <a href="../print/villamonte.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
+                            </div>
+                        </div>
+                        <?php
+                        $year = date('Y');
+                        if(isset($_GET['year']))
+                        {
+                            $year=$_GET['year'];
+                        }
+
+                        ?>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Villamonte Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>TB Case No</center></th>
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Villamonte' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                $id = $fetch['patient_id'];
+                                $query2 = $conn->query("SELECT `tb_case_no` FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                                $fetch2 = $query2->fetch_array();
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <div class="modal fade" id="vista-alegre" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="btn-group pull-right">
+                            <div class="pull-left">
+                                <button class="btn btn-info btn-md"><span class="fa fa-print"></span> Print Preview </button>
+                            </div>
+                        </div>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-book"></span> Barangay Vista Alegre Registered TB Patient as of Year <?php echo $year?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Age</center></th>
+                                        <th><center>Gender</center></th>
+                                        <th><center>Birthdate</center></th>
+                                        <th><center>Contact No</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Vista Alegre' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch['age']?></center></td>
+                                        <td><center><?php echo $fetch['gender']?></center> </td>
+                                        <td><center><?php echo $fetch['birthdate']?></center> </td>
+                                        <td><center><?php echo $fetch['contact_number']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>      
 
         <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">

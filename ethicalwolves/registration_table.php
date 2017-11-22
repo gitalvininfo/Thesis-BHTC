@@ -29,7 +29,7 @@ if(ISSET($_POST['add_new_patient'])){
 
 }
 if(ISSET($_POST['register_patient'])){
-    $patient_id = $_POST['patient_id'];
+    
     $registration_date = $_POST['registration_date'];
     $dots_facility = $_POST['dots_facility'];
     $source_of_patient = $_POST['source_of_patient'];
@@ -40,6 +40,7 @@ if(ISSET($_POST['register_patient'])){
     $bcg_scar = $_POST['bcg_scar'];
     $history = $_POST['history'];
     $duration = $_POST['duration'];
+    $patient_id = $_POST['patient_id'];
 
     $month = date("M", strtotime("+8 HOURS"));
     $year = date("Y", strtotime("+8 HOURS"));
