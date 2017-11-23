@@ -112,16 +112,13 @@ require ('../config.php');
                                     <div class="tab-pane active" id="tab-first">
 
                                         <div class="row">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title"><strong> <span class="fa fa-bar-chart"></span> Patient Annual Population</strong></h3>
-                                            </div>
                                             <div class="panel-body">
-                                                <div id="annual_population" style="width: 100%; height: 350px"></div>
+                                                <div id="annual_population" style="width: 100%; height: 425px"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab-second">
-                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 435px;">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 455px;">
                                             <div class="row">
                                                 <table class="table table-hover">
                                                     <thead>

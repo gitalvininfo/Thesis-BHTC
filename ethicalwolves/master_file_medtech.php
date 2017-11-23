@@ -1,6 +1,31 @@
 <?php
 require_once 'logincheck.php';
 require ('config.php');
+
+if(ISSET($_POST['save_user'])){
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+
+    $pass1 = md5($password);
+    $salt = "HAHAHAHAHA";
+    $pass1 = $salt.$pass1;
+
+    $conn = new mysqli("localhost", 'root', '', 'thesis') or die(mysqli_error());
+    $q1 = $conn->query ("SELECT * FROM `user` WHERE BINARY `username` = '$username'") or die(mysqli_error());
+    $f1 = $q1->fetch_array();
+    $check = $q1->num_rows;
+    if($check > 0){
+        echo "<script> alert ('Username already taken. Try another one.')</script>";
+    }
+    else{
+        $conn->query ("INSERT INTO `user` VALUES(' ', '$firstname', '$lastname', 'Medical Technologist', '$username', '$pass1')") or die(mysqli_error());
+        echo "<script type='text/javascript'> alert ('Account registered successfully!');</script>";
+        echo "<script>window.location='master_file_medtech.php'</script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,15 +122,16 @@ require ('config.php');
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><span class="fa fa-user-md"></span> Medical Technologists</h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
+                                            <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_physician"><span class="fa fa-key"></span> New Account </button>
                                         </div>
-                                    </div>  
+                                    </div>
                                 </div>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                <div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
                                     <div class="panel-body">
                                         <table class="table table-hover">
                                             <thead> 
@@ -141,20 +167,69 @@ require ('config.php');
                                     </div>
                                 </div>
                             </div>
-                            <!-- END DATATABLE EXPORT -->                            
                         </div>
-
                     </div>         
-                    <!-- END PAGE CONTENT WRAPPER -->
                 </div>            
-                <!-- END PAGE CONTENT -->
+            </div>
+        </div>
+        <div class="modal fade" id="new_physician" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> Medical Technologist Personal and Account Information</h4>
+                    </div>
+                    <form role="form" class="form-horizontal" action="master_file_medtech.php" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="First Name" type="text" class="form-control" name="firstname" placeholder="First Name" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Last Name" type="text" class="form-control" name="lastname" placeholder="Last Name" required/>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Username" type="text" class="form-control" name="username" placeholder="Username" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Password" type="text" class="form-control" name="password" placeholder="Password" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info" name="save_user"><span class="fa fa-check"></span>Save</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
-
-        <!-- END PAGE CONTAINER -->    
-        <!-- MESSAGE BOX-->
         <div class="message-box message-box-success animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">
                 <div class="mb-middle">
@@ -172,44 +247,16 @@ require ('config.php');
                 </div>
             </div>
         </div>
-        <!-- END MESSAGE BOX-->
-
-
-        <!-- START PRELOADS -->
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-        <!-- END PRELOADS -->                      
-
-        <!-- START SCRIPTS -->
-        <!-- START PLUGINS -->
-        <script type = "text/javascript">
-            function delete_medtech(that){
-                var delete_func = confirm("Delete Physician Record?")
-                if(delete_func){
-                    window.location = anchor.attr("href");
-                }
-            }
-        </script>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
-        <!-- END PLUGINS -->
-
-        <!-- START THIS PAGE PLUGINS-->        
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="js/plugins/tableexport/tableExport.js"></script>
-        <script type="text/javascript" src="js/plugins/tableexport/jquery.base64.js"></script>
-        <script type="text/javascript" src="js/plugins/tableexport/html2canvas.js"></script>
-        <script type="text/javascript" src="js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
-        <script type="text/javascript" src="js/plugins/tableexport/jspdf/jspdf.js"></script>
-        <script type="text/javascript" src="js/plugins/tableexport/jspdf/libs/base64.js"></script>        
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>        
-        <!-- END TEMPLATE -->
-        <!-- END SCRIPTS -->                 
     </body>
 </html>
 

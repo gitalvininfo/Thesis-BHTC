@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 22, 2017 at 03:31 PM
+-- Generation Time: Nov 23, 2017 at 01:26 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -585,10 +585,10 @@ INSERT INTO `patient` (`patient_id`, `patient_name`, `age`, `gender`, `address`,
 (20, 'Jam Dientes', 20, 'Female', 'Bacolod City', 'Mansilingan', '2017-10-02', 178, '433-2449', 'Negros Occidental', 'Student', '19901212', 'Dr. Haro', '433-2449', 'Dr. Sabay', 30, '0000-00-00', 'Unregister', 'Pending', '2017'),
 (21, 'Alson John Bayon-on', 20, 'Male', 'Bacolod City', 'Montevista', '2017-10-02', 178, '433-2449', 'Negros', 'Student', '1231239', 'Dr. Haro', '713-6113', 'Dr. Haro', 20, '0000-00-00', 'Unregister', 'Pending', '2017'),
 (22, 'Patient 5', 20, 'Male', 'Bacolod City', 'Villamonte', '2017-10-15', 189, '23123', 'Negros Occidental', 'Student', '2313212', 'Dr. Haro', '713-6113', 'Dr. Haro', 20, '2017-10-18', 'Registered', 'Done', '2017'),
-(23, 'Leki Lad', 20, 'Male', 'Bacolod', 'Villamonte', '2017-10-17', 178, '321313', 'Negros', 'Student', '713-6113', 'Dr. Haro', '713-6113', 'Dr. Sabay', 22, '0000-00-00', 'Registered', 'Pending', '2017'),
+(23, 'Leki Lad', 20, 'Male', 'Bacolod', 'Villamonte', '2017-10-17', 178, '321313', 'Negros', 'Student', '713-6113', 'Dr. Haro', '713-6113', 'Dr. Sabay', 22, '0000-00-00', 'Registered', 'Done', '2017'),
 (25, 'Patient 9', 25, 'Male', 'Bacold', 'Tangub', '2017-10-11', 178, '713-6113', 'Negros Occidental', 'Student', '13123421', 'Dr. Haro', '713-6113', 'Dr. haro', 26, '2017-10-24', 'Unregister', 'Pending', '2017'),
 (26, 'Carl Louie Betio', 20, 'Male', 'Bacolod', 'Tangub', '2017-10-16', 178, '131141231', 'Negros Occidental', 'Student', '123131', 'Dr. Haro', '231231', 'Dr. Haro', 45, '0000-00-00', 'Registered', 'Done', '2017'),
-(27, 'Gabriel Francis Banua', 20, 'Male', 'Bacolod ', 'Tangub', '2017-10-26', 178, '713-6113', 'Negros Occidental', 'Student', '2313121', 'Dr. Haro', '32131', 'Dr. Sabay', 20, '0000-00-00', 'Registered', 'Pending', '2017'),
+(27, 'Gabriel Francis Banua', 20, 'Male', 'Bacolod ', 'Tangub', '2017-10-26', 178, '713-6113', 'Negros Occidental', 'Student', '2313121', 'Dr. Haro', '32131', 'Dr. Sabay', 20, '0000-00-00', 'Registered', 'Done', '2017'),
 (28, 'Rommel Adricula', 56, 'Male', 'Bacolod City', 'Mandalagan', '2017-03-19', 178, '433-2449', 'Negros', 'Teacher', '133120123112', 'Dr. Haro', '433-2449', 'Dr. Haro', 29, '2017-11-02', 'Registered', 'Done', '2017'),
 (29, 'Rogy Acosta', 25, 'Male', 'Bacolod City', 'Mabini', '2009-06-16', 178, '433-2449', 'Negros Occidental', 'Teacher', '12311', 'Dr. Haro', '433-2449', 'Dr.aeq', 12, '2017-11-05', 'Registered', 'Pending', '2017'),
 (31, 'Alvin Yanson', 20, 'Male', 'Bacolod City', 'Estefania', '2017-11-08', 178, '713-6113', 'Negros Occidental', 'Student', '20171002', 'Sample', '713-6113', 'Dummy Account', 29, '0000-00-00', 'Registered', 'Done', '2017'),
@@ -623,7 +623,7 @@ CREATE TABLE IF NOT EXISTS `registration` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`tb_case_no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2147483647 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `registration`
@@ -640,7 +640,8 @@ INSERT INTO `registration` (`tb_case_no`, `registration_date`, `dots_facility`, 
 (8, '2017-11-09', 'BHTC', 'Public Health Center', 'TALF', 'TB Disease', 'Clinically Diagnosed', 'Extrapulmonary', 'Yes', 'Yes', 'Not applicable', 29, 'Oct', '2017'),
 (9, '2017-11-15', 'bhtc', 'Public Health Center', 'New', 'TB Disease', 'Bacteriologically Confirmed', 'Pulmonary', 'Yes', 'NO', 'Not applicable', 36, 'Nov', '2017'),
 (10, '2017-11-04', 'BHTC', 'Community', 'Others', 'TB Disease', 'Bacteriologically Confirmed', 'Pulmonary', 'Yes', 'Yes', 'Not applicable', 28, 'Nov', '2017'),
-(2147483647, '2017-11-15', 'BHTC', 'Public Health Center', 'New', 'TB Disease', 'Bacteriologically Confirmed', 'Pulmonary', 'NO', 'Yes', 'Less than 1 month', 27, 'Nov', '2017');
+(11, '2017-11-15', 'BHTC', 'Public Health Center', 'New', 'TB Disease', 'Bacteriologically Confirmed', 'Pulmonary', 'NO', 'Yes', 'Less than 1 month', 27, 'Nov', '2017'),
+(12, '2017-11-21', 'BHTC', 'Community', 'New', 'TB Disease', 'Bacteriologically Confirmed', 'Pulmonary', 'No', 'Yes', 'Less than 1 month', 19, 'Nov', '2017');
 
 -- --------------------------------------------------------
 
@@ -691,7 +692,7 @@ CREATE TABLE IF NOT EXISTS `treatment_record` (
   `remarks` char(10) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`treatment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `treatment_record`
@@ -708,7 +709,9 @@ INSERT INTO `treatment_record` (`treatment_id`, `treatment_regimen_category`, `w
 (13, 'Category IIa - 2HRZES/1HRZE/9H', 90, 'Dr. Torres', 'Barangay Health Worker', '2017-11-02', 'Done', 22),
 (14, 'Category IIa - 2HRZES/1HRZE/9H', 90, 'Dr. Sabay', 'BHW', '2017-11-03', 'Done', 28),
 (15, 'Category IIa - 2HRZES/1HRZE/9H', 89, 'Juan De la Cruz', 'BHW', '2017-11-06', 'Done', 26),
-(16, 'Category I - 2HRZE/4HR', 90, 'Dr. Haro', 'BHW', '2017-11-08', 'Done', 31);
+(16, 'Category I - 2HRZE/4HR', 90, 'Dr. Haro', 'BHW', '2017-11-08', 'Done', 31),
+(17, 'Category IIa - 2HRZES/1HRZE/9H', 66, 'Alvin Yanson', 'BHW', '2017-11-23', 'Done', 23),
+(18, 'Category Ia - 2HRZE/10HR', 90, 'Dr. Haro', 'BHW', '2017-11-15', 'Done', 27);
 
 -- --------------------------------------------------------
 
@@ -747,7 +750,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `user`
@@ -755,14 +758,15 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`user_id`, `firstname`, `lastname`, `position`, `username`, `password`) VALUES
 (19, 'Sample', 'Account', 'Medical Technologist', 'medtech', 'HAHAHAHAHAda2550f00907e1601628524200439e35'),
-(22, 'Dummy', 'Account', 'NTP Nurse Coordinator', 'admin', 'HAHAHAHAHA21232f297a57a5a743894a0e4a801fc3'),
+(22, 'Dummy', 'Account', 'NTP Nurse Coordinator', 'admin', 'HAHAHAHAHA9573534ee6a886f4831ac5bcdfe85565'),
 (23, 'Rommel', 'Adricula', 'Medical Technologist', 'rommel', 'HAHAHAHAHAdfeaf10390e560aea745ccba53e044ed'),
 (24, 'Elmer', 'Haro', 'NTP Nurse Coordinator', 'elmer', 'HAHAHAHAHA7222de5ea00a35ee2669a02bbb8f9ed4'),
 (25, 'qwe', 'qwe', 'NTP Nurse Coordinator', 'zxc', 'HAHAHAHAHA5fa72358f0b4fb4f2c5d7de8c9a41846'),
 (26, 'Alvin', 'Yanson', 'NTP Nurse Coordinator', '', 'HAHAHAHAHA21232f297a57a5a743894a0e4a801fc3'),
 (27, 'sample', 'sample', 'Medical Technologist', 'sample', 'HAHAHAHAHA5e8ff9bf55ba3508199d22e984129be6'),
 (28, 'elmer', 'haro', 'NTP Nurse Coordinator', '', 'HAHAHAHAHA5fa72358f0b4fb4f2c5d7de8c9a41846'),
-(29, 'I am Carl', 'Betio', 'NTP Nurse Coordinator', 'carl', 'HAHAHAHAHA76d80224611fc919a5d54f0ff9fba446');
+(29, 'I am Carl', 'Betio', 'NTP Nurse Coordinator', 'carl', 'HAHAHAHAHA76d80224611fc919a5d54f0ff9fba446'),
+(30, 'Tenesse', 'Elinon', 'Medical Technologist', 'tenesse', 'HAHAHAHAHAb250cc96e7bc02f449ba080b7b559726');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -81,7 +81,7 @@ require ('../config.php');
                                             $year=$_GET['year'];
                                         }
                                         $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                        $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Alijis' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                        $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Banago' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                                         while($fetch = $query->fetch_array()){
                                             $id = $fetch['patient_id'];
                                             $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
