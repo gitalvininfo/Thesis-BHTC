@@ -7,6 +7,7 @@ if(ISSET($_POST['edit_patient'])){
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $address = $_POST['address'];
+    $barangay = $_POST['barangay'];
     $birthdate = $_POST['birthdate'];
     $height = $_POST['height'];
     $contact_number = $_POST['contact_number'];
@@ -21,7 +22,7 @@ if(ISSET($_POST['edit_patient'])){
 
     require ('config.php');
     $conn->query("UPDATE `patient` SET `patient_name` = '$patient_name', `age` = '$age', `gender` = '$gender', `address` = '$address', 
-			`age` = '$age', `address` = '$address', `gender` = '$gender', `address` = '$address', `birthdate` = '$birthdate', `height` = '$height', `contact_number` = '$contact_number', `province` = '$province', `occupation` = '$occupation', `philhealth_no` = '$philhealth_no', `contact_person` = '$contact_person', `emergency_no` = '$emergency_no', `household_member` = '$household_member', `household_member_age` = '$household_member_age', `date_screened` = '$date_screened' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
+			`barangay` = '$barangay', `age` = '$age', `address` = '$address', `gender` = '$gender', `address` = '$address', `birthdate` = '$birthdate', `height` = '$height', `contact_number` = '$contact_number', `province` = '$province', `occupation` = '$occupation', `philhealth_no` = '$philhealth_no', `contact_person` = '$contact_person', `emergency_no` = '$emergency_no', `household_member` = '$household_member', `household_member_age` = '$household_member_age', `date_screened` = '$date_screened' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully updated patient record!');</script>";
     echo "<script>document.location='master_file_patient.php'</script>";  

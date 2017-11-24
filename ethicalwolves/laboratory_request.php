@@ -21,77 +21,9 @@ require ('config.php');
         $find = $query->fetch_array();
         ?>
         <div class="page-container">
-            <div class="page-sidebar">
-                <ul class="x-navigation">
-                    <li class="xn-logo">
-                        <a href="home.php">BHTC-PMIS</a>
-                        <a href="#" class="x-navigation-control"></a>
-                    </li>
-                    <li class="xn-profile">
-                        <a href="#" class="profile-mini">
-                            <img src="assets/images/users/no-image.jpg" alt="John Doe" />
-                        </a>
-                        <div class="profile">
-                            <div class="profile-image">
-                                <img src="assets/images/project_logo.png" alt="John Doe" />
-                            </div>
-                            <div class="profile-data">
-                                <div class="profile-data-name">
-                                    <?php 
-                                    echo $find['firstname']." ".$find['lastname'];
-                                    ?>
-                                </div>
-                                <div class="profile-data-title">
-                                    <?php 
-                                    echo $find['position'];
-                                    ?>
-                                </div>
-                            </div>
-                            <div class="profile-controls">
-                                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="active">
-                        <a href="home.php"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
-                    </li>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-folder-open"></span> <span class="xn-text">Master File</span></a>       
-                        <ul>
-                            <li><a href="master_file_patient.php"><span class="fa fa-group"></span><span class="xn-text">Patient Master File</span></a></li>
-                            <li><a href="master_file_medtech.php"><span class="fa fa-user-md"></span><span class="xn-text">Medical Technologist</span></a></li>
-                        </ul>
-                    </li> 
-
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-pencil-square-o"></span> <span class="xn-text">Transactions</span></a>
-                        <ul>
-                            <li> <a href="patient_examination_schedule_table.php"><span class="fa fa-calendar"></span> <span class="xn-text">Follow-up Examination</span></a> </li>
-                            <li> <a href="laboratory_request_table.php"><span class="fa fa-plus"></span> <span class="xn-text">Laboratory Request</span></a> </li>
-                            <li> <a href="registration_table.php"><span class="fa fa-file-text"></span> <span class="xn-text">Registration</span></a> </li>
-                            <li> <a href="patient_treatment_table.php"><span class="fa fa-user-md"></span> <span class="xn-text">Treatment</span></a> </li>
-                            <li> <a href="patient_certification_table.php"><span class="fa fa-book"></span> <span class="xn-text">Certification</span></a> </li> <!--- examination_schedule.php -->
-                            <li> <a href="medication_dispensation.php"><span class="fa fa-medkit"></span> <span class="xn-text">Medication Dispensation</span></a> </li>
-                        </ul>
-                    </li>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-bar-chart"></span> <span class="xn-text">Reports</span></a>
-                        <ul>
-                            <li><a href="reports.php"><span class="fa fa-file-text"></span><span class="xn-text">TB Cases Report</span></a></li>
-                            <li><a href="examination_reports_overview.php"><span class="fa fa-file-text"></span><span class="xn-text">Examination Report</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-gears"></span> <span class="xn-text">System Maintenance</span></a>       
-                        <ul>
-                            <li><a href="change_password.php"><span class="fa fa-key"></span><span class="xn-text">Update Profile</span></a></li>
-                            <li><a href="system_backup.php?id=<?php echo $find['user_id']?>&username=<?php echo $find['username']?>"><span class="fa fa-cloud-download"></span><span class="xn-text">Download Database</span></a></li>
-                        </ul>
-                    </li> 
-                </ul>
-            </div>
+            <?php require 'require/sidebar.php'?>
             <div class="page-content">
-              <?php require 'require/header.php'?>
+                <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
                     <li><a href="laboratory_request_table.php">Laboratory Request</a></li>
@@ -103,8 +35,8 @@ require ('config.php');
                             <form role="form" class="form-horizontal" method="post">
                                 <?php
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                   $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                                   $f = $q->fetch_array();
+            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+            $f = $q->fetch_array();
                                 ?>
                                 <div class="panel panel-info">
                                     <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
@@ -218,7 +150,6 @@ require ('config.php');
                                                         <option value="TB Culture">TB Culture</option>
                                                         <option value="Drug Susceptible Testing">Drug Susceptible Testing</option>
                                                         <option value="Tuberculin Skin Testing">Tuberculin Skin Testing</option>
-                                                        <option value="Chest X-ray">Chest X-ray</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -264,7 +195,6 @@ require ('config.php');
                                                     <td><center><strong><?php echo $fetch['status']?></strong></center></td>
                                                     <td>
                                                         <center>
-                                                            <button name="<?php echo $fetch['lab_request_id']; ?>" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_small-<?php echo $fetch['lab_request_id']; ?>"><span class="fa fa-pencil-square-o"></span>  </button>
                                                             <a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-info btn-sm"><span class="fa fa-search"></span> </a>
                                                         </center>
                                                     </td>
