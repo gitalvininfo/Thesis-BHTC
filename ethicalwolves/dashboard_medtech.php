@@ -257,7 +257,7 @@ $f = $q->fetch_array();
                                         <h3 class="panel-title"><strong> <span class="fa fa-bar-chart-o"></span> Examination Overview Per Category</strong></h3>
                                         <div class="btn-group pull-right">
                                             <div class="pull-left">
-                                                <select id="pyear" class="validate[required] select" data-style="btn-info">
+                                                <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">
                                                     <option>Please Select Year...</option>
                                                     <option value="<?php 
                                                                    if(isset($_GET['year'])){

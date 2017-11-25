@@ -98,7 +98,7 @@ require ('../config.php');
                                         <div class="row">
                                             <div class="btn-group pull-right">
                                                 <div class="pull-left">
-                                                    <select id="pyear" class="validate[required] select" data-style="btn-info">
+                                                    <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">
                                                         <option>Please Select Year...</option>
                                                         <option value="<?php 
                                                                        if(isset($_GET['year'])){

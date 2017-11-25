@@ -30,7 +30,64 @@ require ('config.php');
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
             <div class="page-content">
-                <?php require 'require/header.php'?>
+
+                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                    <!-- TOGGLE NAVIGATION -->
+                    <li class="xn-icon-button">
+                        <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
+                    </li>
+                    <li class="xn-icon-button pull-right">
+                        <a href="index.php" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
+                    </li>
+                    <li class="xn-icon-button pull-right">
+                        <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `patient_ipt` ORDER BY `patient_id` DESC") or die(mysqli_error());
+            $fetch = $query->fetch_array();
+            $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
+            $f = $q->fetch_array();
+                        ?>
+                        <a href="#"><span class="fa fa-bell-o"></span></a>
+                        <div class="informer informer-danger">
+                            <?php echo $f['total']?>
+                        </div>
+                        <div class="panel panel-info animated zoomIn xn-drop-left xn-panel-dragging">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><span class="fa fa-flask"></span> Laboratory Requests</h3>
+                                <div class="pull-right">
+                                    <span class="label label-danger"><?php echo $f['total']?></span>
+                                </div>
+                            </div>
+                            <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
+                                <?php 
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                            $query = $conn->query("SELECT * FROM `patient_ipt` ORDER BY `patient_id` DESC") or die(mysqli_error());
+                            $fetch = $query->fetch_array();
+                            $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
+                            while($f = $q->fetch_array()){
+                                ?>
+                                <a href="#" class="list-group-item">
+                                    <div class="list-group-status status-offline"></div>
+                                    <img src="assets/images/users/no-image.jpg" class="pull-left" alt="John Doe" />
+                                    <span class="contacts-title">Patient ID: <?php echo $f['patient_id']. ' - ' .$f['collection_unit']?></span>
+                                    <p>
+                                        <?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?>
+                                    </p>
+                                </a>
+                                <?php
+                            }
+                            $conn->close();
+                                ?>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <a href="medtech_laboratory_request.php">Show all laboratory requests</a>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li><a href="#">Transaction</a></li>
@@ -47,26 +104,23 @@ require ('config.php');
                             <!-- START CONTEXTUAL CLASSES TABLE SAMPLE -->
                             <div class="panel panel-default tabs">
                                 <?php
-    $year = date('Y');
-            if(isset($_GET['year']))
-            {
-                $year=$_GET['year'];
-            }
-            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-            $f = $q->fetch_array();
-            $query2 = $conn->query("SELECT * FROM `treatment_record` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
-            $fetch = $query2->fetch_array();
-            $q1 = $conn->query("SELECT `tb_case_no` FROM `registration` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-            $f1 = $q1->fetch_array();
+                                $year = date('Y');
+                                if(isset($_GET['year']))
+                                {
+                                    $year=$_GET['year'];
+                                }
+
+                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                $q = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]' && `name` = '$_GET[name]'") or die(mysqli_error());
+                                $f = $q->fetch_array();
+                                $query2 = $conn->query("SELECT * FROM `treatment_record` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
+                                $fetch = $query2->fetch_array();
                                 ?>
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Intensive Phase</a></li>
-                                    <li><a href="#tab-second" role="tab" data-toggle="tab">Continuation Phase</a></li>
-                                    <li><a href="#tab-third" role="tab" data-toggle="tab">Clinical Findings</a></li>
-                                    <li><a href="#tab-fourth" role="tab" data-toggle="tab">Drug Preparations</a></li>
-                                    <li><a href="#tab-fifth" role="tab" data-toggle="tab">Overview</a></li>
-                                    <h3 class="panel-title pull-right"> <strong><?php echo $year. $f1['tb_case_no'] . " - " .$f['patient_name']?></strong></h3>
+                                    <li><a href="#tab-second" role="tab" data-toggle="tab">Clinical Findings</a></li>
+                                    <li><a href="#tab-third" role="tab" data-toggle="tab">Overview</a></li>
+                                    <h3 class="panel-title pull-right"> <span class="fa fa-exclamation-circle"></span> <strong><?php echo $year. "-" .$f['patient_id'] . " " .$f['name']?></strong></h3>
                                 </ul>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
                                     <div class="panel-body tab-content">
@@ -86,11 +140,11 @@ require ('config.php');
                                                             <div class="panel-body" id="accOneColOne">
                                                                 <?php
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                        $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                                        $q = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]' && `name` = '$_GET[name]'") or die(mysqli_error());
                                         $f = $q->fetch_array();
-                                        $q2 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Present'") or die(mysqli_error());
+                                        $q2 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase_ipt` where `patient_id` = '$_GET[id]' && `remarks` = 'Present'") or die(mysqli_error());
                                         $f2 = $q2->fetch_array();
-                                        $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
+                                        $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase_ipt` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
                                         $f3 = $q3->fetch_array();
                                                                 ?>
                                                                 <form role="form" class="form-horizontal" method="post">
@@ -122,7 +176,7 @@ require ('config.php');
                                                                     <div class="panel-footer">
                                                                         <button type="submit" name="add_intensive_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                     </div>
-                                                                    <?php require_once 'add_intensive_phase.php' ?>
+                                                                    <?php require_once 'add_intensive_phase_ipt.php' ?>
 
                                                                 </form>
                                                             </div>
@@ -131,7 +185,7 @@ require ('config.php');
                                                             <div class="panel-heading">
                                                                 <h4 class="panel-title">
                                                                     <a href="#accOneColTwo">
-                                                                        <span class="fa fa-calendar"></span> Absent Days
+                                                                        <span class="fa fa-calendar"></span> Missed Days
                                                                     </a>
                                                                 </h4>
                                                             </div>
@@ -156,8 +210,7 @@ require ('config.php');
                                                                     <div class="panel-footer">
                                                                         <button type="submit" name="add_absent" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                     </div>
-                                                                    <?php require_once 'add_intensive_phase.php' ?>
-
+                                                                    <?php require_once 'add_intensive_phase_ipt.php' ?>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -185,7 +238,7 @@ require ('config.php');
                                                                     <tbody>
                                                                         <?php
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                    $query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` ASC ") or die(mysqli_error());
+                                                                    $query = $conn->query("SELECT * FROM `intensive_phase_ipt` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` ASC ") or die(mysqli_error());
                                                                     $id = $f['patient_id'];
                                                                     while($fetch = $query->fetch_array()){
                                                                         $id = $fetch['patient_id'];
@@ -221,160 +274,11 @@ require ('config.php');
                                         </div>
                                         <div class="tab-pane" id="tab-second">
                                             <div class="row">
-                                                <div class="col-md-4">
-                                                    <!-- START ACCORDION -->
-                                                    <div class="panel-group accordion">
-                                                        <div class="panel panel-info">
-                                                            <div class="panel-heading">
-                                                                <h4 class="panel-title">
-                                                                    <a href="#accOneColThree">
-                                                                        <span class="fa fa-calendar"></span> Present Days
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                            <div class="panel-body" id="accOneColThree">
-                                                                <?php
-                                                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                                                                $f = $q->fetch_array();
-                                                                $q2 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                                $f2 = $q2->fetch_array();
-                                                                $q3 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
-                                                                $f3 = $q3->fetch_array();
-                                                                ?>
-                                                                <form role="form" class="form-horizontal" method="post">
-                                                                    <div class="form-group ">
-                                                                        <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                                <input type="number" class="form-control" name="dosage" placeholder="Dosage Taken" required/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group ">
-                                                                        <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                                <input type="text" class="form-control datepicker" name="date_taken" placeholder="Date Taken" required/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group ">
-                                                                        <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                                <input data-toggle="tooltip" data-placement="bottom" title="Total Dosage Taken" class="form-control" style="color:red" name="dosage" value="<?php echo $f2['sum(dosage)']; ?>" disabled/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="panel-footer">
-                                                                        <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                                    </div>
-                                                                    <?php require_once 'add_continuation_phase.php' ?>
-
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                        <div class="panel panel-info">
-                                                            <div class="panel-heading">
-                                                                <h4 class="panel-title">
-                                                                    <a href="#accOneColFour">
-                                                                        <span class="fa fa-calendar"></span> Absent Days
-                                                                    </a>
-                                                                </h4>
-                                                            </div>
-                                                            <div class="panel-body" id="accOneColFour">
-                                                                <form role="form" class="form-horizontal" method="post">
-                                                                    <div class="form-group ">
-                                                                        <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                                <input type="text" class="form-control datepicker" name="date_absent" placeholder="Date Absent" required/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group ">
-                                                                        <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                                <input data-toggle="tooltip" data-placement="bottom" title="Total Days Missed" class="form-control" style="color:red" name="dosage" value="<?php echo $f3['total']; ?>" disabled/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="panel-footer">
-                                                                        <button type="submit" name="add_absent" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                                    </div>
-                                                                    <?php require_once 'add_continuation_phase.php' ?>
-
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- END ACCORDION -->
-                                                </div>
-
-
-                                                <div class="col-md-8">
-                                                    <!-- START DATATABLE EXPORT -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
-                                                            <div class="panel-body">
-                                                                <table id="laboratory_request" class="table datatable">
-                                                                    <thead>
-                                                                        <tr class="info">
-                                                                            <th>Date Taken</th>
-                                                                            <th>Dosage Taken</th>
-                                                                            <th>Remarks</th>
-                                                                            <th>
-                                                                                <center>Action</center>
-                                                                            </th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <?php
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                    $query = $conn->query("SELECT * FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `continuation_phase_id` DESC ") or die(mysqli_error());
-                                                                    $id = $f['patient_id'];
-                                                                    while($fetch = $query->fetch_array()){
-                                                                        $id = $fetch['patient_id'];
-                                                                        ?>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <?php echo $fetch['date_taken']?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $fetch['dosage']?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $fetch['remarks']?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <center>
-                                                                                    <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal_small"><span class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="left" title="Edit"></span>  </button>
-                                                                                </center>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <?php
-                                                                    }
-                                                                    $conn->close();
-                                                                        ?>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="tab-third">
-                                            <div class="row">
                                                 <?php
                                                 $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                                                $q = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]' && `name` = '$_GET[name]'") or die(mysqli_error());
                                                 $f = $q->fetch_array();
-                                                $query3 = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
+                                                $query3 = $conn->query("SELECT * FROM `clinical_findings_ipt` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
                                                 $f2 = $query3->fetch_array();
                                                 ?>
                                                 <div class="panel panel-default">
@@ -382,7 +286,7 @@ require ('config.php');
                                                         <div class="panel-heading">
                                                             <div class="btn-group pull-right">
                                                                 <div class="pull-left">
-                                                                    <a href="#update_clinical<?php echo $f['patient_id'];?>" data-target="#update_clinical<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-pencil-square-o"></span>Update</a>
+                                                                    <a href="#update_clinical_ipt<?php echo $f['patient_id'];?>" data-target="#update_clinical_ipt<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-pencil-square-o"></span>Update</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -421,7 +325,7 @@ require ('config.php');
                                                             <tbody>
                                                                 <?php
                                                                 $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                $query = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$id' ORDER BY `clinical_id` DESC") or die(mysqli_error());
+                                                                $query = $conn->query("SELECT * FROM `clinical_findings_ipt` WHERE `patient_id` = '$id' ORDER BY `clinical_id` DESC") or die(mysqli_error());
                                                                 $id = $f['patient_id'];
                                                                 while($fetch = $query->fetch_array()){
                                                                 ?>
@@ -479,109 +383,13 @@ require ('config.php');
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
-                                        <div class="tab-pane" id="tab-fourth">
+                                        <div class="tab-pane" id="tab-third">
                                             <div class="row">
                                                 <?php
                                                 $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                                                $f = $q->fetch_array();
-                                                $query3 = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
-                                                $f2 = $query3->fetch_array();
-                                                ?>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-body scroll" style="height:400px;">
-                                                        <div class="panel-heading">
-                                                            <div class="btn-group pull-right">
-                                                                <div class="pull-left">
-                                                                    <a href="#update_drug_preparations<?php echo $f['patient_id'];?>" data-target="#update_drug_preparations<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-pencil-square-o"></span>Update</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <table id="laboratory_request" class="table table-hover">
-                                                            <thead>
-                                                                <tr class="info">
-                                                                    <th data-toggle="tooltip" data-placement="top" title="Date Visited">
-                                                                        <center>Date</center>
-                                                                    </th>
-                                                                    <th data-toggle="tooltip" data-placement="top" title="Isoniazid [H] 10mg/kg (200mg/5ml)">
-                                                                        <center>Isoniazid [H]</center>
-                                                                    </th>
-                                                                    <th data-toggle="tooltip" data-placement="top" title="Rifampicin [R] 15mg/kg (200mg/5ml)">
-                                                                        <center>Rifampicin [R]</center>
-                                                                    </th>
-                                                                    <th data-toggle="tooltip" data-placement="top" title="Pyrazinamide [Z] 30mg/kg (250mg/5ml)">
-                                                                        <center>Pyrazinamide [Z]</center>
-                                                                    </th>
-                                                                    <th data-toggle="tooltip" data-placement="top" title="Ethambutol [E] 20mg/kg (400mg tab)">
-                                                                        <center>Ethambutol [E]</center>
-                                                                    </th>
-                                                                    <th data-toggle="tooltip" data-placement="top" title="Streptomycin [S] 15mg/kg">
-                                                                        <center>Streptomycin [S]</center>
-                                                                    </th>
-                                                                    <th>
-                                                                        <center>Action</center>
-                                                                    </th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php
-                                                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                $query = $conn->query("SELECT * FROM `drug_preparations` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                                                                $id = $f['patient_id'];
-                                                                while($fetch = $query->fetch_array()){
-                                                                ?>
-                                                                <tr>
-                                                                    <td>
-                                                                        <center>
-                                                                            <?php echo $fetch['date_visited']?>
-                                                                        </center>
-                                                                    </td>
-                                                                    <td>
-                                                                        <center>
-                                                                            <?php echo $fetch['isoniazid']?> kgs.</center>
-                                                                    </td>
-                                                                    <td>
-                                                                        <center>
-                                                                            <?php echo $fetch['rifampicin']?>
-                                                                        </center>
-                                                                    </td>
-                                                                    <td>
-                                                                        <center>
-                                                                            <?php echo $fetch['pyrazinamide']?>
-                                                                        </center>
-                                                                    </td>
-                                                                    <td>
-                                                                        <center>
-                                                                            <?php echo $fetch['ethambutol']?>
-                                                                        </center>
-                                                                    </td>
-                                                                    <td>
-                                                                        <center>
-                                                                            <?php echo $fetch['streptomycin']?>
-                                                                        </center>
-                                                                    </td>
-                                                                    <td>
-                                                                        <center><a href="#" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="left" title="Edit"><span class="fa fa-pencil-square-o"></span></a></center>
-                                                                    </td>
-                                                                </tr>
-                                                                <?php
-                                                                }
-                                                                $conn->close();
-                                                                ?>
-                                                            </tbody>
-                                                        </table>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="tab-pane" id="tab-fifth">
-                                            <div class="row">
-                                                <?php
-                                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());                                                        
+                                                $q = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]' && `name` = '$_GET[name]'") or die(mysqli_error());                                                        
                                                 ?>
 
                                                 <div class="col-md-3">
@@ -603,43 +411,11 @@ require ('config.php');
                                                             <div class="widget-data">
                                                                 <?php
                                                                 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                $query1 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                                                $query1 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase_ipt` where `patient_id` = '$_GET[id]'") or die(mysqli_error());
                                                                 $fetch1 = $query1->fetch_array();
                                                                 ?>
                                                                 <div class="widget-int num-count">
                                                                     <?php echo $fetch1['total'] ?>
-                                                                </div>
-                                                                <div class="widget-title">Days</div>
-                                                                <div class="widget-subtitle">Drug Usage</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
-
-                                                            </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Continuation Phase</div>
-                                                                <div class="profile-data-title">Drug Intake</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="widget widget-info widget-item-icon">
-                                                            <div class="widget-item-left">
-                                                                <span class="fa fa-calendar"></span>
-                                                            </div>
-                                                            <div class="widget-data">
-                                                                <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query2 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                                    $fetch2 = $query2->fetch_array();
-                                                                ?>
-                                                                <div class="widget-int num-count">
-                                                                    <?php echo $fetch2['total']; ?>
                                                                 </div>
                                                                 <div class="widget-title">Days</div>
                                                                 <div class="widget-subtitle">Drug Usage</div>
@@ -664,11 +440,14 @@ require ('config.php');
                                                             <div class="owl-carousel" id="owl-example">
                                                                 <div>
                                                                     <?php
-                                                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                                    $query2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase_ipt` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
                                                                     $fetch2 = $query2->fetch_array();
-                                                                    $query3 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                                    $fetch3= $query3->fetch_array();
+                                                                    $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase_ipt` where `patient_id` = '$_GET[id]' && `remarks` = 'Present'") or die(mysqli_error());
+                                                                    $f3 = $q3->fetch_array();
+                                                                    $q4 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase_ipt` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
+                                                                    $f4 = $q4->fetch_array();
+
                                                                     ?>
                                                                     <div class="widget-title">Intensive Phase</div>
                                                                     <div class="widget-subtitle">Drug Dosage Given</div>
@@ -677,40 +456,9 @@ require ('config.php');
                                                                     </div>
                                                                 </div>
                                                                 <div>
-                                                                    <div class="widget-title">Continuation Phase</div>
-                                                                    <div class="widget-subtitle">Drug Dosage Given</div>
-                                                                    <div class="widget-int">
-                                                                        <?php echo $fetch3['sum(dosage)']; ?>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
-                                                            </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Missed Drug Intake</div>
-                                                                <div class="profile-data-title">Total Missed Days</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="widget widget-danger widget-carousel">
-                                                            <div class="owl-carousel" id="owl-example">
-                                                                <div>
-                                                                    <?php
-                                                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
-                                                                    $f3 = $q3->fetch_array();
-                                                                    $q4 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
-                                                                    $f4 = $q4->fetch_array();
-                                                                    ?>
+
                                                                     <div class="widget-title">Intensive Phase</div>
-                                                                    <div class="widget-subtitle">Total Missed Days</div>
+                                                                    <div class="widget-subtitle">Total Present Days</div>
                                                                     <div class="widget-int">
                                                                         <?php echo $f3['total']; ?>
                                                                     </div>
@@ -725,11 +473,7 @@ require ('config.php');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- END CONTACT ITEM -->
                                                 </div>
-
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -743,21 +487,22 @@ require ('config.php');
             <!-- END PAGE CONTENT -->
         </div>
 
+
         <!-- Add Clinical -->
         <?php
         $date = date('l jS \of F Y');
         $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-        $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+        $query = $conn->query("SELECT * FROM `patient_ipt` ORDER BY `patient_id` DESC") or die(mysqli_error());
         while($fetch = $query->fetch_array()){
         ?>
-        <div id="update_clinical<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+        <div id="update_clinical_ipt<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="defModalHead"><span class="fa fa-stethoscope"></span> New Clinical Findings</h4>
                     </div>
-                    <form role="form" class="form-horizontal" action="actions/clinical_findings.php" method="post">
+                    <form role="form" class="form-horizontal" action="actions/clinical_findings_ipt.php" method="post">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="panel-body">
@@ -774,7 +519,7 @@ require ('config.php');
                                             </div>
                                         </div>
                                         <hr>
-                                        <h4>* Check the appropriate symptoms for <?php echo $f['patient_name']?></h4>
+                                        <h4>* Check the appropriate symptoms for <?php echo $fetch['name']?></h4>
                                         <h5 class="push-up-20"> 1. Unexplained fever greater than 2 weeks</h5>
                                         <div class="form-group">
                                             <div class="col-md-1">                                    
@@ -856,100 +601,6 @@ require ('config.php');
         $conn->close();
         ?> 
         <!-- End Clinical -->
-
-       
-        <!-- Add Drug Preparations -->
-        <?php
-        $date = date('l jS \of F Y');
-        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-        $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-        while($fetch = $query->fetch_array()){
-        ?>
-        <div id="update_drug_preparations<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-medkit"></span> Drug Preparations</h4>
-                    </div>
-                    <form role="form" class="form-horizontal" action="actions/drug_preparations.php" method="post">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="panel-body">
-                                    <div class="block">
-                                        <div class="form-group ">
-                                            <div class="col-md-6 col-xs-6">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Date Visited" type="text" class="form-control" name="date" style="color:#000;" value="<?php echo $date ?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <h3>Drug Preparations for <?php echo $f['patient_name']?></h3>
-                                        <h5 class="push-up-20">Isoniazid</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="top" title="Isoniazid" type="number" class="form-control" name="isoniazid" placeholder="Isoniazid" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-20"> Rifampicin</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="top" title="Rifampicin" type="number" class="form-control" name="rifampicin" placeholder="Rifampicin" required/>
-                                                </div>
-                                            </div>
-                                        </div><h5 class="push-up-20"> Pyrazinamide</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="top" title="Pyrazinamide" type="number" class="form-control" name="pyrazinamide" placeholder="Pyrazinamide" required/>
-                                                </div>
-                                            </div>
-                                        </div><h5 class="push-up-20"> Ethambutol</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="top" title="Ethambutol" type="number" class="form-control" name="ethambutol" placeholder="Ethambutol" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-20"> Streptomycin</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="top" title="Streptomycin" type="number" class="form-control" name="streptomycin" placeholder="Streptomycin" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-info" name="add_drug_preparations"><span class="fa fa-check"></span>Submit</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <?php
-        }
-        $conn->close();
-        ?> 
-        <!-- End Drug Preparations -->
-
 
         <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">

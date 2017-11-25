@@ -32,7 +32,7 @@ if(ISSET($_POST['add_new_ipt'])){
     $birthdate = $_POST['birthdate'];
     $year = date("Y", strtotime("+8 HOURS"));
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-    $conn->query("INSERT INTO `patient_ipt` VALUES('', '$name', '$age', '$gender', '$address', '$emergency_no', '$birthdate', 'Unregister', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `patient_ipt` VALUES('', '$name', '$age', '$gender', '$address', '$emergency_no', '$birthdate', 'Unregister', 'Pending', '$year')") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully added new IPT Case!');</script>";
     echo "<script>document.location='../registration_table.php'</script>";  

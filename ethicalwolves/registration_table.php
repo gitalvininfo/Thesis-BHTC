@@ -57,7 +57,7 @@ require ('config.php');
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
                                                                     <tr class="info">
-                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Name</center></th>
                                                                         <th><center>Age</center></th>
                                                                         <th><center>Gender</center></th>
                                                                         <th><center>Birthdate</center></th>
@@ -113,7 +113,7 @@ require ('config.php');
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
                                                                     <tr class="info">
-                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Name</center></th>
                                                                         <th><center>Age</center></th>
                                                                         <th><center>Gender</center></th>
                                                                         <th><center>Address</center></th>
@@ -599,6 +599,13 @@ require ('config.php');
                         <div class="modal-body">
                             <div class="row">
                                 <div class="panel-body">
+                                    <?php
+            $year = date('Y');
+            if(isset($_GET['year']))
+            {
+                $year=$_GET['year'];
+            }
+                                    ?>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group ">
@@ -606,7 +613,7 @@ require ('config.php');
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
                                                         <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                                        <input data-toggle="tooltip" data-placement="right" title="IPT Number" type="text" class="form-control" name="ipt_no" placeholder="IPT Number" required/>
+                                                        <input data-toggle="tooltip" data-placement="right" title="IPT Number" type="text" class="form-control" value="<?php echo $year. "-" . $fetch['patient_id']?>" name="ipt_no" required/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -619,14 +626,14 @@ require ('config.php');
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                            <div class="col-md-12">                                        
-                                                <select class="form-control select" name="diagnosis">
-                                                    <option>Choose Diagnosis</option>
-                                                    <option value="TB Infection">TB Infection</option>
-                                                    <option value="TB Exposure">TB Exposure</option>
-                                                </select>
+                                                <div class="col-md-12">                                        
+                                                    <select class="form-control select" name="diagnosis">
+                                                        <option>Choose Diagnosis</option>
+                                                        <option value="TB Infection">TB Infection</option>
+                                                        <option value="TB Exposure">TB Exposure</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <div class="input-group">
