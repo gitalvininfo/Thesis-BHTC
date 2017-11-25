@@ -1,53 +1,6 @@
 <?php
 require_once 'logincheck.php';
 require ('config.php');
-
-if(ISSET($_POST['add_new_patient'])){
-    $patient_name = $_POST['patient_name'];
-    $age = $_POST['age'];
-    $gender = $_POST['gender'];
-    $address = $_POST['address'];
-    $barangay = $_POST['barangay'];
-    $birthdate = $_POST['birthdate'];
-    $height = $_POST['height'];
-    $contact_number = $_POST['contact_number'];
-    $province = $_POST['province'];
-    $occupation = $_POST['occupation'];
-    $philhealth_no = $_POST['philhealth_no'];
-    $contact_person = $_POST['contact_person'];
-    $emergency_no = $_POST['emergency_no'];
-    $household_member = $_POST['household_member'];
-    $household_member_age = $_POST['household_member_age'];
-    $date_screened = $_POST['date_screened'];
-    $year = date("Y", strtotime("+8 HOURS"));
-
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-    $conn->query("INSERT INTO `patient` VALUES('', '$patient_name', '$age', '$gender', '$address', '$barangay', '$birthdate', '$height', '$contact_number', '$province', '$occupation', '$philhealth_no', '$contact_person', '$emergency_no', '$household_member', '$household_member_age', '$date_screened', 'Unregister', 'Pending', '$year')") or die(mysqli_error());
-    $conn->close();
-    echo "<script type='text/javascript'>alert('Successfully added new Patient!');</script>";
-    echo "<script>document.location='registration_table.php'</script>";  
-
-}
-if(ISSET($_POST['register_patient'])){
-    $registration_date = $_POST['registration_date'];
-    $source_of_patient = $_POST['source_of_patient'];
-    $registration_group = $_POST['registration_group'];
-    $diagnosis = $_POST['diagnosis'];
-    $bacteriological_status = $_POST['bacteriological_status'];
-    $classification_of_tb = $_POST['classification_of_tb'];
-    $bcg_scar = $_POST['bcg_scar'];
-    $history = $_POST['history'];
-    $duration = $_POST['duration'];
-    $patient_id = $_POST['patient_id'];
-    $month = date("M", strtotime("+8 HOURS"));
-    $year = date("Y", strtotime("+8 HOURS"));
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `registration` VALUES('', '$registration_date', 'Bacolod City Health TB DOTS Center', '$source_of_patient', '$registration_group', '$diagnosis', '$bacteriological_status', '$classification_of_tb', '$bcg_scar', '$history', '$duration', '$patient_id', '$month', '$year')") or die(mysqli_error());
-    $conn->query("UPDATE `patient` SET `status` = 'Registered' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
-    $conn->close();
-    echo "<script type='text/javascript'>alert('Successfully registered!');</script>";
-    echo "<script>document.location='registration_table.php'</script>";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +24,7 @@ if(ISSET($_POST['register_patient'])){
         ?>
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
-               <div class="page-content">
+            <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
@@ -82,54 +35,123 @@ if(ISSET($_POST['register_patient'])){
                     <!-- Export Code -->
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-file-text"></span> Patient Registration</h3>
-                                    <div class="btn-group pull-right">
-                                        <div class="pull-left">
-                                            <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_patient"><span class="fa fa-plus"></span> New Patient </button>
+                            <div class="panel panel-default tabs">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">TB Case</a></li>
+                                    <li><a href="#tab-second" role="tab" data-toggle="tab">IPT Case</a></li>
+                                </ul>
+                                <div class="panel-body tab-content">
+                                    <div class="tab-pane active" id="tab-first">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <div class="btn-group pull-right">
+                                                            <div class="pull-left">
+                                                                <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_patient"><span class="fa fa-plus"></span> New Patient </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 410px;">
+                                                        <div class="panel-body">
+                                                            <table id="lab_request" class="table datatable">
+                                                                <thead>
+                                                                    <tr class="info">
+                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Age</center></th>
+                                                                        <th><center>Gender</center></th>
+                                                                        <th><center>Birthdate</center></th>
+                                                                        <th><center>Home Address</center></th>
+                                                                        <th><center>Contact Number</center></th>
+                                                                        <th>
+                                                                            <center>Action</center>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `patient` where `status` = 'Unregister' ORDER BY `patient_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch['age']?></center></td>
+                                                                        <td><center><?php echo $fetch['gender']?></center></td>
+                                                                        <td><center><?php echo $fetch['birthdate']?></center></td>
+                                                                        <td><center><?php echo $fetch['contact_number']?></center></td>
+                                                                        <td><center><?php echo $fetch['address']?></center></td>
+                                                                        <td><center>
+                                                                            <a href="#registerpatient<?php echo $fetch['patient_id'];?>" data-target="#registerpatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-key"></span>Register</a>
+                                                                            </center></td>
+                                                                    </tr>
+                                                                    <?php
+            }
+            $conn->close();
+                                                                    ?>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
-                                    <div class="panel-body">
-                                        <table id="lab_request" class="table datatable">
-                                            <thead>
-                                                <tr class="info">
-                                                    <th><center>Patient Name</center></th>
-                                                    <th><center>Age</center></th>
-                                                    <th><center>Gender</center></th>
-                                                    <th><center>Birthdate</center></th>
-                                                    <th><center>Home Address</center></th>
-                                                    <th><center>Contact Number</center></th>
-                                                    <th>
-                                                        <center>Action</center>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $query = $conn->query("SELECT * FROM `patient` where `status` = 'Unregister' ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                   while($fetch = $query->fetch_array()){
-                                                ?>
-                                                <tr>
-                                                    <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
-                                                    <td><center><?php echo $fetch['age']?></center></td>
-                                                    <td><center><?php echo $fetch['gender']?></center></td>
-                                                    <td><center><?php echo $fetch['birthdate']?></center></td>
-                                                    <td><center><?php echo $fetch['contact_number']?></center></td>
-                                                    <td><center><?php echo $fetch['address']?></center></td>
-                                                    <td><center>
-                                                        <a href="#registerpatient<?php echo $fetch['patient_id'];?>" data-target="#registerpatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-key"></span>Register</a>
-                                                        </center></td>
-                                                </tr>
-                                                <?php
-                                   }
-                                   $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <div class="btn-group pull-right">
+                                                            <div class="pull-left">
+                                                                <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_ipt"><span class="fa fa-plus"></span> New Patient </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 410px;">
+                                                        <div class="panel-body">
+                                                            <table id="lab_request" class="table datatable">
+                                                                <thead>
+                                                                    <tr class="info">
+                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Age</center></th>
+                                                                        <th><center>Gender</center></th>
+                                                                        <th><center>Address</center></th>
+                                                                        <th><center>Emergency Number</center></th>
+                                                                        <th><center>Birthdate</center></th>
+                                                                        <th>
+                                                                            <center>Action</center>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
+                                                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` where `status` = 'Unregister' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                                                    while($fetch = $query->fetch_array()){
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td><center><strong><?php echo $fetch['name']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch['age']?></center></td>
+                                                                        <td><center><?php echo $fetch['gender']?></center></td>
+                                                                        <td><center><?php echo $fetch['address']?></center></td>
+                                                                        <td><center><?php echo $fetch['emergency_no']?></center></td>
+                                                                        <td><center><?php echo $fetch['birthdate']?></center></td>
+                                                                        <td><center>
+                                                                            <a href="#registeript<?php echo $fetch['patient_id'];?>" data-target="#registeript<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-key"></span>Register</a>
+                                                                            </center></td>
+                                                                    </tr>
+                                                                    <?php
+                                                                    }
+                                                                    $conn->close();
+                                                                    ?>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -145,9 +167,9 @@ if(ISSET($_POST['register_patient'])){
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-male"></span> Patient Information</h4>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-plus"></span> New TB Case</h4>
                     </div>
-                    <form role="form" class="form-horizontal" action="registration_table.php" method="post">
+                    <form role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="panel-body">
@@ -321,6 +343,86 @@ if(ISSET($_POST['register_patient'])){
         </div>
         <!-- End New Patient -->
 
+
+        <!-- New IPT -->
+        <div class="modal fade" id="new_ipt" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-plus"></span> New IPT Case</h4>
+                    </div>
+                    <form role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Patient Name" type="text" class="form-control" name="name" placeholder="Patient Name" style="text-transform:capitalize" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">                                        
+                                                <select class="form-control select" name="gender">
+                                                    <option value="">Choose Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Complete Home Address" type="text" class="form-control" name="address" placeholder="Complete Home Address" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info" name="add_new_ipt"><span class="fa fa-check"></span>Save</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End New IPT -->
+
+
         <!-- Register Patient -->
         <?php
         $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
@@ -332,9 +434,9 @@ if(ISSET($_POST['register_patient'])){
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> Register Patient</h4>
+                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> Register TB Case</h4>
                     </div>
-                    <form role="form" class="form-horizontal" action="registration_table.php" method="post">
+                    <form role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="panel-body">
@@ -478,6 +580,80 @@ if(ISSET($_POST['register_patient'])){
         $conn->close();
         ?> 
         <!-- End Register Patient -->
+
+
+        <!-- Register IPT -->
+        <?php
+        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+        $query = $conn->query("SELECT * FROM `patient_ipt` ORDER BY `patient_id` DESC") or die(mysqli_error());
+        while($fetch = $query->fetch_array()){
+        ?>
+        <div id="registeript<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> Register IPT Case</h4>
+                    </div>
+                    <form role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                        <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
+                                                        <input data-toggle="tooltip" data-placement="right" title="IPT Number" type="text" class="form-control" name="ipt_no" placeholder="IPT Number" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Date Evaluated" type="text" class="form-control datepicker" value="Date Evaluated" name="date_evaluated" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-md-12">                                        
+                                                <select class="form-control select" name="diagnosis">
+                                                    <option>Choose Diagnosis</option>
+                                                    <option value="TB Infection">TB Infection</option>
+                                                    <option value="TB Exposure">TB Exposure</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Date IPT Started" type="text" class="form-control datepicker" value="Date IPT Started" name="date_ipt_started" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info" name="register_patient_ipt"><span class="fa fa-key"></span>Register</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <?php
+        }
+        $conn->close();
+        ?> 
+        <!-- End Register IPT -->
 
 
         <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">

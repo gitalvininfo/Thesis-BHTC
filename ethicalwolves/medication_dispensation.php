@@ -19,7 +19,6 @@ if(ISSET($_POST['medication_dispensation'])){
 }
 
 if(ISSET($_POST['medicine_stock'])){
-
     $medicine_name = $_POST['medicine_name'];
     $quantity = $_POST['quantity'];
     date_default_timezone_set('Asia/Manila');

@@ -47,7 +47,6 @@ require ('config.php');
                                     <li><a href="#tab-eight" role="tab" data-toggle="tab">TST</a></li>
                                     <li><a href="#tab-ninth" role="tab" data-toggle="tab">CXR</a></li>
                                 </ul>
-
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
@@ -651,7 +650,6 @@ require ('config.php');
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <!-- END PAGE CONTENT -->
                         </div>
