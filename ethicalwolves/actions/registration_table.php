@@ -8,7 +8,6 @@ if(ISSET($_POST['add_new_patient'])){
     $birthdate = $_POST['birthdate'];
     $height = $_POST['height'];
     $contact_number = $_POST['contact_number'];
-    $province = $_POST['province'];
     $occupation = $_POST['occupation'];
     $philhealth_no = $_POST['philhealth_no'];
     $contact_person = $_POST['contact_person'];
@@ -18,7 +17,7 @@ if(ISSET($_POST['add_new_patient'])){
     $date_screened = $_POST['date_screened'];
     $year = date("Y", strtotime("+8 HOURS"));
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-    $conn->query("INSERT INTO `patient` VALUES('', '$patient_name', '$age', '$gender', '$address', '$barangay', '$birthdate', '$height', '$contact_number', '$province', '$occupation', '$philhealth_no', '$contact_person', '$emergency_no', '$household_member', '$household_member_age', '$date_screened', 'Unregister', 'Pending', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `patient` VALUES('', '$patient_name', '$age', '$gender', '$address', '$barangay', '$birthdate', '$height', '$contact_number', 'Negros Occidental', '$occupation', '$philhealth_no', '$contact_person', '$emergency_no', '$household_member', '$household_member_age', '$date_screened', 'Unregister', 'Pending', '$year')") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully added new Patient!');</script>";
     echo "<script>document.location='../registration_table.php'</script>";  
@@ -38,7 +37,8 @@ if(ISSET($_POST['add_new_ipt'])){
     echo "<script>document.location='../registration_table.php'</script>";  
 }
 if(ISSET($_POST['register_patient'])){
-    $registration_date = $_POST['registration_date'];
+    $date = date('F j, Y | l');
+    $registration_date = $date;
     $source_of_patient = $_POST['source_of_patient'];
     $registration_group = $_POST['registration_group'];
     $diagnosis = $_POST['diagnosis'];
@@ -58,14 +58,13 @@ if(ISSET($_POST['register_patient'])){
     echo "<script>document.location='../registration_table.php'</script>";
 }
 if(ISSET($_POST['register_patient_ipt'])){
-    $ipt_no = $_POST['ipt_no'];
     $date_evaluated = $_POST['date_evaluated'];
     $diagnosis = $_POST['diagnosis'];
     $date_ipt_started = $_POST['date_ipt_started'];
     $patient_id = $_POST['patient_id'];
     $year = date("Y", strtotime("+8 HOURS"));
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `registration_ipt` VALUES('$ipt_no', '$date_evaluated', '$diagnosis', '$date_ipt_started', '$patient_id', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `registration_ipt` VALUES('', '$date_evaluated', '$diagnosis', '$date_ipt_started', '$patient_id', '$year')") or die(mysqli_error());
     $conn->query("UPDATE `patient_ipt` SET `status` = 'Registered' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully registered IPT Case!');</script>";

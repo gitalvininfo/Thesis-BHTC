@@ -178,7 +178,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Patient Name" type="text" class="form-control" name="patient_name" placeholder="Patient Name" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Patient Name" type="text" class="form-control" name="patient_name" placeholder="Patient Name" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -186,7 +186,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -203,7 +203,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Complete Home Address" type="text" class="form-control" name="address" placeholder="Complete Home Address" required/>
+                                                    <textarea data-toggle="tooltip" data-placement="bottom" title="Complete Home Address" type="text" class="form-control" name="address" placeholder="Complete Home Address" required></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -235,14 +235,55 @@ require ('config.php');
                                                     <option value="Villa Esperanza">Brgy. Villa Esperanza</option>
                                                     <option value="Villamonte">Brgy. Villamonte</option>
                                                     <option value="Vista Alegre">Brgy. Vista Alegre</option>
+                                                    <option value="Brgy 1">Brgy. 1</option>
+                                                    <option value="Brgy 2">Brgy. 2</option>
+                                                    <option value="Brgy 3">Brgy. 3</option>
+                                                    <option value="Brgy 4">Brgy. 4</option>
+                                                    <option value="Brgy 5">Brgy. 5</option>
+                                                    <option value="Brgy 6">Brgy. 6</option>
+                                                    <option value="Brgy 7">Brgy. 7</option>
+                                                    <option value="Brgy 8">Brgy. 8</option>
+                                                    <option value="Brgy 9">Brgy. 9</option>
+                                                    <option value="Brgy 10">Brgy. 10</option>
+                                                    <option value="Brgy 11">Brgy. 11</option>
+                                                    <option value="Brgy 12">Brgy. 12</option>
+                                                    <option value="Brgy 13">Brgy. 13</option>
+                                                    <option value="Brgy 14">Brgy. 14</option>
+                                                    <option value="Brgy 15">Brgy. 15</option>
+                                                    <option value="Brgy 16">Brgy. 16</option>
+                                                    <option value="Brgy 17">Brgy. 17</option>
+                                                    <option value="Brgy 18">Brgy. 18</option>
+                                                    <option value="Brgy 19">Brgy. 19</option>
+                                                    <option value="Brgy 20">Brgy. 20</option>
+                                                    <option value="Brgy 21">Brgy. 21</option>
+                                                    <option value="Brgy 22">Brgy. 22</option>
+                                                    <option value="Brgy 23">Brgy. 23</option>
+                                                    <option value="Brgy 24">Brgy. 24</option>
+                                                    <option value="Brgy 25">Brgy. 25</option>
+                                                    <option value="Brgy 26">Brgy. 26</option>
+                                                    <option value="Brgy 27">Brgy. 27</option>
+                                                    <option value="Brgy 28">Brgy. 28</option>
+                                                    <option value="Brgy 29">Brgy. 29</option>
+                                                    <option value="Brgy 30">Brgy. 30</option>
+                                                    <option value="Brgy 31">Brgy. 31</option>
+                                                    <option value="Brgy 32">Brgy. 32</option>
+                                                    <option value="Brgy 33">Brgy. 33</option>
+                                                    <option value="Brgy 34">Brgy. 34</option>
+                                                    <option value="Brgy 35">Brgy. 35</option>
+                                                    <option value="Brgy 36">Brgy. 36</option>
+                                                    <option value="Brgy 37">Brgy. 37</option>
+                                                    <option value="Brgy 38">Brgy. 38</option>
+                                                    <option value="Brgy 39">Brgy. 39</option>
+                                                    <option value="Brgy 40">Brgy. 40</option>
                                                 </select>
+
                                             </div>
                                         </div>
                                         <div class="form-group ">
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -250,7 +291,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Patient Height" type="text" class="form-control" name="height" placeholder="Height" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Patient Height" type="text" class="form-control" name="height" placeholder="Height" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -258,7 +299,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Contact Number" type="text" class="form-control" name="contact_number" placeholder="Contact Number" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Contact Number" type="text" class="form-control" name="contact_number" placeholder="Contact Number" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -268,7 +309,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Province" type="text" class="form-control" name="province" placeholder="Province" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Occupation * optional" type="text" class="form-control" name="occupation" placeholder="Occupation" />
                                                 </div>
                                             </div>
                                         </div>
@@ -276,7 +317,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Occupation * optional" type="text" class="form-control" name="occupation" placeholder="Occupation" />
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Philhealth Number * optional" type="text" class="form-control" name="philhealth_no" placeholder="Philhealth Number" />
                                                 </div>
                                             </div>
                                         </div>
@@ -284,7 +325,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Philhealth Number * optional" type="text" class="form-control" name="philhealth_no" placeholder="Philhealth Number" />
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Contact Person" type="text" class="form-control" name="contact_person" placeholder="Contact Person" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -292,7 +333,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Contact Person" type="text" class="form-control" name="contact_person" placeholder="Contact Person" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -300,7 +341,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Household Member" type="text" class="form-control" name="household_member" placeholder="Household Member" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -308,15 +349,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Household Member" type="text" class="form-control" name="household_member" placeholder="Household Member" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Household Age" type="number" class="form-control" name="household_member_age" placeholder="Household Member Age" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Household Age" type="number" class="form-control" name="household_member_age" placeholder="Household Member Age" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -324,7 +357,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Date Screened" type="text" class="form-control datepicker" value="Date Screened" name="date_screened" required>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Date Screened" type="text" class="form-control datepicker" value="Date Screened" name="date_screened" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -361,7 +394,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Patient Name" type="text" class="form-control" name="name" placeholder="Patient Name" style="text-transform:capitalize" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Patient Name" type="text" class="form-control" name="name" placeholder="Patient Name" style="text-transform:capitalize" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -369,7 +402,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -386,7 +419,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Complete Home Address" type="text" class="form-control" name="address" placeholder="Complete Home Address" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Complete Home Address" type="text" class="form-control" name="address" placeholder="Complete Home Address" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -394,7 +427,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -403,7 +436,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
+                                                    <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -425,6 +458,8 @@ require ('config.php');
 
         <!-- Register Patient -->
         <?php
+        $year = date("Y");
+        $date = date('F j, Y | l');
         $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
         $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
         while($fetch = $query->fetch_array()){
@@ -434,7 +469,7 @@ require ('config.php');
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> Register TB Case</h4>
+                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> <strong>Patient Name : <?php echo $fetch['patient_name']?> | TB Case Number : <?php echo $year. "-" .$fetch['patient_id']?></strong></h4>
                     </div>
                     <form role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
                         <div class="modal-body">
@@ -445,7 +480,7 @@ require ('config.php');
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
                                                 <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                                <input data-toggle="tooltip" data-placement="right" title="Registration Date" type="text" class="form-control datepicker" name="registration_date" placeholder="Registration Date" required/>
+                                                <input data-toggle="tooltip" data-placement="right" title="Registration Date" type="text" class="form-control" name="registration_date" style="color:#000;" value="<?php echo $date ?>" disabled/> 
                                             </div>
                                         </div>
                                     </div>
@@ -584,6 +619,7 @@ require ('config.php');
 
         <!-- Register IPT -->
         <?php
+        $year = date("Y");
         $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
         $query = $conn->query("SELECT * FROM `patient_ipt` ORDER BY `patient_id` DESC") or die(mysqli_error());
         while($fetch = $query->fetch_array()){
@@ -593,27 +629,20 @@ require ('config.php');
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> Register IPT Case</h4>
+                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span><strong> Patient Name : <?php echo $fetch['name']?> | IPT Number : <?php echo $year. "-" .$fetch['patient_id']?></strong> </h4>
                     </div>
                     <form role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="panel-body">
-                                    <?php
-            $year = date('Y');
-            if(isset($_GET['year']))
-            {
-                $year=$_GET['year'];
-            }
-                                    ?>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <div class="input-group">
-                                                        <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
                                                         <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                                        <input data-toggle="tooltip" data-placement="right" title="IPT Number" type="text" class="form-control" value="<?php echo $year. "-" . $fetch['patient_id']?>" name="ipt_no" required/>
+                                                        <input data-toggle="tooltip" data-placement="bottom" title="Date Evaluated" type="text" class="form-control datepicker" value="Date Evaluated" name="date_evaluated" required/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -621,7 +650,7 @@ require ('config.php');
                                                 <div class="col-md-12 col-xs-12">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                        <input data-toggle="tooltip" data-placement="right" title="Date Evaluated" type="text" class="form-control datepicker" value="Date Evaluated" name="date_evaluated" required/>
+                                                        <input data-toggle="tooltip" data-placement="bottom" title="Date IPT Started" type="text" class="form-control datepicker" value="Date IPT Started" name="date_ipt_started" required/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -632,14 +661,6 @@ require ('config.php');
                                                         <option value="TB Infection">TB Infection</option>
                                                         <option value="TB Exposure">TB Exposure</option>
                                                     </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group ">
-                                                <div class="col-md-12 col-xs-12">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                        <input data-toggle="tooltip" data-placement="right" title="Date IPT Started" type="text" class="form-control datepicker" value="Date IPT Started" name="date_ipt_started" required/>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

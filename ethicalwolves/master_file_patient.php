@@ -59,14 +59,14 @@ require ('config.php');
                                                 <?php
     $year = date('Y');
                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `status` DESC") or die(mysqli_error());
+                                   $query = $conn->query("SELECT * FROM `patient` ORDER BY `status` DESC") or die(mysqli_error());
                                    while($fetch = $query->fetch_array()){
                                        $id = $fetch['patient_id'];
                                        $query2 = $conn->query("SELECT `tb_case_no`, `year` FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
                                        $fetch2 = $query2->fetch_array();
                                                 ?>                                      
                                                 <tr>
-                                                    <td><center><strong><?php echo $fetch2['year']. "-".$fetch2['tb_case_no']?></strong></center></td>
+                                                    <td><center><strong><?php echo $fetch2['year']. "-".$fetch['patient_id']?></strong></center></td>
                                                     <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
                                                     <td><center><?php echo $fetch['age']?></center></td>
                                                     <td><center><?php echo $fetch['gender']?></center></td>
@@ -218,7 +218,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Occupation * optional" type="text" class="form-control" name="occupation" value="<?php echo $fetch['occupation']?>" required/>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Occupation * optional" type="text" class="form-control" name="occupation" value="<?php echo $fetch['occupation']?>"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -226,7 +226,7 @@ require ('config.php');
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Philhealth Number * optional" type="text" class="form-control" name="philhealth_no" value="<?php echo $fetch['philhealth_no']?>" required/>
+                                                    <input data-toggle="tooltip" data-placement="right" title="Philhealth Number * optional" type="text" class="form-control" name="philhealth_no" value="<?php echo $fetch['philhealth_no']?>"/>
                                                 </div>
                                             </div>
                                         </div>
