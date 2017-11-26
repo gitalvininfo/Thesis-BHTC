@@ -23,8 +23,8 @@ require ('config.php');
         ?>
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
-              <div class="page-content">
-               <?php require 'require/header.php'?>
+            <div class="page-content">
+                <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Transaction</li>
@@ -33,61 +33,125 @@ require ('config.php');
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-calendar"></span> Follow-up Examination</h3>
-                                    <ul class="panel-controls">
-                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
-                                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
-                                    </ul>  
-                                </div>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
-                                    <div class="panel-body">
-                                        <table id="lab_request" class="table datatable">
-                                            <thead>
-                                                <tr class="info">
-                                                    <th><center>Patient Name</center></th>
-                                                    <th><center>TB Case Number</center></th>
-                                                    <th><center>Gender</center></th>
-                                                    <th><center>Registration Group</center></th>
-                                                    <th><center>Bacteriological Status</center></th>
-                                                    <th><center>Action</center></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
+                            <div class="panel panel-default tabs">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">TB Case</a></li>
+                                    <li><a href="#tab-second" role="tab" data-toggle="tab">IPT Case</a></li>
+                                </ul>
+                                <div class="panel-body tab-content">
+                                    <div class="tab-pane active" id="tab-first">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                        <div class="panel-body">
+                                                            <table id="lab_request" class="table datatable">
+                                                                <thead>
+                                                                    <tr class="info">
+                                                                        <th><center>TB Case Number</center></th>
+                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Gender</center></th>
+                                                                        <th><center>Registration Group</center></th>
+                                                                        <th><center>Bacteriological Status</center></th>
+                                                                        <th><center>Action</center></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                   while($fetch = $query->fetch_array()){
-                                       $id = $fetch['patient_id'];
-                                       $q = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                                       $f = $q->fetch_array();
-                                       $q2 = $conn->query("SELECT COUNT(*) as total FROM `examination_sched` where `patient_id` = '$id' && `status` = 'Pending'") or die(mysqli_error());
-                                       $f2 = $q2->fetch_array();
-                                                ?> 
-                                                <tr>
-                                                    <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
-                                                    <td><center><?php echo $f['tb_case_no']?></center></td>
-                                                    <td><center><?php echo $fetch['gender']?></center></td>				
-                                                    <td><center><?php echo $f['registration_group']?></center></td>
-                                                    <td><center><?php echo $f['bacteriological_status']?></center></td>
-                                                    <td>
-                                                        <center>
-                                                            <a href="examination_sched.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info">Schedule <span class = "badge"><?php echo $f2['total']?></span></a>
-                                                        </center>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                   }
-                                   $conn->close();
-                                                ?>
+            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                $id = $fetch['patient_id'];
+                $q = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                $f = $q->fetch_array();
+                $q2 = $conn->query("SELECT COUNT(*) as total FROM `examination_sched` where `patient_id` = '$id' && `status` = 'Pending'") or die(mysqli_error());
+                $f2 = $q2->fetch_array();
+                                                                    ?> 
+                                                                    <tr>
+                                                                        <td><center><strong><?php echo $fetch['year']. "-". "5867". "-" .$fetch['patient_id']?></strong></center>
+                                                                        <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch['gender']?></center></td>				
+                                                                        <td><center><?php echo $f['registration_group']?></center></td>
+                                                                        <td><center><?php echo $f['bacteriological_status']?></center></td>
+                                                                        <td>
+                                                                            <center>
+                                                                                <a href="examination_sched.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info">Schedule <span class = "badge"><?php echo $f2['total']?></span></a>
+                                                                            </center>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <?php
+            }
+            $conn->close();
+                                                                    ?>
 
-                                            </tbody>
-                                        </table>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                        <div class="panel-body">
+                                                            <table id="lab_request" class="table datatable">
+                                                                <thead>
+                                                                    <tr class="info">
+                                                                        <th><center>IPT No</center></th>
+                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Age</center></th>
+                                                                        <th><center>Gender</center></th>
+                                                                        <th><center>Birthdate</center></th>
+                                                                        <th><center>Emergency No</center></th>
+                                                                        <th><center>Address</center></th>
+                                                                        <th><center>Action</center></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
+                                                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                                                    while($fetch = $query->fetch_array()){
+                                                                        $id = $fetch['patient_id'];
+                                                                        $q = $conn->query("SELECT * FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                                                                        $f = $q->fetch_array();
+                                                                        $q2 = $conn->query("SELECT COUNT(*) as total FROM `examination_sched` where `patient_id` = '$id' && `status` = 'Pending'") or die(mysqli_error());
+                                                                        $f2 = $q2->fetch_array();
+                                                                    ?> 
+                                                                    <tr>
+                                                                        <td><center><strong><?php echo $fetch['year']. "-".$fetch['patient_id']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch['name']?></center></td>
+                                                                        <td><center><?php echo $fetch['age']?></center></td>		
+                                                                        <td><center><?php echo $fetch['gender']?></center></td>				
+                                                                        <td><center><?php echo $fetch['birthdate']?></center></td>
+                                                                        <td><center><?php echo $fetch['emergency_no']?></center></td>
+                                                                        <td><center><?php echo $fetch['address']?></center></td>
+                                                                        <td>
+                                                                            <center>
+                                                                                <a href="examination_sched.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info">Schedule <span class = "badge"><?php echo $f2['total']?></span></a>
+                                                                            </center>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <?php
+                                                                    }
+                                                                    $conn->close();
+                                                                    ?>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                            <!-- END DATATABLE EXPORT -->
                         </div>
                     </div>
 

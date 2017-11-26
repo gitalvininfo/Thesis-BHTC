@@ -838,7 +838,6 @@ require ('config.php');
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
 

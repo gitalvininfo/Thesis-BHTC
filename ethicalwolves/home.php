@@ -39,13 +39,13 @@ $f = $q->fetch_array();
                                 <div class="owl-carousel" id="owl-example">
                                     <div> 
                                         <?php
-            $year = date('Y');
+    $year = date('Y');
             if(isset($_GET['year']))
             {
                 $year=$_GET['year'];
             }
             $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
+            $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending' && `year` = '$year'") or die(mysqli_error());
             $f = $q->fetch_array();
             $q2 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Bacteriologically Confirmed' && `year` = '$year'") or die(mysqli_error());
             $fetch = $q2->fetch_array();
@@ -144,7 +144,7 @@ $f = $q->fetch_array();
                                         <?php echo $f2['total'] ?>
                                     </div>
                                     <div class="widget-title">TB Patients</div>
-                                    <div class="widget-subtitle">Currently Registered</div>
+                                    <div class="widget-subtitle">Registered this Year</div>
                                 </div>
                                 <div class="widget-controls">
                                     <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -221,7 +221,6 @@ $f = $q->fetch_array();
 
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -74,7 +74,7 @@ require ('config.php');
 
                                         <h6 style="font-size:25px;">Certification</h6></center>  <br>
                                     <p style="font-size: 15px"class="text-justify"> &nbsp; &nbsp; The is to certify that <strong><?php echo $fetch['patient_name']?></strong>, bearer of this NTP ID Card, has complied
-                                        with the required treatment, supervised by <strong><?php echo $f3['treatment_partner_name']?></strong>.</p>
+                                        with the required treatment, supervised by <strong>Bacolod City Health TB DOTS Center</strong>.</p>
                                     <p style="font-size:15px;">Issued this <strong><?php echo date("jS"). " day of " . date("F ") . date("Y")?>. </strong></p>
                                     <br> <br>  <br>
                                     <h6 class="text-center">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;

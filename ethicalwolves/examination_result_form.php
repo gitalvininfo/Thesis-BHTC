@@ -59,7 +59,7 @@ require ('config.php');
                                 </div>
                             </div>
                             <div class="profile-controls">
-                                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
+                                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info-circle"></span></a>
                             </div>
                         </div>
                     </li>
@@ -90,41 +90,19 @@ require ('config.php');
 
             <!-- PAGE CONTENT -->
             <div class="page-content">
-
-                <!-- START X-NAVIGATION VERTICAL -->
-                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <!-- TOGGLE NAVIGATION -->
-                    <li class="xn-icon-button">
-                        <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
-                    </li>
-                    <li class="xn-icon-button pull-right">
-                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="glyphicon glyphicon-off"></span></a>
-                    </li>
-                    <!-- END SIGN OUT -->
-
-
-                </ul>
-                <!-- END X-NAVIGATION VERTICAL -->
-
-                <!-- START BREADCRUMB -->
+                <?php require 'require/medtech_header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li><a href="medtech_laboratory_request.php">Laboratory Request</a></li>
                     <li class="active">Examination Result Form</li>
                 </ul>
-                <!-- END BREADCRUMB -->
-
-                <!-- PAGE CONTENT WRAPPER -->
-
-                <!-- START JQUERY VALIDATION PLUGIN -->
-
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
                             <?php
-                            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[patient_id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                            $f = $q->fetch_array();
+    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[patient_id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                $f = $q->fetch_array();
                             ?>
                             <div class="panel panel-default tabs">
                                 <ul class="nav nav-tabs" role="tablist">
@@ -132,8 +110,6 @@ require ('config.php');
                                     <li><a href="#tab-third" role="tab" data-toggle="tab">Xpert MTB</a></li>
                                     <li><a href="#tab-fourth" role="tab" data-toggle="tab">TB Culture</a></li>
                                     <li><a href="#tab-fifth" role="tab" data-toggle="tab">DST</a></li>
-                                    <li><a href="#tab-sixth" role="tab" data-toggle="tab">TST</a></li>
-                                    <li><a href="#tab-seventh" role="tab" data-toggle="tab">CXR</a></li>
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-second">
@@ -141,23 +117,26 @@ require ('config.php');
                                             <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
                                                 <div class="panel-body">
                                                     <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
+                                                        <label class="col-md-2 control-label">Date Examined</label>
+                                                        <div class="col-md-9 col-xs-12">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input type="text" class="form-control datepicker" name="date_examined" placeholder="Date Examined" required>
+                                                                <input type="text" class="form-control datepicker" name="date_examined" placeholder="Date Examined" data-toggle="tooltip" data-placement="top" title="Date Examined" required>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
+                                                        <label class="col-md-2 control-label">Laboratory Number</label>
+                                                        <div class="col-md-9 col-xs-12">
                                                             <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="laboratory_number" placeholder=" Laboratory Number" required/>
+                                                                <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                <input type="text" class="form-control" name="laboratory_number" placeholder=" Laboratory Number" data-toggle="tooltip" data-placement="top" title="Laboratory Number" required/>
                                                             </div> 
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-12">
+                                                        <label class="col-md-2 control-label">Visual Appearance</label>
+                                                        <div class="col-md-9">
                                                             <select class="form-control select" name="visual_appearance" required >
                                                                 <option value = "">Choose Visual Appearance</option>
                                                                 <option value = "Salivary">Salivary</option>
@@ -167,15 +146,17 @@ require ('config.php');
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
+                                                        <label class="col-md-2 control-label">Reading</label>
+                                                        <div class="col-md-9 col-xs-12">
                                                             <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="reading" placeholder="Reading" required/>
+                                                                <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                <input type="text" class="form-control" name="reading" placeholder="Reading" data-toggle="tooltip" data-placement="top" title="Reading" required/>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-12">
+                                                        <label class="col-md-2 control-label">Laboratory Diagnosis</label>
+                                                        <div class="col-md-9">
                                                             <select class="form-control select" name="laboratory_diagnosis" required >
                                                                 <option value = "">Choose Laboratory Diagnosis</option>
                                                                 <option value = "Positive">Positive</option>
@@ -184,18 +165,20 @@ require ('config.php');
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
+                                                        <label class="col-md-2 control-label">Examined By</label>
+                                                        <div class="col-md-9 col-xs-12">
                                                             <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="examined_by" placeholder="Examined By" required/>
+                                                                <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                <input type="text" class="form-control" name="examined_by" placeholder="Examined By" data-toggle="tooltip" data-placement="top" title="Examined By" required/>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
+                                                        <label class="col-md-2 control-label">Date Released</label>
+                                                        <div class="col-md-9 col-xs-12">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" required/> </div>
+                                                                <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" data-toggle="tooltip" data-placement="top" title="Date Released" required/> </div>
                                                         </div>
                                                     </div>
                                                     <div class="tab-footer">
@@ -211,57 +194,64 @@ require ('config.php');
                                             <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
                                                 <div class="panel-body">
                                                     <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
+                                                        <label class="col-md-2 control-label">Date Examined</label>
+                                                        <div class="col-md-9 col-xs-12">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input type="text" class="form-control datepicker" name="date_examined" placeholder="Date Examined" required>
+                                                                <input type="text" class="form-control datepicker" name="date_examined" placeholder="Date Examined" data-toggle="tooltip" data-placement="top" title="Date Examined" required>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
+                                                        <label class="col-md-2 control-label">Laboratory Number</label>
+                                                        <div class="col-md-9 col-xs-12">
                                                             <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="laboratory_number" placeholder="Laboratory Number" required/>
+                                                                <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                <input type="text" class="form-control" name="laboratory_number" placeholder="Laboratory Number" data-toggle="tooltip" data-placement="top" title="Laboratory Number" required/>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
+                                                        <label class="col-md-2 control-label">Visual Appearance</label>
+                                                        <div class="col-md-9 col-xs-12">
                                                             <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="visual_appearance" placeholder="Visual Appearance" required/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="reading" placeholder="Reading" required/>
+                                                                <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                <input type="text" class="form-control" name="visual_appearance" placeholder="Visual Appearance" data-toggle="tooltip" data-placement="top" title="Visual Appearance" required/>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
+                                                        <label class="col-md-2 control-label">Reading</label>
+                                                        <div class="col-md-9 col-xs-12">
                                                             <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="examined_by" placeholder="Examined By" required/>
+                                                                <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                <input type="text" class="form-control" name="reading" placeholder="Reading" data-toggle="tooltip" data-placement="top" title="Reading" required/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-md-2 control-label">Examined By</label>
+                                                        <div class="col-md-9 col-xs-12">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                <input type="text" class="form-control" name="examined_by" placeholder="Examined By" data-toggle="tooltip" data-placement="top" title="Examined By" required/>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
+                                                        <label class="col-md-2 control-label">Date Released</label>
+                                                        <div class="col-md-9 col-xs-12">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" required/> </div>
+                                                                <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" data-toggle="tooltip" data-placement="top" title="Date Released" required/> </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-md-12">
+                                                        <label class="col-md-2 control-label">Date Examined</label>
+                                                        <div class="col-md-9">
                                                             <select class="form-control select" data-live-search="true" name="result" required >
                                                                 <option value = "">Choose Result</option>
                                                                 <option value = "T">[T] - MTB detected, Rifampicin resistance not detected</option>
@@ -284,76 +274,106 @@ require ('config.php');
                                     </div>
                                     <div class="tab-pane" id="tab-fourth">
                                         <div class="row">
-                                            <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="method" placeholder="Method" required/>
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="tb_culture_laboratory" placeholder="TB Culture Laboratory Number" required/>
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="laboratory_no" placeholder="Laboratory Number" required/>
+                                            <div class="panel-body scroll" style="height:375px;">
+                                                <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Method</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="method" placeholder="Method" data-toggle="tooltip" data-placement="top" title="Method" required/>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input type="text" class="form-control datepicker" name="date_sample_collected" placeholder="Date Sample Collected" required/>
-                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input type="text" class="form-control datepicker" name="date_sample_received" placeholder="Date Sample Received" required/>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">TB Culture Laboratory</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="tb_culture_laboratory" placeholder="TB Culture Laboratory Number" data-toggle="tooltip" data-placement="top" title="TB Culture Laboratory" required/>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="tb_culture_result" placeholder="TB Culture Result" required/>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Laboratory Number</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="laboratory_no" placeholder="Laboratory Number" data-toggle="tooltip" data-placement="top" title="Laboratory Number" required/>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="remarks" placeholder="Remarks" required/>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Date Sample Collected</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                                    <input type="text" class="form-control datepicker" name="date_sample_collected" placeholder="Date Sample Collected" data-toggle="tooltip" data-placement="top" title="Date Sample Collected" required/>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="examined_by" placeholder="Examined By" required/>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Date Sample Received</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                                    <input type="text" class="form-control datepicker" name="date_sample_received" placeholder="Date Sample Received" data-toggle="tooltip" data-placement="top" title="Date Sample Collected" required/>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="reviewed_by" placeholder="Reviewed" required/>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">TB Culture Result</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="tb_culture_result" placeholder="TB Culture Result" data-toggle="tooltip" data-placement="top" title="TB Culture Result" required/>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" required/>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Remarks</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="remarks" placeholder="Remarks" data-toggle="tooltip" data-placement="top" title="Remarks" required/>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Examined By</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="examined_by" placeholder="Examined By" data-toggle="tooltip" data-placement="top" title="Examined By" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Reviewed By</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="reviewed_by" placeholder="Reviewed" data-toggle="tooltip" data-placement="top" title="Reviewed By" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Date Released</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                                    <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" data-toggle="tooltip" data-placement="top" title="Date Released" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-footer">
+                                                            <button type="submit" name="add_tb_culture" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                                        </div>
+                                                        <?php require_once 'add_tb_culture.php' ?>
                                                     </div>
-                                                    <div class="tab-footer">
-                                                        <button type="submit" name="add_tb_culture" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                    </div>
-                                                    <?php require_once 'add_tb_culture.php' ?>
-                                                </div>
-                                            </form>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab-fifth">
@@ -362,105 +382,169 @@ require ('config.php');
                                                 <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-xs-12">
+                                                            <label class="col-md-2 control-label">TB Culture Laboratory</label>
+                                                            <div class="col-md-9 col-xs-12">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="tb_culture_laboratory" placeholder="TB Culture Laboratory" required/> 
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="dst_laboratory" placeholder="DST Laboratory" required/>
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="tb_culture_laboratory" placeholder="TB Culture Laboratory"  data-toggle="tooltip" data-placement="top" title="TB Culture Laboratory" required/> 
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-xs-12">
+                                                            <label class="col-md-2 control-label">DST Laboratory</label>
+                                                            <div class="col-md-9 col-xs-12">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                    <input type="text" class="form-control datepicker" name="date_collected" placeholder="Date Collected" required/>
-                                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                    <input type="text" class="form-control datepicker" name="date_received" placeholder="Date Received" required/>
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="dst_laboratory" placeholder="DST Laboratory"  data-toggle="tooltip" data-placement="top" title="DST Laboratory" required/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-xs-12">
+                                                            <label class="col-md-2 control-label">Date Collected</label>
+                                                            <div class="col-md-9 col-xs-12">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="method" placeholder="Method" required/>
+                                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                                    <input type="text" class="form-control datepicker" name="date_collected" placeholder="Date Collected" data-toggle="tooltip" data-placement="top" title="Date Collected" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Date Received</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                                    <input type="text" class="form-control datepicker" name="date_received" placeholder="Date Received" data-toggle="tooltip" data-placement="top" title="Date Received" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Method</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="method" placeholder="Method" data-toggle="tooltip" data-placement="top" title="Method" required/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <hr>
                                                         <label>First Line Drug Results</label>
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-xs-12">
+                                                            <label class="col-md-2 control-label">Isoniazid</label>
+                                                            <div class="col-md-9 col-xs-12">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="isoniazid" placeholder="Isoniazid" required/>
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="rifampicin" placeholder="Rifampicin" required/>
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="isoniazid" placeholder="Isoniazid" data-toggle="tooltip" data-placement="top" title="Isoniazid" required/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-xs-12">
+                                                            <label class="col-md-2 control-label">Rifampicin</label>
+                                                            <div class="col-md-9 col-xs-12">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="ethambutol" placeholder="Ethambutol" required/>
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="streptomycin" placeholder="Streptomycin" required/>
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="rifampicin" placeholder="Rifampicin" data-toggle="tooltip" data-placement="top" title="Rifampicin" required/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-xs-12">
+                                                            <label class="col-md-2 control-label">Ethambutol</label>
+                                                            <div class="col-md-9 col-xs-12">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="pyrazinamide" placeholder="Pyrazinamide" required/>
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="ethambutol" placeholder="Ethambutol" data-toggle="tooltip" data-placement="top" title="Ethambutol" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Streptomycin</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="streptomycin" placeholder="Streptomycin" data-toggle="tooltip" data-placement="top" title="Streptomycin" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Pyrazinamide</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="pyrazinamide" placeholder="Pyrazinamide" data-toggle="tooltip" data-placement="top" title="Pyrazinamide" required/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <hr>
                                                         <label>Second Line Drug Results</label>
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-xs-12">
+                                                            <label class="col-md-2 control-label">Levofloxacin</label>
+                                                            <div class="col-md-9 col-xs-12">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="levofloxacin" placeholder="Levofloxacin" required/>
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="kanamycin" placeholder="Kanamycin" required/>
-
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="levofloxacin" placeholder="Levofloxacin" data-toggle="tooltip" data-placement="top" title="Levofloxacin" required/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-xs-12">
+                                                            <label class="col-md-2 control-label">Kanamycin</label>
+                                                            <div class="col-md-9 col-xs-12">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="amikacin" placeholder="Amikacin" required/>
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="capreomycin" placeholder="Capreomycin" required/>
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="kanamycin" placeholder="Kanamycin" data-toggle="tooltip" data-placement="top" title="Kanamycin" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Amikacin</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="amikacin" placeholder="Amikacin" data-toggle="tooltip" data-placement="top" title="Amikacin" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Capreomycin</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="capreomycin" placeholder="Capreomycin" data-toggle="tooltip" data-placement="top" title="Capreomycin" required/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <hr>
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-xs-12">
+                                                            <label class="col-md-2 control-label">Examined By</label>
+                                                            <div class="col-md-9 col-xs-12">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="examined_by" placeholder="Examined By" required/>
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="remarks" placeholder="Remarks" required/>
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="examined_by" placeholder="Examined By" data-toggle="tooltip" data-placement="top" title="Examined By" required/>
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <div class="form-group">
-                                                            <div class="col-md-12 col-xs-12">
+                                                            <label class="col-md-2 control-label">Remarks</label>
+                                                            <div class="col-md-9 col-xs-12">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                    <input type="text" class="form-control" name="reviewed_by" placeholder="Reviewed By" required/>
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="remarks" placeholder="Remarks" data-toggle="tooltip" data-placement="top" title="Remarks" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Reviewed By</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                                    <input type="text" class="form-control" name="reviewed_by" placeholder="Reviewed By" data-toggle="tooltip" data-placement="top" title="Reviewed By" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Date Released</label>
+                                                            <div class="col-md-9 col-xs-12">
+                                                                <div class="input-group">
                                                                     <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                    <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" required/>
+                                                                    <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" data-toggle="tooltip" data-placement="top" title="Date Released" required/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -471,70 +555,6 @@ require ('config.php');
                                                     </div>
                                                 </form>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="tab-sixth">
-                                        <div class="row">
-                                            <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="result" placeholder="Result"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input type="text" class="form-control datepicker" name="date_read" placeholder="Date Read">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tab-footer">
-                                                        <button type="submit" name="add_tst" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                    </div>
-                                                    <?php require_once 'add_tst.php' ?>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="tab-seventh">
-                                        <div class="row">
-                                            <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="cxr_findings" placeholder="Chest X-ray Findings" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input type="text" class="form-control datepicker" name="date_of_exam" placeholder="Date of Exam"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                <input type="text" class="form-control" name="tbdc" placeholder="TBDC"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tab-footer">
-                                                        <button type="submit" name="add_cxr" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                    </div>
-                                                    <?php require_once 'add_cxr.php' ?>
-                                                </div>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>

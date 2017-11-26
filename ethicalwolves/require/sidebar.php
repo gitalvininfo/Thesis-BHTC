@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="profile-controls">
-                    <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
+                    <a href="#" class="profile-control-left"><span class="fa fa-info"></span></a>
                 </div>
             </div>
         </li>

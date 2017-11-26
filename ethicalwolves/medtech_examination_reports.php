@@ -20,62 +20,9 @@ require ('config.php');
         $find = $query->fetch_array();
         ?>
         <div class="page-container">
-            <div class="page-sidebar">
-                <!-- START X-NAVIGATION -->
-                <ul class="x-navigation">
-                    <li class="xn-logo">
-                        <a href="home.php">BHTC-PMIS</a>
-                        <a href="#" class="x-navigation-control"></a>
-                    </li>
-                    <li class="xn-profile">
-                        <a href="#" class="profile-mini">
-                            <img src="assets/images/project_logo.png" alt="User" />
-                        </a>
-                        <div class="profile">
-                            <div class="profile-image">
-                                <img src="assets/images/project_logo.png" alt="User" />
-                            </div>
-                            <div class="profile-data">
-                                <div class="profile-data-name">
-                                    <?php 
-                                    echo $find['firstname']." ".$find['lastname'];
-                                    ?>
-                                </div>
-                                <div class="profile-data-title">
-                                    <?php 
-                                    echo $find['position'];
-                                    ?>
-                                </div>
-                            </div>
-                            <div class="profile-controls">
-                                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="active">
-                        <a href="dashboard_medtech.php"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
-                    </li>
-                    <li>
-                        <a href="medtech_patient_master_file.php"><span class="fa fa-folder-open"></span> <span class="xn-text">Patient Master File</span></a>
-                    </li>
-                    <li>
-                        <a href="medtech_laboratory_request.php"><span class="fa fa-flask"></span> <span class="xn-text">Laboratory Request</span></a>
-                    </li>
-                    <li>
-                        <a href="reports/medtech_examination_reports.php"><span class="fa fa-bar-chart"></span> <span class="xn-text">Examination Reports</span></a>
-                    </li>
-                </ul>
-                <!-- END X-NAVIGATION -->
-            </div>
+            <?php require 'require/medtech_sidebar.php'?>
             <div class="page-content">
-                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <li class="xn-icon-button">
-                        <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
-                    </li>
-                    <li class="xn-icon-button pull-right">
-                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
-                    </li>
-                </ul>
+                <?php require 'require/medtech_header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li class="active">Examination Reports</li>
@@ -150,40 +97,7 @@ require ('config.php');
                 </div>
             </div>
         </div>
-        <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
-            <div class="mb-container">
-                <div class="mb-middle">
-                    <div class="mb-title"><span class="glyphicon glyphicon-off"></span> Log <strong>Out</strong> ?</div>
-                    <div class="mb-content">
-                        <p>Are you sure you want to log out?</p>
-                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
-                    </div>
-                    <div class="mb-footer">
-                        <div class="pull-right">
-                            <a href="logout.php" class="btn btn-danger btn-lg">Yes</a>
-                            <button class="btn btn-default btn-lg mb-control-close">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
-            <div class="mb-container">
-                <div class="mb-middle">
-                    <div class="mb-title"><span class="fa fa-power-off"></span> Log <strong>Out</strong> ?</div>
-                    <div class="mb-content">
-                        <p>Are you sure you want to log out?</p>
-                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
-                    </div>
-                    <div class="mb-footer">
-                        <div class="pull-right">
-                            <a href="index.php" class="btn btn-success btn-lg">Yes</a>
-                            <button class="btn btn-default btn-lg mb-control-close">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php require 'require/logout.php'?>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>

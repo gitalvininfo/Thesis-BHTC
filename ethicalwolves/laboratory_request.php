@@ -76,7 +76,7 @@ require ('config.php');
                                                 <div class="col-md-12 col-xs-12">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                        <input data-toggle="tooltip" data-placement="right" title="Requesting Physician" type="text" class="form-control" name="requesting_physician" placeholder="Requesting Physician" required/>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Requesting Physician" type="text" class="form-control" name="requesting_physician" placeholder="Requesting Physician" id="requesting_physician" onkeyup="capitalize(this.id, this.value);" required/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -385,15 +385,20 @@ require ('config.php');
                 </div>
             </div>
         </div>
-        <!-- END MESSAGE BOX-->
+        <script>
+            function capitalize(textboxid, str) {
+                if (str && str.length >= 2) {
+                    var firstChar = str.charAt(0);
+                    var remainingStr = str.slice(1);
+                    str = firstChar.toUpperCase() + remainingStr;
+                }
+                document.getElementById(textboxid).value = str;
+            }
 
-        <!-- START PRELOADS -->
+        </script>
+
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-        <!-- END PRELOADS -->
-
-        <!-- START SCRIPTS -->
-        <!-- START PLUGINS -->
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>

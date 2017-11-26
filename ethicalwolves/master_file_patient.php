@@ -20,7 +20,7 @@ require ('config.php');
         ?>
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
-               <div class="page-content">
+            <div class="page-content">
                 <?php require 'require/header.php'?>
 
                 <ul class="breadcrumb">
@@ -31,69 +31,126 @@ require ('config.php');
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-file-text"></span> Patient Master File</h3>
-                                    <ul class="panel-controls">
-                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
-                                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
-                                    </ul>   
-                                </div>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
-                                    <div class="panel-body">
-                                        <table class="table datatable">
-                                            <thead> 
-                                                <tr class="info">
-                                                    <th><center>TB Case No</center></th>
-                                                    <th><center>Patient Name</center></th>
-                                                    <th><center>Age</center></th>
-                                                    <th><center>Gender</center></th>
-                                                    <th><center>Birthdate</center></th>
-                                                    <th><center>Contact No</center></th>
-                                                    <th><center>Address</center></th>
-                                                    <th><center>Action</center></th>
-                                                </tr>
+                            <div class="panel panel-default tabs">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">TB Case</a></li>
+                                    <li><a href="#tab-second" role="tab" data-toggle="tab">IPT Case</a></li>
+                                </ul>
+                                <div class="panel-body tab-content">
+                                    <div class="tab-pane active" id="tab-first">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                        <div class="panel-body">
+                                                            <table class="table datatable">
+                                                                <thead> 
+                                                                    <tr class="info">
+                                                                        <th><center>TB Case No</center></th>
+                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Age</center></th>
+                                                                        <th><center>Gender</center></th>
+                                                                        <th><center>Birthdate</center></th>
+                                                                        <th><center>Contact No</center></th>
+                                                                        <th><center>Address</center></th>
+                                                                        <th><center>Action</center></th>
+                                                                    </tr>
 
-                                            </thead>
-                                            <tbody>
-                                                <?php
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
     $year = date('Y');
-                                   $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $query = $conn->query("SELECT * FROM `patient` ORDER BY `status` DESC") or die(mysqli_error());
-                                   while($fetch = $query->fetch_array()){
-                                       $id = $fetch['patient_id'];
-                                       $query2 = $conn->query("SELECT `tb_case_no`, `year` FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                                       $fetch2 = $query2->fetch_array();
-                                                ?>                                      
-                                                <tr>
-                                                    <td><center><strong><?php echo $fetch2['year']. "-".$fetch['patient_id']?></strong></center></td>
-                                                    <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
-                                                    <td><center><?php echo $fetch['age']?></center></td>
-                                                    <td><center><?php echo $fetch['gender']?></center></td>
-                                                    <td><center><?php echo $fetch['birthdate']?></center></td>
-                                                    <td><center><?php echo $fetch['contact_number']?></center></td>
-                                                    <td><center><?php echo $fetch['address']?></center></td>
-                                                    <td><center>
-                                                        <a href="#updatepatient<?php echo $fetch['patient_id'];?>" data-target="#updatepatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
-                                                        <a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
-                                                </tr>
-                                                <?php
-                                   }
-                                   $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table>                                    
+            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `status` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                $id = $fetch['patient_id'];
+                $query2 = $conn->query("SELECT `tb_case_no`, `year` FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                $fetch2 = $query2->fetch_array();
+                                                                    ?>                                      
+                                                                    <tr>
+                                                                        <td><center><strong><?php echo $fetch2['year']. "-". "5867". "-" .$fetch['patient_id']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch['age']?></center></td>
+                                                                        <td><center><?php echo $fetch['gender']?></center></td>
+                                                                        <td><center><?php echo $fetch['birthdate']?></center></td>
+                                                                        <td><center><?php echo $fetch['contact_number']?></center></td>
+                                                                        <td><center><?php echo $fetch['address']?></center></td>
+                                                                        <td><center>
+                                                                            <a href="#updatepatient<?php echo $fetch['patient_id'];?>" data-target="#updatepatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
+                                                                            <a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
+                                                                    </tr>
+                                                                    <?php
+            }
+            $conn->close();
+                                                                    ?>
+                                                                </tbody>
+                                                            </table>                                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                        <div class="panel-body">
+                                                            <table class="table datatable">
+                                                                <thead> 
+                                                                    <tr class="info">
+                                                                        <th><center>IPT No</center></th>
+                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Age</center></th>
+                                                                        <th><center>Gender</center></th>
+                                                                        <th><center>Birthdate</center></th>
+                                                                        <th><center>Emergency No</center></th>
+                                                                        <th><center>Address</center></th>
+                                                                        <th><center>Action</center></th>
+                                                                    </tr>
+
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
+                                                                    $year = date('Y');
+                                                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `status` = 'Registered' ORDER BY `status` DESC") or die(mysqli_error());
+                                                                    while($fetch = $query->fetch_array()){
+                                                                        $id = $fetch['patient_id'];
+                                                                        $query2 = $conn->query("SELECT `ipt_no`, `year` FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                                                                        $fetch2 = $query2->fetch_array();
+                                                                    ?>                                      
+                                                                    <tr>
+                                                                        <td><center><strong><?php echo $fetch2['year']. "-".$fetch['patient_id']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch['name']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch['age']?></center></td>
+                                                                        <td><center><?php echo $fetch['gender']?></center></td>
+                                                                        <td><center><?php echo $fetch['birthdate']?></center></td>
+                                                                        <td><center><?php echo $fetch['emergency_no']?></center></td>
+                                                                        <td><center><?php echo $fetch['address']?></center></td>
+                                                                        <td><center>
+                                                                            <a href="#updatepatient<?php echo $fetch['patient_id'];?>" data-target="#updatepatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
+                                                                            <a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
+                                                                    </tr>
+                                                                    <?php
+                                                                    }
+                                                                    $conn->close();
+                                                                    ?>
+                                                                </tbody>
+                                                            </table>                                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- END DATATABLE EXPORT -->                            
+                            </div>                           
                         </div>
 
                     </div>         
-                    <!-- END PAGE CONTENT WRAPPER -->
                 </div>            
-                <!-- END PAGE CONTENT -->
-
             </div>
         </div>
 
