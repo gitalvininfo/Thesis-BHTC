@@ -108,7 +108,8 @@ require ('../config.php');
                                                         $fetch3 = $pri->fetch_array();
                                                         $com = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Community' && `year` = '$year'") or die(mysqli_error());
                                                         $fetch4 = $com->fetch_array();
-
+                                                        $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
+                                                        $fetch5 = $gra->fetch_array();                                                     
                                                         ?>
                                                         <tr>
                                                             <td>Public Health Center</td>
@@ -125,6 +126,11 @@ require ('../config.php');
                                                         <tr>
                                                             <td>Community</td>
                                                             <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr class="danger">
+                                                        <td><h4><strong>Grand Total</strong></h4></td>
+                                                        <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch5['total']?></span></strong></center></td>
+                                                        <td></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

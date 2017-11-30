@@ -86,7 +86,7 @@ require ('../config.php');
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>Classification of TB Patients</th>
+                                                            <th>Classification of TB Disease</th>
                                                             <th><center>Number of Patients per Category</center></th>
 
                                                         </tr>
@@ -103,6 +103,8 @@ require ('../config.php');
                                                         $fetch1 = $pul->fetch_array();
                                                         $ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary' && `year` = '$year'") or die(mysqli_error());
                                                         $fetch2 = $ext->fetch_array();
+                                                        $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
+                                                        $fetch3 = $gra->fetch_array();
                                                         ?>
                                                         <tr>
                                                             <td>Pulmonary</td>
@@ -111,6 +113,11 @@ require ('../config.php');
                                                         <tr>
                                                             <td>Extra-pulmonary</td>
                                                             <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr class="danger">
+                                                        <td><h4><strong>Grand Total</strong></h4></td>
+                                                        <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch3['total']?></span></strong></center></td>
+                                                        <td></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

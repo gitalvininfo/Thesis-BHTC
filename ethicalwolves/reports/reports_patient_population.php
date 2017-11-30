@@ -24,7 +24,7 @@ require ('../config.php');
         ?>
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
-               <div class="page-content">
+            <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="../home.php">Home</a></li>
@@ -48,9 +48,9 @@ require ('../config.php');
         $value=$_GET['year']; 
         echo $value;
     }
-                                   else{
-                                       echo date('Y');
-                                   }
+            else{
+                echo date('Y');
+            }
                                                                ?>">
                                                     <?php 
                                                     if(isset($_GET['year'])){
@@ -76,16 +76,13 @@ require ('../config.php');
                                     <div class="tab-pane active" id="tab-first">
 
                                         <div class="row">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title"><strong> <span class="fa fa-bar-chart"></span> Patient Montly Population</strong></h3>
-                                            </div>
                                             <div class="panel-body">
-                                                <div id="patient_population" style="width: 100%; height: 375px"></div>
+                                                <div id="patient_population" style="width: 100%; height: 400px"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab-second">
-                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 456px;">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                             <div class="row">
                                                 <table class="table table-hover">
                                                     <thead>
@@ -126,6 +123,8 @@ require ('../config.php');
                                                         $fnov = $qnov->fetch_array();
                                                         $qdec = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Dec' && `year` = '$year'") or die(mysqli_error());
                                                         $fdec = $qdec->fetch_array();
+                                                        $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
+                                                        $grat = $gra->fetch_array();
                                                         ?>
                                                         <tr>
                                                             <td>January</td>
@@ -174,6 +173,11 @@ require ('../config.php');
                                                         <tr>
                                                             <td>December</td>
                                                             <td><center><strong><?php echo $fdec['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr class="danger">
+                                                            <td><h3><strong>Grand Total</strong></h3></td>
+                                                            <td><center><strong><span class="label label-danger" style="font-size:15px;"><?php echo $grat['total']?></span></strong></center></td>
+                                                            <td></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

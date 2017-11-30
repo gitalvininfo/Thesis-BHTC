@@ -31,7 +31,6 @@ $f = $q->fetch_array();
                     <li><a href="home.php">Home</a></li>
                     <li class="active">Dashboard</li>
                 </ul>
-
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-3">
@@ -223,24 +222,6 @@ $f = $q->fetch_array();
                 </div>
             </div>
         </div>
-
-        <div class="modal" id="modal_small" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="smallModalHead">Small Modal</h4>
-                    </div>
-                    <div class="modal-body">
-                        Some content in modal example
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
-                    </div>
-                </div>
-            </div>
-        </div>        
-
         <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){

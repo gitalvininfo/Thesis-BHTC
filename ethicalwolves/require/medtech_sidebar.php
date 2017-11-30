@@ -30,7 +30,7 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="dashboard_medtech.php"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
+                        <a href="dashboard_medtech.php"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboard</span></a>
                     </li>
                     <li>
                         <a href="medtech_patient_master_file.php"><span class="fa fa-folder-open"></span> <span class="xn-text">Laboratory Results</span></a>

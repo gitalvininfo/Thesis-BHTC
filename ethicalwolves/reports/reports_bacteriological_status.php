@@ -103,6 +103,8 @@ require ('../config.php');
                                                         $fetch1 = $bs->fetch_array();
                                                         $cd = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Clinically Diagnosed' && `year` = '$year'") or die(mysqli_error());
                                                         $fetch2 = $cd->fetch_array();
+                                                        $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
+                                                        $fetch3 = $gra->fetch_array();
                                                         ?>
                                                         <tr>
                                                             <td>Bacteriologically Confirmed</td>
@@ -111,6 +113,11 @@ require ('../config.php');
                                                         <tr>
                                                             <td>Clinically Diagnosed</td>
                                                             <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                        </tr>
+                                                        <tr class="danger">
+                                                        <td><h4><strong>Grand Total</strong></h4></td>
+                                                        <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch3['total']?></span></strong></center></td>
+                                                        <td></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

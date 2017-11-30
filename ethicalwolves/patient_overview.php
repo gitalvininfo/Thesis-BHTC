@@ -39,7 +39,7 @@ require ('config.php');
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Patient</a></li>
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">Treatment</a></li>
-                                    <li><a href="#tab-third" role="tab" data-toggle="tab">Follow-up Schedule</a></li>
+                                    <li><a href="#tab-third" role="tab" data-toggle="tab">Follow-up Visit</a></li>
                                     <li><a href="#tab-fourth" role="tab" data-toggle="tab">DSSM</a></li>
                                     <li><a href="#tab-fifth" role="tab" data-toggle="tab">Xpert MTB</a></li>
                                     <li><a href="#tab-sixth" role="tab" data-toggle="tab">TB Culture</a></li>
@@ -51,6 +51,7 @@ require ('config.php');
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                             <div class="row">
                                                 <?php
+                                                $year = date('Y');
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
             $f = $q->fetch_array();
@@ -107,7 +108,7 @@ require ('config.php');
                                                     <div class="panel panel-info">
                                                         <div class="panel-body">                                    
                                                             <div class="contact-info">
-                                                                <p><small style="font-size:12px;">TB Case Number</small><br/><?php echo $fetch['tb_case_no']?></p>
+                                                                <p><small style="font-size:12px;">TB Case Number</small><br/><?php echo $fetch['year']. "-". "5867". "-" .$fetch['patient_id']?></p>
                                                                 <p><small style="font-size:12px;">Registration Date</small><br/><?php echo $fetch['registration_date']?></p>
                                                                 <p><small style="font-size:12px;">DOTS Facility</small><br/><?php echo $fetch['dots_facility']?></p>                                   
                                                             </div>
