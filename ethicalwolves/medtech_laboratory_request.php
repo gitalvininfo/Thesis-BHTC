@@ -48,33 +48,28 @@ require ('config.php');
                                             <thead> 
                                                 <tr class="info">
                                                     <th><center>Patient Name</center></th>
-                                                    <th><center>Age</center></th>
-                                                    <th><center>Gender</center></th>
-                                                    <th><center>Birthdate</center></th>
-                                                    <th><center>Contact Number</center></th>
-                                                    <th><center>Address</center></th>
+                                                    <th><center>Date of Request</center></th>
+                                                    <th><center>Requesting Physician</center></th>
+                                                    <th><center>Test Requested</center></th>
                                                     <th><center>Action</center></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                while($fetch = $query->fetch_array()){
-                    $id = $fetch['patient_id'];
-                    $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` where `patient_id` = '$id' && `status` = 'Pending'") or die(mysqli_error());
-                    $f = $q->fetch_array();
-                    $q2 = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
-                    $f2 = $q2->fetch_array();
-
+    require 'config.php';
+            $query = $conn->query("SELECT `patient_name`, `patient_id` FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                $id = $fetch['patient_id'];
+                $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` where `patient_id` = '$id' && `status` = 'Pending'") or die(mysqli_error());
+                $f = $q->fetch_array();
+                $q2 = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' && `patient_id` = '$id' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
+                $f2 = $q2->fetch_array();
                                                 ?>                                      
                                                 <tr>
                                                     <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
-                                                    <td><center><?php echo $fetch['age']?></center></td>
-                                                    <td><center><?php echo $fetch['gender']?></center></td>
-                                                    <td><center><?php echo $fetch['birthdate']?></center></td>
-                                                    <td><center><?php echo $fetch['contact_number']?></center></td>
-                                                    <td><center><?php echo $fetch['address']?></center></td>
+                                                    <td><center><?php echo $f2['date_of_request']?></center></td>
+                                                    <td><center><?php echo $f2['requesting_physician']?></center></td>
+                                                    <td><center><?php echo $f2['test_requested']?></center></td>
                                                     <td>
                                                         <center>
                                                             <a href="laboratory_request_pending.php?id=<?php echo $fetch['patient_id']?>" class="btn btn-sm btn-info">Request <span class = "badge"><?php echo $f['total']?></span></a>
@@ -82,8 +77,8 @@ require ('config.php');
                                                     </td>		
                                                 </tr>
                                                 <?php
-                }
-                $conn->close();
+            }
+            $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>  
@@ -97,27 +92,9 @@ require ('config.php');
                 </div>         
             </div>            
         </div>
-  
-        <div class="message-box animated fadeIn" data-sound="alert" id="mb-remove-row">
-            <div class="mb-container">
-                <div class="mb-middle">
-                    <div class="mb-title"><span class="fa fa-times"></span> Remove <strong>Data</strong> ?</div>
-                    <div class="mb-content">
-                        <p>Are you sure you want to remove this row?</p>                    
-                        <p>Press Yes if you sure.</p>
-                    </div>
-                    <div class="mb-footer">
-                        <div class="pull-right">
-                            <button class="btn btn-success btn-lg mb-control-yes">Yes</button>
-                            <button class="btn btn-default btn-lg mb-control-close">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+
         <?php require 'require/logout.php'?>
-   
+
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>

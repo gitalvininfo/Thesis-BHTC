@@ -80,7 +80,7 @@ $f = $q->fetch_array();
                                                 else{
                                                     echo "<textarea  style = color:#000;font-size:13px;height:68px;' disabled = 'disabled' class = 'form-control'> Date Requested:    ".$f['date_of_request']."                                                                                   
  Test Requested:     ".$f['test_requested']."         
- Requesting Physician: ".$f['requesting_physician']."</textarea><br /><a class = 'btn btn-info' disabled = 'disabled'><span class = 'glyphicon glyphicon-check'></span>Confirmed</a><br /><br />";
+ Requesting Physician: ".$f['requesting_physician']."</textarea><br /><a class = 'btn btn-info' disabled = 'disabled'><span class = 'glyphicon glyphicon-check'></span>Done</a><br /><br />";
                                                 }
                                             }
                                         ?>

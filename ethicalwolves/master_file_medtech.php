@@ -5,6 +5,7 @@ require ('config.php');
 if(ISSET($_POST['save_user'])){
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
+    $license = $_POST['license'];
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -21,7 +22,7 @@ if(ISSET($_POST['save_user'])){
         echo "<script> alert ('Username already taken. Try another one.')</script>";
     }
     else{
-        $conn->query ("INSERT INTO `user` VALUES(' ', '$firstname', '$lastname', 'Medical Technologist', '$username', '$pass1')") or die(mysqli_error());
+        $conn->query ("INSERT INTO `user` VALUES(' ', '$firstname', '$lastname', '$license', 'Medical Technologist', '$username', '$pass1')") or die(mysqli_error());
         echo "<script type='text/javascript'> alert ('Account registered successfully!');</script>";
         echo "<script>window.location='master_file_medtech.php'</script>";
     }
@@ -45,18 +46,19 @@ if(ISSET($_POST['save_user'])){
         ?>
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
-               <div class="page-content">
+            <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
-                    <li class="active">Medical Technologists</li>
+                    <li>Data Entry</li>
+                    <li class="active">Physicians</li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-user-md"></span> Medical Technologists</h3>
+                                    <h3 class="panel-title"><span class="fa fa-user-md"></span> Physicians</h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
                                             <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_physician"><span class="fa fa-key"></span> New Account </button>
@@ -71,7 +73,7 @@ if(ISSET($_POST['save_user'])){
                                                     <th><center>ID</center></th>
                                                     <th><center>First Name</center></th>
                                                     <th><center>Last Name</center></th>
-                                                    <th><center>Position</center></th>
+                                                    <th><center>License Number</center></th>
                                                     <th><center>Username</center></th>
                                                     <th><center>Password</center></th>
                                                 </tr>
@@ -79,20 +81,20 @@ if(ISSET($_POST['save_user'])){
                                             <tbody>
                                                 <?php
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
-                                   while($fetch = $query->fetch_array()){
+            $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
                                                 ?>                                      
                                                 <tr>
                                                     <td><center><?php echo $fetch['user_id']?></center></td>
                                                     <td><center><?php echo $fetch['firstname']?></center></td>
                                                     <td><center><?php echo $fetch['lastname']?></center></td>
-                                                    <td><center><?php echo $fetch['position']?></center></td>
+                                                    <td><center><?php echo $fetch['license']?></center></td>
                                                     <td><center><?php echo $fetch['username']?></center></td>
                                                     <td><center>*******</center></td>
                                                 </tr>
                                                 <?php
-                                   }
-                                   $conn->close();
+            }
+            $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>                                    
@@ -109,9 +111,9 @@ if(ISSET($_POST['save_user'])){
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> Medical Technologist Personal and Account Information</h4>
+                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> Physicians Personal and Account Information</h4>
                     </div>
-                    <form role="form" class="form-horizontal" action="master_file_medtech.php" method="post">
+                    <form role="form" id="jvalidate" class="form-horizontal" action="master_file_medtech.php" method="post">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="panel-body">
@@ -132,12 +134,20 @@ if(ISSET($_POST['save_user'])){
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                    <input data-toggle="tooltip" data-placement="right" title="License Number" type="text" class="form-control" name="license" placeholder="License Number" required/>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <div class="form-group ">
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Username" type="text" class="form-control" name="username" placeholder="Username" required/>
+                                                    <input type="text" class="form-control" name="username" placeholder="Username" />
                                                 </div>
                                             </div>
                                         </div>
@@ -145,7 +155,7 @@ if(ISSET($_POST['save_user'])){
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Password" type="text" class="form-control" name="password" placeholder="Password" required/>
+                                                    <input type="password" class="form-control" name="password" placeholder="Password"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -179,6 +189,7 @@ if(ISSET($_POST['save_user'])){
                 </div>
             </div>
         </div>
+
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
@@ -188,7 +199,33 @@ if(ISSET($_POST['save_user'])){
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>        
-        <script type="text/javascript" src="js/actions.js"></script>        
+        <script type="text/javascript" src="js/actions.js"></script>    
+        <script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
+        <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>        
+        <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>           
+        <script type="text/javascript">
+            var jvalidate = $("#jvalidate").validate({
+                ignore: [],
+                rules: {                                            
+                    username: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 8
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 8
+                    },
+
+                    date: {
+                        required: true,
+                        date: true
+
+                    }                                        
+                });                                    
+
+        </script>
     </body>
 </html>
 

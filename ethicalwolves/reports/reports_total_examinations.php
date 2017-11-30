@@ -119,7 +119,6 @@ require ('../config.php');
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title"><strong> <span class="fa fa-pie-chart"></span> Examinations Per Category</strong></h3>
                                                 <div class="btn-group pull-right">
                                                     <div class="pull-left">
                                                         <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">

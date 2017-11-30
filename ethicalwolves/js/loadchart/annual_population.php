@@ -37,7 +37,7 @@ $fetch7 = $q7->fetch_array();
             }, 
             data: [ 
                 { 
-                    type: "spline", 
+                    type: "column", 
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [ 
                         { label: "2016", y: <?php echo $fetch1['total']?> },

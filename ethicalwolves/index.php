@@ -34,10 +34,7 @@
                                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                         <input class="form-control" name="password" placeholder="Password" type="password" required>
                                     </div>
-                                    <button type="submit" name="login" class="btn btn-primary btn-lg btn-block">LOGIN</button>
-                                    <div class="form-group">
-                                        <a href="register_user.php" class="btn btn-link btn-block" >Create an Account</a>
-                                    </div>
+                                    <button type="submit" name="login" class="btn btn-primary btn-lg btn-block"><span class="fa fa-sign-in"></span> LOGIN</button>
                                     <div class="bottom">
                                         <span class="helper-text"><i class="fa fa-code"></i> <a href="#">Developed by Ethical Wolves</a></span>
                                     </div>
@@ -61,7 +58,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- END WRAPPER -->
     </body>
 

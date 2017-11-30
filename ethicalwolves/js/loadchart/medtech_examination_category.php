@@ -14,11 +14,6 @@ $tbculture = $conn->query("SELECT COUNT(*) as total FROM `tb_culture_examination
 $fetch3 = $tbculture->fetch_array();
 $dst = $conn->query("SELECT COUNT(*) as total FROM `dst_examination` WHERE `year` = '$year'") or die(mysqli_error());
 $fetch4 = $dst->fetch_array();
-$tst = $conn->query("SELECT COUNT(*) as total FROM `tst` WHERE `year` = '$year'") or die(mysqli_error());
-$fetch5 = $tst->fetch_array();
-$cxr = $conn->query("SELECT COUNT(*) as total FROM `cxr` WHERE `year` = '$year'") or die(mysqli_error());
-$fetch6 = $cxr->fetch_array();
-
 ?>
 
 <script type="text/javascript"> 
@@ -63,7 +58,7 @@ $fetch6 = $cxr->fetch_array();
                              echo $fetch2['total'];
                          }	
                          ?>, legendText: "Xpert MTB/RIF"},
-                        
+
                         { label: "TB Culture",  y: 
                          <?php 
                          if($fetch3 == ""){
@@ -72,7 +67,7 @@ $fetch6 = $cxr->fetch_array();
                              echo $fetch3['total'];
                          }	
                          ?>, legendText: "TB Culture"},
-                        
+
                         { label: "Drug Susceptible Testing",  y: 
                          <?php 
                          if($fetch4 == ""){
@@ -80,25 +75,7 @@ $fetch6 = $cxr->fetch_array();
                          }else{
                              echo $fetch4['total'];
                          }	
-                         ?>, legendText: "Drug Susceptible Testing"},
-                        
-                        { label: "TST",  y: 
-                         <?php 
-                         if($fetch5 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch5['total'];
-                         }	
-                         ?>, legendText: "TST"}, 
-                        
-                        { label: "Chest X-ray",  y: 
-                         <?php 
-                         if($fetch6 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch6['total'];
-                         }	
-                         ?>, legendText: "Chest X-Ray"}
+                         ?>, legendText: "Drug Susceptible Testing"}
 
                     ] 
                 } 

@@ -61,8 +61,8 @@ require ('config.php');
                                                                         <th><center>Age</center></th>
                                                                         <th><center>Gender</center></th>
                                                                         <th><center>Birthdate</center></th>
-                                                                        <th><center>Home Address</center></th>
                                                                         <th><center>Contact Number</center></th>
+                                                                        <th><center>Home Address</center></th>
                                                                         <th>
                                                                             <center>Action</center>
                                                                         </th>
@@ -489,16 +489,16 @@ require ('config.php');
                                             <h3> Source of Patient</h3>
                                             <div class="form-group">
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Public Health Center"/> Public Health Center</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Public Health Center" required/> Public Health Center</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value ="Other Government Facilities"/> Other Government Facilities</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value ="Other Government Facilities" required/> Other Government Facilities</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Private Hospitals"/>Private Hospitals/Clinics/NGO's</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Private Hospitals" required/>Private Hospitals/Clinics/NGO's</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Community"/>Community</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Community" required/>Community</label>
                                                 </div>
                                             </div><hr>
                                         </div>
@@ -506,25 +506,25 @@ require ('config.php');
                                             <h3> Registration Group</h3>
                                             <div class="form-group">
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="New"/> New</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="New" required/> New</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value ="Relapse"/> Relapse</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value ="Relapse" required/> Relapse</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="Treatment After Failure"/> Treatment After Failure</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="Treatment After Failure" required/> Treatment After Failure</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="TALF"/>Treatment After Loss Follow-up</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="TALF" required/>Treatment After Loss Follow-up</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="PTOU"/> PTOU</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="PTOU" required/> PTOU</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="Transfer-in"/> Transfer-in</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="Transfer-in" required/> Transfer-in</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="Others"/> Others</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="registration_group" value="Others" required/> Others</label>
                                                 </div>
                                             </div><hr>
                                         </div>
@@ -532,13 +532,13 @@ require ('config.php');
                                             <h3> Diagnosis</h3>
                                             <div class="form-group">
                                                 <div class="col-md-4">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value="TB Disease"/> TB Disease</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value="TB Disease" required/> TB Disease</label>
                                                 </div>
                                                 <div class="col-md-4">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value ="TB Infection, for IPT"/> TB Infection, for IPT</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value ="TB Infection, for IPT" required/> TB Infection, for IPT</label>
                                                 </div>
                                                 <div class="col-md-4">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value="TB Exposior, for IPT"/> TB Exposior</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value="TB Exposior, for IPT" required/> TB Exposior</label>
                                                 </div>
                                             </div><hr>
                                         </div>
@@ -546,10 +546,10 @@ require ('config.php');
                                             <h3> Bacteriological Status</h3>
                                             <div class="form-group">
                                                 <div class="col-md-6">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="bacteriological_status" value="Bacteriologically Confirmed"/> Bacteriologically Confirmed</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="bacteriological_status" value="Bacteriologically Confirmed" required/> Bacteriologically Confirmed</label>
                                                 </div>
                                                 <div class="col-md-6">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="bacteriological_status" value ="Clinically Diagnosed"/> Clinically Diagnosed</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="bacteriological_status" value ="Clinically Diagnosed" required/> Clinically Diagnosed</label>
                                                 </div>
                                             </div><hr>
                                         </div>
@@ -557,10 +557,10 @@ require ('config.php');
                                             <h3> Classification of TB</h3>
                                             <div class="form-group">
                                                 <div class="col-md-6">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="classification_of_tb" value="Pulmonary"/> Pulmonary</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="classification_of_tb" value="Pulmonary" required/> Pulmonary</label>
                                                 </div>
                                                 <div class="col-md-6">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="classification_of_tb" value ="Extra-pulmonary"/> Extra-pulmonary</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="classification_of_tb" value ="Extra-pulmonary" required/> Extra-pulmonary</label>
                                                 </div>
                                             </div><hr>
                                         </div>
@@ -568,10 +568,10 @@ require ('config.php');
                                             <h3>BCG Scar</h3>
                                             <div class="form-group">
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="bcg_scar" value="Yes"/> Yes</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="bcg_scar" value="Yes" required/> Yes</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="bcg_scar" value ="No"/> No</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="bcg_scar" value ="No" required/> No</label>
                                                 </div>
                                             </div><hr>
                                         </div>
@@ -579,10 +579,10 @@ require ('config.php');
                                             <h3>History of TB</h3>
                                             <div class="form-group">
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="history" value="Yes"/> Yes</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="history" value="Yes" required/> Yes</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="history" value ="No"/> No</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="history" value ="No" required/> No</label>
                                                 </div>
                                             </div><hr>
                                         </div>
@@ -590,10 +590,10 @@ require ('config.php');
                                             <h3>Duration</h3>
                                             <div class="form-group">
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="duration" value="Less than 1 month"/> Less than 1 month</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="duration" value="Less than 1 month" required/> Less than 1 month</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="duration" value ="1 month or more"/> 1 month or more</label>
+                                                    <label class="check"><input type="radio" class="iradio" name="duration" value ="1 month or more" required/> 1 month or more</label>
                                                 </div>
                                             </div><hr>
                                         </div>

@@ -21,7 +21,7 @@ require ('config.php');
         <div class="page-container">
             <?php require 'require/medtech_sidebar.php'?>
             <div class="page-content">
-               <?php require 'require/medtech_header.php'?>
+                <?php require 'require/medtech_header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li class="active">Registered TB Patient</li>
@@ -34,11 +34,7 @@ require ('config.php');
                             <!-- START DATATABLE EXPORT -->
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-file-text"></span> Patient Master File</h3>
-                                    <ul class="panel-controls">
-                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
-                                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
-                                    </ul>   
+                                    <h3 class="panel-title"><span class="fa fa-file-text"></span> Laboratory Results</h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 410px;">
                                     <div class="panel-body">
@@ -56,12 +52,12 @@ require ('config.php');
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_name`") or die(mysqli_error());
-                                                while($fetch = $query->fetch_array()){
-                                                    $id = $fetch['patient_id'];
-                                                    $q = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                                                    $f = $q->fetch_array();
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_name`") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                $id = $fetch['patient_id'];
+                $q = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                $f = $q->fetch_array();
                                                 ?>                                     
                                                 <tr>
                                                     <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
@@ -73,8 +69,8 @@ require ('config.php');
                                                         <a href="medtech_patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View</a></center></td>	
                                                 </tr>
                                                 <?php
-                                                }
-                                                $conn->close();
+            }
+            $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>                                    

@@ -101,7 +101,7 @@ require ('../config.php');
                                                         $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
                                                         $pul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
                                                         $fetch1 = $pul->fetch_array();
-                                                        $ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extrapulmonary' && `year` = '$year'") or die(mysqli_error());
+                                                        $ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary' && `year` = '$year'") or die(mysqli_error());
                                                         $fetch2 = $ext->fetch_array();
                                                         ?>
                                                         <tr>

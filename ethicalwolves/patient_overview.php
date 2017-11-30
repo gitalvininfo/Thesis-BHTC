@@ -44,8 +44,7 @@ require ('config.php');
                                     <li><a href="#tab-fifth" role="tab" data-toggle="tab">Xpert MTB</a></li>
                                     <li><a href="#tab-sixth" role="tab" data-toggle="tab">TB Culture</a></li>
                                     <li><a href="#tab-seventh" role="tab" data-toggle="tab">DST</a></li>
-                                    <li><a href="#tab-eight" role="tab" data-toggle="tab">TST</a></li>
-                                    <li><a href="#tab-ninth" role="tab" data-toggle="tab">CXR</a></li>
+                                    
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
@@ -572,84 +571,7 @@ require ('config.php');
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="tab-eight">
-                                        <div class="row">
-                                            <div class="panel-body">
-                                                <table id="laboratory_request" class="table table-hover">
-                                                    <thead>
-                                                        <tr class="info">
-                                                            <th><center>Tuberculin Skin Testing</center></th>
-                                                            <th><center>Date Read</center></th>
-                                                            <th><center>View Record</center></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
-                                                        $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                        $query = $conn->query("SELECT * FROM `tst` WHERE `patient_id` = '$_GET[id]' ORDER BY `tst_id` DESC") or die(mysqli_error());
-                                                        $id = $f['patient_id'];
-                                                        while($fetch = $query->fetch_array()){
-                                                            $id = $fetch['patient_id'];
-                                                        ?>
-                                                        <tr>
-                                                            <td><center><?php echo $fetch['result']?></center></td>
-                                                            <td><center><?php echo $fetch['date_read']?></center></td>
-                                                            <td>
-                                                                <center>
-                                                                    <a href="#viewtst<?php echo $fetch['tst_id'];?>" data-toggle="modal" data-target="#viewtst<?php echo $fetch['tst_id'];?>" class="btn btn-info btn-xs"><span class="fa fa-search"></span> </a>
-                                                                </center>
-                                                            </td>
-                                                        </tr>
-                                                        <?php
-                                                        }
-                                                        $conn->close();
-                                                        ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="tab-pane" id="tab-ninth">
-                                        <div class="row">
-                                            <div class="panel-body">
-                                                <table id="laboratory_request" class="table table-hover">
-                                                    <thead>
-                                                        <tr class="info">
-                                                            <th><center>CXR Findings</center></th>
-                                                            <th><center>Date of Exam</center></th>
-                                                            <th><center>TBDC</center></th>
-                                                            <th><center>View Record</center></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
-                                                        $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                        $query = $conn->query("SELECT * FROM `cxr` WHERE `patient_id` = '$_GET[id]' ORDER BY `cxr_id` DESC") or die(mysqli_error());
-                                                        $id = $f['patient_id'];
-                                                        while($fetch = $query->fetch_array()){
-                                                            $id = $fetch['patient_id'];
-                                                        ?>
-                                                        <tr>
-                                                            <td><center><?php echo $fetch['cxr_findings']?></center></td>
-                                                            <td><center><?php echo $fetch['date_of_exam']?></center></td>
-                                                            <td><center><?php echo $fetch['tbdc']?></center></td>
-                                                            <td>
-                                                                <center>
-                                                                    <a href="#viewcxr<?php echo $fetch['cxr_id'];?>" data-toggle="modal" data-target="#viewcxr<?php echo $fetch['cxr_id'];?>" class="btn btn-info btn-xs"><span class="fa fa-search"></span> </a>
-                                                                </center>
-                                                            </td>
-
-                                                        </tr>
-                                                        <?php
-                                                        }
-                                                        $conn->close();
-                                                        ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <!-- END PAGE CONTENT -->
                         </div>

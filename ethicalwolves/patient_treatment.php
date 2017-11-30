@@ -131,7 +131,7 @@ require ('config.php');
                                                             <div class="panel-heading">
                                                                 <h4 class="panel-title">
                                                                     <a href="#accOneColTwo">
-                                                                        <span class="fa fa-calendar"></span> Absent Days
+                                                                        <span class="fa fa-calendar"></span> Missed Days
                                                                     </a>
                                                                 </h4>
                                                             </div>
@@ -280,7 +280,7 @@ require ('config.php');
                                                             <div class="panel-heading">
                                                                 <h4 class="panel-title">
                                                                     <a href="#accOneColFour">
-                                                                        <span class="fa fa-calendar"></span> Absent Days
+                                                                        <span class="fa fa-calendar"></span> Missed Days
                                                                     </a>
                                                                 </h4>
                                                             </div>
@@ -859,7 +859,7 @@ require ('config.php');
        
         <!-- Add Drug Preparations -->
         <?php
-        $date = date('l jS \of F Y');
+         $date = date('F j, Y | l');
         $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
         $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
         while($fetch = $query->fetch_array()){

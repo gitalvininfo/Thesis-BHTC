@@ -126,7 +126,7 @@ $f = $q->fetch_array();
                         </div>
                         <div class="col-md-3">
                             <!-- START WIDGET REGISTRED -->
-                            <div class="widget widget-info widget-item-icon" onclick="location.href='master_file_patient.php';"style="cursor:pointer;">
+                            <div class="widget widget-info widget-item-icon" onclick="location.href='patient_treatment_table.php';"style="cursor:pointer;">
                                 <div class="widget-item-left">
                                     <span class="fa fa-male"></span>
                                 </div>
@@ -144,7 +144,7 @@ $f = $q->fetch_array();
                                         <?php echo $f2['total'] ?>
                                     </div>
                                     <div class="widget-title">TB Patients</div>
-                                    <div class="widget-subtitle">Registered this Year</div>
+                                    <div class="widget-subtitle">Currently in Treatment</div>
                                 </div>
                                 <div class="widget-controls">
                                     <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -174,8 +174,6 @@ $f = $q->fetch_array();
                                     </div>
                                 </div>
                             </div>
-                            <!-- END WIDGET CLOCK -->
-
                         </div>
                         <div class="col-md-12">
                             <div class="panel panel-info">
@@ -243,23 +241,7 @@ $f = $q->fetch_array();
             </div>
         </div>        
 
-        <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
-            <div class="mb-container">
-                <div class="mb-middle">
-                    <div class="mb-title"><span class="glyphicon glyphicon-off"></span> Log <strong>Out</strong> ?</div>
-                    <div class="mb-content">
-                        <p>Are you sure you want to log out?</p>
-                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
-                    </div>
-                    <div class="mb-footer">
-                        <div class="pull-right">
-                            <a href="logout.php" class="btn btn-danger btn-lg">Yes</a>
-                            <button class="btn btn-default btn-lg mb-control-close">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){
                 $("#pyear").on('change', function(){
@@ -272,7 +254,6 @@ $f = $q->fetch_array();
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
-
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
