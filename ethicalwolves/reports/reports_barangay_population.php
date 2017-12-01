@@ -84,7 +84,7 @@ require ('../config.php');
                                     <div class="tab-pane" id="tab-second">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                             <div class="row">
-                                                <table class="table table-hover">
+                                                <table class="table datatable">
                                                     <thead>
                                                         <tr>
                                                             <th>Barangay</th>
@@ -241,7 +241,7 @@ require ('../config.php');
 
                                                         $brgy23 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 23'") or die(mysqli_error());
                                                         $fetch48 = $brgy23->fetch_array();
-                                                        
+
                                                         $brgy24 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 24'") or die(mysqli_error());
                                                         $fetch49 = $brgy24->fetch_array();
 
@@ -261,215 +261,207 @@ require ('../config.php');
                                                         $fetch54 = $brgy29->fetch_array();
 
                                                         $brgy30 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 30'") or die(mysqli_error());
-                                                        $fetch54 = $brgy30->fetch_array();
+                                                        $fetch55 = $brgy30->fetch_array();
 
                                                         $brgy31 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 31'") or die(mysqli_error());
-                                                        $fetch54 = $brgy31->fetch_array();
+                                                        $fetch56 = $brgy31->fetch_array();
 
                                                         $brgy32 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 32'") or die(mysqli_error());
-                                                        $fetch55 = $brgy32->fetch_array();
+                                                        $fetch57 = $brgy32->fetch_array();
 
                                                         $brgy33 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 33'") or die(mysqli_error());
-                                                        $fetch56 = $brgy33->fetch_array();
+                                                        $fetch58 = $brgy33->fetch_array();
 
                                                         $brgy34 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 34'") or die(mysqli_error());
-                                                        $fetch57 = $brgy34->fetch_array();
+                                                        $fetch59 = $brgy34->fetch_array();
 
                                                         $brgy35 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 35'") or die(mysqli_error());
-                                                        $fetch58 = $brgy35->fetch_array();
+                                                        $fetch60 = $brgy35->fetch_array();
 
                                                         $brgy36 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 36'") or die(mysqli_error());
-                                                        $fetch59 = $brgy36->fetch_array();
+                                                        $fetch61 = $brgy36->fetch_array();
 
                                                         $brgy37 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 37'") or die(mysqli_error());
-                                                        $fetch60 = $brgy37->fetch_array();
+                                                        $fetch62 = $brgy37->fetch_array();
 
                                                         $brgy38 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 38'") or die(mysqli_error());
-                                                        $fetch61 = $brgy38->fetch_array();
+                                                        $fetch63 = $brgy38->fetch_array();
 
                                                         $brgy39 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 39'") or die(mysqli_error());
-                                                        $fetch62 = $brgy39->fetch_array();
+                                                        $fetch64 = $brgy39->fetch_array();
 
                                                         $brgy40 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 40'") or die(mysqli_error());
-                                                        $fetch63 = $brgy40->fetch_array();
-
-                                                        $grandtotal = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered'") or die(mysqli_error());
-                                                        $fetch25 = $grandtotal->fetch_array();
+                                                        $fetch65 = $brgy40->fetch_array();
 
                                                         ?>
                                                         <tr>
                                                             <td>Barangay Abcasa</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch1['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#abcasa"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#abcasa"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Alangilan</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch2['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#alangilan"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#alangilan"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Alijis</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch3['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#alijis"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#alijis"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Banago</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch4['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#banago"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#banago"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Bata</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch5['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch5['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#bata"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#bata"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Cabug</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch6['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch6['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#cabug"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#cabug"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Estefania</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch7['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch7['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#estefania"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#estefania"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Felisa</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch8['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch8['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#felisa"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#felisa"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Granda</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch9['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch9['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#granada"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#granada"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Handumanan</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch10['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch10['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#handumanan"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#handumanan"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Lopez Jaena</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch11['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch11['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#lopezjaena"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#lopezjaena"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Mabini</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch12['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch12['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mabini"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mabini"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Mandalagan</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch13['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch13['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mandalagan"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mandalagan"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Mansilingan</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch14['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch14['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mansilingan"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mansilingan"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
 
                                                         <tr>
                                                             <td>Barangay Montevista</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch15['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch15['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#montevista"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#montevista"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Pahanocoy</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch16['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch16['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#pahanocoy"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#pahanocoy"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Punta Taytay</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch17['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch17['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ptataytay"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ptataytay"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Singcang</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch18['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch18['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#singcang"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#singcang"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Sum-ag</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch19['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch19['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#sum-ag"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#sum-ag"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Taculing</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch20['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch20['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#taculing"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#taculing"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Tangub</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch21['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch21['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tangub"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tangub"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Villa Esperanza</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch22['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch22['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#villa-esperanza"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#villa-esperanza"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Villamonte</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch23['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch23['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#villamonte"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#villamonte"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Barangay Vista Alegre</td>
-                                                            <td><center><strong><span class="label label-default" style="font-size:12px;"><?php echo $fetch24['total']?></span></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch24['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-key"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
                                                                 </center></td>
-                                                        </tr>
-                                                        <tr class="danger">
-                                                            <td><h3><strong>Grand Total</strong></h3></td>
-                                                            <td><center><strong><span class="label label-danger" style="font-size:15px;"><?php echo $fetch25['total']?></span></strong></center></td>
-                                                            <td></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

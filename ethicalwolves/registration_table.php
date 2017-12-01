@@ -48,7 +48,7 @@ require ('config.php');
                                                     <div class="panel-heading">
                                                         <div class="btn-group pull-right">
                                                             <div class="pull-left">
-                                                                <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_patient"><span class="fa fa-plus"></span> New Patient </button>
+                                                                <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_patient"><span class="fa fa-user-plus"></span> New Patient </button>
                                                             </div>
                                                         </div>
                                                     </div>

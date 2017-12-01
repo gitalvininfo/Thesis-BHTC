@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2017 at 05:38 AM
+-- Generation Time: Dec 01, 2017 at 06:19 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -214,7 +214,8 @@ CREATE TABLE `examination_sched` (
 
 INSERT INTO `examination_sched` (`sched_id`, `examination_date`, `status`, `patient_id`) VALUES
 (1, '2017-12-02', 'Pending', 1),
-(2, '2017-11-01', 'Pending', 1);
+(2, '2017-11-01', 'Pending', 1),
+(3, '2017-12-21', 'Pending', 13);
 
 -- --------------------------------------------------------
 
@@ -437,7 +438,10 @@ INSERT INTO `patient` (`patient_id`, `patient_name`, `age`, `gender`, `address`,
 (10, 'Hans Patrick Legislador', 22, 'Male', 'My Address', 'Mandalagan', '2017-10-30', 178, '12321', 'Negros Occidental', '', '', 'eqewq', '1231', 'ewqeq', 12, '2017-11-30', 'Registered', 'Pending', '2017'),
 (11, 'Ivan Buglosa', 22, 'Male', 'My Address', 'Granada ', '2017-10-30', 178, '433-2494', 'Negros Occidental', '', '', 'qewq', '12', 'eqeqw', 12, '2017-11-30', 'Registered', 'Pending', '2017'),
 (12, 'Steven Saludares', 20, 'Male', 'My Address', 'Handumanan', '2017-10-30', 178, '123', 'Negros Occidental', '', '', 'eqweqw', '12', 'wqeqwe', 12, '2017-11-30', 'Registered', 'Pending', '2017'),
-(13, 'Menard Gardose', 10, 'Male', 'My Address', 'Tangub', '2017-10-29', 178, '3123', 'Negros Occidental', '', '', 'wqeqw', '2131', 'eqweqw', 2, '2017-12-29', 'Registered', 'Pending', '2017');
+(13, 'Menard Gardose', 10, 'Male', 'My Address', 'Tangub', '2017-10-29', 178, '3123', 'Negros Occidental', '', '', 'wqeqw', '2131', 'eqweqw', 2, '2017-12-29', 'Registered', 'Pending', '2017'),
+(14, 'qw', 12, 'Male', 'wqew', 'Bata', '2017-11-20', 1231, '1231', 'Negros Occidental', '', '', 'eqeqw', '132', 'qweqq', 13, '2017-11-20', 'Registered', 'Pending', '2017'),
+(15, 'qwe', 21, 'Male', '231', 'Brgy 38', '2017-11-26', 12, '232', 'Negros Occidental', '', '', 'wqeq', '123', 'eqeq', 21, '2017-11-28', 'Registered', 'Pending', '2017'),
+(16, 'zx', 23, 'Female', 'qweq', 'Brgy 14', '2017-11-26', 12, '433-2449', 'Negros Occidental', '', '', 'qwe', '123', 'qeqe', 12, '2017-11-27', 'Registered', 'Pending', '2017');
 
 -- --------------------------------------------------------
 
@@ -473,7 +477,7 @@ INSERT INTO `patient_ipt` (`patient_id`, `name`, `age`, `gender`, `address`, `em
 
 CREATE TABLE `registration` (
   `tb_case_no` int(10) NOT NULL,
-  `registration_date` date NOT NULL,
+  `registration_date` varchar(25) NOT NULL,
   `dots_facility` varchar(50) NOT NULL,
   `source_of_patient` varchar(50) NOT NULL,
   `registration_group` varchar(30) NOT NULL,
@@ -504,7 +508,10 @@ INSERT INTO `registration` (`tb_case_no`, `registration_date`, `dots_facility`, 
 (34, '0000-00-00', 'Bacolod City Health TB DOTS Center', 'Private Hospitals', 'Treatment After Failure', 'TB Disease', 'Bacteriologically Confirmed', 'Pulmonary', 'Yes', 'Yes', 'Less than 1 month', 11, 'Nov', '2017'),
 (35, '0000-00-00', 'Bacolod City Health TB DOTS Center', 'Community', 'TALF', 'TB Disease', 'Clinically Diagnosed', 'Extra-pulmonary', 'Yes', 'Yes', 'Less than 1 month', 13, 'Nov', '2017'),
 (36, '0000-00-00', 'Bacolod City Health TB DOTS Center', 'Public Health Center', 'PTOU', 'TB Disease', 'Bacteriologically Confirmed', 'Pulmonary', 'Yes', 'Yes', 'Less than 1 month', 12, 'Nov', '2017'),
-(37, '0000-00-00', 'Bacolod City Health TB DOTS Center', 'Other Government Facilities', 'Transfer-in', 'TB Disease', 'Clinically Diagnosed', 'Extra-pulmonary', 'Yes', 'Yes', 'Less than 1 month', 8, 'Nov', '2017');
+(37, '0000-00-00', 'Bacolod City Health TB DOTS Center', 'Other Government Facilities', 'Transfer-in', 'TB Disease', 'Clinically Diagnosed', 'Extra-pulmonary', 'Yes', 'Yes', 'Less than 1 month', 8, 'Nov', '2017'),
+(38, 'December 1, 2017 | Friday', 'Bacolod City Health TB DOTS Center', 'Private Hospitals', 'Others', 'TB Disease', 'Clinically Diagnosed', 'Extra-pulmonary', 'No', 'No', 'Less than 1 month', 16, 'Dec', '2017'),
+(39, 'December 1, 2017 | Friday', 'Bacolod City Health TB DOTS Center', 'Other Government Facilities', 'PTOU', 'TB Disease', 'Bacteriologically Confirmed', 'Pulmonary', 'Yes', 'Yes', 'Less than 1 month', 14, 'Dec', '2017'),
+(40, 'December 1, 2017 | Friday', 'Bacolod City Health TB DOTS Center', 'Private Hospitals', 'TALF', 'TB Exposior, for IPT', 'Clinically Diagnosed', 'Extra-pulmonary', 'No', 'No', '1 month or more', 15, 'Dec', '2017');
 
 -- --------------------------------------------------------
 
@@ -801,7 +808,7 @@ ALTER TABLE `dst_examination`
 -- AUTO_INCREMENT for table `examination_sched`
 --
 ALTER TABLE `examination_sched`
-  MODIFY `sched_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sched_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `gene_expert_examination`
 --
@@ -841,7 +848,7 @@ ALTER TABLE `medicine_stocks`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `patient_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `patient_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `patient_ipt`
 --
@@ -851,7 +858,7 @@ ALTER TABLE `patient_ipt`
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `tb_case_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `tb_case_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `registration_ipt`
 --

@@ -3,8 +3,8 @@ require_once 'logincheck.php';
 require ('config.php');
 
 ?>
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
     <head>
         <title>BHTC-PMIS</title>
@@ -22,33 +22,33 @@ require ('config.php');
         $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = '$_SESSION[user_id]'") or die(mysqli_error());
         $find = $query->fetch_array();
         ?>
-            <div class="page-container">
-                <?php require 'require/sidebar.php'?>
-                <div class="page-content">
-                    <?php require 'require/header.php'?>
-                    <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="laboratory_request_table.php">Laboratory Request</a></li>
-                        <li class="active">Add Laboratory Request</li>
-                    </ul>
-                    <div class="page-content-wrap">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <form id="jvalidate" role="form" class="form-horizontal" method="post">
-                                    <?php
+        <div class="page-container">
+            <?php require 'require/sidebar.php'?>
+            <div class="page-content">
+                <?php require 'require/header.php'?>
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="laboratory_request_table.php">Laboratory Request</a></li>
+                    <li class="active">Add Laboratory Request</li>
+                </ul>
+                <div class="page-content-wrap">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form id="jvalidate" role="form" class="form-horizontal" method="post">
+                                <?php
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
             $f = $q->fetch_array();
                                 ?>
-                                        <div class="panel panel-info">
-                                            <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title"><strong> <span class="fa fa-file-text"></span> Laboratory Request Form</strong></h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <div class="col-md-12">
-                                                            <select class="form-control select" data-live-search="true" name="collection_unit" required>
+                                <div class="panel panel-info">
+                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title"><strong> <span class="fa fa-file-text"></span> Laboratory Request Form</strong></h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <select class="form-control select" data-live-search="true" name="collection_unit" required>
                                                         <option>Name of Collection Unit</option>
                                                         <option value="Bata Health Center">Bata Health Center</option>
                                                         <option value="Sum-ag Health Center">Sum-ag Health Center</option>
@@ -64,88 +64,88 @@ require ('config.php');
                                                         <option value="Mansilingan Health Center">Mansilingan Health Center</option>
                                                         <option value="Mandalagan Health Center">Mandalagan Health Center</option>
                                                     </select>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Date of Request" type="text" class="form-control datepicker" name="date_of_request" placeholder="Date of Request" />
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input data-toggle="tooltip" data-placement="right" title="Date of Request" type="text" class="form-control datepicker" name="date_of_request" placeholder="Date of Request" />
-                                                            </div>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Requesting Physician" placeholder="Requesting Physician" type="text" class="form-control" name="requesting_physician" />
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                <input data-toggle="tooltip" data-placement="right" title="Requesting Physician" placeholder="Requesting Physician" type="text" class="form-control" name="requesting_physician" />
-                                                            </div>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Date Sample 1 Collected" type="text" class="form-control datepicker" name="date_sample_collected" placeholder="Date Sample 1 Collected" required/>
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input data-toggle="tooltip" data-placement="right" title="Date Sample 1 Collected" type="text" class="form-control datepicker" name="date_sample_collected" placeholder="Date Sample 1 Collected" required/>
-                                                            </div>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Date Sample 2 Collected" type="text" class="form-control datepicker" name="date_sample_collected2" placeholder="Date Sample 2 Collected" required/>
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                <input data-toggle="tooltip" data-placement="right" title="Date Sample 2 Collected" type="text" class="form-control datepicker" name="date_sample_collected2" placeholder="Date Sample 2 Collected" required/>
-                                                            </div>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Name of Sample Collector" type="text" class="form-control" name="sample_collector" placeholder="Name of Sample Collector" required/>
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                <input data-toggle="tooltip" data-placement="right" title="Name of Sample Collector" type="text" class="form-control" name="sample_collector" placeholder="Name of Sample Collector" required/>
-                                                            </div>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                                        <input data-toggle="tooltip" data-placement="right" title="Contact Number" type="text" class="form-control" name="contact_number" placeholder="Contact Number" required/>
                                                     </div>
-                                                    <div class="form-group ">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                <input data-toggle="tooltip" data-placement="right" title="Contact Number" type="text" class="form-control" name="contact_number" placeholder="Contact Number" required/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <select class="validate[required] select" id="formStatus" name="reason_for_examination" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="validate[required] select" id="formStatus" name="reason_for_examination" required>
                                                         <option value="">Reason for Examination</option>
                                                         <option value="Diagnostic">Diagnostic</option>
                                                         <option value="Baseline">Baseline</option>
                                                         <option value="Follow-up">Follow-up</option>
                                                     </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <select class="validate[required] select" id="formStatus" name="specimen_type" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="validate[required] select" id="formStatus" name="specimen_type" required>
                                                         <option value="">Specimen Type</option>
                                                         <option value="Sputum">Sputum</option>
                                                         <option value="Urine">Urine</option>
                                                         <option value="Blood">Blood</option>
                                                     </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <select class="validate[required] select" id="formStatus" name="repeat_collection" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="validate[required] select" id="formStatus" name="repeat_collection" required>
                                                         <option value="">Repeat Collection</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
                                                     </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <select class="validate[required] select" id="formStatus" name="test_requested" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="validate[required] select" id="formStatus" name="test_requested" required>
                                                         <option value="">Test Requested</option>
                                                         <option value="DSSM">DSSM</option>
                                                         <option value="Xpert MTB/RIF">Xpert MTB/RIF</option>
@@ -153,91 +153,90 @@ require ('config.php');
                                                         <option value="Drug Susceptible Testing">Drug Susceptible Testing</option>
                                                         <option value="Tuberculin Skin Testing">Tuberculin Skin Testing</option>
                                                     </select>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="panel-footer">
-                                                <button type="submit" name="add_laboratory_request" class="btn btn-info pull-right"><span class="fa fa-check"> Submit </span></button>
-                                            </div>
-                                            <?php require_once 'add_laboratory_request.php' ?>
                                         </div>
-                                </form>
-                            </div>
-                            <div class="col-md-8">
-                                <!-- START DATATABLE EXPORT -->
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title"><span class="fa fa-file-text"></span> <strong>Laboratory Request History of <?php echo $f['patient_name']?></strong></h3>
                                     </div>
-                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
-                                        <div class="panel-body">
-                                            <table id="laboratory_request" class="table table-hover">
-                                                <thead>
-                                                    <tr class="info">
-                                                        <th>
-                                                            <center>Date Requested</center>
-                                                        </th>
-                                                        <th>
-                                                            <center>Reason</center>
-                                                        </th>
-                                                        <th>
-                                                            <center>Specimen</center>
-                                                        </th>
-                                                        <th>
-                                                            <center>Test</center>
-                                                        </th>
-                                                        <th>
-                                                            <center>Status</center>
-                                                        </th>
-                                                        <th>
-                                                            <center>Action</center>
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                    <div class="panel-footer">
+                                        <button type="submit" name="add_laboratory_request" class="btn btn-info pull-right"><span class="fa fa-check"> Submit </span></button>
+                                    </div>
+                                    <?php require_once 'add_laboratory_request.php' ?>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-8">
+                            <!-- START DATATABLE EXPORT -->
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><span class="fa fa-file-text"></span> <strong>Laboratory Request History of <?php echo $f['patient_name']?></strong></h3>
+                                </div>
+                                <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                    <div class="panel-body">
+                                        <table id="laboratory_request" class="table table-hover">
+                                            <thead>
+                                                <tr class="info">
+                                                    <th>
+                                                        <center>Date Requested</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>Reason</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>Specimen</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>Test</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>Status</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>Action</center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                                     $query = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
                                     while($fetch = $query->fetch_array()){
                                                 ?>
-                                                        <tr>
-                                                            <td>
-                                                                <center>
-                                                                    <?php echo $fetch['date_of_request']?>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <?php echo $fetch['reason_for_examination']?>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <?php echo $fetch['specimen_type']?>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <?php echo $fetch['test_requested']?>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center><strong><?php echo $fetch['status']?></strong></center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-info btn-sm"><span class="fa fa-search"></span> </a>
-                                                                </center>
-                                                            </td>
-                                                        </tr>
-                                                        <?php
+                                                <tr>
+                                                    <td>
+                                                        <center>
+                                                            <?php echo $fetch['date_of_request']?>
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <?php echo $fetch['reason_for_examination']?>
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <?php echo $fetch['specimen_type']?>
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <?php echo $fetch['test_requested']?>
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center><strong><?php echo $fetch['status']?></strong></center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-info btn-sm"><span class="fa fa-search"></span> </a>
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                                <?php
                                     }
                                     $conn->close();
                                                 ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -245,213 +244,243 @@ require ('config.php');
                     </div>
                 </div>
             </div>
-            <div class="modal" id="modal_small-<?php echo $fetch['lab_request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <h4 class="modal-title" id="smallModalHead"><span class="fa fa-file-text"></span> Laboratory Request</h4>
-                        </div>
-                        <form role="form" class="form-horizontal" action="laboratory_request_table.php" method="post">
-                            <?php
+        </div>
+        <div class="modal" id="modal_small-<?php echo $fetch['lab_request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="smallModalHead"><span class="fa fa-file-text"></span> Laboratory Request</h4>
+                    </div>
+                    <form role="form" class="form-horizontal" action="laboratory_request_table.php" method="post">
+                        <?php
                         $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                         $query = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
                         $id = $f['patient_id'];
                         $fetch = $query->fetch_array();
                         ?>
-                                <div class="modal-body">
-                                    <div class="panel-body">
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Name of Collection Unit" type="text" class="form-control" name="collection_unit" value="<?php echo $fetch['collection_unit']?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Date of Request" type="text" class="form-control datepicker" name="date_of_request" value="<?php echo $fetch['date_of_request']?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Requesting Physician" type="text" class="form-control" name="requesting_physician" value="<?php echo $fetch['requesting_physician']?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Date Sample Collected" type="text" class="form-control datepicker" name="date_sample_collected" value="<?php echo $fetch['date_sample_collected']?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Sample Collector" type="text" class="form-control" name="sample_collector" value="<?php echo $fetch['sample_collector']?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Contact Number" type="text" class="form-control" name="contact_number" value="<?php echo $fetch['contact_number']?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Reason for Examination" type="text" class="form-control" name="reason_for_examination" value="<?php echo $fetch['reason_for_examination']?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Specimen Type" type="text" class="form-control" name="specimen_type" value="<?php echo $fetch['specimen_type']?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Repeat Collection" type="text" class="form-control" name="repeat_collection" value="<?php echo $fetch['repeat_collection']?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Test Requested" type="text" class="form-control" name="test_requested" value="<?php echo $fetch['test_requested']?>" disabled/>
-                                                </div>
-                                            </div>
+                        <div class="modal-body">
+                            <div class="panel-body">
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                            <input data-toggle="tooltip" data-placement="right" title="Name of Collection Unit" type="text" class="form-control" name="collection_unit" value="<?php echo $fetch['collection_unit']?>" disabled/>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                                <div class="form-group ">
+
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                            <input data-toggle="tooltip" data-placement="right" title="Date of Request" type="text" class="form-control datepicker" name="date_of_request" value="<?php echo $fetch['date_of_request']?>" disabled/>
+                                        </div>
+                                    </div>
                                 </div>
-                        </form>
-                    </div>
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                            <input data-toggle="tooltip" data-placement="right" title="Requesting Physician" type="text" class="form-control" name="requesting_physician" value="<?php echo $fetch['requesting_physician']?>" disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                            <input data-toggle="tooltip" data-placement="right" title="Date Sample Collected" type="text" class="form-control datepicker" name="date_sample_collected" value="<?php echo $fetch['date_sample_collected']?>" disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                            <input data-toggle="tooltip" data-placement="right" title="Sample Collector" type="text" class="form-control" name="sample_collector" value="<?php echo $fetch['sample_collector']?>" disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                            <input data-toggle="tooltip" data-placement="right" title="Contact Number" type="text" class="form-control" name="contact_number" value="<?php echo $fetch['contact_number']?>" disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                            <input data-toggle="tooltip" data-placement="right" title="Reason for Examination" type="text" class="form-control" name="reason_for_examination" value="<?php echo $fetch['reason_for_examination']?>" disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                            <input data-toggle="tooltip" data-placement="right" title="Specimen Type" type="text" class="form-control" name="specimen_type" value="<?php echo $fetch['specimen_type']?>" disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                            <input data-toggle="tooltip" data-placement="right" title="Repeat Collection" type="text" class="form-control" name="repeat_collection" value="<?php echo $fetch['repeat_collection']?>" disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
+                                            <input data-toggle="tooltip" data-placement="right" title="Test Requested" type="text" class="form-control" name="test_requested" value="<?php echo $fetch['test_requested']?>" disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <?php
+        </div>
+        <?php
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
                                                    $query = $conn->query("SELECT * FROM `laboratory_request` ORDER BY `lab_request_id` DESC") or die(mysqli_error());
                                                    while($fetch = $query->fetch_array()){
         ?>
-                <div id="viewdata<?php echo $fetch['lab_request_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true" style="display:none;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="defModalHead"><span class="fa fa-file-text"></span> Laboratory Request of
-                                    <?php echo $f['patient_name']?>
-                                </h4>
-                            </div>
-                            <form role="form" class="form-horizontal" action="edit_query.php" method="post">
-                                <div class="modal-body">
-                                    <div class="panel-body">
-                                        <div class="panel panel-info">
-                                            <div class="panel-body profile">
-                                                <div class="panel-body">
-                                                    <div class="contact-info">
-                                                        <p><small style="font-size:13px;">Name of Collection Unit</small><br/>
-                                                            <?php echo $fetch['collection_unit']?>
-                                                        </p>
-                                                        <p><small style="font-size:13px;">Date of Request</small><br/>
-                                                            <?php echo $fetch['date_of_request']?>
-                                                        </p>
-                                                        <p><small style="font-size:13px;">Requesting Physician</small><br/>
-                                                            <?php echo $fetch['requesting_physician']?>
-                                                        </p>
-                                                        <p><small style="font-size:13px;">Date Sample 1 Collected</small><br/>
-                                                            <?php echo $fetch['date_sample_collected']?>
-                                                        </p>
-                                                        <p><small style="font-size:13px;">Date Sample 2 Collected</small><br/>
-                                                            <?php echo $fetch['date_sample_collected2']?>
-                                                        </p>
-                                                        <p><small style="font-size:13px;">Name of Sample Collector</small><br/>
-                                                            <?php echo $fetch['sample_collector']?>
-                                                        </p>
-                                                        <p><small style="font-size:13px;">Contact Number</small><br/>
-                                                            <?php echo $fetch['contact_number']?>
-                                                        </p>
-                                                        <p><small style="font-size:13px;">Reason For Examination</small><br/>
-                                                            <?php echo $fetch['reason_for_examination']?>
-                                                        </p>
-                                                        <p><small style="font-size:13px;">Specimen Type</small><br/>
-                                                            <?php echo $fetch['specimen_type']?>
-                                                        </p>
-                                                        <p><small style="font-size:13px;">Test Requested</small><br/>
-                                                            <?php echo $fetch['test_requested']?>
-                                                        </p>
-                                                    </div>
-                                                </div>
+        <div id="viewdata<?php echo $fetch['lab_request_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true" style="display:none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-file-text"></span> Laboratory Request of
+                            <?php echo $f['patient_name']?>
+                        </h4>
+                    </div>
+                    <form role="form" class="form-horizontal" action="edit_query.php" method="post">
+                        <div class="modal-body">
+                            <div class="panel-body">
+                                <div class="panel panel-info">
+                                    <div class="panel-body profile">
+                                        <div class="panel-body">
+                                            <div class="contact-info">
+                                                <p><small style="font-size:13px;">Name of Collection Unit</small><br/>
+                                                    <?php echo $fetch['collection_unit']?>
+                                                </p>
+                                                <p><small style="font-size:13px;">Date of Request</small><br/>
+                                                    <?php echo $fetch['date_of_request']?>
+                                                </p>
+                                                <p><small style="font-size:13px;">Requesting Physician</small><br/>
+                                                    <?php echo $fetch['requesting_physician']?>
+                                                </p>
+                                                <p><small style="font-size:13px;">Date Sample 1 Collected</small><br/>
+                                                    <?php echo $fetch['date_sample_collected']?>
+                                                </p>
+                                                <p><small style="font-size:13px;">Date Sample 2 Collected</small><br/>
+                                                    <?php echo $fetch['date_sample_collected2']?>
+                                                </p>
+                                                <p><small style="font-size:13px;">Name of Sample Collector</small><br/>
+                                                    <?php echo $fetch['sample_collector']?>
+                                                </p>
+                                                <p><small style="font-size:13px;">Contact Number</small><br/>
+                                                    <?php echo $fetch['contact_number']?>
+                                                </p>
+                                                <p><small style="font-size:13px;">Reason For Examination</small><br/>
+                                                    <?php echo $fetch['reason_for_examination']?>
+                                                </p>
+                                                <p><small style="font-size:13px;">Specimen Type</small><br/>
+                                                    <?php echo $fetch['specimen_type']?>
+                                                </p>
+                                                <p><small style="font-size:13px;">Test Requested</small><br/>
+                                                    <?php echo $fetch['test_requested']?>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
-                                </div>
-
-                            </form>
+                            </div>
                         </div>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                        </div>
+
+                    </form>
                 </div>
-                <?php
+            </div>
+        </div>
+        <?php
                                                    }
                                                    $conn->close();
         ?>
 
 
-                    <?php require 'require/logout.php'?>
-                    <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
-                    <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-                    <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
-                    <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
-                    <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
-                    <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
-                    <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
-                    <script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
-                    <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
-                    <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
-                    <script type="text/javascript" src="js/plugins.js"></script>
-                    <script type="text/javascript" src="js/actions.js"></script>
-                    <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
-                    <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-                    <script type="text/javascript">
-                        var jvalidate = $("#jvalidate").validate({
-                                    ignore[],
-                                    rules: {
-                                        requesting_physician: {
-                                            required: true,
-                                            minlength: 5,
-                                            maxlength: 5
-                                        },
-                                        date_of_request: {
-                                            required: true,
-                                            date: true
-                                        }
-                                    });
-                    </script>
+        <?php require 'require/logout.php'?>
+        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+        <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
+        <script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
+        <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
+        <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
+        <script type="text/javascript" src="js/plugins.js"></script>
+        <script type="text/javascript" src="js/actions.js"></script>
+        <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
+        <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script type="text/javascript">
+            var jvalidate = $("#jvalidate").validate({
+                ignore: [],
+                rules: {
+                    requesting_physician: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 8
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 10
+                    },
+                    're-password': {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 10,
+                        equalTo: "#password2"
+                    },
+                    age: {
+                        required: true,
+                        min: 18,
+                        max: 100
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    date: {
+                        required: true,
+                        date: true
+                    },
+                    credit: {
+                        required: true,
+                        creditcard: true
+                    },
+                    site: {
+                        required: true,
+                        url: true
+                    }
+                }
+            });
+        </script>
     </body>
 
-    </html>
+</html>

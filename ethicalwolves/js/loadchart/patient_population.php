@@ -41,10 +41,17 @@ $fdec = $qdec->fetch_array();
             title: { 
                 text: "Patient Population as of Year <?php echo $year?>",
                 fontSize: 20
-            }, 
+            },
+            axisX: {		       
+                gridDashType: "dot",
+                gridThickness: 1,
+                labelFontColor: "black"
+            },
             axisY: { 
                 title: "Total Population", 
-                includeZero: false 
+                includeZero: false,
+                labelFontColor: "black"
+                
             }, 
             data: [ 
                 { 
