@@ -5,7 +5,6 @@ require ('config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <title>BHTC-PMIS</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,9 +35,9 @@ require ('config.php');
                         <div class="col-md-4">
                             <form id="jvalidate" role="form" class="form-horizontal" method="post">
                                 <?php
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-            $f = $q->fetch_array();
+                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                                    $f = $q->fetch_array();
                                 ?>
                                 <div class="panel panel-info">
                                     <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">

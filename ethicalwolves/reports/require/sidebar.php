@@ -18,10 +18,11 @@
                         echo $find['firstname']." ".$find['lastname'];
                         ?>
                     </div>
-                    <div class="profile-data-title">
+                    <div class="profile-data-title"><i>
                         <?php 
                         echo $find['position'];
                         ?>
+                        </i>
                     </div>
                 </div>
                 <div class="profile-controls">
@@ -30,7 +31,7 @@
             </div>
         </li>
         <li class="active">
-            <a href="../home.php"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
+            <a href="../home.php"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboard</span></a>
         </li>
         <li class="xn-openable">
             <a href="#"><span class="fa fa-folder-open"></span> <span class="xn-text">Data Entry</span></a>       

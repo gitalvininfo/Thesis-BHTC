@@ -84,7 +84,7 @@ require ('../config.php');
                                     <div class="tab-pane" id="tab-second">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                             <div class="row">
-                                                <table class="table datatable">
+                                                <table class="table datatable   ">
                                                     <thead>
                                                         <tr>
                                                             <th>Barangay</th>
@@ -460,9 +460,292 @@ require ('../config.php');
                                                             <td>Barangay Vista Alegre</td>
                                                             <td><center><strong><?php echo $fetch24['total']?></strong></center></td>
                                                             <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#one"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 1</td>
+                                                            <td><center><strong><?php echo $fetch26['total']?></strong></center></td>
+                                                            <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
+                                                        <tr>
+                                                            <td>Barangay 2</td>
+                                                            <td><center><strong><?php echo $fetch27['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 3</td>
+                                                            <td><center><strong><?php echo $fetch28['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 4</td>
+                                                            <td><center><strong><?php echo $fetch29['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 5</td>
+                                                            <td><center><strong><?php echo $fetch30['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 6</td>
+                                                            <td><center><strong><?php echo $fetch31['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 7</td>
+                                                            <td><center><strong><?php echo $fetch32['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 8</td>
+                                                            <td><center><strong><?php echo $fetch33['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 9</td>
+                                                            <td><center><strong><?php echo $fetch34['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 10</td>
+                                                            <td><center><strong><?php echo $fetch35['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 11</td>
+                                                            <td><center><strong><?php echo $fetch36['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 12</td>
+                                                            <td><center><strong><?php echo $fetch37['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 13</td>
+                                                            <td><center><strong><?php echo $fetch38['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 14</td>
+                                                            <td><center><strong><?php echo $fetch39['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 15</td>
+                                                            <td><center><strong><?php echo $fetch40['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 16</td>
+                                                            <td><center><strong><?php echo $fetch41['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 17</td>
+                                                            <td><center><strong><?php echo $fetch42['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 18</td>
+                                                            <td><center><strong><?php echo $fetch43['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 19</td>
+                                                            <td><center><strong><?php echo $fetch44['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 20</td>
+                                                            <td><center><strong><?php echo $fetch45['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 21</td>
+                                                            <td><center><strong><?php echo $fetch46['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 22</td>
+                                                            <td><center><strong><?php echo $fetch47['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 23</td>
+                                                            <td><center><strong><?php echo $fetch48['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 24</td>
+                                                            <td><center><strong><?php echo $fetch49['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 25</td>
+                                                            <td><center><strong><?php echo $fetch50['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 26</td>
+                                                            <td><center><strong><?php echo $fetch51['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 27</td>
+                                                            <td><center><strong><?php echo $fetch52['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 28</td>
+                                                            <td><center><strong><?php echo $fetch53['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 29</td>
+                                                            <td><center><strong><?php echo $fetch54['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 30</td>
+                                                            <td><center><strong><?php echo $fetch55['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 31</td>
+                                                            <td><center><strong><?php echo $fetch56['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 32</td>
+                                                            <td><center><strong><?php echo $fetch57['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 33</td>
+                                                            <td><center><strong><?php echo $fetch58['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 34</td>
+                                                            <td><center><strong><?php echo $fetch59['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 35</td>
+                                                            <td><center><strong><?php echo $fetch60['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 36</td>
+                                                            <td><center><strong><?php echo $fetch61['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 37</td>
+                                                            <td><center><strong><?php echo $fetch62['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 38</td>
+                                                            <td><center><strong><?php echo $fetch63['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 39</td>
+                                                            <td><center><strong><?php echo $fetch64['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Barangay 40</td>
+                                                            <td><center><strong><?php echo $fetch65['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#vista-alegre"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+
+
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div></div>

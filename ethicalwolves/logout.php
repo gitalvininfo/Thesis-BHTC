@@ -8,7 +8,7 @@ session_start();
         <link href="css/loading.css" rel="stylesheet" type="text/css" />
         <style>
 #loading{
-	background-color: #1caf9a;
+	background-color: #f74949;
 	height: 100%;
 	width: 100%;
 	position: fixed;

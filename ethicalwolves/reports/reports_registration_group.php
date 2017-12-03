@@ -48,9 +48,9 @@ require ('../config.php');
         $value=$_GET['year']; 
         echo $value;
     }
-                                   else{
-                                       echo date('Y');
-                                   }
+            else{
+                echo date('Y');
+            }
                                                                ?>">
                                                     <?php 
                                                     if(isset($_GET['year'])){
@@ -147,10 +147,10 @@ require ('../config.php');
                                                             <td><center><strong><?php echo $fetch9['total']?></strong></center></td>
                                                         </tr>
                                                         <tr class="danger">
-                                                        <td><h4><strong>Grand Total</strong></h4></td>
-                                                        <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch10['total']?></span></strong></center></td>
-                                                        <td></td>
-                                                    </tr>
+                                                            <td><h4><strong>Grand Total</strong></h4></td>
+                                                            <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch10['total']?></span></strong></center></td>
+                                                            <td></td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
 

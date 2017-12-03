@@ -214,7 +214,7 @@ $fetch25 = $grandtotal->fetch_array();
             exportFileName: "TB Patient Population per Barangay", 
             exportEnabled: true,
             title: { 
-                text: "TB Patient Population Per Barangay as of Year <?php echo $year. " | " .$fetch25['total']?> TB patients",
+                text: "TB Patient Population Per Barangay as of Year <?php echo $year. " | Total: " .$fetch25['total']?> TB patients",
                 fontSize: 20
             },
             axisY: { 

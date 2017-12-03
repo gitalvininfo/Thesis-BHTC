@@ -34,14 +34,14 @@ $fetch9 = $oth->fetch_array();
                 text: "Patient Registration Group as of Year <?php echo $year?>",
                 fontSize: 20
             },
-            exportFileName: "TB Patient Population per Barangay", 
-            exportEnabled: true,
             axisY: { 
                 title: "Registration" 
             }, 
             legend :{ 
                 verticalAlign: "center", 
-                horizontalAlign: "left" 
+                horizontalAlign: "left",
+                cursor: "pointer",
+			
             }, 
             data: [ 
                 { 

@@ -44,15 +44,15 @@ require ('config.php');
                                     <li><a href="#tab-fifth" role="tab" data-toggle="tab">Xpert MTB</a></li>
                                     <li><a href="#tab-sixth" role="tab" data-toggle="tab">TB Culture</a></li>
                                     <li><a href="#tab-seventh" role="tab" data-toggle="tab">DST</a></li>
-                                    
+
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                             <div class="row">
                                                 <?php
-                                                $year = date('Y');
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+    $year = date('Y');
+            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
             $f = $q->fetch_array();
             $q2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
@@ -65,7 +65,7 @@ require ('config.php');
                                                                 <img src="assets/images/users/no-image.jpg" alt="Nadia Ali"/>
                                                             </div>
                                                             <div class="profile-data">
-                                                                <div class="profile-data-name"style="color:#695858"><?php echo $f['patient_name']?></div>
+                                                                <div class="profile-data-name"style="color:#695858"><strong><?php echo $f['patient_name']?></strong></div>
                                                                 <div class="profile-data-title">TB Patient</div>
                                                             </div>
                                                             <div class="panel-body">                                    
@@ -157,6 +157,11 @@ require ('config.php');
                                                 <div class="col-md-12">
                                                     <div class="panel panel-info">
                                                         <div class="panel-heading">
+                                                            <div class="btn-group pull-right">
+                                                                <div class="pull-left">
+                                                                    <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_patient"><span class="fa fa-user-plus"></span> New Member </button>
+                                                                </div>
+                                                            </div>
                                                             <h3 class="panel-title"><span class="fa fa-group"></span> <strong>Household Members of <?php echo $f['patient_name']?></strong></h3>
                                                         </div>
                                                         <div class="panel-body">
@@ -170,20 +175,12 @@ require ('config.php');
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                                                                    while($fetch = $query->fetch_array()){
-                                                                    ?>
+
                                                                     <tr>
-                                                                        <td><center><?php echo $fetch['household_member']?></center></td>
-                                                                        <td><center><?php echo $fetch['household_member_age']?></center></td>
-                                                                        <td><center><?php echo $fetch['date_screened']?></center></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
                                                                     </tr>
-                                                                    <?php
-                                                                    }
-                                                                    $conn->close();
-                                                                    ?>
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -196,8 +193,8 @@ require ('config.php');
                                     <div class="tab-pane" id="tab-second">
                                         <div class="row">
                                             <?php
-                                            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());                                                        
+    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                                                    $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());                                                        
                                             ?>
 
                                             <div class="col-md-3">
@@ -366,8 +363,7 @@ require ('config.php');
                                                 <table id="laboratory_request" class="table table-hover">
                                                     <thead>
                                                         <tr class="info">
-                                                            <th><center>Examination Date</center></th>
-                                                            <th><center>Test Requested</center></th>
+                                                            <th><center>Follow-up Visit Schedule</center></th>
                                                             <th><center>View Record</center></th>
                                                         </tr>
                                                     </thead>
@@ -382,9 +378,6 @@ require ('config.php');
                                                         <tr>
                                                             <td>
                                                                 <center><?php echo $fetch['examination_date']?></center> 
-                                                            </td>
-                                                            <td>
-                                                                <center><?php echo $fetch['test_requested']?></center>
                                                             </td>
                                                             <td>
                                                                 <center>
@@ -572,7 +565,7 @@ require ('config.php');
                                             </form>
                                         </div>
                                     </div>
-                                    </div>
+                                </div>
                             </div>
                             <!-- END PAGE CONTENT -->
                         </div>

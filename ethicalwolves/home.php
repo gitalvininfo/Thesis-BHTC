@@ -222,6 +222,19 @@ $f = $q->fetch_array();
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style=" overflow: scroll; height:auto;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        Body
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){

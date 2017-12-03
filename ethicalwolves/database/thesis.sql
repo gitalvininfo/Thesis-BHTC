@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2017 at 06:19 PM
+-- Generation Time: Dec 03, 2017 at 05:24 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -195,6 +195,13 @@ CREATE TABLE `dst_examination` (
   `year` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `dst_examination`
+--
+
+INSERT INTO `dst_examination` (`dst_id`, `tb_culture_laboratory`, `dst_laboratory`, `date_collected`, `date_received`, `method`, `isoniazid`, `rifampicin`, `ethambutol`, `streptomycin`, `pyrazinamide`, `levofloxacin`, `kanamycin`, `amikacin`, `capreomycin`, `examined_by`, `remarks`, `reviewed_by`, `date_released`, `patient_id`, `month`, `year`) VALUES
+(1, '12', '12', '2017-12-03', '2017-12-03', 'Method 1', 'Resistant', 'Resistant', 'Resistant', 'Resistant', 'Resistant', 'Susceptible', 'Resistant', 'Susceptible', 'Susceptible', 'Dr. Adricula', 'Good', 'Dr. Haro', '2017-12-05', 6, 'Dec', '2017');
+
 -- --------------------------------------------------------
 
 --
@@ -325,7 +332,8 @@ INSERT INTO `laboratory_request` (`lab_request_id`, `collection_unit`, `date_of_
 (71, 'Sum-ag Health Center', '2017-11-27', 'Dr. Sabay', 'Diagnostic', 'Sputum', 'No', '2017-11-26', '2017-11-26', 'Dr. Sabay', '433-2449', 'DSSM', 3, 'Pending', '2017'),
 (72, 'Bata Health Center', '2017-11-28', 'Dr. Sabay', 'Diagnostic', 'Sputum', 'Yes', '2017-11-21', '2017-11-21', 'Dr. Haro', '433-2449', 'DSSM', 7, 'Pending', '2017'),
 (73, 'Sum-ag Health Center', '2017-11-21', 'Wqeq', 'Diagnostic', 'Sputum', 'Yes', '2017-11-28', '2017-11-28', 'qweq', '1231', 'DSSM', 0, 'Pending', '2017'),
-(74, 'Sum-ag Health Center', '2017-11-22', '2131', 'Diagnostic', 'Sputum', 'Yes', '2017-11-14', '2017-11-14', 'qeqw', '1231', 'DSSM', 7, 'Pending', '2017');
+(74, 'Sum-ag Health Center', '2017-11-22', '2131', 'Diagnostic', 'Sputum', 'Yes', '2017-11-14', '2017-11-14', 'qeqw', '1231', 'DSSM', 7, 'Pending', '2017'),
+(75, 'Banago Health Center', '2017-12-03', 'Dr. haro', 'Diagnostic', 'Sputum', 'Yes', '2017-12-03', '2017-12-03', 'Dr. haro', '433-2449', 'Drug Susceptible Testing', 6, 'Done', '2017');
 
 -- --------------------------------------------------------
 
@@ -414,9 +422,6 @@ CREATE TABLE `patient` (
   `philhealth_no` varchar(15) NOT NULL,
   `contact_person` varchar(30) NOT NULL,
   `emergency_no` char(20) NOT NULL,
-  `household_member` varchar(30) NOT NULL,
-  `household_member_age` int(3) NOT NULL,
-  `date_screened` date NOT NULL,
   `status` char(10) NOT NULL,
   `treatment_partner` char(10) NOT NULL,
   `year` varchar(10) NOT NULL
@@ -426,22 +431,24 @@ CREATE TABLE `patient` (
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`patient_id`, `patient_name`, `age`, `gender`, `address`, `barangay`, `birthdate`, `height`, `contact_number`, `province`, `occupation`, `philhealth_no`, `contact_person`, `emergency_no`, `household_member`, `household_member_age`, `date_screened`, `status`, `treatment_partner`, `year`) VALUES
-(1, 'Alson John Bayon-on', 123, 'Male', 'Prk. Langis, Brgy. Banago, Bacolod City', 'Banago', '2017-11-25', 178, '433-2449', 'Negros Occidental', 'Student', '10992241', 'Dr. Sabay', '433-2449 local 181', 'Dr. Adricula', 34, '0000-00-00', 'Registered', 'Done', '2017'),
-(2, 'Alvin Yanson', 20, 'Male', 'Prk. Casiana, Eroreco, Bacolod City', 'Mandalagan', '2017-01-08', 178, '433-2449', 'Negros Occidental', 'Student', '1993121', 'Dr. Haro', '433-2449 local 181', 'Dr. Sabay', 28, '2017-11-25', 'Registered', 'Pending', '2017'),
-(3, 'Erul John Ubas', 21, 'Male', 'Sum-ag, Bacolod City', 'Sumag ', '2017-03-13', 178, '433-2449 local', 'Negros Occidental', '', '', 'Dr. Adricula', '433-2449 local 181', 'Reymund Sabay', 34, '2017-11-26', 'Registered', 'Pending', '2017'),
-(5, 'Gabriel Francis Banua', 22, 'Male', 'Taculing, Bacolod City', 'Taculing', '2017-10-29', 178, '433-2449', 'Negros Occidental', '', '', 'Dr. Sabay', '433-2449', 'Dr. Adricula', 4, '2017-11-27', 'Registered', 'Pending', '2017'),
-(6, 'Alec Rubiato', 20, 'Male', 'Banago, Bacolod City', 'Banago', '2016-12-25', 174, '433-2449', 'Negros Occidental', '', '', 'Dr. Torres', '433-2449', 'Dr. Sabay', 34, '2017-11-27', 'Registered', 'Pending', '2017'),
-(7, 'Daniel Molabin', 20, 'Male', 'Lizares Avenue', 'Felisa', '2017-10-29', 168, '433-2449', 'Negros Occidental', '', '', 'Dr. Haro', '433-2449 local 181', 'Dr. Sabay', 23, '2017-11-27', 'Registered', 'Pending', '2017'),
-(8, 'Vincen Suyo', 20, 'Male', 'My Address', 'Pahanocoy', '2017-10-29', 178, '433-2449', 'Negros Occidental', '', '', 'qwe', '1312', 'qweqw', 12, '2017-11-30', 'Registered', 'Pending', '2017'),
-(9, 'Brix Nessia', 22, 'Male', 'My Address', 'Mandalagan', '2017-10-30', 178, '12312', 'Negros Occidental', '', '', 'qweqw', '12313', 'qeqewq', 12, '2017-11-30', 'Registered', 'Pending', '2017'),
-(10, 'Hans Patrick Legislador', 22, 'Male', 'My Address', 'Mandalagan', '2017-10-30', 178, '12321', 'Negros Occidental', '', '', 'eqewq', '1231', 'ewqeq', 12, '2017-11-30', 'Registered', 'Pending', '2017'),
-(11, 'Ivan Buglosa', 22, 'Male', 'My Address', 'Granada ', '2017-10-30', 178, '433-2494', 'Negros Occidental', '', '', 'qewq', '12', 'eqeqw', 12, '2017-11-30', 'Registered', 'Pending', '2017'),
-(12, 'Steven Saludares', 20, 'Male', 'My Address', 'Handumanan', '2017-10-30', 178, '123', 'Negros Occidental', '', '', 'eqweqw', '12', 'wqeqwe', 12, '2017-11-30', 'Registered', 'Pending', '2017'),
-(13, 'Menard Gardose', 10, 'Male', 'My Address', 'Tangub', '2017-10-29', 178, '3123', 'Negros Occidental', '', '', 'wqeqw', '2131', 'eqweqw', 2, '2017-12-29', 'Registered', 'Pending', '2017'),
-(14, 'qw', 12, 'Male', 'wqew', 'Bata', '2017-11-20', 1231, '1231', 'Negros Occidental', '', '', 'eqeqw', '132', 'qweqq', 13, '2017-11-20', 'Registered', 'Pending', '2017'),
-(15, 'qwe', 21, 'Male', '231', 'Brgy 38', '2017-11-26', 12, '232', 'Negros Occidental', '', '', 'wqeq', '123', 'eqeq', 21, '2017-11-28', 'Registered', 'Pending', '2017'),
-(16, 'zx', 23, 'Female', 'qweq', 'Brgy 14', '2017-11-26', 12, '433-2449', 'Negros Occidental', '', '', 'qwe', '123', 'qeqe', 12, '2017-11-27', 'Registered', 'Pending', '2017');
+INSERT INTO `patient` (`patient_id`, `patient_name`, `age`, `gender`, `address`, `barangay`, `birthdate`, `height`, `contact_number`, `province`, `occupation`, `philhealth_no`, `contact_person`, `emergency_no`, `status`, `treatment_partner`, `year`) VALUES
+(1, 'Alson John Bayon-on', 123, 'Male', 'Prk. Langis, Brgy. Banago, Bacolod City', 'Banago', '2017-11-25', 178, '433-2449', 'Negros Occidental', 'Student', '10992241', 'Dr. Sabay', '433-2449 local 181', 'Registered', 'Done', '2017'),
+(2, 'Alvin Yanson', 20, 'Male', 'eroreco bacolod city', 'Mandalagan', '2017-01-08', 178, '433-2449', 'Negros Occidental', 'Student', '1993121', 'Dr. Haro', '433-2449 local 181', 'Registered', 'Pending', '2017'),
+(3, 'Erul John Ubas', 21, 'Male', 'Sum-ag, Bacolod City', 'Sumag ', '2017-03-13', 178, '433-2449 local', 'Negros Occidental', '', '', 'Dr. Adricula', '433-2449 local 181', 'Registered', 'Pending', '2017'),
+(5, 'Gabriel Francis Banua', 22, 'Male', 'Taculing, Bacolod City', 'Taculing', '2017-10-29', 178, '433-2449', 'Negros Occidental', '', '', 'Dr. Sabay', '433-2449', 'Registered', 'Pending', '2017'),
+(6, 'Alec Rubiato', 20, 'Male', 'Banago, Bacolod City', 'Banago', '2016-12-25', 174, '433-2449', 'Negros Occidental', '', '', 'Dr. Torres', '433-2449', 'Registered', 'Pending', '2017'),
+(7, 'Daniel Molabin', 20, 'Male', 'Lizares Avenue', 'Felisa', '2017-10-29', 168, '433-2449', 'Negros Occidental', '', '', 'Dr. Haro', '433-2449 local 181', 'Registered', 'Pending', '2017'),
+(8, 'Vincen Suyo', 20, 'Male', 'My Address', 'Pahanocoy', '2017-10-29', 178, '433-2449', 'Negros Occidental', '', '', 'qwe', '1312', 'Registered', 'Pending', '2017'),
+(9, 'Brix Nessia', 22, 'Male', 'My Address', 'Mandalagan', '2017-10-30', 178, '12312', 'Negros Occidental', '', '', 'qweqw', '12313', 'Registered', 'Pending', '2017'),
+(10, 'Hans Patrick Legislador', 22, 'Male', 'My Address', 'Mandalagan', '2017-10-30', 178, '12321', 'Negros Occidental', '', '', 'eqewq', '1231', 'Registered', 'Pending', '2017'),
+(11, 'Ivan Buglosa', 22, 'Male', 'My Address', 'Granada ', '2017-10-30', 178, '433-2494', 'Negros Occidental', '', '', 'qewq', '12', 'Registered', 'Pending', '2017'),
+(12, 'Steven Saludares', 20, 'Male', '', 'Handumanan', '2017-10-30', 178, '123', 'Negros Occidental', 'student', 'no philhealth', 'eqweqw', '12', 'Registered', 'Pending', '2017'),
+(13, 'Menard Gardose', 10, 'Male', 'My Address', 'Tangub', '2017-10-29', 178, '3123', 'Negros Occidental', '', '', 'wqeqw', '2131', 'Registered', 'Pending', '2017'),
+(14, 'qw', 12, 'Male', 'wqew', 'Bata', '2017-11-20', 1231, '1231', 'Negros Occidental', '', '', 'eqeqw', '132', 'Registered', 'Pending', '2017'),
+(15, 'qwe', 21, 'Male', 'tga banago', 'Brgy 38', '2017-11-26', 12, '232', 'Negros Occidental', '', '', 'wqeq', '123', 'Registered', 'Pending', '2017'),
+(16, 'zx', 23, 'Female', 'qweq', 'Brgy 14', '2017-11-26', 12, '433-2449', 'Negros Occidental', '', '', 'qwe', '123', 'Registered', 'Pending', '2017'),
+(17, 'Jemmel Ano', 12, 'Male', 'Singcang', 'Singcang', '1997-03-19', 178, '433-2449 local', 'Negros Occidental', 'Student lng ah', '', 'Dr. Sabay', '433-2449 local', 'Registered', 'Pending', '2017'),
+(18, 'Jal Alvin Galoyo', 20, 'Male', 'Sum-ag, Bacolod City', 'Sumag ', '1997-09-16', 178, '433-2449 local', 'Negros Occidental', 'Student', 'no philhealth', 'Reymund Sabay', '0909442423', 'Registered', 'Pending', '2017');
 
 -- --------------------------------------------------------
 
@@ -467,7 +474,9 @@ CREATE TABLE `patient_ipt` (
 --
 
 INSERT INTO `patient_ipt` (`patient_id`, `name`, `age`, `gender`, `address`, `emergency_no`, `birthdate`, `status`, `treatment_partner`, `year`) VALUES
-(5, 'Carl Betio', 2, 'Male', 'Taculing Bacolod City', '433-2449 local 181', '2017-11-25', 'Registered', 'Pending', '2017');
+(5, 'Alvin Yanson', 3, 'Male', 'qwe', '433-2449 local 181', '2017-11-25', 'Registered', 'Pending', '2017'),
+(6, 'Carl Betio', 3, 'Male', 'Taculing, Bacolod City', '433-2449 local 181', '2017-01-02', 'Registered', 'Pending', '2017'),
+(7, 'Franz Licanel', 3, 'Male', 'unor bacolod', '433-2449 local 181', '2015-05-11', 'Registered', 'Pending', '2017');
 
 -- --------------------------------------------------------
 
@@ -477,7 +486,7 @@ INSERT INTO `patient_ipt` (`patient_id`, `name`, `age`, `gender`, `address`, `em
 
 CREATE TABLE `registration` (
   `tb_case_no` int(10) NOT NULL,
-  `registration_date` varchar(25) NOT NULL,
+  `registration_date` varchar(40) NOT NULL,
   `dots_facility` varchar(50) NOT NULL,
   `source_of_patient` varchar(50) NOT NULL,
   `registration_group` varchar(30) NOT NULL,
@@ -511,7 +520,9 @@ INSERT INTO `registration` (`tb_case_no`, `registration_date`, `dots_facility`, 
 (37, '0000-00-00', 'Bacolod City Health TB DOTS Center', 'Other Government Facilities', 'Transfer-in', 'TB Disease', 'Clinically Diagnosed', 'Extra-pulmonary', 'Yes', 'Yes', 'Less than 1 month', 8, 'Nov', '2017'),
 (38, 'December 1, 2017 | Friday', 'Bacolod City Health TB DOTS Center', 'Private Hospitals', 'Others', 'TB Disease', 'Clinically Diagnosed', 'Extra-pulmonary', 'No', 'No', 'Less than 1 month', 16, 'Dec', '2017'),
 (39, 'December 1, 2017 | Friday', 'Bacolod City Health TB DOTS Center', 'Other Government Facilities', 'PTOU', 'TB Disease', 'Bacteriologically Confirmed', 'Pulmonary', 'Yes', 'Yes', 'Less than 1 month', 14, 'Dec', '2017'),
-(40, 'December 1, 2017 | Friday', 'Bacolod City Health TB DOTS Center', 'Private Hospitals', 'TALF', 'TB Exposior, for IPT', 'Clinically Diagnosed', 'Extra-pulmonary', 'No', 'No', '1 month or more', 15, 'Dec', '2017');
+(40, 'December 1, 2017 | Friday', 'Bacolod City Health TB DOTS Center', 'Private Hospitals', 'TALF', 'TB Exposior, for IPT', 'Clinically Diagnosed', 'Extra-pulmonary', 'No', 'No', '1 month or more', 15, 'Dec', '2017'),
+(41, 'December 2, 2017 | Saturd', 'Bacolod City Health TB DOTS Center', 'Community', 'TALF', 'TB Disease', 'Clinically Diagnosed', 'Extra-pulmonary', 'No', 'No', 'Less than 1 month', 17, 'Dec', '2017'),
+(42, 'December 3, 2017 | Sunday', 'Bacolod City Health TB DOTS Center', 'Public Health Center', 'New', 'TB Disease', 'Bacteriologically Confirmed', 'Pulmonary', 'Yes', 'Yes', 'Less than 1 month', 18, 'Dec', '2017');
 
 -- --------------------------------------------------------
 
@@ -533,7 +544,9 @@ CREATE TABLE `registration_ipt` (
 --
 
 INSERT INTO `registration_ipt` (`ipt_no`, `date_evaluated`, `diagnosis`, `date_ipt_started`, `patient_id`, `year`) VALUES
-(1, '2017-11-20', 'TB Infection', '2017-11-26', 5, '2017');
+(1, '2017-11-20', 'TB Infection', '2017-11-26', 5, '2017'),
+(2, '2017-12-03', 'TB Infection', '2017-12-03', 6, '2017'),
+(3, '2017-12-02', 'TB Infection', '2017-12-02', 7, '2017');
 
 -- --------------------------------------------------------
 
@@ -803,7 +816,7 @@ ALTER TABLE `dssm_examination`
 -- AUTO_INCREMENT for table `dst_examination`
 --
 ALTER TABLE `dst_examination`
-  MODIFY `dst_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `dst_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `examination_sched`
 --
@@ -828,7 +841,7 @@ ALTER TABLE `intensive_phase_ipt`
 -- AUTO_INCREMENT for table `laboratory_request`
 --
 ALTER TABLE `laboratory_request`
-  MODIFY `lab_request_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `lab_request_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 --
 -- AUTO_INCREMENT for table `medication_dispensation`
 --
@@ -848,22 +861,22 @@ ALTER TABLE `medicine_stocks`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `patient_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `patient_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `patient_ipt`
 --
 ALTER TABLE `patient_ipt`
-  MODIFY `patient_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `patient_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `tb_case_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `tb_case_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `registration_ipt`
 --
 ALTER TABLE `registration_ipt`
-  MODIFY `ipt_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ipt_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tb_culture_examination`
 --

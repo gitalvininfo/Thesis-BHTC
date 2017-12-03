@@ -11,7 +11,7 @@ require ('config.php');
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-blue.css" />
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
     </head>
 
@@ -48,19 +48,19 @@ require ('config.php');
                                             <div class="row">
                                                 <?php
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                $f = $q->fetch_array();
-                $q2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                $fetch = $q2->fetch_array();
+            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+            $f = $q->fetch_array();
+            $q2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+            $fetch = $q2->fetch_array();
                                                 ?>
                                                 <div class="col-md-3">
-                                                    <div class="panel panel-info">
+                                                    <div class="panel">
                                                         <div class="panel-body profile">
                                                             <div class="profile-image">
                                                                 <img src="assets/images/users/no-image.jpg" alt="Nadia Ali"/>
                                                             </div>
                                                             <div class="profile-data">
-                                                                <div class="profile-data-name"style="color:#695858"><?php echo $f['patient_name']?></div>
+                                                                <div class="profile-data-name"><?php echo $f['patient_name']?></div>
                                                                 <div class="profile-data-title">TB Patient</div>
                                                             </div>
                                                             <div class="panel-body">                                    
@@ -165,20 +165,11 @@ require ('config.php');
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                                                                    while($fetch = $query->fetch_array()){
-                                                                    ?>
                                                                     <tr>
-                                                                        <td><center><?php echo $fetch['household_member']?></center></td>
-                                                                        <td><center><?php echo $fetch['household_member_age']?></center></td>
-                                                                        <td><center><?php echo $fetch['date_screened']?></center></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
                                                                     </tr>
-                                                                    <?php
-                                                                    }
-                                                                    $conn->close();
-                                                                    ?>
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -203,11 +194,11 @@ require ('config.php');
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                        $query = $conn->query("SELECT * FROM `dssm_examination` WHERE `patient_id` = '$_GET[id]' ORDER BY `dssm_id` DESC") or die(mysqli_error());
-                                                        $id = $f['patient_id'];
-                                                        while($fetch = $query->fetch_array()){
-                                                            $id = $fetch['patient_id'];
+    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                                                    $query = $conn->query("SELECT * FROM `dssm_examination` WHERE `patient_id` = '$_GET[id]' ORDER BY `dssm_id` DESC") or die(mysqli_error());
+                                                                    $id = $f['patient_id'];
+                                                                    while($fetch = $query->fetch_array()){
+                                                                        $id = $fetch['patient_id'];
                                                         ?>
                                                         <tr>
                                                             <td><center><?php echo $fetch['date_examined']?></center></td>
@@ -222,8 +213,8 @@ require ('config.php');
 
                                                         </tr>
                                                         <?php
-                                                        }
-                                                        $conn->close();
+                                                                    }
+                                                                    $conn->close();
                                                         ?>
                                                     </tbody>
                                                 </table>

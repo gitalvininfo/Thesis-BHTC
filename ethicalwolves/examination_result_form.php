@@ -11,7 +11,7 @@ require ('config.php');
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-blue.css" />
         <link rel="stylesheet" type="text/css" id="theme" href="css/mycustom.css" />
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
     </head>
@@ -33,7 +33,7 @@ require ('config.php');
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-22">
                             <?php
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[patient_id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
@@ -208,7 +208,7 @@ require ('config.php');
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-md-2 control-label">Date Examined</label>
+                                                            <label class="col-md-2 control-label">Result</label>
                                                             <div class="col-md-9">
                                                                 <select class="form-control select" data-live-search="true" name="result" required >
                                                                     <option value = "">Select...</option>
@@ -281,11 +281,12 @@ require ('config.php');
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">TB Culture Result</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                    <input type="text" class="form-control" name="tb_culture_result" placeholder="TB Culture Result" data-toggle="tooltip" data-placement="top" title="TB Culture Result" required/>
-                                                                </div>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="tb_culture_result" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Not Done">[0] - Negative</option>
+                                                                    <option value = "Resistant">[MTB] - MTB detected</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -387,85 +388,104 @@ require ('config.php');
                                                         <label>First Line Drug Results</label>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Isoniazid</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                    <input type="text" class="form-control" name="isoniazid" placeholder="Isoniazid" data-toggle="tooltip" data-placement="top" title="Isoniazid" required/>
-                                                                </div>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="isoniazid" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Resistant">[R] - Resistant</option>
+                                                                    <option value = "Susceptible">[S] - Susceptible</option>
+                                                                    <option value = "Not Done">[ND] - Not Done</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Rifampicin</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                    <input type="text" class="form-control" name="rifampicin" placeholder="Rifampicin" data-toggle="tooltip" data-placement="top" title="Rifampicin" required/>
-                                                                </div>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="rifampicin" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Resistant">[R] - Resistant</option>
+                                                                    <option value = "Susceptible">[S] - Susceptible</option>
+                                                                    <option value = "Not Done">[ND] - Not Done</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Ethambutol</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                    <input type="text" class="form-control" name="ethambutol" placeholder="Ethambutol" data-toggle="tooltip" data-placement="top" title="Ethambutol" required/>
-                                                                </div>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="ethambutol" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Resistant">[R] - Resistant</option>
+                                                                    <option value = "Susceptible">[S] - Susceptible</option>
+                                                                    <option value = "Not Done">[ND] - Not Done</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Streptomycin</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                    <input type="text" class="form-control" name="streptomycin" placeholder="Streptomycin" data-toggle="tooltip" data-placement="top" title="Streptomycin" required/>
-                                                                </div>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="streptomycin" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Resistant">[R] - Resistant</option>
+                                                                    <option value = "Susceptible">[S] - Susceptible</option>
+                                                                    <option value = "Not Done">[ND] - Not Done</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Pyrazinamide</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                    <input type="text" class="form-control" name="pyrazinamide" placeholder="Pyrazinamide" data-toggle="tooltip" data-placement="top" title="Pyrazinamide" required/>
-                                                                </div>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="pyrazinamide" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Resistant">[R] - Resistant</option>
+                                                                    <option value = "Susceptible">[S] - Susceptible</option>
+                                                                    <option value = "Not Done">[ND] - Not Done</option>
+                                                                </select>
                                                             </div>
                                                         </div>
+
                                                         <hr>
                                                         <label>Second Line Drug Results</label>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Levofloxacin</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                    <input type="text" class="form-control" name="levofloxacin" placeholder="Levofloxacin" data-toggle="tooltip" data-placement="top" title="Levofloxacin" required/>
-                                                                </div>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="levofloxacin" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Resistant">[R] - Resistant</option>
+                                                                    <option value = "Susceptible">[S] - Susceptible</option>
+                                                                    <option value = "Not Done">[ND] - Not Done</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Kanamycin</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                    <input type="text" class="form-control" name="kanamycin" placeholder="Kanamycin" data-toggle="tooltip" data-placement="top" title="Kanamycin" required/>
-                                                                </div>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="kanamycin" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Resistant">[R] - Resistant</option>
+                                                                    <option value = "Susceptible">[S] - Susceptible</option>
+                                                                    <option value = "Not Done">[ND] - Not Done</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Amikacin</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                    <input type="text" class="form-control" name="amikacin" placeholder="Amikacin" data-toggle="tooltip" data-placement="top" title="Amikacin" required/>
-                                                                </div>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="amikacin" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Resistant">[R] - Resistant</option>
+                                                                    <option value = "Susceptible">[S] - Susceptible</option>
+                                                                    <option value = "Not Done">[ND] - Not Done</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Capreomycin</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                                    <input type="text" class="form-control" name="capreomycin" placeholder="Capreomycin" data-toggle="tooltip" data-placement="top" title="Capreomycin" required/>
-                                                                </div>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="capreomycin" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Resistant">[R] - Resistant</option>
+                                                                    <option value = "Susceptible">[S] - Susceptible</option>
+                                                                    <option value = "Not Done">[ND] - Not Done</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <hr>

@@ -6,7 +6,6 @@ require ('config.php');
 <html lang="en">
 
     <head>
-        <!-- META SECTION -->
         <title>BHTC-PMIS</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -104,7 +103,7 @@ require ('config.php');
                                                     <div class="panel-heading">
                                                         <div class="btn-group pull-right">
                                                             <div class="pull-left">
-                                                                <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_ipt"><span class="fa fa-plus"></span> New Patient </button>
+                                                                <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_ipt"><span class="fa fa-user-plus"></span> New Patient </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -167,31 +166,28 @@ require ('config.php');
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-plus"></span> New TB Case</h4>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-user-plus"></span> New Patient</h4>
                     </div>
-                    <form role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
+                    <form id="tbcase" role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="panel-body">
                                     <div class="col-md-6">
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Patient Name" type="text" class="form-control" name="patient_name" placeholder="Patient Name" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Name</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Patient Name" type="text" class="form-control" name="patient_name" placeholder="Patient Name" required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Age</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-12">                                        
+                                            <label class="col-md-3 col-xs-12 control-label">Gender</label>
+                                            <div class="col-md-9">                                        
                                                 <select class="form-control select" name="gender">
                                                     <option value="">Choose Gender</option>
                                                     <option value="Male">Male</option>
@@ -199,16 +195,15 @@ require ('config.php');
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <textarea data-toggle="tooltip" data-placement="bottom" title="Complete Home Address" type="text" class="form-control" name="address" placeholder="Complete Home Address" required></textarea>
-                                                </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 col-xs-12 control-label">Address</label>
+                                            <div class="col-md-9 col-xs-12">                                            
+                                                <textarea class="form-control" rows="3" name="address" placeholder="Complete Home Address" data-toggle="tooltip" data-placement="bottom" title="Complete Home Address"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-12">                                                    
+                                            <label class="col-md-3 col-xs-12 control-label">Barangay</label>
+                                            <div class="col-md-9">                                                    
                                                 <select class="form-control select" data-live-search="true" name="barangay">
                                                     <option>Choose Barangay</option>
                                                     <option value="Abcasa">Brgy. Abcasa</option>
@@ -280,93 +275,54 @@ require ('config.php');
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Patient Height" type="text" class="form-control" name="height" placeholder="Height" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Contact Number" type="text" class="form-control" name="contact_number" placeholder="Contact Number" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Birthdate</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Occupation * optional" type="text" class="form-control" name="occupation" placeholder="Occupation" />
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Height</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Patient Height" type="number" class="form-control" name="height" placeholder="Height in cms." required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Philhealth Number * optional" type="text" class="form-control" name="philhealth_no" placeholder="Philhealth Number" />
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Contact No.</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Contact Number" type="text" class="form-control" name="contact_number" placeholder="Contact Number" required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Contact Person" type="text" class="form-control" name="contact_person" placeholder="Contact Person" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Occupation</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Occupation" type="text" class="form-control" name="occupation" placeholder="Occupation" />
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Philhealth</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Philhealth Number * optional" type="text" class="form-control" name="philhealth_no" placeholder="Philhealth Number" />
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Household Member" type="text" class="form-control" name="household_member" placeholder="Household Member" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Contact Person</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Contact Person" type="text" class="form-control" name="contact_person" placeholder="Contact Person" required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Household Age" type="number" class="form-control" name="household_member_age" placeholder="Household Member Age" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Date Screened" type="text" class="form-control datepicker" value="Date Screened" name="date_screened" required>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Emergency No.</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                        </div>
+                            </div>                        </div>
                         <div class="modal-footer">
+                            <span class="pull-left"><label class="col-md-12 col-xs-12 control-label" style="color:red"><i>* Philhealth Number is optional</i></label></span>
                             <button type="submit" class="btn btn-info" name="add_new_patient"><span class="fa fa-check"></span>Save</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
                         </div>
@@ -385,29 +341,26 @@ require ('config.php');
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="defModalHead"><span class="fa fa-plus"></span> New IPT Case</h4>
                     </div>
-                    <form role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
+                    <form role="form" id="ipt" class="form-horizontal" action="actions/registration_table.php" method="post">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="panel-body">
                                     <div class="col-md-12">
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Patient Name" type="text" class="form-control" name="name" placeholder="Patient Name" style="text-transform:capitalize" required/>
-                                                </div>
+                                            <label class="col-md-2 col-xs-12 control-label">Name</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Patient Name" type="text" class="form-control" name="name" placeholder="Patient Name" style="text-transform:capitalize" required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
-                                                </div>
+                                            <label class="col-md-2 col-xs-12 control-label">Age</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-12">                                        
+                                            <label class="col-md-2 col-xs-12 control-label">Gender</label>
+                                            <div class="col-md-9">                                        
                                                 <select class="form-control select" name="gender">
                                                     <option value="">Choose Gender</option>
                                                     <option value="Male">Male</option>
@@ -415,35 +368,28 @@ require ('config.php');
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Complete Home Address" type="text" class="form-control" name="address" placeholder="Complete Home Address" required/>
-                                                </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 col-xs-12 control-label">Address</label>
+                                            <div class="col-md-9 col-xs-12">                                            
+                                                <textarea class="form-control" rows="3" name="address" placeholder="Complete Home Address" data-toggle="tooltip" data-placement="bottom" title="Complete Home Address"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
-                                                </div>
+                                            <label class="col-md-2 col-xs-12 control-label">Emergency No.</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
                                             </div>
                                         </div>
 
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
-                                                </div>
+                                            <label class="col-md-2 col-xs-12 control-label">Birthdate</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-info" name="add_new_ipt"><span class="fa fa-check"></span>Save</button>
@@ -459,37 +405,30 @@ require ('config.php');
         <!-- Register Patient -->
         <?php
         $year = date("Y");
-        $date = date('F j, Y | l');
+        $date = date('F j, Y-l');
         $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
         $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
         while($fetch = $query->fetch_array()){
         ?>
-        <div id="registerpatient<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
-            <div class="modal-dialog">
+        <div id="registerpatient<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> <strong>Patient Name : <?php echo $fetch['patient_name']?> | TB Case Number : <?php echo $year. "-" .$fetch['patient_id']?></strong></h4>
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-key"></span> <strong> <?php echo $fetch['patient_name']?> | <?php echo $year. "-". "5867". "-".$fetch['patient_id']?>| </strong>  <?php echo $date?></h4>
                     </div>
                     <form role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="panel-body">
-                                    <div class="form-group ">
-                                        <div class="col-md-12 col-xs-12">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                                <input data-toggle="tooltip" data-placement="right" title="Registration Date" type="text" class="form-control" name="registration_date" style="color:#000;" value="<?php echo $date ?>" disabled/> 
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h3> Source of Patient</h3>
                                             <div class="form-group">
                                                 <div class="col-md-3">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Public Health Center" required/> Public Health Center</label>
+                                                    <label class="check">
+                                                        <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
+                                                        <input type="radio" class="iradio" name="source_of_patient" value="Public Health Center" required/> Public Health Center</label>
                                                 </div>
                                                 <div class="col-md-3">                                    
                                                     <label class="check"><input type="radio" class="iradio" name="source_of_patient" value ="Other Government Facilities" required/> Other Government Facilities</label>
@@ -529,26 +468,12 @@ require ('config.php');
                                             </div><hr>
                                         </div>
                                         <div class="col-md-12">
-                                            <h3> Diagnosis</h3>
-                                            <div class="form-group">
-                                                <div class="col-md-4">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value="TB Disease" required/> TB Disease</label>
-                                                </div>
-                                                <div class="col-md-4">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value ="TB Infection, for IPT" required/> TB Infection, for IPT</label>
-                                                </div>
-                                                <div class="col-md-4">                                    
-                                                    <label class="check"><input type="radio" class="iradio" name="diagnosis" value="TB Exposior, for IPT" required/> TB Exposior</label>
-                                                </div>
-                                            </div><hr>
-                                        </div>
-                                        <div class="col-md-12">
                                             <h3> Bacteriological Status</h3>
                                             <div class="form-group">
-                                                <div class="col-md-6">                                    
+                                                <div class="col-md-3">                                    
                                                     <label class="check"><input type="radio" class="iradio" name="bacteriological_status" value="Bacteriologically Confirmed" required/> Bacteriologically Confirmed</label>
                                                 </div>
-                                                <div class="col-md-6">                                    
+                                                <div class="col-md-3">                                    
                                                     <label class="check"><input type="radio" class="iradio" name="bacteriological_status" value ="Clinically Diagnosed" required/> Clinically Diagnosed</label>
                                                 </div>
                                             </div><hr>
@@ -556,10 +481,10 @@ require ('config.php');
                                         <div class="col-md-12">
                                             <h3> Classification of TB</h3>
                                             <div class="form-group">
-                                                <div class="col-md-6">                                    
+                                                <div class="col-md-3">                                    
                                                     <label class="check"><input type="radio" class="iradio" name="classification_of_tb" value="Pulmonary" required/> Pulmonary</label>
                                                 </div>
-                                                <div class="col-md-6">                                    
+                                                <div class="col-md-3">                                    
                                                     <label class="check"><input type="radio" class="iradio" name="classification_of_tb" value ="Extra-pulmonary" required/> Extra-pulmonary</label>
                                                 </div>
                                             </div><hr>
@@ -684,23 +609,7 @@ require ('config.php');
         <!-- End Register IPT -->
 
 
-        <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
-            <div class="mb-container">
-                <div class="mb-middle">
-                    <div class="mb-title"><span class="glyphicon glyphicon-off"></span> Log <strong>Out</strong> ?</div>
-                    <div class="mb-content">
-                        <p>Are you sure you want to log out?</p>
-                        <p>Press No if you want to continue work. Press Yes to logout current user.</p>
-                    </div>
-                    <div class="mb-footer">
-                        <div class="pull-right">
-                            <a href="logout.php" class="btn btn-danger btn-lg">Yes</a>
-                            <button class="btn btn-default btn-lg mb-control-close">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php require 'require/logout.php'?>
 
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
@@ -713,6 +622,42 @@ require ('config.php');
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
-        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>        
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>  
+        <script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
+        <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
+        <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>      
+        <script type="text/javascript">
+            var tbcase = $("#tbcase").validate({
+                ignore: [],
+                rules: {
+                    age: {
+                        required: true,
+                        min: 6,
+                        max: 100
+                    },
+                    birthdate: {
+                        required: true,
+                        date: true
+                    },
+
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            var ipt = $("#ipt").validate({
+                ignore: [],
+                rules: {
+                    age: {
+                        required: true,
+                        min: 0,
+                        max: 5
+                    },
+                    birthdate: {
+                        required: true,
+                        date: true
+                    },
+                }
+            });
+        </script>
     </body>
 </html>
