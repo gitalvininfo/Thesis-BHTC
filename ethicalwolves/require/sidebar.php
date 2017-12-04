@@ -30,7 +30,7 @@
                 </div>
             </div>
         </li>
-        <li class="active">
+        <li>
             <a href="home.php"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboard</span></a>
         </li>
         <li class="xn-openable">
@@ -58,7 +58,7 @@
                 <li> <a href="patient_certification_table.php"><span class="fa fa-file-text"></span> <span class="xn-text">Certification</span></a> </li>
                 <li><a href="examination_reports_overview.php"><span class="fa fa-file-text"></span><span class="xn-text">Examination Report</span></a></li>
                 <li><a href="reports.php"><span class="fa fa-file-text"></span><span class="xn-text">TB Cases Report</span></a></li>
-
+                <li><a href="patient_record_report.php"><span class="fa fa-file-text"></span><span class="xn-text">Patient Record Report</span></a></li>
             </ul>
         </li>
         <li class="xn-openable">
