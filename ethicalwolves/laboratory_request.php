@@ -443,7 +443,7 @@ require ('config.php');
                     requesting_physician: {
                         required: true,
                         minlength: 2,
-                        maxlength: 8
+                        maxlength: 30
                     },
                     password: {
                         required: true,

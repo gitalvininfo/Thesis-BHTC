@@ -29,18 +29,19 @@ require ('config.php');
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Reports</li>
-                    <li class="active">Patient Record Report</li>
+                    <li><a href="patient_record_report.php">Patient Record Reports</a></li>
+                    <li class="active">Individual Record</li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
-                            <form id="jvalidate" role="form" class="form-horizontal" method="post">
+                            <form role="form" class="form-horizontal" method="post">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
                                         <h3 class="panel-title"><strong> <span class="fa fa-file-text"></span> Patient Individual Record</strong></h3>
                                         <div class="btn-group pull-right">
                                             <div class="pull-left">
-                                                <button class="btn btn-default btn-md" onclick="printContent('print')"><span class="fa fa-print"></span> Print Preview</button>
+                                                <a href="patient_record_report.php" class="btn btn-default btn-md"><span class="fa fa-mail-reply"></span> Back</a>
                                             </div>
                                         </div>  
                                     </div>
@@ -82,13 +83,14 @@ require ('config.php');
                                                             <h6><strong>Birthdate: </strong><?php echo $fetch['address']?></h6>
                                                             <hr style="margin:0px 0 5px 0;">
                                                             <h6><strong>Occupation: </strong><?php echo $fetch['occupation']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
                                                             <h6><strong>Contact Person: </strong><?php echo $fetch['contact_person']?></h6>
                                                             <hr style="margin:0px 0 5px 0;">
                                                             <h6><strong>Emergency No: </strong><?php echo $fetch['emergency_no']?></h6>
                                                             <hr style="margin:0px 0 5px 0;">
-                                                            <hr style="margin:0px 0 5px 0;">
                                                             <h6><strong>Philhealth No: </strong><?php echo $fetch['philhealth_no']?></h6>
                                                         </div>
+                                                        <hr style="margin:0px 0 5px 0;">
                                                         <div class="col-md-5">                        
                                                             <h6><strong>Registration Date: </strong><?php echo $fetch2['registration_date']?></h6>
                                                             <hr style="margin:0px 0 5px 0;">
@@ -112,11 +114,12 @@ require ('config.php');
                                                         </div>
                                                     </div>
                                                     <hr>
+                                                    <h6>&nbsp;  &nbsp; A. Diagnostic Tests</h6>
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading">
-                                                                    <h3 class="panel-title"><span class="fa fa-stethoscope"></span> <strong>Direct Sputum Smear Microscopy</strong></h3>
+                                                                    <h3 class="panel-title"> <strong>Direct Sputum Smear Microscopy</strong></h3>
                                                                 </div>
 
                                                                 <div class="panel-body panel-body-table">
@@ -124,6 +127,8 @@ require ('config.php');
 
                                                                         <thead>
                                                                             <tr>
+                                                                                <th><center>Laboratory Number</center></th>
+                                                                                <th><center>Examined By</center></th>
                                                                                 <th><center>Date Examined</center></th>
                                                                                 <th><center>Date Released</center></th>
                                                                                 <th><center>Result</center></th>
@@ -138,6 +143,8 @@ require ('config.php');
                                                                                 $id = $fetch2['patient_id'];
                                                                             ?>
                                                                             <tr>
+                                                                                <td><center><?php echo $fetch2['laboratory_number']?></center></td>
+                                                                                <td><center><?php echo $fetch2['examined_by']?></center></td>
                                                                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                                                                 <td><center><?php echo $fetch2['date_released']?></center></td>
                                                                                 <td><center><?php echo $fetch2['laboratory_diagnosis']?></center></td>
@@ -151,28 +158,94 @@ require ('config.php');
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                    </div>
+                                                    <hr style="margin:0px 0 5px 0;">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading">
-                                                                    <h3 class="panel-title"><span class="fa fa-group"></span> <strong>Household Members of <?php echo $fetch['patient_name']?></strong></h3>
+                                                                    <h3 class="panel-title"> <strong>Xpert MTB/RIF</strong></h3>
                                                                 </div>
+
                                                                 <div class="panel-body panel-body-table">
                                                                     <table id="laboratory_request" class="table table-hover">
-
                                                                         <thead>
                                                                             <tr>
-                                                                                <th><center>Name</center></th>
-                                                                                <th><center>Age</center></th>
-                                                                                <th><center>Date Screened</center></th>
+                                                                                <th><center>Date Examined</center></th>
+                                                                                <th><center>Laboratory Number</center></th>
+                                                                                <th><center>Visual Appearance</center></th>
+                                                                                <th><center>Reading</center></th>
+                                                                                <th><center>Examined By</center></th>
+                                                                                <th><center>Date Released</center></th>
+                                                                                <th><center>Result</center></th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-
+                                                                            <?php
+                                                                            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                                                            $query = $conn->query("SELECT * FROM `gene_expert_examination` WHERE `patient_id` = '$_GET[id]' ORDER BY `xpert_id` DESC") or die(mysqli_error());
+                                                                            $id = $fetch['patient_id'];
+                                                                            while($fetch2 = $query->fetch_array()){
+                                                                                $id = $fetch2['patient_id'];
+                                                                            ?>
                                                                             <tr>
-                                                                                <td></td>
-                                                                                <td></td>
-                                                                                <td></td>
+                                                                                <td><center><?php echo $fetch2['date_examined']?></center></td>
+                                                                                <td><center><?php echo $fetch2['laboratory_number']?></center></td>
+                                                                                <td><center><?php echo $fetch2['visual_appearance']?></center></td>
+                                                                                <td><center><?php echo $fetch2['reading']?></center></td>
+                                                                                <td><center><?php echo $fetch2['examined_by']?></center></td>
+                                                                                <td><center><?php echo $fetch2['date_released']?></center></td>
+                                                                                <td><center><?php echo $fetch2['result']?></center></td>
                                                                             </tr>
+                                                                            <?php
+                                                                            }
+                                                                            $conn->close();
+                                                                            ?>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr style="margin:0px 0 5px 0;">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <h3 class="panel-title"> <strong>TB Culture</strong></h3>
+                                                                </div>
+                                                                <div class="panel-body panel-body-table">
+                                                                    <table id="laboratory_request" class="table table-hover">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th><center>Method</center></th>
+                                                                                <th><center>TB Culture Laboratory</center></th>
+                                                                                <th><center>TB Culture Result</center></th>
+                                                                                <th><center>Remarks</center></th>
+                                                                                <th><center>Examined By</center></th>
+                                                                                <th><center>Date Released</center></th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <?php
+                                                                            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                                                            $query = $conn->query("SELECT * FROM `tb_culture_examination` WHERE `patient_id` = '$_GET[id]' ORDER BY `tb_culture_id` DESC") or die(mysqli_error());
+                                                                            $id = $fetch['patient_id'];
+                                                                            while($fetch2 = $query->fetch_array()){
+                                                                                $id = $fetch2['patient_id'];
+                                                                            ?>
+                                                                            <tr>
+                                                                                <td><center><?php echo $fetch2['method']?></center></td>
+                                                                                <td><center><?php echo $fetch2['tb_culture_laboratory']?></center></td>
+                                                                                <td><center><?php echo $fetch2['tb_culture_result']?></center></td>
+                                                                                <td><center><?php echo $fetch2['remarks']?></center></td>
+                                                                                <td><center><?php echo $fetch2['examined_by']?></center></td>
+                                                                                <td><center><?php echo $fetch2['date_released']?></center></td>
+                                                                            </tr>
+                                                                            <?php
+                                                                            }
+                                                                            $conn->close();
+                                                                            ?>
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
@@ -182,51 +255,13 @@ require ('config.php');
 
 
                                                     </div>
-                                                    <hr>
+                                                    <hr style="margin:0px 0 5px 0;">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading">
-                                                                    <h3 class="panel-title"><span class="fa fa-stethoscope"></span> <strong>Xpert MTB/RIF</strong></h3>
+                                                                    <h3 class="panel-title"> <strong>Tuberculin Skin Testing</strong></h3>
                                                                 </div>
-
-                                                                <div class="panel-body panel-body-table">
-                                                                    <table id="laboratory_request" class="table table-hover">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th><center>Date Examined</center></th>
-                                                                                <th><center>Date Released</center></th>
-                                                                                <th><center>Result</center></th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            <?php
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                        $query = $conn->query("SELECT * FROM `gene_expert_examination` WHERE `patient_id` = '$_GET[id]' ORDER BY `xpert_id` DESC") or die(mysqli_error());
-                                                                        $id = $fetch['patient_id'];
-                                                                        while($fetch2 = $query->fetch_array()){
-                                                                            $id = $fetch2['patient_id'];
-                                                                            ?>
-                                                                            <tr>
-                                                                                <td><center><?php echo $fetch2['date_examined']?></center></td>
-                                                                                <td><center><?php echo $fetch2['date_released']?></center></td>
-                                                                                <td><center><?php echo $fetch2['result']?></center></td>
-                                                                            </tr>
-                                                                            <?php
-                                                                        }
-                                                                        $conn->close();
-                                                                            ?>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading">
-                                                                    <h3 class="panel-title"><span class="fa fa-stethoscope"></span> <strong>Tuberculin Skin Testing</strong></h3>
-                                                                </div>
-
                                                                 <div class="panel-body panel-body-table">
                                                                     <table id="laboratory_request" class="table table-hover">
 
@@ -257,13 +292,10 @@ require ('config.php');
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading">
-                                                                    <h3 class="panel-title"><span class="fa fa-stethoscope"></span> <strong>Chest X-Ray</strong></h3>
+                                                                    <h3 class="panel-title"> <strong>Chest X-Ray</strong></h3>
                                                                 </div>
 
                                                                 <div class="panel-body panel-body-table">
@@ -297,38 +329,61 @@ require ('config.php');
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <hr style="margin:0px 0 5px 0;">
+                                                    <h6>&nbsp;  &nbsp; B. Treatment</h6>
+                                                    <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="panel panel-default">
                                                                 <div class="panel-heading">
-                                                                    <h3 class="panel-title"><span class="fa fa-stethoscope"></span> <strong>TB Culture</strong></h3>
+                                                                    <h3 class="panel-title"> <strong>Clinical Findings</strong></h3>
                                                                 </div>
-
                                                                 <div class="panel-body panel-body-table">
                                                                     <table id="laboratory_request" class="table table-hover">
+
                                                                         <thead>
                                                                             <tr>
-                                                                                <th><center>Chest X-ray Findings</center></th>
-                                                                                <th><center>Date of Exam</center></th>
-                                                                                <th><center>TBDC</center></th>
+                                                                                <th><center>Criteria</center></th>
+                                                                                <th><center>Frequency of occurences during treatment</center></th>
+                                                                                
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
                                                                             <?php
-                                                                            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                            $query = $conn->query("SELECT * FROM `cxr` WHERE `patient_id` = '$_GET[id]' ORDER BY `cxr_id` DESC") or die(mysqli_error());
-                                                                            $id = $fetch['patient_id'];
-                                                                            while($fetch2 = $query->fetch_array()){
-                                                                                $id = $fetch2['patient_id'];
+                                                                            require 'config.php';
+                                                                            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                                                                            $f = $q->fetch_array();
+                                                                            $q1 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q1` = 'Yes'") or die (mysqli_error());
+                                                                            $f1 = $q1->fetch_array();
+                                                                            $q2 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q2` = 'Yes'") or die (mysqli_error());
+                                                                            $f2 = $q2->fetch_array();
+                                                                            $q3 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q3` = 'Yes'") or die (mysqli_error());
+                                                                            $f3 = $q3->fetch_array();
+                                                                            $q4 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q4` = 'Yes'") or die (mysqli_error());
+                                                                            $f4 = $q4->fetch_array();
+                                                                            $q5 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q5` = 'Yes'") or die (mysqli_error());
+                                                                            $f5 = $q5->fetch_array();
                                                                             ?>
                                                                             <tr>
-                                                                                <td><center><?php echo $fetch2['cxr_findings']?></center></td>
-                                                                                <td><center><?php echo $fetch2['date_of_exam']?></center></td>
-                                                                                <td><center><?php echo $fetch2['tbdc']?></center></td>
+                                                                                <td> Unexplained fever greater than 2 weeks</td>
+                                                                                <td><center><?php echo $f1['total']?></center></td>
                                                                             </tr>
-                                                                            <?php
-                                                                            }
-                                                                            $conn->close();
-                                                                            ?>
+                                                                            <tr>
+                                                                                <td>Unexplained cough or wheezing greater than 2 weeks</td>
+                                                                                <td><center><?php echo $f2['total']?></center></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Unimproved general well-being</td>
+                                                                                <td><center><?php echo $f3['total']?></center></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Poor Appetite</td>
+                                                                                <td><center><?php echo $f4['total']?></center></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Positive PE findings for Extra-pulmonary TB</td>
+                                                                                <td><center><?php echo $f5['total']?></center></td>
+                                                                            </tr>
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
@@ -357,10 +412,8 @@ require ('config.php');
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-
         <script type="text/javascript" src="js/plugins.js"></script>
         <script type="text/javascript" src="js/actions.js"></script>
-
     </body>
 
 </html>

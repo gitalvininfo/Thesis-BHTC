@@ -486,8 +486,6 @@ require ('config.php');
                                                 $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                                                 $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
                                                 $f = $q->fetch_array();
-                                                $query3 = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
-                                                $f2 = $query3->fetch_array();
                                                 ?>
                                                 <div class="panel panel-default">
                                                     <div class="panel-body scroll" style="height:400px;">
@@ -539,7 +537,7 @@ require ('config.php');
                                                                     </td>
                                                                     <td>
                                                                         <center>
-                                                                            <?php echo $fetch['isoniazid']?> kgs.</center>
+                                                                            <?php echo $fetch['isoniazid']?></center>
                                                                     </td>
                                                                     <td>
                                                                         <center>
@@ -856,10 +854,10 @@ require ('config.php');
         ?> 
         <!-- End Clinical -->
 
-       
+
         <!-- Add Drug Preparations -->
         <?php
-         $date = date('F j, Y | l');
+        $date = date('F j, Y | l');
         $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
         $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
         while($fetch = $query->fetch_array()){
