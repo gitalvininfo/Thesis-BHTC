@@ -49,7 +49,7 @@ if(ISSET($_POST['edit_medicine'])){
     $conn->query("UPDATE `medicine` SET `medicine_name` = '$medicine_name', `medicine_description` = '$medicine_description' WHERE `medicine_id` = '$medicine_id'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully updated medicine!');</script>";
-    echo "<script>document.location='medication_dispensation.php'</script>";  
+    echo "<script>document.location='medication_table.php'</script>";  
 }
 
 if(ISSET($_POST['edit_dispensed'])){
