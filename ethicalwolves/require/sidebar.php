@@ -62,7 +62,7 @@
             <a href="#"><span class="fa fa-gears"></span> <span class="xn-text">System Maintenance</span></a>       
             <ul>
                 <li><a href="change_password.php"><span class="fa fa-key"></span><span class="xn-text">Update Profile</span></a></li>
-                <li><a href="system_backup.php?id=<?php echo $find['user_id']?>&username=<?php echo $find['username']?>"><span class="fa fa-cloud-download"></span><span class="xn-text">Download Database</span></a></li>
+                <li><a href="download_database.php"><span class="fa fa-cloud-download"></span><span class="xn-text">Download Database</span></a></li>
             </ul>
         </li> 
     </ul>

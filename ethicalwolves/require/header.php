@@ -3,7 +3,7 @@
         <a href="#" class="x-navigation-minimize"><span class="fa fa-bars"></span></a>
     </li>
     <li class="xn-icon-button pull-right">
-        <a href="index.php" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
+        <a class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
     </li>
     <li class="xn-icon-button pull-right">
         <?php
