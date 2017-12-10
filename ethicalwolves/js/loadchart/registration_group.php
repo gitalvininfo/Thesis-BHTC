@@ -86,14 +86,14 @@ $fetch9 = $oth->fetch_array();
                          }	
                          ?>, legendText: "Treatment After Failure"},
 
-                        { label: "PTOU",  y: 
+                        { label: "Previous Treatment Outcome Unknown",  y: 
                          <?php 
                          if($fetch7 == ""){
                              echo 0;
                          }else{
                              echo $fetch7['total'];
                          }	
-                         ?>, legendText: "PTOU"}, 
+                         ?>, legendText: "Previous Treatment Outcome Unknown"}, 
 
                         { label: "Transfer-in",  y: 
                          <?php 

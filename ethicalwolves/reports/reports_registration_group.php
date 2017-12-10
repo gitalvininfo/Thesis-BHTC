@@ -135,7 +135,7 @@ require ('../config.php');
                                                             <td><center><strong><?php echo $fetch6['total']?></strong></center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>PTOU</td>
+                                                            <td>Previous Treatment Outcome Unknown</td>
                                                             <td><center><strong><?php echo $fetch7['total']?></strong></center></td>
                                                         </tr>
                                                         <tr>

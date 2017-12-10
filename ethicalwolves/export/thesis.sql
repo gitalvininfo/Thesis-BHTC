@@ -5,12 +5,18 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
-INSERT INTO backup VALUES("1","Successful","2017-12-07 13:42:34"); 
-INSERT INTO backup VALUES("2","Successfully downloaded databa","2017-12-07 13:50:05"); 
-INSERT INTO backup VALUES("3","Successfully downloaded database","2017-12-07 13:50:19"); 
-INSERT INTO backup VALUES("4","Successfully downloaded database","2017-12-07 13:51:45"); 
+INSERT INTO backup VALUES("1","Successfully downloaded database","2017-12-08 04:00:51"); 
+INSERT INTO backup VALUES("2","Successfully downloaded database","2017-12-08 04:16:32"); 
+INSERT INTO backup VALUES("3","Successfully downloaded database","2017-12-08 08:47:39"); 
+INSERT INTO backup VALUES("4","Successfully downloaded database...","2017-12-08 08:48:02"); 
+INSERT INTO backup VALUES("5","Successfully imported database","2017-12-08 09:00:35"); 
+INSERT INTO backup VALUES("6","Successfully imported database","2017-12-08 09:00:59"); 
+INSERT INTO backup VALUES("7","Successfully downloaded database","2017-12-08 09:02:15"); 
+INSERT INTO backup VALUES("8","Successfully downloaded database","2017-12-08 09:02:33"); 
+INSERT INTO backup VALUES("9","Successfully imported database","2017-12-08 14:07:29"); 
+INSERT INTO backup VALUES("10","Successfully imported database","2017-12-09 10:27:03"); 
 
 
 
@@ -194,10 +200,9 @@ CREATE TABLE `gene_expert_examination` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`xpert_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 INSERT INTO gene_expert_examination VALUES("1","2017-11-26","12","Good","Good","Dr. Haro","2017-11-26","T","1","Nov","2017"); 
-INSERT INTO gene_expert_examination VALUES("2","2017-12-06","1256","Salivary","wwwere","Dr","2017-12-06","T","19","Dec","2017"); 
 
 
 
@@ -265,7 +270,7 @@ INSERT INTO laboratory_request VALUES("73","Sum-ag Health Center","2017-11-21","
 INSERT INTO laboratory_request VALUES("74","Sum-ag Health Center","2017-11-22","2131","Diagnostic","Sputum","Yes","2017-11-14","2017-11-14","qeqw","1231","DSSM","7","Pending","2017"); 
 INSERT INTO laboratory_request VALUES("75","Banago Health Center","2017-12-03","Dr. haro","Diagnostic","Sputum","Yes","2017-12-03","2017-12-03","Dr. haro","433-2449","Drug Susceptible Testing","6","Done","2017"); 
 INSERT INTO laboratory_request VALUES("76","Banago Health Center","2017-12-06","Dr. Sabay","Baseline","Sputum","Yes","2017-12-04","2017-12-04","Dr. Adricula","713-6113","TB Culture","1","Done","2017"); 
-INSERT INTO laboratory_request VALUES("77","Taculing Health Center","2017-12-06","Dr. Torres","Diagnostic","Sputum","Yes","2017-12-04","2017-12-05","sadsa","42432","Xpert MTB/RIF","19","Done","2017"); 
+INSERT INTO laboratory_request VALUES("77","Banago Health Center","2017-12-08","Dr. Torres","Follow-up","Sputum","Yes","2017-12-07","2017-12-07","Dr. Santos","712-3123","DSSM","6","Pending","2017"); 
 
 
 
@@ -338,7 +343,7 @@ CREATE TABLE `patient` (
   `treatment_partner` char(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`patient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 INSERT INTO patient VALUES("1","Alson John Bayon-on","123","Male","Prk. Langis, Brgy. Banago, Bacolod City","Banago","2017-11-25","178","433-2449","Negros Occidental","Drug Lord","10992241","Dr. Sabay","433-2449 local 181","Registered","Done","2017"); 
 INSERT INTO patient VALUES("2","Alvin Yanson","20","Male","eroreco bacolod city","Mandalagan","2017-01-08","178","433-2449","Negros Occidental","Student","1993121","Dr. Haro","433-2449 local 181","Registered","Pending","2017"); 
@@ -357,7 +362,6 @@ INSERT INTO patient VALUES("15","qwe","21","Male","tga banago","Brgy 38","2017-1
 INSERT INTO patient VALUES("16","zx","23","Female","qweq","Brgy 14","2017-11-26","12","433-2449","Negros Occidental","","","qwe","123","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("17","Jemmel Ano","12","Male","Singcang","Singcang","1997-03-19","178","433-2449 local","Negros Occidental","Student lng ah","","Dr. Sabay","433-2449 local","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("18","Jal Alvin Galoyo","20","Male","Sum-ag, Bacolod City","Sumag ","1997-09-16","178","433-2449 local","Negros Occidental","Student","no philhealth","Reymund Sabay","0909442423","Registered","Pending","2017"); 
-INSERT INTO patient VALUES("19","Jam Dientes","20","Female","safasfa","Tangub","1997-10-14","156","3213212","Negros Occidental","","","eqeq","321312","Registered","Pending","2017"); 
 
 
 
@@ -401,7 +405,7 @@ CREATE TABLE `registration` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`tb_case_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 INSERT INTO registration VALUES("26","2017-11-25","Bacolod City Health TB DOTS Center","Community","New","TB Disease","Bacteriologically Confirmed","Extra-pulmonary","Yes","Yes","Less than 1 month","1","Nov","2017"); 
 INSERT INTO registration VALUES("27","2017-11-25","Bacolod City Health TB DOTS Center","Public Health Center","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","Yes","Less than 1 month","2","Nov","2017"); 
@@ -420,7 +424,6 @@ INSERT INTO registration VALUES("39","December 1, 2017 | Friday","Bacolod City H
 INSERT INTO registration VALUES("40","December 1, 2017 | Friday","Bacolod City Health TB DOTS Center","Private Hospitals","TALF","TB Exposior, for IPT","Clinically Diagnosed","Extra-pulmonary","No","No","1 month or more","15","Dec","2017"); 
 INSERT INTO registration VALUES("41","December 2, 2017 | Saturd","Bacolod City Health TB DOTS Center","Community","TALF","TB Disease","Clinically Diagnosed","Extra-pulmonary","No","No","Less than 1 month","17","Dec","2017"); 
 INSERT INTO registration VALUES("42","December 3, 2017 | Sunday","Bacolod City Health TB DOTS Center","Public Health Center","New","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","Yes","Less than 1 month","18","Dec","2017"); 
-INSERT INTO registration VALUES("43","December 6, 2017 | Wednesday","Bacolod City Health TB DOTS Center","Public Health Center","New","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","Yes","Less than 1 month","19","Dec","2017"); 
 
 
 
@@ -511,12 +514,11 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
-INSERT INTO user VALUES("22","Dummy","Account","","NTP Nurse Coordinator","admin","HAHAHAHAHA9573534ee6a886f4831ac5bcdfe85565"); 
+INSERT INTO user VALUES("22","Dummy","Account","","NTP Nurse Coordinator","nurse","HAHAHAHAHA0701aa317da5a004fbf6111545678a6c"); 
 INSERT INTO user VALUES("31","Gabriel","Banua","213931","Medical Technologist","gab","HAHAHAHAHA639bee393eecbc62256936a8e64d17b1"); 
 INSERT INTO user VALUES("32","Menard","Gardose","1243443","Medical Technologist","menard","HAHAHAHAHA9f5ab0cd889e06d101d3e45e0296ed23"); 
-INSERT INTO user VALUES("33","Sample","Sample","12319","Medical Technologist","sample","HAHAHAHAHA5e8ff9bf55ba3508199d22e984129be6"); 
 
 
 

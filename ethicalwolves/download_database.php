@@ -27,23 +27,20 @@ require ('config.php');
                     <?php require 'require/header.php'?>
                     <ul class="breadcrumb push-down-0">
                         <li><a href="#">Home</a></li>
-                        <li class="active">System Maintenance</li>
+                        <li>System Maintenance</li>
+                        <li class="active">Import and Export Database</li>
                     </ul>
-                    <div class="content-frame">                                    
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-
-                                <div class="form-group">
-                                    <a class="btn btn-info mb-control" data-box="#message-box-success"><span class="fa fa-cloud-download"></span>Download Database</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-database"></span> History Log - Database Backup</h3>
+                                    <div class="btn-group pull-right">
+                                        <div class="pull-right">
+                                            <a class="btn btn-warning mb-control" data-box="#message-box-success"><span class="fa fa-cloud-download"></span>Export Database</a>
+                                            <a class="btn btn-info mb-control" data-box="#message-box-info"><span class="fa fa-cloud-upload"></span>Import Database</a>
+                                        </div>
+                                    </div>
+                                    <h3 class="panel-title"><span class="fa fa-database"></span> History Log - Export and Import Database</h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
                                     <div class="panel-body">
@@ -57,7 +54,8 @@ require ('config.php');
                                             <tbody>
                                                 <?php
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                $query = $conn->query("SELECT * FROM `backup` ORDER BY `backup_id` DESC") or die(mysqli_error());
+                $date = date("Y-m-d H:i:s");
+                $query = $conn->query("SELECT * FROM `backup` ORDER BY '$date' DESC") or die(mysqli_error());
                 while($fetch = $query->fetch_array()){
                                                 ?>                                      
                                                 <tr>
@@ -78,22 +76,42 @@ require ('config.php');
                 </div>
             </div>            
         </div>
-        <div class="message-box message-box-info animated fadeIn" data-sound="alert" id="message-box-success">
+        <div class="message-box message-box-warning animated fadeIn" data-sound="alert" id="message-box-success">
             <div class="mb-container">
                 <div class="mb-middle">
-                    <div class="mb-title"><span class="fa fa-info-circle"></span> Backup Database</div>
+                    <div class="mb-title"><span class="fa fa-cloud-download"></span> Export Database</div>
                     <div class="mb-content">
-                        <p>You are about to download database of BHTC-PMIS.</p>
+                        <p>You are about to download the database of BHTC-PMIS.</p>
                     </div>
                     <div class="mb-footer">
-                        <a href="export/export.php" class="btn btn-default btn-lg pull-right"><span class="fa fa-cloud-download"></span>Download Database</a>
+                        <div class="pull-right">
+                            <a href="export/export.php" class="btn btn-danger btn-lg pull-right"><span class="fa fa-cloud-download"></span>Export Database</a>
+                            <button class="btn btn-default btn-lg mb-control-close">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-box message-box-info animated fadeIn" data-sound="alert" id="message-box-info">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-cloud-upload"></span> Import Database</div>
+                    <div class="mb-content">
+                        <p>You are about to upload the recently exported database of BHTC-PMIS.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="export/import.php" class="btn btn-danger btn-lg pull-right"><span class="fa fa-cloud-download"></span>Import Database</a>
+                            <button class="btn btn-default btn-lg mb-control-close">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <?php require 'require/logout.php'?>
-        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+        <audio id="audio-alert" src="../audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>

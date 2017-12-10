@@ -227,7 +227,6 @@ require ('config.php');
                                                     <option value="Sumag ">Brgy. Sum-ag</option>
                                                     <option value="Taculing">Brgy. Taculing</option>
                                                     <option value="Tangub">Brgy. Tangub</option>
-                                                    <option value="Villa Esperanza">Brgy. Villa Esperanza</option>
                                                     <option value="Villamonte">Brgy. Villamonte</option>
                                                     <option value="Vista Alegre">Brgy. Vista Alegre</option>
                                                     <option value="Brgy 1">Brgy. 1</option>
@@ -270,6 +269,7 @@ require ('config.php');
                                                     <option value="Brgy 38">Brgy. 38</option>
                                                     <option value="Brgy 39">Brgy. 39</option>
                                                     <option value="Brgy 40">Brgy. 40</option>
+                                                    <option value="Brgy 41">Brgy. 41</option>
                                                 </select>
 
                                             </div>

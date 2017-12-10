@@ -246,7 +246,7 @@ if(ISSET($_POST['medicine_stock'])){
                                     <div class="col-md-12 col-xs-12">                                            
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Quantity" type="number" class="form-control" name="quantity" placeholder="Quantity"/>
+                                            <input data-toggle="tooltip" data-placement="right" title="Quantity" type="number" class="form-control" name="quantity" placeholder="Quantity in box"/>
                                         </div>                                            
                                     </div>
                                 </div>
