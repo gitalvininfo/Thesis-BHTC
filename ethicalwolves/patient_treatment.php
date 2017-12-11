@@ -141,7 +141,7 @@ require ('config.php');
                                                                         <div class="col-md-12 col-xs-12">
                                                                             <div class="input-group">
                                                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                                <input type="text" class="form-control datepicker" name="date_absent" placeholder="Date Absent" required/>
+                                                                                <input type="text" class="form-control datepicker" name="date_absent" placeholder="Missed Date" required/>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -290,7 +290,7 @@ require ('config.php');
                                                                         <div class="col-md-12 col-xs-12">
                                                                             <div class="input-group">
                                                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                                <input type="text" class="form-control datepicker" name="date_absent" placeholder="Date Absent" required/>
+                                                                                <input type="text" class="form-control datepicker" name="date_absent" placeholder="Missed Date" required/>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -380,6 +380,7 @@ require ('config.php');
                                                 <div class="panel panel-default">
                                                     <div class="panel-body scroll" style="height:400px;">
                                                         <div class="panel-heading">
+                                                            <h3 class="panel-title">  /   - Present |  0  - Absent</h3>
                                                             <div class="btn-group pull-right">
                                                                 <div class="pull-left">
                                                                     <a href="#update_clinical<?php echo $f['patient_id'];?>" data-target="#update_clinical<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-pencil-square-o"></span>Update</a>
@@ -390,31 +391,28 @@ require ('config.php');
                                                             <thead>
                                                                 <tr class="info">
                                                                     <th data-toggle="tooltip" data-placement="top" title="Date Visited">
-                                                                        <center>Date Visited</center>
+                                                                        <center>Date</center>
                                                                     </th>
                                                                     <th data-toggle="tooltip" data-placement="top" title="Weight">
                                                                         <center>Weight</center>
                                                                     </th>
                                                                     <th data-toggle="tooltip" data-placement="top" title="Unexplained fever more than 2 weeks">
-                                                                        <center>Question 1</center>
+                                                                        <center>Fever more than 2 weeks</center>
                                                                     </th>
                                                                     <th data-toggle="tooltip" data-placement="top" title="Unexplained cough or wheezing more than 2 weeks">
-                                                                        <center>Question 2</center>
+                                                                        <center>Cough more than 2 weeks</center>
                                                                     </th>
                                                                     <th data-toggle="tooltip" data-placement="top" title="Unimproved general well-being">
-                                                                        <center>Question 3</center>
+                                                                        <center>Unimproved general well-being</center>
                                                                     </th>
                                                                     <th data-toggle="tooltip" data-placement="top" title="Poor appetite">
-                                                                        <center>Question 4</center>
+                                                                        <center>Poor Appetite</center>
                                                                     </th>
                                                                     <th data-toggle="tooltip" data-placement="top" title="Positive PE findings for Extra-Pulmonary TB">
-                                                                        <center>Question 5</center>
+                                                                        <center>PE Findings</center>
                                                                     </th>
                                                                     <th data-toggle="tooltip" data-placement="top" title="Side Effects">
-                                                                        <center>Question 6</center>
-                                                                    </th>
-                                                                    <th>
-                                                                        <center>Action</center>
+                                                                        <center>Side Effects</center>
                                                                     </th>
                                                                 </tr>
                                                             </thead>
@@ -435,7 +433,7 @@ require ('config.php');
                                                                         <center>
                                                                             <?php echo $fetch['weight']?> kgs.</center>
                                                                     </td>
-                                                                    <td>
+                                                                    <td >
                                                                         <center>
                                                                             <?php echo $fetch['q1']?>
                                                                         </center>
@@ -464,9 +462,6 @@ require ('config.php');
                                                                         <center>
                                                                             <?php echo $fetch['q6']?>
                                                                         </center>
-                                                                    </td>
-                                                                    <td>
-                                                                        <center><a href="#" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="left" title="Edit"><span class="fa fa-pencil-square-o"></span></a></center>
                                                                     </td>
                                                                 </tr>
                                                                 <?php
@@ -725,9 +720,6 @@ require ('config.php');
                                                     </div>
                                                     <!-- END CONTACT ITEM -->
                                                 </div>
-
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -736,9 +728,7 @@ require ('config.php');
                         </div>
                     </div>
                 </div>
-                <!-- END PAGE CONTENT WRAPPER -->
             </div>
-            <!-- END PAGE CONTENT -->
         </div>
 
         <!-- Add Clinical -->
@@ -776,46 +766,46 @@ require ('config.php');
                                         <h5 class="push-up-20"> 1. Unexplained fever greater than 2 weeks</h5>
                                         <div class="form-group">
                                             <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="Yes" name="q1" required/> Yes</label>
+                                                <label class="check"><input type="radio" class="iradio" value="/" name="q1" required/> Yes</label>
                                             </div>
                                             <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="No" name="q1" required/> No </label>
+                                                <label class="check"><input type="radio" class="iradio" value="0" name="q1" required/> No </label>
                                             </div>
                                         </div>
                                         <h5 class="push-up-20"> 2. Unexplained cough or wheezing greater than 2 weeks</h5>
                                         <div class="form-group">
                                             <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="Yes" name="q2" required/> Yes</label>
+                                                <label class="check"><input type="radio" class="iradio" value="/" name="q2" required/> Yes</label>
                                             </div>
                                             <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="No" name="q2" required/> No </label>
+                                                <label class="check"><input type="radio" class="iradio" value="0" name="q2" required/> No </label>
                                             </div>
                                         </div>
                                         <h5 class="push-up-20"> 3. Unimproved general well-being</h5>
                                         <div class="form-group">
                                             <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="Yes" name="q3" required/> Yes</label>
+                                                <label class="check"><input type="radio" class="iradio" value="/" name="q3" required/> Yes</label>
                                             </div>
                                             <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="No" name="q3" required/> No </label>
+                                                <label class="check"><input type="radio" class="iradio" value="0" name="q3" required/> No </label>
                                             </div>
                                         </div>
                                         <h5 class="push-up-20"> 4. Poor appetite</h5>
                                         <div class="form-group">
                                             <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="Yes" name="q4" required/> Yes</label>
+                                                <label class="check"><input type="radio" class="iradio" value="/" name="q4" required/> Yes</label>
                                             </div>
                                             <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="No" name="q4" required/> No </label>
+                                                <label class="check"><input type="radio" class="iradio" value="0" name="q4" required/> No </label>
                                             </div>
                                         </div>
                                         <h5 class="push-up-20"> 5. Positive PE findings for Extra-Pulmonary TB</h5>
                                         <div class="form-group">
                                             <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="Yes" name="q5" required/> Yes</label>
+                                                <label class="check"><input type="radio" class="iradio" value="/" name="q5" required/> Yes</label>
                                             </div>
                                             <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="No" name="q5" required/> No </label>
+                                                <label class="check"><input type="radio" class="iradio" value="0" name="q5" required/> No </label>
                                             </div>
                                         </div>
                                         <h5 class="push-up-20"> 6. Side Effects</h5>

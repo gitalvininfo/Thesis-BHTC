@@ -1,6 +1,7 @@
 <?php
 $connection = mysqli_connect('localhost', 'root', '', 'thesis');
-$date = date("Y-m-d H:i:s");
+date_default_timezone_set('Asia/Manila');
+    $date = date("Y-m-d H:i:s");
 $tables = array();
 $result = mysqli_query($connection, "SHOW TABLES");
 while ($row = mysqli_fetch_row($result)){
@@ -36,7 +37,7 @@ foreach ($tables as $table) {
 $handle = fopen('thesis.sql', 'w+');
 fwrite($handle, $return);
 fclose($handle);
-$connection->query("INSERT INTO `backup` VALUES('', 'Successfully downloaded database', '$date')") or die(mysqli_error());
+$connection->query("INSERT INTO `backup` VALUES('', 'Successfully exported database', '$date')") or die(mysqli_error());
 echo "<script> alert ('Successfully backed up BHTC-PMIS database!')</script>";
 echo "<script>document.location='../download_database.php'</script>";  
 ?>

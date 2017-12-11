@@ -45,13 +45,18 @@ $fdec = $qdec->fetch_array();
             axisX: {		       
                 gridDashType: "dot",
                 gridThickness: 1,
-                labelFontColor: "black"
+                labelFontColor: "black",
+                crosshair: {
+                    enabled: true 
+                }
             },
             axisY: { 
                 title: "Total Population", 
                 includeZero: false,
-                labelFontColor: "black"
-                
+                labelFontColor: "black",
+                 crosshair: {
+                    enabled: true 
+                }
             }, 
             data: [ 
                 { 

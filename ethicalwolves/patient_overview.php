@@ -44,6 +44,8 @@ require ('config.php');
                                     <li><a href="#tab-fifth" role="tab" data-toggle="tab">Xpert MTB</a></li>
                                     <li><a href="#tab-sixth" role="tab" data-toggle="tab">TB Culture</a></li>
                                     <li><a href="#tab-seventh" role="tab" data-toggle="tab">DST</a></li>
+                                    <li><a href="#tab-eigth" role="tab" data-toggle="tab">TST</a></li>
+                                    <li><a href="#tab-ninth" role="tab" data-toggle="tab">CXR</a></li>
 
                                 </ul>
                                 <div class="panel-body tab-content">
@@ -51,8 +53,7 @@ require ('config.php');
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                             <div class="row">
                                                 <?php
-    $year = date('Y');
-            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
             $f = $q->fetch_array();
             $q2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
@@ -159,10 +160,10 @@ require ('config.php');
                                                         <div class="panel-heading">
                                                             <div class="btn-group pull-right">
                                                                 <div class="pull-left">
-                                                                    <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_patient"><span class="fa fa-user-plus"></span> New Member </button>
+                                                                    <a href="#new_member<?php echo $f['patient_id'];?>" data-target="#new_member<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-user-plus"></span> New Family Member</a>
                                                                 </div>
                                                             </div>
-                                                            <h3 class="panel-title"><span class="fa fa-group"></span> <strong>Household Members of <?php echo $f['patient_name']?></strong></h3>
+                                                            <h3 class="panel-title"><span class="fa fa-group"></span> <strong>Family Members of <?php echo $f['patient_name']?></strong></h3>
                                                         </div>
                                                         <div class="panel-body">
                                                             <table id="laboratory_request" class="table table-hover">
@@ -172,29 +173,39 @@ require ('config.php');
                                                                         <th><center>Name</center></th>
                                                                         <th><center>Age</center></th>
                                                                         <th><center>Date Screened</center></th>
+                                                                        <th><center>Action</center></th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-
+                                                                    <?php
+    require 'config.php';
+                                                                $query = $conn->query("SELECT * FROM `family_member` WHERE `patient_id` = '$_GET[id]' ORDER BY `member_id` DESC") or die(mysqli_error());
+                                                                while($fetch = $query->fetch_array()){
+                                                                    ?>
                                                                     <tr>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
+                                                                        <td><center><?php echo $fetch['name']?></center></td>
+                                                                        <td><center><?php echo $fetch['age']?></center></td>
+                                                                        <td><center><?php echo $fetch['date_screened']?></center></td>
+                                                                        <td><center>
+                                                                            <a href="#updatemember<?php echo $fetch['member_id'];?>" data-target="#updatemember<?php echo $fetch['member_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
+                                                                            </center></td>
                                                                     </tr>
+                                                                    <?php
+                                                                }
+                                                                $conn->close();
+                                                                    ?>
                                                                 </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
                                                 </div>
-
-
                                             </div></div>
                                     </div>
                                     <div class="tab-pane" id="tab-second">
                                         <div class="row">
                                             <?php
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                    $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());                                                        
+                                            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());                                                        
                                             ?>
 
                                             <div class="col-md-3">
@@ -353,7 +364,6 @@ require ('config.php');
                                                         </div>
                                                     </div>                                
                                                 </div>
-                                                <!-- END CONTACT ITEM -->
                                             </div>
                                         </div>
                                     </div>
@@ -401,10 +411,14 @@ require ('config.php');
                                                     <thead>
                                                         <tr class="info">
                                                             <th><center>Date Examined</center></th>
-                                                            <th><center>Appearance</center></th>
-                                                            <th><center>Reading</center></th>
+                                                            <th><center>Laboratory Number</center></th>
+                                                            <th><center>Visual Appearance 1</center></th>
+                                                            <th><center>Visual Appearance 2</center></th>
+                                                            <th><center>Reading 1</center></th>
+                                                            <th><center>Reading 2</center></th>
+                                                            <th><center>Lab. Diagnosis</center></th>
+                                                            <th><center>Examined By</center></th>
                                                             <th><center>Date Released</center></th>
-                                                            <th><center>View Record</center></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -417,15 +431,14 @@ require ('config.php');
                                                         ?>
                                                         <tr>
                                                             <td><center><?php echo $fetch['date_examined']?></center></td>
+                                                            <td><center><?php echo $fetch['laboratory_number']?></center></td>
                                                             <td><center><?php echo $fetch['visual_appearance']?></center></td>
+                                                            <td><center><?php echo $fetch['visual_appearance2']?></center></td>
                                                             <td><center><?php echo $fetch['reading']?></center></td>
+                                                            <td><center><?php echo $fetch['reading2']?></center></td>
+                                                            <td><center><?php echo $fetch['laboratory_diagnosis']?></center></td>
+                                                            <td><center><?php echo $fetch['examined_by']?></center></td>
                                                             <td><center><?php echo $fetch['date_released']?></center></td>
-                                                            <td>
-                                                                <center>
-                                                                    <a href="#viewdssm<?php echo $fetch['dssm_id'];?>" data-toggle="modal" data-target="#viewdssm<?php echo $fetch['dssm_id'];?>" class="btn btn-info btn-xs"><span class="fa fa-search"></span> </a>
-                                                                </center>
-                                                            </td>
-
                                                         </tr>
                                                         <?php
                                                         }
@@ -443,10 +456,12 @@ require ('config.php');
                                                     <thead>
                                                         <tr class="info">
                                                             <th><center>Date Examined</center></th>
+                                                            <th><center>Laboratory Number</center></th>
                                                             <th><center>Visual Appearance</center></th>
                                                             <th><center>Reading</center></th>
                                                             <th><center>Result</center></th>
-                                                            <th><center>View Record</center></th>
+                                                            <th><center>Examined By</center></th>
+                                                            <th><center>Date Released</center></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -459,16 +474,12 @@ require ('config.php');
                                                         ?>
                                                         <tr>
                                                             <td><center><?php echo $fetch['date_examined']?></center></td>
+                                                            <td><center><?php echo $fetch['laboratory_number']?></center></td>
                                                             <td><center><?php echo $fetch['visual_appearance']?></center></td>
                                                             <td><center><?php echo $fetch['reading']?></center></td>
                                                             <td><center><?php echo $fetch['result']?></center></td>
-                                                            <td>
-                                                                <center>
-                                                                    <a href="#viewxpert<?php echo $fetch['xpert_id'];?>" data-toggle="modal" data-target="#viewxpert<?php echo $fetch['xpert_id'];?>" class="btn btn-info btn-xs"><span class="fa fa-search"></span> </a>
-                                                                </center>
-                                                            </td>
-
-
+                                                            <td><center><?php echo $fetch['examined_by']?></center></td>
+                                                            <td><center><?php echo $fetch['date_released']?></center></td>
                                                         </tr>
                                                         <?php
                                                         }
@@ -487,10 +498,15 @@ require ('config.php');
                                                         <thead>
                                                             <tr class="info">
                                                                 <th><center>Method</center></th>
+                                                                <th><center>TB Culture Lab</center></th>
+                                                                <th><center>Laboratory Number</center></th>
+                                                                <th><center>Date Sample Collected</center></th>
+                                                                <th><center>Date Sample Received</center></th>
                                                                 <th><center>TB Culture Result</center></th>
                                                                 <th><center>Remarks</center></th>
+                                                                <th><center>Examined By</center></th>
+                                                                <th><center>Reviewed By</center></th>
                                                                 <th><center>Date Released</center></th>
-                                                                <th><center>View Record</center></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -503,14 +519,15 @@ require ('config.php');
                                                             ?>
                                                             <tr>
                                                                 <td><center><?php echo $fetch['method']?></center></td>
+                                                                <td><center><?php echo $fetch['tb_culture_laboratory']?></center></td>
+                                                                <td><center><?php echo $fetch['laboratory_no']?></center></td>
+                                                                <td><center><?php echo $fetch['date_sample_collected']?></center></td>
+                                                                <td><center><?php echo $fetch['date_sample_received']?></center></td>
                                                                 <td><center><?php echo $fetch['tb_culture_result']?></center></td>
                                                                 <td><center><?php echo $fetch['remarks']?></center></td>
+                                                                <td><center><?php echo $fetch['examined_by']?></center></td>
+                                                                <td><center><?php echo $fetch['reviewed_by']?></center></td>
                                                                 <td><center><?php echo $fetch['date_released']?></center></td>
-                                                                <td>
-                                                                    <center>
-                                                                        <a href="#viewtbculture<?php echo $fetch['tb_culture_id'];?>" data-toggle="modal" data-target="#viewtbculture<?php echo $fetch['tb_culture_id'];?>" class="btn btn-info btn-xs"><span class="fa fa-search"></span> </a>
-                                                                    </center>
-                                                                </td>
                                                             </tr>
                                                             <?php
                                                             }
@@ -565,10 +582,317 @@ require ('config.php');
                                             </form>
                                         </div>
                                     </div>
+                                    <div class="tab-pane" id="tab-eigth">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <div class="btn-group pull-right">
+                                                            <div class="pull-left">
+                                                                <a href="#new_tst<?php echo $f['patient_id'];?>" data-target="#new_tst<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span> TST Result</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <table id="laboratory_request" class="table table-hover">
+
+                                                            <thead>
+                                                                <tr>
+                                                                    <th><center>Tuberculin Skin Testing Result</center></th>
+                                                                    <th><center>Date Read</center></th>
+                                                                    <th><center>Action</center></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                require 'config.php';
+                                                                $query = $conn->query("SELECT * FROM `tst` WHERE `patient_id` = '$_GET[id]' ORDER BY `tst_id` DESC") or die(mysqli_error());
+                                                                while($fetch = $query->fetch_array()){
+                                                                ?>
+                                                                <tr>
+                                                                    <td><center><?php echo $fetch['result']?></center></td>
+                                                                    <td><center><?php echo $fetch['date_read']?></center></td>
+                                                                    <td><center>
+                                                                        <a href="#updatetst<?php echo $fetch['member_id'];?>" data-target="#updatetst<?php echo $fetch['tst_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
+                                                                        </center></td>
+                                                                </tr>
+                                                                <?php
+                                                                }
+                                                                $conn->close();
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-ninth">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <div class="btn-group pull-right">
+                                                            <div class="pull-left">
+                                                                <a href="#new_cxr<?php echo $f['patient_id'];?>" data-target="#new_cxr<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span> Chest X-Ray Findings</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <table id="laboratory_request" class="table table-hover">
+
+                                                            <thead>
+                                                                <tr>
+                                                                    <th><center>Chest X-ray Findings</center></th>
+                                                                    <th><center>Date of Exam</center></th>
+                                                                    <th><center>TBDC</center></th>
+                                                                    <th><center>Action</center></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                require 'config.php';
+                                                                $query = $conn->query("SELECT * FROM `cxr` WHERE `patient_id` = '$_GET[id]' ORDER BY `cxr_id` DESC") or die(mysqli_error());
+                                                                while($fetch = $query->fetch_array()){
+                                                                ?>
+                                                                <tr>
+                                                                    <td><center><?php echo $fetch['cxr_findings']?></center></td>
+                                                                    <td><center><?php echo $fetch['date_of_exam']?></center></td>
+                                                                    <td><center><?php echo $fetch['tbdc']?></center></td>
+                                                                    <td><center>
+                                                                        <a href="#updatecxr<?php echo $fetch['member_id'];?>" data-target="#updatecxr<?php echo $fetch['tst_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
+                                                                        </center></td>
+                                                                </tr>
+                                                                <?php
+                                                                }
+                                                                $conn->close();
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- END PAGE CONTENT -->
                         </div>
+
+                        <!-- New Family Member-->
+                        <?php
+                        require 'config.php';
+                        $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+                        while($fetch = $query->fetch_array()){
+                        ?>
+                        <div class="modal fade" id="new_member<?php echo $fetch['patient_id'];?>" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-user-plus"></span> New Family Member</h4>
+                                    </div>
+                                    <form role="form" id="jvalidate" class="form-horizontal" action="actions/add_member.php" method="post">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="panel-body">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group ">
+                                                            <label class="col-md-3 col-xs-12 control-label">Name</label>
+                                                            <div class="col-md-7 col-xs-12">
+                                                                <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
+                                                                <input data-toggle="tooltip" data-placement="bottom" title="Name" type="text" class="form-control" name="name" placeholder="Name" required/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group ">
+                                                            <label class="col-md-3 col-xs-12 control-label">Age</label>
+                                                            <div class="col-md-7 col-xs-12">
+                                                                <input data-toggle="tooltip" data-placement="bottom" title="Age" type="text" class="form-control" name="age" placeholder="Age" required/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group ">
+                                                            <label class="col-md-3 col-xs-12 control-label">Date Screened</label>
+                                                            <div class="col-md-7 col-xs-12">
+                                                                <input data-toggle="tooltip" data-placement="bottom" title="Date Screened" type="text" class="form-control datepicker" value="Date Screened" name="date_screened" required/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-info" name="add_member"><span class="fa fa-check"></span>Save</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        }
+                        $conn->close();
+                        ?> 
+                        <!-- End Family Member-->
+
+                        <!-- New TST-->
+                        <?php
+                        require 'config.php';
+                        $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+                        while($fetch = $query->fetch_array()){
+                        ?>
+                        <div class="modal fade" id="new_tst<?php echo $fetch['patient_id'];?>" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-user-plus"></span> Tuberculin Skin Testing Result</h4>
+                                    </div>
+                                    <form role="form" id="jvalidate" class="form-horizontal" action="actions/add_tst.php" method="post">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="panel-body">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group ">
+                                                            <label class="col-md-3 col-xs-12 control-label">Name</label>
+                                                            <div class="col-md-7 col-xs-12">
+                                                                <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
+                                                                <input data-toggle="tooltip" data-placement="bottom" title="Result" type="text" class="form-control" name="result" placeholder="TST Result" required/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group ">
+                                                            <label class="col-md-3 col-xs-12 control-label">Date Read</label>
+                                                            <div class="col-md-7 col-xs-12">
+                                                                <input data-toggle="tooltip" data-placement="bottom" title="Date Read" type="text" class="form-control datepicker" value="Date Read" name="date_read" required/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-info" name="add_tst"><span class="fa fa-check"></span>Save</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        }
+                        $conn->close();
+                        ?> 
+                        <!-- End TST-->
+
+                        <!-- New TST-->
+                        <?php
+                        require 'config.php';
+                        $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+                        while($fetch = $query->fetch_array()){
+                        ?>
+                        <div class="modal fade" id="new_cxr<?php echo $fetch['patient_id'];?>" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-user-plus"></span> Chest X-ray Findings</h4>
+                                    </div>
+                                    <form role="form" id="jvalidate" class="form-horizontal" action="actions/add_cxr.php" method="post">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="panel-body">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group ">
+                                                            <label class="col-md-3 col-xs-12 control-label">CXR-Findings</label>
+                                                            <div class="col-md-7 col-xs-12">
+                                                                <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
+                                                                <input data-toggle="tooltip" data-placement="bottom" title="CXR-Findings" type="text" class="form-control" name="cxr_findings" placeholder="CXR Findings" required/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group ">
+                                                            <label class="col-md-3 col-xs-12 control-label">Date of Exam</label>
+                                                            <div class="col-md-7 col-xs-12">
+                                                                <input data-toggle="tooltip" data-placement="bottom" title="Date of Exam" type="text" class="form-control datepicker" placeholder="Date of Exam" name="date_of_exam" required/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group ">
+                                                            <label class="col-md-3 col-xs-12 control-label">TBDC</label>
+                                                            <div class="col-md-7 col-xs-12">
+                                                                <input data-toggle="tooltip" data-placement="bottom" title="TBDC" type="text" class="form-control" name="tbdc" placeholder="TBDC" required/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-info" name="add_cxr"><span class="fa fa-check"></span>Save</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        }
+                        $conn->close();
+                        ?> 
+                        <!-- End TST-->
+
+
+
+                        <!-- Edit Family Member-->
+                        <?php
+                        require 'config.php';
+                        $query = $conn->query("SELECT * FROM `family_member`") or die(mysqli_error());
+                        while($fetch = $query->fetch_array()){
+                        ?>
+                        <div id="updatemember<?php echo $fetch['member_id'];?>"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content" style="height:auto">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-plus"></span> Update Family Member</h4>
+                                    </div>
+                                    <form role="form" class="form-horizontal" action="edit_query.php" method="post">
+                                        <div class="modal-body">
+                                            <div class="panel-body">
+                                                <div class="form-group ">
+                                                    <label class="col-md-2 col-xs-12 control-label">Name</label>
+                                                    <div class="col-md-8 col-xs-12">
+                                                        <input type="hidden" class="form-control" name="member_id" value="<?php echo $fetch['member_id'];?>" required>
+                                                        <input data-toggle="tooltip" data-placement="bottom" title="Name" type="text" class="form-control" name="name" placeholder="Name"  value="<?php echo $fetch['name']?>" required/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label class="col-md-2 col-xs-12 control-label">Age</label>
+                                                    <div class="col-md-8 col-xs-12">
+                                                        <input data-toggle="tooltip" data-placement="bottom" title="Age" type="text" class="form-control" name="age" placeholder="Age" value="<?php echo $fetch['age']?>" required/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label class="col-md-3 col-xs-12 control-label">Date Screened</label>
+                                                    <div class="col-md-7 col-xs-12">
+                                                        <input data-toggle="tooltip" data-placement="bottom" title="Date Screened" type="text" class="form-control datepicker" value="Date Screened" name="date_screened" value="<?php echo $fetch['date_screened']?>" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-info" name ="edit_member"><span class="fa fa-check"></span>Save</button> 
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        }
+                        $conn->close();
+                        ?> 
+                        <!-- End of Edit Family Member-->
+
+                        <!-- -->
+
 
                         <!-- Examination Sched -->
                         <?php
@@ -617,217 +941,6 @@ require ('config.php');
                         $conn->close();
                         ?> 
                         <!-- End of Examination Sched -->
-
-
-                        <!-- DSSM -->
-                        <?php
-                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                        $query = $conn->query("SELECT * FROM `dssm_examination` ORDER BY `dssm_id` DESC") or die(mysqli_error());
-                        while($fetch = $query->fetch_array()){
-                        ?>
-                        <div id="viewdssm<?php echo $fetch['dssm_id'];?>"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true" style="display:none;">
-                            <div class="modal-dialog">
-                                <div class="modal-content" style="height:auto">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-file-text"></span> DSSM Examination</h4>
-                                    </div>
-                                    <form role="form" class="form-horizontal" method="post">
-                                        <div class="modal-body">
-                                            <div class="panel-body">
-                                                <div class="panel panel-info">
-                                                    <div class="panel-body profile">
-                                                        <div class="panel-body">                                    
-                                                            <div class="contact-info">
-                                                                <p><small style="font-size:13px;">Date Examined</small><br/><?php echo $fetch['date_examined']?></p>
-                                                                <p><small style="font-size:13px;">Laboratory Number</small><br/><?php echo $fetch['laboratory_number']?></p>
-                                                                <p><small style="font-size:13px;">Visual Appearance</small><br/><?php echo $fetch['visual_appearance']?></p>
-                                                                <p><small style="font-size:13px;">Reading</small><br/><?php echo $fetch['reading']?></p>
-                                                                <p><small style="font-size:13px;">Laboratory Diagnosis</small><br/><?php echo $fetch['laboratory_diagnosis']?></p>
-                                                                <p><small style="font-size:13px;">Examined By</small><br/><?php echo $fetch['examined_by']?></p>
-                                                                <p><small style="font-size:13px;">Date Released</small><br/><?php echo $fetch['date_released']?></p>
-                                                            </div>
-                                                        </div>    
-                                                    </div>    
-                                                </div>
-                                            </div>   
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        }
-                        $conn->close();
-                        ?> 
-                        <!-- End of DSSM -->
-
-
-                        <!-- XPERT -->
-                        <?php
-                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                        $query = $conn->query("SELECT * FROM `gene_expert_examination` ORDER BY `xpert_id` DESC") or die(mysqli_error());
-                        while($fetch = $query->fetch_array()){
-                        ?>
-                        <div id="viewxpert<?php echo $fetch['xpert_id'];?>"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true" style="display:none;">
-                            <div class="modal-dialog">
-                                <div class="modal-content" style="height:auto">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-file-text"></span> Xpert MTB/RIF Examination</h4>
-                                    </div>
-                                    <form role="form" class="form-horizontal" method="post">
-                                        <div class="modal-body">
-                                            <div class="panel-body">
-                                                <div class="panel-body">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="panel-body">                                    
-                                                                <div class="contact-info">
-                                                                    <p><small style="font-size:13px;">Date Examined</small><br/><?php echo $fetch['date_examined']?></p>
-                                                                    <p><small style="font-size:13px;">Laboratory Number</small><br/><?php echo $fetch['laboratory_number']?></p>
-                                                                    <p><small style="font-size:13px;">Visual Appearance</small><br/><?php echo $fetch['visual_appearance']?></p>
-                                                                    <p><small style="font-size:13px;">Reading</small><br/><?php echo $fetch['reading']?></p>
-                                                                    <p><small style="font-size:13px;">Examined By</small><br/><?php echo $fetch['examined_by']?></p>
-                                                                    <p><small style="font-size:13px;">Date Released</small><br/><?php echo $fetch['date_released']?></p>
-                                                                    <p><small style="font-size:13px;">Result</small><br/><?php echo $fetch['result']?></p>
-                                                                </div>
-                                                            </div>    
-                                                        </div>    
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        }
-                        $conn->close();
-                        ?> 
-                        <!-- End of XPERT -->
-
-
-                        <!-- TB Culture -->
-                        <?php
-                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                        $query = $conn->query("SELECT * FROM `tb_culture_examination` ORDER BY `tb_culture_id` DESC") or die(mysqli_error());
-                        while($fetch = $query->fetch_array()){
-                        ?>
-                        <div id="viewtbculture<?php echo $fetch['tb_culture_id'];?>"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true" style="display:none;">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content" style="height:auto">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="smallModalHead"><span class="fa fa-file-text"></span> TB Culture Examination</h4>
-                                    </div>
-                                    <form role="form" class="form-horizontal" method="post">
-                                        <div class="modal-body">
-                                            <div class="panel-body">
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Method" type="text" class="form-control" name="method" style="color:black;" value="<?php echo $fetch['method']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="TB Culture Laboratory" type="text" class="form-control" name="tb_culture_laboratory" style="color:black;" value="<?php echo $fetch['tb_culture_laboratory']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Laboratory Number" type="text" class="form-control" name="laboratory_no" style="color:black;" value="<?php echo $fetch['laboratory_no']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Date Sample Collected" type="text" class="form-control" name="date_sample_collected" style="color:black;" value="<?php echo $fetch['date_sample_collected']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Date Sample Received" type="text" class="form-control" name="date_sample_received" style="color:black;" value="<?php echo $fetch['date_sample_received']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="TB Culture Result" type="text" class="form-control" name="tb_culture_result" style="color:black;" value="<?php echo $fetch['tb_culture_result']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Remarks" type="text" class="form-control" name="remarks" style="color:black;" value="<?php echo $fetch['remarks']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Examined By" type="text" class="form-control" name="examined_by" style="color:black;" value="<?php echo $fetch['examined_by']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Reviewed By" type="text" class="form-control" name="reviewed_by" style="color:black;" value="<?php echo $fetch['reviewed_by']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <div class="col-md-12 col-xs-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                            <input data-toggle="tooltip" data-placement="right" title="Date Released" type="text" class="form-control" name="date_released" style="color:black;" value="<?php echo $fetch['date_released']?>"disabled/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        }
-                        $conn->close();
-                        ?> 
-                        <!-- End of TB Culture -->
 
 
                         <!-- DST -->
@@ -1065,33 +1178,12 @@ require ('config.php');
                         }
                         $conn->close();
                         ?> 
-                        <!-- End of TST -->
 
-
-
-
-                        <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
-                            <div class="mb-container">
-                                <div class="mb-middle">
-                                    <div class="mb-title"><span class="glyphicon glyphicon-off"></span> Log <strong>Out</strong> ?</div>
-                                    <div class="mb-content">
-                                        <p>Are you sure you want to log out?</p>
-                                        <p>Press No if you want to continue work. Press Yes to logout current user.</p>
-                                    </div>
-                                    <div class="mb-footer">
-                                        <div class="pull-right">
-                                            <a href="logout.php" class="btn btn-danger btn-lg">Yes</a>
-                                            <button class="btn btn-default btn-lg mb-control-close">No</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        <?php require 'require/logout.php'?>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>

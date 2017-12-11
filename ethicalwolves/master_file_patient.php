@@ -378,7 +378,7 @@ require ('config.php');
                                         <div class="form-group">
                                             <label class="col-md-2 col-xs-12 control-label">Address</label>
                                             <div class="col-md-9 col-xs-12">                                            
-                                                <textarea class="form-control" rows="3" name="address" data-toggle="tooltip" data-placement="bottom" title="Complete Home Address" value="<?php echo $fetch['address']?>"></textarea>
+                                                <textarea class="form-control" rows="3" name="address" data-toggle="tooltip" data-placement="bottom" title="Complete Home Address"><?php echo $fetch['address']?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group ">

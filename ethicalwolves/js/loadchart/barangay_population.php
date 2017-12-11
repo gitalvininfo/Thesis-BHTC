@@ -218,11 +218,13 @@ $fetch25 = $grandtotal->fetch_array();
                 fontSize: 20
             },
             axisY: { 
-                title: "", 
-                includeZero: false 
+                title: "Total Population", 
+                includeZero: false,
+                labelFontColor: "black"
             },
             axisX:{
                 interval: 100
+                
             },
             data: [ 
                 { 

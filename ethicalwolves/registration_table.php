@@ -198,7 +198,7 @@ require ('config.php');
                                         <div class="form-group">
                                             <label class="col-md-3 col-xs-12 control-label">Address</label>
                                             <div class="col-md-9 col-xs-12">                                            
-                                                <textarea class="form-control" rows="3" name="address" placeholder="Complete Home Address" data-toggle="tooltip" data-placement="bottom" title="Complete Home Address"></textarea>
+                                                <textarea class="form-control" rows="3" name="address" placeholder="Street Address | Home Address" data-toggle="tooltip" data-placement="bottom" title="Street Address | Home Address"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -322,7 +322,7 @@ require ('config.php');
                                 </div>
                             </div>                        </div>
                         <div class="modal-footer">
-                            <span class="pull-left"><label class="col-md-12 col-xs-12 control-label" style="color:red"><i>* Philhealth Number is optional</i></label></span>
+                            <span class="pull-left"><label class="col-md-12 col-xs-12 control-label" style="color:red"><i>* Occupation & Philhealth Number is optional</i></label></span>
                             <button type="submit" class="btn btn-info" name="add_new_patient"><span class="fa fa-check"></span>Save</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
                         </div>
@@ -380,7 +380,6 @@ require ('config.php');
                                                 <input data-toggle="tooltip" data-placement="bottom" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
                                             </div>
                                         </div>
-
                                         <div class="form-group ">
                                             <label class="col-md-2 col-xs-12 control-label">Birthdate</label>
                                             <div class="col-md-9 col-xs-12">

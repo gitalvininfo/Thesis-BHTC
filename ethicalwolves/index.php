@@ -28,7 +28,7 @@
                                 <form class="form-auth-small" action="login.php" method="POST">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input class="form-control" name="username" placeholder="Username" type="text" required>
+                                        <input class="form-control" name="username" placeholder="Username" type="text" required autofocus>
                                     </div> <br>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>

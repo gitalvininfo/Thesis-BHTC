@@ -23,6 +23,18 @@ if(ISSET($_POST['edit_patient'])){
     echo "<script>document.location='master_file_patient.php'</script>";  
 }
 
+if(ISSET($_POST['edit_member'])){
+    $member_id = $_POST['member_id'];
+    $name= $_POST['name'];    
+    $age = $_POST['age'];
+    $date_screened = $_POST['date_screened'];
+    require ('config.php');
+    $conn->query("UPDATE `family_member` SET `name` = '$name', `age` = '$age', `date_screened` = '$date_screened' WHERE `member_id` = '$member_id'") or die(mysqli_error());
+    $conn->close();
+    echo "<script type='text/javascript'>alert('Successfully updated personal information!');</script>";
+    echo "<script>document.location='master_file_patient.php'</script>";  
+}
+
 if(ISSET($_POST['edit_ipt'])){
     $patient_id = $_POST['patient_id'];
     $name= $_POST['name'];    

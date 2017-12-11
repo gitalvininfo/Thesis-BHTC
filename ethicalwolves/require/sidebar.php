@@ -35,7 +35,7 @@
             <ul>
                 <li><a href="medicine_table.php"><span class="fa fa-medkit"></span><span class="xn-text">Medicine</span></a></li>
                 <li><a href="master_file_patient.php"><span class="fa fa-key"></span><span class="xn-text">Patient Master File</span></a></li>
-                <li><a href="master_file_medtech.php"><span class="fa fa-user-md"></span><span class="xn-text">Physicians</span></a></li>
+                <li><a href="master_file_medtech.php"><span class="fa fa-user-md"></span><span class="xn-text">Medical Technologists</span></a></li>
             </ul>
         </li> 
 
