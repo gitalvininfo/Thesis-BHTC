@@ -19,6 +19,7 @@ $fetch4 = $dst->fetch_array();
 <script type="text/javascript"> 
     window.onload = function() { 
         $("#examination").CanvasJSChart({
+            theme: "light2",
             animationEnabled: true,
             animationDuration: 1000,
             exportFileName: "Examinations Conducted", 

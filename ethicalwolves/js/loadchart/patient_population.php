@@ -34,6 +34,10 @@ $fdec = $qdec->fetch_array();
 <script type="text/javascript"> 
     window.onload = function(){ 
         $("#patient_population").CanvasJSChart({
+            theme: "light2",
+            zoomEnabled: true,
+            zoomType: "x",
+            panEnabled: true,
             animationEnabled: true,
             animationDuration: 1000,
             exportFileName: "Monthly Population", 
@@ -54,7 +58,7 @@ $fdec = $qdec->fetch_array();
                 title: "Total Population", 
                 includeZero: false,
                 labelFontColor: "black",
-                 crosshair: {
+                crosshair: {
                     enabled: true 
                 }
             }, 
@@ -64,7 +68,7 @@ $fdec = $qdec->fetch_array();
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [ 
                         { label: "January", y: <?php echo $fjan['total']?> },
-                         { label: "Febuary", y: <?php echo $ffeb['total']?> },
+                         { label: "February", y: <?php echo $ffeb['total']?> },
                         { label: "March", y: <?php echo $fmar['total']?> },
                          { label: "April", y: <?php echo $fapr['total']?> },
                         { label: "May", y: <?php echo $fmay['total']?> },

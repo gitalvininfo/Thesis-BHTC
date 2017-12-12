@@ -21,11 +21,11 @@ $fetch8 = $tra->fetch_array();
 $oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Others' && `year` = '$year'") or die(mysqli_error());
 $fetch9 = $oth->fetch_array();
 ?>
- 
 <script type="text/javascript">
     window.onload = function() {
 
         $("#registration_group").CanvasJSChart({
+            theme: "light2",
             animationEnabled: true,
             animationDuration: 1000,
             exportFileName: "TB Patient Registration Group", 

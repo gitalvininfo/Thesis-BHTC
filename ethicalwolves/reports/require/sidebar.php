@@ -27,7 +27,7 @@
                 </div>
             </div>
         </li>
-        <li class="active">
+        <li>
             <a href="../home.php"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboard</span></a>
         </li>
         <li class="xn-openable">

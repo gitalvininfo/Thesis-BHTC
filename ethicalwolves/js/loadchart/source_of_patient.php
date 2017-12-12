@@ -19,6 +19,7 @@ $fetch4 = $com->fetch_array();
 <script type="text/javascript"> 
     window.onload = function() { 
         $("#source_of_patient").CanvasJSChart({
+            theme: "light2",
             animationEnabled: true,
             animationDuration: 1000,
             exportFileName: "Source of Patient", 

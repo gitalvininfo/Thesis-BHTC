@@ -16,7 +16,7 @@ $f = $q->fetch_array();
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
         <script src="js/jquery.min.js"></script>
         <script src = "js/jquery.canvasjs.min.js"></script>
-        <?php include_once 'js/loadchart/registration_group.php'?>
+        <?php include_once 'js/loadchart/barangay_population.php'?>
     </head>
     <body>
         <?php 
@@ -178,7 +178,7 @@ $f = $q->fetch_array();
                             <div class="panel panel-info">
 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><strong> <span class="fa fa-pie-chart"></span> Registration Group</strong></h3>
+                                    <h3 class="panel-title"><strong> <span class="fa fa-bar-chart"></span> Population per Barangay</strong></h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
                                             <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">
@@ -213,7 +213,7 @@ $f = $q->fetch_array();
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <div id="registration_group" style="width: 100%; height: 400px"></div>
+                                    <div id="barangay_population" style="width: 100%; height: 400px"></div>
                                 </div>
 
                             </div>

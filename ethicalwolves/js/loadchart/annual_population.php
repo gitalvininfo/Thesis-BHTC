@@ -7,7 +7,7 @@ $q12 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` =
 $fetch12 = $q12->fetch_array();
 $q13 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2015'") or die(mysqli_error());
 $fetch13 = $q13->fetch_array();
-$q1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$2016'") or die(mysqli_error());
+$q1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2016'") or die(mysqli_error());
 $fetch1 = $q1->fetch_array();
 $q2 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2017'") or die(mysqli_error());
 $fetch2 = $q2->fetch_array();
@@ -32,6 +32,7 @@ $fetch10 = $q10->fetch_array();
 <script type="text/javascript"> 
     window.onload = function(){ 
         $("#annual_population").CanvasJSChart({
+            theme: "light2",
             zoomEnabled: true,
             zoomType: "x",
             panEnabled: true,
@@ -46,12 +47,18 @@ $fetch10 = $q10->fetch_array();
             axisX: {		       
                 gridDashType: "dot",
                 gridThickness: 1,
-                labelFontColor: "black"
+                labelFontColor: "black",
+                crosshair: {
+                    enabled: true 
+                }
             },
             axisY: { 
                 title: "Total Population", 
                 includeZero: false,
-                labelFontColor: "black"
+                labelFontColor: "black",
+                crosshair: {
+                    enabled: true 
+                }
             }, 
             data: [ 
                 { 

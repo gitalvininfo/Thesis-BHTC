@@ -24,7 +24,7 @@ require ('../config.php');
         ?>
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
-               <div class="page-content">
+            <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="../home.php">Home</a></li>
@@ -48,9 +48,9 @@ require ('../config.php');
         $value=$_GET['year']; 
         echo $value;
     }
-                                   else{
-                                       echo date('Y');
-                                   }
+            else{
+                echo date('Y');
+            }
                                                                ?>">
                                                     <?php 
                                                     if(isset($_GET['year'])){
@@ -115,9 +115,8 @@ require ('../config.php');
                                                             <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
                                                         </tr>
                                                         <tr class="danger">
-                                                        <td><h4><strong>Grand Total</strong></h4></td>
-                                                        <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch3['total']?></span></strong></center></td>
-                                                        <td></td>
+                                                            <td><h4><strong>Grand Total</strong></h4></td>
+                                                            <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch3['total']?></span></strong></center></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

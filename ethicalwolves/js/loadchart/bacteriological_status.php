@@ -16,6 +16,7 @@ $fetch2 = $cd->fetch_array();
 <script type="text/javascript"> 
     window.onload = function() { 
         $("#bacteriological_status").CanvasJSChart({
+            theme: "light2",
             animationEnabled: true,
             animationDuration: 1000,
             exportFileName: "Bacteriological Status", 

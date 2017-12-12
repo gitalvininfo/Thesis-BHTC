@@ -783,6 +783,7 @@ require ('../config.php');
                                 </thead>
                                 <tbody>
                                     <?php
+    $tbcase = date('y');
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
                                                                 $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Brgy 1' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                                                                 while($fetch = $query->fetch_array()){
@@ -791,7 +792,7 @@ require ('../config.php');
                                                                     $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -847,7 +848,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -904,7 +905,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -961,7 +962,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1018,7 +1019,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1075,7 +1076,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1132,7 +1133,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1189,7 +1190,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1246,7 +1247,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1303,7 +1304,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1360,7 +1361,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1409,7 +1410,8 @@ require ('../config.php');
                                 </thead>
                                 <tbody>
                                     <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+    
+    require '../config.php';
                             $query = $conn->query("SELECT * FROM `patient` WHERE `barangay` = 'Brgy 12' && `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                             while($fetch = $query->fetch_array()){
                                 $id = $fetch['patient_id'];
@@ -1417,7 +1419,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1474,7 +1476,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1505,6 +1507,7 @@ require ('../config.php');
                                 <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                             </div>
                         </div>
+                        
                         <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 14 Registered TB Patient as of Year <?php echo $year?></h4>
                     </div>
                     <div class="modal-body">
@@ -1530,7 +1533,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1586,7 +1589,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1643,7 +1646,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1700,7 +1703,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1757,7 +1760,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1814,7 +1817,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1871,7 +1874,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1928,7 +1931,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1985,7 +1988,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2042,7 +2045,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2099,7 +2102,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2156,7 +2159,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2213,7 +2216,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2270,7 +2273,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2327,7 +2330,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2384,7 +2387,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2441,7 +2444,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2498,7 +2501,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2555,7 +2558,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2612,7 +2615,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2669,7 +2672,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2726,7 +2729,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2783,7 +2786,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2840,7 +2843,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2897,7 +2900,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2954,7 +2957,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3011,7 +3014,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3068,7 +3071,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3125,7 +3128,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3182,7 +3185,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3297,7 +3300,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3354,7 +3357,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3419,7 +3422,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3476,7 +3479,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3533,7 +3536,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3590,7 +3593,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3647,7 +3650,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3704,7 +3707,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3761,7 +3764,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3818,7 +3821,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3875,7 +3878,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3932,7 +3935,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3989,7 +3992,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -4046,7 +4049,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
@@ -4104,7 +4107,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -4161,7 +4164,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -4218,7 +4221,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -4275,7 +4278,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -4333,7 +4336,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -4389,7 +4392,7 @@ require ('../config.php');
                                 $fetch2 = $query2->fetch_array();
                                     ?>
                                     <tr>
-                                        <td><center><?php echo $fetch2['tb_case_no']?></center></td>
+                                        <td><center><?php echo $tbcase. "-". "080". "-" .$fetch['patient_id']?></center></td>
                                         <td><center><?php echo $fetch['patient_name']?></center></td>
                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                         <td><center><?php echo $fetch2['source_of_patient']?></center> </td>

@@ -70,7 +70,6 @@ if(ISSET($_POST['save_user'])){
                                         <table class="table table-hover">
                                             <thead> 
                                                 <tr class="info">
-                                                    <th><center>ID</center></th>
                                                     <th><center>First Name</center></th>
                                                     <th><center>Last Name</center></th>
                                                     <th><center>License Number</center></th>
@@ -85,7 +84,6 @@ if(ISSET($_POST['save_user'])){
             while($fetch = $query->fetch_array()){
                                                 ?>                                      
                                                 <tr>
-                                                    <td><center><?php echo $fetch['user_id']?></center></td>
                                                     <td><center><?php echo $fetch['firstname']?></center></td>
                                                     <td><center><?php echo $fetch['lastname']?></center></td>
                                                     <td><center><?php echo $fetch['license']?></center></td>
@@ -111,7 +109,7 @@ if(ISSET($_POST['save_user'])){
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-key"></span> Physicians Personal and Account Information</h4>
+                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-user-md"></span> Medical Technologist Personal and Account Information</h4>
                     </div>
                     <form role="form" id="jvalidate" class="form-horizontal" action="master_file_medtech.php" method="post">
                         <div class="modal-body">
@@ -119,44 +117,33 @@ if(ISSET($_POST['save_user'])){
                                 <div class="panel-body">
                                     <div class="col-md-12">
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="First Name" type="text" class="form-control" name="firstname" placeholder="First Name" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">First Name</label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="First Name" type="text" class="form-control" name="firstname" placeholder="First Name" required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Last Name" type="text" class="form-control" name="lastname" placeholder="Last Name" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Last Name</label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Last Name" type="text" class="form-control" name="lastname" placeholder="Last Name" required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="License Number" type="text" class="form-control" name="license" placeholder="License Number" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input type="text" class="form-control" name="username" placeholder="Username" />
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">License Number</label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="License Number" type="text" class="form-control" name="license" placeholder="License Number" required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info-circle"></span></span>
-                                                    <input type="password" class="form-control" name="password" placeholder="Password"/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Username</label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Username" type="text" class="form-control" name="username" placeholder="Username" required/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label class="col-md-3 col-xs-12 control-label">Password</label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Password" type="password" class="form-control" name="password" placeholder="Password" required/>
                                             </div>
                                         </div>
                                     </div>
@@ -193,41 +180,14 @@ if(ISSET($_POST['save_user'])){
                 rules: {
                     username: {
                         required: true,
-                        minlength: 2,
-                        maxlength: 8
+                        minlength: 6,
+                        maxlength: 10
                     },
                     password: {
                         required: true,
-                        minlength: 5,
+                        minlength: 6,
                         maxlength: 10
                     },
-                    're-password': {
-                        required: true,
-                        minlength: 5,
-                        maxlength: 10,
-                        equalTo: "#password2"
-                    },
-                    age: {
-                        required: true,
-                        min: 18,
-                        max: 100
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    date: {
-                        required: true,
-                        date: true
-                    },
-                    credit: {
-                        required: true,
-                        creditcard: true
-                    },
-                    site: {
-                        required: true,
-                        url: true
-                    }
                 }
             });
         </script>

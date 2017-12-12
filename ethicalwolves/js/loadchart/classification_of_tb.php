@@ -15,6 +15,7 @@ $fetch2 = $ext->fetch_array();
 <script type="text/javascript"> 
     window.onload = function() { 
         $("#classification_of_tb").CanvasJSChart({
+            theme: "light2",
             animationEnabled: true,
             animationDuration: 1000,
             exportFileName: "TB Classification", 

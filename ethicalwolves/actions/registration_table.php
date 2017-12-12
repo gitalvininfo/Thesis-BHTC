@@ -34,7 +34,7 @@ if(ISSET($_POST['add_new_ipt'])){
     echo "<script>document.location='../registration_table.php'</script>";  
 }
 if(ISSET($_POST['register_patient'])){
-    $date = date('F j, Y | l');
+    $date = date('F j, Y');
     $registration_date = $date;
     $source_of_patient = $_POST['source_of_patient'];
     $registration_group = $_POST['registration_group'];

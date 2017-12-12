@@ -35,6 +35,31 @@ if(ISSET($_POST['edit_member'])){
     echo "<script>document.location='master_file_patient.php'</script>";  
 }
 
+if(ISSET($_POST['edit_tst'])){
+    $tst_id = $_POST['tst_id'];
+    $result= $_POST['result'];    
+    $date_read = $_POST['date_read'];
+
+    require ('config.php');
+    $conn->query("UPDATE `tst` SET `result` = '$result', `date_read` = '$date_read' WHERE `tst_id` = '$tst_id'") or die(mysqli_error());
+    $conn->close();
+    echo "<script type='text/javascript'>alert('Successfully updated Tuberculin Skin Testing result!');</script>";
+    echo "<script>document.location='master_file_patient.php'</script>";  
+}
+
+if(ISSET($_POST['edit_cxr'])){
+    $cxr_id = $_POST['cxr_id'];
+    $cxr_findings= $_POST['cxr_findings'];    
+    $date_of_exam = $_POST['date_of_exam'];
+    $tbdc = $_POST['tbdc'];
+
+    require ('config.php');
+    $conn->query("UPDATE `cxr` SET `cxr_findings` = '$cxr_findings', `date_of_exam` = '$date_of_exam', `tbdc` = '$tbdc' WHERE `cxr_id` = '$cxr_id'") or die(mysqli_error());
+    $conn->close();
+    echo "<script type='text/javascript'>alert('Successfully updated Chest X-ray findings!');</script>";
+    echo "<script>document.location='master_file_patient.php'</script>";  
+}
+
 if(ISSET($_POST['edit_ipt'])){
     $patient_id = $_POST['patient_id'];
     $name= $_POST['name'];    

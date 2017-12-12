@@ -199,13 +199,13 @@ $fetch64 = $brgy39->fetch_array();
 $brgy40 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered' && `barangay` = 'Brgy 40'") or die(mysqli_error());
 $fetch65 = $brgy40->fetch_array();
 
-$grandtotal = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `year` =  '$year' && `status` = 'Registered'") or die(mysqli_error());
+$grandtotal = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `status` = 'Registered' &&  `year` =  '$year'") or die(mysqli_error());
 $fetch25 = $grandtotal->fetch_array();
 ?>
 <script type="text/javascript"> 
     window.onload = function(){ 
-
         $("#barangay_population").CanvasJSChart({
+            theme: "light2",
             zoomEnabled: true,
             zoomType: "x",
             panEnabled: true,
@@ -220,18 +220,25 @@ $fetch25 = $grandtotal->fetch_array();
             axisY: { 
                 title: "Total Population", 
                 includeZero: false,
-                labelFontColor: "black"
+                labelFontColor: "black",
+                crosshair: {
+                    enabled: true 
+                }
             },
-            axisX:{
-                interval: 100
-                
+            axisX: {		       
+                gridDashType: "dot",
+                gridThickness: 1,
+                labelFontColor: "black",
+                crosshair: {
+                    enabled: true 
+                }
             },
             data: [ 
                 { 
                     type: "column",
 
                     dataPoints: [ 
-                        { label: " Brgy. Abcasa", x:70, y: <?php echo $fetch1['total']?>}, 
+                        { label: " Brgy. Abcasa", y: <?php echo $fetch1['total']?>}, 
                          { label: " Brgy. Alangilan", y: <?php echo $fetch2['total']?> },
                         { label: " Brgy. Alijis", y: <?php echo $fetch3['total']?> },
                          { label: " Brgy. Banago", y: <?php echo $fetch4['total']?> },

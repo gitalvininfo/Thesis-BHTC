@@ -7,6 +7,7 @@ $fetch = $query->fetch_array();
 <script type="text/javascript"> 
     window.onload = function(){ 
         $("#show_weight").CanvasJSChart({
+            theme: "light2",
             animationEnabled: true,
             title: { 
                 text: "Patient Weight Progress",

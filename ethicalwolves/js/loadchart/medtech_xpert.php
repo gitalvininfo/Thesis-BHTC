@@ -22,6 +22,7 @@ $fetch5 = $xpert5->fetch_array();
 <script type="text/javascript"> 
     window.onload = function() { 
         $("#xpert").CanvasJSChart({
+            theme: "light2",
             animationEnabled: true,
             animationDuration: 1000,
             exportFileName: "XPERT", 

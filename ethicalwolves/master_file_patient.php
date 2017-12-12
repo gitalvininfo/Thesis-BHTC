@@ -57,8 +57,8 @@ require ('config.php');
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-    $year = date('Y');
-            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+    $year = date('y');
+            require 'config.php';
             $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `status` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $id = $fetch['patient_id'];
@@ -66,13 +66,13 @@ require ('config.php');
                 $fetch2 = $query2->fetch_array();
                                                                     ?>                                      
                                                                     <tr>
-                                                                        <td><center><strong><?php echo $fetch2['year']. "-". "5867". "-" .$fetch['patient_id']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></strong></center></td>
                                                                         <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
                                                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                                                         <td><center><?php echo $fetch2['source_of_patient']?></center></td>
                                                                         <td><center><?php echo $fetch2['registration_group']?></center></td>
                                                                         <td><center>
-                                                                            <a href="#updatepatient<?php echo $fetch['patient_id'];?>" data-target="#updatepatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
+                                                                            <a href="#updatepatient<?php echo $fetch['patient_id'];?>" data-target="#updatepatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
                                                                             <a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
                                                                     </tr>
                                                                     <?php

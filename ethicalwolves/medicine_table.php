@@ -43,8 +43,8 @@ if(ISSET($_POST['new_medicine'])){
         <!-- START PAGE CONTAINER -->
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
-              <div class="page-content">
-               <?php require 'require/header.php'?>
+            <div class="page-content">
+                <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
                     <li>Data Entry</li>
@@ -76,9 +76,9 @@ if(ISSET($_POST['new_medicine'])){
                                             </thead>
                                             <tbody>
                                                 <?php
-                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $query = $conn->query("SELECT * FROM `medicine` ORDER BY `medicine_id` DESC") or die(mysqli_error());
-                                   while($fetch = $query->fetch_array()){
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `medicine` ORDER BY `medicine_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
                                                 ?>
                                                 <tr>
                                                     <td><center><?php echo $fetch['medicine_id']?></center></td>
@@ -90,8 +90,8 @@ if(ISSET($_POST['new_medicine'])){
                                                         </center></td>
                                                 </tr>
                                                 <?php
-                                   }
-                                   $conn->close();
+            }
+            $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>   
@@ -104,6 +104,8 @@ if(ISSET($_POST['new_medicine'])){
                 </div>
             </div>            
         </div>
+
+        <!-- New Medicine-->
         <div class="modal fade" id="new_medicine" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -142,6 +144,8 @@ if(ISSET($_POST['new_medicine'])){
                 </div>
             </div>
         </div>
+        <!-- End New Medicine-->
+
 
         <!-- Edit Medicine-->
         <?php
@@ -154,7 +158,7 @@ if(ISSET($_POST['new_medicine'])){
                 <div class="modal-content" style="height:auto">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="smallModalHead"><span class="fa fa-plus"></span> New Transaction</h4>
+                        <h4 class="modal-title" id="smallModalHead"><span class="fa fa-pencil-square-o"></span> Edit Medicine</h4>
                     </div>
                     <form role="form" class="form-horizontal" action="edit_query.php" method="post">
                         <div class="modal-body">
@@ -197,7 +201,7 @@ if(ISSET($_POST['new_medicine'])){
         <!-- End of Edit Medicine-->
 
 
-      <?php require 'require/logout.php'?>
+        <?php require 'require/logout.php'?>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>

@@ -10,7 +10,8 @@ $fetch2 = $xpert->fetch_array();
 ?>
 <script type="text/javascript"> 
     window.onload = function() { 
-        $("#examination_category").CanvasJSChart({    
+        $("#examination_category").CanvasJSChart({  
+            theme: "light2",
             title: { 
                 text: "Total Number of Examinations Conducted as of <?php echo $date?>",
                 fontSize: 20
