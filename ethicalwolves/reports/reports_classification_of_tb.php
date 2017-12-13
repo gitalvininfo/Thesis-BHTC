@@ -24,7 +24,7 @@ require ('../config.php');
         ?>
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
-               <div class="page-content">
+            <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="../home.php">Home</a></li>
@@ -39,38 +39,7 @@ require ('../config.php');
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Graphical</a></li>
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">Tabular</a></li>
-                                    <div class="btn-group pull-right">
-                                        <div class="pull-left">
-                                            <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">
-                                                <option>Please Select Year...</option>
-                                                <option value="<?php 
-    if(isset($_GET['year'])){
-        $value=$_GET['year']; 
-        echo $value;
-    }
-                                   else{
-                                       echo date('Y');
-                                   }
-                                                               ?>">
-                                                    <?php 
-                                                    if(isset($_GET['year'])){
-                                                        $value=$_GET['year']; 
-                                                        echo $value;
-                                                    }
-                                                    else{
-                                                        echo date('Y');
-                                                    }
-                                                    ?></option>
-                                                <?php
-                                                for($y=2015; $y<=2020; $y++){
-                                                ?>
-                                                <option value="<?php echo $y ?>"><?php echo $y; ?></option>
-                                                <?php
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <?php require '../require/select_year.php'?>
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
@@ -88,36 +57,42 @@ require ('../config.php');
                                                         <tr>
                                                             <th>Classification of TB Disease</th>
                                                             <th><center>Number of Patients per Category</center></th>
-
+                                                            <th><center>View Patients</center></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $year = date('Y');
-                                                        if(isset($_GET['year']))
-                                                        {
-                                                            $year=$_GET['year'];
-                                                        }
-                                                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                        $pul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch1 = $pul->fetch_array();
-                                                        $ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch2 = $ext->fetch_array();
-                                                        $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-                                                        $fetch3 = $gra->fetch_array();
+    $year = date('Y');
+            if(isset($_GET['year']))
+            {
+                $year=$_GET['year'];
+            }
+            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $pul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
+            $fetch1 = $pul->fetch_array();
+            $ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary' && `year` = '$year'") or die(mysqli_error());
+            $fetch2 = $ext->fetch_array();
+            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
+            $fetch3 = $gra->fetch_array();
                                                         ?>
                                                         <tr>
                                                             <td>Pulmonary</td>
                                                             <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#pul"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Extra-pulmonary</td>
                                                             <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ext"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr class="danger">
-                                                        <td><h4><strong>Grand Total</strong></h4></td>
-                                                        <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch3['total']?></span></strong></center></td>
-                                                        <td></td>
+                                                            <td><h4><strong>Grand Total</strong></h4></td>
+                                                            <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch3['total']?></span></strong></center></td>
+                                                            <td></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -131,6 +106,105 @@ require ('../config.php');
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="pul" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-search-plus"></span> Classification of TB - Pulmonary | <strong> Year <?php echo $year?></strong></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>TB Case No</center></th>    
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Registration Date</center></th>
+                                        <th><center>Source of Patient</center></th>
+                                        <th><center>Registration Group</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+    require '../config.php';
+                                                                $query2 = $conn->query("SELECT * FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
+                                                                while($fetch2 = $query2->fetch_array()){
+                                                                    $id = $fetch2['patient_id'];
+                                                                    $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                                                    $fetch = $query->fetch_array();
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch2['registration_date']?></center></td>
+                                        <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
+                                        <td><center><?php echo $fetch2['registration_group']?></center> </td>
+                                    </tr>
+                                    <?php
+                                                                }
+                                                                $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ext" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="largeModalHead"><span class="fa fa-search-plus"></span> Classification of TB - Extra-Pulmonary | <strong> Year <?php echo $year?></strong></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+                            <table class="table datatable">
+                                <thead>
+                                    <tr class="info">
+                                        <th><center>TB Case No</center></th>    
+                                        <th><center>Patient Name</center></th>
+                                        <th><center>Registration Date</center></th>
+                                        <th><center>Source of Patient</center></th>
+                                        <th><center>Registration Group</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                            require '../config.php';
+                            $query2 = $conn->query("SELECT * FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary' && `year` = '$year'") or die(mysqli_error());
+                            while($fetch2 = $query2->fetch_array()){
+                                $id = $fetch2['patient_id'];
+                                $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                $fetch = $query->fetch_array();
+                                    ?>
+                                    <tr>
+                                        <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                        <td><center><?php echo $fetch['patient_name']?></center></td>
+                                        <td><center><?php echo $fetch2['registration_date']?></center></td>
+                                        <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
+                                        <td><center><?php echo $fetch2['registration_group']?></center> </td>
+                                    </tr>
+                                    <?php
+                            }
+                            $conn->close();
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){
@@ -146,6 +220,7 @@ require ('../config.php');
         <script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>
+        <script type="text/javascript" src="../js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="../js/plugins.js"></script>
         <script type="text/javascript" src="../js/actions.js"></script>

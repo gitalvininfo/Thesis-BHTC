@@ -39,42 +39,10 @@ require ('../config.php');
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Graphical</a></li>
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">Tabular</a></li>
-                                    <div class="btn-group pull-right">
-                                        <div class="pull-left">
-                                            <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">
-                                                <option>Please Select Year...</option>
-                                                <option value="<?php 
-    if(isset($_GET['year'])){
-        $value=$_GET['year']; 
-        echo $value;
-    }
-            else{
-                echo date('Y');
-            }
-                                                               ?>">
-                                                    <?php 
-                                                    if(isset($_GET['year'])){
-                                                        $value=$_GET['year']; 
-                                                        echo $value;
-                                                    }
-                                                    else{
-                                                        echo date('Y');
-                                                    }
-                                                    ?></option>
-                                                <?php
-                                                for($y=2015; $y<=2020; $y++){
-                                                ?>
-                                                <option value="<?php echo $y ?>"><?php echo $y; ?></option>
-                                                <?php
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <?php require '../require/select_year.php'?>
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
-
                                         <div class="row">
                                             <div class="panel-body">
                                                 <div id="patient_population" style="width: 100%; height: 400px"></div>
@@ -89,90 +57,127 @@ require ('../config.php');
                                                         <tr>
                                                             <th>Month</th>
                                                             <th><center>Number of Patients Registererd per Month</center></th>
+                                                            <th><center>View Patients</center></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $year = date('Y');
-                                                        if(isset($_GET['year']))
-                                                        {
-                                                            $year=$_GET['year'];
-                                                        }
-                                                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                        $qjan = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Jan' && `year` = '$year'") or die(mysqli_error());
-                                                        $fjan = $qjan->fetch_array();
-                                                        $qfeb = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Feb' && `year` = '$year'") or die(mysqli_error());
-                                                        $ffeb = $qfeb->fetch_array();
-                                                        $qmar = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Mar' && `year` = '$year'") or die(mysqli_error());
-                                                        $fmar = $qmar->fetch_array();
-                                                        $qapr = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Apr' && `year` = '$year'") or die(mysqli_error());
-                                                        $fapr = $qapr->fetch_array();
-                                                        $qmay = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'May' && `year` = '$year'") or die(mysqli_error());
-                                                        $fmay = $qmay->fetch_array();
-                                                        $qjun = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Jun' && `year` = '$year'") or die(mysqli_error());
-                                                        $fjun = $qjun->fetch_array();
-                                                        $qjul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Jul' && `year` = '$year'") or die(mysqli_error());
-                                                        $fjul = $qjul->fetch_array();
-                                                        $qaug = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Aug' && `year` = '$year'") or die(mysqli_error());
-                                                        $faug = $qaug->fetch_array();
-                                                        $qsep = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Sept' && `year` = '$year'") or die(mysqli_error());
-                                                        $fsep = $qsep->fetch_array();
-                                                        $qoct = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Oct' && `year` = '$year'") or die(mysqli_error());
-                                                        $foct = $qoct->fetch_array();
-                                                        $qnov = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Nov' && `year` = '$year'") or die(mysqli_error());
-                                                        $fnov = $qnov->fetch_array();
-                                                        $qdec = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Dec' && `year` = '$year'") or die(mysqli_error());
-                                                        $fdec = $qdec->fetch_array();
-                                                        $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-                                                        $grat = $gra->fetch_array();
+    $year = date('Y');
+            if(isset($_GET['year']))
+            {
+                $year=$_GET['year'];
+            }
+            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $qjan = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Jan' && `year` = '$year'") or die(mysqli_error());
+            $fjan = $qjan->fetch_array();
+            $qfeb = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Feb' && `year` = '$year'") or die(mysqli_error());
+            $ffeb = $qfeb->fetch_array();
+            $qmar = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Mar' && `year` = '$year'") or die(mysqli_error());
+            $fmar = $qmar->fetch_array();
+            $qapr = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Apr' && `year` = '$year'") or die(mysqli_error());
+            $fapr = $qapr->fetch_array();
+            $qmay = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'May' && `year` = '$year'") or die(mysqli_error());
+            $fmay = $qmay->fetch_array();
+            $qjun = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Jun' && `year` = '$year'") or die(mysqli_error());
+            $fjun = $qjun->fetch_array();
+            $qjul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Jul' && `year` = '$year'") or die(mysqli_error());
+            $fjul = $qjul->fetch_array();
+            $qaug = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Aug' && `year` = '$year'") or die(mysqli_error());
+            $faug = $qaug->fetch_array();
+            $qsep = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Sept' && `year` = '$year'") or die(mysqli_error());
+            $fsep = $qsep->fetch_array();
+            $qoct = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Oct' && `year` = '$year'") or die(mysqli_error());
+            $foct = $qoct->fetch_array();
+            $qnov = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Nov' && `year` = '$year'") or die(mysqli_error());
+            $fnov = $qnov->fetch_array();
+            $qdec = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Dec' && `year` = '$year'") or die(mysqli_error());
+            $fdec = $qdec->fetch_array();
+            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
+            $grat = $gra->fetch_array();
                                                         ?>
                                                         <tr>
                                                             <td>January</td>
                                                             <td><center><strong><?php echo $fjan['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#jan"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>February</td>
                                                             <td><center><strong><?php echo $ffeb['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#feb"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>March</td>
                                                             <td><center><strong><?php echo $fmar['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mar"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>April</td>
                                                             <td><center><strong><?php echo $fapr['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#apr"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>May</td>
                                                             <td><center><strong><?php echo $fmay['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#may"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>June</td>
                                                             <td><center><strong><?php echo $fjun['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#jun"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>July</td>
                                                             <td><center><strong><?php echo $fjul['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#jul"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>August</td>
                                                             <td><center><strong><?php echo $faug['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#aug"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>September</td>
                                                             <td><center><strong><?php echo $fsep['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#sep"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>October</td>
                                                             <td><center><strong><?php echo $foct['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#oct"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>November</td>
                                                             <td><center><strong><?php echo $fnov['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#nov"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>December</td>
                                                             <td><center><strong><?php echo $fdec['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#dec"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr class="danger">
                                                             <td><h3><strong>Grand Total</strong></h3></td>
@@ -181,11 +186,9 @@ require ('../config.php');
                                                         </tr>
                                                     </tbody>
                                                 </table>
-
-
-                                            </div></div>
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -193,7 +196,9 @@ require ('../config.php');
                 </div>
             </div>
         </div>
-         <?php require 'require/logout.php'?>
+
+        <?php require 'require/tabular_monthly_population.php'?>
+        <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){
                 $("#pyear").on('change', function(){
@@ -208,11 +213,9 @@ require ('../config.php');
         <script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>
+        <script type="text/javascript" src="../js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="../js/plugins.js"></script>
         <script type="text/javascript" src="../js/actions.js"></script>
     </body>
 </html>
-
-
-<!-- -->

@@ -57,7 +57,7 @@ require ('../config.php');
                                                         <tr>
                                                             <th>Year</th>
                                                             <th><center>Number of Patients Registererd per Year</center></th>
-
+                                                            <th><center>View Patients</center></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -114,7 +114,6 @@ require ('../config.php');
 
                                             </div></div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -122,7 +121,7 @@ require ('../config.php');
                 </div>
             </div>
         </div>
-       <?php require 'require/logout.php'?>
+        <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){
                 $("#pyear").on('change', function(){

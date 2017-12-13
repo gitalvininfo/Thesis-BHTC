@@ -23,7 +23,6 @@ $fetch9 = $oth->fetch_array();
 ?>
 <script type="text/javascript">
     window.onload = function() {
-
         $("#registration_group").CanvasJSChart({
             theme: "light2",
             animationEnabled: true,

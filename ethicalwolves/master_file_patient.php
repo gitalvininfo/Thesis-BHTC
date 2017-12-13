@@ -57,7 +57,7 @@ require ('config.php');
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-    $year = date('y');
+    $year = date('Y');
             require 'config.php';
             $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `status` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
@@ -66,7 +66,7 @@ require ('config.php');
                 $fetch2 = $query2->fetch_array();
                                                                     ?>                                      
                                                                     <tr>
-                                                                        <td><center><strong><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch2['year']. "-". "080". "-" .$fetch['patient_id']?></strong></center></td>
                                                                         <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
                                                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                                                         <td><center><?php echo $fetch2['source_of_patient']?></center></td>

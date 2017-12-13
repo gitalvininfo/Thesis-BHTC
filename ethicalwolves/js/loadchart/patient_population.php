@@ -80,7 +80,7 @@ $fdec = $qdec->fetch_array();
                         { label: "November", y: <?php echo $fnov['total']?> },
                          { label: "December", y: <?php echo $fdec['total']?> }
                     ] 
-                } 
+                }
             ] 
         }); 
     }

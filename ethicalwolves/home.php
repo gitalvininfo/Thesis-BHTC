@@ -179,38 +179,7 @@ $f = $q->fetch_array();
 
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><strong> <span class="fa fa-bar-chart"></span> Population per Barangay</strong></h3>
-                                    <div class="btn-group pull-right">
-                                        <div class="pull-left">
-                                            <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">
-                                                <option>Please Select Year...</option>
-                                                <option value="<?php 
-    if(isset($_GET['year'])){
-        $value=$_GET['year']; 
-        echo $value;
-    }
-                                        else{
-                                            echo date('Y');
-                                        }
-                                                               ?>">
-                                                    <?php 
-                                                    if(isset($_GET['year'])){
-                                                        $value=$_GET['year']; 
-                                                        echo $value;
-                                                    }
-                                                    else{
-                                                        echo date('Y');
-                                                    }
-                                                    ?></option>
-                                                <?php
-                                                for($y=2015; $y<=2020; $y++){
-                                                ?>
-                                                <option value="<?php echo $y ?>"><?php echo $y; ?></option>
-                                                <?php
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <?php require 'require/select_year.php'?>
                                 </div>
                                 <div class="panel-body">
                                     <div id="barangay_population" style="width: 100%; height: 400px"></div>
@@ -223,18 +192,6 @@ $f = $q->fetch_array();
             </div>
         </div>
 
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style=" overflow: scroll; height:auto;">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Header</h4>
-                    </div>
-                    <div class="modal-body">
-                        Body
-                    </div>
-                </div>
-            </div>
-        </div>
         <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){

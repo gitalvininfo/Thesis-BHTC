@@ -23,7 +23,7 @@ require ('../config.php');
         $find = $query->fetch_array();
         ?>
         <div class="page-container">
-            <?php require 'require/medtech_sidebar.php'?>
+             <?php require 'require/medtech_sidebar.php'?>
             <div class="page-content">
                 <?php require 'require/medtech_header.php'?>
                 <ul class="breadcrumb">
@@ -44,38 +44,7 @@ require ('../config.php');
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
                                             <div class="panel-heading">
-                                                <div class="btn-group pull-right">
-                                                    <div class="pull-left">
-                                                        <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">
-                                                            <option>Please Select Year...</option>
-                                                            <option value="<?php 
-    if(isset($_GET['year'])){
-        $value=$_GET['year']; 
-        echo $value;
-    }
-            else{
-                echo date('Y');
-            }
-                                                                           ?>">
-                                                                <?php 
-                                                                if(isset($_GET['year'])){
-                                                                    $value=$_GET['year']; 
-                                                                    echo $value;
-                                                                }
-                                                                else{
-                                                                    echo date('Y');
-                                                                }
-                                                                ?></option>
-                                                            <?php
-                                                            for($y=2015; $y<=2020; $y++){
-                                                            ?>
-                                                            <option value="<?php echo $y ?>"><?php echo $y; ?></option>
-                                                            <?php
-                                                            }
-                                                            ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                 <?php require '../require/select_year.php'?>
                                             </div>
                                             <div class="panel-body">
                                                 <div id="examination" style="width: 100%; height: 350px"></div>

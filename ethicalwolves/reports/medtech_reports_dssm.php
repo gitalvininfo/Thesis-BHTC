@@ -42,38 +42,7 @@ require ('../config.php');
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
-                                            <div class="btn-group pull-right">
-                                                <div class="pull-left">
-                                                    <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">
-                                                        <option>Please Select Year...</option>
-                                                        <option value="<?php 
-    if(isset($_GET['year'])){
-        $value=$_GET['year']; 
-        echo $value;
-    }
-                else{
-                    echo date('Y');
-                }
-                                                                       ?>">
-                                                            <?php 
-                                                            if(isset($_GET['year'])){
-                                                                $value=$_GET['year']; 
-                                                                echo $value;
-                                                            }
-                                                            else{
-                                                                echo date('Y');
-                                                            }
-                                                            ?></option>
-                                                        <?php
-                                                        for($y=2015; $y<=2020; $y++){
-                                                        ?>
-                                                        <option value="<?php echo $y ?>"><?php echo $y; ?></option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                             <?php require 'require/select_year.php'?>
                                             <div class="panel-body">
                                                 <div id="dssm" style="width: 100%; height: 350px"></div>
                                             </div>

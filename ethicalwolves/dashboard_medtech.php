@@ -211,38 +211,7 @@ $f = $q->fetch_array();
 
                                     <div class="panel-heading">
                                         <h3 class="panel-title"><strong> <span class="fa fa-bar-chart-o"></span> Examination Overview Per Category</strong></h3>
-                                        <div class="btn-group pull-right">
-                                            <div class="pull-left">
-                                                <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">
-                                                    <option>Please Select Year...</option>
-                                                    <option value="<?php 
-                                                                   if(isset($_GET['year'])){
-                                                                       $value=$_GET['year']; 
-                                                                       echo $value;
-                                                                   }
-                                                                   else{
-                                                                       echo date('Y');
-                                                                   }
-                                                                   ?>">
-                                                        <?php 
-                                                        if(isset($_GET['year'])){
-                                                            $value=$_GET['year']; 
-                                                            echo $value;
-                                                        }
-                                                        else{
-                                                            echo date('Y');
-                                                        }
-                                                        ?></option>
-                                                    <?php
-                                                    for($y=2015; $y<=2020; $y++){
-                                                    ?>
-                                                    <option value="<?php echo $y ?>"><?php echo $y; ?></option>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                        </div>
+                                         <?php require 'require/select_year.php'?>
                                     </div>
                                     <div class="panel-body">
                                         <div id="examination" style="width: 100%; height: 400px"></div>

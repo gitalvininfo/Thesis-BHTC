@@ -13,12 +13,14 @@ require ('config.php');
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+        <script src = "js/jquery.canvasjs.min.js"></script>
+        <?php include_once 'js/loadchart/weight.php'?>
 
     </head>
 
     <body>
         <?php
-        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
         $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = '$_SESSION[user_id]'") or die(mysqli_error());
         $find = $query->fetch_array();
         ?>
@@ -345,7 +347,7 @@ require ('config.php');
                                                                             <tr>
                                                                                 <th><center>Criteria</center></th>
                                                                                 <th><center>Frequency of occurences during treatment</center></th>
-                                                                                
+
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
@@ -389,12 +391,21 @@ require ('config.php');
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-6">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <h3 class="panel-title"><strong>Weight Progress</strong></h3>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    <div id="weight" style="height: 200px; width: 100%;">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="panel-footer">
                                     </div>
                                 </div>
                             </form>

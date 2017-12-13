@@ -23,8 +23,8 @@ require ('../config.php');
         $find = $query->fetch_array();
         ?>
         <div class="page-container">
-           <?php require 'require/sidebar.php'?>
-                <div class="page-content">
+            <?php require 'require/sidebar.php'?>
+            <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="../home.php">Home</a></li>
@@ -39,38 +39,7 @@ require ('../config.php');
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Graphical</a></li>
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">Tabular</a></li>
-                                    <div class="btn-group pull-right">
-                                        <div class="pull-left">
-                                            <select id="pyear" class="validate[required] select" data-style="btn-danger" data-live-search="true">
-                                                <option>Please Select Year...</option>
-                                                <option value="<?php 
-    if(isset($_GET['year'])){
-        $value=$_GET['year']; 
-        echo $value;
-    }
-                                   else{
-                                       echo date('Y');
-                                   }
-                                                               ?>">
-                                                    <?php 
-                                                    if(isset($_GET['year'])){
-                                                        $value=$_GET['year']; 
-                                                        echo $value;
-                                                    }
-                                                    else{
-                                                        echo date('Y');
-                                                    }
-                                                    ?></option>
-                                                <?php
-                                                for($y=2015; $y<=2020; $y++){
-                                                ?>
-                                                <option value="<?php echo $y ?>"><?php echo $y; ?></option>
-                                                <?php
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <?php require '../require/select_year.php'?>
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
@@ -88,49 +57,62 @@ require ('../config.php');
                                                         <tr>
                                                             <th>Source of Patient</th>
                                                             <th><center>Number of Patients per Category</center></th>
+                                                            <th><center>View Patients</center></th>
 
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
 
-                                                        $year = date('Y');
-                                                        if(isset($_GET['year']))
-                                                        {
-                                                            $year=$_GET['year'];
-                                                        }
-                                                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                        $phc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Public Health Center' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch1 = $phc->fetch_array();
-                                                        $oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Other Government Facilities' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch2 = $oth->fetch_array();
-                                                        $pri = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Private Hospitals' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch3 = $pri->fetch_array();
-                                                        $com = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Community' && `year` = '$year'") or die(mysqli_error());
-                                                        $fetch4 = $com->fetch_array();
-                                                        $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-                                                        $fetch5 = $gra->fetch_array();                                                     
+    $year = date('Y');
+            if(isset($_GET['year']))
+            {
+                $year=$_GET['year'];
+            }
+            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $phc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Public Health Center' && `year` = '$year'") or die(mysqli_error());
+            $fetch1 = $phc->fetch_array();
+            $oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Other Government Facilities' && `year` = '$year'") or die(mysqli_error());
+            $fetch2 = $oth->fetch_array();
+            $pri = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Private Hospitals' && `year` = '$year'") or die(mysqli_error());
+            $fetch3 = $pri->fetch_array();
+            $com = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Community' && `year` = '$year'") or die(mysqli_error());
+            $fetch4 = $com->fetch_array();
+            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
+            $fetch5 = $gra->fetch_array();                                                     
                                                         ?>
                                                         <tr>
                                                             <td>Public Health Center</td>
                                                             <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#phc"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Other Government Facilities/Hospital</td>
                                                             <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#oth"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Private Hospitals/Clinics/Physicians/NGO's</td>
                                                             <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#priv"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Community</td>
                                                             <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#comm"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr class="danger">
-                                                        <td><h4><strong>Grand Total</strong></h4></td>
-                                                        <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch5['total']?></span></strong></center></td>
-                                                        <td></td>
+                                                            <td><h4><strong>Grand Total</strong></h4></td>
+                                                            <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch5['total']?></span></strong></center></td>
+                                                            <td></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -145,6 +127,7 @@ require ('../config.php');
                 </div>
             </div>
         </div>
+        <?php require 'require/tabular_source_of_patient.php'?>
         <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){
@@ -160,6 +143,7 @@ require ('../config.php');
         <script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>
+        <script type="text/javascript" src="../js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="../js/plugins.js"></script>
         <script type="text/javascript" src="../js/actions.js"></script>
