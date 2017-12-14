@@ -248,7 +248,7 @@ if(ISSET($_POST['login'])){
     $pass1 = mysqli_real_escape_string($conn,$password);
 
     $pass = md5($pass1);
-    $salt = "HAHAHAHAHA";
+    $salt = "aTya03gHJdTyqLkWQfg15yU";
     $pass = $salt.$pass;
 
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
@@ -260,13 +260,13 @@ if(ISSET($_POST['login'])){
     if($valid > 0){
         if ($position == 'NTP Nurse Coordinator') {
             $_SESSION['user_id'] = $fetch['user_id'];
-            echo '<meta http-equiv="refresh" content="3;url=home.php">';
+            echo '<meta http-equiv="refresh" content="2;url=home.php">';
             echo '<i style="color:white">Retrieving Account. Please wait...</i>';
 
         }
         if ($position == 'Medical Technologist') {
             $_SESSION['user_id'] = $fetch['user_id'];
-            echo '<meta http-equiv="refresh" content="3;url=dashboard_medtech.php">';
+            echo '<meta http-equiv="refresh" content="2;url=dashboard_medtech.php">';
             echo '<i>Retrieving Account. Please wait...</i>';
         }
     }

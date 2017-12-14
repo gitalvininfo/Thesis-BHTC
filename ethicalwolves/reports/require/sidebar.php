@@ -61,7 +61,8 @@
         <li class="xn-openable">
             <a href="#"><span class="fa fa-gears"></span> <span class="xn-text">System Maintenance</span></a>       
             <ul>
-                <li><a href="../change_password.php"><span class="fa fa-key"></span><span class="xn-text">Update Profile</span></a></li>
+                <li><a href="../change_password.php"><span class="fa fa-lock"></span><span class="xn-text">My Account</span></a></li>
+                <li><a href="../user_mgmt.php"><span class="fa fa-refresh"></span><span class="xn-text">User Management</span></a></li>
                 <li><a href="../download_database.php"><span class="fa fa-cloud-download"></span><span class="xn-text">System Backup</span></a></li>
             </ul>
         </li> 

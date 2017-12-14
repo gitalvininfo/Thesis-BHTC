@@ -52,7 +52,7 @@ require ('../config.php');
                                     <div class="tab-pane" id="tab-second">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 455px;">
                                             <div class="row">
-                                                <table class="table table-hover">
+                                                <table class="table datatable">
                                                     <thead>
                                                         <tr>
                                                             <th>Year</th>
@@ -63,56 +63,121 @@ require ('../config.php');
                                                     <tbody>
                                                         <?php
     $year = date('Y');
-            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $q1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$2016'") or die(mysqli_error());
+            require '../config.php';
+            $q1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2013'") or die(mysqli_error());
             $fetch1 = $q1->fetch_array();
-            $q2 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2017'") or die(mysqli_error());
+            $q2 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2014'") or die(mysqli_error());
             $fetch2 = $q2->fetch_array();
-            $q3 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2018'") or die(mysqli_error());
+            $q3 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2015'") or die(mysqli_error());
             $fetch3 = $q3->fetch_array();
-            $q4 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2019'") or die(mysqli_error());
+            $q4 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2016'") or die(mysqli_error());
             $fetch4 = $q4->fetch_array();
-            $q5 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2020'") or die(mysqli_error());
+            $q5 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2017'") or die(mysqli_error());
             $fetch5 = $q5->fetch_array();
-            $q6 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2021'") or die(mysqli_error());
+            $q6 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2018'") or die(mysqli_error());
             $fetch6 = $q6->fetch_array();
-            $q7 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2022'") or die(mysqli_error());
+            $q7 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2019'") or die(mysqli_error());
             $fetch7 = $q7->fetch_array();
+            $q8 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2020'") or die(mysqli_error());
+            $fetch8 = $q8->fetch_array();
+            $q9 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2021'") or die(mysqli_error());
+            $fetch9 = $q9->fetch_array();
+            $q10 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2022'") or die(mysqli_error());
+            $fetch10 = $q10->fetch_array();
+            $q11 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2023'") or die(mysqli_error());
+            $fetch11 = $q11->fetch_array();
+            $q12 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2024'") or die(mysqli_error());
+            $fetch12 = $q12->fetch_array();
+            $q13 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '2025'") or die(mysqli_error());
+            $fetch13 = $q13->fetch_array();
 
                                                         ?>
                                                         <tr>
-                                                            <td>2016</td>
+                                                            <td>2013</td>
                                                             <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2013"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>2014</td>
+                                                            <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2014"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>2015</td>
+                                                            <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2015"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>2016</td>
+                                                            <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2016"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2017</td>
-                                                            <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch5['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2017"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2018</td>
-                                                            <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch6['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2018"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2019</td>
-                                                            <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch7['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2019"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2020</td>
-                                                            <td><center><strong><?php echo $fetch5['total']?></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch8['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2020"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2021</td>
-                                                            <td><center><strong><?php echo $fetch6['total']?></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch9['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2021"><span class="fa fa-search"></span></button>
+                                                                </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2022</td>
-                                                            <td><center><strong><?php echo $fetch7['total']?></strong></center></td>
+                                                            <td><center><strong><?php echo $fetch10['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2022"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2023</td>
+                                                            <td><center><strong><?php echo $fetch11['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2023"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2024</td>
+                                                            <td><center><strong><?php echo $fetch12['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2024"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2025</td>
+                                                            <td><center><strong><?php echo $fetch13['total']?></strong></center></td>
+                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2025"><span class="fa fa-search"></span></button>
+                                                                </center>
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
-
-
-                                            </div></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -121,6 +186,7 @@ require ('../config.php');
                 </div>
             </div>
         </div>
+        <?php require 'require/tabular_annual_population.php'?>
         <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){
@@ -136,11 +202,10 @@ require ('../config.php');
         <script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>
+        <script type="text/javascript" src="../js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="../js/plugins.js"></script>
         <script type="text/javascript" src="../js/actions.js"></script>
     </body>
 </html>
-
-
 <!-- -->

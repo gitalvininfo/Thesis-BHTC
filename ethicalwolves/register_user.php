@@ -10,7 +10,7 @@ if(ISSET($_POST['save_user'])){
 
 
     $pass1 = md5($password);
-    $salt = "HAHAHAHAHA";
+    $salt = "aTya03gHJdTyqLkW";
     $pass1 = $salt.$pass1;
 
     $conn = new mysqli("localhost", 'root', '', 'thesis') or die(mysqli_error());

@@ -11,7 +11,7 @@ if(ISSET($_POST['save_user'])){
 
 
     $pass1 = md5($password);
-    $salt = "aTya03gHJdTyqLkWQfg15yU";
+    $salt = "HAHAHAHAHA";
     $pass1 = $salt.$pass1;
 
     $conn = new mysqli("localhost", 'root', '', 'thesis') or die(mysqli_error());
@@ -50,8 +50,8 @@ if(ISSET($_POST['save_user'])){
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
-                    <li>Data Entry</li>
-                    <li class="active">Physicians</li>
+                    <li>System Maintenance</li>
+                    <li class="active">User Management</li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -59,15 +59,10 @@ if(ISSET($_POST['save_user'])){
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><span class="fa fa-user-md"></span> Medical Technologists</h3>
-                                    <div class="btn-group pull-right">
-                                        <div class="pull-left">
-                                            <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_physician"><span class="fa fa-key"></span> New Account </button>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
                                     <div class="panel-body">
-                                        <table class="table table-hover">
+                                        <table class="table datatable">
                                             <thead> 
                                                 <tr class="info">
                                                     <th><center>First Name</center></th>
@@ -75,13 +70,14 @@ if(ISSET($_POST['save_user'])){
                                                     <th><center>License Number</center></th>
                                                     <th><center>Username</center></th>
                                                     <th><center>Password</center></th>
+                                                    <th><center>Action</center></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
-            while($fetch = $query->fetch_array()){
+                                            require 'config.php';
+                                            $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
+                                            while($fetch = $query->fetch_array()){
                                                 ?>                                      
                                                 <tr>
                                                     <td><center><?php echo $fetch['firstname']?></center></td>
@@ -89,10 +85,13 @@ if(ISSET($_POST['save_user'])){
                                                     <td><center><?php echo $fetch['license']?></center></td>
                                                     <td><center><?php echo $fetch['username']?></center></td>
                                                     <td><center>*******</center></td>
+                                                    <td><center>
+                                                        <a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
+                                                        </center></td>
                                                 </tr>
                                                 <?php
-            }
-            $conn->close();
+                                                }
+                                                $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>                                    
@@ -104,7 +103,7 @@ if(ISSET($_POST['save_user'])){
                 </div>            
             </div>
         </div>
-        <?php require 'require/modals/new_medtech_account.php'?>
+        <?php require 'require/modals/edit_medtech_account.php'?>
         <?php require 'require/logout.php'?>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>

@@ -26,7 +26,7 @@ require ('config.php');
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
             <div class="page-content">
-            <?php require 'require/header.php'?>
+                <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li><a href="#">System Maintenance</a></li>
@@ -35,7 +35,7 @@ require ('config.php');
 
                 <div class="page-content-wrap">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <?php
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
             $q = $conn->query("SELECT * FROM `user` where `user_id` = '$id'") or die(mysqli_error());
@@ -45,47 +45,38 @@ require ('config.php');
                             <form role="form" class="form-horizontal" action="update_profile.php" method="post" onsubmit="return myFunction()">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><strong> <span class="fa fa-key"></span> Update User Profile</strong></h3>
+                                        <h3 class="panel-title"><strong> <span class="fa fa-lock"></span> Update My Account</strong></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Name" type="text" class="form-control" name="name" value="<?php echo $f['firstname'];?>" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Name</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Name" type="text" class="form-control" name="name" value="<?php echo $f['firstname'];?>" required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Username" type="text" class="form-control" name="username" value="<?php echo $f['username'];?>" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Username</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Username" type="text" class="form-control" name="username" value="<?php echo $f['username'];?>" required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="New Password" type="text" id="password" name="password" class="form-control"  placeholder="Type New Password"/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">New Password</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="New Password" type="text" class="form-control" id="password" name="password" placeholder="Type New Password" required/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Confirm Password" type="text" id = "cfmPassword" name="newpassword" class="form-control"  placeholder="Reenter Password"/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Confirm Password</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Confirm Password" type="text" class="form-control" id="cfmPassword" name="newpassword" placeholder="Confirm Password" required/>
                                             </div>
                                         </div>
+
                                         <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Old Password" type="text" class="form-control" name="passwordold" id="date" placeholder="Old Password" required/>
-                                                </div>
+                                            <label class="col-md-3 col-xs-12 control-label">Old Password</label>
+                                            <div class="col-md-9 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Old Password" type="text" class="form-control" name="passwordold" placeholder="Old Password" required/>
                                             </div>
                                         </div>
                                     </div>

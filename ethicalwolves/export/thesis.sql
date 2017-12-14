@@ -5,13 +5,10 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
-INSERT INTO backup VALUES("20","Successfully imported database","2017-12-12 09:31:01"); 
-INSERT INTO backup VALUES("21","Successfully exported database","2017-12-12 16:31:06"); 
-INSERT INTO backup VALUES("22","Successfully exported database","2017-12-13 00:20:41"); 
-INSERT INTO backup VALUES("23","Successfully exported database","2017-12-13 14:48:17"); 
-INSERT INTO backup VALUES("24","Successfully exported database","2017-12-13 16:48:24"); 
+INSERT INTO backup VALUES("26","Successfully imported database","2017-12-14 08:14:26"); 
+INSERT INTO backup VALUES("27","Successfully exported database","2017-12-14 15:14:51"); 
 
 
 
@@ -559,17 +556,13 @@ CREATE TABLE `user` (
   `license` char(20) NOT NULL,
   `position` char(30) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
-INSERT INTO user VALUES("22","Dummy","Account","","NTP Nurse Coordinator","nurse","HAHAHAHAHA0701aa317da5a004fbf6111545678a6c"); 
-INSERT INTO user VALUES("31","Gabriel","Banua","213931","Medical Technologist","gab","HAHAHAHAHA639bee393eecbc62256936a8e64d17b1"); 
-INSERT INTO user VALUES("32","Menard","Gardose","1243443","Medical Technologist","menard","HAHAHAHAHA9f5ab0cd889e06d101d3e45e0296ed23"); 
-INSERT INTO user VALUES("33","Sample","Sample","12319","Medical Technologist","sample","HAHAHAHAHA5e8ff9bf55ba3508199d22e984129be6"); 
-INSERT INTO user VALUES("34","Alson John","Bayon-on","12324","Medical Technologist","alsonz","HAHAHAHAHAb31e3e4d864da1c761e4c8115745f801"); 
-INSERT INTO user VALUES("35","Leonel","Entes","9832-32","Medical Technologist","medtech","HAHAHAHAHAda2550f00907e1601628524200439e35"); 
-INSERT INTO user VALUES("36","Juan","Dela Cruz","1313931","Medical Technologist","iamjuan","HAHAHAHAHA26f06bc92f322021cfb81a8e871a8134"); 
+INSERT INTO user VALUES("40","Alson John","Bayon-on","132-131","Medical Technologist","alsonz","aTya03gHJdTyqLkWQfg15yUb31e3e4d864da1c761e4c8115745f801"); 
+INSERT INTO user VALUES("41","Admin","Alvin","","NTP Nurse Coordinator","admin1","aTya03gHJdTyqLkWQfg15yUe00cf25ad42683b3df678c61f42c6bda"); 
+INSERT INTO user VALUES("42","Gabriel","Banua","1231-1231","Medical Technologist","gabriel","aTya03gHJdTyqLkWQfg15yU647431b5ca55b04fdf3c2fce31ef1915"); 
 
 
 

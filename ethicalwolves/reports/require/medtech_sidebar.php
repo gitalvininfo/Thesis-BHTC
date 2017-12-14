@@ -19,9 +19,10 @@
                         ?>
                     </div>
                     <div class="profile-data-title">
+                        <i>
                         <?php 
                         echo $find['position'];
-                        ?>
+                        ?></i>
                     </div>
                 </div>
             </div>
