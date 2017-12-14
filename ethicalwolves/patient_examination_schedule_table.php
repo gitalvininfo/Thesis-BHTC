@@ -75,7 +75,7 @@ require ('config.php');
                                                                         <td><center><?php echo $f['bacteriological_status']?></center></td>
                                                                         <td>
                                                                             <center>
-                                                                                <a href="examination_sched.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info">Schedule <span class = "badge"><?php echo $f2['total']?></span></a>
+                                                                                <a href="examination_sched.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info">Follow-up Visit <span class = "badge"><?php echo $f2['total']?></span></a>
                                                                             </center>
                                                                         </td>
                                                                     </tr>
@@ -132,7 +132,7 @@ require ('config.php');
                                                                         <td><center><?php echo $fetch['address']?></center></td>
                                                                         <td>
                                                                             <center>
-                                                                                <a href="examination_sched.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info">Schedule <span class = "badge"><?php echo $f2['total']?></span></a>
+                                                                                <a href="examination_sched.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info">Follow-up Visit <span class = "badge"><?php echo $f2['total']?></span></a>
                                                                             </center>
                                                                         </td>
                                                                     </tr>

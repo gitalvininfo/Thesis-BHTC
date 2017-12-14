@@ -55,7 +55,7 @@ if(ISSET($_POST['new_medicine'])){
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-file-text"></span> Medicine List <strong></strong></h3>
+                                    <h3 class="panel-title"><span class="fa fa-medkit"></span> Medicine List <strong></strong></h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
                                             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#new_medicine"><span class="fa fa-plus"></span>New Medicine </button>
@@ -86,7 +86,7 @@ if(ISSET($_POST['new_medicine'])){
                                                     <td><center><?php echo $fetch['medicine_description']?></center></td>
                                                     <td><center><strong><?php echo $fetch['running_balance']?></strong></center></td>
                                                     <td><center>
-                                                        <a href="#updatedata<?php echo $fetch['medicine_id'];?>" data-target="#updatedata<?php echo $fetch['medicine_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
+                                                        <a href="#updatedata<?php echo $fetch['medicine_id'];?>" data-target="#updatedata<?php echo $fetch['medicine_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
                                                         </center></td>
                                                 </tr>
                                                 <?php
@@ -104,103 +104,8 @@ if(ISSET($_POST['new_medicine'])){
                 </div>
             </div>            
         </div>
-
-        <!-- New Medicine-->
-        <div class="modal fade" id="new_medicine" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="smallModalHead"><span class="fa fa-plus"></span> New Medicine</h4>
-                    </div>
-                    <form role="form" class="form-horizontal" action="medicine_table.php" method="post">
-                        <div class="modal-body">
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <div class="col-md-12 col-xs-12">                                            
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Medicine Name" type="text" class="form-control" name="medicine_name" 
-                                                   placeholder="Medicine Name"/>
-                                        </div>                                            
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-12 col-xs-12">                                            
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Medicine Description" type="text" class="form-control" name="medicine_description" 
-                                                   placeholder="Medicine Description"/>
-                                        </div>                                            
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-info" name="new_medicine"><span class="fa fa-check"></span>Save</button> 
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- End New Medicine-->
-
-
-        <!-- Edit Medicine-->
-        <?php
-        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-        $query = $conn->query("SELECT * FROM `medicine` ORDER BY `medicine_id` DESC") or die(mysqli_error());
-        while($fetch = $query->fetch_array()){
-        ?>
-        <div id="updatedata<?php echo $fetch['medicine_id'];?>"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true" style="display:none;">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content" style="height:auto">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="smallModalHead"><span class="fa fa-pencil-square-o"></span> Edit Medicine</h4>
-                    </div>
-                    <form role="form" class="form-horizontal" action="edit_query.php" method="post">
-                        <div class="modal-body">
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <div class="col-md-12 col-xs-12">                                            
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input type="hidden" class="form-control" name="medicine_id" value="<?php echo $fetch['medicine_id'];?>" required>
-                                            <input data-toggle="tooltip" data-placement="right" title="Medicine Name" type="text" class="form-control" name="medicine_name" 
-                                                   value="<?php echo $fetch['medicine_name']?>"/>
-                                        </div>                                            
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-12 col-xs-12">                                            
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Medicine Description" type="text" class="form-control" name="medicine_description" 
-                                                   value="<?php echo $fetch['medicine_description']?>"/>
-                                        </div>                                            
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-info" name ="edit_medicine"><span class="fa fa-check"></span>Save</button> 
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <?php
-        }
-        $conn->close();
-        ?> 
-        <!-- End of Edit Medicine-->
-
-
+        <?php require 'require/modals/new_medicine.php'?>
+        <?php require 'require/modals/edit_medicine.php'?>
         <?php require 'require/logout.php'?>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>

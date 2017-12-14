@@ -5,9 +5,7 @@ require ('config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-        <!-- META SECTION -->
         <title>BHTC-PMIS</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,9 +16,7 @@ require ('config.php');
         <script src="js/plugins/jquery/jquery.min.js"></script>
         <script src="js/jquery.canvasjs.min.js"></script>
         <?php include_once 'js/loadchart/show_weight.php'?>
-
     </head>
-
     <body>
         <?php 
     $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
@@ -122,7 +118,7 @@ require ('config.php');
                                                                     <div class="panel-footer">
                                                                         <button type="submit" name="add_intensive_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                     </div>
-                                                                    <?php require_once 'add_intensive_phase.php' ?>
+                                                                    <?php require_once 'require/add_intensive_phase.php' ?>
 
                                                                 </form>
                                                             </div>
@@ -156,7 +152,7 @@ require ('config.php');
                                                                     <div class="panel-footer">
                                                                         <button type="submit" name="add_absent" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                     </div>
-                                                                    <?php require_once 'add_intensive_phase.php' ?>
+                                                                    <?php require_once 'require/add_intensive_phase.php' ?>
 
                                                                 </form>
                                                             </div>
@@ -271,7 +267,7 @@ require ('config.php');
                                                                     <div class="panel-footer">
                                                                         <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                     </div>
-                                                                    <?php require_once 'add_continuation_phase.php' ?>
+                                                                    <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                                 </form>
                                                             </div>
@@ -305,7 +301,7 @@ require ('config.php');
                                                                     <div class="panel-footer">
                                                                         <button type="submit" name="add_absent" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                     </div>
-                                                                    <?php require_once 'add_continuation_phase.php' ?>
+                                                                    <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                                 </form>
                                                             </div>
@@ -383,7 +379,7 @@ require ('config.php');
                                                             <h3 class="panel-title">  /   - Present |  0  - Absent</h3>
                                                             <div class="btn-group pull-right">
                                                                 <div class="pull-left">
-                                                                    <a href="#update_clinical<?php echo $f['patient_id'];?>" data-target="#update_clinical<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-pencil-square-o"></span>Update</a>
+                                                                    <a href="#update_clinical<?php echo $f['patient_id'];?>" data-target="#update_clinical<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Findings</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -487,7 +483,7 @@ require ('config.php');
                                                         <div class="panel-heading">
                                                             <div class="btn-group pull-right">
                                                                 <div class="pull-left">
-                                                                    <a href="#update_drug_preparations<?php echo $f['patient_id'];?>" data-target="#update_drug_preparations<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-pencil-square-o"></span>Update</a>
+                                                                    <a href="#update_drug_preparations<?php echo $f['patient_id'];?>" data-target="#update_drug_preparations<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Preparations</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -511,9 +507,6 @@ require ('config.php');
                                                                     </th>
                                                                     <th data-toggle="tooltip" data-placement="top" title="Streptomycin [S] 15mg/kg">
                                                                         <center>Streptomycin [S]</center>
-                                                                    </th>
-                                                                    <th>
-                                                                        <center>Action</center>
                                                                     </th>
                                                                 </tr>
                                                             </thead>
@@ -553,9 +546,6 @@ require ('config.php');
                                                                         <center>
                                                                             <?php echo $fetch['streptomycin']?>
                                                                         </center>
-                                                                    </td>
-                                                                    <td>
-                                                                        <center><a href="#" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="left" title="Edit"><span class="fa fa-pencil-square-o"></span></a></center>
                                                                     </td>
                                                                 </tr>
                                                                 <?php
@@ -731,216 +721,10 @@ require ('config.php');
             </div>
         </div>
 
-        <!-- Add Clinical -->
-        <?php
-        $date = date('F j, Y | l');
-        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-        $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-        while($fetch = $query->fetch_array()){
-        ?>
-        <div id="update_clinical<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-stethoscope"></span> New Clinical Findings</h4>
-                    </div>
-                    <form role="form" class="form-horizontal" action="actions/clinical_findings.php" method="post">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="panel-body">
-                                    <div class="block">
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Date Visited" type="text" class="form-control" name="date_visited" style="color:#000;" value="<?php echo $date ?>" disabled/> 
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Weight in kg." type="number" class="form-control" name="weight" placeholder="Weight in kg." required/> 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <h4>* Check the appropriate symptoms for <?php echo $f['patient_name']?></h4>
-                                        <h5 class="push-up-20"> 1. Unexplained fever greater than 2 weeks</h5>
-                                        <div class="form-group">
-                                            <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="/" name="q1" required/> Yes</label>
-                                            </div>
-                                            <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="0" name="q1" required/> No </label>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-20"> 2. Unexplained cough or wheezing greater than 2 weeks</h5>
-                                        <div class="form-group">
-                                            <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="/" name="q2" required/> Yes</label>
-                                            </div>
-                                            <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="0" name="q2" required/> No </label>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-20"> 3. Unimproved general well-being</h5>
-                                        <div class="form-group">
-                                            <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="/" name="q3" required/> Yes</label>
-                                            </div>
-                                            <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="0" name="q3" required/> No </label>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-20"> 4. Poor appetite</h5>
-                                        <div class="form-group">
-                                            <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="/" name="q4" required/> Yes</label>
-                                            </div>
-                                            <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="0" name="q4" required/> No </label>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-20"> 5. Positive PE findings for Extra-Pulmonary TB</h5>
-                                        <div class="form-group">
-                                            <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="/" name="q5" required/> Yes</label>
-                                            </div>
-                                            <div class="col-md-1">                                    
-                                                <label class="check"><input type="radio" class="iradio" value="0" name="q5" required/> No </label>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-20"> 6. Side Effects</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-6 col-xs-6">
-                                                <select multiple class="form-control select" id="formStatus" name="q6" required>
-                                                    <option value="">Choose Side Effects</option>
-                                                    <option value="Itchiness">Itchiness</option>
-                                                    <option value="Skin Rashes">Skin Rashes</option>
-                                                    <option value="Vomiting">Vomiting</option>
-                                                    <option value="Abdominal Pain">Abdominal Pain</option>
-                                                    <option value="Joint Paints">Joint Pains</option>
-                                                    <option value="Numbness">Numbness</option>
-                                                    <option value="Yellowing of Sclerae and skin">Yellowing of Sclerae and skin</option>
-                                                    <option value="Visual Disturbance">Visual Disturbance</option>
-                                                    <option value="Hearing Disturbance">Hearing Disturbance</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-info" name="add_new_clinical"><span class="fa fa-check"></span>Submit</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <?php
-        }
-        $conn->close();
-        ?> 
-        <!-- End Clinical -->
-
-
-        <!-- Add Drug Preparations -->
-        <?php
-        $date = date('F j, Y | l');
-        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-        $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-        while($fetch = $query->fetch_array()){
-        ?>
-        <div id="update_drug_preparations<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-medkit"></span> Drug Preparations</h4>
-                    </div>
-                    <form role="form" class="form-horizontal" action="actions/drug_preparations.php" method="post">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="panel-body">
-                                    <div class="block">
-                                        <div class="form-group ">
-                                            <div class="col-md-6 col-xs-6">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                    <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                                    <input data-toggle="tooltip" data-placement="right" title="Date Visited" type="text" class="form-control" name="date" style="color:#000;" value="<?php echo $date ?>" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <h3>Drug Preparations for <?php echo $f['patient_name']?></h3>
-                                        <h5 class="push-up-20">Isoniazid</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="top" title="Isoniazid" type="number" class="form-control" name="isoniazid" placeholder="Isoniazid" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-20"> Rifampicin</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="top" title="Rifampicin" type="number" class="form-control" name="rifampicin" placeholder="Rifampicin" required/>
-                                                </div>
-                                            </div>
-                                        </div><h5 class="push-up-20"> Pyrazinamide</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="top" title="Pyrazinamide" type="number" class="form-control" name="pyrazinamide" placeholder="Pyrazinamide" required/>
-                                                </div>
-                                            </div>
-                                        </div><h5 class="push-up-20"> Ethambutol</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="top" title="Ethambutol" type="number" class="form-control" name="ethambutol" placeholder="Ethambutol" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-20"> Streptomycin</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                    <input data-toggle="tooltip" data-placement="top" title="Streptomycin" type="number" class="form-control" name="streptomycin" placeholder="Streptomycin" required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-info" name="add_drug_preparations"><span class="fa fa-check"></span>Submit</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <?php
-        }
-        $conn->close();
-        ?> 
-        <!-- End Drug Preparations -->
-
-
-       <?php require 'require/logout.php'?>
-        <audio id="audio-alert" src="../audio/alert.mp3" preload="auto"></audio>
-        <audio id="audio-fail" src="../audio/fail.mp3" preload="auto"></audio>
+        <?php require 'require/modals/add_clinical_findings.php'?>
+        <?php require 'require/modals/add_drug_preparations.php'?>
+        <?php require 'require/logout.php'?>
+        <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>

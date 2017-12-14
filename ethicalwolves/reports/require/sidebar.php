@@ -44,7 +44,7 @@
             <ul>
                 <li> <a href="../patient_examination_schedule_table.php"><span class="fa fa-calendar"></span> <span class="xn-text">Follow-up Visit</span></a> </li>
                 <li> <a href="../laboratory_request_table.php"><span class="fa fa-plus"></span> <span class="xn-text">Laboratory Request</span></a> </li>
-                <li> <a href="../registration_table.php"><span class="fa fa-file-text"></span> <span class="xn-text">Registration</span></a> </li>
+                <li> <a href="../registration_table.php"><span class="fa fa-location-arrow"></span> <span class="xn-text">Registration</span></a> </li>
                 <li> <a href="../patient_treatment_table.php"><span class="fa fa-heartbeat"></span> <span class="xn-text">Treatment</span></a> </li>
                 <li> <a href="../medication_dispensation.php"><span class="fa fa-medkit"></span> <span class="xn-text">Medication Dispensation</span></a> </li>
             </ul>
