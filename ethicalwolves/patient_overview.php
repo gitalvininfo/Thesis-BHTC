@@ -51,155 +51,119 @@ require ('config.php');
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
-                                            <div class="row">
-                                                <?php
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-            $f = $q->fetch_array();
-            $q2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-            $fetch = $q2->fetch_array();
-                                                ?>
-                                                <div class="col-md-3">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
-                                                                <img src="assets/images/users/no-image.jpg" alt="Nadia Ali"/>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+            $f = $query->fetch_array();
+            $id = $f['patient_id'];
+            $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+            $fetch2 = $query2->fetch_array();
+                                                    ?>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-body">                                    
+                                                                    <div class="contact-info">
+                                                                        <img src="assets/images/users/no-image.jpg" style="height:130px;width:130px;"> &nbsp;
+                                                                        <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "-". "080". "-" .$f['patient_id']?></strong></center></h6>    
+                                                                    </div>
+                                                                </div>    
                                                             </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name"style="color:#695858"><strong><?php echo $f['patient_name']?></strong></div>
-                                                                <div class="profile-data-title">TB Patient</div>
-                                                            </div>
-                                                            <div class="panel-body">                                    
-                                                                <div class="contact-info">
-                                                                    <p><small style="font-size:12px;">Gender</small><br/><?php echo $f['gender']?></p>
-                                                                    <p><small style="font-size:12px;">Contact Number</small><br/><?php echo $f['contact_number']?></p>
-                                                                    <p><small style="font-size:12px;">Home Address</small><br/><?php echo $f['address']?></p>                                   
-                                                                </div>
-                                                            </div>    
-                                                        </div>    
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body">                                    
-                                                            <div class="contact-info">
-                                                                <p><small style="font-size:12px;">Birthdate</small><br/><?php echo $f['birthdate']?></p>
-                                                                <p><small style="font-size:12px;">Height</small><br/><?php echo $f['height']?> cms.</p>
-                                                                <p><small style="font-size:12px;">Occupation</small><br/><?php echo $f['occupation']?></p>                                   
-                                                            </div>
-                                                        </div>                                
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body">                                    
-                                                            <div class="contact-info">
-                                                                <p><small style="font-size:12px;">Philhealth Number</small><br/><?php echo $f['philhealth_no']?></p> 
-                                                                <p><small style="font-size:12px;">Contact Person</small><br/><?php echo $f['contact_person']?></p>
-                                                                <p><small style="font-size:12px;">Emergency Number</small><br/><?php echo $f['emergency_no']?></p>
-                                                            </div>
-                                                        </div>                                
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body">                                    
-                                                            <div class="contact-info">
-                                                                <p><small style="font-size:12px;">TB Case Number</small><br/><?php echo $fetch['year']. "-". "5867". "-" .$fetch['patient_id']?></p>
-                                                                <p><small style="font-size:12px;">Registration Date</small><br/><?php echo $fetch['registration_date']?></p>
-                                                                <p><small style="font-size:12px;">DOTS Facility</small><br/><?php echo $fetch['dots_facility']?></p>                                   
-                                                            </div>
-                                                        </div>                                
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body">                                    
-                                                            <div class="contact-info">
-                                                                <p><small style="font-size:12px;">Source of Patient</small><br/><?php echo $fetch['source_of_patient']?></p>
-                                                                <p><small style="font-size:12px;">Registration Group</small><br/><?php echo $fetch['registration_group']?></p>
-                                                                <p><small style="font-size:12px;">Diagnosis</small><br/><?php echo $fetch['diagnosis']?></p>                                   
-                                                            </div>
-                                                        </div>                                
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body">                                    
-                                                            <div class="contact-info">
-                                                                <p><small style="font-size:12px;">Bacteriological Status</small><br/><?php echo $fetch['bacteriological_status']?></p> 
-                                                                <p><small style="font-size:12px;">Classification of TB</small><br/><?php echo $fetch['classification_of_tb']?></p>
-                                                                <p><small style="font-size:12px;">BCG Scar</small><br/><?php echo $fetch['bcg_scar']?></p>
 
-                                                            </div>
-                                                        </div>                                
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body">                                    
-                                                            <div class="contact-info">
-                                                                <p><small style="font-size:12px;">History of TB Drug Intake</small><br/><?php echo $fetch['history']?></p>
-                                                                <p><small style="font-size:12px;">Duration</small><br/><?php echo $fetch['duration']?></p>
-                                                                <p><small style="font-size:12px;">Status</small><br/><?php echo $f['status']?></p>                 
-                                                            </div>
-                                                        </div>                                
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-heading">
-                                                            <div class="btn-group pull-right">
-                                                                <div class="pull-left">
-                                                                    <a href="#new_member<?php echo $f['patient_id'];?>" data-target="#new_member<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-user-plus"></span> New Family Member</a>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="panel-title"><span class="fa fa-group"></span> <strong>Family Members of <?php echo $f['patient_name']?></strong></h3>
                                                         </div>
-                                                        <div class="panel-body">
-                                                            <table id="laboratory_request" class="table table-hover">
+                                                        <div class="col-md-5">                                                
+                                                            <h6><strong>Name: </strong><?php echo $fetch['patient_name']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Age: </strong><?php echo $fetch['age']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Gender: </strong><?php echo $fetch['gender']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Contact Number: </strong><?php echo $fetch['contact_number']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Home Address: </strong><?php echo $fetch['address']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Birthdate: </strong><?php echo $fetch['address']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Occupation: </strong><?php echo $fetch['occupation']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Contact Person: </strong><?php echo $fetch['contact_person']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Emergency No: </strong><?php echo $fetch['emergency_no']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Philhealth No: </strong><?php echo $fetch['philhealth_no']?></h6>
+                                                        </div>
+                                                        <hr style="margin:0px 0 5px 0;">
+                                                        <div class="col-md-5">                        
+                                                            <h6><strong>Registration Date: </strong><?php echo $fetch2['registration_date']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>DOTS Facility: </strong><?php echo $fetch2['dots_facility']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Source of Patient: </strong><?php echo $fetch2['source_of_patient']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Registration Group: </strong><?php echo $fetch2['registration_group']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Diagnosis: </strong><?php echo $fetch2['diagnosis']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Bacteriological Status: </strong><?php echo $fetch2['bacteriological_status']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Classification of TB: </strong><?php echo $fetch2['classification_of_tb']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>BCG Scar: </strong><?php echo $fetch2['bcg_scar']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>History of TB: </strong><?php echo $fetch2['history']?></h6>
+                                                            <hr style="margin:0px 0 5px 0;">
+                                                            <h6><strong>Duration: </strong><?php echo $fetch2['duration']?></h6>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="col-md-12">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <div class="btn-group pull-right">
+                                                                    <div class="pull-left">
+                                                                        <a href="#new_member<?php echo $f['patient_id'];?>" data-target="#new_member<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-user-plus"></span> New Family Member</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <table id="laboratory_request" class="table table-hover">
 
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th><center>Name</center></th>
-                                                                        <th><center>Age</center></th>
-                                                                        <th><center>Date Screened</center></th>
-                                                                        <th><center>Action</center></th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <?php
-    require 'config.php';
-                                                                $query = $conn->query("SELECT * FROM `family_member` WHERE `patient_id` = '$_GET[id]' ORDER BY `member_id` DESC") or die(mysqli_error());
-                                                                while($fetch = $query->fetch_array()){
-                                                                    ?>
-                                                                    <tr>
-                                                                        <td><center><?php echo $fetch['name']?></center></td>
-                                                                        <td><center><?php echo $fetch['age']?></center></td>
-                                                                        <td><center><?php echo $fetch['date_screened']?></center></td>
-                                                                        <td><center>
-                                                                            <a href="#updatemember<?php echo $fetch['member_id'];?>" data-target="#updatemember<?php echo $fetch['member_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
-                                                                            </center></td>
-                                                                    </tr>
-                                                                    <?php
-                                                                }
-                                                                $conn->close();
-                                                                    ?>
-                                                                </tbody>
-                                                            </table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th><center>Name</center></th>
+                                                                            <th><center>Age</center></th>
+                                                                            <th><center>Date Screened</center></th>
+                                                                            <th><center>Action</center></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                        require 'config.php';
+                                                                        $query = $conn->query("SELECT * FROM `family_member` WHERE `patient_id` = '$_GET[id]' ORDER BY `member_id` DESC") or die(mysqli_error());
+                                                                        while($fetch = $query->fetch_array()){
+                                                                        ?>
+                                                                        <tr>
+                                                                            <td><center><?php echo $fetch['name']?></center></td>
+                                                                            <td><center><?php echo $fetch['age']?></center></td>
+                                                                            <td><center><?php echo $fetch['date_screened']?></center></td>
+                                                                            <td><center>
+                                                                                <a href="#updatemember<?php echo $fetch['member_id'];?>" data-target="#updatemember<?php echo $fetch['member_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
+                                                                                </center></td>
+                                                                        </tr>
+                                                                        <?php
+                                                                        }
+                                                                        $conn->close();
+                                                                        ?>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div></div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane" id="tab-second">
                                         <div class="row">
@@ -956,21 +920,21 @@ require ('config.php');
                                 <div class="modal-content" style="height:auto">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-plus"></span> Update Family Member</h4>
+                                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-pencil-square-o"></span> Update Family Member</h4>
                                     </div>
                                     <form role="form" class="form-horizontal" action="edit_query.php" method="post">
                                         <div class="modal-body">
                                             <div class="panel-body">
                                                 <div class="form-group ">
-                                                    <label class="col-md-2 col-xs-12 control-label">Name</label>
-                                                    <div class="col-md-8 col-xs-12">
+                                                    <label class="col-md-3 col-xs-12 control-label">Name</label>
+                                                    <div class="col-md-7 col-xs-12">
                                                         <input type="hidden" class="form-control" name="member_id" value="<?php echo $fetch['member_id'];?>" required>
                                                         <input data-toggle="tooltip" data-placement="bottom" title="Name" type="text" class="form-control" name="name" placeholder="Name"  value="<?php echo $fetch['name']?>" required/>
                                                     </div>
                                                 </div>
                                                 <div class="form-group ">
-                                                    <label class="col-md-2 col-xs-12 control-label">Age</label>
-                                                    <div class="col-md-8 col-xs-12">
+                                                    <label class="col-md-3 col-xs-12 control-label">Age</label>
+                                                    <div class="col-md-7 col-xs-12">
                                                         <input data-toggle="tooltip" data-placement="bottom" title="Age" type="text" class="form-control" name="age" placeholder="Age" value="<?php echo $fetch['age']?>" required/>
                                                     </div>
                                                 </div>
