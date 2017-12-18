@@ -5,11 +5,10 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("26","Successfully imported database","2017-12-14 08:14:26"); 
 INSERT INTO backup VALUES("27","Successfully exported database","2017-12-14 15:14:51"); 
-INSERT INTO backup VALUES("28","Successfully imported database","2017-12-14 15:40:09"); 
 
 
 
@@ -168,10 +167,9 @@ CREATE TABLE `dst_examination` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`dst_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 INSERT INTO dst_examination VALUES("1","12","12","2017-12-03","2017-12-03","Method 1","Resistant","Resistant","Resistant","Resistant","Resistant","Susceptible","Resistant","Susceptible","Susceptible","Dr. Adricula","Good","Dr. Haro","2017-12-05","6","Dec","2017"); 
-INSERT INTO dst_examination VALUES("2","12","12","2017-12-12","2017-12-12","Method 1","Resistant","Resistant","Resistant","Resistant","Resistant","Susceptible","Susceptible","Susceptible","Susceptible","Dr. Adricula","Good","Dr. Adricula","2017-12-20","1","Dec","2017"); 
 
 
 
@@ -200,13 +198,12 @@ CREATE TABLE `family_member` (
   `date_screened` date NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`member_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 INSERT INTO family_member VALUES("5","Alvin Yanson","20","2017-12-11","1"); 
 INSERT INTO family_member VALUES("6","Jyth Jerundio","21","2017-12-11","10"); 
 INSERT INTO family_member VALUES("7","Carl Betio","20","2017-12-11","1"); 
 INSERT INTO family_member VALUES("8","Sample Member","30","2017-12-11","1"); 
-INSERT INTO family_member VALUES("9","Christan Plaza","20","2017-12-18","6"); 
 
 
 
@@ -260,7 +257,7 @@ CREATE TABLE `intensive_phase_ipt` (
   `remarks` char(10) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`intensive_phase_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 INSERT INTO intensive_phase_ipt VALUES("1","100","2017-11-24","Present","1"); 
 INSERT INTO intensive_phase_ipt VALUES("2","0","2017-11-24","Absent","1"); 
@@ -268,7 +265,6 @@ INSERT INTO intensive_phase_ipt VALUES("3","0","2017-11-25","Absent","1");
 INSERT INTO intensive_phase_ipt VALUES("4","0","2017-11-25","Absent","1"); 
 INSERT INTO intensive_phase_ipt VALUES("5","67","2017-11-23","Present","1"); 
 INSERT INTO intensive_phase_ipt VALUES("6","12","2017-12-20","Present","7"); 
-INSERT INTO intensive_phase_ipt VALUES("7","67","2017-12-18","Present","5"); 
 
 
 
@@ -291,7 +287,7 @@ CREATE TABLE `laboratory_request` (
   `status` char(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`lab_request_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
 
 INSERT INTO laboratory_request VALUES("68","Mandalagan Health Center","2017-11-26","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-27","2017-11-28","Dr. Haro","433-2449","DSSM","2","Done","2017"); 
 INSERT INTO laboratory_request VALUES("69","Banago Health Center","2017-11-25","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-25","2017-11-25","Dr. Haro","433-2449","Xpert MTB/RIF","1","Done","2017"); 
@@ -304,8 +300,6 @@ INSERT INTO laboratory_request VALUES("75","Banago Health Center","2017-12-03","
 INSERT INTO laboratory_request VALUES("76","Banago Health Center","2017-12-06","Dr. Sabay","Baseline","Sputum","Yes","2017-12-04","2017-12-04","Dr. Adricula","713-6113","TB Culture","1","Done","2017"); 
 INSERT INTO laboratory_request VALUES("77","Taculing Health Center","2017-12-06","Dr. Torres","Diagnostic","Sputum","Yes","2017-12-04","2017-12-05","sadsa","42432","Xpert MTB/RIF","19","Done","2017"); 
 INSERT INTO laboratory_request VALUES("78","Bata Health Center","2017-12-12","Dr. Sabay","Follow-up","Sputum","Yes","2017-12-12","2017-12-12","Dr. Haro","433-2449","Xpert MTB/RIF","11","Done","2017"); 
-INSERT INTO laboratory_request VALUES("79","Sum-ag Health Center","2017-12-12","Dr. Haro","Diagnostic","Sputum","Yes","2017-12-12","2017-12-12","Dr. Haro","433-2449","DSSM","9","Pending","2017"); 
-INSERT INTO laboratory_request VALUES("80","Banago Health Center","2017-12-13","Dr. Sabay","Diagnostic","Sputum","Yes","2017-12-12","2017-12-13","Dr. Adricula","433-2449 local","Drug Susceptible Testing","1","Done","2017"); 
 
 
 
@@ -384,20 +378,20 @@ CREATE TABLE `patient` (
   PRIMARY KEY (`patient_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
-INSERT INTO patient VALUES("1","Alson John Bayon-on","21","Female","Prk. Langis, Brgy. Banago, Bacolod City","Banago","2017-11-25","178","433-2449","Negros Occidental","Drug Lord","10992241","Dr. Sabay","433-2449 local 181","Registered","Done","2017"); 
+INSERT INTO patient VALUES("1","Alson John Bayon-on","123","Female","Prk. Langis, Brgy. Banago, Bacolod City","Banago","2017-11-25","178","433-2449","Negros Occidental","Drug Lord","10992241","Dr. Sabay","433-2449 local 181","Registered","Done","2017"); 
 INSERT INTO patient VALUES("2","Alvin Yanson","20","Male","eroreco bacolod city","Mandalagan","2017-01-08","178","433-2449","Negros Occidental","Student","1993121","Dr. Haro","433-2449 local 181","Registered","Done","2017"); 
-INSERT INTO patient VALUES("3","Erul John Ubas","21","Male","Sum-ag, Bacolod City","Sumag ","2017-03-13","178","433-2449 local","Negros Occidental","","","Dr. Adricula","433-2449 local 181","Registered","Done","2017"); 
-INSERT INTO patient VALUES("5","Gabriel Francis Banua","22","Male","Taculing, Bacolod City","Taculing","2017-10-29","178","433-2449","Negros Occidental","","","Dr. Sabay","433-2449","Registered","Done","2017"); 
+INSERT INTO patient VALUES("3","Erul John Ubas","21","Male","Sum-ag, Bacolod City","Sumag ","2017-03-13","178","433-2449 local","Negros Occidental","","","Dr. Adricula","433-2449 local 181","Registered","Pending","2017"); 
+INSERT INTO patient VALUES("5","Gabriel Francis Banua","22","Male","Taculing, Bacolod City","Taculing","2017-10-29","178","433-2449","Negros Occidental","","","Dr. Sabay","433-2449","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("6","Alec Rubiato","20","Male","Banago, Bacolod City","Banago","2016-12-25","174","433-2449","Negros Occidental","","","Dr. Torres","433-2449","Registered","Done","2017"); 
-INSERT INTO patient VALUES("7","Daniel Molabin","20","Male","Lizares Avenue","Felisa","2017-10-29","168","433-2449","Negros Occidental","","","Dr. Haro","433-2449 local 181","Registered","Done","2017"); 
+INSERT INTO patient VALUES("7","Daniel Molabin","20","Male","Lizares Avenue","Felisa","2017-10-29","168","433-2449","Negros Occidental","","","Dr. Haro","433-2449 local 181","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("8","Vincent Suyo","20","Male","My Address","Pahanocoy","2017-10-29","178","433-2449","Negros Occidental","","","qwe","1312","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("9","Brix Nessia","22","Male","My Address","Mandalagan","2017-10-30","178","12312","Negros Occidental","","","qweqw","12313","Registered","Pending","2017"); 
-INSERT INTO patient VALUES("10","Hans Patrick Legislador","22","Male","My Address","Mandalagan","2017-10-30","178","12321","Negros Occidental","","","eqewq","1231","Registered","Done","2017"); 
+INSERT INTO patient VALUES("10","Hans Patrick Legislador","22","Male","My Address","Mandalagan","2017-10-30","178","12321","Negros Occidental","","","eqewq","1231","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("11","Ivan Buglosa","22","Male","My Address","Granada ","2017-10-30","178","433-2494","Negros Occidental","","","qewq","12","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("12","Steven Saludares","20","Male","","Handumanan","2017-10-30","178","123","Negros Occidental","student","no philhealth","eqweqw","12","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("13","Menard Gardose","10","Male","My Address","Tangub","2017-10-29","178","3123","Negros Occidental","","","wqeqw","2131","Registered","Pending","2017"); 
-INSERT INTO patient VALUES("14","qw","12","Male","wqew","Bata","2017-11-20","1231","1231","Negros Occidental","","","eqeqw","132","Registered","Done","2017"); 
-INSERT INTO patient VALUES("15","qwe","21","Male","tga banago","Brgy 38","2017-11-26","12","232","Negros Occidental","","","wqeq","123","Registered","Done","2017"); 
+INSERT INTO patient VALUES("14","qw","12","Male","wqew","Bata","2017-11-20","1231","1231","Negros Occidental","","","eqeqw","132","Registered","Pending","2017"); 
+INSERT INTO patient VALUES("15","qwe","21","Male","tga banago","Brgy 38","2017-11-26","12","232","Negros Occidental","","","wqeq","123","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("16","zx","23","Female","qweq","Brgy 14","2017-11-26","12","433-2449","Negros Occidental","","","qwe","123","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("17","Jemmel Ano","12","Male","Singcang","Singcang","1997-03-19","178","433-2449 local","Negros Occidental","Student lng ah","","Dr. Sabay","433-2449 local","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("18","Jay Alvin Galoyo","20","Male","Sum-ag, Bacolod City","Sumag ","1997-09-16","178","433-2449 local","Negros Occidental","Student","no philhealth","Reymund Sabay","0909442423","Registered","Pending","2017"); 
@@ -420,13 +414,12 @@ CREATE TABLE `patient_ipt` (
   `treatment_partner` varchar(30) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`patient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
-INSERT INTO patient_ipt VALUES("5","Alvin Yanson","3","Male","qwe","433-2449 local 181","2017-11-25","Registered","Done","2017"); 
+INSERT INTO patient_ipt VALUES("5","Alvin Yanson","3","Male","qwe","433-2449 local 181","2017-11-25","Registered","Pending","2017"); 
 INSERT INTO patient_ipt VALUES("6","Carl Betio","3","Male","Taculing, Bacolod City","433-2449 local 181","2017-01-02","Registered","Pending","2017"); 
-INSERT INTO patient_ipt VALUES("7","Franz Licanel","3","Male","unor bacolod","433-2449 local 181","2015-05-11","Registered","Done","2017"); 
-INSERT INTO patient_ipt VALUES("8","Juan Dela Cruz","3","Male","Blk. 11, Lot 5, Brgy. Estefania, Bacolod City","713-6113","2014-07-09","Registered","Done","2017"); 
-INSERT INTO patient_ipt VALUES("9","Miles Pallarco","3","Male","Bacolod City","433-2449","2013-09-17","Unregister","Pending","2017"); 
+INSERT INTO patient_ipt VALUES("7","Franz Licanel","3","Male","unor bacolod","433-2449 local 181","2015-05-11","Registered","Pending","2017"); 
+INSERT INTO patient_ipt VALUES("8","Juan Dela Cruz","3","Male","Blk. 11, Lot 5, Brgy. Estefania, Bacolod City","713-6113","2014-07-09","Registered","Pending","2017"); 
 
 
 
@@ -520,39 +513,19 @@ DROP TABLE treatment_record;
 CREATE TABLE `treatment_record` (
   `treatment_id` int(10) NOT NULL AUTO_INCREMENT,
   `treatment_regimen_category` varchar(30) NOT NULL,
+  `weight` int(3) NOT NULL,
   `treatment_partner_name` varchar(30) NOT NULL,
   `designation_treatment_partner` varchar(30) NOT NULL,
   `date_treatment_started` date NOT NULL,
   `remarks` char(10) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`treatment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
-INSERT INTO treatment_record VALUES("1","Category I - 2HRZE/4HR","Dr. Haro","BHW","2017-11-16","Done","44"); 
-INSERT INTO treatment_record VALUES("2","Category I - 2HRZE/4HR","Dr. Sabay","BHW","2017-11-24","Done","1"); 
-INSERT INTO treatment_record VALUES("3","Category I - 2HRZE/4HR","Dr. Haro","BHW","2017-12-10","Done","2"); 
-INSERT INTO treatment_record VALUES("4","Category II - 2HRZES/1HRZE/5HR","eqeq","eqeq","2017-12-05","Done","6"); 
-INSERT INTO treatment_record VALUES("5","Category Ia - 2HRZE/10HR","Dr. Haro","BHW","2017-12-18","Done","7"); 
-INSERT INTO treatment_record VALUES("6","Category Ia - 2HRZE/10HR","Carl Betio","Barangay Health Worker","2017-12-19","Done","5"); 
-INSERT INTO treatment_record VALUES("10","Category II - 2HRZES/1HRZE/5HR","Dr. Diancin","Barangay Health Worker","2017-12-20","Done","10"); 
-
-
-
-DROP TABLE treatment_record_ipt;
-
-CREATE TABLE `treatment_record_ipt` (
-  `treatment_id` int(10) NOT NULL AUTO_INCREMENT,
-  `treatment_partner_name` varchar(30) NOT NULL,
-  `designation_treatment_partner` varchar(30) NOT NULL,
-  `date_treatment_started` date NOT NULL,
-  `remarks` char(10) NOT NULL,
-  `patient_id` int(10) NOT NULL,
-  PRIMARY KEY (`treatment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-INSERT INTO treatment_record_ipt VALUES("1","Dr. Haro","Midwife","2017-12-18","Done","5"); 
-INSERT INTO treatment_record_ipt VALUES("2","Dr. Sabay","Barangay Health Worker","2017-12-18","Done","7"); 
-INSERT INTO treatment_record_ipt VALUES("3","Leonel Entes","Barangay Health Worker","2017-12-19","Done","8"); 
+INSERT INTO treatment_record VALUES("1","Category I - 2HRZE/4HR","89","Dr. Haro","BHW","2017-11-16","Done","44"); 
+INSERT INTO treatment_record VALUES("2","Category I - 2HRZE/4HR","56","Dr. Sabay","BHW","2017-11-24","Done","1"); 
+INSERT INTO treatment_record VALUES("3","Category I - 2HRZE/4HR","45","Dr. Haro","BHW","2017-12-10","Done","2"); 
+INSERT INTO treatment_record VALUES("4","Category II - 2HRZES/1HRZE/5HR","34","eqeq","eqeq","2017-12-05","Done","6"); 
 
 
 

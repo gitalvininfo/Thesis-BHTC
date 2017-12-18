@@ -2,16 +2,16 @@
 require_once 'logincheck.php';
 require ('config.php');
 if(ISSET($_POST['add_treatment_details'])){
-    $treatment_regimen_category = $_POST['treatment_regimen_category'];
+
     $treatment_partner_name = $_POST['treatment_partner_name'];
     $designation_treatment_partner = $_POST['designation_treatment_partner'];
     $date_treatment_started = $_POST['date_treatment_started'];
     $patient_id = $_GET['id'];
 
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `treatment_record` VALUES('', '$treatment_regimen_category', '$treatment_partner_name', '$designation_treatment_partner', '$date_treatment_started', 'Done', '$patient_id')") or die(mysqli_error());
+    $conn->query("INSERT INTO `treatment_record_ipt` VALUES('', '$treatment_partner_name', '$designation_treatment_partner', '$date_treatment_started', 'Done', '$patient_id')") or die(mysqli_error());
 
-    $conn->query("UPDATE `patient` SET `treatment_partner` = 'Done' WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+    $conn->query("UPDATE `patient_ipt` SET `treatment_partner` = 'Done' WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully added Treatment Details');</script>";
     echo "<script>document.location='patient_treatment_table.php'</script>";
@@ -52,7 +52,7 @@ if(ISSET($_POST['add_treatment_details'])){
                         <div class="col-md-7">
                             <?php
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+            $q = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]' && `name` = '$_GET[name]'") or die(mysqli_error());
             $f = $q->fetch_array();
                             ?>
                             <form role="form" class="form-horizontal" method="post">
@@ -64,18 +64,6 @@ if(ISSET($_POST['add_treatment_details'])){
                                         </ul>
                                     </div>
                                     <div class="panel-body">
-                                        <div class="form-group ">
-                                            <label class="col-md-3 col-xs-12 control-label">Treatment Category</label>
-                                            <div class="col-md-9 col-xs-12">
-                                                <select class="form-control select" data-live-search="true" id="formStatus"  name="treatment_regimen_category" required>
-                                                    <option value="">Treatment Regimen</option>
-                                                    <option value="Category I - 2HRZE/4HR">Category I - 2HRZE/4HR</option>
-                                                    <option value="Category Ia - 2HRZE/10HR">Category Ia - 2HRZE/10HR</option>
-                                                    <option value="Category II - 2HRZES/1HRZE/5HRE">Category II - 2HRZES/1HRZE/5HRE</option>
-                                                    <option value="Category IIa - 2HRZES/1HRZE/9HRE">Category IIa - 2HRZES/1HRZE/9HRE</option>
-                                                </select>
-                                            </div>
-                                        </div>
                                         <div class="form-group ">
                                             <label class="col-md-3 col-xs-12 control-label">Treatment Partner</label>
                                             <div class="col-md-9 col-xs-12">
@@ -105,7 +93,7 @@ if(ISSET($_POST['add_treatment_details'])){
                                     <div class="panel-footer">
                                         <button type="submit" name="add_treatment_details" class="btn btn-info pull-right"><span class="fa fa-check"></span>Submit</button>
                                     </div>
-                                    <?php require_once 'treatment_details.php' ?>
+                                    <?php require_once 'treatment_details_ipt.php' ?>
                                 </div>
                             </form>
                         </div>
@@ -116,7 +104,7 @@ if(ISSET($_POST['add_treatment_details'])){
             <!-- END PAGE CONTENT -->
         </div>
         <?php require 'require/logout.php'?>
-        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+        <audio id="audio-alert" src="audio/fail.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>

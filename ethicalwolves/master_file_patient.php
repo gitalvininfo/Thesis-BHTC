@@ -41,7 +41,7 @@ require ('config.php');
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="panel panel-info">
-                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 480px;">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                                         <div class="panel-body">
                                                             <table class="table datatable">
                                                                 <thead> 
@@ -59,14 +59,14 @@ require ('config.php');
                                                                     <?php
     $year = date('Y');
             require 'config.php';
-            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `status` DESC") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $id = $fetch['patient_id'];
                 $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
                 $fetch2 = $query2->fetch_array();
                                                                     ?>                                      
                                                                     <tr>
-                                                                        <td><center><strong><?php echo $fetch2['year']. "-". "080". "-" .$fetch['patient_id']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></strong></center></td>
                                                                         <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
                                                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                                                         <td><center><?php echo $fetch2['source_of_patient']?></center></td>
@@ -91,7 +91,7 @@ require ('config.php');
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="panel panel-info">
-                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                                         <div class="panel-body">
                                                             <table class="table datatable">
                                                                 <thead> 
@@ -111,14 +111,14 @@ require ('config.php');
                                                                     <?php
                                                                     $year = date('Y');
                                                                     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `status` = 'Registered' ORDER BY `status` DESC") or die(mysqli_error());
+                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
                                                                     while($fetch = $query->fetch_array()){
                                                                         $id = $fetch['patient_id'];
                                                                         $query2 = $conn->query("SELECT `ipt_no`, `year` FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
                                                                         $fetch2 = $query2->fetch_array();
                                                                     ?>                                      
                                                                     <tr>
-                                                                        <td><center><strong><?php echo $fetch2['year']. "-".$fetch['patient_id']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch2['year']. "080".$fetch2['ipt_no']?></strong></center></td>
                                                                         <td><center><strong><?php echo $fetch['name']?></strong></center></td>
                                                                         <td><center><?php echo $fetch['age']?></center></td>
                                                                         <td><center><?php echo $fetch['gender']?></center></td>
@@ -127,7 +127,7 @@ require ('config.php');
                                                                         <td><center><?php echo $fetch['address']?></center></td>
                                                                         <td><center>
                                                                             <a href="#updateipt<?php echo $fetch['patient_id'];?>" data-target="#updateipt<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
-                                                                            <a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
+                                                                            <a href="patient_overview_ipt.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
                                                                     </tr>
                                                                     <?php
                                                                     }

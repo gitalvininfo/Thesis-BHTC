@@ -46,11 +46,11 @@ require ('config.php');
 
                                                                 <thead> 
                                                                     <tr class="info">
-                                                                        <th><center>Name</center></th>
-                                                                        <th><center>Gender</center></th>
-                                                                        <th><center>Birthdate</center></th>
-                                                                        <th><center>Address</center></th>
-                                                                        <th><center>Contact No.</center></th>
+                                                                        <th><center>TB Case No</center></th>
+                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Registration Date</center></th>
+                                                                        <th><center>Source of Patient</center></th>
+                                                                        <th><center>Registration Group</center></th>
                                                                         <th><center>Treatment Partner</center></th>
                                                                         <th><center>Action</center></th>
                                                                     </tr>
@@ -60,15 +60,18 @@ require ('config.php');
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
             $query = $conn->query("SELECT * FROM `patient` where `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
+                $id = $fetch['patient_id'];
+                $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                $fetch2 = $query2->fetch_array();
                 if($fetch['treatment_partner'] == 'Done'){
                     echo 
                         "<tr>
-                                                            <td><center><strong>".$fetch['patient_name']." </strong></center></td>
-                                                            <td><center> ".$fetch['gender']." </center></td>
-                                                            <td><center> ".$fetch['birthdate']." </center></td>
-                                                            <td><center> ".$fetch['address']." </center></td>
-                                                            <td><center> ".$fetch['contact_number']." </center></td>
-                                                            <td><center> <a disabled='disabled' class = 'btn btn-info btn-sm' href='treatment_details.php?id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-user-md'></span></a>  </center></td>
+                                                            <td><center><strong>".$fetch2['year']."080".$fetch2['tb_case_no']." </strong></center></td>
+                                                            <td><strong><center> ".$fetch['patient_name']." </center></strong></td>
+                                                            <td><center> ".$fetch2['registration_date']." </center></td>
+                                                            <td><center> ".$fetch2['source_of_patient']." </center></td>
+                                                            <td><center> ".$fetch2['registration_group']." </center></td>
+                                                            <td><center><label class='check'><input type='checkbox' class='icheckbox' checked='checked' disabled/></label> </center></td>
                                                             <td><center> 
                                                             <a class = 'btn btn-info btn-sm' href='patient_treatment.php? id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-search'></span>View Treatment</a>
                                                             </center></td>
@@ -79,12 +82,12 @@ require ('config.php');
                 {
                     echo
                         "<tr>
-                                                            <td><center><strong>".$fetch['patient_name']." </strong></center></td>
-                                                            <td><center> ".$fetch['gender']." </center></td>
-                                                            <td><center> ".$fetch['birthdate']." </center></td>
-                                                            <td><center> ".$fetch['address']." </center></td>
-                                                            <td><center> ".$fetch['contact_number']." </center></td>
-                                                            <td><center> <a data-toggle='tooltip' data-placement='left' title='Treatment Partner' class = 'btn btn-info btn-sm' href='treatment_details.php?id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-user-md'></span></a>  </center></td>
+                                                            <td><center><strong>".$fetch2['year']."080".$fetch2['tb_case_no']." </strong></center></td>
+                                                            <td><strong><center> ".$fetch['patient_name']." </center></strong></td>
+                                                            <td><center> ".$fetch2['registration_date']." </center></td>
+                                                            <td><center> ".$fetch2['source_of_patient']." </center></td>
+                                                            <td><center> ".$fetch2['registration_group']." </center></td>
+                                                            <td><center> <a data-toggle='tooltip' data-placement='left' title='Add Treatment Partner' class = 'btn btn-danger btn-sm' href='treatment_details.php?id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-user-plus'></span></a>  </center></td>
                                                             <td><center> 
                                                             <a class = 'btn btn-info btn-sm' href='patient_treatment.php? id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-search'></span>View Treatment</a>
                                                             </center></td>
@@ -110,35 +113,54 @@ require ('config.php');
                                                             <table class="table datatable">
                                                                 <thead> 
                                                                     <tr class="info">
+                                                                        <th><center>IPT No</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Gender</center></th>
-                                                                        <th><center>Birthdate</center></th>
-                                                                        <th><center>Home Address</center></th>
-                                                                        <th><center>Emergency Number</center></th>
+                                                                        <th><center>Date IPT Started</center></th>
+                                                                        <th><center>Diagnosis</center></th>
+                                                                        <th><center>Treatment Partner</center></th>
                                                                         <th><center>Action</center></th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
                                                                     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` where `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
                                                                     while($fetch = $query->fetch_array()){
-                                                                    ?>
-                                                                    <tr>
-                                                                        <td><center><strong><?php echo $fetch['name']?></strong></center></td>
-                                                                        <td><center><?php echo $fetch['gender']?></center></td>
-                                                                        <td><center><?php echo $fetch['birthdate']?></center></td>
-                                                                        <td><center><?php echo $fetch['address']?></center></td>
-                                                                        <td><center><?php echo $fetch['emergency_no']?></center></td>
-                                                                        <td>
-                                                                            <center>
-                                                                                <a href="patient_ipt_treatment.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>" class="btn btn-sm btn-info"> <span class="fa fa-search"></span>View Treatment</a>
-                                                                            </center>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <?php
+                                                                        $id = $fetch['patient_id'];
+                                                                        $query2 = $conn->query("SELECT * FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                                                                        $fetch2 = $query2->fetch_array();
+                                                                        if($fetch['treatment_partner'] == 'Done'){
+                                                                            echo 
+                                                                                "<tr>
+                                                            <td><center><strong>".$fetch2['year']."080".$fetch2['ipt_no']." </strong></center></td>
+                                                            <td><strong><center> ".$fetch['name']." </center></strong></td>
+                                                            <td><center> ".$fetch['gender']." </center></td>
+                                                            <td><center> ".$fetch2['date_ipt_started']." </center></td>
+                                                            <td><center> ".$fetch2['diagnosis']." </center></td>
+                                                            <td><center><label class='check'><input type='checkbox' class='icheckbox' checked='checked' disabled/></label> </center></td>
+                                                            <td><center> 
+                                                            <a class = 'btn btn-info btn-sm' href='patient_ipt_treatment.php? id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-search'></span>View Treatment</a>
+                                                            </center></td>
+                                                        </tr>";
+
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            echo
+                                                                                "<tr>
+                                                            <td><center><strong>".$fetch2['year']."080".$fetch2['ipt_no']." </strong></center></td>
+                                                            <td><strong><center> ".$fetch['name']." </center></strong></td>
+                                                            <td><center> ".$fetch['gender']." </center></td>
+                                                            <td><center> ".$fetch2['date_ipt_started']." </center></td>
+                                                            <td><center> ".$fetch2['diagnosis']." </center></td>
+                                                            <td><center> <a data-toggle='tooltip' data-placement='left' title='Add Treatment Partner' class = 'btn btn-danger btn-sm' href='treatment_details_ipt.php?id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-user-plus'></span></a>  </center></td>
+                                                            <td><center> 
+                                                            <a class = 'btn btn-info btn-sm' href='patient_ipt_treatment.php? id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-search'></span>View Treatment</a>
+                                                            </center></td>
+                                                        </tr>";
+                                                                        }
                                                                     }
-                                                                    $conn->close();
                                                                     ?>
                                                                 </tbody>
                                                             </table>                                    

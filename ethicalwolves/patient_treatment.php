@@ -62,7 +62,7 @@ require ('config.php');
                                     <li><a href="#tab-third" role="tab" data-toggle="tab">Clinical Findings</a></li>
                                     <li><a href="#tab-fourth" role="tab" data-toggle="tab">Drug Preparations</a></li>
                                     <li><a href="#tab-fifth" role="tab" data-toggle="tab">Overview</a></li>
-                                    <h3 class="panel-title pull-right"> <strong><?php echo $year. $f1['tb_case_no'] . " - " .$f['patient_name']?></strong></h3>
+                                    <h3 class="panel-title pull-right"> <strong><?php echo $year."080". $f1['tb_case_no']. " - " .$f['patient_name']?></strong></h3>
                                 </ul>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
                                     <div class="panel-body tab-content">
@@ -562,153 +562,164 @@ require ('config.php');
                                         </div>
                                         <div class="tab-pane" id="tab-fifth">
                                             <div class="row">
-                                                <?php
-                                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());                                                        
-                                                ?>
+                                                <div class="panel-body">
 
-                                                <div class="col-md-3">
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
-
-                                                            </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Intensive Phase</div>
-                                                                <div class="profile-data-title">Drug Intake</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="widget widget-info widget-item-icon">
-                                                            <div class="widget-item-left">
-                                                                <span class="fa fa-calendar"></span>
-                                                            </div>
-                                                            <div class="widget-data">
-                                                                <?php
-                                                                $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                $query1 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                                $fetch1 = $query1->fetch_array();
-                                                                ?>
-                                                                <div class="widget-int num-count">
-                                                                    <?php echo $fetch1['total'] ?>
-                                                                </div>
-                                                                <div class="widget-title">Days</div>
-                                                                <div class="widget-subtitle">Drug Usage</div>
+                                                    <div class="panel-heading">
+                                                        <div class="btn-group pull-right">
+                                                            <div class="pull-right">
+                                                                <a href="#new_member<?php echo $f['patient_id'];?>" data-target="#new_member<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-arrow-right"></span> End Treatment</a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
+                                                    <hr>
+                                                    <?php
+                                                    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                                    $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());                                                        
+                                                    ?>
 
+                                                    <div class="col-md-3">
+                                                        <!-- CONTACT ITEM -->
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body profile">
+                                                                <div class="profile-image">
+
+                                                                </div>
+                                                                <div class="profile-data">
+                                                                    <div class="profile-data-name" style="color:#695858">Intensive Phase</div>
+                                                                    <div class="profile-data-title">Drug Intake</div>
+                                                                </div>
                                                             </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Continuation Phase</div>
-                                                                <div class="profile-data-title">Drug Intake</div>
+                                                            <div class="widget widget-info widget-item-icon">
+                                                                <div class="widget-item-left">
+                                                                    <span class="fa fa-calendar"></span>
+                                                                </div>
+                                                                <div class="widget-data">
+                                                                    <?php
+                                                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                                    $query1 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                                                    $fetch1 = $query1->fetch_array();
+                                                                    ?>
+                                                                    <div class="widget-int num-count">
+                                                                        <?php echo $fetch1['total'] ?>
+                                                                    </div>
+                                                                    <div class="widget-title">Days</div>
+                                                                    <div class="widget-subtitle">Drug Usage</div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="widget widget-info widget-item-icon">
-                                                            <div class="widget-item-left">
-                                                                <span class="fa fa-calendar"></span>
+                                                        <!-- END CONTACT ITEM -->
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <!-- CONTACT ITEM -->
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body profile">
+                                                                <div class="profile-image">
+
+                                                                </div>
+                                                                <div class="profile-data">
+                                                                    <div class="profile-data-name" style="color:#695858">Continuation Phase</div>
+                                                                    <div class="profile-data-title">Drug Intake</div>
+                                                                </div>
                                                             </div>
-                                                            <div class="widget-data">
-                                                                <?php
+                                                            <div class="widget widget-info widget-item-icon">
+                                                                <div class="widget-item-left">
+                                                                    <span class="fa fa-calendar"></span>
+                                                                </div>
+                                                                <div class="widget-data">
+                                                                    <?php
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query2 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                                    $fetch2 = $query2->fetch_array();
-                                                                ?>
-                                                                <div class="widget-int num-count">
-                                                                    <?php echo $fetch2['total']; ?>
+                                                                        $query2 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                                                        $fetch2 = $query2->fetch_array();
+                                                                    ?>
+                                                                    <div class="widget-int num-count">
+                                                                        <?php echo $fetch2['total']; ?>
+                                                                    </div>
+                                                                    <div class="widget-title">Days</div>
+                                                                    <div class="widget-subtitle">Drug Usage</div>
                                                                 </div>
-                                                                <div class="widget-title">Days</div>
-                                                                <div class="widget-subtitle">Drug Usage</div>
                                                             </div>
                                                         </div>
+                                                        <!-- END CONTACT ITEM -->
                                                     </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
+                                                    <div class="col-md-3">
+                                                        <!-- CONTACT ITEM -->
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body profile">
+                                                                <div class="profile-image">
 
-                                                            </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Drug Consumption</div>
-                                                                <div class="profile-data-title">Total Dosage Given</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="widget widget-info widget-carousel">
-                                                            <div class="owl-carousel" id="owl-example">
-                                                                <div>
-                                                                    <?php
-                                                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                                    $fetch2 = $query2->fetch_array();
-                                                                    $query3 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                                    $fetch3= $query3->fetch_array();
-                                                                    ?>
-                                                                    <div class="widget-title">Intensive Phase</div>
-                                                                    <div class="widget-subtitle">Drug Dosage Given</div>
-                                                                    <div class="widget-int">
-                                                                        <?php echo $fetch2['sum(dosage)']; ?>
-                                                                    </div>
                                                                 </div>
-                                                                <div>
-                                                                    <div class="widget-title">Continuation Phase</div>
-                                                                    <div class="widget-subtitle">Drug Dosage Given</div>
-                                                                    <div class="widget-int">
-                                                                        <?php echo $fetch3['sum(dosage)']; ?>
-                                                                    </div>
+                                                                <div class="profile-data">
+                                                                    <div class="profile-data-name" style="color:#695858">Drug Consumption</div>
+                                                                    <div class="profile-data-title">Total Dosage Given</div>
                                                                 </div>
                                                             </div>
+                                                            <div class="widget widget-info widget-carousel">
+                                                                <div class="owl-carousel" id="owl-example">
+                                                                    <div>
+                                                                        <?php
+                                                                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                                        $query2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                                                        $fetch2 = $query2->fetch_array();
+                                                                        $query3 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                                                        $fetch3= $query3->fetch_array();
+                                                                        ?>
+                                                                        <div class="widget-title">Intensive Phase</div>
+                                                                        <div class="widget-subtitle">Drug Dosage Given</div>
+                                                                        <div class="widget-int">
+                                                                            <?php echo $fetch2['sum(dosage)']; ?>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="widget-title">Continuation Phase</div>
+                                                                        <div class="widget-subtitle">Drug Dosage Given</div>
+                                                                        <div class="widget-int">
+                                                                            <?php echo $fetch3['sum(dosage)']; ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
+                                                        <!-- END CONTACT ITEM -->
                                                     </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
-                                                            </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Missed Drug Intake</div>
-                                                                <div class="profile-data-title">Total Missed Days</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="widget widget-danger widget-carousel">
-                                                            <div class="owl-carousel" id="owl-example">
-                                                                <div>
-                                                                    <?php
-                                                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
-                                                                    $f3 = $q3->fetch_array();
-                                                                    $q4 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
-                                                                    $f4 = $q4->fetch_array();
-                                                                    ?>
-                                                                    <div class="widget-title">Intensive Phase</div>
-                                                                    <div class="widget-subtitle">Total Missed Days</div>
-                                                                    <div class="widget-int">
-                                                                        <?php echo $f3['total']; ?>
-                                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <!-- CONTACT ITEM -->
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body profile">
+                                                                <div class="profile-image">
                                                                 </div>
-                                                                <div>
-                                                                    <div class="widget-title">Continuation Phase</div>
-                                                                    <div class="widget-subtitle">Total Missed Days</div>
-                                                                    <div class="widget-int">
-                                                                        <?php echo $f4['total']; ?>
-                                                                    </div>
+                                                                <div class="profile-data">
+                                                                    <div class="profile-data-name" style="color:#695858">Missed Drug Intake</div>
+                                                                    <div class="profile-data-title">Total Missed Days</div>
                                                                 </div>
                                                             </div>
+                                                            <div class="widget widget-danger widget-carousel">
+                                                                <div class="owl-carousel" id="owl-example">
+                                                                    <div>
+                                                                        <?php
+                                                                        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                                        $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
+                                                                        $f3 = $q3->fetch_array();
+                                                                        $q4 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
+                                                                        $f4 = $q4->fetch_array();
+                                                                        ?>
+                                                                        <div class="widget-title">Intensive Phase</div>
+                                                                        <div class="widget-subtitle">Total Missed Days</div>
+                                                                        <div class="widget-int">
+                                                                            <?php echo $f3['total']; ?>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="widget-title">Continuation Phase</div>
+                                                                        <div class="widget-subtitle">Total Missed Days</div>
+                                                                        <div class="widget-int">
+                                                                            <?php echo $f4['total']; ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
+                                                        <!-- END CONTACT ITEM -->
                                                     </div>
-                                                    <!-- END CONTACT ITEM -->
                                                 </div>
                                             </div>
                                         </div>

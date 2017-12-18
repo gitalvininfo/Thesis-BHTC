@@ -111,7 +111,7 @@ require ('config.php');
         </div>
 
         <?php require 'require/logout.php'?>
-        <audio id="audio-alert" src="../audio/alert.mp3" preload="auto"></audio>
+        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>

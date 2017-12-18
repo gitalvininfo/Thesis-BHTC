@@ -29,6 +29,7 @@ require ('config.php');
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
+                    <li>Data Entry</li>
                     <li><a href="master_file_patient.php">Patient Master File</a></li>
                     <li class="active">Patient Overview</li>
                 </ul>
@@ -46,18 +47,17 @@ require ('config.php');
                                     <li><a href="#tab-seventh" role="tab" data-toggle="tab">DST</a></li>
                                     <li><a href="#tab-eigth" role="tab" data-toggle="tab">TST</a></li>
                                     <li><a href="#tab-ninth" role="tab" data-toggle="tab">CXR</a></li>
-
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
-                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                             <div class="panel-body">
                                                 <div class="row">
                                                     <?php
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
             $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-            $f = $query->fetch_array();
-            $id = $f['patient_id'];
+            $fetch = $query->fetch_array();
+            $id = $fetch['patient_id'];
             $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
             $fetch2 = $query2->fetch_array();
                                                     ?>
@@ -67,16 +67,16 @@ require ('config.php');
                                                                 <div class="panel-body">                                    
                                                                     <div class="contact-info">
                                                                         <img src="assets/images/users/no-image.jpg" style="height:130px;width:130px;"> &nbsp;
-                                                                        <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "-". "080". "-" .$f['patient_id']?></strong></center></h6>    
+                                                                        <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "-". "080". "-" .$fetch2['tb_case_no']?></strong></center></h6>    
                                                                     </div>
                                                                 </div>    
                                                             </div>
 
                                                         </div>
                                                         <div class="col-md-5">                                                
-                                                            <h6><strong>Name: </strong><?php echo $fetch['patient_name']?></h6>
+                                                            <h6><strong>Name: </strong><?php echo $fetch['patient_name']. ", " .$fetch['age']. " years old"?></h6>
                                                             <hr style="margin:0px 0 5px 0;">
-                                                            <h6><strong>Age: </strong><?php echo $fetch['age']?></h6>
+                                                            <h6><strong>Height: </strong><?php echo $fetch['height'], " cms." ?></h6>
                                                             <hr style="margin:0px 0 5px 0;">
                                                             <h6><strong>Gender: </strong><?php echo $fetch['gender']?></h6>
                                                             <hr style="margin:0px 0 5px 0;">
@@ -94,7 +94,6 @@ require ('config.php');
                                                             <hr style="margin:0px 0 5px 0;">
                                                             <h6><strong>Philhealth No: </strong><?php echo $fetch['philhealth_no']?></h6>
                                                         </div>
-                                                        <hr style="margin:0px 0 5px 0;">
                                                         <div class="col-md-5">                        
                                                             <h6><strong>Registration Date: </strong><?php echo $fetch2['registration_date']?></h6>
                                                             <hr style="margin:0px 0 5px 0;">
@@ -118,12 +117,12 @@ require ('config.php');
                                                         </div>
                                                     </div>
                                                     <hr>
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-6">
                                                         <div class="panel panel-default">
                                                             <div class="panel-heading">
-                                                                <div class="btn-group pull-right">
+                                                                <div class="btn-group pull-left">
                                                                     <div class="pull-left">
-                                                                        <a href="#new_member<?php echo $f['patient_id'];?>" data-target="#new_member<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-user-plus"></span> New Family Member</a>
+                                                                        <a href="#new_member<?php echo $f['patient_id'];?>" data-target="#new_member<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-user-plus"></span> New Family Member</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -161,6 +160,44 @@ require ('config.php');
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-6">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h3 class="panel-title">Treatment Partner</h3>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <table id="laboratory_request" class="table table-hover">
+
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th><center>Treatment Partner Name</center></th>
+                                                                            <th><center>Designation</center></th>
+                                                                            <th><center>Action</center></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                        require 'config.php';
+                                                                        $query = $conn->query("SELECT * FROM `treatment_record` WHERE `patient_id` = '$_GET[id]' ORDER BY `treatment_id` DESC") or die(mysqli_error());
+                                                                        while($fetch = $query->fetch_array()){
+                                                                        ?>
+                                                                        <tr>
+                                                                            <td><center><?php echo $fetch['treatment_partner_name']?></center></td>
+                                                                            <td><center><?php echo $fetch['designation_treatment_partner']?></center></td>
+                                                                            <td><center>
+                                                                                <a href="#updatemember<?php echo $fetch['member_id'];?>" data-target="#updatemember<?php echo $fetch['member_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
+                                                                                </center></td>
+                                                                        </tr>
+                                                                        <?php
+                                                                        }
+                                                                        $conn->close();
+                                                                        ?>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -321,10 +358,10 @@ require ('config.php');
                                                     <div class="panel-body">                                    
                                                         <div class="contact-info">
                                                             <p><small style="font-size:12px;">Treatment Regimen Category</small><br/><?php echo $fetch4['treatment_regimen_category']?></p>
-                                                            <p><small style="font-size:12px;">Initial Weight</small><br/><?php echo $fetch4['weight']?> kgs.</p>
                                                             <p><small style="font-size:12px;">Treatment Partner Name</small><br/><?php echo $fetch4['treatment_partner_name']?></p>           
                                                             <p><small style="font-size:12px;">Designation of Treatment Partner</small><br/><?php echo $fetch4['designation_treatment_partner']?></p>
                                                             <p><small style="font-size:12px;">Date Treatment Started</small><br/><?php echo $fetch4['date_treatment_started']?></p>
+                                                            <p><small style="font-size:12px;">Date Treatment Ended</small><br/></p>
                                                         </div>
                                                     </div>                                
                                                 </div>

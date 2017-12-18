@@ -42,7 +42,7 @@ require ('../config.php');
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
-                                             <?php require 'require/select_year.php'?>
+                                             <?php require '../require/select_year.php'?>
                                             <div class="panel-body">
                                                 <div id="xpert" style="width: 100%; height: 350px"></div>
                                             </div>
