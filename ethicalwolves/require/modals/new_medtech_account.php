@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="defModalHead"><span class="fa fa-user-md"></span> Medical Technologist Personal and Account Information</h4>
+                <h4 class="modal-title" id="defModalHead"><span class="fa fa-user-plus"></span> Medical Technologist Personal and Account Information</h4>
             </div>
             <form role="form" id="jvalidate" class="form-horizontal" action="master_file_medtech.php" method="post">
                 <div class="modal-body">

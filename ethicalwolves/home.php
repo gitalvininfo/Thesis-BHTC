@@ -156,7 +156,7 @@ $f = $q->fetch_array();
                             <!-- START WIDGET REGISTRED -->
                             <div class="widget widget-info widget-item-icon" onclick="location.href='patient_treatment_table.php';"style="cursor:pointer;">
                                 <div class="widget-item-left">
-                                    <span class="fa fa-github-alt"></span>
+                                    <span class="fa fa-heartbeat"></span>
                                 </div>
                                 <div class="widget-data">
                                     <?php

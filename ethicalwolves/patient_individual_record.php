@@ -38,9 +38,19 @@ require ('config.php');
                     <div class="row">
                         <div class="col-md-12">
                             <form role="form" class="form-horizontal" method="post">
+                                <?php
+    require 'config.php';
+            $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+            $fetch = $query->fetch_array();
+            $id = $fetch['patient_id'];
+            $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+            $fetch2 = $query2->fetch_array();
+            $query3 = $conn->query("SELECT `status` FROM `treatment_record` WHERE `patient_id` = '$id'") or die(mysqli_error());
+            $fetch3 = $query3->fetch_array();
+                                ?>
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><strong> <span class="fa fa-file-text"></span> Patient Individual Record</strong></h3>
+                                        <h3 class="panel-title"><strong>Patient Individual Record - <?php echo $fetch3['status']?></strong></h3>
                                         <div class="btn-group pull-right">
                                             <div class="pull-left">
                                                 <a href="patient_record_report.php" class="btn btn-default btn-md"><span class="fa fa-mail-reply"></span> Back</a>
@@ -51,21 +61,14 @@ require ('config.php');
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="panel-body">
-                                                    <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-            $fetch = $query->fetch_array();
-            $id = $fetch['patient_id'];
-            $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
-            $fetch2 = $query2->fetch_array();
-                                                    ?>
+
                                                     <div class="row">
                                                         <div class="col-md-2">
                                                             <div class="panel panel-default">
                                                                 <div class="panel-body">                                    
                                                                     <div class="contact-info">
-                                                                        <img src="assets/images/users/no-image.jpg" style="height:130px;width:130px;"> &nbsp;
-                                                                        <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "-". "5867". "-" .$fetch['patient_id']?></strong></center></h6>    
+                                                                        <img src="assets/images/users/user7.jpg" style="height:130px;width:130px;"> &nbsp;
+                                                                        <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></strong></center></h6>    
                                                                     </div>
                                                                 </div>    
                                                             </div>
@@ -355,15 +358,15 @@ require ('config.php');
                                                                             require 'config.php';
                                                                             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
                                                                             $f = $q->fetch_array();
-                                                                            $q1 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q1` = 'Yes'") or die (mysqli_error());
+                                                                            $q1 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q1` = '/'") or die (mysqli_error());
                                                                             $f1 = $q1->fetch_array();
-                                                                            $q2 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q2` = 'Yes'") or die (mysqli_error());
+                                                                            $q2 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q2` = '/'") or die (mysqli_error());
                                                                             $f2 = $q2->fetch_array();
-                                                                            $q3 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q3` = 'Yes'") or die (mysqli_error());
+                                                                            $q3 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q3` = '/'") or die (mysqli_error());
                                                                             $f3 = $q3->fetch_array();
-                                                                            $q4 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q4` = 'Yes'") or die (mysqli_error());
+                                                                            $q4 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q4` = '/'") or die (mysqli_error());
                                                                             $f4 = $q4->fetch_array();
-                                                                            $q5 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q5` = 'Yes'") or die (mysqli_error());
+                                                                            $q5 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q5` = '/'") or die (mysqli_error());
                                                                             $f5 = $q5->fetch_array();
                                                                             ?>
                                                                             <tr>

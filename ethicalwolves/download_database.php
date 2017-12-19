@@ -53,18 +53,17 @@ require ('config.php');
                                             </thead>
                                             <tbody>
                                                 <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                $date = date("Y-m-d H:i:s");
-                $query = $conn->query("SELECT * FROM `backup` ORDER BY '$date' DESC") or die(mysqli_error());
-                while($fetch = $query->fetch_array()){
+                                                require 'config.php';
+                                                $query = $conn->query("SELECT * FROM `backup` ORDER BY `date` DESC") or die(mysqli_error());
+                                                while($fetch = $query->fetch_array()){
                                                 ?>                                      
                                                 <tr>
                                                     <td><center><?php echo $fetch['remarks']?></center></td>
                                                     <td><center><?php echo $fetch['date']?></center></td>
                                                 </tr>
                                                 <?php
-                }
-                $conn->close();
+                                                }
+                                                $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>                                    

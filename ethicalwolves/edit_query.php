@@ -35,6 +35,17 @@ if(ISSET($_POST['edit_member'])){
     echo "<script>document.location='master_file_patient.php'</script>";  
 }
 
+if(ISSET($_POST['edit_treatment_partner'])){
+    $treatment_id = $_POST['treatment_id'];
+    $treatment_partner_name= $_POST['treatment_partner_name'];    
+    $designation_treatment_partner = $_POST['designation_treatment_partner'];
+    require ('config.php');
+    $conn->query("UPDATE `treatment_record` SET `treatment_partner_name` = '$treatment_partner_name', `designation_treatment_partner` = '$designation_treatment_partner' WHERE `treatment_id` = '$treatment_id'") or die(mysqli_error());
+    $conn->close();
+    echo "<script type='text/javascript'>alert('Successfully updated treatment partner information!');</script>";
+    echo "<script>document.location='master_file_patient.php'</script>";  
+}
+
 if(ISSET($_POST['edit_tst'])){
     $tst_id = $_POST['tst_id'];
     $result= $_POST['result'];    

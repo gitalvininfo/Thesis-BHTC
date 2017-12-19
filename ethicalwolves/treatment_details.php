@@ -2,14 +2,12 @@
 require_once 'logincheck.php';
 require ('config.php');
 if(ISSET($_POST['add_treatment_details'])){
-    $treatment_regimen_category = $_POST['treatment_regimen_category'];
     $treatment_partner_name = $_POST['treatment_partner_name'];
     $designation_treatment_partner = $_POST['designation_treatment_partner'];
-    $date_treatment_started = $_POST['date_treatment_started'];
     $patient_id = $_GET['id'];
 
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `treatment_record` VALUES('', '$treatment_regimen_category', '$treatment_partner_name', '$designation_treatment_partner', '$date_treatment_started', 'Done', '$patient_id')") or die(mysqli_error());
+    $conn->query("INSERT INTO `treatment_record` VALUES('', '$treatment_partner_name', '$designation_treatment_partner', 'Currently in Treatment', 'Done', '$patient_id')") or die(mysqli_error());
 
     $conn->query("UPDATE `patient` SET `treatment_partner` = 'Done' WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
     $conn->close();
@@ -65,18 +63,6 @@ if(ISSET($_POST['add_treatment_details'])){
                                     </div>
                                     <div class="panel-body">
                                         <div class="form-group ">
-                                            <label class="col-md-3 col-xs-12 control-label">Treatment Category</label>
-                                            <div class="col-md-9 col-xs-12">
-                                                <select class="form-control select" data-live-search="true" id="formStatus"  name="treatment_regimen_category" required>
-                                                    <option value="">Treatment Regimen</option>
-                                                    <option value="Category I - 2HRZE/4HR">Category I - 2HRZE/4HR</option>
-                                                    <option value="Category Ia - 2HRZE/10HR">Category Ia - 2HRZE/10HR</option>
-                                                    <option value="Category II - 2HRZES/1HRZE/5HRE">Category II - 2HRZES/1HRZE/5HRE</option>
-                                                    <option value="Category IIa - 2HRZES/1HRZE/9HRE">Category IIa - 2HRZES/1HRZE/9HRE</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
                                             <label class="col-md-3 col-xs-12 control-label">Treatment Partner</label>
                                             <div class="col-md-9 col-xs-12">
                                                 <input data-toggle="tooltip" data-placement="bottom" title="Treatment Partner Name" type="text" class="form-control" name="treatment_partner_name" placeholder="Treatment Partner Name" required/>
@@ -94,13 +80,6 @@ if(ISSET($_POST['add_treatment_details'])){
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group ">
-                                            <label class="col-md-3 col-xs-12 control-label">Date Treatment Started</label>
-                                            <div class="col-md-9 col-xs-12">
-                                                <input data-toggle="tooltip" data-placement="bottom" title="Date Treatment Started" type="text" class="form-control datepicker" name="date_treatment_started" placeholder="Date Treatment Started"required/>
-                                            </div>
-                                        </div>
-
                                     </div>
                                     <div class="panel-footer">
                                         <button type="submit" name="add_treatment_details" class="btn btn-info pull-right"><span class="fa fa-check"></span>Submit</button>

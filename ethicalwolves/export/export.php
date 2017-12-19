@@ -1,7 +1,7 @@
 <?php
 $connection = mysqli_connect('localhost', 'root', '', 'thesis');
 date_default_timezone_set('Asia/Manila');
-$date = date("Y-m-d H:i:s");
+$date = date("F j, Y, g:i a");
 $tables = array();
 $result = mysqli_query($connection, "SHOW TABLES");
 while ($row = mysqli_fetch_row($result)){

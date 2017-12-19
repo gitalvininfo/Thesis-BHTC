@@ -43,11 +43,12 @@ if(ISSET($_POST['register_patient'])){
     $bcg_scar = $_POST['bcg_scar'];
     $history = $_POST['history'];
     $duration = $_POST['duration'];
+    $treatment_regimen_category = $_POST['treatment_regimen_category'];
     $patient_id = $_POST['patient_id'];
     $month = date("M", strtotime("+8 HOURS"));
     $year = date("Y", strtotime("+8 HOURS"));
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `registration` VALUES('', '$registration_date', 'Bacolod City Health TB DOTS Center', '$source_of_patient', '$registration_group', 'TB Disease', '$bacteriological_status', '$classification_of_tb', '$bcg_scar', '$history', '$duration', '$patient_id', '$month', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `registration` VALUES('', '$registration_date', 'Bacolod City Health TB DOTS Center', '$source_of_patient', '$registration_group', 'TB Disease', '$bacteriological_status', '$classification_of_tb', '$bcg_scar', '$history', '$duration', '$treatment_regimen_category', '$patient_id', '$month', '$year')") or die(mysqli_error());
     $conn->query("UPDATE `patient` SET `status` = 'Registered' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully registered!');</script>";
