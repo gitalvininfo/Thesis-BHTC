@@ -5,11 +5,10 @@ if(ISSET($_POST['add_treatment_details'])){
 
     $treatment_partner_name = $_POST['treatment_partner_name'];
     $designation_treatment_partner = $_POST['designation_treatment_partner'];
-    $date_treatment_started = $_POST['date_treatment_started'];
     $patient_id = $_GET['id'];
 
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `treatment_record_ipt` VALUES('', '$treatment_partner_name', '$designation_treatment_partner', '$date_treatment_started', 'Done', '$patient_id')") or die(mysqli_error());
+    $conn->query("INSERT INTO `treatment_record_ipt` VALUES('', '$treatment_partner_name', '$designation_treatment_partner', 'Currently in Treatment', 'Done', '$patient_id')") or die(mysqli_error());
 
     $conn->query("UPDATE `patient_ipt` SET `treatment_partner` = 'Done' WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
     $conn->close();
@@ -82,13 +81,6 @@ if(ISSET($_POST['add_treatment_details'])){
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group ">
-                                            <label class="col-md-3 col-xs-12 control-label">Date Treatment Started</label>
-                                            <div class="col-md-9 col-xs-12">
-                                                <input data-toggle="tooltip" data-placement="bottom" title="Date Treatment Started" type="text" class="form-control datepicker" name="date_treatment_started" placeholder="Date Treatment Started"required/>
-                                            </div>
-                                        </div>
-
                                     </div>
                                     <div class="panel-footer">
                                         <button type="submit" name="add_treatment_details" class="btn btn-info pull-right"><span class="fa fa-check"></span>Submit</button>

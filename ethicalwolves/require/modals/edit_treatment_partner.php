@@ -24,7 +24,13 @@ while($fetch = $query->fetch_array()){
                         <div class="form-group ">
                             <label class="col-md-4 col-xs-12 control-label">Designation</label>
                             <div class="col-md-8 col-xs-12">
-                                <input data-toggle="tooltip" data-placement="bottom" title="Designation of Treatment Partner" type="text" class="form-control" name="designation_treatment_partner" value="<?php echo $fetch['designation_treatment_partner']?>" required/>
+                                <select class="form-control select" id="formStatus"  name="designation_treatment_partner" required>
+                                    <option value="<?php echo $fetch['designation_treatment_partner']?>"><?php echo $fetch['designation_treatment_partner']?></option>
+                                    <option value="Barangay Health Worker">Barangay Health Worker</option>
+                                    <option value="Midwife">Midwife</option>
+                                    <option value="Nurse">Nurse</option>
+                                    <option value="Others">Others</option>
+                                </select>
                             </div>
                         </div>
                     </div>

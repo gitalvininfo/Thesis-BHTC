@@ -36,8 +36,8 @@ require ('config.php');
                                 <div class="panel-heading">
                                     <div class="btn-group pull-right">
                                         <div class="pull-right">
-                                            <a class="btn btn-warning mb-control" data-box="#message-box-success"><span class="fa fa-cloud-download"></span>Export Database</a>
-                                            <a class="btn btn-info mb-control" data-box="#message-box-info"><span class="fa fa-cloud-upload"></span>Import Database</a>
+                                            <a class="btn btn-info mb-control" data-box="#message-box-info"><span class="fa fa-cloud-download"></span>Export Database</a>
+                                            <a class="btn btn-warning mb-control" data-box="#message-box-warning"><span class="fa fa-cloud-upload"></span>Import Database</a>
                                         </div>
                                     </div>
                                     <h3 class="panel-title"><span class="fa fa-database"></span> History Log - Export and Import Database</h3>
@@ -53,17 +53,18 @@ require ('config.php');
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                require 'config.php';
-                                                $query = $conn->query("SELECT * FROM `backup` ORDER BY `date` DESC") or die(mysqli_error());
-                                                while($fetch = $query->fetch_array()){
+
+                require 'config.php';
+                $query = $conn->query("SELECT * FROM `backup` ORDER BY `backup_id` DESC") or die(mysqli_error());
+                while($fetch = $query->fetch_array()){
                                                 ?>                                      
                                                 <tr>
                                                     <td><center><?php echo $fetch['remarks']?></center></td>
                                                     <td><center><?php echo $fetch['date']?></center></td>
                                                 </tr>
                                                 <?php
-                                                }
-                                                $conn->close();
+                }
+                $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>                                    
@@ -75,7 +76,7 @@ require ('config.php');
                 </div>
             </div>            
         </div>
-        <div class="message-box message-box-warning animated fadeIn" data-sound="alert" id="message-box-success">
+        <div class="message-box message-box-info animated fadeIn" data-sound="alert" id="message-box-info">
             <div class="mb-container">
                 <div class="mb-middle">
                     <div class="mb-title"><span class="fa fa-cloud-download"></span> Export Database</div>
@@ -92,7 +93,7 @@ require ('config.php');
             </div>
         </div>
 
-        <div class="message-box message-box-info animated fadeIn" data-sound="alert" id="message-box-info">
+        <div class="message-box message-box-warning animated fadeIn" data-sound="alert" id="message-box-warning">
             <div class="mb-container">
                 <div class="mb-middle">
                     <div class="mb-title"><span class="fa fa-cloud-upload"></span> Import Database</div>

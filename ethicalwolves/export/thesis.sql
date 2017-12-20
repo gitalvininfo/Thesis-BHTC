@@ -3,10 +3,17 @@ DROP TABLE backup;
 CREATE TABLE `backup` (
   `backup_id` int(10) NOT NULL AUTO_INCREMENT,
   `remarks` char(40) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
 
+INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
+INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
+INSERT INTO backup VALUES("63","Successfully imported database","December 20, 2017, 7:57 pm"); 
+INSERT INTO backup VALUES("64","Successfully imported database","December 20, 2017, 8:04 pm"); 
+INSERT INTO backup VALUES("65","Successfully imported database","December 20, 2017, 8:13 pm"); 
+INSERT INTO backup VALUES("66","Successfully exported database","December 20, 2017, 8:14 pm"); 
+INSERT INTO backup VALUES("67","Successfully imported database","December 20, 2017, 9:12 pm"); 
 
 
 
@@ -24,7 +31,7 @@ CREATE TABLE `clinical_findings` (
   `q6` varchar(100) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`clinical_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 INSERT INTO clinical_findings VALUES("7","Saturday 25th of November 2017","45","/","/","/","/","0","Vomiting","2"); 
 INSERT INTO clinical_findings VALUES("8","Tuesday 5th of December 2017","78","/","/","/","/","/","Abdominal Pain","7"); 
@@ -38,6 +45,12 @@ INSERT INTO clinical_findings VALUES("17","December 11, 2017","67","/","/","/","
 INSERT INTO clinical_findings VALUES("18","December 11, 2017","78","0","0","/","/","/","Numbness","1"); 
 INSERT INTO clinical_findings VALUES("19","December 14, 2017","78","/","0","/","/","/","Vomiting","6"); 
 INSERT INTO clinical_findings VALUES("20","December 19, 2017","45","/","/","/","/","0","Numbness","21"); 
+INSERT INTO clinical_findings VALUES("21","December 20, 2017","50","0","0","0","0","0","Itchiness","2"); 
+INSERT INTO clinical_findings VALUES("22","December 20, 2017","53","0","0","0","0","0","Joint Paints","2"); 
+INSERT INTO clinical_findings VALUES("23","December 20, 2017","55","0","0","/","/","/","Joint Paints","6"); 
+INSERT INTO clinical_findings VALUES("24","December 20, 2017","56","0","0","0","0","0","Numbness","6"); 
+INSERT INTO clinical_findings VALUES("25","December 20, 2017","67","0","0","0","0","0","Hearing Disturbance","7"); 
+INSERT INTO clinical_findings VALUES("26","December 20, 2017","68","0","0","0","0","0","Vomiting","7"); 
 
 
 
@@ -432,7 +445,7 @@ CREATE TABLE `patient_ipt` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 INSERT INTO patient_ipt VALUES("5","Alvin Yanson","3","Male","qwe","433-2449 local 181","2017-11-25","Registered","Done","2017"); 
-INSERT INTO patient_ipt VALUES("6","Carl Betio","3","Male","Taculing, Bacolod City","433-2449 local 181","2017-01-02","Registered","Pending","2017"); 
+INSERT INTO patient_ipt VALUES("6","Carl Betio","3","Male","Taculing, Bacolod City","433-2449 local 181","2017-01-02","Registered","Done","2017"); 
 INSERT INTO patient_ipt VALUES("7","Franz Licanel","3","Male","unor bacolod","433-2449 local 181","2015-05-11","Registered","Done","2017"); 
 INSERT INTO patient_ipt VALUES("8","Juan Dela Cruz","3","Male","Blk. 11, Lot 5, Brgy. Estefania, Bacolod City","713-6113","2014-07-09","Registered","Done","2017"); 
 INSERT INTO patient_ipt VALUES("9","Miles Pallarco","3","Male","Bacolod City","433-2449","2013-09-17","Unregister","Pending","2017"); 
@@ -539,7 +552,7 @@ CREATE TABLE `treatment_record` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 INSERT INTO treatment_record VALUES("1","Dr. Haro","BHW","Currently in Treatment	","Done","44"); 
-INSERT INTO treatment_record VALUES("2","Dr. Reymund Sabay","BHW","Currently in Treatment	","Done","1"); 
+INSERT INTO treatment_record VALUES("2","Dr. Reymund Sabay","Barangay Health Worker","Currently in Treatment	","Done","1"); 
 INSERT INTO treatment_record VALUES("3","Dr. Haro","BHW","Currently in Treatment	","Done","2"); 
 INSERT INTO treatment_record VALUES("4","eqeq","eqeq","Currently in Treatment	","Done","6"); 
 INSERT INTO treatment_record VALUES("5","Dr. Haro","BHW","Currently in Treatment	","Done","7"); 
@@ -557,15 +570,16 @@ CREATE TABLE `treatment_record_ipt` (
   `treatment_id` int(10) NOT NULL AUTO_INCREMENT,
   `treatment_partner_name` varchar(30) NOT NULL,
   `designation_treatment_partner` varchar(30) NOT NULL,
-  `date_treatment_started` date NOT NULL,
+  `status` varchar(30) NOT NULL,
   `remarks` char(10) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`treatment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 INSERT INTO treatment_record_ipt VALUES("1","Dr. Haro","Midwife","2017-12-18","Done","5"); 
 INSERT INTO treatment_record_ipt VALUES("2","Dr. Sabay","Barangay Health Worker","2017-12-18","Done","7"); 
 INSERT INTO treatment_record_ipt VALUES("3","Leonel Entes","Barangay Health Worker","2017-12-19","Done","8"); 
+INSERT INTO treatment_record_ipt VALUES("4","Menard Gardose","Nurse","Currently in Treatment","Done","6"); 
 
 
 

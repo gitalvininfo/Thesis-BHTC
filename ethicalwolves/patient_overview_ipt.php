@@ -34,12 +34,7 @@ require ('config.php');
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="panel body">
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <?php
+                        <?php
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
             $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]' && `name` = '$_GET[name]'") or die(mysqli_error());
             $fetch = $query->fetch_array();
@@ -48,18 +43,26 @@ require ('config.php');
             $fetch2 = $query2->fetch_array();
             $query3 = $conn->query("SELECT * FROM `treatment_record_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
             $fetch3 = $query3->fetch_array();
-                                            ?>
+                        ?>
+                        <div class="col-md-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><?php echo $fetch3['status']?></h3>
+                                </div>
+                                <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
+                                    <div class="panel-body">
+                                        <div class="row">
+
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <div class="panel panel-default">
                                                         <div class="panel-body">                                    
                                                             <div class="contact-info">
-                                                                <img src="assets/images/users/no-image.jpg" style="height:130px;width:130px;"> &nbsp;
-                                                                <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "-". "080". "-" .$fetch2['ipt_no']?></strong></center></h6>    
+                                                                <img src="assets/images/users/user7.jpg" style="height:130px;width:130px;"> &nbsp;
+                                                                <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "080" .$fetch2['ipt_no']?></strong></center></h6>    
                                                             </div>
                                                         </div>    
                                                     </div>
-
                                                 </div>
                                                 <div class="col-md-5">      
                                                     <br>                                          
@@ -77,8 +80,8 @@ require ('config.php');
                                                     <hr style="margin:0px 0 5px 0;">
                                                 </div>
                                                 <div class="col-md-5">      
-                                                    <br>                                          
-                                                    <h6><strong>Date Evaluated: </strong><?php echo $fetch2['diagnosis']?></h6>
+                                                    <br>    <br>                                      
+                                                    <h6><strong>Date Evaluated: </strong><?php echo $fetch2['date_evaluated']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
                                                     <h6><strong>Diagnosis: </strong><?php echo $fetch2['diagnosis']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
