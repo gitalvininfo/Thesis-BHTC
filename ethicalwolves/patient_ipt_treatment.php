@@ -482,9 +482,7 @@ require ('config.php');
                         </div>
                     </div>
                 </div>
-                <!-- END PAGE CONTENT WRAPPER -->
             </div>
-            <!-- END PAGE CONTENT -->
         </div>
 
 

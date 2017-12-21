@@ -20,9 +20,9 @@ require ('config.php');
         $find = $query->fetch_array();
         ?>
         <div class="page-container">
-             <?php require 'require/sidebar.php'?>
+            <?php require 'require/sidebar.php'?>
             <div class="page-content">
-               <?php require 'require/header.php'?>
+                <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Reports</li>
@@ -33,12 +33,12 @@ require ('config.php');
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <?php $date = date("Y", strtotime("+ 8 HOURS"));?>
-                                <h3 class="panel-title"><span class="fa fa-bar-chart-o"></span> Examination Reports as of <?php echo $date?></h3>
+                                <h3 class="panel-title"><strong>Examination Reports as of <?php echo $date?></strong></h3>
                                 <div class="btn-group pull-right">
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_total_examinations.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-pie-chart"></span>
@@ -55,7 +55,7 @@ require ('config.php');
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_dssm.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-pie-chart"></span>
@@ -72,7 +72,7 @@ require ('config.php');
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_xpert.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-pie-chart"></span>
@@ -83,6 +83,23 @@ require ('config.php');
                                             </div>
                                             <div class="widget-title">Reports by</div>
                                             <div class="widget-subtitle">Xpert MTB/RIF</div>
+                                            <div class="widget-controls">
+                                                <a href="#" class="widget-control-right" data-toggle="tooltip" data-placement="top" title="View Detailed Reports"><span class="fa fa-info"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_dst.php';" style="cursor:pointer;">
+                                        <div class="widget-item-left">
+                                            <span class="fa fa-bar-chart"></span>
+                                        </div>
+                                        <div class="widget-data">
+                                            <div class="widget-int num-count">
+                                                BHTC
+                                            </div>
+                                            <div class="widget-title">Reports by</div>
+                                            <div class="widget-subtitle">Drug Susceptible Test</div>
                                             <div class="widget-controls">
                                                 <a href="#" class="widget-control-right" data-toggle="tooltip" data-placement="top" title="View Detailed Reports"><span class="fa fa-info"></span></a>
                                             </div>

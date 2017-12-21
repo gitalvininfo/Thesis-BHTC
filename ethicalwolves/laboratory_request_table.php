@@ -20,7 +20,7 @@ require ('config.php');
         ?>
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
-               <div class="page-content">
+            <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
@@ -49,12 +49,12 @@ require ('config.php');
                                         </thead>
                                         <tbody>
                                             <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                   $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                   while($fetch = $query->fetch_array()){
-                                       $id = $fetch['patient_id'];
-                                       $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` where `patient_id` = '$id' && `status` = 'Pending'") or die(mysqli_error());
-                                       $f = $q->fetch_array();
+            require 'config.php';
+            $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                $id = $fetch['patient_id'];
+                $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` where `patient_id` = '$id' && `status` = 'Pending'") or die(mysqli_error());
+                $f = $q->fetch_array();
                                             ?>
                                             <tr>
                                                 <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
@@ -70,8 +70,8 @@ require ('config.php');
                                                 </td>
                                             </tr>
                                             <?php
-                                   }
-                                   $conn->close();
+            }
+            $conn->close();
                                             ?>
                                         </tbody>
                                     </table>

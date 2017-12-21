@@ -76,20 +76,36 @@ while($fetch = $query->fetch_array()){
                                     </div>
                                 </div>
                                 <h5 class="push-up-20"> 6. Side Effects</h5>
-                                <div class="form-group ">
-                                    <div class="col-md-6 col-xs-6">
-                                        <select multiple class="form-control select" id="formStatus" name="q6" required>
-                                            <option value="">Choose Side Effects</option>
-                                            <option value="Itchiness">Itchiness</option>
-                                            <option value="Skin Rashes">Skin Rashes</option>
-                                            <option value="Vomiting">Vomiting</option>
-                                            <option value="Abdominal Pain">Abdominal Pain</option>
-                                            <option value="Joint Paints">Joint Pains</option>
-                                            <option value="Numbness">Numbness</option>
-                                            <option value="Yellowing of Sclerae and skin">Yellowing of Sclerae and skin</option>
-                                            <option value="Visual Disturbance">Visual Disturbance</option>
-                                            <option value="Hearing Disturbance">Hearing Disturbance</option>
-                                        </select>
+                                <div class="form-group">
+                                    <div class="col-md-4">                                    
+                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="Itchiness"/> Itchiness</label>
+                                    </div>
+                                    <div class="col-md-4">                                    
+                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="Skin Rashes"/> Skin Rashes</label>
+                                    </div>
+                                    <div class="col-md-4">                                    
+                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="Vomiting"/> Vomiting</label>
+                                    </div>
+                                    <div class="col-md-4">                                    
+                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="Abnormal Pain"/> Abnormal Pain</label>
+                                    </div>
+                                    <div class="col-md-4">                                    
+                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="Joint Paints"/> Joint Paints</label>
+                                    </div>
+                                    <div class="col-md-4">                                    
+                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="Numbness"/> Numbness</label>
+                                    </div>
+                                    <div class="col-md-4">                                    
+                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="Yellowing of Sclerae and skin"/> Yellowing of Sclerae and skin</label>
+                                    </div>
+                                    <div class="col-md-4">                                    
+                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="Visual Disturbance"/> Visual Disturbance</label>
+                                    </div>
+                                    <div class="col-md-4">                                    
+                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="Hearing Disturbance"/> Hearing Disturbance</label>
+                                    </div>
+                                    <div class="col-md-12">                                    
+                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="None"/> None</label>
                                     </div>
                                 </div>
                             </div>

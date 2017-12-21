@@ -40,7 +40,7 @@ require ('config.php');
                                 </div>  
                             </div>
                             <div class="panel-body">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_total_examinations.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-pie-chart"></span>
@@ -57,7 +57,7 @@ require ('config.php');
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_dssm.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-pie-chart"></span>
@@ -74,7 +74,7 @@ require ('config.php');
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_xpert.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-pie-chart"></span>
@@ -85,6 +85,23 @@ require ('config.php');
                                             </div>
                                             <div class="widget-title">Reports by</div>
                                             <div class="widget-subtitle">Xpert MTB/RIF</div>
+                                            <div class="widget-controls">
+                                                <a href="#" class="widget-control-right" data-toggle="tooltip" data-placement="top" title="View Detailed Reports"><span class="fa fa-info"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_dst.php';" style="cursor:pointer;">
+                                        <div class="widget-item-left">
+                                            <span class="fa fa-bar-chart"></span>
+                                        </div>
+                                        <div class="widget-data">
+                                            <div class="widget-int num-count">
+                                                BHTC
+                                            </div>
+                                            <div class="widget-title">Reports by</div>
+                                            <div class="widget-subtitle">Drug Susceptible Test</div>
                                             <div class="widget-controls">
                                                 <a href="#" class="widget-control-right" data-toggle="tooltip" data-placement="top" title="View Detailed Reports"><span class="fa fa-info"></span></a>
                                             </div>

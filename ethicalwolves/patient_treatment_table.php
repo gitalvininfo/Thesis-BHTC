@@ -63,7 +63,7 @@ require ('config.php');
                 $id = $fetch['patient_id'];
                 $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
                 $fetch2 = $query2->fetch_array();
-                if($fetch['treatment_partner'] == 'Done'){
+                if($fetch['treatment_partner'] == 'Done' || $fetch){
                     echo 
                         "<tr>
                                                             <td><center><strong>".$fetch2['year']."080".$fetch2['tb_case_no']." </strong></center></td>

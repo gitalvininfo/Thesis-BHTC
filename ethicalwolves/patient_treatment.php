@@ -28,41 +28,40 @@ require ('config.php');
             <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="#">Transaction</a></li>
-                    <li><a href="patient_treatment_table.php">Patient Individual Treatment</a></li>
-                    <li class="active">Treatment</li>
-                </ul>
-                <!-- END BREADCRUMB -->
-                <!-- PAGE CONTENT WRAPPER -->
-                <div class="page-content-wrap">
-
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <!-- START CONTEXTUAL CLASSES TABLE SAMPLE -->
-                            <div class="panel panel-default tabs">
-                                <?php
+                    <?php
     $year = date('Y');
             if(isset($_GET['year']))
             {
                 $year=$_GET['year'];
             }
-            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+            require 'config.php';
             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
             $f = $q->fetch_array();
             $query2 = $conn->query("SELECT * FROM `treatment_record` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
             $fetch = $query2->fetch_array();
             $q1 = $conn->query("SELECT `tb_case_no` FROM `registration` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
             $f1 = $q1->fetch_array();
-                                ?>
+                    ?>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="#">Transaction</a></li>
+                    <li><a href="patient_treatment_table.php">Patient Individual Treatment</a></li>
+                    <li class="active"><?php echo $f['patient_name']?></li>
+                </ul>
+                <div class="page-content-wrap">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default tabs">
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Intensive Phase</a></li>
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">Continuation Phase</a></li>
                                     <li><a href="#tab-third" role="tab" data-toggle="tab">Clinical Findings</a></li>
                                     <li><a href="#tab-fourth" role="tab" data-toggle="tab">Drug Preparations</a></li>
                                     <li><a href="#tab-fifth" role="tab" data-toggle="tab">Overview</a></li>
-                                    <h3 class="panel-title pull-right"> <strong><?php echo $year."080". $f1['tb_case_no']. " - " .$f['patient_name']?></strong></h3>
+                                    <div class="btn-group pull-right">
+                                        <div class="pull-left">
+                                            <a href="#end_treatment<?php echo $f['patient_id'];?>" data-target="#end_treatment<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-arrow-right"></span>End Treatment</a>
+                                        </div>
+                                    </div>
                                 </ul>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
                                     <div class="panel-body tab-content">
@@ -81,13 +80,13 @@ require ('config.php');
                                                             </div>
                                                             <div class="panel-body" id="accOneColOne">
                                                                 <?php
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                        $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                                        $f = $q->fetch_array();
-                                        $q2 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Present'") or die(mysqli_error());
-                                        $f2 = $q2->fetch_array();
-                                        $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
-                                        $f3 = $q3->fetch_array();
+                                                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                                                $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                                                                $f = $q->fetch_array();
+                                                                $q2 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Present'") or die(mysqli_error());
+                                                                $f2 = $q2->fetch_array();
+                                                                $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
+                                                                $f3 = $q3->fetch_array();
                                                                 ?>
                                                                 <form role="form" class="form-horizontal" method="post">
                                                                     <div class="form-group ">
@@ -563,20 +562,10 @@ require ('config.php');
                                         <div class="tab-pane" id="tab-fifth">
                                             <div class="row">
                                                 <div class="panel-body">
-
-                                                    <div class="panel-heading">
-                                                        <div class="btn-group pull-right">
-                                                            <div class="pull-right">
-                                                                <a href="#new_member<?php echo $f['patient_id'];?>" data-target="#new_member<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-arrow-right"></span> End Treatment</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
                                                     <?php
-                                                    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                                    require 'config.php';
                                                     $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());                                                        
                                                     ?>
-
                                                     <div class="col-md-3">
                                                         <!-- CONTACT ITEM -->
                                                         <div class="panel panel-default">
@@ -731,7 +720,7 @@ require ('config.php');
                 </div>
             </div>
         </div>
-
+        <?php require 'require/modals/end_treatment.php'?>
         <?php require 'require/modals/add_clinical_findings.php'?>
         <?php require 'require/modals/add_drug_preparations.php'?>
         <?php require 'require/logout.php'?>

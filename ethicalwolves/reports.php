@@ -34,7 +34,7 @@ require ('config.php');
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <?php $date = date("Y", strtotime("+ 8 HOURS"));?>
-                                <h3 class="panel-title"><span class="fa fa-bar-chart-o"></span> <strong>Reports as of Year <?php echo $date?></strong></h3>
+                                <h3 class="panel-title"> <strong>TB Cases Reports as of Year <?php echo $date?></strong></h3>
                                 <div class="btn-group pull-right">
                                     <div class="pull-left">
                                         <a href="reports/case_finding.php" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="left" title="Case Finding of Drug-Susceptible TB Cases and IPT"><span class="fa fa-file-text"></span> Case Finding</a>

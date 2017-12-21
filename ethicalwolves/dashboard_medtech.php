@@ -210,8 +210,7 @@ $f = $q->fetch_array();
                                 <div class="panel panel-info">
 
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><strong> <span class="fa fa-bar-chart-o"></span> Examination Overview Per Category</strong></h3>
-                                         <?php require 'require/select_year.php'?>
+                                        <?php require 'require/select_year.php'?>
                                     </div>
                                     <div class="panel-body">
                                         <div id="examination" style="width: 100%; height: 400px"></div>

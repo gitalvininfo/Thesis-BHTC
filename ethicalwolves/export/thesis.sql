@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -18,6 +18,7 @@ INSERT INTO backup VALUES("68","Successfully imported database","December 21, 20
 INSERT INTO backup VALUES("69","Successfully imported database","December 21, 2017, 2:55 pm"); 
 INSERT INTO backup VALUES("70","Successfully imported database","December 21, 2017, 3:38 pm"); 
 INSERT INTO backup VALUES("71","Successfully exported database","December 21, 2017, 3:38 pm"); 
+INSERT INTO backup VALUES("72","Successfully imported database","December 21, 2017, 10:30 pm"); 
 
 
 
@@ -189,7 +190,7 @@ CREATE TABLE `dst_examination` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 INSERT INTO dst_examination VALUES("1","12","12","2017-12-03","2017-12-03","Method 1","Resistant","Resistant","Resistant","Resistant","Resistant","Susceptible","Resistant","Susceptible","Susceptible","Dr. Adricula","Good","Dr. Haro","2017-12-05","6","Dec","2017"); 
-INSERT INTO dst_examination VALUES("2","12","12","2017-12-12","2017-12-12","Method 1","Resistant","Resistant","Resistant","Resistant","Resistant","Susceptible","Susceptible","Susceptible","Susceptible","Dr. Adricula","Good","Dr. Adricula","2017-12-20","1","Dec","2017"); 
+INSERT INTO dst_examination VALUES("2","12","12","2017-12-12","2017-12-12","Method 1","Susceptible","Resistant","Resistant","Resistant","Resistant","Susceptible","Susceptible","Susceptible","Susceptible","Dr. Adricula","Good","Dr. Adricula","2017-12-20","1","Dec","2017"); 
 
 
 
@@ -557,8 +558,8 @@ CREATE TABLE `treatment_record` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 INSERT INTO treatment_record VALUES("1","Dr. Haro","BHW","Currently in Treatment	","Done","44"); 
-INSERT INTO treatment_record VALUES("2","Dr. Reymund Sabay","Barangay Health Worker","Currently in Treatment	","Done","1"); 
-INSERT INTO treatment_record VALUES("3","Dr. Haro","BHW","Currently in Treatment	","Done","2"); 
+INSERT INTO treatment_record VALUES("2","Dr. Reymund Sabay","Barangay Health Worker","Cured","Done","1"); 
+INSERT INTO treatment_record VALUES("3","Dr. Haro","BHW","Lost to Follow-up","Done","2"); 
 INSERT INTO treatment_record VALUES("4","eqeq","eqeq","Currently in Treatment	","Done","6"); 
 INSERT INTO treatment_record VALUES("5","Dr. Haro","BHW","Currently in Treatment	","Done","7"); 
 INSERT INTO treatment_record VALUES("6","Carl Betio","Barangay Health Worker","Currently in Treatment	","Done","5"); 
