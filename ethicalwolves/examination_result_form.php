@@ -65,7 +65,7 @@ require ('config.php');
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-md-2 control-label">Specimen 1</label>
+                                                            <label class="col-md-2 control-label">Specimen 1 Visual Appearance</label>
                                                             <div class="col-md-9">
                                                                 <select class="form-control select" name="visual_appearance" required >
                                                                     <option value = "">Select...</option>
@@ -76,7 +76,7 @@ require ('config.php');
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-md-2 control-label">Specimen 2</label>
+                                                            <label class="col-md-2 control-label">Specimen 2 Visual Appearance</label>
                                                             <div class="col-md-9">
                                                                 <select class="form-control select" name="visual_appearance2" required >
                                                                     <option value = "">Select...</option>
@@ -103,8 +103,8 @@ require ('config.php');
                                                             <div class="col-md-9">
                                                                 <select class="form-control select" name="laboratory_diagnosis" required >
                                                                     <option value = "">Select...</option>
-                                                                    <option value = "Positive">Positive</option>
-                                                                    <option value = "Negative">Negative</option>
+                                                                    <option value = "Positive (+)">Positive</option>
+                                                                    <option value = "Negative (0)">Negative</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -148,11 +148,15 @@ require ('config.php');
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Visual Appearance</label>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <input type="text" class="form-control" name="visual_appearance" placeholder="Visual Appearance" data-toggle="tooltip" data-placement="top" title="Visual Appearance" required/>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control select" name="visual_appearance" required >
+                                                                    <option value = "">Select...</option>
+                                                                    <option value = "Salivary">Salivary</option>
+                                                                    <option value = "Muco-Purulent">Muco-Purulent</option>
+                                                                    <option value = "Blood-Stained">Blood-Stained</option>
+                                                                </select>
                                                             </div>
                                                         </div>
-
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Reading</label>
                                                             <div class="col-md-9 col-xs-12">

@@ -57,7 +57,6 @@ require ('config.php');
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-    $year = date('Y');
             require 'config.php';
             $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){

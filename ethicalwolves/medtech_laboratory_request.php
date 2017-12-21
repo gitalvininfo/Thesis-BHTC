@@ -36,7 +36,7 @@ require ('config.php');
                             <div class="panel panel-info">
 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-flask"></span> Laboratory Requests</h3>
+                                    <h3 class="panel-title"> Laboratory Requests</h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
                                         </div>

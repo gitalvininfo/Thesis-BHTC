@@ -34,37 +34,37 @@ require ('config.php');
                             <!-- START DATATABLE EXPORT -->
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-file-text"></span> Laboratory Results</h3>
+                                    <h3 class="panel-title"> Laboratory Results</h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 410px;">
                                     <div class="panel-body">
                                         <table class="table datatable">
                                             <thead> 
                                                 <tr class="info">
+                                                    <th><center>TB Case No</center></th>
                                                     <th><center>Patient Name</center></th>
-                                                    <th><center>TB Case Number</center></th>
                                                     <th><center>Registration Date</center></th>
+                                                    <th><center>Source of Patient</center></th>
                                                     <th><center>Registration Group</center></th>
-                                                    <th><center>Diagnosis</center></th>
                                                     <th><center>Action</center></th>
-                                                </tr>
 
+                                                </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_name`") or die(mysqli_error());
+     require 'config.php';
+            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $id = $fetch['patient_id'];
-                $q = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                $f = $q->fetch_array();
+                $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                $fetch2 = $query2->fetch_array();
                                                 ?>                                     
                                                 <tr>
+                                                    <td><center><strong><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></strong></center></td>
                                                     <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
-                                                    <td><center><?php echo $f['tb_case_no']?></center></td>
-                                                    <td><center><?php echo $f['registration_date']?></center></td>				
-                                                    <td><center><?php echo $f['registration_group']?></center></td>
-                                                    <td><center><?php echo $f['diagnosis']?></center></td>
+                                                    <td><center><?php echo $fetch2['registration_date']?></center></td>
+                                                    <td><center><?php echo $fetch2['source_of_patient']?></center></td>
+                                                    <td><center><?php echo $fetch2['registration_group']?></center></td>
                                                     <td><center>
                                                         <a href="medtech_patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View</a></center></td>	
                                                 </tr>
