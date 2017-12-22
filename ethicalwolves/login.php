@@ -252,7 +252,7 @@ if(ISSET($_POST['login'])){
     $pass = $salt.$pass;
 
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-    $query = $conn->query("SELECT * FROM `user` WHERE BINARY `username` = '$user' && BINARY `password` = '$pass'") or die(mysqli_error());
+    $query = $conn->query("SELECT * FROM `user` WHERE BINARY `username` = '$user' && BINARY `password` = '$pass' && `status` = 'Active'") or die(mysqli_error());
     $fetch = $query->fetch_array();
     $valid = $query->num_rows;
     $position = $fetch['position'];

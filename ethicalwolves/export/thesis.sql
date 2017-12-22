@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -19,6 +19,8 @@ INSERT INTO backup VALUES("69","Successfully imported database","December 21, 20
 INSERT INTO backup VALUES("70","Successfully imported database","December 21, 2017, 3:38 pm"); 
 INSERT INTO backup VALUES("71","Successfully exported database","December 21, 2017, 3:38 pm"); 
 INSERT INTO backup VALUES("72","Successfully imported database","December 21, 2017, 10:30 pm"); 
+INSERT INTO backup VALUES("73","Successfully imported database","December 22, 2017, 10:54 am"); 
+INSERT INTO backup VALUES("74","Successfully exported database","December 22, 2017, 10:55 am"); 
 
 
 
@@ -153,11 +155,12 @@ CREATE TABLE `dssm_examination` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`dssm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
-INSERT INTO dssm_examination VALUES("19","2017-11-25","1001","Salivary","","Good","","Positive","Dr. Haro","2017-11-22","2","Nov","2017"); 
-INSERT INTO dssm_examination VALUES("20","2017-12-13","1064","Salivary","Salivary","Good","","Negative","Dr. Haro","2017-12-13","7","Dec","2017"); 
-INSERT INTO dssm_examination VALUES("21","2017-12-19","12","Muco-Purulent","Muco-Purulent","Good","","Positive","Dr. Haro","2017-12-19","21","Dec","2017"); 
+INSERT INTO dssm_examination VALUES("19","2017-11-25","1001","Salivary","","Good","Good","Positive (+)","Dr. Haro","2017-11-22","2","Nov","2017"); 
+INSERT INTO dssm_examination VALUES("20","2017-12-13","1064","Salivary","Salivary","Good","Good","Negative (0)","Dr. Haro","2017-12-13","7","Dec","2017"); 
+INSERT INTO dssm_examination VALUES("21","2017-12-19","12","Muco-Purulent","Muco-Purulent","Good","Good","Positive (+)","Dr. Haro","2017-12-19","21","Dec","2017"); 
+INSERT INTO dssm_examination VALUES("22","2017-12-13","1089","Salivary","Muco-Purulent","Good","Good","Positive (+)","Dr. Haro","2017-12-13","2","Dec","2017"); 
 
 
 
@@ -249,8 +252,8 @@ CREATE TABLE `gene_expert_examination` (
   PRIMARY KEY (`xpert_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
-INSERT INTO gene_expert_examination VALUES("1","2017-11-26","12","Good","Good","Dr. Haro","2017-11-26","TI","1","Nov","2017"); 
-INSERT INTO gene_expert_examination VALUES("2","2017-12-06","1256","Salivary","wwwere","Dr","2017-12-06","T","19","Dec","2017"); 
+INSERT INTO gene_expert_examination VALUES("1","2017-11-26","12","Good","Good","Dr. Haro","2017-11-26","T","1","Nov","2017"); 
+INSERT INTO gene_expert_examination VALUES("2","2017-12-06","1256","Salivary","wwwere","Dr","2017-12-06","TI","19","Dec","2017"); 
 INSERT INTO gene_expert_examination VALUES("3","2017-12-13","1065","Salivary","Good","Dr. Haro","2017-12-13","RR","11","Dec","2017"); 
 
 
@@ -318,7 +321,7 @@ CREATE TABLE `laboratory_request` (
 
 INSERT INTO laboratory_request VALUES("68","Mandalagan Health Center","2017-11-26","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-27","2017-11-28","Dr. Haro","433-2449","DSSM","2","Done","2017"); 
 INSERT INTO laboratory_request VALUES("69","Banago Health Center","2017-11-25","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-25","2017-11-25","Dr. Haro","433-2449","Xpert MTB/RIF","1","Done","2017"); 
-INSERT INTO laboratory_request VALUES("70","Mandalagan Health Center","2017-11-26","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-26","2017-11-27","Dr. Haro","433-2449","DSSM","2","Pending","2017"); 
+INSERT INTO laboratory_request VALUES("70","Mandalagan Health Center","2017-11-26","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-26","2017-11-27","Dr. Haro","433-2449","DSSM","2","Done","2017"); 
 INSERT INTO laboratory_request VALUES("71","Sum-ag Health Center","2017-11-27","Dr. Sabay","Diagnostic","Sputum","No","2017-11-26","2017-11-26","Dr. Sabay","433-2449","DSSM","3","Pending","2017"); 
 INSERT INTO laboratory_request VALUES("72","Bata Health Center","2017-11-28","Dr. Sabay","Diagnostic","Sputum","Yes","2017-11-21","2017-11-21","Dr. Haro","433-2449","DSSM","7","Done","2017"); 
 INSERT INTO laboratory_request VALUES("73","Sum-ag Health Center","2017-11-21","Wqeq","Diagnostic","Sputum","Yes","2017-11-28","2017-11-28","qweq","1231","DSSM","0","Pending","2017"); 
@@ -621,12 +624,14 @@ CREATE TABLE `user` (
   `position` char(30) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(100) NOT NULL,
+  `status` char(8) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
-INSERT INTO user VALUES("40","Alson John","Bayon-on","132-131","Medical Technologist","alsonz","aTya03gHJdTyqLkWQfg15yUb31e3e4d864da1c761e4c8115745f801"); 
-INSERT INTO user VALUES("41","Admin","Alvin","","NTP Nurse Coordinator","admin1","aTya03gHJdTyqLkWQfg15yUe00cf25ad42683b3df678c61f42c6bda"); 
-INSERT INTO user VALUES("42","Gabriel","Banua","1231-1231","Medical Technologist","gabriel","aTya03gHJdTyqLkWQfg15yU647431b5ca55b04fdf3c2fce31ef1915"); 
+INSERT INTO user VALUES("40","Alson John","Bayon-on","132-131","Medical Technologist","alsonz","aTya03gHJdTyqLkWQfg15yUb31e3e4d864da1c761e4c8115745f801","Active"); 
+INSERT INTO user VALUES("41","Admin","Alvin","","NTP Nurse Coordinator","admin1","aTya03gHJdTyqLkWQfg15yUe00cf25ad42683b3df678c61f42c6bda","Active"); 
+INSERT INTO user VALUES("42","Gabriel","Banua","1231-1231","Medical Technologist","gabriel","aTya03gHJdTyqLkWQfg15yU647431b5ca55b04fdf3c2fce31ef1915","Active"); 
+INSERT INTO user VALUES("43","Alec","Rubiato","2312-33131","Medical Technologist","alecboy","aTya03gHJdTyqLkWQfg15yU11d3d1f161d2ccd088838fee97263477","Active"); 
 
 
 

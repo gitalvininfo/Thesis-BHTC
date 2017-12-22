@@ -57,13 +57,13 @@ require ('config.php');
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            require 'config.php';
             $query = $conn->query("SELECT * FROM `patient` where `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $id = $fetch['patient_id'];
                 $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
                 $fetch2 = $query2->fetch_array();
-                if($fetch['treatment_partner'] == 'Done' || $fetch){
+                if($fetch['treatment_partner'] == 'Done'){
                     echo 
                         "<tr>
                                                             <td><center><strong>".$fetch2['year']."080".$fetch2['tb_case_no']." </strong></center></td>

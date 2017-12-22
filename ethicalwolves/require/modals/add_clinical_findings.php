@@ -10,7 +10,7 @@ while($fetch = $query->fetch_array()){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="defModalHead"><span class="fa fa-stethoscope"></span> New Clinical Findings</h4>
+                <h4 class="modal-title" id="defModalHead"><span class="fa fa-stethoscope"></span> New Clinical Findings - <?php echo $date?></h4>
             </div>
             <form role="form" class="form-horizontal" action="actions/clinical_findings.php" method="post">
                 <div class="modal-body">
@@ -18,14 +18,10 @@ while($fetch = $query->fetch_array()){
                         <div class="panel-body">
                             <div class="block">
                                 <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                            <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                            <input data-toggle="tooltip" data-placement="right" title="Date Visited" type="text" class="form-control" name="date_visited" style="color:#000;" value="<?php echo $date ?>" readonly/> 
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="right" title="Weight in kg." type="number" class="form-control" name="weight" placeholder="Weight in kg." required/> 
-                                        </div>
+                                    <label class="col-md-1 col-xs-12 control-label">Weight</label>
+                                    <div class="col-md-8 col-xs-12">
+                                        <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Weight in kg." type="number" class="form-control" name="weight" placeholder="Weight in kg." required/>
                                     </div>
                                 </div>
                                 <hr>
@@ -103,9 +99,6 @@ while($fetch = $query->fetch_array()){
                                     </div>
                                     <div class="col-md-4">                                    
                                         <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="Hearing Disturbance"/> Hearing Disturbance</label>
-                                    </div>
-                                    <div class="col-md-12">                                    
-                                        <label class="check"><input type="checkbox" class="icheckbox" name="q6" value="None"/> None</label>
                                     </div>
                                 </div>
                             </div>

@@ -185,7 +185,7 @@ require ('config.php');
                                                                     <option value = "RR">[RR] - MTB detected, Rifampicin resistance detected</option>
                                                                     <option value = "TI">[TI] - MTB detected, Rifampicin resistance indeterminate</option>
                                                                     <option value = "N">[N] - MTB not detected</option>
-                                                                    <option value = "I">Invalid / No Result</option>
+                                                                    <option value = "I">[I] - Invalid / No Result</option>
                                                                 </select>
                                                             </div>
                                                         </div> <hr>

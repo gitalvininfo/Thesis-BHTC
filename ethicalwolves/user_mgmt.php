@@ -14,7 +14,7 @@ if(ISSET($_POST['save_user'])){
     $salt = "HAHAHAHAHA";
     $pass1 = $salt.$pass1;
 
-    $conn = new mysqli("localhost", 'root', '', 'thesis') or die(mysqli_error());
+    require 'config.php';
     $q1 = $conn->query ("SELECT * FROM `user` WHERE BINARY `username` = '$username'") or die(mysqli_error());
     $f1 = $q1->fetch_array();
     $check = $q1->num_rows;
@@ -70,14 +70,15 @@ if(ISSET($_POST['save_user'])){
                                                     <th><center>License Number</center></th>
                                                     <th><center>Username</center></th>
                                                     <th><center>Password</center></th>
+                                                    <th><center>Status</center></th>
                                                     <th><center>Action</center></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                            require 'config.php';
-                                            $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
-                                            while($fetch = $query->fetch_array()){
+    require 'config.php';
+            $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
                                                 ?>                                      
                                                 <tr>
                                                     <td><center><?php echo $fetch['firstname']?></center></td>
@@ -85,13 +86,14 @@ if(ISSET($_POST['save_user'])){
                                                     <td><center><?php echo $fetch['license']?></center></td>
                                                     <td><center><?php echo $fetch['username']?></center></td>
                                                     <td><center>*******</center></td>
+                                                    <td><center><strong><?php echo $fetch['status']?></strong></center></td>
                                                     <td><center>
                                                         <a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
                                                         </center></td>
                                                 </tr>
                                                 <?php
-                                                }
-                                                $conn->close();
+            }
+            $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>                                    
@@ -117,7 +119,8 @@ if(ISSET($_POST['save_user'])){
         <script type="text/javascript" src="js/actions.js"></script>    
         <script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
         <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>        
-        <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>           
+        <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>    
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>       
         <script type="text/javascript">
             var jvalidate = $("#jvalidate").validate({
                 ignore: [],
@@ -140,6 +143,25 @@ if(ISSET($_POST['save_user'])){
 
 
 
-
+  <?php
+    require 'config.php';
+            $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                                                ?>                                      
+                                                <tr>
+                                                    <td><center><?php echo $fetch['firstname']?></center></td>
+                                                    <td><center><?php echo $fetch['lastname']?></center></td>
+                                                    <td><center><?php echo $fetch['license']?></center></td>
+                                                    <td><center><?php echo $fetch['username']?></center></td>
+                                                    <td><center>*******</center></td>
+                                                    <td><center><?php echo $fetch['status']?></center></td>
+                                                    <td><center>
+                                                        <a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
+                                                        </center></td>
+                                                </tr>
+                                                <?php
+            }
+            $conn->close();
+                                                ?>
 
 

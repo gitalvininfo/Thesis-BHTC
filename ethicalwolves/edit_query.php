@@ -117,5 +117,19 @@ if(ISSET($_POST['edit_dispensed'])){
     echo "<script>document.location='medication_dispensation.php'</script>";  
 }
 
+if(ISSET($_POST['edit_user'])){
+    $user_id = $_POST['user_id'];
+    $firstname = $_POST['firstname'];    
+    $lastname = $_POST['lastname'];
+    $license = $_POST['license'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $status = $_POST['status'];
 
+    require ('config.php');
+    $conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `license` = '$license', `username` = '$username', `password` = '$password', `status` = '$status' WHERE `user_id` = '$user_id'") or die(mysqli_error());
+    $conn->close();
+    echo "<script type='text/javascript'>alert('Successfully updated user account!');</script>";
+    echo "<script>document.location='user_mgmt.php'</script>";  
+}
 ?>

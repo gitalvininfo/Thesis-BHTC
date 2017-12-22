@@ -18,6 +18,7 @@ while($fetch = $query->fetch_array()){
                                 <div class="form-group ">
                                     <label class="col-md-3 col-xs-12 control-label">First Name</label>
                                     <div class="col-md-8 col-xs-12">
+                                        <input type="hidden" class="form-control" name="user_id" value="<?php echo $fetch['user_id'];?>" required>
                                         <input data-toggle="tooltip" data-placement="bottom" title="First Name" type="text" class="form-control" name="firstname" value="<?php echo $fetch['firstname']?>" required/>
                                     </div>
                                 </div>
@@ -43,6 +44,16 @@ while($fetch = $query->fetch_array()){
                                     <label class="col-md-3 col-xs-12 control-label">Password</label>
                                     <div class="col-md-8 col-xs-12">
                                         <input data-toggle="tooltip" data-placement="bottom" title="Password" type="password" class="form-control" name="password" value="<?php echo $fetch['password']?>" required/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 col-xs-12 control-label">Status</label>
+                                    <div class="col-md-8">                                        
+                                        <select class="form-control select" name="status">
+                                            <option value="<?php echo $fetch['status']?>"><?php echo $fetch['status']?></option>
+                                            <option value="Active">Active</option>
+                                            <option value="Inactive">Inactive</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

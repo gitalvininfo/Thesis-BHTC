@@ -30,7 +30,7 @@ require ('../config.php');
                     <li><a href="home.php">Home</a></li>
                     <li>Reports</li>
                     <li><a href="../examination_reports_overview.php">Examination Reports</a></li>
-                    <li class="active">DSSM Reports</li>
+                    <li class="active"><?php echo "DSSM Year ". $year?> </li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -39,15 +39,55 @@ require ('../config.php');
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Graphical</a></li>
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">Tabular</a></li>
+                                    <?php require '../require/select_year.php'?>
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
-                                            <div class="panel-heading">
-                                                <?php require '../require/select_year.php'?>
-                                            </div>
                                             <div class="panel-body">
-                                                <div id="dssm" style="width: 100%; height: 350px"></div>
+                                                <div id="dssm" style="width: 100%; height: 425px"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 455px;">
+                                            <div class="row">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Examinations Conducted</th>
+                                                            <th><center>Number of Frequencies Based on Result</center></th>
+                                                            <th><center>View Patients</center></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $pos = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `laboratory_diagnosis` = 'Positive (+)' && `year` = '$year'") or die(mysqli_error());
+            $f1 = $pos->fetch_array();
+            $neg = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `laboratory_diagnosis` = 'Negative (0)' && `year` = '$year'") or die(mysqli_error());
+            $f2 = $neg->fetch_array();
+
+                                                        ?>
+
+                                                        <tr>
+                                                            <td>Positive (+)</td>
+                                                            <td><center><strong><?php echo $f1['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#pos"><span class="fa fa-search"></span></button>
+                                                                </center>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Negative (0)</td>
+                                                            <td><center><strong><?php echo $f2['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#neg"><span class="fa fa-search"></span></button>
+                                                                </center>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -58,6 +98,7 @@ require ('../config.php');
                 </div>
             </div>
         </div>
+        <?php require 'require/tabular_dssm.php'?>
         <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){
@@ -73,6 +114,7 @@ require ('../config.php');
         <script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>
+        <script type="text/javascript" src="../js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="../js/plugins.js"></script>
         <script type="text/javascript" src="../js/actions.js"></script>

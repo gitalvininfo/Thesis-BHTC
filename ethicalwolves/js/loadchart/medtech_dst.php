@@ -74,7 +74,8 @@ $f18 = $capreomycin2->fetch_array();
                 labelFontColor: "black",
                 crosshair: {
                     enabled: true 
-                }
+                },
+                title: "Number of Patient with Resistant and Susceptible"
             }, 
             data: [ 
                 { 
