@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead">List of Patients with <span style="color:red"><strong>[T] - MTB detected, Rifampicin resistance not detected</strong></span>| <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead"><span style="color:red"><strong>[T] - MTB detected, Rifampicin resistance not detected</strong></span>| <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -57,7 +57,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead">List of Patients with <span style="color:red"><strong>[RR] - MTB detected, Rifampicin resistance detected</strong></span>| <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead"><span style="color:red"><strong>[RR] - MTB detected, Rifampicin resistance detected</strong></span>| <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -112,7 +112,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead">List of Patients with <span style="color:red"><strong>[TI] - MTB detected, Rifampicin resistance indeterminate</strong></span>| <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead"><span style="color:red"><strong>[TI] - MTB detected, Rifampicin resistance indeterminate</strong></span>| <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -167,7 +167,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead">List of Patients with <span style="color:red"><strong>[N] - MTB not detected</strong></span>| <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead"><span style="color:red"><strong>[N] - MTB not detected</strong></span>| <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -222,7 +222,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead">List of Patients with <span style="color:red"><strong>[I] - Invalid / No Result</strong></span>| <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead"><span style="color:red"><strong>[I] - Invalid / No Result</strong></span>| <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">

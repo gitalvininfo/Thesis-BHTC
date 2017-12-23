@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead">List of Patients with <span style="color:red"><strong>Positive (+)</strong></span> Laboratory Diagnosis based on DSSM| <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead"><span style="color:red"><strong>Positive (+)</strong></span> Laboratory Diagnosis based on DSSM| <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -57,7 +57,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead">List of Patients with <span><strong>Negative (0)</strong></span> Laboratory Diagnosis based on DSSM| <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead"><span><strong>Negative (0)</strong></span> Laboratory Diagnosis based on DSSM| <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
