@@ -14,30 +14,32 @@ while($fetch = $query->fetch_array()){
             <form role="form" class="form-horizontal" action="actions/end_treatment.php" method="post">
                 <div class="modal-body">
                     <div class="panel-body">
-                        <h5 class="push-up-20"> Choose Treatment Outcome</h5>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required/>
-                                    <label class="check"><input type="radio" class="iradio" name="status" value ="Cured" required/> Cured</label>
-                                </div>
-                                <div class="col-md-12">                                    
-                                    <label class="check"><input type="radio" class="iradio" name="status" value ="Treatment Completed" required/> Treatment Completed</label>
-                                </div>
-                                <div class="col-md-12">                                    
-                                    <label class="check"><input type="radio" class="iradio" name="status" value="Died" required/> Died</label>
-                                </div>
-                                <div class="col-md-12">                                    
-                                    <label class="check"><input type="radio" class="iradio" name="status" value="Failed" required/> Failed</label>
-                                </div>
-                                <div class="col-md-12">                                    
-                                    <label class="check"><input type="radio" class="iradio" name="status" value="Lost to Follow-up" required/> Lost to Follow-up</label>
-                                </div>
-                                <div class="col-md-12">                                    
-                                    <label class="check"><input type="radio" class="iradio" name="status" value="Not Evaluated" required/> Not Evaluated</label>
-                                </div>
-                                <div class="col-md-12">                                    
-                                    <label class="check"><input type="radio" class="iradio" name="status" value="Excluded from Cohort" required/> Excluded from Cohort</label>
+                        <div class="block">
+                             <h3>Choose Treatment Outcome for <?php echo $f['patient_name']?></h3>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required/>
+                                        <label class="check"><input type="radio" class="iradio" name="status" value ="Cured" required/> Cured</label>
+                                    </div>
+                                    <div class="col-md-12">                                    
+                                        <label class="check"><input type="radio" class="iradio" name="status" value ="Treatment Completed" required/> Treatment Completed</label>
+                                    </div>
+                                    <div class="col-md-12">                                    
+                                        <label class="check"><input type="radio" class="iradio" name="status" value="Died" required/> Died</label>
+                                    </div>
+                                    <div class="col-md-12">                                    
+                                        <label class="check"><input type="radio" class="iradio" name="status" value="Failed" required/> Failed</label>
+                                    </div>
+                                    <div class="col-md-12">                                    
+                                        <label class="check"><input type="radio" class="iradio" name="status" value="Lost to Follow-up" required/> Lost to Follow-up</label>
+                                    </div>
+                                    <div class="col-md-12">                                    
+                                        <label class="check"><input type="radio" class="iradio" name="status" value="Not Evaluated" required/> Not Evaluated</label>
+                                    </div>
+                                    <div class="col-md-12">                                    
+                                        <label class="check"><input type="radio" class="iradio" name="status" value="Excluded from Cohort" required/> Excluded from Cohort</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -10,65 +10,41 @@ while($fetch = $query->fetch_array()){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="defModalHead"><span class="fa fa-medkit"></span> Drug Preparations</h4>
+                <h4 class="modal-title" id="defModalHead">Drug Preparations - <?php echo $date?></h4>
             </div>
             <form role="form" class="form-horizontal" action="actions/drug_preparations.php" method="post">
                 <div class="modal-body">
                     <div class="row">
                         <div class="panel-body">
                             <div class="block">
-                                <div class="form-group ">
-                                    <div class="col-md-6 col-xs-6">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                            <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                            <input data-toggle="tooltip" data-placement="right" title="Date Visited" type="text" class="form-control" name="date" style="color:#000;" value="<?php echo $date ?>" disabled/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
                                 <h3>Drug Preparations for <?php echo $f['patient_name']?></h3>
                                 <h5 class="push-up-20">Isoniazid</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="top" title="Isoniazid" type="number" class="form-control" name="isoniazid" placeholder="Isoniazid" required/>
-                                        </div>
+                                        <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
+                                        <input data-toggle="tooltip" data-placement="top" title="Isoniazid" type="number" class="form-control" name="isoniazid" placeholder="Isoniazid" required/>
                                     </div>
                                 </div>
                                 <h5 class="push-up-20"> Rifampicin</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="top" title="Rifampicin" type="number" class="form-control" name="rifampicin" placeholder="Rifampicin" required/>
-                                        </div>
+                                        <input data-toggle="tooltip" data-placement="top" title="Rifampicin" type="number" class="form-control" name="rifampicin" placeholder="Rifampicin" required/>
                                     </div>
                                 </div><h5 class="push-up-20"> Pyrazinamide</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="top" title="Pyrazinamide" type="number" class="form-control" name="pyrazinamide" placeholder="Pyrazinamide" required/>
-                                        </div>
+                                        <input data-toggle="tooltip" data-placement="top" title="Pyrazinamide" type="number" class="form-control" name="pyrazinamide" placeholder="Pyrazinamide" required/>
                                     </div>
                                 </div><h5 class="push-up-20"> Ethambutol</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="top" title="Ethambutol" type="number" class="form-control" name="ethambutol" placeholder="Ethambutol" required/>
-                                        </div>
+                                        <input data-toggle="tooltip" data-placement="top" title="Ethambutol" type="number" class="form-control" name="ethambutol" placeholder="Ethambutol" required/>
                                     </div>
                                 </div>
                                 <h5 class="push-up-20"> Streptomycin</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                            <input data-toggle="tooltip" data-placement="top" title="Streptomycin" type="number" class="form-control" name="streptomycin" placeholder="Streptomycin" required/>
-                                        </div>
+                                        <input data-toggle="tooltip" data-placement="top" title="Streptomycin" type="number" class="form-control" name="streptomycin" placeholder="Streptomycin" required/>
                                     </div>
                                 </div>
                             </div>

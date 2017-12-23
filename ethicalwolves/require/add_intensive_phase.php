@@ -1,20 +1,23 @@
 <?php
+ $year = date("Y", strtotime("+8 HOURS"));
 if(ISSET($_POST['add_intensive_phase'])){
+    $month = $_POST['month'];
+    $day = $_POST['day'];
     $dosage = $_POST['dosage'];
-    $date_taken = $_POST['date_taken'];
     $patient_id = $_GET['id'];
 
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `intensive_phase` VALUES('', '$dosage', '$date_taken', 'Present', '$patient_id')") or die(mysqli_error());
+    $conn->query("INSERT INTO `intensive_phase` VALUES('', '$dosage', '$month', '$day', '$year', 'Present', '$patient_id')") or die(mysqli_error());
     $conn->close();
 
 }
 if(ISSET($_POST['add_absent'])){
-    $date_absent = $_POST['date_absent'];
+    $month = $_POST['month'];
+    $day = $_POST['day'];
     $patient_id = $_GET['id'];
 
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `intensive_phase` VALUES('', '', '$date_absent', 'Absent', '$patient_id')") or die(mysqli_error());
+    $conn->query("INSERT INTO `intensive_phase` VALUES('', '', '$month', '$day', '$year', 'Absent', '$patient_id')") or die(mysqli_error());
     $conn->close();
 
 }

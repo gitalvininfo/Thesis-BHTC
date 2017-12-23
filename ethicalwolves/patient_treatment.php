@@ -63,7 +63,7 @@ require ('config.php');
                                         </div>
                                     </div>
                                 </ul>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
+                                <div class="panel-body list-group list-group-contacts scroll" style="height: 480px;">
                                     <div class="panel-body tab-content">
                                         <div class="tab-pane active" id="tab-first">
                                             <div class="row">
@@ -74,7 +74,7 @@ require ('config.php');
                                                             <div class="panel-heading">
                                                                 <h4 class="panel-title">
                                                                     <a href="#accOneColOne">
-                                                                        <span class="fa fa-calendar"></span> Present Days
+                                                                        Present Days
                                                                     </a>
                                                                 </h4>
                                                             </div>
@@ -89,70 +89,154 @@ require ('config.php');
                                                                 $f3 = $q3->fetch_array();
                                                                 ?>
                                                                 <form role="form" class="form-horizontal" method="post">
+                                                                    <h6 class="push-up-5">Date Taken</h6>
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-6">
+                                                                            <select class="form-control select" name="month" data-live-search="true">
+                                                                                <option>Month</option>
+                                                                                <option value="January">January</option>
+                                                                                <option value="February">February</option>
+                                                                                <option value="March">March</option>
+                                                                                <option value="April">April</option>
+                                                                                <option value="May">May</option>
+                                                                                <option value="June">June</option>
+                                                                                <option value="July">July</option>
+                                                                                <option value="August">August</option>
+                                                                                <option value="September">September</option>
+                                                                                <option value="October">October</option>
+                                                                                <option value="November">November</option>
+                                                                                <option value="December">December</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <select class="form-control select" name="day" data-live-search="true">
+                                                                                <option>Day</option>
+                                                                                <option value="1">1</option>
+                                                                                <option value="2">2</option>
+                                                                                <option value="3">3</option>
+                                                                                <option value="4">4</option>
+                                                                                <option value="5">5</option>
+                                                                                <option value="6">6</option>
+                                                                                <option value="7">7</option>
+                                                                                <option value="8">8</option>
+                                                                                <option value="9">9</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                                <option value="13">13</option>
+                                                                                <option value="14">14</option>
+                                                                                <option value="15">15</option>
+                                                                                <option value="16">16</option>
+                                                                                <option value="17">17</option>
+                                                                                <option value="18">18</option>
+                                                                                <option value="19">19</option>
+                                                                                <option value="20">20</option>
+                                                                                <option value="21">21</option>
+                                                                                <option value="22">22</option>
+                                                                                <option value="23">23</option>
+                                                                                <option value="24">24</option>
+                                                                                <option value="25">25</option>
+                                                                                <option value="26">26</option>
+                                                                                <option value="27">27</option>
+                                                                                <option value="28">28</option>
+                                                                                <option value="29">29</option>
+                                                                                <option value="30">30</option>
+                                                                                <option value="31">31</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div> <hr>
+                                                                    <h6 class="push-up-5">Dosage</h6>
                                                                     <div class="form-group ">
                                                                         <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                                <input type="number" class="form-control" name="dosage" placeholder="Dosage Taken" required/>
-                                                                            </div>
+                                                                            <input type="number" class="form-control" name="dosage" placeholder="Dosage Taken" required/>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> <hr>
+                                                                    <h6 class="push-up-5">Total Days Present</h6>
                                                                     <div class="form-group ">
                                                                         <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                                <input type="text" class="form-control datepicker" name="date_taken" placeholder="Date Taken" required/>
-                                                                            </div>
+                                                                            <input class="form-control" style="font-size:15px;font-weight:bold;color:black" name="remarks" value="<?php echo $f2['total']. " days" ?>" readonly/>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group ">
-                                                                        <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                                <input data-toggle="tooltip" data-placement="bottom" title="Total Days Present" class="form-control" style="color:red" name="dosage" value="<?php echo $f2['total']; ?>" disabled/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="panel-footer">
-                                                                        <button type="submit" name="add_intensive_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                                    </div>
+                                                                    <button type="submit" name="add_intensive_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                     <?php require_once 'require/add_intensive_phase.php' ?>
-
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                        <div class="panel panel-info">
+                                                        <div class="panel panel-danger">
                                                             <div class="panel-heading">
                                                                 <h4 class="panel-title">
                                                                     <a href="#accOneColTwo">
-                                                                        <span class="fa fa-calendar"></span> Missed Days
+                                                                        Missed Days
                                                                     </a>
                                                                 </h4>
                                                             </div>
                                                             <div class="panel-body" id="accOneColTwo">
                                                                 <form role="form" class="form-horizontal" method="post">
-                                                                    <div class="form-group ">
-                                                                        <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                                <input type="text" class="form-control datepicker" name="date_absent" placeholder="Missed Date" required/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group ">
-                                                                        <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                                <input data-toggle="tooltip" data-placement="bottom" title="Total Days Missed" class="form-control" style="color:red" name="dosage" value="<?php echo $f3['total']; ?>" disabled/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="panel-footer">
-                                                                        <button type="submit" name="add_absent" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                                    </div>
-                                                                    <?php require_once 'require/add_intensive_phase.php' ?>
+                                                                    <h6 class="push-up-5">Missed Date</h6>
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-6">
+                                                                            <select class="form-control select" name="month" data-live-search="true">
+                                                                                <option>Month</option>
+                                                                                <option value="January">January</option>
+                                                                                <option value="February">February</option>
+                                                                                <option value="March">March</option>
+                                                                                <option value="April">April</option>
+                                                                                <option value="May">May</option>
+                                                                                <option value="June">June</option>
+                                                                                <option value="July">July</option>
+                                                                                <option value="August">August</option>
+                                                                                <option value="September">September</option>
+                                                                                <option value="October">October</option>
+                                                                                <option value="November">November</option>
+                                                                                <option value="December">December</option>
 
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <select class="form-control select" name="day" data-live-search="true">
+                                                                                <option>Day</option>
+                                                                                <option value="1">1</option>
+                                                                                <option value="2">2</option>
+                                                                                <option value="3">3</option>
+                                                                                <option value="4">4</option>
+                                                                                <option value="5">5</option>
+                                                                                <option value="6">6</option>
+                                                                                <option value="7">7</option>
+                                                                                <option value="8">8</option>
+                                                                                <option value="9">9</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                                <option value="13">13</option>
+                                                                                <option value="14">14</option>
+                                                                                <option value="15">15</option>
+                                                                                <option value="16">16</option>
+                                                                                <option value="17">17</option>
+                                                                                <option value="18">18</option>
+                                                                                <option value="19">19</option>
+                                                                                <option value="20">20</option>
+                                                                                <option value="21">21</option>
+                                                                                <option value="22">22</option>
+                                                                                <option value="23">23</option>
+                                                                                <option value="24">24</option>
+                                                                                <option value="25">25</option>
+                                                                                <option value="26">26</option>
+                                                                                <option value="27">27</option>
+                                                                                <option value="28">28</option>
+                                                                                <option value="29">29</option>
+                                                                                <option value="30">30</option>
+                                                                                <option value="31">31</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div> <hr>
+                                                                    <h6 class="push-up-20">Total Days Missed</h6>
+                                                                    <div class="form-group ">
+                                                                        <div class="col-md-12 col-xs-12">
+                                                                            <input  class="form-control" style="font-size:15px;font-weight:bold;color:red" name="dosage" value="<?php echo $f3['total']. " days" ?>" disabled/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button type="submit" name="add_absent" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                                                    <?php require_once 'require/add_intensive_phase.php' ?>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -164,46 +248,34 @@ require ('config.php');
                                                 <div class="col-md-8">
                                                     <!-- START DATATABLE EXPORT -->
                                                     <div class="panel panel-info">
-                                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
+                                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 440px;">
                                                             <div class="panel-body">
                                                                 <table id="laboratory_request" class="table datatable">
                                                                     <thead>
                                                                         <tr class="info">
-                                                                            <th>Date Taken</th>
-                                                                            <th>Dosage Taken</th>
-                                                                            <th>Remarks</th>
-                                                                            <th>
-                                                                                <center>Action</center>
-                                                                            </th>
+                                                                            <th><center>Month</center></th>
+                                                                            <th><center>Day</center></th>
+                                                                            <th><center>Dosage</center></th>
+                                                                            <th><center>Remarks</center></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
                                                                         <?php
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                    $query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` ASC ") or die(mysqli_error());
-                                                                    $id = $f['patient_id'];
-                                                                    while($fetch = $query->fetch_array()){
-                                                                        $id = $fetch['patient_id'];
+                                                                                   $query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` ASC ") or die(mysqli_error());
+
+                                                                                   while($fetch = $query->fetch_array()){
+
                                                                         ?>
                                                                         <tr>
-                                                                            <td>
-                                                                                <?php echo $fetch['date_taken']?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $fetch['dosage']?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $fetch['remarks']?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <center>
-                                                                                    <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal_small"><span class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="left" title="Edit"></span>  </button>
-                                                                                </center>
-                                                                            </td>
+                                                                            <td><center><?php echo $fetch['month']?></center></td>
+                                                                            <td><center><?php echo $fetch['day']?></center></td>
+                                                                            <td><center><?php echo $fetch['dosage']?></center></td>
+                                                                            <td><center><?php echo $fetch['remarks']?></center></td>
                                                                         </tr>
                                                                         <?php
-                                                                    }
-                                                                    $conn->close();
+                                                                                   }
+                                                                                   $conn->close();
                                                                         ?>
                                                                     </tbody>
                                                                 </table>
@@ -223,7 +295,7 @@ require ('config.php');
                                                             <div class="panel-heading">
                                                                 <h4 class="panel-title">
                                                                     <a href="#accOneColThree">
-                                                                        <span class="fa fa-calendar"></span> Present Days
+                                                                        Present Days
                                                                     </a>
                                                                 </h4>
                                                             </div>
@@ -232,74 +304,160 @@ require ('config.php');
                                                                 $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                                                                 $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
                                                                 $f = $q->fetch_array();
-                                                                $q2 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                                                $q2 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Present'") or die(mysqli_error());
                                                                 $f2 = $q2->fetch_array();
                                                                 $q3 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
                                                                 $f3 = $q3->fetch_array();
                                                                 ?>
                                                                 <form role="form" class="form-horizontal" method="post">
+                                                                    <h6 class="push-up-5">Date Taken</h6>
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-6">
+                                                                            <select class="form-control select" name="month" data-live-search="true">
+                                                                                <option>Month</option>
+                                                                                <option value="January">January</option>
+                                                                                <option value="February">February</option>
+                                                                                <option value="March">March</option>
+                                                                                <option value="April">April</option>
+                                                                                <option value="May">May</option>
+                                                                                <option value="June">June</option>
+                                                                                <option value="July">July</option>
+                                                                                <option value="August">August</option>
+                                                                                <option value="September">September</option>
+                                                                                <option value="October">October</option>
+                                                                                <option value="November">November</option>
+                                                                                <option value="December">December</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <select class="form-control select" name="day" data-live-search="true">
+                                                                                <option>Day</option>
+                                                                                <option value="1">1</option>
+                                                                                <option value="2">2</option>
+                                                                                <option value="3">3</option>
+                                                                                <option value="4">4</option>
+                                                                                <option value="5">5</option>
+                                                                                <option value="6">6</option>
+                                                                                <option value="7">7</option>
+                                                                                <option value="8">8</option>
+                                                                                <option value="9">9</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                                <option value="13">13</option>
+                                                                                <option value="14">14</option>
+                                                                                <option value="15">15</option>
+                                                                                <option value="16">16</option>
+                                                                                <option value="17">17</option>
+                                                                                <option value="18">18</option>
+                                                                                <option value="19">19</option>
+                                                                                <option value="20">20</option>
+                                                                                <option value="21">21</option>
+                                                                                <option value="22">22</option>
+                                                                                <option value="23">23</option>
+                                                                                <option value="24">24</option>
+                                                                                <option value="25">25</option>
+                                                                                <option value="26">26</option>
+                                                                                <option value="27">27</option>
+                                                                                <option value="28">28</option>
+                                                                                <option value="29">29</option>
+                                                                                <option value="30">30</option>
+                                                                                <option value="31">31</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div> <hr>
+                                                                    <h6 class="push-up-5">Dosage</h6>
                                                                     <div class="form-group ">
                                                                         <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                                <input type="number" class="form-control" name="dosage" placeholder="Dosage Taken" required/>
-                                                                            </div>
+                                                                            <input type="number" class="form-control" name="dosage" placeholder="Dosage Taken" required/>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> <hr>
+                                                                    <h6 class="push-up-5">Total Days Present</h6>
                                                                     <div class="form-group ">
                                                                         <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                                <input type="text" class="form-control datepicker" name="date_taken" placeholder="Date Taken" required/>
-                                                                            </div>
+                                                                            <input class="form-control" style="font-size:15px;font-weight:bold;color:black" name="remarks" value="<?php echo $f2['total']. " days" ?>" readonly/>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group ">
-                                                                        <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                                <input data-toggle="tooltip" data-placement="bottom" title="Total Dosage Taken" class="form-control" style="color:red" name="dosage" value="<?php echo $f2['sum(dosage)']; ?>" disabled/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="panel-footer">
-                                                                        <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                                    </div>
+                                                                    <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                     <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                        <div class="panel panel-info">
+                                                        <div class="panel panel-danger">
                                                             <div class="panel-heading">
                                                                 <h4 class="panel-title">
                                                                     <a href="#accOneColFour">
-                                                                        <span class="fa fa-calendar"></span> Missed Days
+                                                                        Missed Days
                                                                     </a>
                                                                 </h4>
                                                             </div>
                                                             <div class="panel-body" id="accOneColFour">
                                                                 <form role="form" class="form-horizontal" method="post">
+                                                                    <h6 class="push-up-5">Missed Date</h6>
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-6">
+                                                                            <select class="form-control select" name="month" data-live-search="true">
+                                                                                <option>Month</option>
+                                                                                <option value="January">January</option>
+                                                                                <option value="February">February</option>
+                                                                                <option value="March">March</option>
+                                                                                <option value="April">April</option>
+                                                                                <option value="May">May</option>
+                                                                                <option value="June">June</option>
+                                                                                <option value="July">July</option>
+                                                                                <option value="August">August</option>
+                                                                                <option value="September">September</option>
+                                                                                <option value="October">October</option>
+                                                                                <option value="November">November</option>
+                                                                                <option value="December">December</option>
+
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <select class="form-control select" name="day" data-live-search="true">
+                                                                                <option>Day</option>
+                                                                                <option value="1">1</option>
+                                                                                <option value="2">2</option>
+                                                                                <option value="3">3</option>
+                                                                                <option value="4">4</option>
+                                                                                <option value="5">5</option>
+                                                                                <option value="6">6</option>
+                                                                                <option value="7">7</option>
+                                                                                <option value="8">8</option>
+                                                                                <option value="9">9</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                                <option value="13">13</option>
+                                                                                <option value="14">14</option>
+                                                                                <option value="15">15</option>
+                                                                                <option value="16">16</option>
+                                                                                <option value="17">17</option>
+                                                                                <option value="18">18</option>
+                                                                                <option value="19">19</option>
+                                                                                <option value="20">20</option>
+                                                                                <option value="21">21</option>
+                                                                                <option value="22">22</option>
+                                                                                <option value="23">23</option>
+                                                                                <option value="24">24</option>
+                                                                                <option value="25">25</option>
+                                                                                <option value="26">26</option>
+                                                                                <option value="27">27</option>
+                                                                                <option value="28">28</option>
+                                                                                <option value="29">29</option>
+                                                                                <option value="30">30</option>
+                                                                                <option value="31">31</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div> <hr>
+                                                                    <h6 class="push-up-20">Total Days Missed</h6>
                                                                     <div class="form-group ">
                                                                         <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                                <input type="text" class="form-control datepicker" name="date_absent" placeholder="Missed Date" required/>
-                                                                            </div>
+                                                                            <input  class="form-control" style="font-size:15px;font-weight:bold;color:red" name="dosage" value="<?php echo $f3['total']. " days" ?>" disabled/>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group ">
-                                                                        <div class="col-md-12 col-xs-12">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><span class="fa fa-info"></span></span>
-                                                                                <input data-toggle="tooltip" data-placement="bottom" title="Total Days Missed" class="form-control" style="color:red" name="dosage" value="<?php echo $f3['total']; ?>" disabled/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="panel-footer">
-                                                                        <button type="submit" name="add_absent" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                                    </div>
+                                                                    <button type="submit" name="add_absent" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                     <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                                 </form>
@@ -318,41 +476,29 @@ require ('config.php');
                                                                 <table id="laboratory_request" class="table datatable">
                                                                     <thead>
                                                                         <tr class="info">
-                                                                            <th>Date Taken</th>
-                                                                            <th>Dosage Taken</th>
-                                                                            <th>Remarks</th>
-                                                                            <th>
-                                                                                <center>Action</center>
-                                                                            </th>
+                                                                            <th><center>Month</center></th>
+                                                                            <th><center>Day</center></th>
+                                                                            <th><center>Dosage</center></th>
+                                                                            <th><center>Remarks</center></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
                                                                         <?php
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                    $query = $conn->query("SELECT * FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `continuation_phase_id` DESC ") or die(mysqli_error());
-                                                                    $id = $f['patient_id'];
-                                                                    while($fetch = $query->fetch_array()){
-                                                                        $id = $fetch['patient_id'];
+                                                                                   $query = $conn->query("SELECT * FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `continuation_phase_id` ASC ") or die(mysqli_error());
+
+                                                                                   while($fetch = $query->fetch_array()){
+
                                                                         ?>
                                                                         <tr>
-                                                                            <td>
-                                                                                <?php echo $fetch['date_taken']?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $fetch['dosage']?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $fetch['remarks']?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <center>
-                                                                                    <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal_small"><span class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="left" title="Edit"></span>  </button>
-                                                                                </center>
-                                                                            </td>
+                                                                            <td><center><?php echo $fetch['month']?></center></td>
+                                                                            <td><center><?php echo $fetch['day']?></center></td>
+                                                                            <td><center><?php echo $fetch['dosage']?></center></td>
+                                                                            <td><center><?php echo $fetch['remarks']?></center></td>
                                                                         </tr>
                                                                         <?php
-                                                                    }
-                                                                    $conn->close();
+                                                                                   }
+                                                                                   $conn->close();
                                                                         ?>
                                                                     </tbody>
                                                                 </table>
@@ -369,6 +515,7 @@ require ('config.php');
                                                 $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                                                 $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
                                                 $f = $q->fetch_array();
+                                                $id = $f['patient_id'];
                                                 $query3 = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
                                                 $f2 = $query3->fetch_array();
                                                 ?>
@@ -415,7 +562,6 @@ require ('config.php');
                                                                 <?php
                                                                 $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                                                                 $query = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$id' ORDER BY `clinical_id` DESC") or die(mysqli_error());
-                                                                $id = $f['patient_id'];
                                                                 while($fetch = $query->fetch_array()){
                                                                 ?>
                                                                 <tr>

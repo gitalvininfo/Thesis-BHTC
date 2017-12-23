@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -21,6 +21,8 @@ INSERT INTO backup VALUES("71","Successfully exported database","December 21, 20
 INSERT INTO backup VALUES("72","Successfully imported database","December 21, 2017, 10:30 pm"); 
 INSERT INTO backup VALUES("73","Successfully imported database","December 22, 2017, 10:54 am"); 
 INSERT INTO backup VALUES("74","Successfully exported database","December 22, 2017, 10:55 am"); 
+INSERT INTO backup VALUES("75","Successfully imported database","December 24, 2017, 2:37 am"); 
+INSERT INTO backup VALUES("76","Successfully exported database","December 24, 2017, 3:05 am"); 
 
 
 
@@ -38,7 +40,7 @@ CREATE TABLE `clinical_findings` (
   `q6` varchar(100) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`clinical_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 INSERT INTO clinical_findings VALUES("7","Saturday 25th of November 2017","45","/","/","/","/","0","Vomiting","2"); 
 INSERT INTO clinical_findings VALUES("8","Tuesday 5th of December 2017","78","/","/","/","/","/","Abdominal Pain","7"); 
@@ -58,6 +60,7 @@ INSERT INTO clinical_findings VALUES("23","December 20, 2017","55","0","0","/","
 INSERT INTO clinical_findings VALUES("24","December 20, 2017","56","0","0","0","0","0","Numbness","6"); 
 INSERT INTO clinical_findings VALUES("25","December 20, 2017","67","0","0","0","0","0","Hearing Disturbance","7"); 
 INSERT INTO clinical_findings VALUES("26","December 20, 2017","68","0","0","0","0","0","Vomiting","7"); 
+INSERT INTO clinical_findings VALUES("27","December 23, 2017","78","0","0","/","/","/","Itchiness","2"); 
 
 
 
@@ -86,16 +89,22 @@ DROP TABLE continuation_phase;
 CREATE TABLE `continuation_phase` (
   `continuation_phase_id` int(10) NOT NULL AUTO_INCREMENT,
   `dosage` int(10) NOT NULL,
-  `date_taken` date NOT NULL,
+  `month` char(10) NOT NULL,
+  `day` char(2) NOT NULL,
+  `year` char(4) NOT NULL,
   `remarks` char(10) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`continuation_phase_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
-INSERT INTO continuation_phase VALUES("1","0","2017-11-22","Absent","1"); 
-INSERT INTO continuation_phase VALUES("2","6","2017-12-13","Present","6"); 
-INSERT INTO continuation_phase VALUES("3","78","2017-12-15","Present","6"); 
-INSERT INTO continuation_phase VALUES("4","0","2017-12-13","Absent","6"); 
+INSERT INTO continuation_phase VALUES("9","0","February","3","2017","Absent","1"); 
+INSERT INTO continuation_phase VALUES("10","0","March","5","2017","Absent","1"); 
+INSERT INTO continuation_phase VALUES("11","45","February","4","2017","Present","1"); 
+INSERT INTO continuation_phase VALUES("12","0","March","4","2017","Absent","1"); 
+INSERT INTO continuation_phase VALUES("13","12","March","3","2017","Present","2"); 
+INSERT INTO continuation_phase VALUES("14","0","February","5","2017","Absent","2"); 
+INSERT INTO continuation_phase VALUES("15","122","April","4","2017","Present","2"); 
+INSERT INTO continuation_phase VALUES("16","0","March","2","2017","Absent","2"); 
 
 
 
@@ -263,17 +272,25 @@ DROP TABLE intensive_phase;
 CREATE TABLE `intensive_phase` (
   `intensive_phase_id` int(10) NOT NULL AUTO_INCREMENT,
   `dosage` int(10) NOT NULL,
-  `date_taken` date NOT NULL,
+  `month` char(10) NOT NULL,
+  `day` char(2) NOT NULL,
+  `year` char(4) NOT NULL,
   `remarks` char(10) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`intensive_phase_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
-INSERT INTO intensive_phase VALUES("9","97","2017-11-25","Present","1"); 
-INSERT INTO intensive_phase VALUES("10","89","2017-12-21","Present","6"); 
-INSERT INTO intensive_phase VALUES("11","0","2017-12-13","Absent","6"); 
-INSERT INTO intensive_phase VALUES("12","56","2017-12-14","Present","6"); 
-INSERT INTO intensive_phase VALUES("13","67","2017-12-20","Present","1"); 
+INSERT INTO intensive_phase VALUES("17","12","March","3","2017","Present","1"); 
+INSERT INTO intensive_phase VALUES("18","0","February","2","2017","Absent","1"); 
+INSERT INTO intensive_phase VALUES("19","0","February","3","2017","Absent","1"); 
+INSERT INTO intensive_phase VALUES("20","0","February","3","2017","Absent","1"); 
+INSERT INTO intensive_phase VALUES("21","78","March","4","2017","Present","1"); 
+INSERT INTO intensive_phase VALUES("22","56","January","1","2017","Present","1"); 
+INSERT INTO intensive_phase VALUES("23","0","March","5","2017","Absent","1"); 
+INSERT INTO intensive_phase VALUES("24","0","March","4","2017","Absent","1"); 
+INSERT INTO intensive_phase VALUES("25","34","February","2","2017","Present","2"); 
+INSERT INTO intensive_phase VALUES("26","0","February","5","2017","Absent","2"); 
+INSERT INTO intensive_phase VALUES("27","0","March","2","2017","Absent","2"); 
 
 
 
