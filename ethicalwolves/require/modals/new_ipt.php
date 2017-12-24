@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="defModalHead"><span class="fa fa-plus"></span> New IPT Case</h4>
             </div>
-            <form role="form" id="ipt" class="form-horizontal" action="actions/registration_table.php" method="post">
+            <form role="form" id="ipt" class="form-horizontal" action="actions/registration_table.php" method="post" onsubmit="return confirm('Are you sure you want to add new IPT case?');">
                 <div class="modal-body">
                     <div class="row">
                         <div class="panel-body">

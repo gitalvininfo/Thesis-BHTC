@@ -51,14 +51,14 @@ if(ISSET($_POST['save_user'])){
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Data Entry</li>
-                    <li class="active">Physicians</li>
+                    <li class="active">Medical Technologists</li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-user-md"></span> Medical Technologists</h3>
+                                    <h3 class="panel-title">Medical Technologists</h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
                                             <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_physician"><span class="fa fa-user-plus"></span> New Account </button>
@@ -66,39 +66,37 @@ if(ISSET($_POST['save_user'])){
                                     </div>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
-                                    <div class="panel-body">
-                                        <table class="table table-hover">
-                                            <thead> 
-                                                <tr class="info">
-                                                    <th><center>First Name</center></th>
-                                                    <th><center>Last Name</center></th>
-                                                    <th><center>License Number</center></th>
-                                                    <th><center>Username</center></th>
-                                                    <th><center>Password</center></th>
-                                                    <th><center>Status</center></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
+                                    <table class="table table-hover">
+                                        <thead> 
+                                            <tr class="info">
+                                                <th><center>First Name</center></th>
+                                                <th><center>Last Name</center></th>
+                                                <th><center>License Number</center></th>
+                                                <th><center>Username</center></th>
+                                                <th><center>Password</center></th>
+                                                <th><center>Status</center></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
             $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
-                                                ?>                                      
-                                                <tr>
-                                                    <td><center><?php echo $fetch['firstname']?></center></td>
-                                                    <td><center><?php echo $fetch['lastname']?></center></td>
-                                                    <td><center><?php echo $fetch['license']?></center></td>
-                                                    <td><center><?php echo $fetch['username']?></center></td>
-                                                    <td><center>*******</center></td>
-                                                    <td><center><?php echo $fetch['status']?></center></td>
-                                                </tr>
-                                                <?php
+                                            ?>                                      
+                                            <tr>
+                                                <td><center><?php echo $fetch['firstname']?></center></td>
+                                                <td><center><?php echo $fetch['lastname']?></center></td>
+                                                <td><center><?php echo $fetch['license']?></center></td>
+                                                <td><center><?php echo $fetch['username']?></center></td>
+                                                <td><center>*******</center></td>
+                                                <td><center><?php echo $fetch['status']?></center></td>
+                                            </tr>
+                                            <?php
             }
             $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table>                                    
-                                    </div>
+                                            ?>
+                                        </tbody>
+                                    </table>                                    
                                 </div>
                             </div>
                         </div>
@@ -122,9 +120,18 @@ if(ISSET($_POST['save_user'])){
         <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>        
         <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>           
         <script type="text/javascript">
-            var jvalidate = $("#jvalidate").validate({
+            var medtech = $("#medtech").validate({
                 ignore: [],
                 rules: {
+                    firstname: {
+                        required: true
+                    },
+                    lastname: {
+                        required: true
+                    },
+                    license: {
+                        required: true
+                    },
                     username: {
                         required: true,
                         minlength: 6,

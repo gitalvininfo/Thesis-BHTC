@@ -42,8 +42,8 @@ require ('config.php');
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="panel panel-info">
-                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                                         <div class="panel-body">
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
@@ -95,8 +95,8 @@ require ('config.php');
                                     <div class="tab-pane" id="tab-second">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="panel panel-info">
-                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                                         <div class="panel-body">
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>

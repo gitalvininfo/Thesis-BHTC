@@ -12,7 +12,7 @@ while($fetch = $query->fetch_array()){
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="defModalHead"><span class="fa fa-plus"></span> New Laboratory Request</h4>
             </div>
-            <form role="form" class="form-horizontal" action="actions/add_laboratory_request.php" method="post">
+            <form id="labrequest" role="form" class="form-horizontal" action="actions/add_laboratory_request.php" method="post" onsubmit="return confirm('Are you sure you want to add this laboratory request?');">
                 <div class="modal-body">
                     <div class="row">
                         <div class="panel-body">
@@ -61,19 +61,19 @@ while($fetch = $query->fetch_array()){
                                 <div class="form-group ">
                                     <label class="col-md-3 col-xs-12 control-label">Date Specimen 2 Collected </label>
                                     <div class="col-md-9 col-xs-12">         
-                                        <input data-toggle="tooltip" data-placement="right" title="Date Sample 2 Collected" type="text" class="form-control datepicker" name="date_sample_collected2" placeholder="Date Sample 2 Collected" required/>
+                                        <input data-toggle="tooltip" data-placement="right" title="Date Sample 2 Collected" type="text" class="form-control datepicker" name="date_sample_collected2" placeholder="Date Sample 2 Collected"/>
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label class="col-md-3 col-xs-12 control-label">Specimen Collector</label>
                                     <div class="col-md-9 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="right" title="Name of Specimen Collector" placeholder="Name of Specimen Collector" type="text" class="form-control" name="sample_collector" />
+                                        <input data-toggle="tooltip" data-placement="right" title="Name of Specimen Collector" placeholder="Name of Specimen Collector" type="text" class="form-control" name="sample_collector" required/>
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label class="col-md-3 col-xs-12 control-label">Contact Number</label>
                                     <div class="col-md-9 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="right" title="Contact Number" placeholder="Contact Number" type="text" class="form-control" name="contact_number" />
+                                        <input data-toggle="tooltip" data-placement="right" title="Contact Number" placeholder="Contact Number" type="text" class="form-control" name="contact_number" required/>
                                     </div>
                                 </div><hr>
                                 <div class="col-md-12">
@@ -149,7 +149,7 @@ while($fetch = $query->fetch_array()){
                                                 <input type="radio" class="iradio" name="test_requested" value="Drug Susceptible Testing" required/> Drug Susceptible Testing
                                             </label>
                                         </div>
-                                    </div><hr>
+                                    </div>
                                 </div>
                             </div>
                         </div>                        

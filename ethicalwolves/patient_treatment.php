@@ -87,7 +87,7 @@ require ('config.php');
                                                             $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
                                                             $f3 = $q3->fetch_array();
                                                             ?>
-                                                            <form role="form" class="form-horizontal" method="post">
+                                                            <form role="form" class="form-horizontal" method="post" onsubmit="return confirm('Are you sure you want to add this dosage?');">
                                                                 <h6 class="push-up-5">Date Taken</h6>
                                                                 <div class="form-group">
                                                                     <div class="col-md-6">
@@ -170,7 +170,7 @@ require ('config.php');
                                                             </h4>
                                                         </div>
                                                         <div class="panel-body" id="accOneColTwo">
-                                                            <form role="form" class="form-horizontal" method="post">
+                                                            <form role="form" class="form-horizontal" method="post" method="post" onsubmit="return confirm('Are you sure you want to add the missed date?');">
                                                                 <h6 class="push-up-5">Missed Date</h6>
                                                                 <div class="form-group">
                                                                     <div class="col-md-6">
@@ -305,7 +305,7 @@ require ('config.php');
                                                             $q3 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
                                                             $f3 = $q3->fetch_array();
                                                             ?>
-                                                            <form role="form" class="form-horizontal" method="post">
+                                                            <form role="form" class="form-horizontal" method="post" onsubmit="return confirm('Are you sure you want to add this dosage?');">
                                                                 <h6 class="push-up-5">Date Taken</h6>
                                                                 <div class="form-group">
                                                                     <div class="col-md-6">
@@ -376,7 +376,7 @@ require ('config.php');
                                                                 </div>
                                                                 <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
-                                                                e
+                                                                
                                                             </form>
                                                         </div>
                                                     </div>
@@ -389,7 +389,7 @@ require ('config.php');
                                                             </h4>
                                                         </div>
                                                         <div class="panel-body" id="accOneColFour">
-                                                            <form role="form" class="form-horizontal" method="post">
+                                                            <form role="form" class="form-horizontal" method="post" onsubmit="return confirm('Are you sure you want to add the missed date?');">
                                                                 <h6 class="push-up-5">Missed Date</h6>
                                                                 <div class="form-group">
                                                                     <div class="col-md-6">

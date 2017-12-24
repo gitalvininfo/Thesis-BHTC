@@ -55,49 +55,46 @@ if(ISSET($_POST['new_medicine'])){
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-medkit"></span> Medicine List <strong></strong></h3>
+                                    <h3 class="panel-title">Medicine's List <strong></strong></h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
-                                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#new_medicine"><span class="fa fa-plus"></span>New Medicine </button>
+                                            <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_medicine"><span class="fa fa-plus"></span>New Medicine </button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
-                                    <div class="panel-body">
-                                        <table id="medication_dispensation" class="table datatable">
-                                            <thead> 
-                                                <tr>
-                                                    <th><center>Medicine ID</center></th>
-                                                    <th><center>Medicine Name</center></th>
-                                                    <th><center>Medicine Description</center></th>
-                                                    <th><center>Running Balance</center></th>
-                                                    <th><center>Action</center></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
+                                    <table class="table table-hover">
+                                        <thead> 
+                                            <tr>
+                                                <th><center>Medicine ID</center></th>
+                                                <th><center>Medicine Name</center></th>
+                                                <th><center>Medicine Description</center></th>
+                                                <th><center>Running Balance</center></th>
+                                                <th><center>Action</center></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
             $query = $conn->query("SELECT * FROM `medicine` ORDER BY `medicine_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
-                                                ?>
-                                                <tr>
-                                                    <td><center><?php echo $fetch['medicine_id']?></center></td>
-                                                    <td><center><?php echo $fetch['medicine_name']?></center></td>
-                                                    <td><center><?php echo $fetch['medicine_description']?></center></td>
-                                                    <td><center><strong><?php echo $fetch['running_balance']?></strong></center></td>
-                                                    <td><center>
-                                                        <a href="#updatedata<?php echo $fetch['medicine_id'];?>" data-target="#updatedata<?php echo $fetch['medicine_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
-                                                        </center></td>
-                                                </tr>
-                                                <?php
+                                            ?>
+                                            <tr>
+                                                <td><center><?php echo $fetch['medicine_id']?></center></td>
+                                                <td><center><?php echo $fetch['medicine_name']?></center></td>
+                                                <td><center><?php echo $fetch['medicine_description']?></center></td>
+                                                <td><center><strong><?php echo $fetch['running_balance']?></strong></center></td>
+                                                <td><center>
+                                                    <a href="#updatedata<?php echo $fetch['medicine_id'];?>" data-target="#updatedata<?php echo $fetch['medicine_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
+                                                    </center></td>
+                                            </tr>
+                                            <?php
             }
             $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table>   
-                                    </div>
+                                            ?>
+                                        </tbody>
+                                    </table>   
                                 </div>
-                                <!-- END TABS -->
                             </div>
                         </div>
                     </div>                    
@@ -117,8 +114,22 @@ if(ISSET($_POST['new_medicine'])){
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
         <script type="text/javascript" src="js/plugins.js"></script>
         <script type="text/javascript" src="js/actions.js"></script>
+        <script type="text/javascript">
+            var medicine = $("#medicine").validate({
+                ignore: [],
+                rules: {
+                    medicine_name: {
+                        required: true
+                    },
+                    medicine_description: {
+                        required: true
+                    }
+                }
+            });
+        </script>
     </body>
 </html>
 

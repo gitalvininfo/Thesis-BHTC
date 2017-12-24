@@ -58,46 +58,44 @@ if(ISSET($_POST['save_user'])){
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-user-md"></span> Medical Technologists</h3>
+                                    <h3 class="panel-title">Medical Technologists</h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
-                                    <div class="panel-body">
-                                        <table class="table datatable">
-                                            <thead> 
-                                                <tr class="info">
-                                                    <th><center>First Name</center></th>
-                                                    <th><center>Last Name</center></th>
-                                                    <th><center>License Number</center></th>
-                                                    <th><center>Username</center></th>
-                                                    <th><center>Password</center></th>
-                                                    <th><center>Status</center></th>
-                                                    <th><center>Action</center></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
+                                    <table class="table table-hover">
+                                        <thead> 
+                                            <tr class="info">
+                                                <th><center>First Name</center></th>
+                                                <th><center>Last Name</center></th>
+                                                <th><center>License Number</center></th>
+                                                <th><center>Username</center></th>
+                                                <th><center>Password</center></th>
+                                                <th><center>Status</center></th>
+                                                <th><center>Action</center></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
     require 'config.php';
             $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
-                                                ?>                                      
-                                                <tr>
-                                                    <td><center><?php echo $fetch['firstname']?></center></td>
-                                                    <td><center><?php echo $fetch['lastname']?></center></td>
-                                                    <td><center><?php echo $fetch['license']?></center></td>
-                                                    <td><center><?php echo $fetch['username']?></center></td>
-                                                    <td><center>*******</center></td>
-                                                    <td><center><strong><?php echo $fetch['status']?></strong></center></td>
-                                                    <td><center>
-                                                        <a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
-                                                        </center></td>
-                                                </tr>
-                                                <?php
+                                            ?>                                      
+                                            <tr>
+                                                <td><center><?php echo $fetch['firstname']?></center></td>
+                                                <td><center><?php echo $fetch['lastname']?></center></td>
+                                                <td><center><?php echo $fetch['license']?></center></td>
+                                                <td><center><?php echo $fetch['username']?></center></td>
+                                                <td><center>*******</center></td>
+                                                <td><center><strong><?php echo $fetch['status']?></strong></center></td>
+                                                <td><center>
+                                                    <a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
+                                                    </center></td>
+                                            </tr>
+                                            <?php
             }
             $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table>                                    
-                                    </div>
+                                            ?>
+                                        </tbody>
+                                    </table>                                    
                                 </div>
                             </div>
                         </div>
@@ -143,25 +141,25 @@ if(ISSET($_POST['save_user'])){
 
 
 
-  <?php
+<?php
     require 'config.php';
-            $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
-            while($fetch = $query->fetch_array()){
-                                                ?>                                      
-                                                <tr>
-                                                    <td><center><?php echo $fetch['firstname']?></center></td>
-                                                    <td><center><?php echo $fetch['lastname']?></center></td>
-                                                    <td><center><?php echo $fetch['license']?></center></td>
-                                                    <td><center><?php echo $fetch['username']?></center></td>
-                                                    <td><center>*******</center></td>
-                                                    <td><center><?php echo $fetch['status']?></center></td>
-                                                    <td><center>
-                                                        <a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
-                                                        </center></td>
-                                                </tr>
-                                                <?php
-            }
-            $conn->close();
-                                                ?>
+        $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
+        while($fetch = $query->fetch_array()){
+?>                                      
+<tr>
+    <td><center><?php echo $fetch['firstname']?></center></td>
+    <td><center><?php echo $fetch['lastname']?></center></td>
+    <td><center><?php echo $fetch['license']?></center></td>
+    <td><center><?php echo $fetch['username']?></center></td>
+    <td><center>*******</center></td>
+    <td><center><?php echo $fetch['status']?></center></td>
+    <td><center>
+        <a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
+        </center></td>
+</tr>
+<?php
+                                             }
+        $conn->close();
+?>
 
 

@@ -12,7 +12,7 @@ while($fetch = $query->fetch_array()){
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="defModalHead">Drug Preparations - <?php echo $date?></h4>
             </div>
-            <form role="form" class="form-horizontal" action="actions/drug_preparations.php" method="post">
+            <form role="form" class="form-horizontal" action="actions/drug_preparations.php" method="post" onsubmit="return confirm('Are you sure you want to new drug preparations?');">
                 <div class="modal-body">
                     <div class="row">
                         <div class="panel-body">

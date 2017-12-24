@@ -1,7 +1,7 @@
 <?php
 require_once '../logincheck.php';
 require ('../config.php');
-$date = date('l jS \of F Y');
+ $date = date('F j, Y');
 if(ISSET($_POST['add_drug_preparations'])){
     $date_visited = $date;
     $isoniazid = $_POST['isoniazid'];

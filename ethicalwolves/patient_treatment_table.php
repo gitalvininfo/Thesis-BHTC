@@ -39,7 +39,7 @@ require ('config.php');
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="panel panel-info">
+                                                <div class="panel panel-default">
                                                     <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                                         <div class="panel-body">
                                                             <table class="table datatable">
@@ -73,7 +73,7 @@ require ('config.php');
                                                             <td><center> ".$fetch2['registration_group']." </center></td>
                                                             <td><center><label class='check'><input type='checkbox' class='icheckbox' checked='checked' disabled/></label> </center></td>
                                                             <td><center> 
-                                                            <a class = 'btn btn-info btn-sm' href='patient_treatment.php? id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-search'></span>View Treatment</a>
+                                                            <a class = 'btn btn-info btn-sm' href='patient_treatment.php? id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-search'></span>Treatment</a>
                                                             </center></td>
                                                         </tr>";
 
@@ -89,7 +89,7 @@ require ('config.php');
                                                             <td><center> ".$fetch2['registration_group']." </center></td>
                                                             <td><center> <a data-toggle='tooltip' data-placement='left' title='Add Treatment Partner' class = 'btn btn-danger btn-sm' href='treatment_details.php?id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-user-plus'></span></a>  </center></td>
                                                             <td><center> 
-                                                            <a class = 'btn btn-info btn-sm' href='patient_treatment.php? id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-search'></span>View Treatment</a>
+                                                            <a class = 'btn btn-info btn-sm' href='patient_treatment.php? id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-search'></span>Treatment</a>
                                                             </center></td>
                                                         </tr>";
                 }
@@ -106,7 +106,7 @@ require ('config.php');
                                     <div class="tab-pane" id="tab-second">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="panel panel-info">
+                                                <div class="panel panel-default">
 
                                                     <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                                         <div class="panel-body">
@@ -140,7 +140,7 @@ require ('config.php');
                                                             <td><center> ".$fetch2['diagnosis']." </center></td>
                                                             <td><center><label class='check'><input type='checkbox' class='icheckbox' checked='checked' disabled/></label> </center></td>
                                                             <td><center> 
-                                                            <a class = 'btn btn-info btn-sm' href='patient_ipt_treatment.php? id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-search'></span>View Treatment</a>
+                                                            <a class = 'btn btn-info btn-sm' href='patient_ipt_treatment.php? id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-search'></span>Treatment</a>
                                                             </center></td>
                                                         </tr>";
 
@@ -156,7 +156,7 @@ require ('config.php');
                                                             <td><center> ".$fetch2['diagnosis']." </center></td>
                                                             <td><center> <a data-toggle='tooltip' data-placement='left' title='Add Treatment Partner' class = 'btn btn-danger btn-sm' href='treatment_details_ipt.php?id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-user-plus'></span></a>  </center></td>
                                                             <td><center> 
-                                                            <a class = 'btn btn-info btn-sm' href='patient_ipt_treatment.php? id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-search'></span>View Treatment</a>
+                                                            <a class = 'btn btn-info btn-sm' href='patient_ipt_treatment.php? id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-search'></span>Treatment</a>
                                                             </center></td>
                                                         </tr>";
                                                                         }

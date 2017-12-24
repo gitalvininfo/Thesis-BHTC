@@ -48,46 +48,44 @@ require ('config.php');
                                     </div>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
-                                    <div class="panel-body">
-                                        <table id="laboratory_request" class="table table-hover">
-                                            <thead>
-                                                <tr class="info">
-                                                    <th><center>Date Requested</center></th>
-                                                    <th><center>Requesting Physician</center></th>
-                                                    <th><center>Reason for Examination</center></th>
-                                                    <th><center>Specimen</center></th>
-                                                    <th><center>Specimen Collector</center></th>
-                                                    <th><center>Test Requested</center></th>
-                                                    <th><center>Status</center></th>
-                                                    <th><center>Action</center></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                $query = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
-                                                while($fetch = $query->fetch_array()){
-                                                ?>
-                                                <tr>
-                                                    <td><center><?php echo $fetch['date_of_request']?></center></td>
-                                                    <td><center><?php echo $fetch['requesting_physician']?></center></td>
-                                                    <td><center><?php echo $fetch['reason_for_examination']?></center></td>
-                                                    <td><center><?php echo $fetch['specimen_type']?> </center></td>
-                                                    <td><center><?php echo $fetch['sample_collector']?> </center></td>
-                                                    <td><center> <?php echo $fetch['test_requested']?> </center></td>
-                                                    <td><center><strong><?php echo $fetch['status']?></strong></center></td>
-                                                    <td>
-                                                        <center><a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-info btn-sm"><span class="fa fa-search"></span> </a>
-                                                        </center>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                }
-                                                $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <table id="laboratory_request" class="table table-hover">
+                                        <thead>
+                                            <tr class="info">
+                                                <th><center>Date Requested</center></th>
+                                                <th><center>Requesting Physician</center></th>
+                                                <th><center>Reason for Examination</center></th>
+                                                <th><center>Specimen</center></th>
+                                                <th><center>Specimen Collector</center></th>
+                                                <th><center>Test Requested</center></th>
+                                                <th><center>Status</center></th>
+                                                <th><center>Action</center></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                            $query = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
+                                            while($fetch = $query->fetch_array()){
+                                            ?>
+                                            <tr>
+                                                <td><center><?php echo $fetch['date_of_request']?></center></td>
+                                                <td><center><?php echo $fetch['requesting_physician']?></center></td>
+                                                <td><center><?php echo $fetch['reason_for_examination']?></center></td>
+                                                <td><center><?php echo $fetch['specimen_type']?> </center></td>
+                                                <td><center><?php echo $fetch['sample_collector']?> </center></td>
+                                                <td><center> <?php echo $fetch['test_requested']?> </center></td>
+                                                <td><center><strong><?php echo $fetch['status']?></strong></center></td>
+                                                <td>
+                                                    <center><a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-info btn-sm"><span class="fa fa-search"></span> </a>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                            }
+                                            $conn->close();
+                                            ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -105,53 +103,45 @@ require ('config.php');
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
-        <script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
-        <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
         <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
         <script type="text/javascript" src="js/plugins.js"></script>
         <script type="text/javascript" src="js/actions.js"></script>
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript">
-            var jvalidate = $("#jvalidate").validate({
+            var labrequest = $("#labrequest").validate({
                 ignore: [],
                 rules: {
+                    collection_unit: {
+                        required: true
+                    },
+                    date_of_request: {
+                        required: true
+                    },
                     requesting_physician: {
                         required: true,
-                        minlength: 2,
-                        maxlength: 30
+                        minlength: 3
                     },
-                    password: {
-                        required: true,
-                        minlength: 5,
-                        maxlength: 10
+                    reason_for_examination: {
+                        required: true
                     },
-                    're-password': {
-                        required: true,
-                        minlength: 5,
-                        maxlength: 10,
-                        equalTo: "#password2"
+                    specimen_type: {
+                        required: true
                     },
-                    age: {
-                        required: true,
-                        min: 18,
-                        max: 100
+                    repeat_collection: {
+                        required: true
                     },
-                    email: {
-                        required: true,
-                        email: true
+                    date_sample_collected: {
+                        required: true
                     },
-                    date: {
-                        required: true,
-                        date: true
+                    sample_collector: {
+                        required: true
                     },
-                    credit: {
-                        required: true,
-                        creditcard: true
+                    contact_number: {
+                        required: true
                     },
-                    site: {
-                        required: true,
-                        url: true
+                    test_requested: {
+                        required: true
                     }
                 }
             });

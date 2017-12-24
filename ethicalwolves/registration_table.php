@@ -40,7 +40,7 @@ require ('config.php');
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="panel panel-info">
+                                                <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <div class="btn-group pull-right">
                                                             <div class="pull-left">
@@ -96,7 +96,7 @@ require ('config.php');
                                     <div class="tab-pane" id="tab-second">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="panel panel-info">
+                                                <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <div class="btn-group pull-right">
                                                             <div class="pull-left">
@@ -175,8 +175,6 @@ require ('config.php');
         <script type="text/javascript" src="js/actions.js"></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>  
-        <script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
-        <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
         <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>   
         <script type="text/javascript">
             var tbcase = $("#tbcase").validate({
@@ -188,6 +186,9 @@ require ('config.php');
                         max: 100,
                         maxlength: 3
                     },
+                    barangay: {
+                        required: true
+                    },
                     birthdate: {
                         required: true,
                         date: true
@@ -197,6 +198,12 @@ require ('config.php');
                         maxlength: 3
                     },
                     contact_person: {
+                        required: true
+                    },
+                    address: {
+                        required: true
+                    },
+                    gender: {
                         required: true
                     }
 
@@ -216,6 +223,12 @@ require ('config.php');
                         required: true,
                         date: true
                     },
+                    gender: {
+                        required: true
+                    },
+                    address: {
+                        required: true
+                    }
                 }
             });
         </script>

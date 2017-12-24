@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="largeModalHead"><span class="fa fa-user-plus"></span> New Patient</h4>
             </div>
-            <form id="tbcase" role="form" class="form-horizontal" action="actions/registration_table.php" method="post">
+            <form id="tbcase" role="form" class="form-horizontal" action="actions/registration_table.php" method="post" onsubmit="return confirm('Are you sure you want to add new patient?');">
                 <div class="modal-body">
                     <div class="row">
                         <div class="panel-body">
