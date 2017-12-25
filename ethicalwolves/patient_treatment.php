@@ -16,6 +16,8 @@ require ('config.php');
         <script src="js/plugins/jquery/jquery.min.js"></script>
         <script src="js/jquery.canvasjs.min.js"></script>
         <?php include_once 'js/loadchart/show_weight.php'?>
+        <?php require 'js/loadchart/intensive_phase.php'?>
+
     </head>
     <body>
         <?php 
@@ -234,7 +236,7 @@ require ('config.php');
                                                                         <input  class="form-control" style="font-size:15px;font-weight:bold;color:red" name="dosage" value="<?php echo $f3['total']. " days" ?>" disabled/>
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" name="add_absent" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                                                <button type="submit" name="add_absent_intensive" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                 <?php require_once 'require/add_intensive_phase.php' ?>
                                                             </form>
                                                         </div>
@@ -376,7 +378,7 @@ require ('config.php');
                                                                 </div>
                                                                 <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
-                                                                
+
                                                             </form>
                                                         </div>
                                                     </div>
@@ -453,7 +455,7 @@ require ('config.php');
                                                                         <input  class="form-control" style="font-size:15px;font-weight:bold;color:red" name="dosage" value="<?php echo $f3['total']. " days" ?>" disabled/>
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" name="add_absent" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                                                <button type="submit" name="add_absent_continuation" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                             </form>
@@ -667,7 +669,9 @@ require ('config.php');
 
                                     </div>
                                     <div class="tab-pane" id="tab-fifth">
-                                        <?php require 'overview_intensive_continuation.php'?>
+                                        <div class="row">
+                                            <?php require 'overview_intensive_continuation.php'?>                                               
+                                        </div>
                                     </div>
                                 </div>
                             </div>

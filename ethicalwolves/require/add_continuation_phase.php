@@ -11,7 +11,7 @@ if(ISSET($_POST['add_continuation_phase'])){
     $conn->close();
 
 }
-if(ISSET($_POST['add_absent'])){
+if(ISSET($_POST['add_absent_continuation'])){
     $month = $_POST['month'];
     $day = $_POST['day'];
     $patient_id = $_GET['id'];
