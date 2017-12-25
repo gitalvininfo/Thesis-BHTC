@@ -7,7 +7,7 @@ if(ISSET($_POST['add_treatment_details'])){
     $patient_id = $_GET['id'];
 
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `treatment_record` VALUES('', '$treatment_partner_name', '$designation_treatment_partner', 'Currently in Treatment', 'Done', '$patient_id')") or die(mysqli_error());
+    $conn->query("INSERT INTO `treatment_record` VALUES('', '$treatment_partner_name', '$designation_treatment_partner', 'Currently in Treatment', 'Done', '', '$patient_id')") or die(mysqli_error());
 
     $conn->query("UPDATE `patient` SET `treatment_partner` = 'Done' WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
     $conn->close();

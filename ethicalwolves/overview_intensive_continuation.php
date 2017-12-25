@@ -1,7 +1,7 @@
-<div class="row">                        
+<div class="row">
     <div class="col-md-9">
         <div class="panel panel-default">
-            <div class="panel-body panel-body-table">                            
+            <div class="panel-body">                            
                 <div class="tocify-content">
                     &nbsp;
                     <?php 
@@ -11,8 +11,12 @@
                     ?>
                     <h2><strong>Intensive Phase - <?php echo $f1['sum(dosage)']. " mg"?></strong></h2>
                     <hr>
+                    <div class="btn-group pull-right">
+                        <div class="pull-left">
+                            <a href="#intensive<?php echo $f['patient_id'];?>" data-target="#intensive<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-info-circle"></span>Monthly Dosage</a>
+                        </div>
+                    </div>
                     <h3>Date of Intake</h3>
-                    
                     <div class="panel-body">
                         <table class="table datatable">
                             <thead>
@@ -24,11 +28,11 @@
                             </thead>
                             <tbody>
                                 <?php
-    require 'config.php';
-                        $query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` DESC ") or die(mysqli_error());
-                        $q2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                        $f2 = $q2->fetch_array();
-                        while($fetch = $query->fetch_array()){
+                                require 'config.php';
+                                $query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` DESC ") or die(mysqli_error());
+                                $q2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                $f2 = $q2->fetch_array();
+                                while($fetch = $query->fetch_array()){
                                 ?>
                                 <tr>
                                     <td><center><?php echo $fetch['month']. " " .$fetch['day']. ", " .$fetch['year']?></center></td>
@@ -36,8 +40,8 @@
                                     <td><center><?php echo $fetch['remarks']?></center></td>
                                 </tr>
                                 <?php
-                        }
-                        $conn->close();
+                                }
+                                $conn->close();
                                 ?>
                             </tbody>
                         </table> 
@@ -48,6 +52,11 @@
                     $f1 = $q1->fetch_array();
                     ?>
                     <h2><strong>Continuation Phase - <?php echo $f1['sum(dosage)']. " mg"?></strong></h2> <hr>
+                    <div class="btn-group pull-right">
+                        <div class="pull-left">
+                            <a href="#continuation<?php echo $f['patient_id'];?>" data-target="#continuation<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-info-circle"></span>Monthly Dosage</a>
+                        </div>
+                    </div>
                     <h3>Date of Intake</h3>
                     <div class="panel-body">
                         <table class="table datatable">
@@ -60,11 +69,11 @@
                             </thead>
                             <tbody>
                                 <?php
-    require 'config.php';
-                        $query = $conn->query("SELECT * FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `continuation_phase_id` DESC ") or die(mysqli_error());
-                        $q2 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                        $f2 = $q2->fetch_array();
-                        while($fetch = $query->fetch_array()){
+                                require 'config.php';
+                                $query = $conn->query("SELECT * FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `continuation_phase_id` DESC ") or die(mysqli_error());
+                                $q2 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                $f2 = $q2->fetch_array();
+                                while($fetch = $query->fetch_array()){
                                 ?>
                                 <tr>
                                     <td><center><?php echo $fetch['month']. " " .$fetch['day']. ", " .$fetch['year']?></center></td>
@@ -72,8 +81,8 @@
                                     <td><center><?php echo $fetch['remarks']?></center></td>
                                 </tr>
                                 <?php
-                        }
-                        $conn->close();
+                                }
+                                $conn->close();
                                 ?>
                             </tbody>
                         </table> 

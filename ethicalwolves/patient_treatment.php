@@ -680,6 +680,8 @@ require ('config.php');
                 </div>
             </div>
         </div>
+        <?php require 'require/modals/monthly_dosage_continuation.php'?>
+        <?php require 'require/modals/monthly_dosage_intensive.php'?>
         <?php require 'require/modals/end_treatment.php'?>
         <?php require 'require/modals/add_clinical_findings.php'?>
         <?php require 'require/modals/add_drug_preparations.php'?>

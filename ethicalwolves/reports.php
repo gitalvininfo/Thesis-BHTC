@@ -21,7 +21,7 @@ require ('config.php');
         ?>
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
-               <div class="page-content">
+            <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
@@ -111,6 +111,23 @@ require ('config.php');
                                     </div>
                                 </div>
                                 <div class="col-md-3">
+                                    <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_treatment_outcome.php';" style="cursor:pointer;">
+                                        <div class="widget-item-left">
+                                            <span class="fa fa-bar-chart"></span>
+                                        </div>
+                                        <div class="widget-data">
+                                            <div class="widget-int num-count">
+                                                BHTC
+                                            </div>
+                                            <div class="widget-subtitle">Reports By</div>
+                                            <div class="widget-title">Treatment Outcome</div>
+                                            <div class="widget-controls">
+                                                <a href="#" class="widget-control-right" data-toggle="tooltip" data-placement="top" title="View Detailed Reports"><span class="fa fa-info"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
                                     <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_patient_population.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-bar-chart"></span>
@@ -168,7 +185,7 @@ require ('config.php');
                 </div>
             </div>
         </div>
-       <?php require 'require/logout.php'?>
+        <?php require 'require/logout.php'?>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>

@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -26,6 +26,7 @@ INSERT INTO backup VALUES("76","Successfully exported database","December 24, 20
 INSERT INTO backup VALUES("77","Successfully exported database","December 24, 2017, 3:08 am"); 
 INSERT INTO backup VALUES("78","Successfully imported database","December 24, 2017, 4:55 pm"); 
 INSERT INTO backup VALUES("79","Successfully imported database","December 25, 2017, 12:53 am"); 
+INSERT INTO backup VALUES("80","Successfully imported database","December 25, 2017, 5:37 pm"); 
 
 
 
@@ -454,7 +455,7 @@ INSERT INTO patient VALUES("8","Vincent Suyo","20","Male","My Address","Pahanoco
 INSERT INTO patient VALUES("9","Brix Nessia","22","Male","My Address","Mandalagan","2017-10-30","178","12312","Negros Occidental","","","qweqw","12313","Registered","Done","2017"); 
 INSERT INTO patient VALUES("10","Hans Patrick Legislador","22","Male","My Address","Mandalagan","2017-10-30","178","12321","Negros Occidental","","","eqewq","1231","Registered","Done","2017"); 
 INSERT INTO patient VALUES("11","Ivan Buglosa","22","Male","My Address","Granada ","2017-10-30","178","433-2494","Negros Occidental","","","qewq","12","Registered","Pending","2017"); 
-INSERT INTO patient VALUES("12","Steven Saludares","20","Male","","Handumanan","2017-10-30","178","123","Negros Occidental","student","no philhealth","eqweqw","12","Registered","Pending","2017"); 
+INSERT INTO patient VALUES("12","Steven Saludares","20","Male","","Handumanan","2017-10-30","178","123","Negros Occidental","student","no philhealth","eqweqw","12","Registered","Done","2017"); 
 INSERT INTO patient VALUES("13","Menard Gardose","10","Male","My Address","Tangub","2017-10-29","178","3123","Negros Occidental","","","wqeqw","2131","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("14","qw","12","Male","wqew","Bata","2017-11-20","1231","1231","Negros Occidental","","","eqeqw","132","Registered","Done","2017"); 
 INSERT INTO patient VALUES("15","qwe","21","Male","tga banago","Brgy 38","2017-11-26","12","232","Negros Occidental","","","wqeq","123","Registered","Done","2017"); 
@@ -591,20 +592,22 @@ CREATE TABLE `treatment_record` (
   `designation_treatment_partner` varchar(30) NOT NULL,
   `status` varchar(30) NOT NULL,
   `remarks` char(10) NOT NULL,
+  `year` char(4) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`treatment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
-INSERT INTO treatment_record VALUES("1","Dr. Haro","BHW","Currently in Treatment	","Done","44"); 
-INSERT INTO treatment_record VALUES("2","Dr. Reymund Sabay","Barangay Health Worker","Cured","Done","1"); 
-INSERT INTO treatment_record VALUES("3","Dr. Haro","BHW","Lost to Follow-up","Done","2"); 
-INSERT INTO treatment_record VALUES("4","eqeq","eqeq","Currently in Treatment	","Done","6"); 
-INSERT INTO treatment_record VALUES("5","Dr. Haro","BHW","Currently in Treatment	","Done","7"); 
-INSERT INTO treatment_record VALUES("6","Carl Betio","Barangay Health Worker","Currently in Treatment	","Done","5"); 
-INSERT INTO treatment_record VALUES("10","Dr. Diancin","Barangay Health Worker","Currently in Treatment	","Done","10"); 
-INSERT INTO treatment_record VALUES("11","Alvin Yanson","Barangay Health Worker","Currently in Treatment	","Done","21"); 
-INSERT INTO treatment_record VALUES("12","Patrick Legislador","Barangay Health Worker","Currently in Treatment","Done","17"); 
-INSERT INTO treatment_record VALUES("13","Ivan Ray Buglosa","Barangay Health Worker","Currently in Treatment","Done","9"); 
+INSERT INTO treatment_record VALUES("1","Dr. Haro","BHW","Currently in Treatment    ","Done","2017","44"); 
+INSERT INTO treatment_record VALUES("2","Dr. Reymund Sabay","Barangay Health Worker","Cured","Done","2017","1"); 
+INSERT INTO treatment_record VALUES("3","Dr. Haro","BHW","Lost to Follow-up","Done","2017","2"); 
+INSERT INTO treatment_record VALUES("4","eqeq","eqeq","Currently in Treatment	","Done","2017","6"); 
+INSERT INTO treatment_record VALUES("5","Dr. Haro","BHW","Not Evaluated","Done","2017","7"); 
+INSERT INTO treatment_record VALUES("6","Carl Betio","Barangay Health Worker","Currently in Treatment	","Done","2017","5"); 
+INSERT INTO treatment_record VALUES("10","Dr. Diancin","Barangay Health Worker","Currently in Treatment	","Done","2017","10"); 
+INSERT INTO treatment_record VALUES("11","Alvin Yanson","Barangay Health Worker","Currently in Treatment	","Done","","21"); 
+INSERT INTO treatment_record VALUES("12","Patrick Legislador","Barangay Health Worker","Currently in Treatment","Done","2017","17"); 
+INSERT INTO treatment_record VALUES("13","Ivan Ray Buglosa","Barangay Health Worker","Currently in Treatment","Done","2017","9"); 
+INSERT INTO treatment_record VALUES("15","Keir Velez","Barangay Health Worker","Not Evaluated","Done","2017","12"); 
 
 
 
