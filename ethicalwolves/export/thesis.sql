@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -27,6 +27,7 @@ INSERT INTO backup VALUES("77","Successfully exported database","December 24, 20
 INSERT INTO backup VALUES("78","Successfully imported database","December 24, 2017, 4:55 pm"); 
 INSERT INTO backup VALUES("79","Successfully imported database","December 25, 2017, 12:53 am"); 
 INSERT INTO backup VALUES("80","Successfully imported database","December 25, 2017, 5:37 pm"); 
+INSERT INTO backup VALUES("81","Successfully exported database","December 25, 2017, 11:56 pm"); 
 
 
 
@@ -377,10 +378,15 @@ CREATE TABLE `medication_dispensation` (
   `quantity` int(10) NOT NULL,
   `received_by` varchar(30) NOT NULL,
   PRIMARY KEY (`dispensation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 INSERT INTO medication_dispensation VALUES("1","Banago Barangay Health Station","Isoniazid","2017-11-25","50","Dr. Haro"); 
 INSERT INTO medication_dispensation VALUES("2","Alijis Barangay Health Station","name","2017-11-29","10","Menard Gardose"); 
+INSERT INTO medication_dispensation VALUES("3","Banago Barangay Health Station","Isoniazid","2017-12-27","5","qewq"); 
+INSERT INTO medication_dispensation VALUES("4","Alijis Barangay Health Station","Rifampicin","2017-12-27","7","Dr"); 
+INSERT INTO medication_dispensation VALUES("5","Alijis Barangay Health Station","Rifampicin","2017-12-27","5","Alson Bayon-on"); 
+INSERT INTO medication_dispensation VALUES("6","Banago Barangay Health Station","Isoniazid","2017-12-27","4","Alson Bayon-on"); 
+INSERT INTO medication_dispensation VALUES("7","Choose Health Center","Isoniazid","2017-12-27","12","Gabriel Banua"); 
 
 
 
@@ -394,9 +400,9 @@ CREATE TABLE `medicine` (
   PRIMARY KEY (`medicine_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
-INSERT INTO medicine VALUES("1","Isoniazid","This is Isoniazidskie","128"); 
+INSERT INTO medicine VALUES("1","Isoniazid","This is Isoniazidskie","398"); 
 INSERT INTO medicine VALUES("2","name","nameolekfkldf","15"); 
-INSERT INTO medicine VALUES("3","Rifampicin","This is Rifampicin","0"); 
+INSERT INTO medicine VALUES("3","Rifampicin","This is Rifampicin","575"); 
 INSERT INTO medicine VALUES("4","Ethambutol","This is Ethambutol","0"); 
 INSERT INTO medicine VALUES("5","Streptomycin","This is Streptomycin","0"); 
 INSERT INTO medicine VALUES("6","qweq","qwew","0"); 
@@ -411,14 +417,24 @@ CREATE TABLE `medicine_stocks` (
   `medicine_stock_id` int(10) NOT NULL AUTO_INCREMENT,
   `medicine_name` varchar(50) NOT NULL,
   `quantity` int(10) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` varchar(30) NOT NULL,
   PRIMARY KEY (`medicine_stock_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 INSERT INTO medicine_stocks VALUES("1","Isoniazid","100","2017-11-25 20:52:15"); 
 INSERT INTO medicine_stocks VALUES("2","name","12","2017-11-29 20:11:39"); 
 INSERT INTO medicine_stocks VALUES("3","name","13","2017-11-29 20:12:42"); 
 INSERT INTO medicine_stocks VALUES("4","Isoniazid","78","2017-12-11 23:04:56"); 
+INSERT INTO medicine_stocks VALUES("5","Rifampicin","455","2017-12-27 00:01:58"); 
+INSERT INTO medicine_stocks VALUES("6","Isoniazid","2","2017-12-27 00:09:12"); 
+INSERT INTO medicine_stocks VALUES("7","Isoniazid","50","2017-12-27 00:11:10"); 
+INSERT INTO medicine_stocks VALUES("8","Isoniazid","30","2017-12-27 00:11:36"); 
+INSERT INTO medicine_stocks VALUES("9","Isoniazid","100","2017-12-27 00:11:49"); 
+INSERT INTO medicine_stocks VALUES("10","Rifampicin","45","2017-12-27 00:28:14"); 
+INSERT INTO medicine_stocks VALUES("11","Isoniazid","14","December 27, 2017, 1"); 
+INSERT INTO medicine_stocks VALUES("12","Rifampicin","45","December 27, 2017, 12:31 "); 
+INSERT INTO medicine_stocks VALUES("13","Rifampicin","10","December 27, 2017, 12:32 am"); 
+INSERT INTO medicine_stocks VALUES("14","Isoniazid","100","December 27, 2017, 12:33 am"); 
 
 
 
@@ -456,7 +472,7 @@ INSERT INTO patient VALUES("9","Brix Nessia","22","Male","My Address","Mandalaga
 INSERT INTO patient VALUES("10","Hans Patrick Legislador","22","Male","My Address","Mandalagan","2017-10-30","178","12321","Negros Occidental","","","eqewq","1231","Registered","Done","2017"); 
 INSERT INTO patient VALUES("11","Ivan Buglosa","22","Male","My Address","Granada ","2017-10-30","178","433-2494","Negros Occidental","","","qewq","12","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("12","Steven Saludares","20","Male","","Handumanan","2017-10-30","178","123","Negros Occidental","student","no philhealth","eqweqw","12","Registered","Done","2017"); 
-INSERT INTO patient VALUES("13","Menard Gardose","10","Male","My Address","Tangub","2017-10-29","178","3123","Negros Occidental","","","wqeqw","2131","Registered","Pending","2017"); 
+INSERT INTO patient VALUES("13","Menard Gardose","10","Male","My Address","Tangub","2017-10-29","178","3123","Negros Occidental","","","wqeqw","2131","Registered","Done","2017"); 
 INSERT INTO patient VALUES("14","qw","12","Male","wqew","Bata","2017-11-20","1231","1231","Negros Occidental","","","eqeqw","132","Registered","Done","2017"); 
 INSERT INTO patient VALUES("15","qwe","21","Male","tga banago","Brgy 38","2017-11-26","12","232","Negros Occidental","","","wqeq","123","Registered","Done","2017"); 
 INSERT INTO patient VALUES("16","zx","23","Female","qweq","Brgy 14","2017-11-26","12","433-2449","Negros Occidental","","","qwe","123","Registered","Pending","2017"); 
@@ -595,7 +611,7 @@ CREATE TABLE `treatment_record` (
   `year` char(4) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`treatment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 INSERT INTO treatment_record VALUES("1","Dr. Haro","BHW","Currently in Treatment    ","Done","2017","44"); 
 INSERT INTO treatment_record VALUES("2","Dr. Reymund Sabay","Barangay Health Worker","Cured","Done","2017","1"); 
@@ -608,6 +624,7 @@ INSERT INTO treatment_record VALUES("11","Alvin Yanson","Barangay Health Worker"
 INSERT INTO treatment_record VALUES("12","Patrick Legislador","Barangay Health Worker","Currently in Treatment","Done","2017","17"); 
 INSERT INTO treatment_record VALUES("13","Ivan Ray Buglosa","Barangay Health Worker","Currently in Treatment","Done","2017","9"); 
 INSERT INTO treatment_record VALUES("15","Keir Velez","Barangay Health Worker","Not Evaluated","Done","2017","12"); 
+INSERT INTO treatment_record VALUES("16","Carl Betio","Barangay Health Worker","Cured","Done","2017","13"); 
 
 
 

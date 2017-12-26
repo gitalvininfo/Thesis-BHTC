@@ -20,8 +20,7 @@ $ne = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `stat
 $f6 = $ne->fetch_array();
 $ec = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Excluded from Cohort' && `year` = '$year'") or die(mysqli_error());
 $f7 = $ec->fetch_array();
-$ct = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Currently in Treatment' && `year` = '$year'") or die(mysqli_error());
-$f8 = $ct->fetch_array();
+
 
 ?>
 <script type="text/javascript"> 
@@ -66,11 +65,10 @@ $f8 = $ct->fetch_array();
                          { label: "Failed", y: <?php echo $f4['total']?> },
                         { label: "Lost to Follow-up", y: <?php echo $f5['total']?> },
                          { label: "Not Evaluated", y: <?php echo $f6['total']?> },
-                        { label: "Excluded from Cohort", y: <?php echo $f7['total']?> },
-                         { label: "Currently in Treatment", y: <?php echo $f8['total']?> }
+                        { label: "Excluded from Cohort", y: <?php echo $f7['total']?> }
+                         ] 
+                        }
                     ] 
+                }); 
                 }
-            ] 
-        }); 
-    }
 </script>

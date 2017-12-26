@@ -17,7 +17,7 @@ while($fetch = $query->fetch_array()){
                     <div class="row">
                         <div class="panel-body">
                             <div class="block">
-                                <h3>Drug Preparations for <?php echo $f['patient_name']?></h3>
+                                <h3>Drug Preparations for <?php echo $fetch['patient_name']?></h3>
                                 <h5 class="push-up-20">Isoniazid</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">

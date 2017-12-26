@@ -23,19 +23,30 @@ while($fetch = $query->fetch_array()){
                                         <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
                                         <select class="form-control select" data-live-search="true" name="collection_unit" required>
                                             <option>Name of Collection Unit</option>
-                                            <option value="Bata Health Center">Bata Health Center</option>
-                                            <option value="Sum-ag Health Center">Sum-ag Health Center</option>
-                                            <option value="Estefania Health Center">Estefania Health Center</option>
-                                            <option value="Banago Health Center">Banago Health Center</option>
-                                            <option value="Handumanan Health Center">Handumanan Health Center</option>
-                                            <option value="Taculing Health Center">Taculing Health Center</option>
-                                            <option value="Villamonte Health Center">Villamonte Health Center</option>
-                                            <option value="Taculing Health Center">Taculing Health Center</option>
-                                            <option value="Singcang-Airport Health Center">Singcang-Airport Health Center</option>
-                                            <option value="Pta. Taytay Health Center">Pta. Taytay Health Center</option>
-                                            <option value="Montevista Health Center">Montevista Health Center</option>
-                                            <option value="Mansilingan Health Center">Mansilingan Health Center</option>
-                                            <option value="Mandalagan Health Center">Mandalagan Health Center</option>
+                                            <option value="ABCASA Barangay Health Station">ABCASA Barangay Health Station</option>
+                                            <option value="Alangilan Barangay Health Station">Alangilan Barangay Health Station</option>
+                                            <option value="Alijis Barangay Health Station">Alijis Barangay Health Station</option>
+                                            <option value="Banago Barangay Health Station">Banago Barangay Health Station</option>
+                                            <option value="Bata Barangay Health Station">Bata Barangay Health Station</option>
+                                            <option value="Cabug Barangay Health Station">Cabug Barangay Health Station</option>
+                                            <option value="Estefania Barangay Health Station">Estefania Barangay Health Station</option>
+                                            <option value="Felisa Barangay Health Station">Felisa Barangay Health Station</option>
+                                            <option value="Granada Barangay Health Station">Granada Barangay Health Station</option>
+                                            <option value="Handumanan Barangay Health Station">Handumanan Barangay Health Station</option>
+                                            <option value="Lopez Jaena Health Plus">Lopez Jaena Health Plus</option>
+                                            <option value="Mabini Health Plus">Mabini Health Plus</option>
+                                            <option value="Mandalagan Barangay Health Station">Mandalagan Barangay Health Station</option>
+                                            <option value="Mansilingan Barangay Health Station">Mansilingan Barangay Health Station</option>
+                                            <option value="Montevista Barangay Health Station">Montevista Barangay Health Station</option>
+                                            <option value="Pahanocoy Barangay Health Station">PAHANOCOY Barangay Health Station</option>
+                                            <option value="Punta Taytay Barangay Health Station">Punta Taytay Barangay Health Station</option>
+                                            <option value="Singcang Barangay Health Station">Singcang Barangay Health Station</option>
+                                            <option value="Sum-ag Barangay Health Station">Sum-ag Barangay Health Station</option>
+                                            <option value="Taculing Barangay Health Station">Taculing Barangay Health Station</option>
+                                            <option value="Tangub Barangay Health Station">Tangub Barangay Health Station</option>
+                                            <option value="Villa Esperanza Barangay Health Station">Villa Esperanza Barangay Health Station</option>
+                                            <option value="Villamonte Barangay Health Station">Villamonte Barangay Health Station</option>
+                                            <option value="Vista Alegre Barangay Health Station">Vista Alegre Barangay Health Station</option>
                                         </select>
                                     </div>
                                 </div>

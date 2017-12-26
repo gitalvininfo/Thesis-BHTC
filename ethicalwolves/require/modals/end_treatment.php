@@ -15,7 +15,7 @@ while($fetch = $query->fetch_array()){
                 <div class="modal-body">
                     <div class="panel-body">
                         <div class="block">
-                             <h3>Choose Treatment Outcome for <?php echo $f['patient_name']?></h3>
+                             <h3>Choose Treatment Outcome for <?php echo $fetch['patient_name']?></h3>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="col-md-12">

@@ -55,7 +55,7 @@ require ('../config.php');
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>Classification of TB Disease</th>
+                                                            <th>Treatment Outcome</th>
                                                             <th><center>Number of Patients per Category</center></th>
                                                             <th><center>View Patients</center></th>
                                                         </tr>
@@ -68,30 +68,75 @@ require ('../config.php');
                 $year=$_GET['year'];
             }
             $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $pul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
-            $fetch1 = $pul->fetch_array();
-            $ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary' && `year` = '$year'") or die(mysqli_error());
-            $fetch2 = $ext->fetch_array();
-            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-            $fetch3 = $gra->fetch_array();
+            $cured = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Cured' && `year` = '$year'") or die(mysqli_error());
+            $f1 = $cured->fetch_array();
+            $tc = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Treatment Completed' && `year` = '$year'") or die(mysqli_error());
+            $f2 = $tc->fetch_array();
+            $died = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Died' && `year` = '$year'") or die(mysqli_error());
+            $f3 = $died->fetch_array();
+            $failed = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Failed' && `year` = '$year'") or die(mysqli_error());
+            $f4 = $failed->fetch_array();
+            $lf = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Lost to Follow-up' && `year` = '$year'") or die(mysqli_error());
+            $f5 = $lf->fetch_array();
+            $ne = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Not Evaluated' && `year` = '$year'") or die(mysqli_error());
+            $f6 = $ne->fetch_array();
+            $ec = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Excluded from Cohort' && `year` = '$year'") or die(mysqli_error());
+            $f7 = $ec->fetch_array();
+            $gra = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `year` = '$year'") or die(mysqli_error());
+            $f10 = $gra->fetch_array();
                                                         ?>
                                                         <tr>
-                                                            <td>Pulmonary</td>
-                                                            <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
+                                                            <td>Cured</td>
+                                                            <td><center><strong><?php echo $f1['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#pul"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#cured"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Extra-pulmonary</td>
-                                                            <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
+                                                            <td>Treatment Completed</td>
+                                                            <td><center><strong><?php echo $f2['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ext"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tc"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Died</td>
+                                                            <td><center><strong><?php echo $f3['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#died"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Failed</td>
+                                                            <td><center><strong><?php echo $f4['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#failed"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Lost to Follow-up</td>
+                                                            <td><center><strong><?php echo $f5['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ltf"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Not Evaluated</td>
+                                                            <td><center><strong><?php echo $f6['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ne"><span class="fa fa-search"></span></button>
+                                                                </center></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Excluded from Cohort</td>
+                                                            <td><center><strong><?php echo $f7['total']?></strong></center></td>
+                                                            <td><center>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ec"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr class="danger">
                                                             <td><h4><strong>Grand Total</strong></h4></td>
-                                                            <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $fetch3['total']?></span></strong></center></td>
+                                                            <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $f10['total']?></span></strong></center></td>
                                                             <td></td>
                                                         </tr>
                                                     </tbody>
@@ -106,7 +151,7 @@ require ('../config.php');
                 </div>
             </div>
         </div>
-        <?php require 'require/tabular_classification_of_tb.php'?>
+        <?php require 'require/tabular_treatment_outcome.php'?>
         <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){
