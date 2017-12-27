@@ -33,15 +33,25 @@
                                 $q2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
                                 $f2 = $q2->fetch_array();
                                 while($fetch = $query->fetch_array()){
-                                ?>
-                                <tr>
-                                    <td><center><?php echo $fetch['month']. " " .$fetch['day']. ", " .$fetch['year']?></center></td>
-                                    <td><center><?php echo $fetch['dosage']. " /mg"?></center></td>
-                                    <td><center><?php echo $fetch['remarks']?></center></td>
-                                </tr>
-                                <?php
+                                    if($fetch['remarks'] == 'Absent'){
+                                        echo 
+                                            "<tr>
+                                                            <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#f9d6d6;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
+
+                                    }
+                                    else
+                                    {
+                                        echo
+                                            "<tr>
+                                                            <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#e7f8f4;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
+                                    }
                                 }
-                                $conn->close();
                                 ?>
                             </tbody>
                         </table> 
@@ -74,15 +84,25 @@
                                 $q2 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
                                 $f2 = $q2->fetch_array();
                                 while($fetch = $query->fetch_array()){
-                                ?>
-                                <tr>
-                                    <td><center><?php echo $fetch['month']. " " .$fetch['day']. ", " .$fetch['year']?></center></td>
-                                    <td><center><?php echo $fetch['dosage']. " /mg"?></center></td>
-                                    <td><center><?php echo $fetch['remarks']?></center></td>
-                                </tr>
-                                <?php
+                                    if($fetch['remarks'] == 'Absent'){
+                                        echo 
+                                            "<tr>
+                                                            <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#f9d6d6;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
+
+                                    }
+                                    else
+                                    {
+                                        echo
+                                            "<tr>
+                                                            <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#e7f8f4;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
+                                    }
                                 }
-                                $conn->close();
                                 ?>
                             </tbody>
                         </table> 

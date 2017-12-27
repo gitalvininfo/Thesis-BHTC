@@ -14,11 +14,14 @@ require ('config.php');
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
         <link rel="stylesheet" type="text/css" id="theme" href="css/mycustom.css" />
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+        <script src="js/plugins/jquery/jquery.min.js"></script>
+        <script src="js/jquery.canvasjs.min.js"></script>
+        <?php require 'js/loadchart/intensive_phase.php'?>
 
     </head>
     <body>
         <?php 
-        $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
+    $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
         $find = $query->fetch_array();
         ?>
 
@@ -28,23 +31,21 @@ require ('config.php');
             <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
-                    <li><a href="home.php">Home</a></li>
-                    <li>Data Entry</li>
-                    <li><a href="master_file_patient.php">Patient Master File</a></li>
-                    <li class="active">Patient Overview</li>
-                </ul>
-                <div class="page-content-wrap">
-                    <div class="row">
-                        <?php
+                    <?php
     require 'config.php';
             $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
             $fetch = $query->fetch_array();
             $id = $fetch['patient_id'];
             $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
             $fetch2 = $query2->fetch_array();
-            $query3 = $conn->query("SELECT `status` FROM `treatment_record` WHERE `patient_id` = '$id'") or die(mysqli_error());
-            $fetch3 = $query3->fetch_array();
-                        ?>
+                    ?>
+                    <li><a href="home.php">Home</a></li>
+                    <li>Data Entry</li>
+                    <li><a href="master_file_patient.php">Patient Master File</a></li>
+                    <li class="active"><?php echo $fetch['patient_name']?></li>
+                </ul>
+                <div class="page-content-wrap">
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default tabs">
                                 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +59,7 @@ require ('config.php');
                                     <li><a href="#tab-ninth" role="tab" data-toggle="tab">CXR</a></li>
                                     <div class="btn-group pull-right">
                                         <div class="pull-right">
-                                            <i><h3 class="panel-title"><strong> <?php echo $fetch3['status']?></strong></h3></i>
+                                            <h3 class="panel-title">Treatment Outcome: <i><strong> <?php echo $fetch2['status']?></strong></i></h3>
                                         </div>
                                     </div>
 
@@ -126,7 +127,7 @@ require ('config.php');
                                                     <div class="panel-heading">
                                                         <div class="btn-group pull-left">
                                                             <div class="pull-left">
-                                                                <a href="#new_member<?php echo $f['patient_id'];?>" data-target="#new_member<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-user-plus"></span> New Family Member</a>
+                                                                <a href="#new_member<?php echo $fetch['patient_id'];?>" data-target="#new_member<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-user-plus"></span> New Family Member</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -182,14 +183,14 @@ require ('config.php');
                                                             <tbody>
                                                                 <?php
                                                                 require 'config.php';
-                                                                $query = $conn->query("SELECT * FROM `treatment_record` WHERE `patient_id` = '$_GET[id]' ORDER BY `treatment_id` DESC") or die(mysqli_error());
+                                                                $query = $conn->query("SELECT `tb_case_no`, `treatment_partner_name`, `designation_treatment_partner` FROM `registration` WHERE `patient_id` = '$_GET[id]' ORDER BY `tb_case_no` DESC") or die(mysqli_error());
                                                                 while($fetch = $query->fetch_array()){
                                                                 ?>
                                                                 <tr>
                                                                     <td><center><?php echo $fetch['treatment_partner_name']?></center></td>
                                                                     <td><center><?php echo $fetch['designation_treatment_partner']?></center></td>
                                                                     <td><center>
-                                                                        <a href="#updatepartner<?php echo $fetch['treatment_id'];?>" data-target="#updatepartner<?php echo $fetch['treatment_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
+                                                                        <a href="#updatepartner<?php echo $fetch['tb_case_no'];?>" data-target="#updatepartner<?php echo $fetch['tb_case_no'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span> </a>
                                                                         </center></td>
                                                                 </tr>
                                                                 <?php
@@ -205,176 +206,131 @@ require ('config.php');
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab-second">
-                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 433px;">
-                                            <div class="row">
-                                                <?php
-                                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());   
-                                                $f = $q->fetch_array();
-                                                ?>
-
-                                                <div class="col-md-3">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
-
-                                                            </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Intensive Phase</div>
-                                                                <div class="profile-data-title">Drug Intake</div>
-                                                            </div>
-                                                        </div>                                
-                                                        <div class="widget widget-info widget-item-icon">
-                                                            <div class="widget-item-left">
-                                                                <span class="fa fa-calendar"></span>
-                                                            </div>
-                                                            <div class="widget-data">
-                                                                <?php
-                                                                $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                $query1 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                                $fetch1 = $query1->fetch_array();
-                                                                ?>
-                                                                <div class="widget-int num-count">
-                                                                    <?php echo $fetch1['total'] ?>
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">                            
+                                                        <div class="tocify-content">
+                                                            &nbsp;
+                                                            <?php 
+                                                            require 'config.php';
+                                                            $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                                                            $fetch = $query->fetch_array();
+                                                            $q1 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                                            $f1 = $q1->fetch_array();
+                                                            ?>
+                                                            <h2><strong>Intensive Phase - <?php echo $f1['sum(dosage)']. " mg"?></strong></h2>
+                                                            <hr>
+                                                            <div class="btn-group pull-right">
+                                                                <div class="pull-left">
+                                                                    <a href="#intensive<?php echo $fetch['patient_id'];?>" data-target="#intensive<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-info-circle"></span>Monthly Dosage</a>
                                                                 </div>
-                                                                <div class="widget-title">Days</div>
-                                                                <div class="widget-subtitle">Drug Usage</div>
                                                             </div>
+                                                            <h3>Date of Intake</h3>
+                                                            <div class="panel-body">
+                                                                <table class="table datatable">
+                                                                    <thead>
+                                                                        <tr class="default">
+                                                                            <th><center>Date</center></th>
+                                                                            <th><center>Dosage</center></th>
+                                                                            <th><center>Remarks</center></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                        require 'config.php';
+                                                                        $query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` DESC ") or die(mysqli_error());
+                                                                        $q2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                                                        $f2 = $q2->fetch_array();
+                                                                        while($fetch = $query->fetch_array()){
+                                                                            if($fetch['remarks'] == 'Absent'){
+                                                                                echo 
+                                                                                    "<tr>
+                                                            <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#f9d6d6;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
+
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                echo
+                                                                                    "<tr>
+                                                            <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#e7f8f4;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                    </tbody>
+                                                                </table> 
+                                                            </div>
+                                                            <?php 
+                                                            require 'config.php';
+                                                            $q1 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                                            $f1 = $q1->fetch_array();
+                                                            ?>
+                                                            <h2><strong>Continuation Phase - <?php echo $f1['sum(dosage)']. " mg"?></strong></h2> <hr>
+                                                            <div class="btn-group pull-right">
+                                                                <div class="pull-left">
+                                                                    <a href="#continuation<?php echo $f['patient_id'];?>" data-target="#continuation<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-info-circle"></span>Monthly Dosage</a>
+                                                                </div>
+                                                            </div>
+                                                            <h3>Date of Intake</h3>
+                                                            <div class="panel-body">
+                                                                <table class="table datatable">
+                                                                    <thead>
+                                                                        <tr class="default">
+                                                                            <th><center>Date</center></th>
+                                                                            <th><center>Dosage</center></th>
+                                                                            <th><center>Remarks</center></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                        require 'config.php';
+                                                                        $query = $conn->query("SELECT * FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `continuation_phase_id` DESC ") or die(mysqli_error());
+                                                                        $q2 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                                                        $f2 = $q2->fetch_array();
+                                                                        while($fetch = $query->fetch_array()){
+                                                                            if($fetch['remarks'] == 'Absent'){
+                                                                                echo 
+                                                                                    "<tr>
+                                                            <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#f9d6d6;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
+
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                echo
+                                                                                    "<tr>
+                                                            <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#e7f8f4;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                    </tbody>
+                                                                </table> 
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <h2><strong>Intensive & Continuation Phase</strong></h2> <hr>
+                                                                <h3>Summary</h3>
+                                                                <div id="intensive" style="width: 100%; height: 425px"></div>
+                                                            </div>
+
                                                         </div> 
-                                                        <div class="panel-footer">
-                                                            <a href="patient_treatment.php?id=<?php echo $f['patient_id']?>&patient_name=<?php echo $f['patient_name']?>" class="btn btn-sm btn-info"><span class="fa fa-search"></span>View Treatment</a> 
-                                                        </div>                              
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
-
-                                                            </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Continuation Phase</div>
-                                                                <div class="profile-data-title">Drug Intake</div>
-                                                            </div>
-                                                        </div>                                
-                                                        <div class="widget widget-info widget-item-icon">
-                                                            <div class="widget-item-left">
-                                                                <span class="fa fa-calendar"></span>
-                                                            </div>
-                                                            <div class="widget-data">
-                                                                <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query2 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                                    $fetch2 = $query2->fetch_array();
-                                                                ?>
-                                                                <div class="widget-int num-count">
-                                                                    <?php echo $fetch2['total']; ?>
-                                                                </div>
-                                                                <div class="widget-title">Days</div>
-                                                                <div class="widget-subtitle">Drug Usage</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="panel-footer">
-                                                            <a href="patient_treatment.php?id=<?php echo $f['patient_id']?>&patient_name=<?php echo $f['patient_name']?>" class="btn btn-sm btn-info"><span class="fa fa-search"></span>View Treatment</a>  
-                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <!-- CONTACT ITEM -->
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
-
-                                                            </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Drug Dosage Consumption</div>
-                                                                <div class="profile-data-title">Intensive and Continuation</div>
-                                                            </div>
-                                                        </div>                                
-                                                        <div class="widget widget-danger widget-carousel">
-                                                            <div class="owl-carousel" id="owl-example">
-                                                                <div> 
-                                                                    <?php
-    require 'config.php';
-                                                               $query2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                               $fetch2 = $query2->fetch_array();
-                                                               $query3 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                                               $fetch3= $query3->fetch_array();
-                                                               $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                               $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
-                                                               $f3 = $q3->fetch_array();
-                                                               $q4 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
-                                                               $f4 = $q4->fetch_array();
-                                                                    ?>                                 
-                                                                    <div class="widget-title">Intensive Phase</div>                                                                        
-                                                                    <div class="widget-subtitle">Drug Dosage Given</div>
-                                                                    <div class="widget-int"><?php echo $fetch2['sum(dosage)']; ?></div>
-                                                                </div>
-                                                                <div>                                    
-                                                                    <div class="widget-title">Continuation Phase</div>
-                                                                    <div class="widget-subtitle">Drug Dosage Given</div>
-                                                                    <div class="widget-int"><?php echo $fetch3['sum(dosage)']; ?></div>
-                                                                </div>
-
-                                                                <div>
-                                                                    <div class="widget-title">Intensive Phase</div>
-                                                                    <div class="widget-subtitle">Total Missed Days</div>
-                                                                    <div class="widget-int"><?php echo $f3['total']; ?></div>
-                                                                </div>
-                                                                <div>                                    
-                                                                    <div class="widget-title">Continuation Phase</div>
-                                                                    <div class="widget-subtitle">Total Missed Days</div>
-                                                                    <div class="widget-int"><?php echo $f4['total']; ?></div>
-                                                                </div>
-
-                                                            </div>                            
-                                                        </div> 
-
-                                                        <div class="panel-footer">
-                                                            <a href="patient_treatment.php?id=<?php echo $f['patient_id']?>&patient_name=<?php echo $f['patient_name']?>" class="btn btn-sm btn-info"><span class="fa fa-search"></span>View Treatment</a>  
-                                                        </div>
-                                                    </div>
-                                                    <!-- END CONTACT ITEM -->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-body profile">
-                                                            <div class="profile-image">
-
-                                                            </div>
-                                                            <div class="profile-data">
-                                                                <div class="profile-data-name" style="color:#695858">Follow-up Visit</div>
-                                                                <div class="profile-data-title">Schedules</div>
-                                                            </div>
-                                                        </div>                                
-                                                        <table id="laboratory_request" class="table table-hover">
-                                                            <tbody>
-                                                                <?php
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                               $query = $conn->query("SELECT * FROM `examination_sched` WHERE `patient_id` = '$_GET[id]' ORDER BY `sched_id` DESC") or die(mysqli_error());
-                                                               $id = $f['patient_id'];
-                                                               while($fetch = $query->fetch_array()){
-                                                                   $id = $fetch['patient_id'];
-                                                                ?>
-                                                                <tr>
-                                                                    <td>
-                                                                        <center><?php echo $fetch['examination_date']?></center> 
-                                                                    </td>
-                                                                </tr>
-                                                                <?php
-                                                               }
-                                                               $conn->close();
-                                                                ?>
-                                                            </tbody>
-                                                        </table>
-                                                        <div class="panel-footer">
-                                                        </div>
-                                                    </div> 
+                                            </div>
 
 
-                                                </div>
-
+                                            <div class="col-md-3" style="position: relative;">
+                                                <div id="tocify"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -562,12 +518,17 @@ require ('config.php');
                                     <div class="tab-pane" id="tab-eigth">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 433px;">
                                             <div class="row">
+                                                <?php
+                                                require 'config.php';
+                                                $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                                                $fetch = $query->fetch_array();
+                                                ?>
                                                 <div class="col-md-12">
                                                     <div class="panel panel-info">
                                                         <div class="panel-heading">
                                                             <div class="btn-group pull-right">
                                                                 <div class="pull-left">
-                                                                    <a href="#new_tst<?php echo $f['patient_id'];?>" data-target="#new_tst<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span> TST Result</a>
+                                                                    <a href="#new_tst<?php echo $fetch['patient_id'];?>" data-target="#new_tst<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span> TST Result</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -606,12 +567,17 @@ require ('config.php');
                                     <div class="tab-pane" id="tab-ninth">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 433px;">
                                             <div class="row">
+                                                <?php
+                                                require 'config.php';
+                                                $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                                                $fetch = $query->fetch_array();
+                                                ?>
                                                 <div class="col-md-12">
                                                     <div class="panel panel-info">
                                                         <div class="panel-heading">
                                                             <div class="btn-group pull-right">
                                                                 <div class="pull-left">
-                                                                    <a href="#new_cxr<?php echo $f['patient_id'];?>" data-target="#new_cxr<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span> Chest X-Ray Findings</a>
+                                                                    <a href="#new_cxr<?php echo $fetch['patient_id'];?>" data-target="#new_cxr<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span> Chest X-Ray Findings</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -656,6 +622,8 @@ require ('config.php');
                 </div>
             </div>
         </div>
+        <?php require 'require/modals/monthly_dosage_continuation.php'?>
+        <?php require 'require/modals/monthly_dosage_intensive.php'?>
         <?php require 'require/modals/add_family_member.php'?>
         <?php require 'require/modals/edit_family_member.php'?>
         <?php require 'require/modals/edit_treatment_partner.php'?>
@@ -666,7 +634,6 @@ require ('config.php');
         <?php require 'require/modals/view_dst.php'?>
         <?php require 'require/logout.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -674,8 +641,13 @@ require ('config.php');
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
-        <script type="text/javascript" src="js/plugins/owl/owl.carousel.min.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>
         <script type="text/javascript" src="js/actions.js"></script>
+        <script type="text/javascript" src="js/plugins/tocify/jquery.tocify.min.js"></script>
+        <script>
+            $(function() {
+                var toc = $("#tocify").tocify({context: ".tocify-content", showEffect: "fadeIn",extendPage:false,selectors: "h2, h3, h4" });
+            });
+        </script>
     </body>
 </html>

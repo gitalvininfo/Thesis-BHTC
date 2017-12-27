@@ -15,7 +15,6 @@ require ('config.php');
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
         <script src="js/plugins/jquery/jquery.min.js"></script>
         <script src="js/jquery.canvasjs.min.js"></script>
-        <?php include_once 'js/loadchart/show_weight.php'?>
         <?php require 'js/loadchart/intensive_phase.php'?>
 
     </head>
@@ -79,7 +78,7 @@ require ('config.php');
                                                                 </a>
                                                             </h4>
                                                         </div>
-                                                        <div class="panel-body" id="accOneColOne">
+                                                        <div class="panel-body panel-body-open" id="accOneColOne">
                                                             <?php
                                                             $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                                                             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
@@ -158,7 +157,7 @@ require ('config.php');
                                                                         <input class="form-control" style="font-size:15px;font-weight:bold;color:black" name="remarks" value="<?php echo $f2['total']. " days" ?>" readonly/>
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" name="add_intensive_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                                                <button type="submit" name="add_intensive_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
                                                                 <?php require_once 'require/add_intensive_phase.php' ?>
                                                             </form>
                                                         </div>
@@ -236,7 +235,7 @@ require ('config.php');
                                                                         <input  class="form-control" style="font-size:15px;font-weight:bold;color:red" name="dosage" value="<?php echo $f3['total']. " days" ?>" disabled/>
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" name="add_absent_intensive" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                                                <button type="submit" name="add_absent_intensive" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
                                                                 <?php require_once 'require/add_intensive_phase.php' ?>
                                                             </form>
                                                         </div>
@@ -297,7 +296,7 @@ require ('config.php');
                                                                 </a>
                                                             </h4>
                                                         </div>
-                                                        <div class="panel-body" id="accOneColThree">
+                                                        <div class="panel-body panel-body-open" id="accOneColThree">
                                                             <?php
                                                             $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                                                             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
@@ -376,7 +375,7 @@ require ('config.php');
                                                                         <input class="form-control" style="font-size:15px;font-weight:bold;color:black" name="remarks" value="<?php echo $f2['total']. " days" ?>" readonly/>
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                                                <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                             </form>
@@ -455,7 +454,7 @@ require ('config.php');
                                                                         <input  class="form-control" style="font-size:15px;font-weight:bold;color:red" name="dosage" value="<?php echo $f3['total']. " days" ?>" disabled/>
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" name="add_absent_continuation" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                                                <button type="submit" name="add_absent_continuation" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                             </form>
@@ -634,26 +633,26 @@ require ('config.php');
                                                             </td>
                                                             <td>
                                                                 <center>
-                                                                    <?php echo $fetch['isoniazid']?></center>
+                                                                    <?php echo $fetch['isoniazid']?> ml</center>
                                                             </td>
                                                             <td>
                                                                 <center>
-                                                                    <?php echo $fetch['rifampicin']?>
+                                                                    <?php echo $fetch['rifampicin']?> ml
                                                                 </center>
                                                             </td>
                                                             <td>
                                                                 <center>
-                                                                    <?php echo $fetch['pyrazinamide']?>
+                                                                    <?php echo $fetch['pyrazinamide']?> ml
                                                                 </center>
                                                             </td>
                                                             <td>
                                                                 <center>
-                                                                    <?php echo $fetch['ethambutol']?>
+                                                                    <?php echo $fetch['ethambutol']?> tab
                                                                 </center>
                                                             </td>
                                                             <td>
                                                                 <center>
-                                                                    <?php echo $fetch['streptomycin']?>
+                                                                    <?php echo $fetch['streptomycin']?> ml
                                                                 </center>
                                                             </td>
                                                         </tr>

@@ -23,7 +23,7 @@ while($fetch = $query->fetch_array()){
                                         <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
                                         <select class="form-control select" data-live-search="true" name="collection_unit" required>
                                             <option>Name of Collection Unit</option>
-                                            <option value="ABCASA Barangay Health Station">ABCASA Barangay Health Station</option>
+                                            <option value="Abcasa Barangay Health Station">Abcasa Barangay Health Station</option>
                                             <option value="Alangilan Barangay Health Station">Alangilan Barangay Health Station</option>
                                             <option value="Alijis Barangay Health Station">Alijis Barangay Health Station</option>
                                             <option value="Banago Barangay Health Station">Banago Barangay Health Station</option>
@@ -38,7 +38,7 @@ while($fetch = $query->fetch_array()){
                                             <option value="Mandalagan Barangay Health Station">Mandalagan Barangay Health Station</option>
                                             <option value="Mansilingan Barangay Health Station">Mansilingan Barangay Health Station</option>
                                             <option value="Montevista Barangay Health Station">Montevista Barangay Health Station</option>
-                                            <option value="Pahanocoy Barangay Health Station">PAHANOCOY Barangay Health Station</option>
+                                            <option value="Pahanocoy Barangay Health Station">Pahanocoy Barangay Health Station</option>
                                             <option value="Punta Taytay Barangay Health Station">Punta Taytay Barangay Health Station</option>
                                             <option value="Singcang Barangay Health Station">Singcang Barangay Health Station</option>
                                             <option value="Sum-ag Barangay Health Station">Sum-ag Barangay Health Station</option>

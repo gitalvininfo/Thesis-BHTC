@@ -17,9 +17,9 @@ while($fetch = $query->fetch_array()){
                     <div class="row">
                         <div class="panel-body">
                             <div class="block">
+                                <h5 class="push-up-1">Weight in Kg.</h5>
                                 <div class="form-group ">
-                                    <label class="col-md-1 col-xs-12 control-label">Weight</label>
-                                    <div class="col-md-8 col-xs-12">
+                                    <div class="col-md-22 col-xs-12">
                                         <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
                                         <input data-toggle="tooltip" data-placement="bottom" title="Weight in kg." type="number" class="form-control" name="weight" placeholder="Weight in kg." required/>
                                     </div>
@@ -28,46 +28,46 @@ while($fetch = $query->fetch_array()){
                                 <h4>* Check the appropriate symptoms for <?php echo $f['patient_name']?></h4>
                                 <h5 class="push-up-20"> 1. Unexplained fever greater than 2 weeks</h5>
                                 <div class="form-group">
-                                    <div class="col-md-1">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="/" name="q1" required/> Yes</label>
+                                    <div class="col-md-2">                                    
+                                        <label class="check"><input type="radio" class="iradio" value="✓" name="q1" required/> Yes</label>
                                     </div>
-                                    <div class="col-md-1">                                    
+                                    <div class="col-md-2">                                    
                                         <label class="check"><input type="radio" class="iradio" value="0" name="q1" required/> No </label>
                                     </div>
                                 </div>
                                 <h5 class="push-up-20"> 2. Unexplained cough or wheezing greater than 2 weeks</h5>
                                 <div class="form-group">
-                                    <div class="col-md-1">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="/" name="q2" required/> Yes</label>
+                                    <div class="col-md-2">                                    
+                                        <label class="check"><input type="radio" class="iradio" value="✓" name="q2" required/> Yes</label>
                                     </div>
-                                    <div class="col-md-1">                                    
+                                    <div class="col-md-2">                                    
                                         <label class="check"><input type="radio" class="iradio" value="0" name="q2" required/> No </label>
                                     </div>
                                 </div>
                                 <h5 class="push-up-20"> 3. Unimproved general well-being</h5>
                                 <div class="form-group">
-                                    <div class="col-md-1">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="/" name="q3" required/> Yes</label>
+                                    <div class="col-md-2">                                    
+                                        <label class="check"><input type="radio" class="iradio" value="✓" name="q3" required/> Yes</label>
                                     </div>
-                                    <div class="col-md-1">                                    
+                                    <div class="col-md-2">                                    
                                         <label class="check"><input type="radio" class="iradio" value="0" name="q3" required/> No </label>
                                     </div>
                                 </div>
                                 <h5 class="push-up-20"> 4. Poor appetite</h5>
                                 <div class="form-group">
-                                    <div class="col-md-1">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="/" name="q4" required/> Yes</label>
+                                    <div class="col-md-2">                                    
+                                        <label class="check"><input type="radio" class="iradio" value="✓" name="q4" required/> Yes</label>
                                     </div>
-                                    <div class="col-md-1">                                    
+                                    <div class="col-md-2">                                    
                                         <label class="check"><input type="radio" class="iradio" value="0" name="q4" required/> No </label>
                                     </div>
                                 </div>
                                 <h5 class="push-up-20"> 5. Positive PE findings for Extra-Pulmonary TB</h5>
                                 <div class="form-group">
-                                    <div class="col-md-1">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="/" name="q5" required/> Yes</label>
+                                    <div class="col-md-2">                                    
+                                        <label class="check"><input type="radio" class="iradio" value="✓" name="q5" required/> Yes</label>
                                     </div>
-                                    <div class="col-md-1">                                    
+                                    <div class="col-md-2">                                    
                                         <label class="check"><input type="radio" class="iradio" value="0" name="q5" required/> No </label>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@ while($fetch = $query->fetch_array()){
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-info" name="add_new_clinical"><span class="fa fa-check"></span>Submit</button>
+                    <button type="submit" class="btn btn-info" name="add_new_clinical"><span class="fa fa-check"></span>Save</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
                 </div>
             </form>

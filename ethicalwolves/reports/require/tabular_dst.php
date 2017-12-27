@@ -329,7 +329,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="lev" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+<div class="modal fade" id="pyr" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -830,7 +830,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="slev" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+<div class="modal fade" id="spyr" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">

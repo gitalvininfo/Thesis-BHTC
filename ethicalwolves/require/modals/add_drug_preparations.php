@@ -53,7 +53,7 @@ while($fetch = $query->fetch_array()){
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-info" name="add_drug_preparations"><span class="fa fa-check"></span>Submit</button>
+                    <button type="submit" class="btn btn-info" name="add_drug_preparations"><span class="fa fa-check"></span>Save</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
                 </div>
             </form>

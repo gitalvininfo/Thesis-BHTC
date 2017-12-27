@@ -34,7 +34,7 @@
             <a href="#"><span class="fa fa-folder-open"></span> <span class="xn-text">Data Entry</span></a>       
             <ul>
                 <li><a href="../medicine_table.php"><span class="fa fa-medkit"></span><span class="xn-text">Medicine</span></a></li>
-                <li><a href="../master_file_patient.php"><span class="fa fa-key"></span><span class="xn-text">Patient Master File</span></a></li>
+                <li><a href="../master_file_patient.php"><span class="fa fa-stack-overflow"></span><span class="xn-text">Patient Master File</span></a></li>
                 <li><a href="../master_file_medtech.php"><span class="fa fa-user-md"></span><span class="xn-text">Medical Technologists</span></a></li>
             </ul>
         </li> 
@@ -42,7 +42,7 @@
         <li class="xn-openable">
             <a href="#"><span class="fa fa-pencil-square-o"></span> <span class="xn-text">Transactions</span></a>
             <ul>
-                <li> <a href="../patient_examination_schedule_table.php"><span class="fa fa-calendar"></span> <span class="xn-text">Follow-up Visit</span></a> </li>
+                <li> <a href="../follow_up_table.php"><span class="fa fa-calendar"></span> <span class="xn-text">Follow-up Visit</span></a> </li>
                 <li> <a href="../laboratory_request_table.php"><span class="fa fa-plus"></span> <span class="xn-text">Laboratory Request</span></a> </li>
                 <li> <a href="../registration_table.php"><span class="fa fa-location-arrow"></span> <span class="xn-text">Registration</span></a> </li>
                 <li> <a href="../patient_treatment_table.php"><span class="fa fa-heartbeat"></span> <span class="xn-text">Treatment</span></a> </li>
@@ -52,7 +52,7 @@
         <li class="xn-openable">
             <a href="#"><span class="fa fa-bar-chart"></span> <span class="xn-text">Reports</span></a>
             <ul>
-                <li> <a href="../patient_certification_table.php"><span class="fa fa-file-text"></span> <span class="xn-text">Certification</span></a> </li>
+                <li> <a href="../patient_certification_table.php"><span class="fa fa-ticket"></span> <span class="xn-text">Certification</span></a> </li>
                 <li><a href="../examination_reports_overview.php"><span class="fa fa-stethoscope"></span><span class="xn-text">Examination Report</span></a></li>
                 <li><a href="../reports.php"><span class="fa fa-line-chart"></span><span class="xn-text">TB Cases Report</span></a></li>
                 <li><a href="../patient_record_report.php"><span class="fa fa-user"></span><span class="xn-text">Patient Record Report</span></a></li>

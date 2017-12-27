@@ -11,7 +11,7 @@ while($fetch = $query->fetch_array()){
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="defModalHead"><span class="fa fa-user-plus"></span> Chest X-ray Findings</h4>
             </div>
-            <form role="form" id="jvalidate" class="form-horizontal" action="actions/add_cxr.php" method="post">
+            <form role="form" id="jvalidate" class="form-horizontal" action="actions/add_cxr.php" method="post" onsubmit="return confirm('Are you sure you want to add this Chest X-ray Findings?');">
                 <div class="modal-body">
                     <div class="row">
                         <div class="panel-body">

@@ -246,7 +246,7 @@ if(ISSET($_POST['end_treatment'])){
     $year = date("Y", strtotime("+8 HOURS"));
 
     require 'config.php';
-    $conn->query("UPDATE `treatment_record` SET `status` = '$status', `year` = '$year' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
+    $conn->query("UPDATE `registration` SET `status` = '$status', `year_ended` = '$year' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
     $conn->close();
     echo '<meta http-equiv="refresh" content="2;url=../patient_treatment_table.php">';
     echo "<script>alert('Successfully ended treatment.')</script>";

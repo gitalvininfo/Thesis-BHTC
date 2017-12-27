@@ -39,6 +39,8 @@ fclose($handle);
 date_default_timezone_set('Asia/Manila');
 $date=date("F j, Y, g:i a");
 $connection->query("INSERT INTO `backup` VALUES('', 'Successfully exported database', '$date')") or die(mysqli_error());
+$last_id = mysqli_insert_id($connection);
+echo "The last is" . $last_id;
 echo "<script> alert ('Successfully backed up BHTC-PMIS database!')</script>";
 echo "<script>document.location='../download_database.php'</script>";  
 ?>

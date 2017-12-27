@@ -68,21 +68,21 @@ require ('../config.php');
                 $year=$_GET['year'];
             }
             $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $cured = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Cured' && `year` = '$year'") or die(mysqli_error());
+            $cured = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Cured' && `year` = '$year'") or die(mysqli_error());
             $f1 = $cured->fetch_array();
-            $tc = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Treatment Completed' && `year` = '$year'") or die(mysqli_error());
+            $tc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Treatment Completed' && `year` = '$year'") or die(mysqli_error());
             $f2 = $tc->fetch_array();
-            $died = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Died' && `year` = '$year'") or die(mysqli_error());
+            $died = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Died' && `year` = '$year'") or die(mysqli_error());
             $f3 = $died->fetch_array();
-            $failed = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Failed' && `year` = '$year'") or die(mysqli_error());
+            $failed = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Failed' && `year` = '$year'") or die(mysqli_error());
             $f4 = $failed->fetch_array();
-            $lf = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Lost to Follow-up' && `year` = '$year'") or die(mysqli_error());
+            $lf = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Lost to Follow-up' && `year` = '$year'") or die(mysqli_error());
             $f5 = $lf->fetch_array();
-            $ne = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Not Evaluated' && `year` = '$year'") or die(mysqli_error());
+            $ne = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Not Evaluated' && `year` = '$year'") or die(mysqli_error());
             $f6 = $ne->fetch_array();
-            $ec = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Excluded from Cohort' && `year` = '$year'") or die(mysqli_error());
+            $ec = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Excluded from Cohort' && `year` = '$year'") or die(mysqli_error());
             $f7 = $ec->fetch_array();
-            $gra = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `year` = '$year'") or die(mysqli_error());
+            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
             $f10 = $gra->fetch_array();
                                                         ?>
                                                         <tr>
@@ -133,11 +133,6 @@ require ('../config.php');
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ec"><span class="fa fa-search"></span></button>
                                                                 </center></td>
-                                                        </tr>
-                                                        <tr class="danger">
-                                                            <td><h4><strong>Grand Total</strong></h4></td>
-                                                            <td><center><strong><span class="label label-danger" style="font-size:12px;"><?php echo $f10['total']?></span></strong></center></td>
-                                                            <td></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

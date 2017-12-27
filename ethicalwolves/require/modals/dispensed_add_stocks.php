@@ -102,18 +102,19 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <label class="col-md-3 col-xs-12 control-label">Medicine Name</label>
-                            <div class="col-md-9">        <select class="form-control select" data-live-search="true" name="medicine_name">
-                                <option value="#">Select Medicine</option>
-                                <?php
-                                $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                $query = $conn->query("SELECT * FROM `medicine`") or die(mysqli_error());
+                            <div class="col-md-9">       
+                                <select class="form-control select" data-live-search="true" name="medicine_name" required>
+                                    <option>Select Medicine</option>
+                                    <?php
+                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                    $query = $conn->query("SELECT * FROM `medicine`") or die(mysqli_error());
 
-                                while($fetch = $query->fetch_array()){
-                                ?>
-                                <option value="<?php echo $fetch['medicine_name'];?>"><?php echo $fetch['medicine_name'];?></option>
-                                <?php
-                                }
-                                ?> 
+                                    while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <option value="<?php echo $fetch['medicine_name'];?>"><?php echo $fetch['medicine_name'];?></option>
+                                    <?php
+                                    }
+                                    ?> 
                                 </select>
                             </div>
                         </div>
@@ -121,7 +122,7 @@
                             <label class="col-md-3 col-xs-12 control-label">Quantity</label>
                             <div class="col-md-9">                                  
                                 <input data-toggle="tooltip" data-placement="right" title="Quantity" type="number" class="form-control" name="quantity" 
-                                       placeholder="Quantity / Box"/>
+                                       placeholder="Quantity / Box" required/>
                             </div>
                         </div>
                     </div>

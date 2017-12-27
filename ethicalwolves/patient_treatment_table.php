@@ -51,49 +51,30 @@ require ('config.php');
                                                                         <th><center>Registration Date</center></th>
                                                                         <th><center>Source of Patient</center></th>
                                                                         <th><center>Registration Group</center></th>
-                                                                        <th><center>Treatment Partner</center></th>
                                                                         <th><center>Action</center></th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-            require 'config.php';
-            $query = $conn->query("SELECT * FROM `patient` where `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+    require 'config.php';
+            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $id = $fetch['patient_id'];
                 $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
                 $fetch2 = $query2->fetch_array();
-                if($fetch['treatment_partner'] == 'Done'){
-                    echo 
-                        "<tr>
-                                                            <td><center><strong>".$fetch2['year']."080".$fetch2['tb_case_no']." </strong></center></td>
-                                                            <td><strong><center> ".$fetch['patient_name']." </center></strong></td>
-                                                            <td><center> ".$fetch2['registration_date']." </center></td>
-                                                            <td><center> ".$fetch2['source_of_patient']." </center></td>
-                                                            <td><center> ".$fetch2['registration_group']." </center></td>
-                                                            <td><center><label class='check'><input type='checkbox' class='icheckbox' checked='checked' disabled/></label> </center></td>
-                                                            <td><center> 
-                                                            <a class = 'btn btn-info btn-sm' href='patient_treatment.php? id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-search'></span>Treatment</a>
-                                                            </center></td>
-                                                        </tr>";
-
-                }
-                else
-                {
-                    echo
-                        "<tr>
-                                                            <td><center><strong>".$fetch2['year']."080".$fetch2['tb_case_no']." </strong></center></td>
-                                                            <td><strong><center> ".$fetch['patient_name']." </center></strong></td>
-                                                            <td><center> ".$fetch2['registration_date']." </center></td>
-                                                            <td><center> ".$fetch2['source_of_patient']." </center></td>
-                                                            <td><center> ".$fetch2['registration_group']." </center></td>
-                                                            <td><center> <a data-toggle='tooltip' data-placement='left' title='Add Treatment Partner' class = 'btn btn-danger btn-sm' href='treatment_details.php?id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-user-plus'></span></a>  </center></td>
-                                                            <td><center> 
-                                                            <a class = 'btn btn-info btn-sm' href='patient_treatment.php? id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'><span class='fa fa-search'></span>Treatment</a>
-                                                            </center></td>
-                                                        </tr>";
-                }
+                                                                    ?>                                      
+                                                                    <tr>
+                                                                        <td><center><strong><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch2['registration_date']?></center></td>
+                                                                        <td><center><?php echo $fetch2['source_of_patient']?></center></td>
+                                                                        <td><center><?php echo $fetch2['registration_group']?></center></td>
+                                                                        <td><center>
+                                                                            <a href="patient_treatment.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View</a></center></td>	
+                                                                    </tr>
+                                                                    <?php
             }
+            $conn->close();
                                                                     ?>
                                                                 </tbody>
                                                             </table>                                    

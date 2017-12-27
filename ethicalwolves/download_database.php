@@ -54,17 +54,17 @@ require ('config.php');
                                             <tbody>
                                                 <?php
 
-                require 'config.php';
-                $query = $conn->query("SELECT * FROM `backup` ORDER BY `backup_id` DESC") or die(mysqli_error());
-                while($fetch = $query->fetch_array()){
+                                                require 'config.php';
+                                                $query = $conn->query("SELECT * FROM `backup` ORDER BY `backup_id` DESC") or die(mysqli_error());
+                                                while($fetch = $query->fetch_array()){
                                                 ?>                                      
                                                 <tr>
                                                     <td><center><?php echo $fetch['remarks']?></center></td>
                                                     <td><center><?php echo $fetch['date']?></center></td>
                                                 </tr>
                                                 <?php
-                }
-                $conn->close();
+                                                }
+                                                $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>                                    

@@ -78,7 +78,7 @@ require ('config.php');
                                                                         <td><center><?php echo $fetch['contact_number']?></center></td>
                                                                         <td><center><?php echo $fetch['address']?></center></td>
                                                                         <td><center>
-                                                                            <a href="#registerpatient<?php echo $fetch['patient_id'];?>" data-target="#registerpatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-key"></span>Register</a>
+                                                                            <a href="#registerpatient<?php echo $fetch['patient_id'];?>" data-target="#registerpatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-check"></span>Register</a>
                                                                             </center></td>
                                                                     </tr>
                                                                     <?php

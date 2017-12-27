@@ -6,19 +6,19 @@ if(isset($_GET['year']))
 }
 
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$cured = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Cured' && `year` = '$year'") or die(mysqli_error());
+$cured = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Cured' && `year_ended` = '$year'") or die(mysqli_error());
 $f1 = $cured->fetch_array();
-$tc = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Treatment Completed' && `year` = '$year'") or die(mysqli_error());
+$tc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Treatment Completed' && `year_ended` = '$year'") or die(mysqli_error());
 $f2 = $tc->fetch_array();
-$died = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Died' && `year` = '$year'") or die(mysqli_error());
+$died = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Died' && `year_ended` = '$year'") or die(mysqli_error());
 $f3 = $died->fetch_array();
-$failed = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Failed' && `year` = '$year'") or die(mysqli_error());
+$failed = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Failed' && `year_ended` = '$year'") or die(mysqli_error());
 $f4 = $failed->fetch_array();
-$lf = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Lost to Follow-up' && `year` = '$year'") or die(mysqli_error());
+$lf = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Lost to Follow-up' && `year_ended` = '$year'") or die(mysqli_error());
 $f5 = $lf->fetch_array();
-$ne = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Not Evaluated' && `year` = '$year'") or die(mysqli_error());
+$ne = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Not Evaluated' && `year_ended` = '$year'") or die(mysqli_error());
 $f6 = $ne->fetch_array();
-$ec = $conn->query("SELECT COUNT(*) as total FROM `treatment_record` WHERE `status` = 'Excluded from Cohort' && `year` = '$year'") or die(mysqli_error());
+$ec = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Excluded from Cohort' && `year_ended` = '$year'") or die(mysqli_error());
 $f7 = $ec->fetch_array();
 
 
@@ -35,7 +35,7 @@ $f7 = $ec->fetch_array();
             exportFileName: "Treatment Outcome", 
             exportEnabled: true,
             title: { 
-                text: "Treatment Outcome as of Year <?php echo $year?>",
+                text: "Patients Treatment Outcome in Year <?php echo $year?>",
                 fontSize: 20
             },
             axisX: {		       

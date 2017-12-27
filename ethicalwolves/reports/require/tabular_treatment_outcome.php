@@ -19,21 +19,19 @@
                         <tbody>
                             <?php
     require '../config.php';
-                    $q2 = $conn->query("SELECT * FROM `treatment_record` WHERE `status` = 'Cured' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                    $q2 = $conn->query("SELECT * FROM `registration` WHERE `status` = 'Cured' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                     while($f2 = $q2->fetch_array()){
                         $id = $f2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $query2 = $conn->query("SELECT * FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
-                        $fetch2 = $query2->fetch_array();
 
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><?php echo $year. "080".$f2['tb_case_no']?></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
-                                <td><center><?php echo $fetch2['registration_date']?></center></td>
-                                <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
-                                <td><center><?php echo $fetch2['registration_group']?></center> </td>
+                                <td><center><?php echo $f2['registration_date']?></center></td>
+                                <td><center><?php echo $f2['source_of_patient']?></center> </td>
+                                <td><center><?php echo $f2['registration_group']?></center> </td>
                             </tr>
                             <?php
                     }
@@ -71,21 +69,18 @@
                         <tbody>
                             <?php
     require '../config.php';
-                    $q2 = $conn->query("SELECT * FROM `treatment_record` WHERE `status` = 'Treatment Completed' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                    $q2 = $conn->query("SELECT * FROM `registration` WHERE `status` = 'Treatment Completed' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                     while($f2 = $q2->fetch_array()){
                         $id = $f2['patient_id'];
-                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $query2 = $conn->query("SELECT * FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-                        $fetch2 = $query2->fetch_array();
-
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><?php echo $year. "080".$f2['tb_case_no']?></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
-                                <td><center><?php echo $fetch2['registration_date']?></center></td>
-                                <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
-                                <td><center><?php echo $fetch2['registration_group']?></center> </td>
+                                <td><center><?php echo $f2['registration_date']?></center></td>
+                                <td><center><?php echo $f2['source_of_patient']?></center> </td>
+                                <td><center><?php echo $f2['registration_group']?></center> </td>
                             </tr>
                             <?php
                     }
@@ -123,21 +118,18 @@
                         <tbody>
                             <?php
     require '../config.php';
-                    $q2 = $conn->query("SELECT * FROM `treatment_record` WHERE `status` = 'Died' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                    $q2 = $conn->query("SELECT * FROM `registration` WHERE `status` = 'Died' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                     while($f2 = $q2->fetch_array()){
                         $id = $f2['patient_id'];
-                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $query2 = $conn->query("SELECT * FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-                        $fetch2 = $query2->fetch_array();
-
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><?php echo $year. "080".$f2['tb_case_no']?></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
-                                <td><center><?php echo $fetch2['registration_date']?></center></td>
-                                <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
-                                <td><center><?php echo $fetch2['registration_group']?></center> </td>
+                                <td><center><?php echo $f2['registration_date']?></center></td>
+                                <td><center><?php echo $f2['source_of_patient']?></center> </td>
+                                <td><center><?php echo $f2['registration_group']?></center> </td>
                             </tr>
                             <?php
                     }
@@ -175,21 +167,18 @@
                         <tbody>
                             <?php
     require '../config.php';
-                    $q2 = $conn->query("SELECT * FROM `treatment_record` WHERE `status` = 'Failed' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                    $q2 = $conn->query("SELECT * FROM `registration` WHERE `status` = 'Failed' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                     while($f2 = $q2->fetch_array()){
                         $id = $f2['patient_id'];
-                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $query2 = $conn->query("SELECT * FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-                        $fetch2 = $query2->fetch_array();
-
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><?php echo $year. "080".$f2['tb_case_no']?></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
-                                <td><center><?php echo $fetch2['registration_date']?></center></td>
-                                <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
-                                <td><center><?php echo $fetch2['registration_group']?></center> </td>
+                                <td><center><?php echo $f2['registration_date']?></center></td>
+                                <td><center><?php echo $f2['source_of_patient']?></center> </td>
+                                <td><center><?php echo $f2['registration_group']?></center> </td>
                             </tr>
                             <?php
                     }
@@ -227,21 +216,18 @@
                         <tbody>
                             <?php
     require '../config.php';
-                    $q2 = $conn->query("SELECT * FROM `treatment_record` WHERE `status` = 'Lost to Follow-up' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                    $q2 = $conn->query("SELECT * FROM `registration` WHERE `status` = 'Lost to Follow-up' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                     while($f2 = $q2->fetch_array()){
                         $id = $f2['patient_id'];
-                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $query2 = $conn->query("SELECT * FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-                        $fetch2 = $query2->fetch_array();
-
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><?php echo $year. "080".$f2['tb_case_no']?></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
-                                <td><center><?php echo $fetch2['registration_date']?></center></td>
-                                <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
-                                <td><center><?php echo $fetch2['registration_group']?></center> </td>
+                                <td><center><?php echo $f2['registration_date']?></center></td>
+                                <td><center><?php echo $f2['source_of_patient']?></center> </td>
+                                <td><center><?php echo $f2['registration_group']?></center> </td>
                             </tr>
                             <?php
                     }
@@ -279,21 +265,18 @@
                         <tbody>
                             <?php
     require '../config.php';
-                    $q2 = $conn->query("SELECT * FROM `treatment_record` WHERE `status` = 'Not Evaluated' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                    $q2 = $conn->query("SELECT * FROM `registration` WHERE `status` = 'Not Evaluated' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                     while($f2 = $q2->fetch_array()){
                         $id = $f2['patient_id'];
-                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $query2 = $conn->query("SELECT * FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-                        $fetch2 = $query2->fetch_array();
-
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><?php echo $year. "080".$f2['tb_case_no']?></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
-                                <td><center><?php echo $fetch2['registration_date']?></center></td>
-                                <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
-                                <td><center><?php echo $fetch2['registration_group']?></center> </td>
+                                <td><center><?php echo $f2['registration_date']?></center></td>
+                                <td><center><?php echo $f2['source_of_patient']?></center> </td>
+                                <td><center><?php echo $f2['registration_group']?></center> </td>
                             </tr>
                             <?php
                     }
@@ -331,21 +314,19 @@
                         <tbody>
                             <?php
     require '../config.php';
-                    $q2 = $conn->query("SELECT * FROM `treatment_record` WHERE `status` = 'Excluded from Cohort' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                    $q2 = $conn->query("SELECT * FROM `registration` WHERE `status` = 'Excluded from Cohort' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                     while($f2 = $q2->fetch_array()){
                         $id = $f2['patient_id'];
-                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $query2 = $conn->query("SELECT * FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-                        $fetch2 = $query2->fetch_array();
 
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><?php echo $year. "080".$f2['tb_case_no']?></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
-                                <td><center><?php echo $fetch2['registration_date']?></center></td>
-                                <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
-                                <td><center><?php echo $fetch2['registration_group']?></center> </td>
+                                <td><center><?php echo $f2['registration_date']?></center></td>
+                                <td><center><?php echo $f2['source_of_patient']?></center> </td>
+                                <td><center><?php echo $f2['registration_group']?></center> </td>
                             </tr>
                             <?php
                     }

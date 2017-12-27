@@ -131,6 +131,26 @@ while($fetch = $query->fetch_array()){
                                                 <option value="Category IIa - 2HRZES/1HRZE/9HRE">Category IIa - 2HRZES/1HRZE/9HRE</option>
                                             </select>
                                         </div>
+                                    </div><hr>
+                                </div> 
+                                <div class="col-md-12">
+                                    <h3> Treatment Partner Name</h3>
+                                    <div class="form-group ">
+                                        <div class="col-md-12 col-xs-12">
+                                            <input data-toggle="tooltip" data-placement="bottom" title="Treatment Partner Name" type="text" class="form-control" name="treatment_partner_name" placeholder="Treatment Partner Name" required/>
+                                        </div>
+                                    </div><hr>
+                                </div>
+                                <div class="col-md-12">
+                                    <h3> Designation of Treatment Partner</h3>
+                                    <div class="form-group">
+                                        <select class="form-control select" id="formStatus"  name="designation_treatment_partner" required>
+                                            <option value="">Choose Designation...</option>
+                                            <option value="Barangay Health Worker">Barangay Health Worker</option>
+                                            <option value="Midwife">Midwife</option>
+                                            <option value="Nurse">Nurse</option>
+                                            <option value="Others">Others</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +159,7 @@ while($fetch = $query->fetch_array()){
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-info" name="register_patient"><span class="fa fa-key"></span>Register</button>
+                    <button type="submit" class="btn btn-info" name="register_patient"><span class="fa fa-check"></span>Register</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
                 </div>
             </form>

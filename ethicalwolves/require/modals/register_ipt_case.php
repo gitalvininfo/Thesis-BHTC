@@ -24,12 +24,14 @@ while($fetch = $query->fetch_array()){
                                             <input data-toggle="tooltip" data-placement="bottom" title="Date Evaluated" type="text" class="form-control datepicker" name="date_evaluated" required/>
                                         </div>
                                     </div>
+                                    <hr>
                                     <h3> Date IPT Started</h3>
                                     <div class="form-group ">
                                         <div class="col-md-12 col-xs-12">
                                             <input data-toggle="tooltip" data-placement="bottom" title="Date IPT Started" type="text" class="form-control datepicker"  name="date_ipt_started" required/>
                                         </div>
                                     </div>
+                                    <hr>
                                     <h3> Choose Diagnosis</h3>
                                     <div class="form-group">
                                         <div class="col-md-12">                                        
@@ -40,6 +42,26 @@ while($fetch = $query->fetch_array()){
                                             </select>
                                         </div>
                                     </div>
+                                    <hr>
+                                    <div class="col-md-12">
+                                        <h3> Source of Patient</h3>
+                                        <div class="form-group">
+                                            <div class="col-md-6">                                    
+                                                <label class="check">
+                                                    <input type="radio" class="iradio" name="source_of_patient" value="Public Health Center" required/> Public Health Center</label>
+                                            </div>
+                                            <div class="col-md-6">                                    
+                                                <label class="check"><input type="radio" class="iradio" name="source_of_patient" value ="Other Government Facilities" required/> Other Government Facilities</label>
+                                            </div>
+                                            <div class="col-md-6">                                    
+                                                <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Private Hospitals" required/>Private Hospitals/Clinics/NGO's</label>
+                                            </div>
+                                            <div class="col-md-6">                                    
+                                                <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Community" required/>Community</label>
+                                            </div>
+                                        </div><hr>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
