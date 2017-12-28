@@ -49,21 +49,17 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="btn-group pull-right">
-                    <div class="pull-left">
-                        <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
-                    </div>
-                </div>
-                <h4 class="modal-title" id="largeModalHead"> Barangay Alijis </h4>
+                <h4 class="modal-title" id="largeModalHead"> Alijis Barangay Health Station </h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
-
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
+                                <th><center>Dispensation Number</center></th>
                                 <th><center>Drug Name</center></th>
                                 <th><center>Date Given</center></th>
+                                <th><center>Quantity</center></th>
                                 <th><center>Received By</center></th>
 
                             </tr>
@@ -75,8 +71,10 @@
                             while($fetch = $query->fetch_array()){
                             ?>
                             <tr>
+                                <td><center><?php echo $fetch['dispensation_id']?></center></td>
                                 <td><center><?php echo $fetch['medicine_name']?></center> </td>
-                                <td><center><?php echo $fetch['date_given']?></center> </td>
+                                <td><center><?php echo $fetch['month']. " " .$fetch['day']. ", " .$fetch['year']?></center> </td>
+                                <td><center><?php echo $fetch['quantity']?> boxes</center> </td>
                                 <td><center><?php echo $fetch['received_by']?></center> </td>
                             </tr>
                             <?php

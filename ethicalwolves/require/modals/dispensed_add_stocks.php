@@ -61,8 +61,34 @@
                         </div>
                         <div class="form-group">                                        
                             <label class="col-md-3 col-xs-12 control-label">Date Given</label>
-                            <div class="col-md-9">   
-                                <input data-toggle="tooltip" data-placement="right" title="Date Given" type="text" class="form-control datepicker" value="Date Given" name="date_given" required>                        
+                            <div class="col-md-4">                                                 
+                                <select class="form-control select" data-live-search="true" name="month" required>
+                                    <option>Month</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">                                                 
+                                <select class="form-control select" data-live-search="true" name="day" required>
+                                    <option value="Day">Day</option>
+                                    <?php
+                                    for($y=1; $y<=31; $y++){
+                                    ?>
+                                    <option value="<?php echo $y ?>"><?php echo $y; ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">

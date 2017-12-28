@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -37,6 +37,7 @@ INSERT INTO backup VALUES("87","Successfully exported database","December 27, 20
 INSERT INTO backup VALUES("88","Successfully exported database","December 27, 2017, 10:36 pm"); 
 INSERT INTO backup VALUES("89","Successfully exported database","December 27, 2017, 10:36 pm"); 
 INSERT INTO backup VALUES("90","Successfully exported database","December 27, 2017, 10:43 pm"); 
+INSERT INTO backup VALUES("91","Successfully imported database","December 28, 2017, 1:51 am"); 
 
 
 
@@ -288,6 +289,41 @@ INSERT INTO gene_expert_examination VALUES("3","2017-12-13","1065","Salivary","G
 
 
 
+DROP TABLE health_center;
+
+CREATE TABLE `health_center` (
+  `health_center_id` int(10) NOT NULL AUTO_INCREMENT,
+  `health_center` varchar(100) NOT NULL,
+  PRIMARY KEY (`health_center_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+
+INSERT INTO health_center VALUES("1","Abcasa Barangay Health Station"); 
+INSERT INTO health_center VALUES("2","Alangilan Barangay Health Station"); 
+INSERT INTO health_center VALUES("3","Alijis Barangay Health Station"); 
+INSERT INTO health_center VALUES("4","Banago Barangay Health Station"); 
+INSERT INTO health_center VALUES("5","Bata Barangay Health Station"); 
+INSERT INTO health_center VALUES("6","Cabug Barangay Health Station"); 
+INSERT INTO health_center VALUES("7","Estefania Barangay Health Station"); 
+INSERT INTO health_center VALUES("8","Felisa Barangay Health Station"); 
+INSERT INTO health_center VALUES("9","Granada Barangay Health Station"); 
+INSERT INTO health_center VALUES("10","Handumanan Barangay Health Station"); 
+INSERT INTO health_center VALUES("11","Lopez Jaena Health Plus"); 
+INSERT INTO health_center VALUES("12","Mabini Health Plus"); 
+INSERT INTO health_center VALUES("13","Mandalagan Barangay Health Station"); 
+INSERT INTO health_center VALUES("14","Mansilingan Barangay Health Station"); 
+INSERT INTO health_center VALUES("15","Montevista Barangay Health Station"); 
+INSERT INTO health_center VALUES("16","Pahanocoy Barangay Health Station"); 
+INSERT INTO health_center VALUES("17","Punta Taytay Barangay Health Station"); 
+INSERT INTO health_center VALUES("18","Singcang Barangay Health Station"); 
+INSERT INTO health_center VALUES("19","Sum-ag Barangay Health Station"); 
+INSERT INTO health_center VALUES("20","Taculing Barangay Health Station"); 
+INSERT INTO health_center VALUES("21","Tangub Barangay Health Station"); 
+INSERT INTO health_center VALUES("22","Villa Esperanza Barangay Health Station"); 
+INSERT INTO health_center VALUES("23","Villamonte Barangay Health Station"); 
+INSERT INTO health_center VALUES("24","Vista Alegre Barangay Health Station"); 
+
+
+
 DROP TABLE intensive_phase;
 
 CREATE TABLE `intensive_phase` (
@@ -390,19 +426,27 @@ CREATE TABLE `medication_dispensation` (
   `dispensation_id` int(10) NOT NULL AUTO_INCREMENT,
   `health_center` varchar(50) NOT NULL,
   `medicine_name` varchar(50) NOT NULL,
-  `date_given` date NOT NULL,
+  `month` char(10) NOT NULL,
+  `day` int(2) NOT NULL,
+  `year` int(4) NOT NULL,
   `quantity` int(10) NOT NULL,
   `received_by` varchar(30) NOT NULL,
   PRIMARY KEY (`dispensation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
-INSERT INTO medication_dispensation VALUES("1","Banago Barangay Health Station","Isoniazid","2017-11-25","50","Dr. Haro"); 
-INSERT INTO medication_dispensation VALUES("2","Alijis Barangay Health Station","name","2017-11-29","10","Menard Gardose"); 
-INSERT INTO medication_dispensation VALUES("3","Banago Barangay Health Station","Isoniazid","2017-12-27","5","qewq"); 
-INSERT INTO medication_dispensation VALUES("4","Alijis Barangay Health Station","Rifampicin","2017-12-27","7","Dr"); 
-INSERT INTO medication_dispensation VALUES("5","Alijis Barangay Health Station","Rifampicin","2017-12-27","5","Alson Bayon-on"); 
-INSERT INTO medication_dispensation VALUES("6","Banago Barangay Health Station","Isoniazid","2017-12-27","4","Alson Bayon-on"); 
-INSERT INTO medication_dispensation VALUES("7","Choose Health Center","Isoniazid","2017-12-27","12","Gabriel Banua"); 
+INSERT INTO medication_dispensation VALUES("1","Banago Barangay Health Station","Isoniazid","December","1","2017","50","Dr. Haro"); 
+INSERT INTO medication_dispensation VALUES("2","Alijis Barangay Health Station","name","December","2","2017","10","Menard Gardose"); 
+INSERT INTO medication_dispensation VALUES("3","Banago Barangay Health Station","Isoniazid","November","25","2017","5","qewq"); 
+INSERT INTO medication_dispensation VALUES("4","Alijis Barangay Health Station","Rifampicin","November","26","2017","7","Dr"); 
+INSERT INTO medication_dispensation VALUES("5","Alijis Barangay Health Station","Rifampicin","October","28","2017","5","Alson Bayon-on"); 
+INSERT INTO medication_dispensation VALUES("6","Banago Barangay Health Station","Isoniazid","December","2","2017","4","Alson Bayon-on"); 
+INSERT INTO medication_dispensation VALUES("7","Choose Health Center","Isoniazid","December","5","2017","12","Gabriel Banua"); 
+INSERT INTO medication_dispensation VALUES("8","Mandalagan Barangay Health Station","Isoniazid","December","28","2017","10","Juan Dela Cruz"); 
+INSERT INTO medication_dispensation VALUES("9","Alijis Barangay Health Station","Rifampicin","December","28","2017","4","Alvin Yanson"); 
+INSERT INTO medication_dispensation VALUES("10","Alangilan Barangay Health Station","Rifampicin","December","28","2017","45","Juan Dela Cruz"); 
+INSERT INTO medication_dispensation VALUES("11","Felisa Barangay Health Station","Rifampicin","December","29","2017","100","Alvin Yanson"); 
+INSERT INTO medication_dispensation VALUES("12","Felisa Barangay Health Station","Isoniazid","December","29","2017","5","Alson John Bayon-on"); 
+INSERT INTO medication_dispensation VALUES("13","Felisa Barangay Health Station","Isoniazid","January","1","2017","380","Gabriel Banua"); 
 
 
 
@@ -416,9 +460,9 @@ CREATE TABLE `medicine` (
   PRIMARY KEY (`medicine_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
-INSERT INTO medicine VALUES("1","Isoniazid","This is Isoniazidskie","398"); 
+INSERT INTO medicine VALUES("1","Isoniazid","This is Isoniazidskie","3"); 
 INSERT INTO medicine VALUES("2","name","nameolekfkldf","15"); 
-INSERT INTO medicine VALUES("3","Rifampicin","This is Rifampicin","575"); 
+INSERT INTO medicine VALUES("3","Rifampicin","This is Rifampicin","426"); 
 INSERT INTO medicine VALUES("4","Ethambutol","This is Ethambutol","0"); 
 INSERT INTO medicine VALUES("5","Streptomycin","This is Streptomycin","0"); 
 INSERT INTO medicine VALUES("6","qweq","qwew","0"); 

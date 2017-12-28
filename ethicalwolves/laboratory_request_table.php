@@ -49,6 +49,7 @@ require ('config.php');
                                         </thead>
                                         <tbody>
                                             <?php
+
     require 'config.php';
             $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
@@ -83,7 +84,6 @@ require ('config.php');
                 </div>
             </div>
         </div>
-
         <?php require 'require/logout.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>

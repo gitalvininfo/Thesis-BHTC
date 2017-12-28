@@ -266,15 +266,19 @@ require ('config.php');
                                                                     </tbody>
                                                                 </table> 
                                                             </div>
+
+
                                                             <?php 
                                                             require 'config.php';
+                                                            $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                                                            $fetch = $query->fetch_array();
                                                             $q1 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
                                                             $f1 = $q1->fetch_array();
                                                             ?>
                                                             <h2><strong>Continuation Phase - <?php echo $f1['sum(dosage)']. " mg"?></strong></h2> <hr>
                                                             <div class="btn-group pull-right">
                                                                 <div class="pull-left">
-                                                                    <a href="#continuation<?php echo $f['patient_id'];?>" data-target="#continuation<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-info-circle"></span>Monthly Dosage</a>
+                                                                    <a href="#continuation<?php echo $fetch['patient_id'];?>" data-target="#continuation<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-info-circle"></span>Monthly Dosage</a>
                                                                 </div>
                                                             </div>
                                                             <h3>Date of Intake</h3>

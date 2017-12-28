@@ -2,25 +2,6 @@
 require_once 'logincheck.php';
 require ('config.php');
 
-if(ISSET($_POST['register_patient'])){
-    $tb_case_no = $_POST['tb_case_no'];
-    $registration_date = $_POST['registration_date'];
-    $dots_facility = $_POST['dots_facility'];
-    $source_of_patient = $_POST['source_of_patient'];
-    $registration_group = $_POST['registration_group'];
-    $diagnosis = $_POST['diagnosis'];
-    $bacteriological_status = $_POST['bacteriological_status'];
-    $classification_of_tb = $_POST['classification_of_tb'];
-    $bcg_scar = $_POST['bcg_scar'];
-    $history = $_POST['history'];
-    $duration = $_POST['duration'];
-    $patient_id = $_GET['id'];
-
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `registration` VALUES('$tb_case_no', '$registration_date', '$dots_facility', '$source_of_patient', '$registration_group', '$diagnosis', '$bacteriological_status', '$classification_of_tb', '$bcg_scar', '$history', '$duration', '$patient_id')") or die(mysqli_error());
-    header("location:registration_table.php");
-    $conn->close();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,132 +27,46 @@ if(ISSET($_POST['register_patient'])){
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Reports</li>
-                    <li class="active">Medication Dispensed</li>
+                    <li class="active">Barangay Health Stations</li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Medication Dispensed</h3>
+                                    <h3 class="panel-title">Barangay Health Stations</h3>
                                 </div>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                <div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
                                     <div class="panel-body">
-                                        <table id="lab_request" class="table datatable">
+                                        <table class="table datatable">
                                             <thead>
                                                 <tr class="info">
-                                                    <th><center>Health Center</center></th>
-                                                    <th><center>View Dispensation</center></th>
+                                                    <th><center>Number</center></th>
+                                                    <th><center>Name</center></th>
+                                                    <th><center>Action</center></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
     require 'config.php';
-            $query = $conn->query("SELECT * FROM `medication_dispensation` ORDER BY `dispensation_id` DESC") or die(mysqli_error());
-            $fetch = $query->fetch_array();
+            $query = $conn->query("SELECT * FROM `health_center` ORDER BY `health_center_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
                                                 ?>
                                                 <tr>
-                                                    <td>Abcasa Barangay Health Station</td>
-                                                    <td><center>
-                                                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#abcasa"><span class="fa fa-arrow-right"></span></button></center>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Alangilan Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Alijis Barangay Health Station</td>
+                                                    <td><center><strong><?php echo $fetch['health_center_id']?></strong></center></td>
+                                                    <td><center><?php echo $fetch['health_center']?></center></td>
                                                     <td>
                                                         <center>
-                                                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#alijis"><span class="fa fa-arrow-right"></span></button></center>
+                                                            <a href="view_drug_dispensation.php?id=<?php echo $fetch['health_center_id']?>&health_center=<?php echo $fetch['health_center']?>" class="btn btn-sm btn-info"><span class="fa fa-arrow-right"></span></a>
+                                                        </center>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Banago Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Bata Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Cabug Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Estefania Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Felisa Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Granada Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Handumanan Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Lopez Jaena Health Plus</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Mabini Health Plus</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Mandalagan Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Mansilingan Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Montevista Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Pahanocoy Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Punta Taytay Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Singcang Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sum-ag Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Taculing Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tangub Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Villa Esperanza Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Villamonte Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Vista Alegre Barangay Health Station</td>
-                                                    <td></td>
-                                                </tr>
+                                                <?php
+            }
+            $conn->close();
+                                                ?>
                                             </tbody>
+
                                         </table>
                                     </div>
                                 </div>

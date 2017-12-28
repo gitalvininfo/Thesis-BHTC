@@ -220,7 +220,6 @@
         </style>
 
     </head>
-
     <body>
         <div id="loading">
             <div id="loading-center">
