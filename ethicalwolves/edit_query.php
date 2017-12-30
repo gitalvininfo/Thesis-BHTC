@@ -1,6 +1,4 @@
 <?php
-
-
 if(ISSET($_POST['edit_patient'])){
     $patient_id = $_POST['patient_id'];
     $patient_name= $_POST['patient_name'];    

@@ -56,6 +56,7 @@
                             </tbody>
                         </table> 
                     </div>
+
                     <?php 
                     require 'config.php';
                     $q1 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
@@ -107,12 +108,12 @@
                             </tbody>
                         </table> 
                     </div>
+
                     <div class="panel-body">
-                        <h2><strong>Intensive & Continuation Phase</strong></h2> <hr>
-                        <h3>Summary</h3>
+                        <h2><strong>Summary Drug Intake</strong></h2> <hr>
+                        <h3>Graphical</h3>
                         <div id="intensive" style="width: 100%; height: 425px"></div>
                     </div>
-
                 </div> 
             </div>
         </div>

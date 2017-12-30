@@ -99,49 +99,30 @@ require ('config.php');
                                                                         <th><center>Gender</center></th>
                                                                         <th><center>Date IPT Started</center></th>
                                                                         <th><center>Diagnosis</center></th>
-                                                                        <th><center>Treatment Partner</center></th>
                                                                         <th><center>Action</center></th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-                                                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` where `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                                                    require 'config.php';
+                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
                                                                     while($fetch = $query->fetch_array()){
                                                                         $id = $fetch['patient_id'];
                                                                         $query2 = $conn->query("SELECT * FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
                                                                         $fetch2 = $query2->fetch_array();
-                                                                        if($fetch['treatment_partner'] == 'Done'){
-                                                                            echo 
-                                                                                "<tr>
-                                                            <td><center><strong>".$fetch2['year']."080".$fetch2['ipt_no']." </strong></center></td>
-                                                            <td><strong><center> ".$fetch['name']." </center></strong></td>
-                                                            <td><center> ".$fetch['gender']." </center></td>
-                                                            <td><center> ".$fetch2['date_ipt_started']." </center></td>
-                                                            <td><center> ".$fetch2['diagnosis']." </center></td>
-                                                            <td><center><label class='check'><input type='checkbox' class='icheckbox' checked='checked' disabled/></label> </center></td>
-                                                            <td><center> 
-                                                            <a class = 'btn btn-info btn-sm' href='patient_ipt_treatment.php? id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-search'></span>Treatment</a>
-                                                            </center></td>
-                                                        </tr>";
-
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            echo
-                                                                                "<tr>
-                                                            <td><center><strong>".$fetch2['year']."080".$fetch2['ipt_no']." </strong></center></td>
-                                                            <td><strong><center> ".$fetch['name']." </center></strong></td>
-                                                            <td><center> ".$fetch['gender']." </center></td>
-                                                            <td><center> ".$fetch2['date_ipt_started']." </center></td>
-                                                            <td><center> ".$fetch2['diagnosis']." </center></td>
-                                                            <td><center> <a data-toggle='tooltip' data-placement='left' title='Add Treatment Partner' class = 'btn btn-danger btn-sm' href='treatment_details_ipt.php?id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-user-plus'></span></a>  </center></td>
-                                                            <td><center> 
-                                                            <a class = 'btn btn-info btn-sm' href='patient_ipt_treatment.php? id=".$fetch['patient_id']."&name=".$fetch['name']."'><span class='fa fa-search'></span>Treatment</a>
-                                                            </center></td>
-                                                        </tr>";
-                                                                        }
+                                                                    ?>                                      
+                                                                    <tr>
+                                                                        <td><center><strong><?php echo $fetch2['year']."".$fetch2['ipt_no']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch['name']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch['gender']?></center></td>
+                                                                        <td><center><?php echo $fetch2['date_ipt_started']?></center></td>
+                                                                        <td><center><?php echo $fetch2['diagnosis']?></center></td>
+                                                                        <td><center>
+                                                                            <a href="patient_ipt_treatment.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View</a></center></td>	
+                                                                    </tr>
+                                                                    <?php
                                                                     }
+                                                                    $conn->close();
                                                                     ?>
                                                                 </tbody>
                                                             </table>                                    

@@ -68,7 +68,6 @@ require ('config.php');
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <!-- START ACCORDION -->
                                                 <div class="panel-group accordion">
                                                     <div class="panel panel-info">
                                                         <div class="panel-heading">
@@ -243,9 +242,8 @@ require ('config.php');
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <!-- START DATATABLE EXPORT -->
                                                 <div class="panel panel-info">
-                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 440px;">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 442px;">
                                                         <div class="panel-body">
                                                             <table id="laboratory_request" class="table datatable">
                                                                 <thead>
@@ -468,7 +466,7 @@ require ('config.php');
                                             <div class="col-md-8">
                                                 <!-- START DATATABLE EXPORT -->
                                                 <div class="panel panel-info">
-                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 440px;">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 442px;">
                                                         <div class="panel-body">
                                                             <table id="laboratory_request" class="table datatable">
                                                                 <thead>
@@ -516,7 +514,7 @@ require ('config.php');
                                             $query3 = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
                                             $f2 = $query3->fetch_array();
                                             ?>
-                                            <div class="panel-body scroll" style="height:460px;">
+                                            <div class="panel-body scroll" style="height:464px;">
                                                 <div class="panel-heading">
                                                     <h3 class="panel-title">  /   - Present |  0  - Absent</h3>
                                                     <div class="btn-group pull-right">
@@ -587,7 +585,7 @@ require ('config.php');
                                             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
                                             $f = $q->fetch_array();
                                             ?>
-                                            <div class="panel-body scroll" style="height:460px;">
+                                            <div class="panel-body scroll" style="height:464px;">
                                                 <div class="panel-heading">
                                                     <div class="btn-group pull-right">
                                                         <div class="pull-left">
@@ -665,7 +663,6 @@ require ('config.php');
 
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="tab-pane" id="tab-fifth">
                                         <div class="row">

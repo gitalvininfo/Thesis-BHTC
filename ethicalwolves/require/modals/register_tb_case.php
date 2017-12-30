@@ -149,7 +149,6 @@ while($fetch = $query->fetch_array()){
                                             <option value="Barangay Health Worker">Barangay Health Worker</option>
                                             <option value="Midwife">Midwife</option>
                                             <option value="Nurse">Nurse</option>
-                                            <option value="Others">Others</option>
                                         </select>
                                     </div>
                                 </div>

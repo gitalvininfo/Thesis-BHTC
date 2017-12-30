@@ -2,17 +2,17 @@
 <?php
 $date = date('F j, Y, l');
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+$query = $conn->query("SELECT * FROM `patient_ipt` ORDER BY `patient_id` DESC") or die(mysqli_error());
 while($fetch = $query->fetch_array()){
 ?>
-<div id="update_clinical<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+<div id="update_clinical_ipt<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="defModalHead"><span class="fa fa-stethoscope"></span> New Clinical Findings - <?php echo $date?></h4>
             </div>
-            <form role="form" class="form-horizontal" action="actions/clinical_findings.php" method="post" onsubmit="return confirm('Are you sure you want to add new clinical findings?');">
+            <form role="form" class="form-horizontal" action="actions/clinical_findings_ipt.php" method="post" onsubmit="return confirm('Are you sure you want to add new clinical findings?');">
                 <div class="modal-body">
                     <div class="row">
                         <div class="panel-body">
@@ -25,7 +25,7 @@ while($fetch = $query->fetch_array()){
                                     </div>
                                 </div>
                                 <hr>
-                                <h4>* Check the appropriate symptoms for <?php echo $fetch['patient_name']?></h4>
+                                <h4>* Check the appropriate symptoms for <?php echo $fetch['name']?></h4>
                                 <h5 class="push-up-20"> 1. Unexplained fever greater than 2 weeks</h5>
                                 <div class="form-group">
                                     <div class="col-md-2">                                    

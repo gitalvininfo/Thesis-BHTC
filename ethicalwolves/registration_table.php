@@ -134,7 +134,7 @@ require ('config.php');
                                                                         <td><center><?php echo $fetch['emergency_no']?></center></td>
                                                                         <td><center><?php echo $fetch['birthdate']?></center></td>
                                                                         <td><center>
-                                                                            <a href="#registeript<?php echo $fetch['patient_id'];?>" data-target="#registeript<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-key"></span>Register</a>
+                                                                            <a href="#registeript<?php echo $fetch['patient_id'];?>" data-target="#registeript<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-check"></span>Register</a>
                                                                             </center></td>
                                                                     </tr>
                                                                     <?php

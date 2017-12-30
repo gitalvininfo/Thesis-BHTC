@@ -32,17 +32,18 @@ while($fetch = $query->fetch_array()){
                                         </div>
                                     </div>
                                     <hr>
-                                    <h3> Choose Diagnosis</h3>
-                                    <div class="form-group">
-                                        <div class="col-md-12">                                        
-                                            <select class="form-control select" name="diagnosis" required>
-                                                <option>Choose Diagnosis...</option>
-                                                <option value="TB Infection">TB Infection</option>
-                                                <option value="TB Exposure">TB Exposure</option>
-                                            </select>
-                                        </div>
+                                    <div class="col-md-12">
+                                        <h3> Choose Diagnosis</h3>
+                                        <div class="form-group">
+                                            <div class="col-md-6">                                    
+                                                <label class="check">
+                                                    <input type="radio" class="iradio" name="diagnosis" value="TB Infection" required/> TB Infection</label>
+                                            </div>
+                                            <div class="col-md-6">                                    
+                                                <label class="check"><input type="radio" class="iradio" name="diagnosis" value ="TB Exposure" required/> TB Exposure</label>
+                                            </div>
+                                        </div><hr>
                                     </div>
-                                    <hr>
                                     <div class="col-md-12">
                                         <h3> Source of Patient</h3>
                                         <div class="form-group">
@@ -60,6 +61,25 @@ while($fetch = $query->fetch_array()){
                                                 <label class="check"><input type="radio" class="iradio" name="source_of_patient" value="Community" required/>Community</label>
                                             </div>
                                         </div><hr>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h3> Treatment Partner Name</h3>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Treatment Partner Name" type="text" class="form-control" name="treatment_partner_name" placeholder="Treatment Partner Name" required/>
+                                            </div>
+                                        </div><hr>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h3> Designation of Treatment Partner</h3>
+                                        <div class="form-group">
+                                            <select class="form-control select" id="formStatus"  name="designation_treatment_partner" required>
+                                                <option value="">Choose Designation...</option>
+                                                <option value="Barangay Health Worker">Barangay Health Worker</option>
+                                                <option value="Midwife">Midwife</option>
+                                                <option value="Nurse">Nurse</option>
+                                            </select>
+                                        </div>
                                     </div>
 
                                 </div>

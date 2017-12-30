@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -38,6 +38,11 @@ INSERT INTO backup VALUES("88","Successfully exported database","December 27, 20
 INSERT INTO backup VALUES("89","Successfully exported database","December 27, 2017, 10:36 pm"); 
 INSERT INTO backup VALUES("90","Successfully exported database","December 27, 2017, 10:43 pm"); 
 INSERT INTO backup VALUES("91","Successfully imported database","December 28, 2017, 1:51 am"); 
+INSERT INTO backup VALUES("92","Successfully imported database","December 29, 2017, 1:52 am"); 
+INSERT INTO backup VALUES("93","Successfully imported database","December 30, 2017, 1:52 am"); 
+INSERT INTO backup VALUES("94","Successfully exported database","December 30, 2017, 1:53 am"); 
+INSERT INTO backup VALUES("95","Successfully exported database","December 30, 2017, 1:53 am"); 
+INSERT INTO backup VALUES("96","Successfully exported database","December 30, 2017, 1:53 am"); 
 
 
 
@@ -95,9 +100,11 @@ CREATE TABLE `clinical_findings_ipt` (
   `q6` varchar(100) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`clinical_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 INSERT INTO clinical_findings_ipt VALUES("3","Saturday 25th of November 2017","56","Yes","Yes","Yes","Yes","Yes","Hearing Disturbance","1"); 
+INSERT INTO clinical_findings_ipt VALUES("4","Friday 29th of December 2017","45","No","No","Yes","Yes","Yes","Abdominal Pain","9"); 
+INSERT INTO clinical_findings_ipt VALUES("5","December 29, 2017","34","✓","✓","✓","✓","0","Abnormal Pain","9"); 
 
 
 
@@ -112,7 +119,7 @@ CREATE TABLE `continuation_phase` (
   `remarks` char(10) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`continuation_phase_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 INSERT INTO continuation_phase VALUES("21","12","February","1","2017","Present","1"); 
 INSERT INTO continuation_phase VALUES("22","0","January","1","2017","Absent","1"); 
@@ -120,6 +127,7 @@ INSERT INTO continuation_phase VALUES("23","0","January","1","2017","Absent","2"
 INSERT INTO continuation_phase VALUES("25","12","January","1","2017","Present","6"); 
 INSERT INTO continuation_phase VALUES("26","0","January","2","2017","Absent","6"); 
 INSERT INTO continuation_phase VALUES("27","0","February","1","2017","Absent","1"); 
+INSERT INTO continuation_phase VALUES("28","12","December","30","2017","Present","1"); 
 
 
 
@@ -266,6 +274,20 @@ INSERT INTO follow_up VALUES("6","2018-01-24","Balik ka d sa TB DOTS amu ni na d
 
 
 
+DROP TABLE follow_up_ipt;
+
+CREATE TABLE `follow_up_ipt` (
+  `follow_up_id` int(10) NOT NULL AUTO_INCREMENT,
+  `examination_date` date NOT NULL,
+  `remarks` varchar(50) NOT NULL,
+  `patient_id` int(10) NOT NULL,
+  PRIMARY KEY (`follow_up_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+INSERT INTO follow_up_ipt VALUES("1","2018-01-10","Balik ka d amu ni nga date","5"); 
+
+
+
 DROP TABLE gene_expert_examination;
 
 CREATE TABLE `gene_expert_examination` (
@@ -363,19 +385,20 @@ DROP TABLE intensive_phase_ipt;
 CREATE TABLE `intensive_phase_ipt` (
   `intensive_phase_id` int(10) NOT NULL AUTO_INCREMENT,
   `dosage` int(10) NOT NULL,
-  `date_taken` date NOT NULL,
+  `month` char(10) NOT NULL,
+  `day` char(2) NOT NULL,
+  `year` char(4) NOT NULL,
   `remarks` char(10) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`intensive_phase_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
-INSERT INTO intensive_phase_ipt VALUES("1","100","2017-11-24","Present","1"); 
-INSERT INTO intensive_phase_ipt VALUES("2","0","2017-11-24","Absent","1"); 
-INSERT INTO intensive_phase_ipt VALUES("3","0","2017-11-25","Absent","1"); 
-INSERT INTO intensive_phase_ipt VALUES("4","0","2017-11-25","Absent","1"); 
-INSERT INTO intensive_phase_ipt VALUES("5","67","2017-11-23","Present","1"); 
-INSERT INTO intensive_phase_ipt VALUES("6","12","2017-12-20","Present","7"); 
-INSERT INTO intensive_phase_ipt VALUES("7","67","2017-12-18","Present","5"); 
+INSERT INTO intensive_phase_ipt VALUES("1","34","December","29","2017","Present","9"); 
+INSERT INTO intensive_phase_ipt VALUES("2","0","December","27","2017","Absent","9"); 
+INSERT INTO intensive_phase_ipt VALUES("3","0","December","29","2017","Absent","9"); 
+INSERT INTO intensive_phase_ipt VALUES("4","14","December","28","2017","Present","13"); 
+INSERT INTO intensive_phase_ipt VALUES("5","15","December","29","2017","Present","13"); 
+INSERT INTO intensive_phase_ipt VALUES("6","0","December","30","2017","Absent","13"); 
 
 
 
@@ -432,7 +455,7 @@ CREATE TABLE `medication_dispensation` (
   `quantity` int(10) NOT NULL,
   `received_by` varchar(30) NOT NULL,
   PRIMARY KEY (`dispensation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 INSERT INTO medication_dispensation VALUES("1","Banago Barangay Health Station","Isoniazid","December","1","2017","50","Dr. Haro"); 
 INSERT INTO medication_dispensation VALUES("2","Alijis Barangay Health Station","name","December","2","2017","10","Menard Gardose"); 
@@ -447,6 +470,7 @@ INSERT INTO medication_dispensation VALUES("10","Alangilan Barangay Health Stati
 INSERT INTO medication_dispensation VALUES("11","Felisa Barangay Health Station","Rifampicin","December","29","2017","100","Alvin Yanson"); 
 INSERT INTO medication_dispensation VALUES("12","Felisa Barangay Health Station","Isoniazid","December","29","2017","5","Alson John Bayon-on"); 
 INSERT INTO medication_dispensation VALUES("13","Felisa Barangay Health Station","Isoniazid","January","1","2017","380","Gabriel Banua"); 
+INSERT INTO medication_dispensation VALUES("14","Mandalagan Barangay Health Station","Isoniazid","December","30","2017","3","Alec Rubiato"); 
 
 
 
@@ -463,11 +487,11 @@ CREATE TABLE `medicine` (
 INSERT INTO medicine VALUES("1","Isoniazid","This is Isoniazidskie","3"); 
 INSERT INTO medicine VALUES("2","name","nameolekfkldf","15"); 
 INSERT INTO medicine VALUES("3","Rifampicin","This is Rifampicin","426"); 
-INSERT INTO medicine VALUES("4","Ethambutol","This is Ethambutol","0"); 
-INSERT INTO medicine VALUES("5","Streptomycin","This is Streptomycin","0"); 
-INSERT INTO medicine VALUES("6","qweq","qwew","0"); 
-INSERT INTO medicine VALUES("7","Sample Medicine","This is a sample medicine","0"); 
-INSERT INTO medicine VALUES("8","Medicine Name","Medicine Description","0"); 
+INSERT INTO medicine VALUES("4","Ethambutol","This is Ethambutol","6"); 
+INSERT INTO medicine VALUES("5","Streptomycin","This is Streptomycin","6"); 
+INSERT INTO medicine VALUES("6","qweq","qwew","6"); 
+INSERT INTO medicine VALUES("7","Sample Medicine","This is a sample medicine","6"); 
+INSERT INTO medicine VALUES("8","Medicine Name","Medicine Description","6"); 
 
 
 
@@ -520,7 +544,7 @@ CREATE TABLE `patient` (
   `treatment_partner` char(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`patient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 INSERT INTO patient VALUES("1","Alson John Bayon-on","21","Female","Prk. Langis, Brgy. Banago, Bacolod City","Banago","2017-11-25","178","433-2449","Negros Occidental","Drug Lord","10992241","Dr. Sabay","433-2449 local 181","Registered","Done","2017"); 
 INSERT INTO patient VALUES("2","Alvin Yanson","20","Male","eroreco bacolod city","Mandalagan","2017-01-08","178","433-2449","Negros Occidental","Student","1993121","Dr. Haro","433-2449 local 181","Registered","Done","2017"); 
@@ -545,6 +569,7 @@ INSERT INTO patient VALUES("21","Aldren Yanson","23","Male","Prk. Casiana Bacolo
 INSERT INTO patient VALUES("22","Mark Torres","21","Male","lizares ave. bacolod","Brgy 39","1997-07-28","178","4332449","Negros Occidental","Student","No Philhealth","Dr. Haro","433-2449","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("23","qe","7","Male","qweqweq","Banago","2017-11-07","31","31231","Negros Occidental","eqeqw","eqweq","qweqweq","31231","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("24","John Wick","43","Male","Blk 33, Lot 4, Firmville Subd. Bacolod","Estefania ","2017-12-27","125","4332449","Negros Occidental","Killer","10-3213131-98","Dr. Haro","433-2449 local 181","Registered","Pending","2017"); 
+INSERT INTO patient VALUES("25","Kenneth Cayetano","20","Male","Bacolod City","Sumag ","1997-05-08","178","4332449","Negros Occidental","Student","10-2312321-10","Alvin Yanson","433-2449","Unregister","Pending","2017"); 
 
 
 
@@ -562,14 +587,15 @@ CREATE TABLE `patient_ipt` (
   `treatment_partner` varchar(30) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`patient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 INSERT INTO patient_ipt VALUES("5","Alvin Yanson","3","Male","qwe","433-2449 local 181","2017-11-25","Registered","Done","2017"); 
 INSERT INTO patient_ipt VALUES("6","Carl Betio","3","Male","Taculing, Bacolod City","433-2449 local 181","2017-01-02","Registered","Done","2017"); 
 INSERT INTO patient_ipt VALUES("7","Franz Licanel","3","Male","unor bacolod","433-2449 local 181","2015-05-11","Registered","Done","2017"); 
 INSERT INTO patient_ipt VALUES("8","Juan Dela Cruz","3","Male","Blk. 11, Lot 5, Brgy. Estefania, Bacolod City","713-6113","2014-07-09","Registered","Done","2017"); 
-INSERT INTO patient_ipt VALUES("9","Miles Pallarco","3","Male","Bacolod City","433-2449","2013-09-17","Registered","Pending","2017"); 
 INSERT INTO patient_ipt VALUES("13","Jay Alvin Galoyo","3","Male","Bacolod City","433-2449","2015-07-07","Registered","Pending","2017"); 
+INSERT INTO patient_ipt VALUES("14","Christan Plaza","5","Male","Bacolod City","433-2449","2017-12-29","Registered","Pending","2017"); 
+INSERT INTO patient_ipt VALUES("15","Pedro Dela Cruz","2","Male","Bacolod City","433-2449","2017-12-29","Unregister","Pending","2017"); 
 
 
 
@@ -632,17 +658,20 @@ CREATE TABLE `registration_ipt` (
   `diagnosis` char(20) NOT NULL,
   `date_ipt_started` date NOT NULL,
   `source_of_patient` varchar(30) NOT NULL,
+  `treatment_partner_name` varchar(30) NOT NULL,
+  `designation_treatment_partner` varchar(30) NOT NULL,
   `patient_id` int(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`ipt_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
-INSERT INTO registration_ipt VALUES("1","2017-11-20","TB Infection","2017-11-26","Other Government Facilities","5","2017"); 
-INSERT INTO registration_ipt VALUES("2","2017-12-03","TB Infection","2017-12-03","Other Government Facilities","6","2017"); 
-INSERT INTO registration_ipt VALUES("3","2017-12-02","TB Infection","2017-12-02","Other Government Facilities","7","2017"); 
-INSERT INTO registration_ipt VALUES("4","2017-12-14","TB Exposure","2017-12-14","Other Government Facilities","8","2017"); 
-INSERT INTO registration_ipt VALUES("5","2017-10-31","TB Infection","2017-12-12","Other Government Facilities","10","2017"); 
-INSERT INTO registration_ipt VALUES("9","2017-12-21","TB Infection","2017-12-23","Other Government Facilities","13","2017"); 
+INSERT INTO registration_ipt VALUES("1","2017-11-20","TB Infection","2017-11-26","Other Government Facilities","","","5","2017"); 
+INSERT INTO registration_ipt VALUES("2","2017-12-03","TB Infection","2017-12-03","Other Government Facilities","","","6","2017"); 
+INSERT INTO registration_ipt VALUES("3","2017-12-02","TB Infection","2017-12-02","Other Government Facilities","","","7","2017"); 
+INSERT INTO registration_ipt VALUES("4","2017-12-14","TB Exposure","2017-12-14","Other Government Facilities","","","8","2017"); 
+INSERT INTO registration_ipt VALUES("5","2017-10-31","TB Infection","2017-12-12","Other Government Facilities","","","10","2017"); 
+INSERT INTO registration_ipt VALUES("9","2017-12-21","TB Infection","2017-12-23","Other Government Facilities","","","13","2017"); 
+INSERT INTO registration_ipt VALUES("10","2017-12-29","TB Infection","2017-12-29","Public Health Center","Alec Rubiatio","Barangay Health Worker","14","2017"); 
 
 
 

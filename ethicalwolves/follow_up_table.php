@@ -111,23 +111,23 @@ require ('config.php');
                                                                     <?php
                                                                     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
                                                                     $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                                                    while($fetch = $query->fetch_array()){
-                                                                        $id = $fetch['patient_id'];
+                                                                    while($fetch2 = $query->fetch_array()){
+                                                                        $id = $fetch2['patient_id'];
                                                                         $q = $conn->query("SELECT * FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
                                                                         $f = $q->fetch_array();
 
                                                                     ?> 
                                                                     <tr>
-                                                                        <td><center><strong><?php echo $f['year']. "-".$f['ipt_no']?></strong></center></td>
-                                                                        <td><center><?php echo $fetch['name']?></center></td>
-                                                                        <td><center><?php echo $fetch['age']?></center></td>		
-                                                                        <td><center><?php echo $fetch['gender']?></center></td>				
-                                                                        <td><center><?php echo $fetch['birthdate']?></center></td>
-                                                                        <td><center><?php echo $fetch['emergency_no']?></center></td>
-                                                                        <td><center><?php echo $fetch['address']?></center></td>
+                                                                        <td><center><?php echo $f['year']. "" .$f['ipt_no']?></center></td>
+                                                                        <td><center><?php echo $fetch2['name']?></center></td>
+                                                                        <td><center><?php echo $fetch2['age']?></center></td>		
+                                                                        <td><center><?php echo $fetch2['gender']?></center></td>				
+                                                                        <td><center><?php echo $fetch2['birthdate']?></center></td>
+                                                                        <td><center><?php echo $fetch2['emergency_no']?></center></td>
+                                                                        <td><center><?php echo $fetch2['address']?></center></td>
                                                                         <td>
                                                                             <center>
-                                                                                <a href="#follow_up<?php echo $fetch['patient_id'];?>" data-target="#follow_up<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-check"></span>Follow-up Visit</a>
+                                                                                <a href="#follow_up_ipt<?php echo $fetch2['patient_id'];?>" data-target="#follow_up_ipt<?php echo $fetch2['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-check"></span>Follow-up Visit</a>
                                                                             </center>
                                                                         </td>
                                                                     </tr>
@@ -155,7 +155,7 @@ require ('config.php');
             <!-- END PAGE CONTENT -->
         </div>
         <?php require 'require/logout.php'?>
-        <?php require 'require/modals/add_follow_up.php'?>
+        <?php require 'require/modals/add_follow_up_ipt.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
