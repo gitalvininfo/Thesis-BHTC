@@ -238,8 +238,7 @@ session_start();
 
 
 <?php
-
-include ('config.php');
+require ('config.php');
 if(ISSET($_POST['login'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -261,13 +260,10 @@ if(ISSET($_POST['login'])){
         if ($position == 'NTP Nurse Coordinator') {
             $_SESSION['user_id'] = $fetch['user_id'];
             echo '<meta http-equiv="refresh" content="2;url=home.php">';
-            echo '<i style="color:white">Retrieving Account. Please wait...</i>';
-
         }
         if ($position == 'Medical Technologist') {
             $_SESSION['user_id'] = $fetch['user_id'];
             echo '<meta http-equiv="refresh" content="2;url=dashboard_medtech.php">';
-            echo '<i>Retrieving Account. Please wait...</i>';
         }
     }
     else{

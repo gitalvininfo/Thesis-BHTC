@@ -57,22 +57,21 @@ require ('config.php');
                                             <tbody>
                                                 <?php
     require 'config.php';
-            $query = $conn->query("SELECT `patient_name`, `patient_id` FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `laboratory_request` where `status` = 'Pending'") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $id = $fetch['patient_id'];
+                $q2 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                $f2 = $q2->fetch_array();
                 $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` where `patient_id` = '$id' && `status` = 'Pending'") or die(mysqli_error());
                 $f = $q->fetch_array();
-                $q2 = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' && `patient_id` = '$id' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
-                $f2 = $q2->fetch_array();
                                                 ?>                                      
                                                 <tr>
-                                                    <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
-                                                    <td><center><?php echo $f2['date_of_request']?></center></td>
-                                                    <td><center><?php echo $f2['requesting_physician']?></center></td>
-                                                    <td><center><?php echo $f2['test_requested']?></center></td>
-                                                    <td>
-                                                        <center>
-                                                            <a href="laboratory_request_pending.php?id=<?php echo $fetch['patient_id']?>" class="btn btn-sm btn-info">Request <span class = "badge"><?php echo $f['total']?></span></a>
+                                                    <td><center><?php echo $f2['patient_name']?></center></td>
+                                                    <td><center><?php echo $fetch['date_of_request']?></center></td>
+                                                    <td><center><?php echo $fetch['requesting_physician']?></center></td>
+                                                    <td><center><?php echo $fetch['test_requested']?></center></td>
+                                                    <td><center>
+                                                        <a href="laboratory_request_pending.php?id=<?php echo $f2['patient_id']?>" class="btn btn-sm btn-info">Request <span class = "badge"><?php echo $f['total']?></span></a>
                                                         </center>
                                                     </td>		
                                                 </tr>
@@ -84,7 +83,6 @@ require ('config.php');
                                         </table>  
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -92,10 +90,7 @@ require ('config.php');
                 </div>         
             </div>            
         </div>
-
         <?php require 'require/logout.php'?>
-
-        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
@@ -105,7 +100,6 @@ require ('config.php');
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>        
-
     </body>
 </html>
 

@@ -38,12 +38,12 @@ require ('config.php');
                                     <?php
     require 'config.php';
             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-            $f = $q->fetch_array();
+            $f1 = $q->fetch_array();
                                     ?>
-                                    <h3 class="panel-title"><strong>Laboratory Requests of <?php echo $f['patient_name']?></strong></h3>
+                                    <h3 class="panel-title"><strong>Laboratory Requests of <?php echo $f1['patient_name']?></strong></h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
-                                            <a href="#new_lab_request<?php echo $f['patient_id'];?>" data-target="#new_lab_request<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Request</a>
+                                            <a href="#new_lab_request<?php echo $f1['patient_id'];?>" data-target="#new_lab_request<?php echo $f1['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Request</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@ require ('config.php');
             </div>
         </div>
 
-        <?php require 'require/modals/view_lab_request.php'?>
+        <?php require 'require/modals/view_lab_request_history.php'?>
         <?php require 'require/modals/new_lab_request.php'?>
         <?php require 'require/logout.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>

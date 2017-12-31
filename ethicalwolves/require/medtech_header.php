@@ -46,8 +46,8 @@ $conn->close();
                 ?>
                 <a href="laboratory_request_pending.php?id=<?php echo $f['patient_id']?>" class="list-group-item">
                     <div class="list-group-status status-offline"></div>
-                    <img src="assets/images/users/no-image.jpg" class="pull-left" alt="John Doe" />
-                    <span class="contacts-title">Patient ID: <?php echo $f['patient_id']. ' - ' .$f['collection_unit']?></span>
+                    <img src="assets/images/patient.ico" class="pull-left" alt="John Doe" />
+                    <span class="contacts-title">Patient No: <?php echo $f['patient_id']. ' - ' .$f['collection_unit']?></span>
                     <p>
                         <?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?>
                     </p>

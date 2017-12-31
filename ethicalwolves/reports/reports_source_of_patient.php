@@ -43,6 +43,56 @@ require ('../config.php');
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
+                                        <?php
+
+    $year = date('Y');
+            if(isset($_GET['year']))
+            {
+                $year=$_GET['year'];
+            }
+            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $phc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Public Health Center' && `year` = '$year'") or die(mysqli_error());
+            $fetch1 = $phc->fetch_array();
+            $oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Other Government Facilities' && `year` = '$year'") or die(mysqli_error());
+            $fetch2 = $oth->fetch_array();
+            $pri = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Private Hospitals' && `year` = '$year'") or die(mysqli_error());
+            $fetch3 = $pri->fetch_array();
+            $com = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Community' && `year` = '$year'") or die(mysqli_error());
+            $fetch4 = $com->fetch_array();
+            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
+            $fetch5 = $gra->fetch_array();                                                     
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-md-3">                        
+                                                <a href="#" class="tile tile-success">
+                                                    <?php echo $fetch1['total']?>
+                                                    <p>Public Health Center</p>    
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-map-marker"></span></div>                               
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-3">                        
+                                                <a href="#" class="tile tile-info">
+                                                    <?php echo $fetch2['total']?>
+                                                    <p>Other Gov't Facilities/Hospitals</p>
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-building"></span></div>                                   
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-3">                        
+                                                <a href="#" class="tile tile-danger">
+                                                    <?php echo $fetch3['total']?>
+                                                    <p>Private Hospitals/Clinics/Physicians</p>      
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-hospital-o"></span></div>                             
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-3">                        
+                                                <a href="#" class="tile tile-primary">
+                                                    <?php echo $fetch5['total']?>
+                                                    <p>Community</p>     
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-home"></span></div>                              
+                                                </a>                        
+                                            </div>
+                                        </div>
+                                        <hr>
                                         <div class="row">
                                             <div class="panel-body">
                                                 <div id="source_of_patient" style="width: 100%; height: 425px"></div>
@@ -62,25 +112,6 @@ require ('../config.php');
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php
-
-    $year = date('Y');
-            if(isset($_GET['year']))
-            {
-                $year=$_GET['year'];
-            }
-            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $phc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Public Health Center' && `year` = '$year'") or die(mysqli_error());
-            $fetch1 = $phc->fetch_array();
-            $oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Other Government Facilities' && `year` = '$year'") or die(mysqli_error());
-            $fetch2 = $oth->fetch_array();
-            $pri = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Private Hospitals' && `year` = '$year'") or die(mysqli_error());
-            $fetch3 = $pri->fetch_array();
-            $com = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Community' && `year` = '$year'") or die(mysqli_error());
-            $fetch4 = $com->fetch_array();
-            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-            $fetch5 = $gra->fetch_array();                                                     
-                                                        ?>
                                                         <tr>
                                                             <td>Public Health Center</td>
                                                             <td><center><strong><?php echo $fetch1['total']?></strong></center></td>

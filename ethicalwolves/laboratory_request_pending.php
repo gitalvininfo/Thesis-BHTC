@@ -58,13 +58,13 @@ $f = $q->fetch_array();
                     <div class="row">
                         <div class="col-md-8">
                             <?php
-                            $q1 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                            $f1 = $q1->fetch_array();
+    $q1 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+            $f1 = $q1->fetch_array();
                             ?>
                             <div class="panel panel-info">
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><strong> <span class="fa fa-file-text"></span> Laboratory Requests of <?php echo $f1['patient_name']?></strong></h3>
+                                        <h3 class="panel-title">Laboratory Requests of <strong> <?php echo $f1['patient_name']?></strong></h3>
                                     </div>
                                     <div class="panel-body">
                                         <?php
@@ -92,7 +92,7 @@ $f = $q->fetch_array();
                             <!-- START DATATABLE EXPORT -->
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><span class="fa fa-clipboard"></span> Laboratory Request History</h3>
+                                    <h3 class="panel-title">Laboratory Request History</h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
                                     <div class="panel-body">
@@ -134,55 +134,8 @@ $f = $q->fetch_array();
                 </div>
             </div>
         </div>
-        <?php
-        $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-        $query = $conn->query("SELECT * FROM `laboratory_request` ORDER BY `lab_request_id` DESC") or die(mysqli_error());
-        while($fetch = $query->fetch_array()){
-        ?>
-        <div id="viewdata<?php echo $fetch['lab_request_id'];?>"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true" style="display:none;">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead"><span class="fa fa-file-text"></span> Laboratory Request of <?php echo $f1['patient_name']?></h4>
-                    </div>
-                    <form role="form" class="form-horizontal" action="edit_query.php" method="post">
-                        <div class="modal-body">
-                            <div class="panel-body">
-                                <div class="panel panel-info">
-                                    <div class="panel-body profile">
-                                        <div class="panel-body">                                    
-                                            <div class="contact-info">
-                                                <p><small style="font-size:13px;">Name of Collection Unit</small><br/><?php echo $fetch['collection_unit']?></p>
-                                                <p><small style="font-size:13px;">Date of Request</small><br/><?php echo $fetch['date_of_request']?></p>
-                                                <p><small style="font-size:13px;">Requesting Physician</small><br/><?php echo $fetch['requesting_physician']?></p>
-                                                <p><small style="font-size:13px;">Date Sample 1 Collected</small><br/><?php echo $fetch['date_sample_collected']?></p>
-                                                <p><small style="font-size:13px;">Date Sample 2 Collected</small><br/><?php echo $fetch['date_sample_collected2']?></p>
-                                                <p><small style="font-size:13px;">Name of Sample Collector</small><br/><?php echo $fetch['sample_collector']?></p>
-                                                <p><small style="font-size:13px;">Contact Number</small><br/><?php echo $fetch['contact_number']?></p>
-                                                <p><small style="font-size:13px;">Reason For Examination</small><br/><?php echo $fetch['reason_for_examination']?></p>
-                                                <p><small style="font-size:13px;">Specimen Type</small><br/><?php echo $fetch['specimen_type']?></p>
-                                                <p><small style="font-size:13px;">Test Requested</small><br/><?php echo $fetch['test_requested']?></p>
-                                            </div>
-                                        </div>    
-                                    </div>    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-        <?php
-        }
-        $conn->close();
-        ?> 
-
-      <?php require 'require/logout.php'?>
+        <?php require 'require/modals/view_lab_request_history.php'?>
+        <?php require 'require/logout.php'?>
         <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>

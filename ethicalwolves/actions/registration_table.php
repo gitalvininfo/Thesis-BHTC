@@ -22,13 +22,15 @@ if(ISSET($_POST['add_new_patient'])){
 if(ISSET($_POST['add_new_ipt'])){
     $name = $_POST['name'];
     $age = $_POST['age'];
+    $height = $_POST['height'];
     $gender = $_POST['gender'];
     $address = $_POST['address'];
+    $contact_person = $_POST['contact_person'];
     $emergency_no = $_POST['emergency_no'];
     $birthdate = $_POST['birthdate'];
     $year = date("Y", strtotime("+8 HOURS"));
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-    $conn->query("INSERT INTO `patient_ipt` VALUES('', '$name', '$age', '$gender', '$address', '$emergency_no', '$birthdate', 'Unregister', 'Pending', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `patient_ipt` VALUES('', '$name', '$age', '$height', '$gender', '$address', 'Negros Occidental', '$contact_person', '$emergency_no', '$birthdate', 'Unregister', '$year')") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully added new IPT Case!');</script>";
     echo "<script>document.location='../registration_table.php'</script>";  
@@ -57,7 +59,7 @@ if(ISSET($_POST['register_patient'])){
     echo "<script>document.location='../registration_table.php'</script>";
 }
 if(ISSET($_POST['register_patient_ipt'])){
-    $date_evaluated = $_POST['date_evaluated'];
+    $date = date('F j, Y');
     $diagnosis = $_POST['diagnosis'];
     $date_ipt_started = $_POST['date_ipt_started'];
     $source_of_patient = $_POST['source_of_patient'];
@@ -66,7 +68,7 @@ if(ISSET($_POST['register_patient_ipt'])){
     $patient_id = $_POST['patient_id'];
     $year = date("Y", strtotime("+8 HOURS"));
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `registration_ipt` VALUES('', '$date_evaluated', '$diagnosis', '$date_ipt_started', '$source_of_patient', '$treatment_partner_name', '$designation_treatment_partner', '$patient_id', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `registration_ipt` VALUES('', '$date', '$diagnosis', '$date_ipt_started', '$source_of_patient', '$treatment_partner_name', '$designation_treatment_partner', 'Bacolod City Health TB DOTS Center', '$patient_id', '$year')") or die(mysqli_error());
     $conn->query("UPDATE `patient_ipt` SET `status` = 'Registered' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully registered IPT Case!');</script>";

@@ -44,6 +44,37 @@ require ('../config.php');
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
+                                        <?php
+    $year = date('Y');
+            if(isset($_GET['year']))
+            {
+                $year=$_GET['year'];
+            }
+            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $bs = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Bacteriologically Confirmed' && `year` = '$year'") or die(mysqli_error());
+            $fetch1 = $bs->fetch_array();
+            $cd = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Clinically Diagnosed' && `year` = '$year'") or die(mysqli_error());
+            $fetch2 = $cd->fetch_array();
+            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
+            $fetch3 = $gra->fetch_array();
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-md-3">                        
+                                                <a href="#" class="tile tile-success">
+                                                    <?php echo $fetch1['total']?>
+                                                    <p>Bacteriologically Confirmed</p>    
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-stethoscope"></span></div>                               
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-3">                        
+                                                <a href="#" class="tile tile-info">
+                                                    <?php echo $fetch2['total']?>
+                                                    <p>Clinically Diagnosed</p>      
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-search"></span></div>                             
+                                                </a>                        
+                                            </div>
+                                        </div>
+                                        <hr>
                                         <div class="row">
                                             <div class="panel-body">
                                                 <div id="bacteriological_status" style="width: 100%; height: 425px"></div>
@@ -66,20 +97,7 @@ require ('../config.php');
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php
-    $year = date('Y');
-            if(isset($_GET['year']))
-            {
-                $year=$_GET['year'];
-            }
-            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $bs = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Bacteriologically Confirmed' && `year` = '$year'") or die(mysqli_error());
-            $fetch1 = $bs->fetch_array();
-            $cd = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Clinically Diagnosed' && `year` = '$year'") or die(mysqli_error());
-            $fetch2 = $cd->fetch_array();
-            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-            $fetch3 = $gra->fetch_array();
-                                                        ?>
+
                                                         <tr>
                                                             <td>Bacteriologically Confirmed</td>
                                                             <td>

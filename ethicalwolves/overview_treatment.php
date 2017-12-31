@@ -228,12 +228,12 @@
                                 while($fetch = $query->fetch_array()){
                                 ?>
                                 <tr>
-                                    <td><center><?php echo $fetch['date_visited']?></center></td>
-                                    <td><center><?php echo $fetch['isoniazid']?></center></td>
-                                    <td><center><?php echo $fetch['rifampicin']?></center></td>
-                                    <td><center><?php echo $fetch['pyrazinamide']?></center></td>
-                                    <td><center><?php echo $fetch['ethambutol']?></center></td>
-                                    <td><center><?php echo $fetch['streptomycin']?></center></td>
+                                    <td><center><?php echo $fetch['date_visited']?> ml</center></td>
+                                    <td><center><?php echo $fetch['isoniazid']?> ml</center></td>
+                                    <td><center><?php echo $fetch['rifampicin']?> ml</center></td>
+                                    <td><center><?php echo $fetch['pyrazinamide']?> ml</center></td>
+                                    <td><center><?php echo $fetch['ethambutol']?> tab</center></td>
+                                    <td><center><?php echo $fetch['streptomycin']?> ml</center></td>
                                 </tr>
                                 <?php
                                 }

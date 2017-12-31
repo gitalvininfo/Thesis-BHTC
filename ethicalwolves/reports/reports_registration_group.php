@@ -43,25 +43,7 @@ require ('../config.php');
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
-                                        <div class="row">
-                                            <div class="panel-body">
-                                                <div id="registration_group" style="width: 100%; height: 425px"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="tab-second">
-                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 455px;">
-                                            <div class="row">
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Registration Group</th>
-                                                            <th><center>Number of Patients per Category</center></th>
-                                                            <th><center>View Patients</center></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
+                                        <?php
 
     $year = date('Y');
             if(isset($_GET['year']))
@@ -85,8 +67,73 @@ require ('../config.php');
             $fetch9 = $oth->fetch_array();
             $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
             $fetch10 = $gra->fetch_array();
-                                                        ?>
-
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-success">
+                                                    <?php echo $fetch3['total']?>
+                                                    <p>New</p>  
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-star"></span></div>                          
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-info">
+                                                    <?php echo $fetch4['total']?>
+                                                    <p>Relapse</p>  
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-refresh"></span></div>                                 
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-danger">
+                                                    <?php echo $fetch5['total']?>
+                                                    <p>TALF</p>       
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-meh-o"></span></div>                            
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-primary">
+                                                    <?php echo $fetch6['total']?>
+                                                    <p>TAF</p>      
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-thumbs-down"></span></div>       
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-default">
+                                                    <?php echo $fetch7['total']?>
+                                                    <p>PTOU</p>   
+                                                    <div class="informer informer-primary dir-tr"><span class="fa fa-times"></span></div>                                
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-warning">
+                                                    <?php echo $fetch8['total']?>
+                                                    <p>Transfer-in</p> 
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-reply"></span></div>                                  
+                                                </a>                        
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="panel-body">
+                                                <div class="col-md-12">
+                                                    <div id="registration_group" style="width: 100%; height: 425px"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 455px;">
+                                            <div class="row">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Registration Group</th>
+                                                            <th><center>Number of Patients per Category</center></th>
+                                                            <th><center>View Patients</center></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
                                                         <tr>
                                                             <td>New</td>
                                                             <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
@@ -143,9 +190,8 @@ require ('../config.php');
                                                         </tr>
                                                     </tbody>
                                                 </table>
-
-
-                                            </div></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +200,6 @@ require ('../config.php');
                 </div>
             </div>
         </div>
-
         <?php require 'require/tabular_registration_group.php'?>
         <?php require 'require/logout.php'?>
         <script>
@@ -174,6 +219,7 @@ require ('../config.php');
         <script type="text/javascript" src="../js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="../js/plugins.js"></script>
+        <script type="text/javascript" src="../js/plugins/owl/owl.carousel.min.js"></script>
         <script type="text/javascript" src="../js/actions.js"></script>
     </body>
 </html>

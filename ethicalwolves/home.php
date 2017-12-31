@@ -1,6 +1,6 @@
 <?php
-require_once 'logincheck.php';
-require ('config.php');
+require 'logincheck.php';
+require 'config.php';
 $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
 $f = $q->fetch_array();
 ?>

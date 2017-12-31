@@ -34,8 +34,8 @@
                 ?>
                 <a href="#" class="list-group-item">
                     <div class="list-group-status status-offline"></div>
-                    <img src="../assets/images/users/no-image.jpg" class="pull-left" alt="John Doe" />
-                    <span class="contacts-title">Patient ID: <?php echo $f['patient_id']. ' - ' .$f['collection_unit']?></span>
+                    <img src="../assets/images/patient.ico" class="pull-left" alt="John Doe" />
+                    <span class="contacts-title">Patient No: <?php echo $f['patient_id']. ' - ' .$f['collection_unit']?></span>
                     <p>
                         <?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?>
                     </p>
@@ -75,7 +75,7 @@
                 ?>
                 <a href="#" class="list-group-item">
                     <div class="list-group-status status-offline"></div>
-                    <img src="../assets/images/users/no-image.jpg" class="pull-left" alt="John Doe" />
+                    <img src="../assets/images/medicine.png" class="pull-left" alt="John Doe" />
                     <span class="contacts-title"><?php echo $f['medicine_name']?></span>
                     <p>
                         Running Balance: <?php echo $f['running_balance']. " boxes"?>

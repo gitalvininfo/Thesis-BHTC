@@ -58,15 +58,15 @@ require ('config.php');
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <div class="panel panel-default">
-                                                        <div class="panel-body">                                    
+                                                        <div class="panel-body">           <br>                         
                                                             <div class="contact-info">
-                                                                <img src="assets/images/users/user7.jpg" style="height:130px;width:120px;"> &nbsp;
+                                                                <img src="assets/images/users/user7.jpg" style="height:120px;width:120px;"> &nbsp;
                                                                 <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></strong></center></h6>    
                                                             </div>
                                                         </div>    
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">                                                
+                                                <div class="col-md-5">   <br>                                             
                                                     <h6><strong>Name: </strong><?php echo $fetch['patient_name']. ", " .$fetch['age']. " years old"?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
                                                     <h6><strong>Height: </strong><?php echo $fetch['height'], " cms." ?></h6>
@@ -86,7 +86,7 @@ require ('config.php');
                                                     <h6><strong>Emergency No: </strong><?php echo $fetch['emergency_no']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
                                                     <h6><strong>Philhealth No: </strong><?php echo $fetch['philhealth_no']?></h6>
-                                                </div>
+                                                </div><br>
                                                 <div class="col-md-5">                        
                                                     <h6><strong>Registration Date: </strong><?php echo $fetch2['registration_date']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">

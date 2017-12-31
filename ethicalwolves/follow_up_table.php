@@ -1,12 +1,10 @@
 <?php
-require_once 'logincheck.php';
-require ('config.php');
+require 'logincheck.php';
+require 'config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-        <!-- META SECTION -->
         <title>BHTC-PMIS</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -67,8 +65,8 @@ require ('config.php');
                 $fetch2 = $query2->fetch_array();
                                                                     ?>                                      
                                                                     <tr>
-                                                                        <td><center><strong><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></strong></center></td>
-                                                                        <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></center></td>
+                                                                        <td><center><?php echo $fetch['patient_name']?></center></td>
                                                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                                                         <td><center><?php echo $fetch2['source_of_patient']?></center></td>
                                                                         <td><center><?php echo $fetch2['registration_group']?></center></td>
@@ -147,14 +145,12 @@ require ('config.php');
                                 </div>
                             </div>
                         </div>
-                    </div>
-
+                    </div>                
                 </div>
-                <!-- END PAGE CONTENT WRAPPER -->
             </div>
-            <!-- END PAGE CONTENT -->
         </div>
         <?php require 'require/logout.php'?>
+        <?php require 'require/modals/add_follow_up.php'?>
         <?php require 'require/modals/add_follow_up_ipt.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
@@ -168,5 +164,4 @@ require ('config.php');
         <script type="text/javascript" src="js/plugins.js"></script>
         <script type="text/javascript" src="js/actions.js"></script>
     </body>
-
 </html>

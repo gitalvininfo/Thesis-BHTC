@@ -43,6 +43,38 @@ require ('../config.php');
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
+                                        <?php
+    $year = date('Y');
+            if(isset($_GET['year']))
+            {
+                $year=$_GET['year'];
+            }
+            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+            $pul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
+            $fetch1 = $pul->fetch_array();
+            $ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary' && `year` = '$year'") or die(mysqli_error());
+            $fetch2 = $ext->fetch_array();
+            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
+            $fetch3 = $gra->fetch_array();
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-md-3">                        
+                                                <a href="#" class="tile tile-success">
+                                                    <?php echo $fetch1['total']?>
+                                                    <p>Pulmonary</p>      
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-search-plus"></span></div>                             
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-3">                        
+                                                <a href="#" class="tile tile-info">
+                                                    <?php echo $fetch2['total']?>
+                                                    <p>Extra-Pulmonary</p>    
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-search-minus"></span></div>                               
+                                                </a>                        
+                                            </div>
+                                        </div>
+
+                                        <hr>
                                         <div class="row">
                                             <div class="panel-body">
                                                 <div id="classification_of_tb" style="width: 100%; height: 425px"></div>
@@ -61,20 +93,6 @@ require ('../config.php');
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php
-    $year = date('Y');
-            if(isset($_GET['year']))
-            {
-                $year=$_GET['year'];
-            }
-            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $pul = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
-            $fetch1 = $pul->fetch_array();
-            $ext = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary' && `year` = '$year'") or die(mysqli_error());
-            $fetch2 = $ext->fetch_array();
-            $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
-            $fetch3 = $gra->fetch_array();
-                                                        ?>
                                                         <tr>
                                                             <td>Pulmonary</td>
                                                             <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
@@ -116,7 +134,6 @@ require ('../config.php');
                 });
             });
         </script>
-        <audio id="audio-alert" src="../audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="../audio/fail.mp3" preload="auto"></audio>
         <script type='text/javascript' src='../js/plugins/bootstrap/bootstrap-select.js'></script>
         <script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>

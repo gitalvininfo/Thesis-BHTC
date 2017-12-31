@@ -17,17 +17,10 @@ while($fetch = $query->fetch_array()){
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3> Date Evaluated</h3>
-                                    <div class="form-group ">
-                                        <div class="col-md-12 col-xs-12">
-                                            <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                            <input data-toggle="tooltip" data-placement="bottom" title="Date Evaluated" type="text" class="form-control datepicker" name="date_evaluated" required/>
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <h3> Date IPT Started</h3>
                                     <div class="form-group ">
                                         <div class="col-md-12 col-xs-12">
+                                            <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
                                             <input data-toggle="tooltip" data-placement="bottom" title="Date IPT Started" type="text" class="form-control datepicker"  name="date_ipt_started" required/>
                                         </div>
                                     </div>
@@ -89,7 +82,7 @@ while($fetch = $query->fetch_array()){
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-info" name="register_patient_ipt"><span class="fa fa-key"></span>Register</button>
+                    <button type="submit" class="btn btn-info" name="register_patient_ipt"><span class="fa fa-check"></span>Register</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
                 </div>
             </form>

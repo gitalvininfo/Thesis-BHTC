@@ -34,7 +34,7 @@ require ('config.php');
                     <?php
     require 'config.php';
             $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]' && `name` = '$_GET[name]'") or die(mysqli_error());
-            $fetch = $query->fetch_array();
+            $f = $query->fetch_array();
             $id = $fetch['patient_id'];
             $query2 = $conn->query("SELECT * FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
             $fetch2 = $query2->fetch_array();
@@ -42,42 +42,59 @@ require ('config.php');
                     <li><a href="home.php">Home</a></li>
                     <li>Data Entry</li>
                     <li><a href="master_file_patient.php">Patient Master File</a></li>
-                    <li class="active"><?php echo $fetch['name']?></li>
+                    <li class="active"><?php echo $f['name']?></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Personal Information</h3>
+                                    <h3 class="panel-title"><strong>Personal Information</strong></h3>
                                 </div>
-                                <div class="panel-body">                                    
+                                <div class="panel-body">   
+                                    <div class="col-md-2">`<br>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">                                    
+                                                <div class="contact-info">
+                                                    <img src="assets/images/users/no-image.jpg" style="height:130px;width:120px;"> &nbsp;
+                                                    <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "" .$fetch2['ipt_no']?></strong></center></h6>    
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>                                 
                                     <div class="col-md-5">      
                                         <br>                                          
-                                        <h6><strong>Name: </strong><?php echo $fetch['name']?></h6>
+                                        <h6><strong>Name: </strong><?php echo $f['name']?></h6>
                                         <hr style="margin:0px 0 5px 0;">
-                                        <h6><strong>Age: </strong><?php echo $fetch['age']. " years old"?></h6>
+                                        <h6><strong>Age: </strong><?php echo $f['age']. " years old"?></h6>
                                         <hr style="margin:0px 0 5px 0;">
-                                        <h6><strong>Gender: </strong><?php echo $fetch['gender']?></h6>
+                                        <h6><strong>Birthdate: </strong><?php echo $f['birthdate']?></h6>
                                         <hr style="margin:0px 0 5px 0;">
-                                        <h6><strong>Birthdate: </strong><?php echo $fetch['address']?></h6>
+                                        <h6><strong>Gender: </strong><?php echo $f['gender']?></h6>
                                         <hr style="margin:0px 0 5px 0;">
-                                        <h6><strong>Emergency No: </strong><?php echo $fetch['emergency_no']?></h6>
+                                        <h6><strong>Height: </strong><?php echo $f['height']?> cms.</h6>
                                         <hr style="margin:0px 0 5px 0;">
-                                        <h6><strong>Home Address: </strong><?php echo $fetch['address']?></h6>
+                                        <h6><strong>Birthdate: </strong><?php echo $f['address']?></h6>
                                         <hr style="margin:0px 0 5px 0;">
+                                        <h6><strong>Contact Person: </strong><?php echo $f['contact_person']?></h6>
+                                        <hr style="margin:0px 0 5px 0;">
+                                        <h6><strong>Emergency No: </strong><?php echo $f['emergency_no']?></h6>
+                                        <hr style="margin:0px 0 5px 0;">
+
                                     </div>
                                     <div class="col-md-5">      
-                                        <br>    <br>                                      
-                                        <h6><strong>Date Evaluated: </strong><?php echo $fetch2['date_evaluated']?></h6>
+                                        <br><br>       
+                                        <h6><strong>Home Address: </strong><?php echo $f['address']?></h6>
+                                        <hr style="margin:0px 0 5px 0;">                               
+                                        <h6><strong>Registration Date: </strong><?php echo $fetch2['date_evaluated']?></h6>
                                         <hr style="margin:0px 0 5px 0;">
                                         <h6><strong>Diagnosis: </strong><?php echo $fetch2['diagnosis']?></h6>
                                         <hr style="margin:0px 0 5px 0;">
                                         <h6><strong>Date IPT Started: </strong><?php echo $fetch2['date_ipt_started']?></h6>
                                         <hr style="margin:0px 0 5px 0;">
-                                        <h6><strong>Treatment Partner: </strong><?php echo $fetch2['treatment_partner_name']?></h6>
+                                        <h6><strong>Source of Patient: </strong><?php echo $fetch2['source_of_patient']?></h6>
                                         <hr style="margin:0px 0 5px 0;">
-                                        <h6><strong>Designation of Treatment Partner: </strong><?php echo $fetch2['designation_treatment_partner']?></h6>
+                                        <h6><strong>DOTS Facility: </strong><?php echo $fetch2['dots_facility']?></h6>
                                         <hr style="margin:0px 0 5px 0;">
                                     </div>
                                 </div>   
@@ -89,7 +106,7 @@ require ('config.php');
                 </div>
             </div>
         </div>
-
+        <?php require 'require/modals/monthly_dosage_ipt.php'?>
         <?php require 'require/logout.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>

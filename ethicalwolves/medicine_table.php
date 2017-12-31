@@ -1,10 +1,11 @@
 <?php
-require_once 'logincheck.php';
-require ('config.php');
+require 'logincheck.php';
+require 'config.php';
 
 if(ISSET($_POST['new_medicine'])){
-    $medicine_name = $_POST['medicine_name'];
-    $medicine_description = $_POST['medicine_description'];
+    $medicine_name = mysqli_real_escape_string($conn, $_POST['medicine_name']);
+    $medicine_description = mysqli_real_escape_string($conn, $_POST['medicine_description']);
+    
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
     $q1 = $conn->query ("SELECT * FROM `medicine` WHERE BINARY `medicine_name` = '$medicine_name'") or die(mysqli_error());
     $f1 = $q1->fetch_array();

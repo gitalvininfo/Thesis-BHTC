@@ -43,25 +43,7 @@ require ('../config.php');
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
-                                        <div class="row">
-                                            <div class="panel-body">
-                                                <div id="treatment_outcome" style="width: 100%; height: 425px"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="tab-second">
-                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 455px;">
-                                            <div class="row">
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Treatment Outcome</th>
-                                                            <th><center>Number of Patients per Category</center></th>
-                                                            <th><center>View Patients</center></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
+                                        <?php
     $year = date('Y');
             if(isset($_GET['year']))
             {
@@ -84,7 +66,71 @@ require ('../config.php');
             $f7 = $ec->fetch_array();
             $gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
             $f10 = $gra->fetch_array();
-                                                        ?>
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-success">
+                                                    <?php echo $f1['total']?>
+                                                    <p>Cured</p>         
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-smile-o"></span></div>                          
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-info">
+                                                    <?php echo $f2['total']?>
+                                                    <p>Treat. Completed</p> 
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-thumbs-up"></span></div>                                  
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-danger">
+                                                    <?php echo $f3['total']?>
+                                                    <p>Died</p>            
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-times"></span></div>                       
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-primary">
+                                                    <?php echo $f4['total']?>
+                                                    <p>Failed</p>     
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-thumbs-down"></span></div>                              
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-default">
+                                                    <?php echo $f5['total']?>
+                                                    <p>Lost to Follow-up</p>    
+                                                    <div class="informer informer-primary dir-tr"><span class="fa fa-frown-o"></span></div>                               
+                                                </a>                        
+                                            </div>
+                                            <div class="col-md-2">                        
+                                                <a href="#" class="tile tile-warning">
+                                                    <?php echo $f6['total']?>
+                                                    <p>Not Evaluated</p> 
+                                                    <div class="informer informer-default dir-tr"><span class="fa fa-question"></span></div>                                  
+                                                </a>                        
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="row">
+                                            <div class="panel-body">
+                                                <div id="treatment_outcome" style="width: 100%; height: 425px"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 455px;">
+                                            <div class="row">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Treatment Outcome</th>
+                                                            <th><center>Number of Patients per Category</center></th>
+                                                            <th><center>View Patients</center></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
                                                         <tr>
                                                             <td>Cured</td>
                                                             <td><center><strong><?php echo $f1['total']?></strong></center></td>

@@ -23,6 +23,18 @@
                                         <input data-toggle="tooltip" data-placement="bottom" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
                                     </div>
                                 </div>
+                                <div class="form-group ">
+                                    <label class="col-md-2 col-xs-12 control-label">Birthdate</label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="col-md-2 col-xs-12 control-label">Height</label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Patient Height" type="number" class="form-control" name="height" placeholder="Height" required/>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-md-2 col-xs-12 control-label">Gender</label>
                                     <div class="col-md-9">                                        
@@ -40,15 +52,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                    <label class="col-md-2 col-xs-12 control-label">Emergency No.</label>
+                                    <label class="col-md-2 col-xs-12 control-label">Contact Person</label>
                                     <div class="col-md-9 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Contact Person" type="text" class="form-control" name="contact_person" placeholder="Contact Person" style="text-transform:capitalize" required/>
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                    <label class="col-md-2 col-xs-12 control-label">Birthdate</label>
+                                    <label class="col-md-2 col-xs-12 control-label">Emergency No.</label>
                                     <div class="col-md-9 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Emergency Number" type="text" class="form-control" name="emergency_no" placeholder="Emergency Number" required/>
                                     </div>
                                 </div>
                             </div>
