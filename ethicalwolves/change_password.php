@@ -42,7 +42,7 @@ require ('config.php');
             $f = $q->fetch_array();
             $id=$_SESSION['user_id'];
                             ?>
-                            <form role="form" class="form-horizontal" action="update_profile.php" method="post" onsubmit="return myFunction()">
+                            <form role="form" class="form-horizontal" action="update_profile.php" method="post" onsubmit="return confirm('Are you sure you want to add this laboratory request?');" onsubmit="return myFunction()">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
                                         <h3 class="panel-title"><strong> <span class="fa fa-lock"></span> Update My Account</strong></h3>
@@ -63,13 +63,13 @@ require ('config.php');
                                         <div class="form-group ">
                                             <label class="col-md-3 col-xs-12 control-label">New Password</label>
                                             <div class="col-md-9 col-xs-12">
-                                                <input data-toggle="tooltip" data-placement="bottom" title="New Password" type="text" class="form-control" id="password" name="password" placeholder="Type New Password" required/>
+                                                <input data-toggle="tooltip" data-placement="bottom" title="New Password" type="text" class="form-control" id="password" name="password" placeholder="Type New Password"/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
                                             <label class="col-md-3 col-xs-12 control-label">Confirm Password</label>
                                             <div class="col-md-9 col-xs-12">
-                                                <input data-toggle="tooltip" data-placement="bottom" title="Confirm Password" type="text" class="form-control" id="cfmPassword" name="newpassword" placeholder="Confirm Password" required/>
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Confirm Password" type="text" class="form-control" id="cfmPassword" name="newpassword" placeholder="Confirm Password" />
                                             </div>
                                         </div>
 
@@ -104,9 +104,6 @@ require ('config.php');
                     document.getElementById("password").style.borderColor = "#E34234";
                     document.getElementById("cfmPassword").style.borderColor = "#E34234";
                     ok = false;
-                }
-                else {
-                    alert("New Passwords Match!");
                 }
                 return ok;
             }

@@ -11,11 +11,11 @@ $password = $_POST['password'];
 $old = $_POST['passwordold'];
 
 $pass = md5($old);
-$salt = "HAHAHAHAHA";
+$salt = "aTya03gHJdTyqLkWQfg15yU";
 $pass = $salt.$pass;
 
 $passnew = md5($password);
-$salt = "HAHAHAHAHA";
+$salt = "aTya03gHJdTyqLkWQfg15yU";
 $passnew = $salt.$passnew;
 
 $conn = new mysqli("localhost", 'root', '', 'thesis') or die(mysqli_error());
@@ -36,7 +36,7 @@ if ($passold==$pass){
     }
 
     $_SESSION['firstname'] = $name;
-    echo "<script type='text/javascript'> alert('Successfully changed password!'); </script>";
+    echo "<script type='text/javascript'> alert('Successfully changed account information!'); </script>";
     echo "<script>document.location='change_password.php'</script>";
 }
 else {

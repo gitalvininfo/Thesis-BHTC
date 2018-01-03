@@ -131,7 +131,7 @@ if(ISSET($_POST['save_user'])){
                     password: {
                         required: true,
                         minlength: 6,
-                        maxlength: 10
+                        maxlength: 100
                     },
                 }
             });
@@ -139,27 +139,5 @@ if(ISSET($_POST['save_user'])){
     </body>
 </html>
 
-
-
-<?php
-    require 'config.php';
-        $query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
-        while($fetch = $query->fetch_array()){
-?>                                      
-<tr>
-    <td><center><?php echo $fetch['firstname']?></center></td>
-    <td><center><?php echo $fetch['lastname']?></center></td>
-    <td><center><?php echo $fetch['license']?></center></td>
-    <td><center><?php echo $fetch['username']?></center></td>
-    <td><center>*******</center></td>
-    <td><center><?php echo $fetch['status']?></center></td>
-    <td><center>
-        <a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
-        </center></td>
-</tr>
-<?php
-                                             }
-        $conn->close();
-?>
 
 

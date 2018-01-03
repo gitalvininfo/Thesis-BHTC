@@ -42,6 +42,8 @@ require ('../config.php');
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
+                                        <?php require 'require/widgets_xpert_report.php'?>
+                                        <hr>
                                         <div class="row">
                                             <div class="panel-body">
                                                 <div id="xpert" style="width: 100%; height: 380px"></div>
@@ -60,19 +62,6 @@ require ('../config.php');
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $t = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'T' && `year` = '$year'") or die(mysqli_error());
-            $f1 = $t->fetch_array();
-            $rr = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'RR' && `year` = '$year'") or die(mysqli_error());
-            $f2 = $rr->fetch_array();
-            $ti = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'TI' && `year` = '$year'") or die(mysqli_error());
-            $f3 = $ti->fetch_array();
-            $n = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'N' && `year` = '$year'") or die(mysqli_error());
-            $f4 = $n->fetch_array();
-            $i = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'I' && `year` = '$year'") or die(mysqli_error());
-            $f5 = $i->fetch_array();
-                                                        ?>
                                                         <tr>
                                                             <td>[T] - MTB detected, Rifampicin resistance not detected</td>
                                                             <td><center><strong><?php echo $f1['total']?></strong></center></td>
@@ -145,6 +134,7 @@ require ('../config.php');
         <script type="text/javascript" src="../js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="../js/plugins.js"></script>
+        <script type="text/javascript" src="../js/plugins/owl/owl.carousel.min.js"></script>
         <script type="text/javascript" src="../js/actions.js"></script>
     </body>
 </html>

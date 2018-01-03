@@ -39,8 +39,6 @@ require ('config.php');
             $id = $fetch['patient_id'];
             $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
             $fetch2 = $query2->fetch_array();
-            $query3 = $conn->query("SELECT `status` FROM `treatment_record` WHERE `patient_id` = '$id'") or die(mysqli_error());
-            $fetch3 = $query3->fetch_array();
                         ?>
                         <div class="col-md-12">
                             <div class="panel panel-default tabs">
@@ -60,7 +58,7 @@ require ('config.php');
                                                     <div class="panel panel-default">
                                                         <div class="panel-body">           <br>                         
                                                             <div class="contact-info">
-                                                                <img src="assets/images/users/user7.jpg" style="height:120px;width:120px;"> &nbsp;
+                                                                <img src="assets/images/users/no-image.jpg" style="height:120px;width:120px;"> &nbsp;
                                                                 <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></strong></center></h6>    
                                                             </div>
                                                         </div>    
@@ -162,7 +160,7 @@ require ('config.php');
                                                             <tbody>
                                                                 <?php
                                                                 require 'config.php';
-                                                                $query = $conn->query("SELECT * FROM `treatment_record` WHERE `patient_id` = '$_GET[id]' ORDER BY `treatment_id` DESC") or die(mysqli_error());
+                                                                $query = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$_GET[id]' ORDER BY `tb_case_no` DESC") or die(mysqli_error());
                                                                 while($fetch = $query->fetch_array()){
                                                                 ?>
                                                                 <tr>

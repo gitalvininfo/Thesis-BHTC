@@ -1,26 +1,7 @@
 <?php
-require_once 'logincheck.php';
-require ('config.php');
+require 'logincheck.php';
+require 'config.php';
 
-if(ISSET($_POST['register_patient'])){
-    $tb_case_no = $_POST['tb_case_no'];
-    $registration_date = $_POST['registration_date'];
-    $dots_facility = $_POST['dots_facility'];
-    $source_of_patient = $_POST['source_of_patient'];
-    $registration_group = $_POST['registration_group'];
-    $diagnosis = $_POST['diagnosis'];
-    $bacteriological_status = $_POST['bacteriological_status'];
-    $classification_of_tb = $_POST['classification_of_tb'];
-    $bcg_scar = $_POST['bcg_scar'];
-    $history = $_POST['history'];
-    $duration = $_POST['duration'];
-    $patient_id = $_GET['id'];
-
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `registration` VALUES('$tb_case_no', '$registration_date', '$dots_facility', '$source_of_patient', '$registration_group', '$diagnosis', '$bacteriological_status', '$classification_of_tb', '$bcg_scar', '$history', '$duration', '$patient_id')") or die(mysqli_error());
-    header("location:registration_table.php");
-    $conn->close();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,51 +32,117 @@ if(ISSET($_POST['register_patient'])){
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Patient Certification</h3>
-                                </div>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
-                                    <div class="panel-body">
-                                        <table id="lab_request" class="table datatable">
-                                            <thead>
-                                                <tr class="info">
-                                                    <th><center>TB Case No</center></th>
-                                                    <th><center>Patient Name</center></th>
-                                                    <th><center>Registration Date</center></th>
-                                                    <th><center>Source of Patient</center></th>
-                                                    <th><center>Registration Group</center></th>
-                                                    <th><center>Action</center></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                            require 'config.php';
-                                            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                            while($fetch = $query->fetch_array()){
-                                            $id = $fetch['patient_id'];
-                                            $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                                            $fetch2 = $query2->fetch_array();
-                                                ?>
-                                                <tr>
-                                                    <td><center><strong><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></strong></center></td>
-                                                    <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
-                                                    <td><center><?php echo $fetch2['registration_date']?></center></td>
-                                                    <td><center><?php echo $fetch2['source_of_patient']?></center></td>
-                                                    <td><center><?php echo $fetch2['registration_group']?></center></td>
-                                                    <td>
-                                                        <center>
-                                                            <a href="patient_certification.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>"class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="left" title="Print Preview"><span class="fa fa-print"></span>Preview</a>
-                                                        </center>
-                                                    </td>
-                                                </tr>
-                                                <?php
+                            <div class="panel panel-default tabs">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">TB Case</a></li>
+                                    <li><a href="#tab-second" role="tab" data-toggle="tab">IPT Case</a></li>
+                                </ul>
+                                <div class="panel-body tab-content">
+                                    <div class="tab-pane active" id="tab-first">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                        <div class="panel-body">
+                                                            <table id="lab_request" class="table datatable">
+                                                                <thead>
+                                                                    <tr class="info">
+                                                                        <th><center>TB Case No</center></th>
+                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Registration Date</center></th>
+                                                                        <th><center>Source of Patient</center></th>
+                                                                        <th><center>Registration Group</center></th>
+                                                                        <th><center>Action</center></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
+    require 'config.php';
+            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                $id = $fetch['patient_id'];
+                $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                $fetch2 = $query2->fetch_array();
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td><center><strong><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch2['registration_date']?></center></td>
+                                                                        <td><center><?php echo $fetch2['source_of_patient']?></center></td>
+                                                                        <td><center><?php echo $fetch2['registration_group']?></center></td>
+                                                                        <td>
+                                                                            <center>
+                                                                                <a href="patient_certification.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>"class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="left" title="Print Preview"><span class="fa fa-print"></span>Preview</a>
+                                                                            </center>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <?php
             }
             $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table>
+                                                                    ?>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="tab-pane" id="tab-second">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                        <div class="panel-body">
+                                                            <table id="lab_request" class="table datatable">
+                                                                <thead>
+                                                                    <tr class="info">
+                                                                        <th><center>IPT No</center></th>
+                                                                        <th><center>Patient Name</center></th>
+                                                                        <th><center>Age</center></th>
+                                                                        <th><center>Registration Date</center></th>
+                                                                        <th><center>Source of Patient</center></th>
+                                                                        <th><center>Action</center></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
+                                                                    require 'config.php';
+                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                                                    while($fetch = $query->fetch_array()){
+                                                                        $id = $fetch['patient_id'];
+                                                                        $query2 = $conn->query("SELECT * FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                                                                        $fetch2 = $query2->fetch_array();
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td><center><strong><?php echo $fetch2['year']."080".$fetch2['ipt_no']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch['name']?></strong></center></td>
+                                                                        <td><center><?php echo $fetch['age']?></center></td>
+                                                                        <td><center><?php echo $fetch2['date_evaluated']?></center></td>
+                                                                        <td><center><?php echo $fetch2['source_of_patient']?></center></td>
+                                                                        <td>
+                                                                            <center>
+                                                                                <a href="patient_certification_ipt.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>"class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="left" title="Print Preview"><span class="fa fa-print"></span>Preview</a>
+                                                                            </center>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <?php
+                                                                    }
+                                                                    $conn->close();
+                                                                    ?>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>

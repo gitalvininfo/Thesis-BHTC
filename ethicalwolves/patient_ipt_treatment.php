@@ -53,8 +53,6 @@ require ('config.php');
             $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
             $q = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]' && `name` = '$_GET[name]'") or die(mysqli_error());
             $f = $q->fetch_array();
-            $query2 = $conn->query("SELECT * FROM `treatment_record` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
-            $fetch = $query2->fetch_array();
                                 ?>
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Intensive Phase</a></li>

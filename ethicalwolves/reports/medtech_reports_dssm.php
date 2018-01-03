@@ -42,6 +42,7 @@ require ('../config.php');
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
+                                        <?php require 'require/widgets_dssm_report.php'?><hr>
                                         <div class="row">
                                             <div class="panel-body">
                                                 <div id="dssm" style="width: 100%; height: 380px"></div>
@@ -60,15 +61,6 @@ require ('../config.php');
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $pos = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `laboratory_diagnosis` = 'Positive (+)' && `year` = '$year'") or die(mysqli_error());
-            $f1 = $pos->fetch_array();
-            $neg = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `laboratory_diagnosis` = 'Negative (0)' && `year` = '$year'") or die(mysqli_error());
-            $f2 = $neg->fetch_array();
-
-                                                        ?>
-
                                                         <tr>
                                                             <td>Positive (+)</td>
                                                             <td><center><strong><?php echo $f1['total']?></strong></center></td>

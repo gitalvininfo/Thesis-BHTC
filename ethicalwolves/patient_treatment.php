@@ -38,8 +38,6 @@ require ('config.php');
             require 'config.php';
             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
             $f = $q->fetch_array();
-            $query2 = $conn->query("SELECT * FROM `treatment_record` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
-            $fetch = $query2->fetch_array();
             $q1 = $conn->query("SELECT `tb_case_no` FROM `registration` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
             $f1 = $q1->fetch_array();
                     ?>

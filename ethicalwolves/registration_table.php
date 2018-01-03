@@ -158,6 +158,7 @@ require ('config.php');
         </div>
 
 
+
         <?php require 'require/modals/new_tb_case.php'?>
         <?php require 'require/modals/register_tb_case.php'?>
         <?php require 'require/modals/new_ipt.php'?>
@@ -215,7 +216,6 @@ require ('config.php');
                 ignore: [],
                 rules: {
                     age: {
-                        required: true,
                         min: 0,
                         max: 5
                     },
@@ -231,6 +231,25 @@ require ('config.php');
                     }
                 }
             });
+        </script>
+
+        <script>
+            $("#tbirthdate").change(function(){
+                var tbirthdate = new Date($(this).val());
+                var today = new Date();
+                var tage = Math.floor((today-tbirthdate) / (365.25 * 24 * 60 * 60 * 1000));
+                $('#tage').val(tage);
+            });
+
+        </script>
+        <script>
+            $("#birthdate").change(function(){
+                var birthdate = new Date($(this).val());
+                var today = new Date();
+                var age = Math.floor((today-birthdate) / (365.25 * 24 * 60 * 60 * 1000));
+                $('#age').val(age);
+            });
+
         </script>
     </body>
 </html>

@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-user-plus"></span> New Patient</h4>
+                <h4 class="modal-title" id="largeModalHead">New Patient</h4>
             </div>
             <form id="tbcase" role="form" class="form-horizontal" action="actions/registration_table.php" method="post" onsubmit="return confirm('Are you sure you want to add new patient?');">
                 <div class="modal-body">
@@ -17,12 +17,6 @@
                                         <input data-toggle="tooltip" data-placement="bottom" title="Patient Name" type="text" class="form-control" name="patient_name" placeholder="Patient Name" required/>
                                     </div>
                                 </div>
-                                <div class="form-group ">
-                                    <label class="col-md-3 col-xs-12 control-label">Age</label>
-                                    <div class="col-md-9 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Patient Age" type="number" class="form-control" name="age" placeholder="Age" required/>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <label class="col-md-3 col-xs-12 control-label">Gender</label>
                                     <div class="col-md-9">                                        
@@ -31,6 +25,18 @@
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="col-md-3 col-xs-12 control-label">Birthdate</label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" id="tbirthdate" type="text" class="form-control datepicker"  name="birthdate" required/>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="col-md-3 col-xs-12 control-label">Age</label>
+                                    <div class="col-md-9 col-xs-12">
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Patient Age" id="tage" type="number" class="form-control" name="age" style="font-size:11px;font-weight:bold;color:black" readonly/>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -110,12 +116,6 @@
                                             <option value="Brgy 41">Brgy. 41</option>
                                         </select>
 
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <label class="col-md-3 col-xs-12 control-label">Birthdate</label>
-                                    <div class="col-md-9 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" type="text" class="form-control datepicker" value="Birthdate" name="birthdate" required/>
                                     </div>
                                 </div>
                             </div>

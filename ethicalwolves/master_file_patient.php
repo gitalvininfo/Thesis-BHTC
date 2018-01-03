@@ -22,7 +22,6 @@ require ('config.php');
             <?php require 'require/sidebar.php'?>
             <div class="page-content">
                 <?php require 'require/header.php'?>
-
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Data Entry</li>
@@ -143,7 +142,6 @@ require ('config.php');
                                 </div>
                             </div>                           
                         </div>
-
                     </div>         
                 </div>            
             </div>

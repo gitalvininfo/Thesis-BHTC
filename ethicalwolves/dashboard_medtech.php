@@ -50,24 +50,27 @@ $f = $q->fetch_array();
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
-                        <div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
+                        <div class="panel-body list-group list-group-contacts scroll" style="height: 490px;">
                             <div class="col-md-3">
-
-                                <!-- START WIDGET SLIDER -->
                                 <div class="widget widget-default widget-carousel">
                                     <div class="owl-carousel" id="owl-example">
                                         <div> 
                                             <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+    $year = date('Y');
+            if(isset($_GET['year']))
+            {
+                $year=$_GET['year'];
+            }
+            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
             $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
             $f = $q->fetch_array();
-            $q2 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Bacteriologically Confirmed'") or die(mysqli_error());
+            $q2 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Bacteriologically Confirmed' && `year` = '$year'") or die(mysqli_error());
             $fetch = $q2->fetch_array();
-            $q3 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Clinically Diagnosed'") or die(mysqli_error());
+            $q3 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `bacteriological_status` = 'Clinically Diagnosed' && `year` = '$year'") or die(mysqli_error());
             $fetch2 = $q3->fetch_array();
-            $q4 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary'") or die(mysqli_error());
+            $q4 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Pulmonary' && `year` = '$year'") or die(mysqli_error());
             $fetch3 = $q4->fetch_array();
-            $q5 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary'") or die(mysqli_error());
+            $q5 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary' && `year` = '$year'") or die(mysqli_error());
             $fetch4 = $q5->fetch_array();
                                             ?>                                   
                                             <div class="widget-title">Pending</div>                                                                        
@@ -110,17 +113,20 @@ $f = $q->fetch_array();
                                     <div class="owl-carousel" id="owl-example">
                                         <div> 
                                             <?php
-    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'DSSM'") or die(mysqli_error());
+    $year = date('Y');
+                                                if(isset($_GET['year']))
+                                                {
+                                                    $year=$_GET['year'];
+                                                }
+                                                $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'DSSM' && `year` = '$year'") or die(mysqli_error());
                                                 $f = $q->fetch_array();
-                                                $q2 = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'Xpert MTB/RIF'") or die(mysqli_error());
+                                                $q2 = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'Xpert MTB/RIF' && `year` = '$year'") or die(mysqli_error());
                                                 $fetch = $q2->fetch_array();
-                                                $q3 = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'TB Culture'") or die(mysqli_error());
+                                                $q3 = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'TB Culture' && `year` = '$year'") or die(mysqli_error());
                                                 $fetch2 = $q3->fetch_array();
-                                                $q4 = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'Drug Susceptible Testing'") or die(mysqli_error());
+                                                $q4 = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'Drug Susceptible Testing' && `year` = '$year'") or die(mysqli_error());
                                                 $fetch3 = $q4->fetch_array();
-                                                $q5 = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'Tuberculin Skin Testing'") or die(mysqli_error());
-                                                $fetch4 = $q5->fetch_array();
                                             ?>                                   
                                             <div class="widget-title">Test Requested</div>                                                                        
                                             <div class="widget-subtitle">DSSM</div>
@@ -142,11 +148,6 @@ $f = $q->fetch_array();
                                             <div class="widget-subtitle">Drug Susceptible Testing</div>
                                             <div class="widget-int"><?php echo $fetch3['total']?></div>
                                         </div>
-                                        <div>                                    
-                                            <div class="widget-title">Test Requested</div>
-                                            <div class="widget-subtitle">Tuberculin Skin Testing</div>
-                                            <div class="widget-int"><?php echo $fetch4['total']?></div>
-                                        </div>
                                     </div>                            
                                     <div class="widget-controls">                                
                                         <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -163,17 +164,19 @@ $f = $q->fetch_array();
                                     </div>
                                     <div class="widget-data">
                                         <?php
-    $queryCount = "
-                                    SELECT COUNT(*) AS total
-                                    FROM registration";
-                                                $query = mysqli_query($conn, $queryCount);
-                                                $row = mysqli_fetch_object($query);
+    $year = date('Y');
+                                                if(isset($_GET['year']))
+                                                {
+                                                    $year=$_GET['year'];
+                                                }
+                                                $q2 = $conn->query("SELECT COUNT(*) as total FROM `registration` where `year` = '$year'") or die(mysqli_error());
+                                                $f2 = $q2->fetch_array();
                                         ?>
                                         <div class="widget-int num-count">
-                                            <?php echo $row->total; ?>
+                                            <?php echo $f2['total']; ?>
                                         </div>
                                         <div class="widget-title">TB Patients</div>
-                                        <div class="widget-subtitle">Currently in Treatment</div>
+                                        <div class="widget-subtitle">Currently Registered</div>
                                     </div>
                                     <div class="widget-controls">
                                         <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>

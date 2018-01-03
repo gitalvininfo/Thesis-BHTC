@@ -21,8 +21,9 @@ require ('config.php');
         <style type="text/css">
             @media print{
                 @page{
-                    size:halfletter;
+                    size:letter;
                 }
+
             }
             #print{
                 width:500px;
@@ -30,6 +31,7 @@ require ('config.php');
                 margin:60px 0px 15px 400px;
                 border:1px solid #000;
             }
+
         </style>
         <!-- EOF CSS INCLUDE -->
     </head>
@@ -60,8 +62,6 @@ require ('config.php');
                                 $fetch = $query->fetch_array();
                                 $q2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
                                 $reg = $q2->fetch_array();
-                                $q3 = $conn->query("SELECT * FROM `treatment_record` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                $f3 = $q3->fetch_array();
                                 ?>                               
                                 <center><img style="height:100px;width:100px;" src="assets/images/bc.png"> <br> <br>
                                     <h6>Bacolod City Health TB DOTS Center</h6>
@@ -71,7 +71,7 @@ require ('config.php');
 
                                     <h6 style="font-size:25px;">Certification</h6></center>  <br>
                                 <p style="font-size: 15px"class="text-justify"> &nbsp; &nbsp; The is to certify that <strong><?php echo $fetch['patient_name']?></strong>, bearer of this NTP ID Card, has complied
-                                    with the required treatment, supervised by <strong>Bacolod City Health TB DOTS Center</strong>.</p>
+                                    with the required treatment, supervised by <strong><?php echo $reg['dots_facility']?></strong>.</p>
                                 <p style="font-size:15px;">Issued this <strong><?php echo date("jS"). " day of " . date("F ") . date("Y")?>. </strong></p>
                                 <br> <br>  <br>
                                 <h6 class="text-center">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
