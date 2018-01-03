@@ -12,6 +12,7 @@ require ('config.php');
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
     </head>
     <body>
         <?php 
@@ -32,6 +33,11 @@ require ('config.php');
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Laboratory Request</h3>
+                                <div class="btn-group pull-right">
+                                    <div class="pull-left">
+                                        <?php require 'require/select_year.php'?>
+                                    </div>
+                                </div>
                             </div>
                             <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                 <div class="panel-body">
@@ -49,9 +55,9 @@ require ('config.php');
                                         </thead>
                                         <tbody>
                                             <?php
-
+    require 'require/labrequest_select_year.php';
     require 'config.php';
-            $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `patient` where `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $id = $fetch['patient_id'];
                 $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` where `patient_id` = '$id' && `status` = 'Pending'") or die(mysqli_error());
@@ -84,9 +90,16 @@ require ('config.php');
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function(){
+                $("#pyear").on('change', function(){
+                    var year=$(this).val();
+                    window.location = 'laboratory_request_table.php?year='+year;
+                });
+            });
+        </script>
         <?php require 'require/logout.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
