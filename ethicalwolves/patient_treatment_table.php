@@ -25,7 +25,7 @@ require ('config.php');
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li class="#">Transaction</li>
-                    <li class="active">Patient Individual Treatment</li>
+                    <li class="active"><strong><mark>Treatment</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

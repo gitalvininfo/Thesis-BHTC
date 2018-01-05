@@ -32,7 +32,8 @@ require ('config.php');
                     <li><a href="home.php">Home</a></li>
                     <li>Reports</li>
                     <li><a href="patient_record_report.php">Patient Record Reports</a></li>
-                    <li class="active">Individual Record</li>
+                    <li class="active"><strong><mark><?php echo $_GET['patient_name']?></mark></strong></li>
+
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

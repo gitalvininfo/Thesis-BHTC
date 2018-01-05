@@ -20,7 +20,7 @@ $f = $q->fetch_array();
     </head>
     <body>
         <?php 
-    $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
+        $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
         $find = $query->fetch_array();
         ?>
         <div class="page-container">
@@ -28,8 +28,7 @@ $f = $q->fetch_array();
             <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
-                    <li><a href="home.php">Home</a></li>
-                    <li class="active">Dashboard</li>
+                    <li class="active"><strong><mark>Dashboard</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -38,7 +37,7 @@ $f = $q->fetch_array();
                                 <div class="owl-carousel" id="owl-example">
                                     <div> 
                                         <?php
-    $year = date('Y');
+            $year = date('Y');
             if(isset($_GET['year']))
             {
                 $year=$_GET['year'];
@@ -198,7 +197,6 @@ $f = $q->fetch_array();
                 </div>
             </div>
         </div>
-
         <?php require 'require/logout.php'?>
         <script>
             $(document).ready(function(){

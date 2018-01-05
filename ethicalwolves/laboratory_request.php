@@ -26,9 +26,10 @@ require ('config.php');
             <div class="page-content">
                 <?php require 'require/header.php'?>
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="laboratory_request_table.php">Laboratory Request</a></li>
-                    <li class="active">Add Laboratory Request</li>
+                    <li><a href="home.php">Home</a></li>
+                    <li>Transaction</li>
+                    <li class="active"><a href="laboratory_request_table.php">Laboratory Requests</a></li>
+                    <li class="active"><strong><mark>Add Laboratory Request</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

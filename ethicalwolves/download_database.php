@@ -28,7 +28,7 @@ require ('config.php');
                     <ul class="breadcrumb push-down-0">
                         <li><a href="#">Home</a></li>
                         <li>System Maintenance</li>
-                        <li class="active">Import and Export Database</li>
+                        <li class="active"><strong><mark>Import and Export Database</mark></strong></li>
                     </ul>
                     <div class="row">
                         <div class="col-md-12">
@@ -40,7 +40,7 @@ require ('config.php');
                                             <a class="btn btn-warning mb-control" data-box="#message-box-warning"><span class="fa fa-cloud-upload"></span>Import Database</a>
                                         </div>
                                     </div>
-                                    <h3 class="panel-title"><span class="fa fa-database"></span> History Log - Export and Import Database</h3>
+                                    <h3 class="panel-title"><strong>History Log - Export and Import Database</strong></h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
                                     <div class="panel-body">
@@ -53,18 +53,17 @@ require ('config.php');
                                             </thead>
                                             <tbody>
                                                 <?php
-
-                                                require 'config.php';
-                                                $query = $conn->query("SELECT * FROM `backup` ORDER BY `backup_id` DESC") or die(mysqli_error());
-                                                while($fetch = $query->fetch_array()){
+    require 'config.php';
+                $query = $conn->query("SELECT * FROM `backup` ORDER BY `backup_id` DESC") or die(mysqli_error());
+                while($fetch = $query->fetch_array()){
                                                 ?>                                      
                                                 <tr>
                                                     <td><center><?php echo $fetch['remarks']?></center></td>
                                                     <td><center><?php echo $fetch['date']?></center></td>
                                                 </tr>
                                                 <?php
-                                                }
-                                                $conn->close();
+                }
+                $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>                                    
@@ -76,6 +75,7 @@ require ('config.php');
                 </div>
             </div>            
         </div>
+        
         <div class="message-box message-box-info animated fadeIn" data-sound="alert" id="message-box-info">
             <div class="mb-container">
                 <div class="mb-middle">
@@ -92,7 +92,6 @@ require ('config.php');
                 </div>
             </div>
         </div>
-
         <div class="message-box message-box-warning animated fadeIn" data-sound="alert" id="message-box-warning">
             <div class="mb-container">
                 <div class="mb-middle">
@@ -109,9 +108,7 @@ require ('config.php');
                 </div>
             </div>
         </div>
-
         <?php require 'require/logout.php'?>
-        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
@@ -124,9 +121,3 @@ require ('config.php');
         <script type="text/javascript" src="js/actions.js"></script>        
     </body>
 </html>
-
-
-
-
-
-

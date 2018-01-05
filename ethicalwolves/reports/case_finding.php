@@ -43,7 +43,7 @@ require ('../config.php');
                     <li><a href="../home.php">Home</a></li>
                     <li class="#">Reports</li>
                     <li><a href="../reports.php">TB Cases Report</a></li>
-                    <li class="#">Registration Group</li>
+                    <li class="active"><strong><mark>Case Findings</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

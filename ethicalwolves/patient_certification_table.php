@@ -27,7 +27,7 @@ require 'config.php';
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Reports</li>
-                    <li class="active">Certification</li>
+                    <li class="active"><strong><mark>Patient Certification</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

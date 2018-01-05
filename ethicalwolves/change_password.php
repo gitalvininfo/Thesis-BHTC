@@ -30,7 +30,7 @@ require ('config.php');
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li><a href="#">System Maintenance</a></li>
-                    <li class="active">Update Profile</li>
+                    <li class="active"><strong><mark>Update Profile</mark></strong></li>
                 </ul>
 
                 <div class="page-content-wrap">
@@ -42,10 +42,10 @@ require ('config.php');
             $f = $q->fetch_array();
             $id=$_SESSION['user_id'];
                             ?>
-                            <form role="form" class="form-horizontal" action="update_profile.php" method="post" onsubmit="return confirm('Are you sure you want to add this laboratory request?');" onsubmit="return myFunction()">
+                            <form role="form" class="form-horizontal" action="update_profile.php" method="post" onsubmit="return confirm('Are you sure you want to your profile?');" onsubmit="return myFunction()">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><strong> <span class="fa fa-lock"></span> Update My Account</strong></h3>
+                                        <h3 class="panel-title"><strong> Update My Account</strong></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="form-group ">
@@ -63,20 +63,20 @@ require ('config.php');
                                         <div class="form-group ">
                                             <label class="col-md-3 col-xs-12 control-label">New Password</label>
                                             <div class="col-md-9 col-xs-12">
-                                                <input data-toggle="tooltip" data-placement="bottom" title="New Password" type="text" class="form-control" id="password" name="password" placeholder="Type New Password"/>
+                                                <input data-toggle="tooltip" data-placement="bottom" title="New Password" type="text" class="form-control" id="password" name="password"/>
                                             </div>
                                         </div>
                                         <div class="form-group ">
                                             <label class="col-md-3 col-xs-12 control-label">Confirm Password</label>
                                             <div class="col-md-9 col-xs-12">
-                                                <input data-toggle="tooltip" data-placement="bottom" title="Confirm Password" type="text" class="form-control" id="cfmPassword" name="newpassword" placeholder="Confirm Password" />
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Confirm Password" type="text" class="form-control" id="cfmPassword" name="newpassword" />
                                             </div>
                                         </div>
 
                                         <div class="form-group ">
                                             <label class="col-md-3 col-xs-12 control-label">Old Password</label>
                                             <div class="col-md-9 col-xs-12">
-                                                <input data-toggle="tooltip" data-placement="bottom" title="Old Password" type="text" class="form-control" name="passwordold" placeholder="Old Password" required/>
+                                                <input data-toggle="tooltip" data-placement="bottom" title="Old Password" type="text" class="form-control" name="passwordold" required/>
                                             </div>
                                         </div>
                                     </div>

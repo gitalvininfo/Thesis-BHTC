@@ -30,7 +30,7 @@ require ('../config.php');
                     <li><a href="home.php">Home</a></li>
                     <li>Reports</li>
                     <li><a href="../examination_reports_overview.php">Examination Reports</a></li>
-                    <li class="active"><?php echo "DSSM Year ". $year?> </li>
+                    <li class="active"><strong><mark>DSSM - Year <?php echo $year?></mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

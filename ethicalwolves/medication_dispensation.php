@@ -60,7 +60,7 @@ if(ISSET($_POST['medicine_stock'])){
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Transaction</li>
-                    <li class="active">Medication Dispensation</li>
+                    <li class="active"><strong><mark>Medication Dispensation and Add Stocks</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

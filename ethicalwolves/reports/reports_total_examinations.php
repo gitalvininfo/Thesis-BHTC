@@ -30,7 +30,7 @@ require ('../config.php');
                     <li><a href="home.php">Home</a></li>
                     <li>Reports</li>
                     <li><a href="../examination_reports_overview.php">Examination Reports</a></li>
-                    <li class="active"><?php echo "Total Number of Examinations Conducted Year ". $year?></li>
+                    <li class="active"><strong><mark>Total Number of Examinations Conducted Year <?php echo $year?></mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -43,7 +43,7 @@ require ('../config.php');
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
-                                       <?php require 'require/widgets_total_examinations.php'?>
+                                        <?php require 'require/widgets_total_examinations.php'?>
                                         <hr>
                                         <div class="row">
                                             <div class="panel-body">

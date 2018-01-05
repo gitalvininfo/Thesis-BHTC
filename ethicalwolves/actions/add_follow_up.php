@@ -1,6 +1,7 @@
 <?php
+require '../config.php';
 if(ISSET($_POST['add_follow_up'])){
-    $follow_up_date = $_POST['follow_up_date'];
+    $follow_up_date = mysqli_real_escape_string($conn, $_POST['follow_up_date']);
     $remarks = $_POST['remarks'];
     $patient_id = $_POST['patient_id'];
 

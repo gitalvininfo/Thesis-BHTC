@@ -49,7 +49,7 @@ if(ISSET($_POST['new_medicine'])){
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
                     <li>Data Entry</li>
-                    <li class="active">New Medicine</li>
+                    <li class="active"><strong><mark>Add New Medicine</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -105,7 +105,6 @@ if(ISSET($_POST['new_medicine'])){
         <?php require 'require/modals/new_medicine.php'?>
         <?php require 'require/modals/edit_medicine.php'?>
         <?php require 'require/logout.php'?>
-        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>

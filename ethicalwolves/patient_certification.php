@@ -69,7 +69,8 @@ require ('config.php');
                                         (034) 434 4098 <br>
                                         cho_bacolod_city@yahoo.com</small></p>        <br>                   
 
-                                    <h6 style="font-size:25px;">Certification</h6></center>  <br>
+                                    <h6 style="font-size:25px;">Certification</h6></center> 
+                                <br>
                                 <p style="font-size: 15px"class="text-justify"> &nbsp; &nbsp; The is to certify that <strong><?php echo $fetch['patient_name']?></strong>, bearer of this NTP ID Card, has complied
                                     with the required treatment, supervised by <strong><?php echo $reg['dots_facility']?></strong>.</p>
                                 <p style="font-size:15px;">Issued this <strong><?php echo date("jS"). " day of " . date("F ") . date("Y")?>. </strong></p>

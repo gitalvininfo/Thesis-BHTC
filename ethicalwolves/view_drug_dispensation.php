@@ -28,7 +28,7 @@ require ('config.php');
                     <li><a href="home.php">Home</a></li>
                     <li>Reports</li>
                     <li><a href="medication_dispense_table.php">Barangay Health Stations</a></li>
-                    <li class="active"><?php echo $_GET['health_center']?></li>
+                    <li class="active"><strong><mark><?php echo $_GET['health_center']?></mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

@@ -51,14 +51,14 @@ if(ISSET($_POST['save_user'])){
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>System Maintenance</li>
-                    <li class="active">User Management</li>
+                    <li class="active"><strong><mark>User Management</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Medical Technologists</h3>
+                                    <h3 class="panel-title"><strong>Medical Technologists</strong></h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
                                     <table class="table table-hover">

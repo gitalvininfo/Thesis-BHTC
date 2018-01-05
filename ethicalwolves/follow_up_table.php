@@ -26,7 +26,7 @@ require 'config.php';
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Transaction</li>
-                    <li class="active">Follow-up Visit</li>
+                    <li class="active"><strong><mark>Follow-up Visit</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

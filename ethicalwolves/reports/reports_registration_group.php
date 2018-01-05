@@ -30,7 +30,7 @@ require ('../config.php');
                     <li><a href="../home.php">Home</a></li>
                     <li class="#">Reports</li>
                     <li><a href="../reports.php">TB Cases Report</a></li>
-                    <li class="#">Registration Group</li>
+                    <li class="active"><strong><mark>Registration Group</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -210,6 +210,7 @@ require ('../config.php');
                 });
             });
         </script>
+
         <audio id="audio-alert" src="../audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="../audio/fail.mp3" preload="auto"></audio>
         <script type='text/javascript' src='../js/plugins/bootstrap/bootstrap-select.js'></script>

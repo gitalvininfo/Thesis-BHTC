@@ -42,9 +42,9 @@ require ('config.php');
             $f1 = $q1->fetch_array();
                     ?>
                     <li><a href="home.php">Home</a></li>
-                    <li><a href="#">Transaction</a></li>
-                    <li><a href="patient_treatment_table.php">Patient Individual Treatment</a></li>
-                    <li class="active"><?php echo $f['patient_name']?></li>
+                    <li class="#">Transaction</li>
+                    <li class="#"><a href="patient_treatment_table.php">Treatment</a></li>
+                    <li class="active"><strong><mark><?php echo $_GET['patient_name']?></mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

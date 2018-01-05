@@ -48,7 +48,7 @@
                                     <option value="#">Select Medicine</option>
                                     <?php
                                     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                    $query = $conn->query("SELECT * FROM `medicine`") or die(mysqli_error());
+                                    $query = $conn->query("SELECT * FROM `medicine` where `running_balance` >= 0") or die(mysqli_error());
 
                                     while($fetch = $query->fetch_array()){
                                     ?>

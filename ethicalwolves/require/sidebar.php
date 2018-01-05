@@ -6,11 +6,11 @@
         </li>
         <li class="xn-profile">
             <a href="#" class="profile-mini">
-                <img src="assets/images/users/no-image.jpg" alt="John Doe" />
+                <img src="assets/images/project_logo.png" alt="BHTC-PMIS" />
             </a>
             <div class="profile">
                 <div class="profile-image">
-                    <img src="assets/images/project_logo.png" alt="John Doe" />
+                    <img src="assets/images/project_logo.png" alt="BHTC-PMIS" />
                 </div>
                 <div class="profile-data">
                     <div class="profile-data-name">

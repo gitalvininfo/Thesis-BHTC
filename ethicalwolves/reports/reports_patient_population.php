@@ -30,7 +30,7 @@ require ('../config.php');
                     <li><a href="../home.php">Home</a></li>
                     <li class="#">Reports</li>
                     <li><a href="../reports.php">TB Cases Report</a></li>
-                    <li class="#">Patient Population</li>
+                    <li class="active"><strong><mark>Monthly Population</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -52,6 +52,18 @@ require ('../config.php');
                                     <div class="tab-pane" id="tab-second">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                             <div class="row">
+                                                <div class="panel-heading">
+                                                    <div class="btn-group pull-left">
+                                                        <div class="btn-group">
+                                                            <a href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle">Filter By <span class="caret"></span></a>
+                                                            <ul class="dropdown-menu" role="menu">
+                                                                <li><a href="#" onclick="openWin()">Patient Type</a></li>
+                                                                <li><a href="#" onclick="pGender()">Patient Gender</a></li>
+                                                                <li><a href="#">Patient Barangay</a></li>                                                    
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
@@ -199,6 +211,15 @@ require ('../config.php');
 
         <?php require 'require/tabular_monthly_population.php'?>
         <?php require 'require/logout.php'?>
+        <script>
+            function openWin() {
+                myWindow = window.open("filter/monthly_population_children.php?year=<?php echo $year?>", "", "width=800, height=600");
+            }
+            function pGender() {
+                myWindow = window.open("filter/monthly_population_gender.php?year=<?php echo $year?>", "", "width=800, height=600");
+            }
+
+        </script>
         <script>
             $(document).ready(function(){
                 $("#pyear").on('change', function(){

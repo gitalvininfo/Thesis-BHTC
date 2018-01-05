@@ -51,7 +51,7 @@ if(ISSET($_POST['save_user'])){
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Data Entry</li>
-                    <li class="active">Medical Technologists</li>
+                    <li class="active"><strong><mark>Medical Technologists</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

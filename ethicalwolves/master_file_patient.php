@@ -12,6 +12,7 @@ require ('config.php');
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css"/>
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
     </head>
     <body>
         <?php 
@@ -25,7 +26,7 @@ require ('config.php');
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Data Entry</li>
-                    <li class="active">Patient Master File</li>
+                    <li class="active"><strong><mark>Patient Master File</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -34,6 +35,11 @@ require ('config.php');
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">TB Case</a></li>
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">IPT Case</a></li>
+                                    <div class="btn-group pull-right">
+                                        <div class="pull-left">
+                                            <?php require 'require/select_year.php'?>
+                                        </div>
+                                    </div>
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
@@ -56,8 +62,9 @@ require ('config.php');
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-    require 'config.php';
-            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+    require 'require/masterfile_patient_select_year.php';
+            require 'config.php';
+            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $id = $fetch['patient_id'];
                 $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
@@ -107,9 +114,9 @@ require ('config.php');
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-                                                                    $year = date('Y');
-                                                                    $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                                                                    require 'require/masterfile_patient_ipt_select_year.php';
+                                                                    require 'config.php';
+                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `status` = 'Registered' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                                                                     while($fetch = $query->fetch_array()){
                                                                         $id = $fetch['patient_id'];
                                                                         $query2 = $conn->query("SELECT `ipt_no`, `year` FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
@@ -150,9 +157,15 @@ require ('config.php');
         <?php require 'require/modals/edit_tb_case.php'?>
         <?php require 'require/modals/edit_ipt_case.php'?>
         <?php require 'require/logout.php'?>
-        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+        <script>
+            $(document).ready(function(){
+                $("#pyear").on('change', function(){
+                    var year=$(this).val();
+                    window.location = 'master_file_patient.php?year='+year;
+                });
+            });
+        </script>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
