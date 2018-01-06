@@ -42,7 +42,7 @@ require ('config.php');
                     <li><a href="home.php">Home</a></li>
                     <li>Data Entry</li>
                     <li><a href="master_file_patient.php">Patient Master File</a></li>
-                    <li class="active"><?php echo $f['patient_name']?></li>
+                    <li class="active"><strong><mark><?php echo $f['patient_name']?></mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

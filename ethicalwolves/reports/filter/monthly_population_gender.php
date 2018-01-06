@@ -9,6 +9,8 @@
         <link rel="icon" href="../../assets/images/project_logo.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" id="theme" href="../../css/theme-blue.css"/>
         <script src="../../js/plugins/jquery/jquery.min.js"></script>
+        <script src = "../../js/jquery.canvasjs.min.js"></script>
+        <?php require '../../js/loadchart/filter/patient_gender.php'?>
         <style type="text/css">
             @media print{
                 @page{
@@ -17,7 +19,7 @@
             }
             #print{
                 width:650px;
-                height:700px;
+                height:1000px;
                 overflow: hidden;
                 margin:auto;
                 border:0.5px solid #8f8888;
@@ -56,77 +58,63 @@
                                 <table class="table table-condensed">
                                     <thead>
                                         <tr>
-                                            <th><center>Month</center></th>
-                                            <th><center>Male</center></th>
-                                            <th><center>Female</center></th>
+                                            <th><center>Patient</center></th>
+                                            <th><center>Jan</center></th>
+                                            <th><center>Feb</center></th>
+                                            <th><center>Mar</center></th>
+                                            <th><center>Apr</center></th>
+                                            <th><center>May</center></th>
+                                            <th><center>June</center></th>
+                                            <th><center>July</center></th>
+                                            <th><center>Aug</center></th>
+                                            <th><center>Sep</center></th>
+                                            <th><center>Oct</center></th>
+                                            <th><center>Nov</center></th>
+                                            <th><center>Dec</center></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php 
-                                        require '../require/load_monthly_population_gender.php'?>
+                                        <?php require '../require/load_monthly_population_gender.php'?>
                                         <tr>
-                                            <td><center>January</center></td>
+                                            <th><center>Male</center></th>
                                             <td><center><?php echo $c1['total']?></center></td>
-                                            <td><center><?php echo $a1['total']?></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td><center>February</center></td>
                                             <td><center><?php echo $c2['total']?></center></td>
-                                            <td><center><?php echo $a2['total']?></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td><center>March</center></td>
                                             <td><center><?php echo $c3['total']?></center></td>
-                                            <td><center><?php echo $a3['total']?></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td><center>April</center></td>
                                             <td><center><?php echo $c4['total']?></center></td>
-                                            <td><center><?php echo $a4['total']?></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td><center>May</center></td>
                                             <td><center><?php echo $c5['total']?></center></td>
-                                            <td><center><?php echo $a5['total']?></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td><center>June</center></td>
                                             <td><center><?php echo $c6['total']?></center></td>
-                                            <td><center><?php echo $a6['total']?></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td><center>July</center></td>
                                             <td><center><?php echo $c7['total']?></center></td>
-                                            <td><center><?php echo $a7['total']?></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td><center>August</center></td>
                                             <td><center><?php echo $c8['total']?></center></td>
-                                            <td><center><?php echo $a8['total']?></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td><center>September</center></td>
                                             <td><center><?php echo $c9['total']?></center></td>
-                                            <td><center><?php echo $a9['total']?></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td><center>October</center></td>
                                             <td><center><?php echo $c10['total']?></center></td>
-                                            <td><center><?php echo $a10['total']?></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td><center>November</center></td>
                                             <td><center><?php echo $c11['total']?></center></td>
-                                            <td><center><?php echo $a11['total']?></center></td>
+                                            <td><center><?php echo $c12['total']?></center></td>
                                         </tr>
                                         <tr>
-                                            <td><center>December</center></td>
-                                            <td><center><?php echo $c12['total']?></center></td>
+                                            <th><center>Female</center></th>
+                                            <td><center><?php echo $a1['total']?></center></td>
+                                            <td><center><?php echo $a2['total']?></center></td>
+                                            <td><center><?php echo $a3['total']?></center></td>
+                                            <td><center><?php echo $a4['total']?></center></td>
+                                            <td><center><?php echo $a5['total']?></center></td>
+                                            <td><center><?php echo $a6['total']?></center></td>
+                                            <td><center><?php echo $a7['total']?></center></td>
+                                            <td><center><?php echo $a8['total']?></center></td>
+                                            <td><center><?php echo $a9['total']?></center></td>
+                                            <td><center><?php echo $a10['total']?></center></td>
+                                            <td><center><?php echo $a11['total']?></center></td>
                                             <td><center><?php echo $a12['total']?></center></td>
                                         </tr>
-
                                     </tbody>
-                                </table>
+                                </table><hr>
+                                <div class="row">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div id="gender" style="width: 100%; height: 425px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

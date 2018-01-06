@@ -21,11 +21,14 @@ require ('config.php');
                 }
             }
             #print{
-                width:1010px;
-                height:650px;
+                width:910px;
+                height:730px;
                 overflow: hidden;
-                margin:10px 0px 15px 10px;
+                margin:auto;
                 border:0.5px solid #8f8888;
+            }
+            .blank{
+                color:red;
             }
         </style>
     </head>
@@ -34,7 +37,6 @@ require ('config.php');
     $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
         $find = $query->fetch_array();
         ?>
-        <!-- START PAGE CONTAINER -->
         <div class="page-container">
             <?php require 'require/medtech_sidebar.php'?>
             <div class="page-content">
@@ -61,18 +63,26 @@ require ('config.php');
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                     <div id="print">
                                         <div class="panel-body">
-
                                             <center><img style="height:50px;width:50px;" src="assets/images/bc.png"> <br>
                                                 <p>Bacolod City Health TB DOTS Center</p>
                                                 <p><small>BBB St., Bacolod City, Philippines <br>
                                                     (034) 434 4098 <br>
-                                                    cho_bacolod_city@yahoo.com</small></p>        <br> </center>                   
+                                                    cho_bacolod_city@yahoo.com</small></p> </center>    
+                                            <h6 style="float:left">Name of Province/City: <u><mark>Bacolod City</mark></u></h6>
+                                            <h6 style="float:right">Date Reported: <u><mark><?php echo date('F j, Y', strtotime("+8 HOURS"))?></mark></u></h6><br><br>
+                                            <h6 style="float:left">Municipality: <u><mark>Negros Occidental</mark></u></h6>
+                                            <h6 style="float:right">Prepared By: <u><mark><?php echo $find['firstname']. " " .$find['lastname']?></mark></u></h6><br><br>
+                                            <h6 style="float:left">Name of DOTS Facility: <u><mark>Bacolod City Health TB DOTS Center</mark></u></h6>        
+                                            <hr><br>    
 
-                                            <h6 style="font-size:15px;">Examination Report</h6>   <br>
                                             <h6 style="font-size:13px;color:#dc4141">A. Case Finding</h6>
 
                                             <table class="table table-bordered">
                                                 <thead>
+                                                   <tr>
+                                                      <th colspan="2"></th>
+                                                       <th colspan="3"><center>Xpert</center></th>
+                                                   </tr>
                                                     <tr>
                                                         <th>Laboratory Activities</th>
                                                         <th><center>DSSM</center></th>
@@ -87,7 +97,7 @@ require ('config.php');
                                                         <td><center><?php echo $f1['total']?></center></td>
                                                         <td><center><?php echo $f2['total']?></center></td>
                                                         <td><center><?php echo $f3['total']?></center></td>
-                                                        <td><center></center></td>
+                                                        <td><center><?php echo $f4['total']?></center></td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>2. No. with (+) result</strong></td>
@@ -98,38 +108,38 @@ require ('config.php');
                                                     </tr>
                                                     <tr>
                                                         <td><strong>3. No. with Rifampicin Resistance [RR]</strong></td>
-                                                        <td bgcolor="#b8b2b2"><center> </center></td>
+                                                        <td ><center>---</center></td>
                                                         <td><center><?php echo $f8['total']?></center></td>
                                                         <td><center><?php echo $f9['total']?></center></td>
-                                                        <td></td>
+                                                        <td><center><?php echo $f19['total']?></center></td>
                                                     </tr>
                                                     <tr >
                                                         <td><strong>4. No. with Rifampicin not Detected [T]</strong></td>
-                                                        <td bgcolor="#b8b2b2"></td>
+                                                        <td><center>---</center></td>
                                                         <td><center><?php echo $f10['total']?></center></td>
                                                         <td><center><?php echo $f11['total']?></center></td>
-                                                        <td></td>
+                                                        <td><center><?php echo $f20['total']?></center></td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>5. No. with Rifampicin Resistance Undetermine [TI]</strong></td>
-                                                        <td bgcolor="#b8b2b2"></td>
+                                                        <td><center>---</center></td>
                                                         <td><center><?php echo $f12['total']?></center></td>
                                                         <td><center><?php echo $f13['total']?></center></td>
-                                                        <td></td>
+                                                        <td><center><?php echo $f21['total']?></center></td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>6. No. with error or invalid result [I]</strong></td>
-                                                        <td bgcolor="#b8b2b2"></td>
+                                                        <td><center>---</center></td>
                                                         <td><center><?php echo $f14['total']?></center></td>
                                                         <td><center><?php echo $f15['total']?></center></td>
-                                                        <td></td>
+                                                        <td><center><?php echo $f22['total']?></center></td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>7. No. with MTB not Detected [N]</strong></td>
-                                                        <td bgcolor="#b8b2b2"></td>
+                                                        <td><center>---</center></td>
                                                         <td><center><?php echo $f16['total']?></center></td>
                                                         <td><center><?php echo $f17['total']?></center></td>
-                                                        <td></td>
+                                                        <td><center><?php echo $f23['total']?></center></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -146,7 +156,7 @@ require ('config.php');
                                                 <tbody>
                                                     <tr>
                                                         <td><strong>1. No. of Follow-up cases examined</strong></td>
-                                                        <td></td>
+                                                        <td><center><?php echo $f18['total']?></center></td>
                                                     </tr>
                                                 </tbody>
                                             </table>

@@ -14,6 +14,9 @@ $f2 = $q2->fetch_array();
 $q3 = $conn->query("select COUNT(*) as total from `registration`, `dssm_examination` where dssm_examination.patient_id = registration.patient_id && registration_group = 'Relapse' && dssm_examination.year = '$year'") or die(mysqli_error());
 $f3 = $q3->fetch_array();
 
+$q4 = $conn->query("select COUNT(*) as total from `registration`, `gene_expert_examination` where gene_expert_examination.patient_id = registration.patient_id && (registration_group = 'Treatment After Failure' or registration_group = 'TALF' or registration_group = 'PTOU') && gene_expert_examination.year = '$year'") or die(mysqli_error());
+$f4 = $q4->fetch_array();
+
 $q5 = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` where `laboratory_diagnosis` = 'Positive (+)' && `year` = '$year'") or die(mysqli_error());
 $f5 = $q5->fetch_array();
 
@@ -52,6 +55,24 @@ $f16 = $q16->fetch_array();
 
 $q17 = $conn->query("select COUNT(*) as total from `registration`, `gene_expert_examination` where gene_expert_examination.patient_id = registration.patient_id && registration_group = 'Relapse' && result = 'N' && gene_expert_examination.year = '$year'") or die(mysqli_error());
 $f17 = $q17->fetch_array();
+
+$q18 = $conn->query("select COUNT(*) as total from `laboratory_request` where `reason_for_examination` = 'Follow-up' && `test_requested` = 'DSSM' && year = '$year'") or die(mysqli_error());
+$f18 = $q18->fetch_array();
+
+$q19 = $conn->query("select COUNT(*) as total from `registration`, `gene_expert_examination` where gene_expert_examination.patient_id = registration.patient_id && (registration_group = 'Treatment After Failure' or registration_group = 'TALF' or registration_group = 'PTOU') && result = 'RR' && gene_expert_examination.year = '$year'") or die(mysqli_error());
+$f19 = $q19->fetch_array();
+
+$q20 = $conn->query("select COUNT(*) as total from `registration`, `gene_expert_examination` where gene_expert_examination.patient_id = registration.patient_id && (registration_group = 'Treatment After Failure' or registration_group = 'TALF' or registration_group = 'PTOU') && result = 'T' && gene_expert_examination.year = '$year'") or die(mysqli_error());
+$f20 = $q20->fetch_array();
+
+$q21 = $conn->query("select COUNT(*) as total from `registration`, `gene_expert_examination` where gene_expert_examination.patient_id = registration.patient_id && (registration_group = 'Treatment After Failure' or registration_group = 'TALF' or registration_group = 'PTOU') && result = 'TI' && gene_expert_examination.year = '$year'") or die(mysqli_error());
+$f21 = $q21->fetch_array();
+
+$q22 = $conn->query("select COUNT(*) as total from `registration`, `gene_expert_examination` where gene_expert_examination.patient_id = registration.patient_id && (registration_group = 'Treatment After Failure' or registration_group = 'TALF' or registration_group = 'PTOU') && result = 'I' && gene_expert_examination.year = '$year'") or die(mysqli_error());
+$f22 = $q22->fetch_array();
+
+$q23 = $conn->query("select COUNT(*) as total from `registration`, `gene_expert_examination` where gene_expert_examination.patient_id = registration.patient_id && (registration_group = 'Treatment After Failure' or registration_group = 'TALF' or registration_group = 'PTOU') && result = 'N' && gene_expert_examination.year = '$year'") or die(mysqli_error());
+$f23 = $q23->fetch_array();
 ?>
 
 

@@ -24,8 +24,6 @@ require ('config.php');
     $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
         $find = $query->fetch_array();
         ?>
-
-        <!-- START PAGE CONTAINER -->
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
             <div class="page-content">
@@ -42,7 +40,7 @@ require ('config.php');
                     <li><a href="home.php">Home</a></li>
                     <li>Data Entry</li>
                     <li><a href="master_file_patient.php">Patient Master File</a></li>
-                    <li class="active"><?php echo $f['name']?></li>
+                    <li class="active"><strong><mark><?php echo $f['name']?></mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

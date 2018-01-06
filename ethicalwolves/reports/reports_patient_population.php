@@ -59,7 +59,7 @@ require ('../config.php');
                                                             <ul class="dropdown-menu" role="menu">
                                                                 <li><a href="#" onclick="openWin()">Patient Type</a></li>
                                                                 <li><a href="#" onclick="pGender()">Patient Gender</a></li>
-                                                                <li><a href="#">Patient Barangay</a></li>                                                    
+                                                                <li><a href="#" onclick="pQuarter()">Population Quarterly</a></li>                                                    
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -108,84 +108,84 @@ require ('../config.php');
             $grat = $gra->fetch_array();
                                                         ?>
                                                         <tr>
-                                                            <td>January</td>
+                                                            <td><strong>January</strong></td>
                                                             <td><center><strong><?php echo $fjan['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#jan"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>February</td>
+                                                            <td><strong>February</strong></td>
                                                             <td><center><strong><?php echo $ffeb['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#feb"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>March</td>
+                                                            <td><strong>March</strong></td>
                                                             <td><center><strong><?php echo $fmar['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#mar"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>April</td>
+                                                            <td><strong>April</strong></td>
                                                             <td><center><strong><?php echo $fapr['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#apr"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>May</td>
+                                                            <td><strong>May</strong></td>
                                                             <td><center><strong><?php echo $fmay['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#may"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>June</td>
+                                                            <td><strong>June</strong></td>
                                                             <td><center><strong><?php echo $fjun['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#jun"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>July</td>
+                                                            <td><strong>July</strong></td>
                                                             <td><center><strong><?php echo $fjul['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#jul"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>August</td>
+                                                            <td><strong>August</strong></td>
                                                             <td><center><strong><?php echo $faug['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#aug"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>September</td>
+                                                            <td><strong>September</strong></td>
                                                             <td><center><strong><?php echo $fsep['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#sep"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>October</td>
+                                                            <td><strong>October</strong></td>
                                                             <td><center><strong><?php echo $foct['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#oct"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>November</td>
+                                                            <td><strong>November</strong></td>
                                                             <td><center><strong><?php echo $fnov['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#nov"><span class="fa fa-search"></span></button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>December</td>
+                                                            <td><strong>December</strong></td>
                                                             <td><center><strong><?php echo $fdec['total']?></strong></center></td>
                                                             <td><center>
                                                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#dec"><span class="fa fa-search"></span></button>
@@ -213,10 +213,13 @@ require ('../config.php');
         <?php require 'require/logout.php'?>
         <script>
             function openWin() {
-                myWindow = window.open("filter/monthly_population_children.php?year=<?php echo $year?>", "", "width=800, height=600");
+                myWindow = window.open("filter/monthly_population_children.php?year=<?php echo $year?>", "", "width=800, height=650");
             }
             function pGender() {
-                myWindow = window.open("filter/monthly_population_gender.php?year=<?php echo $year?>", "", "width=800, height=600");
+                myWindow = window.open("filter/monthly_population_gender.php?year=<?php echo $year?>", "", "width=800, height=650");
+            }
+            function pQuarter() {
+                myWindow = window.open("filter/quarter_population.php?year=<?php echo $year?>", "", "width=800, height=650");
             }
 
         </script>

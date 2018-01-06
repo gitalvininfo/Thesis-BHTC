@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" id="theme" href="../../css/theme-blue.css"/>
         <script src="../../js/plugins/jquery/jquery.min.js"></script>
         <script src = "../../js/jquery.canvasjs.min.js"></script>
-        <?php require '../../js/loadchart/filter/patient_type.php'?>
+        <?php require '../../js/loadchart/filter/quarterly_population.php'?>
         <style type="text/css">
             @media print{
                 @page{
@@ -19,7 +19,7 @@
             }
             #print{
                 width:650px;
-                height:1000px;
+                height:880px;
                 overflow: hidden;
                 margin:auto;
                 border:0.5px solid #8f8888;
@@ -55,64 +55,33 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <h4><mark>Patient Summary - Children and Adult - Year <?php echo $_GET['year']?></mark></h4> <hr>
+                                <h4><mark>Patient Population - Quarterly - Year <?php echo $_GET['year']?></mark></h4> <hr>
                                 <table class="table table-condensed">
                                     <thead>
                                         <tr>
-                                            <th><center>Patient</center></th>
-                                            <th><center>Jan</center></th>
-                                            <th><center>Feb</center></th>
-                                            <th><center>Mar</center></th>
-                                            <th><center>Apr</center></th>
-                                            <th><center>May</center></th>
-                                            <th><center>June</center></th>
-                                            <th><center>July</center></th>
-                                            <th><center>Aug</center></th>
-                                            <th><center>Sep</center></th>
-                                            <th><center>Oct</center></th>
-                                            <th><center>Nov</center></th>
-                                            <th><center>Dec</center></th>
+                                            <th><center>Quarter 1</center></th>
+                                            <th><center>Quarter 2</center></th>
+                                            <th><center>Quarter 3</center></th>
+                                            <th><center>Quarter 4</center></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php require '../require/load_monthly_patient.php'?>
+                                        <?php require '../require/load_quarter_population.php'?>
                                         <tr>
-                                            <th><center>Adult</center></th>
-                                            <td><center><?php echo $a1['total']?></center></td>
-                                            <td><center><?php echo $a2['total']?></center></td>
-                                            <td><center><?php echo $a3['total']?></center></td>
-                                            <td><center><?php echo $a4['total']?></center></td>
-                                            <td><center><?php echo $a5['total']?></center></td>
-                                            <td><center><?php echo $a6['total']?></center></td>
-                                            <td><center><?php echo $a7['total']?></center></td>
-                                            <td><center><?php echo $a8['total']?></center></td>
-                                            <td><center><?php echo $a9['total']?></center></td>
-                                            <td><center><?php echo $a10['total']?></center></td>
-                                            <td><center><?php echo $a11['total']?></center></td>
-                                            <td><center><?php echo $a12['total']?></center></td>
+                                            <td><center><strong><?php echo $f1['total']?></strong></center></td>
+                                            <td><center><strong><?php echo $f2['total']?></strong></center></td>
+                                            <td><center><strong><?php echo $f3['total']?></strong></center></td>
+                                            <td><center><strong><?php echo $f4['total']?></strong></center></td>
                                         </tr>
-                                        <tr>
-                                            <th><center>Children</center></th>
-                                            <td><center><?php echo $c1['total']?></center></td>
-                                            <td><center><?php echo $c2['total']?></center></td>
-                                            <td><center><?php echo $c3['total']?></center></td>
-                                            <td><center><?php echo $c4['total']?></center></td>
-                                            <td><center><?php echo $c5['total']?></center></td>
-                                            <td><center><?php echo $c6['total']?></center></td>
-                                            <td><center><?php echo $c7['total']?></center></td>
-                                            <td><center><?php echo $c8['total']?></center></td>
-                                            <td><center><?php echo $c9['total']?></center></td>
-                                            <td><center><?php echo $c10['total']?></center></td>
-                                            <td><center><?php echo $c11['total']?></center></td>
-                                            <td><center><?php echo $c12['total']?></center></td>
-                                        </tr>
+
+
                                     </tbody>
                                 </table>
                                 <hr>
                                 <div class="row">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div id="ptype" style="width: 100%; height: 425px"></div>
+                                            <div id="quarterly" style="width: 100%; height: 425px"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -122,8 +91,6 @@
                 </div>
             </div>
         </div>
-
-        <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script>
             function printContent(el){
                 var restorepage = document.body.innerHTML;

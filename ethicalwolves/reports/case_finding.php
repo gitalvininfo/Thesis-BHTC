@@ -59,11 +59,24 @@ require ('../config.php');
                                 </div>
                                 <div id="print">
                                     <div class="panel-body">
+                                        <?php
+    require '../config.php';
+            $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
+            $find = $query->fetch_array();
+                                        ?>
+
                                         <center><img style="height:50px;width:50px;" src="../assets/images/bc.png"> <br>
                                             <p>Bacolod City Health TB DOTS Center</p>
                                             <p><small>BBB St., Bacolod City, Philippines <br>
                                                 (034) 434 4098 <br>
-                                                cho_bacolod_city@yahoo.com</small></p> </center>     <hr>   
+                                                cho_bacolod_city@yahoo.com</small></p> </center>    
+                                        <h6 style="float:left">Name of Province/City: <u><mark>Bacolod City</mark></u></h6>
+                                        <h6 style="float:right">Date Reported: <u><mark><?php echo date('F j, Y', strtotime("+8 HOURS"))?></mark></u></h6><br><br>
+                                        <h6 style="float:left">Municipality: <u><mark>Negros Occidental</mark></u></h6>
+                                        <h6 style="float:right">Prepared By: <u><mark><?php echo $find['firstname']. " " .$find['lastname']?></mark></u></h6><br><br>
+                                        <h6 style="float:left">Name of DOTS Facility: <u><mark>Bacolod City Health TB DOTS Center</mark></u></h6>
+
+                                        <hr>
                                         <h3><center>Annual Case Findings Year <?php echo $year?></center></h3>           <hr>
 
 
@@ -96,8 +109,8 @@ require ('../config.php');
                                                     <td><center><strong><?php echo $f2['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f3['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f4['total']?></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
+                                                    <td><center><strong><?php echo $f5['total']?></strong></center></td>
+                                                    <td><center><strong><?php echo $f6['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f7['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f8['total']?></strong></center></td>
                                                 </tr>
@@ -107,8 +120,8 @@ require ('../config.php');
                                                     <td><center><strong><?php echo $f10['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f11['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f12['total']?></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
+                                                    <td><center><strong><?php echo $f13['total']?></strong></center></td>
+                                                    <td><center><strong><?php echo $f14['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f15['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f16['total']?></strong></center></td>
                                                 </tr>
@@ -118,8 +131,8 @@ require ('../config.php');
                                                     <td><center><strong><?php echo $f18['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f19['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f20['total']?></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
+                                                    <td><center><strong><?php echo $f21['total']?></strong></center></td>
+                                                    <td><center><strong><?php echo $f22['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f23['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f24['total']?></strong></center></td>
                                                 </tr>
@@ -163,8 +176,8 @@ require ('../config.php');
                                                     <td><center><strong><?php echo $f2['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f3['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f4['total']?></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
+                                                    <td><center><strong><?php echo $f5['total']?></strong></center></td>
+                                                    <td><center><strong><?php echo $f6['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f7['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f8['total']?></strong></center></td>
                                                 </tr>
@@ -174,8 +187,8 @@ require ('../config.php');
                                                     <td><center><strong><?php echo $f10['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f11['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f12['total']?></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
+                                                    <td><center><strong><?php echo $f13['total']?></strong></center></td>
+                                                    <td><center><strong><?php echo $f14['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f15['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f16['total']?></strong></center></td>
                                                 </tr>
@@ -185,8 +198,8 @@ require ('../config.php');
                                                     <td><center><strong><?php echo $f18['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f19['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f20['total']?></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
-                                                    <td><center><strong></strong></center></td>
+                                                    <td><center><strong><?php echo $f21['total']?></strong></center></td>
+                                                    <td><center><strong><?php echo $f22['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f23['total']?></strong></center></td>
                                                     <td><center><strong><?php echo $f24['total']?></strong></center></td>
                                                 </tr>

@@ -9,6 +9,8 @@
                     $q1 = $conn->query("SELECT sum(dosage) FROM `intensive_phase_ipt` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
                     $f1 = $q1->fetch_array();
                     ?>
+
+
                     <h2><strong>Intensive Phase - <?php echo $f1['sum(dosage)']. " mg"?></strong></h2>
                     <hr>
                     <div class="btn-group pull-right">
@@ -61,6 +63,42 @@
                         <h3>Summary</h3>
                         <div id="intensive_ipt" style="width: 100%; height: 425px"></div>
                     </div>
+                    <!-- Follow-up Visit-->
+                    <h2><strong>Follow-up Visit</strong></h2><hr>
+                    <h3>Overview</h3>
+                    <div class="panel-body">
+                        <?php
+                        $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                        $q = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                        $f = $q->fetch_array();
+                        $id=$f['patient_id'];
+                        ?>
+                        <table id="laboratory_request" class="table table-bordered">
+                            <thead>
+                                <tr class="info">
+                                    <th><center>Follow-up Date</center></th>
+                                    <th><center>Remarks</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                $query = $conn->query("SELECT * FROM `follow_up_ipt` where `patient_id` = '$id'") or die(mysqli_error());
+                                while($fetch = $query->fetch_array()){
+                                ?>
+                                <tr>
+                                    <td><center><?php echo $fetch['follow_up_date']?></center></td>
+                                    <td><center><?php echo $fetch['remarks']?></center></td>
+                                </tr>
+                                <?php
+                                }
+                                $conn->close();
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- End Follow-up Visit-->
+
                 </div> 
             </div>
         </div>

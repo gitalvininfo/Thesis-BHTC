@@ -243,6 +243,42 @@
                         </table>
                     </div>
                     <!-- End Drug Preparations-->
+
+                    <!-- Follow-up Visit-->
+                    <h2><strong>Follow-up Visit</strong></h2><hr>
+                    <h3>Overview</h3>
+                    <div class="row">
+                        <?php
+                        $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                        $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                        $f = $q->fetch_array();
+                        ?>
+                        <table id="laboratory_request" class="table table-bordered">
+                            <thead>
+                                <tr class="info">
+                                    <th><center>Follow-up Date</center></th>
+                                    <th><center>Remarks</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                $query = $conn->query("SELECT * FROM `follow_up` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                                $id = $f['patient_id'];
+                                while($fetch = $query->fetch_array()){
+                                ?>
+                                <tr>
+                                    <td><center><?php echo $fetch['follow_up_date']?></center></td>
+                                    <td><center><?php echo $fetch['remarks']?></center></td>
+                                </tr>
+                                <?php
+                                }
+                                $conn->close();
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- End Follow-up Visit-->
                 </div> 
             </div>
         </div>
