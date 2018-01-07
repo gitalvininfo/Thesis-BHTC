@@ -39,15 +39,17 @@ $conn->close();
             <div class="panel-body list-group list-group-contacts scroll" style="height: 350px;">
                 <?php 
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
-            $fetch = $query->fetch_array();
-            $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
-            while($f = $q->fetch_array()){
+            $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' order by `lab_request_id`") or die(mysqli_error());
+            while($f = $q->fetch_array())
+            {
+                $id = $f['patient_id'];
+                $q2 = $conn->query("SELECT `patient_name` FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                $f2 = $q2->fetch_array();
                 ?>
-                <a href="laboratory_request_pending.php?id=<?php echo $f['patient_id']?>" class="list-group-item">
+                <a href="#" class="list-group-item">
                     <div class="list-group-status status-offline"></div>
                     <img src="assets/images/patient.ico" class="pull-left" alt="John Doe" />
-                    <span class="contacts-title">Patient No: <?php echo $f['patient_id']. ' - ' .$f['collection_unit']?></span>
+                    <span class="contacts-title"><?php echo $f2['patient_name']. "-" .$f['collection_unit']?></span>
                     <p>
                         <?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?>
                     </p>

@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-search-plus"></span> Classification of TB - Pulmonary | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead"> Classification of TB - Pulmonary | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -26,7 +26,7 @@
                         $fetch = $query->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year'].  "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -51,7 +51,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-search-plus"></span> Classification of TB - Extra-Pulmonary | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead"> Classification of TB - Extra-Pulmonary | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -67,7 +67,7 @@
                         </thead>
                         <tbody>
                             <?php
-    require '../config.php';
+                    require '../config.php';
                     $query2 = $conn->query("SELECT * FROM `registration` WHERE `classification_of_tb` = 'Extra-pulmonary' && `year` = '$year'") or die(mysqli_error());
                     while($fetch2 = $query2->fetch_array()){
                         $id = $fetch2['patient_id'];
@@ -75,7 +75,7 @@
                         $fetch = $query->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year'].  "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>

@@ -86,7 +86,7 @@ require ('../config.php');
                                             </div>
                                             <div class="col-md-3">                        
                                                 <a href="#" class="tile tile-primary">
-                                                    <?php echo $fetch5['total']?>
+                                                    <?php echo $fetch4['total']?>
                                                     <p>Community</p>     
                                                     <div class="informer informer-default dir-tr"><span class="fa fa-home"></span></div>                              
                                                 </a>                        

@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-hospital-o"></span> Source of Patient - Public Health Center | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Source of Patient - Public Health Center | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -26,7 +26,7 @@
                         $fetch = $query->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -51,7 +51,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-hospital-o"></span> Source of Patient - Other Government Facilities | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Source of Patient - Other Government Facilities | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -75,7 +75,7 @@
                         $fetch = $query->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -100,7 +100,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-hospital-o"></span> Source of Patient - Private Hospitals | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Source of Patient - Private Hospitals | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -124,7 +124,7 @@
                         $fetch = $query->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -149,7 +149,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-hospital-o"></span> Source of Patient - Community | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Source of Patient - Community | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -173,7 +173,7 @@
                         $fetch = $query->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>

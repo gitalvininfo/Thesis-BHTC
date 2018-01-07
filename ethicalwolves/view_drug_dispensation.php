@@ -119,7 +119,7 @@ require ('config.php');
                                         </h4>
                                     </div>
                                     <div class="panel-body" id="accOneColTwo">
-                                        <table class="table table-striped">
+                                        <table class="table table-condensed">
                                             <thead>
                                                 <tr class="default">
                                                     <th><center>Month</center></th>
@@ -156,7 +156,7 @@ require ('config.php');
                                         </h4>
                                     </div>
                                     <div class="panel-body" id="accOneColThree">
-                                        <table class="table table-striped">
+                                        <table class="table table-condensed">
                                             <thead>
                                                 <tr class="default">
                                                     <th><center>Month</center></th>

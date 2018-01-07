@@ -9,7 +9,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                <th><center>TB Case No</center></th>  
+                                  
                                 <th><center>Patient Name</center></th>
                                 <th><center>Laboratory Number</center></th>
                                 <th><center>Specimen 1 Reading</center></th>
@@ -26,11 +26,11 @@
                         $id = $fetch2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $q1 = $conn->query("SELECT  `year`, `tb_case_no` FROM `registration` WHERE `patient_id` = '$id' && `year` = '$year'") or die(mysqli_error());
-                        $f1 = $q1->fetch_array();
+                        
+                        
                             ?>
                             <tr>
-                                <td><center><?php echo $f1['year']. "-". "080". "-" .$f1['tb_case_no']?></center></td>
+                                
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['laboratory_number']?></center></td>
                                 <td><center><?php echo $fetch2['reading']?></center></td>
@@ -64,7 +64,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                <th><center>TB Case No</center></th>  
+                                  
                                 <th><center>Patient Name</center></th>
                                 <th><center>Laboratory Number</center></th>
                                 <th><center>Specimen 1 Reading</center></th>
@@ -81,11 +81,11 @@
                         $id = $fetch2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $q1 = $conn->query("SELECT  `year`, `tb_case_no` FROM `registration` WHERE `patient_id` = '$id' && `year` = '$year'") or die(mysqli_error());
-                        $f1 = $q1->fetch_array();
+                        
+                        
                             ?>
                             <tr>
-                                <td><center><?php echo $f1['year']. "-". "080". "-" .$f1['tb_case_no']?></center></td>
+                                
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['laboratory_number']?></center></td>
                                 <td><center><?php echo $fetch2['reading']?></center></td>

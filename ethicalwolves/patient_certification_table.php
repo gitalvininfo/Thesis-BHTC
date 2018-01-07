@@ -65,8 +65,8 @@ require 'config.php';
                 $fetch2 = $query2->fetch_array();
                                                                     ?>
                                                                     <tr>
-                                                                        <td><center><strong><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></strong></center></td>
-                                                                        <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
+                                                                        <td><center><mark><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></mark></center></td>
+                                                                        <td><center><mark><?php echo $fetch['patient_name']?></mark></center></td>
                                                                         <td><center><?php echo $fetch2['registration_date']?></center></td>
                                                                         <td><center><?php echo $fetch2['source_of_patient']?></center></td>
                                                                         <td><center><?php echo $fetch2['registration_group']?></center></td>
@@ -116,8 +116,8 @@ require 'config.php';
                                                                         $fetch2 = $query2->fetch_array();
                                                                     ?>
                                                                     <tr>
-                                                                        <td><center><strong><?php echo $fetch2['year']."080".$fetch2['ipt_no']?></strong></center></td>
-                                                                        <td><center><strong><?php echo $fetch['name']?></strong></center></td>
+                                                                        <td><center><mark><?php echo $fetch2['year']."080".$fetch2['ipt_no']?></mark></center></td>
+                                                                        <td><center><mark><?php echo $fetch['name']?></mark></center></td>
                                                                         <td><center><?php echo $fetch['age']?></center></td>
                                                                         <td><center><?php echo $fetch2['date_evaluated']?></center></td>
                                                                         <td><center><?php echo $fetch2['source_of_patient']?></center></td>

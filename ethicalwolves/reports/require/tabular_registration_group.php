@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-group"></span> Patient Registration Group - New | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Patient Registration Group - New | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -29,7 +29,7 @@
 
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -54,7 +54,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-group"></span> Patient Registration Group - Relapse | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Patient Registration Group - Relapse | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -81,7 +81,7 @@
 
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -106,7 +106,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-group"></span> Patient Registration Group - TALF | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Patient Registration Group - TALF | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -133,7 +133,7 @@
 
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -158,7 +158,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-group"></span> Patient Registration Group - TAF | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Patient Registration Group - TAF | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -185,7 +185,7 @@
 
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -210,7 +210,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-group"></span> Patient Registration Group - PTOU | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Patient Registration Group - PTOU | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -237,7 +237,7 @@
 
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -262,7 +262,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-group"></span> Patient Registration Group - Transfer-in | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Patient Registration Group - Transfer-in | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -289,7 +289,7 @@
 
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -314,7 +314,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-group"></span> Patient Registration Group - Others | <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead">Patient Registration Group - Others | <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -341,7 +341,7 @@
 
                             ?>
                             <tr>
-                                <td><center><?php echo $year. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>

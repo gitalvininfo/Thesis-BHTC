@@ -95,7 +95,7 @@ require ('config.php');
                                                     <tr>
                                                         <td><strong>1. No. of Examined</strong></td>
                                                         <td><center><?php echo $f1['total']?></center></td>
-                                                        <td><center><?php echo $f2['total']?></center></td>
+                                                        <td><center><?php echo $wtf['total']?></center></td>
                                                         <td><center><?php echo $f3['total']?></center></td>
                                                         <td><center><?php echo $f4['total']?></center></td>
                                                     </tr>

@@ -221,7 +221,6 @@ require ('../config.php');
             function pQuarter() {
                 myWindow = window.open("filter/quarter_population.php?year=<?php echo $year?>", "", "width=800, height=650");
             }
-
         </script>
         <script>
             $(document).ready(function(){

@@ -9,7 +9,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                <th><center>TB Case No</center></th>  
+
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Laboratory Diagnosis</center></th>
@@ -18,17 +18,15 @@
                         </thead>
                         <tbody>
                             <?php
-    require '../config.php';
+                    require '../config.php';
                     $query2 = $conn->query("SELECT * FROM `dssm_examination` WHERE `year` = '$year'") or die(mysqli_error());
                     while($fetch2 = $query2->fetch_array()){
                         $id = $fetch2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $q1 = $conn->query("SELECT  `year`, `tb_case_no` FROM `registration` WHERE `patient_id` = '$id' && `year` = '$year'") or die(mysqli_error());
-                        $f1 = $q1->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $f1['year']. "-". "080". "-" .$f1['tb_case_no']?></center></td>
+
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['laboratory_diagnosis']?></center></td>
@@ -60,7 +58,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                <th><center>TB Case No</center></th>  
+
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Result</center></th>
@@ -75,11 +73,11 @@
                         $id = $fetch2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $q1 = $conn->query("SELECT  `year`, `tb_case_no` FROM `registration` WHERE `patient_id` = '$id' && `year` = '$year'") or die(mysqli_error());
-                        $f1 = $q1->fetch_array();
+
+
                             ?>
                             <tr>
-                                <td><center><?php echo $f1['year']. "-". "080". "-" .$f1['tb_case_no']?></center></td>
+
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['result']?></center></td>
@@ -111,7 +109,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                <th><center>TB Case No</center></th>  
+
                                 <th><center>Patient Name</center></th>
                                 <th><center>TB Culture Result</center></th>
                                 <th><center>Date Released</center></th>
@@ -126,11 +124,11 @@
                         $id = $fetch2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $q1 = $conn->query("SELECT  `year`, `tb_case_no` FROM `registration` WHERE `patient_id` = '$id' && `year` = '$year'") or die(mysqli_error());
-                        $f1 = $q1->fetch_array();
+
+
                             ?>
                             <tr>
-                                <td><center><?php echo $f1['year']. "-". "080". "-" .$f1['tb_case_no']?></center></td>
+
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['tb_culture_result']?></center></td>
                                 <td><center><?php echo $fetch2['date_released']?></center></td>
@@ -162,7 +160,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                <th><center>TB Case No</center></th>  
+
                                 <th><center>Patient Name</center></th>
                                 <th><center>DST Laboratory</center></th>
                                 <th><center>Method</center></th>
@@ -178,11 +176,11 @@
                         $id = $fetch2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        $q1 = $conn->query("SELECT  `year`, `tb_case_no` FROM `registration` WHERE `patient_id` = '$id' && `year` = '$year'") or die(mysqli_error());
-                        $f1 = $q1->fetch_array();
+
+
                             ?>
                             <tr>
-                                <td><center><?php echo $f1['year']. "-". "080". "-" .$f1['tb_case_no']?></center></td>
+
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['dst_laboratory']?></center></td>
                                 <td><center><?php echo $fetch2['method']?></center></td>

@@ -66,7 +66,7 @@ require ('config.php');
                 $f = $q->fetch_array();
                                                 ?>                                      
                                                 <tr>
-                                                    <td><center><?php echo $f2['patient_name']?></center></td>
+                                                    <td><center><mark><?php echo $f2['patient_name']?></mark></center></td>
                                                     <td><center><?php echo $fetch['date_of_request']?></center></td>
                                                     <td><center><?php echo $fetch['requesting_physician']?></center></td>
                                                     <td><center><?php echo $fetch['test_requested']?></center></td>

@@ -62,8 +62,10 @@ $fetch10 = $q10->fetch_array();
             }, 
             data: [ 
                 { 
-                    type: "spline", 
-                    toolTipContent: "{label}: {y}", 
+                    type: "splineArea", 
+                    toolTipContent: "{label}: {y}",
+                    color:"#DB9079",
+                    markerType: "cross",
                     dataPoints: [ 
                         { label: "2013", y: <?php echo $fetch11['total']?> },
                          { label: "2014", y: <?php echo $fetch12['total']?> },

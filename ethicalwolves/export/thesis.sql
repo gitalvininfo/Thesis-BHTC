@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -55,6 +55,7 @@ INSERT INTO backup VALUES("105","Successfully imported database","January 4, 201
 INSERT INTO backup VALUES("106","Successfully imported database","January 5, 2018, 2:52 pm"); 
 INSERT INTO backup VALUES("107","Successfully imported database","January 5, 2018, 3:25 pm"); 
 INSERT INTO backup VALUES("108","Successfully imported database","January 6, 2018, 12:21 am"); 
+INSERT INTO backup VALUES("109","Successfully imported database","January 7, 2018, 2:16 am"); 
 
 
 
@@ -72,7 +73,7 @@ CREATE TABLE `clinical_findings` (
   `q6` varchar(100) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`clinical_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 INSERT INTO clinical_findings VALUES("7","Saturday 25th of November 2017","45","/","/","/","/","0","Vomiting","2"); 
 INSERT INTO clinical_findings VALUES("8","Tuesday 5th of December 2017","78","/","/","/","/","/","Abdominal Pain","7"); 
@@ -95,6 +96,29 @@ INSERT INTO clinical_findings VALUES("26","December 20, 2017","68","0","0","0","
 INSERT INTO clinical_findings VALUES("27","December 23, 2017","78","0","0","/","/","/","Itchiness","2"); 
 INSERT INTO clinical_findings VALUES("28","December 24, 2017","45","/","/","/","/","/","Yellowing of Sclerae and skin","1"); 
 INSERT INTO clinical_findings VALUES("29","December 27, 2017","67","✓","✓","✓","✓","✓","Numbness","1"); 
+INSERT INTO clinical_findings VALUES("30","January 7, 2018","45","✓","✓","✓","0","✓","Joint Paints","2"); 
+INSERT INTO clinical_findings VALUES("31","January 7, 2018","34","✓","✓","✓","✓","✓","Vomiting","6"); 
+INSERT INTO clinical_findings VALUES("32","January 7, 2018","67","✓","✓","✓","✓","✓","Visual Disturbance","6"); 
+INSERT INTO clinical_findings VALUES("33","January 7, 2018","67","0","0","✓","✓","✓","Skin Rashes","6"); 
+INSERT INTO clinical_findings VALUES("34","January 7, 2018","67","0","0","✓","✓","✓","Joint Paints","6"); 
+INSERT INTO clinical_findings VALUES("35","January 7, 2018","67","0","0","✓","✓","✓","Numbness","6"); 
+INSERT INTO clinical_findings VALUES("36","January 7, 2018","67","✓","✓","✓","✓","✓","Abnormal Pain","3"); 
+INSERT INTO clinical_findings VALUES("37","January 7, 2018","67","✓","✓","✓","✓","✓","Joint Paints","3"); 
+INSERT INTO clinical_findings VALUES("38","January 7, 2018","78","0","0","✓","✓","✓","Skin Rashes","3"); 
+INSERT INTO clinical_findings VALUES("39","January 7, 2018","78","0","0","✓","✓","✓","Skin Rashes","3"); 
+INSERT INTO clinical_findings VALUES("40","January 7, 2018","78","0","0","✓","✓","✓","Vomiting","3"); 
+INSERT INTO clinical_findings VALUES("41","January 7, 2018","78","0","0","✓","✓","✓","Abnormal Pain","3"); 
+INSERT INTO clinical_findings VALUES("42","January 7, 2018","67","✓","✓","0","✓","0","","5"); 
+INSERT INTO clinical_findings VALUES("43","","0","","","","","","Itchiness","0"); 
+INSERT INTO clinical_findings VALUES("44","","0","","","","","","Skin Rashes","0"); 
+INSERT INTO clinical_findings VALUES("45","January 7, 2018","67","✓","✓","0","✓","0","","5"); 
+INSERT INTO clinical_findings VALUES("46","","0","","","","","","Itchiness","0"); 
+INSERT INTO clinical_findings VALUES("47","","0","","","","","","Skin Rashes","0"); 
+INSERT INTO clinical_findings VALUES("48","January 7, 2018","56","✓","0","✓","✓","✓","Skin Rashes","10"); 
+INSERT INTO clinical_findings VALUES("49","January 7, 2018","78","✓","0","✓","✓","0","Itchiness","10"); 
+INSERT INTO clinical_findings VALUES("50","January 7, 2018","78","✓","0","✓","✓","0","Abnormal Pain","10"); 
+INSERT INTO clinical_findings VALUES("51","January 7, 2018","45","✓","✓","✓","✓","✓","Numbness","9"); 
+INSERT INTO clinical_findings VALUES("52","January 7, 2018","89","✓","✓","✓","✓","✓","Itchiness,Skin Rashes,","13"); 
 
 
 
@@ -202,7 +226,7 @@ CREATE TABLE `dssm_examination` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`dssm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 INSERT INTO dssm_examination VALUES("19","2017-11-25","1001","Salivary","","Good","Good","Positive (+)","Dr. Haro","2017-11-22","2","Nov","2017"); 
 INSERT INTO dssm_examination VALUES("20","2017-12-13","1064","Salivary","Salivary","Good","Good","Negative (0)","Dr. Haro","2017-12-13","7","Dec","2017"); 
@@ -210,6 +234,7 @@ INSERT INTO dssm_examination VALUES("21","2017-12-19","12","Muco-Purulent","Muco
 INSERT INTO dssm_examination VALUES("22","2017-12-13","1089","Salivary","Muco-Purulent","Good","Good","Positive (+)","Dr. Haro","2017-12-13","2","Dec","2017"); 
 INSERT INTO dssm_examination VALUES("23","2018-01-17","123","Salivary","Salivary","good","","Positive (+)","Dr. Haro","2018-01-18","6","Jan","2018"); 
 INSERT INTO dssm_examination VALUES("24","2018-01-17","2312","Salivary","Salivary","323","","Negative (0)","Dr. Haro","2018-01-05","7","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("25","2018-01-05","1065","Salivary","Salivary","Ok lng","","Positive (+)","Rommel Adricula","2018-01-07","3","Jan","2018"); 
 
 
 
@@ -454,7 +479,7 @@ CREATE TABLE `laboratory_request` (
 INSERT INTO laboratory_request VALUES("68","Mandalagan Health Center","2017-11-26","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-27","2017-11-28","Dr. Haro","433-2449","DSSM","2","Done","2017"); 
 INSERT INTO laboratory_request VALUES("69","Banago Health Center","2017-11-25","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-25","2017-11-25","Dr. Haro","433-2449","Xpert MTB/RIF","1","Done","2017"); 
 INSERT INTO laboratory_request VALUES("70","Mandalagan Health Center","2017-11-26","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-26","2017-11-27","Dr. Haro","433-2449","DSSM","2","Done","2017"); 
-INSERT INTO laboratory_request VALUES("71","Sum-ag Health Center","2017-11-27","Dr. Sabay","Diagnostic","Sputum","No","2017-11-26","2017-11-26","Dr. Sabay","433-2449","DSSM","3","Pending","2017"); 
+INSERT INTO laboratory_request VALUES("71","Sum-ag Health Center","2017-11-27","Dr. Sabay","Diagnostic","Sputum","No","2017-11-26","2017-11-26","Dr. Sabay","433-2449","DSSM","3","Done","2017"); 
 INSERT INTO laboratory_request VALUES("72","Bata Health Center","2017-11-28","Dr. Sabay","Diagnostic","Sputum","Yes","2017-11-21","2017-11-21","Dr. Haro","433-2449","DSSM","7","Done","2017"); 
 INSERT INTO laboratory_request VALUES("74","Sum-ag Health Center","2017-11-22","2131","Diagnostic","Sputum","Yes","2017-11-14","2017-11-14","qeqw","1231","DSSM","7","Done","2017"); 
 INSERT INTO laboratory_request VALUES("75","Banago Health Center","2017-12-03","Dr. haro","Diagnostic","Sputum","Yes","2017-12-03","2017-12-03","Dr. haro","433-2449","Drug Susceptible Testing","6","Done","2017"); 

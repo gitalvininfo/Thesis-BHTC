@@ -7,7 +7,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 1 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 1 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -32,7 +32,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -62,7 +62,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 2 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 2 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -88,7 +88,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -119,7 +119,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 3 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 3 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -145,7 +145,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -176,7 +176,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 4 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 4 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -202,7 +202,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -233,7 +233,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 5 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 5 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -259,7 +259,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -290,7 +290,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 6 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 6 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -316,7 +316,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -347,7 +347,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 7 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 7 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -373,7 +373,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -404,7 +404,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 8 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 8 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -430,7 +430,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -461,7 +461,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 9 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 9 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -487,7 +487,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -518,7 +518,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 10 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 10 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -544,7 +544,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -575,7 +575,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 11 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 11 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -601,7 +601,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -632,7 +632,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 12 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 12 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -659,7 +659,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -690,7 +690,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 13 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 13 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -716,7 +716,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -748,7 +748,7 @@
                     </div>
                 </div>
 
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 14 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 14 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -773,7 +773,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -803,7 +803,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 15 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 15 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -829,7 +829,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -860,7 +860,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 16 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 16 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -886,7 +886,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -917,7 +917,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 17 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 17 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -943,7 +943,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -974,7 +974,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 18 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 18 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1000,7 +1000,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1031,7 +1031,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 19 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 19 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1057,7 +1057,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1088,7 +1088,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 20 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 20 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1114,7 +1114,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1145,7 +1145,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 21 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 21 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1171,7 +1171,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1202,7 +1202,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 22 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 22 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1228,7 +1228,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1259,7 +1259,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 23 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 23 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1285,7 +1285,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1316,7 +1316,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 24 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 24 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1342,7 +1342,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1373,7 +1373,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 25 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 25 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1399,7 +1399,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1430,7 +1430,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 26 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 26 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1456,7 +1456,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1487,7 +1487,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 27 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 27 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1513,7 +1513,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1544,7 +1544,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 28 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 28 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1570,7 +1570,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1601,7 +1601,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 29 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 29 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1627,7 +1627,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1658,7 +1658,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 30 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 30 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1684,7 +1684,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1715,7 +1715,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 31 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 31 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1741,7 +1741,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1772,7 +1772,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 32 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 32 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1798,7 +1798,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1829,7 +1829,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 33 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 33 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1855,7 +1855,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1886,7 +1886,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 34 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 34 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1912,7 +1912,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -1943,7 +1943,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 35 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 35 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -1969,7 +1969,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2000,7 +2000,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 36 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 36 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2026,7 +2026,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2057,7 +2057,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 37 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 37 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2083,7 +2083,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2114,7 +2114,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 38 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 38 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2140,7 +2140,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2171,7 +2171,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 39 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 39 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2197,7 +2197,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2228,7 +2228,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 40 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 40 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2254,7 +2254,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2285,7 +2285,7 @@
                         <a href="../print/villa-esperanza.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay 41 Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay 41 Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2311,7 +2311,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2342,7 +2342,7 @@
                         <a href="../print/abcasa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Abcasa Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Abcasa Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2368,7 +2368,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2399,7 +2399,7 @@
                         <a href="../print/alangilan.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Alangilan Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Alangilan Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2425,7 +2425,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2456,7 +2456,7 @@
                         <a href="../print/alijis.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Alijis Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Alijis Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2514,7 +2514,7 @@
                     </div>
                 </div>
 
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Banago Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Banago Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2540,7 +2540,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2571,7 +2571,7 @@
                         <a href="../print/bata.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Bata Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Bata Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2597,7 +2597,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2636,7 +2636,7 @@
                 }
 
                 ?>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Cabug Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Cabug Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2662,7 +2662,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2693,7 +2693,7 @@
                         <a href="../print/estefania.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Estefania Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Estefania Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2719,7 +2719,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2750,7 +2750,7 @@
                         <a href="../print/felisa.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Felisa Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Felisa Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2776,7 +2776,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2807,7 +2807,7 @@
                         <a href="../print/granada.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Granada Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Granada Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2833,7 +2833,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2864,7 +2864,7 @@
                         <a href="../print/handumanan.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Handumanan Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Handumanan Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2890,7 +2890,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2921,7 +2921,7 @@
                         <a href="../print/lopezjaena.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Lopez Jaena Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Lopez Jaena Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -2947,7 +2947,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -2978,7 +2978,7 @@
                         <a href="../print/mabini.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Mabini Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Mabini Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3004,7 +3004,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3035,7 +3035,7 @@
                         <a href="../print/mandalagan.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Mandalagan Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Mandalagan Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3061,7 +3061,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3092,7 +3092,7 @@
                         <a href="../print/mansilingan.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Mansilingan Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Mansilingan Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3118,7 +3118,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3149,7 +3149,7 @@
                         <a href="../print/montevista.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Montevista Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Montevista Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3175,7 +3175,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3206,7 +3206,7 @@
                         <a href="../print/pahanocoy.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Pahanocoy Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Pahanocoy Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3232,7 +3232,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3263,7 +3263,7 @@
                         <a href="../print/ptataytay.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Punta Taytay Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Punta Taytay Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3289,7 +3289,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
@@ -3321,7 +3321,7 @@
                         <a href="../print/singcang.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Singcang Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Singcang Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3347,7 +3347,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3378,7 +3378,7 @@
                         <a href="../print/sum-ag.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Sum-ag Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Sum-ag Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3404,7 +3404,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3435,7 +3435,7 @@
                         <a href="../print/taculing.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Taculing Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Taculing Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3461,7 +3461,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3492,7 +3492,7 @@
                         <a href="../print/tangub.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Tangub Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Tangub Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3518,7 +3518,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3550,7 +3550,7 @@
                     </div>
                 </div>
 
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Villamonte Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Villamonte Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3576,7 +3576,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>
@@ -3607,7 +3607,7 @@
                         <a href="../print/vista-alegre.php"class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
-                <h4 class="modal-title" id="largeModalHead"><span class="fa fa-map-marker"></span> Barangay Vista Alegre Registered TB Patient as of Year <?php echo $year?></h4>
+                <h4 class="modal-title" id="largeModalHead">Barangay Vista Alegre Registered TB Patient as of Year <?php echo $year?></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -3632,7 +3632,7 @@
                         $fetch2 = $query2->fetch_array();
                             ?>
                             <tr>
-                                <td><center><?php echo $fetch['year']. "-". "080". "-" .$fetch['patient_id']?></center></td>
+                                <td><center><mark><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></center></td>
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['registration_date']?></center></td>
                                 <td><center><?php echo $fetch2['source_of_patient']?></center> </td>

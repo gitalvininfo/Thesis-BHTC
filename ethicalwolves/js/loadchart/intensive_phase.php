@@ -33,6 +33,17 @@ $f4 = $cnta->fetch_array();
                 text: "Total of Present and Missed Dates",
                 fontSize: 15
             },
+            legend: {
+                cursor: "pointer",
+                itemclick: function (e) {
+                    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                        e.dataSeries.visible = false;
+                    } else {
+                        e.dataSeries.visible = true;
+                    }
+                    e.chart.render();
+                }
+            },
             axisX: {		       
                 gridDashType: "dot",
                 gridThickness: 1,
@@ -54,6 +65,7 @@ $f4 = $cnta->fetch_array();
                     type: "stackedBar",
                     showInLegend: true, 
                     legendText: "Present",
+                    color: "#F0D6A7",
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [ 
                         {label: "Intensive Phase", y: <?php echo $f1['total']?> },
@@ -64,6 +76,7 @@ $f4 = $cnta->fetch_array();
                     type: "stackedBar",
                     showInLegend: true, 
                     legendText: "Missed",
+                    color:"#DB9079",
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [
                         {label: "Intensive Phase", y: <?php echo $f3['total']?> },

@@ -48,6 +48,7 @@ $f2 = $q2->fetch_array();
         echo $f1['total'];
     }	
                          ?>, legendText: "Male"},
+                        
 
                         { label: "Female",  y: 
                          <?php 

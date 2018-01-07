@@ -17,6 +17,17 @@
                 text: "Patient Population as of Year <?php echo $year?>",
                 fontSize: 20
             },
+            legend: {
+                cursor: "pointer",
+                itemclick: function (e) {
+                    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                        e.dataSeries.visible = false;
+                    } else {
+                        e.dataSeries.visible = true;
+                    }
+                    e.chart.render();
+                }
+            },
             axisX: {		       
                 gridDashType: "dot",
                 gridThickness: 1,
@@ -39,7 +50,8 @@
                     type: "column", 
                     showInLegend: true, 
                     legendText: "Total Number of Patients",
-                    name: "Total Patients this month", 
+                    name: "Total Patients this month",
+                    color: "#7E8F74",
                     dataPoints: [ 
                         { label: "January", y: <?php echo $fjan['total']?> },
                          { label: "February", y: <?php echo $ffeb['total']?> },

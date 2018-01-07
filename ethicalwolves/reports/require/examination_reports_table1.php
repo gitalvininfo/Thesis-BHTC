@@ -8,10 +8,10 @@ $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 $q1 = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` where `year` = '$year'") or die(mysqli_error());
 $f1 = $q1->fetch_array();
 
-$q2 = $conn->query("select COUNT(*) as total from `registration`, `dssm_examination` where dssm_examination.patient_id = registration.patient_id && registration_group = 'New' && dssm_examination.year = '$year'") or die(mysqli_error());
-$f2 = $q2->fetch_array();
+$q2 = $conn->query("select COUNT(*) as total from `registration`, `gene_expert_examination` where gene_expert_examination.patient_id = registration.patient_id && registration_group = 'New' && gene_expert_examination.year = '$year'") or die(mysqli_error());
+$wtf = $q2->fetch_array();
 
-$q3 = $conn->query("select COUNT(*) as total from `registration`, `dssm_examination` where dssm_examination.patient_id = registration.patient_id && registration_group = 'Relapse' && dssm_examination.year = '$year'") or die(mysqli_error());
+$q3 = $conn->query("select COUNT(*) as total from `registration`, `gene_expert_examination` where gene_expert_examination.patient_id = registration.patient_id && registration_group = 'Relapse' && gene_expert_examination.year = '$year'") or die(mysqli_error());
 $f3 = $q3->fetch_array();
 
 $q4 = $conn->query("select COUNT(*) as total from `registration`, `gene_expert_examination` where gene_expert_examination.patient_id = registration.patient_id && (registration_group = 'Treatment After Failure' or registration_group = 'TALF' or registration_group = 'PTOU') && gene_expert_examination.year = '$year'") or die(mysqli_error());

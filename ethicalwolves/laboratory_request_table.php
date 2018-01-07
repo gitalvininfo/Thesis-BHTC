@@ -58,7 +58,7 @@ require ('config.php');
                 $f = $q->fetch_array();
                                             ?>
                                             <tr>
-                                                <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
+                                                <td><center><mark><?php echo $fetch['patient_name']?></mark></center></td>
                                                 <td><center><?php echo $fetch['age']?></center></td>
                                                 <td><center><?php echo $fetch['gender']?></center></td>
                                                 <td><center><?php echo $fetch['birthdate']?></center></td>

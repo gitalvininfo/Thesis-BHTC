@@ -37,7 +37,8 @@
             data: [ 
                 { 
                     type: "column", 
-                    name: "Total Patients this quarter", 
+                    name: "Total Patients this quarter",
+                    color: "#7E8F74",
                     dataPoints: [ 
                         { label: "Quarter 1", y: <?php echo $f1['total']?> },
                          { label: "Quarter 2", y: <?php echo $f2['total']?> },

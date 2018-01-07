@@ -61,6 +61,17 @@ $f18 = $capreomycin2->fetch_array();
                 text: "Drug Susceptible Test Results as of Year <?php echo $year?>",
                 fontSize: 20
             },
+            legend: {
+                cursor: "pointer",
+                itemclick: function (e) {
+                    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                        e.dataSeries.visible = false;
+                    } else {
+                        e.dataSeries.visible = true;
+                    }
+                    e.chart.render();
+                }
+            },
             axisX: {		       
                 gridDashType: "dot",
                 gridThickness: 1,
@@ -82,6 +93,7 @@ $f18 = $capreomycin2->fetch_array();
                     type: "stackedBar",
                     showInLegend: true, 
                     legendText: "Resistant",
+                    color:"#DB9079",
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [ 
                         { label: "Isoniazid", y: <?php echo $f1['total']?> },
@@ -99,6 +111,7 @@ $f18 = $capreomycin2->fetch_array();
                             type: "stackedBar",
                             showInLegend: true, 
                             legendText: "Susceptible",
+                            color: "#F0D6A7",
                             toolTipContent: "{label}: {y}", 
                             dataPoints: [
                                 { label: "Isoniazid", y: <?php echo $f10['total']?> },

@@ -176,7 +176,7 @@ $f = $q->fetch_array();
                                             <?php echo $f2['total']; ?>
                                         </div>
                                         <div class="widget-title">TB Patients</div>
-                                        <div class="widget-subtitle">Currently Registered</div>
+                                        <div class="widget-subtitle">Registered this Year</div>
                                     </div>
                                     <div class="widget-controls">
                                         <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>

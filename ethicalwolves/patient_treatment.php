@@ -514,7 +514,7 @@ require ('config.php');
                                             ?>
                                             <div class="panel-body scroll" style="height:464px;">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title">  /   - Present |  0  - Absent</h3>
+                                                    <h3 class="panel-title">  ✓   - Present |  0  - Absent</h3>
                                                     <div class="btn-group pull-right">
                                                         <div class="pull-left">
                                                             <a href="#update_clinical<?php echo $f['patient_id'];?>" data-target="#update_clinical<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Findings</a>

@@ -124,7 +124,7 @@ $f = $q->fetch_array();
                         </div>
                         <div class="col-md-3">
                             <!-- START WIDGET REGISTRED -->
-                            <div class="widget widget-info widget-item-icon" onclick="location.href='patient_treatment_table.php';"style="cursor:pointer;">
+                            <div class="widget widget-info widget-item-icon" onclick="location.href='master_file_patient.php';"style="cursor:pointer;">
                                 <div class="widget-item-left">
                                     <span class="fa fa-male"></span>
                                 </div>
@@ -142,7 +142,7 @@ $f = $q->fetch_array();
                                         <?php echo $f2['total'] ?>
                                     </div>
                                     <div class="widget-title">TB Patients</div>
-                                    <div class="widget-subtitle">Currently in Treatment</div>
+                                    <div class="widget-subtitle">Registered this Year</div>
                                 </div>
                                 <div class="widget-controls">
                                     <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -184,7 +184,6 @@ $f = $q->fetch_array();
                             <div class="panel panel-info">
 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><strong> <span class="fa fa-map-marker"></span> Population per Barangay</strong></h3>
                                     <?php require 'require/select_year.php'?>
                                 </div>
                                 <div class="panel-body">
