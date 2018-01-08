@@ -53,6 +53,7 @@
             <a href="#"><span class="fa fa-bar-chart"></span> <span class="xn-text">Reports</span></a>
             <ul>
                 <li> <a href="patient_certification_table.php"><span class="fa fa-ticket"></span> <span class="xn-text">Certification</span></a> </li>
+                <li><a href="reports_follow_up_table.php"><span class="fa fa-mail-reply-all"></span><span class="xn-text">Follow-up Visit</span></a></li>
                 <li><a href="examination_reports_overview.php"><span class="fa fa-stethoscope"></span><span class="xn-text">Examination Report</span></a></li>
                 <li><a href="reports.php"><span class="fa fa-line-chart"></span><span class="xn-text">TB Cases Report</span></a></li>
                 <li><a href="patient_record_report.php"><span class="fa fa-stack-overflow"></span><span class="xn-text">Patient Record Report</span></a></li>

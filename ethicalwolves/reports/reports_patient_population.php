@@ -59,7 +59,8 @@ require ('../config.php');
                                                             <ul class="dropdown-menu" role="menu">
                                                                 <li><a href="#" onclick="openWin()">Patient Type</a></li>
                                                                 <li><a href="#" onclick="pGender()">Patient Gender</a></li>
-                                                                <li><a href="#" onclick="pQuarter()">Population Quarterly</a></li>                                                    
+                                                                <li><a href="#" onclick="pAge()">Patient Age</a></li>
+                                                                <li><a href="#" onclick="pQuarter()">Population Quarterly</a></li>   
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -217,6 +218,9 @@ require ('../config.php');
             }
             function pGender() {
                 myWindow = window.open("filter/monthly_population_gender.php?year=<?php echo $year?>", "", "width=800, height=650");
+            }
+            function pAge() {
+                myWindow = window.open("filter/monthly_population_age.php?year=<?php echo $year?>", "", "width=800, height=650");
             }
             function pQuarter() {
                 myWindow = window.open("filter/quarter_population.php?year=<?php echo $year?>", "", "width=800, height=650");

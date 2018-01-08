@@ -50,7 +50,7 @@ require ('config.php');
                                                         <div class="panel-body">
                                                             <table class="table datatable">
                                                                 <thead> 
-                                                                    <tr class="info">
+                                                                    <tr>
                                                                         <th><center>TB Case No</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Registration Date</center></th>
@@ -58,7 +58,6 @@ require ('config.php');
                                                                         <th><center>Registration Group</center></th>
                                                                         <th><center>Action</center></th>
                                                                     </tr>
-
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
