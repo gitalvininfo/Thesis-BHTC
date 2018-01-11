@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -57,6 +57,8 @@ INSERT INTO backup VALUES("107","Successfully imported database","January 5, 201
 INSERT INTO backup VALUES("108","Successfully imported database","January 6, 2018, 12:21 am"); 
 INSERT INTO backup VALUES("109","Successfully imported database","January 7, 2018, 2:16 am"); 
 INSERT INTO backup VALUES("110","Successfully imported database","January 7, 2018, 11:27 pm"); 
+INSERT INTO backup VALUES("111","Successfully imported database","January 9, 2018, 12:38 am"); 
+INSERT INTO backup VALUES("112","Successfully exported database","January 11, 2018, 1:23 am"); 
 
 
 
@@ -306,7 +308,7 @@ CREATE TABLE `follow_up` (
   `remarks` varchar(50) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`follow_up_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 INSERT INTO follow_up VALUES("7","2018-01-08","may klase na...","2"); 
 INSERT INTO follow_up VALUES("15","2018-01-17","Alson","1"); 
@@ -321,6 +323,7 @@ INSERT INTO follow_up VALUES("23","2018-02-09","For Follow-up of DSSM...","3");
 INSERT INTO follow_up VALUES("24","2018-01-18","For follow up","13"); 
 INSERT INTO follow_up VALUES("25","2018-01-22","WTF","7"); 
 INSERT INTO follow_up VALUES("26","2018-01-31","For follow-up","10"); 
+INSERT INTO follow_up VALUES("27","2018-02-14","For follow-up","9"); 
 
 
 
@@ -478,13 +481,13 @@ CREATE TABLE `laboratory_request` (
   `date_sample_collected` date NOT NULL,
   `date_sample_collected2` date NOT NULL,
   `sample_collector` varchar(30) NOT NULL,
-  `contact_number` char(14) NOT NULL,
+  `designation` varchar(30) NOT NULL,
   `test_requested` varchar(30) NOT NULL,
   `patient_id` int(10) NOT NULL,
   `status` char(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`lab_request_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=latin1;
 
 INSERT INTO laboratory_request VALUES("68","Mandalagan Health Center","2017-11-26","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-27","2017-11-28","Dr. Haro","433-2449","DSSM","2","Done","2017"); 
 INSERT INTO laboratory_request VALUES("69","Banago Health Center","2017-11-25","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-25","2017-11-25","Dr. Haro","433-2449","Xpert MTB/RIF","1","Done","2017"); 
@@ -506,6 +509,7 @@ INSERT INTO laboratory_request VALUES("85","Alangilan Barangay Health Station","
 INSERT INTO laboratory_request VALUES("86","Banago Barangay Health Station","2018-01-05","Dr. Haro","Diagnostic","Sputum","Yes","2018-01-17","2018-01-17","Dr. Haro","433-2449","DSSM","6","Done","2018"); 
 INSERT INTO laboratory_request VALUES("87","Estefania Barangay Health Station","2018-01-06","Rommel Adricula","Diagnostic","Sputum","Yes","2018-01-01","2018-01-02","Reymund Sabay","433-2449","Xpert MTB/RIF","26","Done","2018"); 
 INSERT INTO laboratory_request VALUES("88","Alijis Barangay Health Station","2018-01-04","Rommel Adricula","Diagnostic","Sputum","Yes","2018-01-05","2018-01-05","Reymund Sabay","433-2449","Xpert MTB/RIF","7","Done","2018"); 
+INSERT INTO laboratory_request VALUES("89","Mandalagan Barangay Health Station","2018-01-10","Rommel Adricula","Diagnostic","Sputum","Yes","2018-01-03","2018-01-06","Alson John","Barangay Health Worker","Xpert MTB/RIF","2","Pending","2018"); 
 
 
 
@@ -515,31 +519,17 @@ CREATE TABLE `medication_dispensation` (
   `dispensation_id` int(10) NOT NULL AUTO_INCREMENT,
   `health_center` varchar(50) NOT NULL,
   `medicine_name` varchar(50) NOT NULL,
-  `month` char(10) NOT NULL,
-  `day` int(2) NOT NULL,
-  `year` int(4) NOT NULL,
+  `date_given` varchar(30) NOT NULL,
+  `month` char(3) NOT NULL,
+  `year` char(4) NOT NULL,
   `quantity` int(10) NOT NULL,
   `received_by` varchar(30) NOT NULL,
   PRIMARY KEY (`dispensation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
-INSERT INTO medication_dispensation VALUES("1","Banago Barangay Health Station","Isoniazid","December","1","2017","50","Dr. Haro"); 
-INSERT INTO medication_dispensation VALUES("2","Alijis Barangay Health Station","name","December","2","2017","10","Menard Gardose"); 
-INSERT INTO medication_dispensation VALUES("3","Banago Barangay Health Station","Isoniazid","November","25","2017","5","qewq"); 
-INSERT INTO medication_dispensation VALUES("4","Alijis Barangay Health Station","Rifampicin","November","26","2017","7","Dr"); 
-INSERT INTO medication_dispensation VALUES("5","Alijis Barangay Health Station","Rifampicin","October","28","2017","5","Alson Bayon-on"); 
-INSERT INTO medication_dispensation VALUES("6","Banago Barangay Health Station","Isoniazid","December","2","2017","4","Alson Bayon-on"); 
-INSERT INTO medication_dispensation VALUES("7","Choose Health Center","Isoniazid","December","5","2017","12","Gabriel Banua"); 
-INSERT INTO medication_dispensation VALUES("8","Mandalagan Barangay Health Station","Isoniazid","December","28","2017","10","Juan Dela Cruz"); 
-INSERT INTO medication_dispensation VALUES("9","Alijis Barangay Health Station","Rifampicin","December","28","2017","4","Alvin Yanson"); 
-INSERT INTO medication_dispensation VALUES("10","Alangilan Barangay Health Station","Rifampicin","December","28","2017","45","Juan Dela Cruz"); 
-INSERT INTO medication_dispensation VALUES("11","Felisa Barangay Health Station","Rifampicin","December","29","2017","100","Alvin Yanson"); 
-INSERT INTO medication_dispensation VALUES("12","Felisa Barangay Health Station","Isoniazid","December","29","2017","5","Alson John Bayon-on"); 
-INSERT INTO medication_dispensation VALUES("13","Felisa Barangay Health Station","Isoniazid","January","1","2017","380","Gabriel Banua"); 
-INSERT INTO medication_dispensation VALUES("14","Mandalagan Barangay Health Station","Isoniazid","December","30","2017","3","Alec Rubiato"); 
-INSERT INTO medication_dispensation VALUES("15","Alijis Barangay Health Station","Arendo","December","31","2017","150","Alvin Yanson"); 
-INSERT INTO medication_dispensation VALUES("16","Banago Barangay Health Station","Isoniazid","January","5","2018","101","Carl"); 
-INSERT INTO medication_dispensation VALUES("17","Alangilan Barangay Health Station","Biogesic","February","2","2018","50","Carl"); 
+INSERT INTO medication_dispensation VALUES("18","Banago Barangay Health Station","Biogesic","January 11, 2018","Jan","2018","25","Alson Bayon-on"); 
+INSERT INTO medication_dispensation VALUES("19","Banago Barangay Health Station","Biogesic","January 11, 2018","Jan","2018","15","Gabriel Banua"); 
+INSERT INTO medication_dispensation VALUES("20","Alijis Barangay Health Station","Rifampicin","January 11, 2018","Jan","2018","26","Leonel Entes"); 
 
 
 
@@ -555,14 +545,14 @@ CREATE TABLE `medicine` (
 
 INSERT INTO medicine VALUES("1","Isoniazid","This is Isoniazid","2000002"); 
 INSERT INTO medicine VALUES("2","name","nameolekfkldf","15"); 
-INSERT INTO medicine VALUES("3","Rifampicin","This is Rifampicin","426"); 
+INSERT INTO medicine VALUES("3","Rifampicin","This is Rifampicin","400"); 
 INSERT INTO medicine VALUES("4","Ethambutol","This is Ethambutol","6"); 
 INSERT INTO medicine VALUES("5","Streptomycin","This is Streptomycin","6"); 
 INSERT INTO medicine VALUES("6","qweq","qwew","6"); 
 INSERT INTO medicine VALUES("7","Sample Medicine","This is a sample medicine","6"); 
 INSERT INTO medicine VALUES("8","Medicine Name","Medicine Description","6"); 
 INSERT INTO medicine VALUES("11","Arendo","Arendo Coworking","150"); 
-INSERT INTO medicine VALUES("12","Biogesic","aasdfsdfsd","50"); 
+INSERT INTO medicine VALUES("12","Biogesic","aasdfsdfsd","10"); 
 
 
 
@@ -621,7 +611,7 @@ CREATE TABLE `patient` (
   PRIMARY KEY (`patient_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
-INSERT INTO patient VALUES("1","Alson John Bayon-on","3","Male","Prk. Langis, Brgy. Banago, Bacolod City","Banago","2017-11-25","178","433-2449","Negros Occidental","Drug Lord","10992241","Dr. Sabay","433-2449 local 181","Registered","Done","2017"); 
+INSERT INTO patient VALUES("1","Alson John Bayon-on","21","Male","Prk. Langis, Brgy. Banago, Bacolod City","Banago","2017-11-25","178","433-2449","Negros Occidental","Drug Lord","10992241","Dr. Sabay","433-2449 local 181","Registered","Done","2017"); 
 INSERT INTO patient VALUES("2","Alvin Yanson","3","Male","eroreco bacolod city","Mandalagan","2017-01-08","178","433-2449","Negros Occidental","Student","1993121","Dr. Haro","433-2449 local 181","Registered","Done","2017"); 
 INSERT INTO patient VALUES("3","Erul John Ubas","21","Male","Sum-ag, Bacolod City","Sumag ","2017-03-13","178","433-2449 local","Negros Occidental","","","Dr. Adricula","433-2449 local 181","Registered","Done","2017"); 
 INSERT INTO patient VALUES("5","Gabriel Francis Banua","22","Male","Taculing, Bacolod City","Taculing","2017-10-29","178","433-2449","Negros Occidental","","","Dr. Sabay","433-2449","Registered","Done","2017"); 
@@ -646,7 +636,7 @@ INSERT INTO patient VALUES("23","qe","7","Male","qweqweq","Banago","2017-11-07",
 INSERT INTO patient VALUES("24","John Wick","43","Male","Blk 33, Lot 4, Firmville Subd. Bacolod","Estefania ","2017-12-27","125","4332449","Negros Occidental","Killer","10-3213131-98","Dr. Haro","433-2449 local 181","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("25","Kenneth Cayetano","20","Male","Bacolod City","Sumag ","1997-05-08","178","4332449","Negros Occidental","Student","10-2312321-10","Alvin Yanson","433-2449","Unregister","Pending","2017"); 
 INSERT INTO patient VALUES("26","Dora Explorer","7","Female","qeqweqw","Banago","2011-08-24","123","4332449","Negros Occidental","Student","31321","Boots","433-2449","Registered","Pending","2018"); 
-INSERT INTO patient VALUES("27","Gabriel","8","Male","asdahda","Bata","2009-04-15","178","2323303232","Negros Occidental","sTUDENT","2343242","21321","43234","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("27","Gabriel Banua","8","Male","asdahda","Bata","2009-04-15","178","2323303232","Negros Occidental","sTUDENT","2343242","21321","43234","Registered","Pending","2018"); 
 
 
 

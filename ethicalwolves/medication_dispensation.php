@@ -5,14 +5,14 @@ require ('config.php');
 if(ISSET($_POST['medication_dispensation'])){
     $health_center = $_POST['health_center'];
     $medicine_name = $_POST['medicine_name'];
-    $month = $_POST['month'];
-    $day = $_POST['day'];
+    $date_given = date('F j, Y');
+    $month = date("M", strtotime("+8 HOURS"));
     $year = date("Y", strtotime("+8 HOURS"));
     $quantity = $_POST['quantity'];
     $received_by = $_POST['received_by'];
 
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-    $conn->query("INSERT INTO `medication_dispensation` VALUES('', '$health_center', '$medicine_name', '$month', '$day', '$year', '$quantity', '$received_by')") or die(mysqli_error());
+    $conn->query("INSERT INTO `medication_dispensation` VALUES('', '$health_center', '$medicine_name', '$date_given', '$month', '$year', '$quantity', '$received_by')") or die(mysqli_error());
     $conn->query("UPDATE `medicine` SET `running_balance` = `running_balance` - '$quantity' WHERE `medicine_name` = '$medicine_name'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully dispensed medicine!');</script>";
@@ -102,7 +102,7 @@ if(ISSET($_POST['medicine_stock'])){
                                                                 <tr>
                                                                     <td><center><?php echo $fetch['health_center']?></center></td>
                                                                     <td><center><?php echo $fetch['medicine_name']?></center></td>
-                                                                    <td><center><?php echo $fetch['month']. " " .$fetch['day']. ", " .$fetch['year']?></center></td>
+                                                                    <td><center><?php echo $fetch['date_given']?></center></td>
                                                                     <td><center><?php echo $fetch['quantity']?> boxes</center></td>
                                                                     <td><center><?php echo $fetch['received_by']?></center></td>
                                                                 </tr>

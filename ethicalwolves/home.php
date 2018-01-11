@@ -16,7 +16,7 @@ $f = $q->fetch_array();
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
         <script src="js/jquery.min.js"></script>
         <script src = "js/jquery.canvasjs.min.js"></script>
-        <?php include_once 'js/loadchart/barangay_population.php'?>
+        <?php require 'js/loadchart/patient_population.php'?>
     </head>
     <body>
         <?php 
@@ -182,12 +182,11 @@ $f = $q->fetch_array();
                         </div>
                         <div class="col-md-12">
                             <div class="panel panel-info">
-
                                 <div class="panel-heading">
                                     <?php require 'require/select_year.php'?>
                                 </div>
                                 <div class="panel-body">
-                                    <div id="barangay_population" style="width: 100%; height: 400px"></div>
+                                    <div id="patient_population" style="width: 100%; height: 400px"></div>
                                 </div>
 
                             </div>

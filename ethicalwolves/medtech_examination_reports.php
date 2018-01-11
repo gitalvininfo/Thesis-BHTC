@@ -25,7 +25,7 @@ require ('config.php');
                 <?php require 'require/medtech_header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
-                    <li class="active">Examination Reports</li>
+                    <li class="active"><strong><mark>Examination Reports</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

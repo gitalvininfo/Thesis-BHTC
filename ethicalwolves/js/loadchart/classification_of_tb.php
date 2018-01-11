@@ -21,12 +21,14 @@ $fetch2 = $ext->fetch_array();
             exportFileName: "TB Classification", 
             exportEnabled: true,
             title: { 
-                text: "Classification of Tuberculosis as of Year <?php echo $year?>",
+                text: "Bacolod City Health TB DOTS Center",
                 fontSize: 20
             }, 
-            axisY: { 
-                title: "Classification of Tuberculosis" 
-            }, 
+            subtitles:[
+                {
+                    text: "Classification of Tuberculosis - Year <?php echo $year?>"
+                }
+            ],
             legend :{ 
                 verticalAlign: "center", 
                 horizontalAlign: "left" 

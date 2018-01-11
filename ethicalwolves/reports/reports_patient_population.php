@@ -214,16 +214,16 @@ require ('../config.php');
         <?php require 'require/logout.php'?>
         <script>
             function openWin() {
-                myWindow = window.open("filter/monthly_population_children.php?year=<?php echo $year?>", "", "width=800, height=650");
+                myWindow = window.open("filter/monthly_population_children.php?year=<?php echo $year?>", "", "width=1350, height=650");
             }
             function pGender() {
-                myWindow = window.open("filter/monthly_population_gender.php?year=<?php echo $year?>", "", "width=800, height=650");
+                myWindow = window.open("filter/monthly_population_gender.php?year=<?php echo $year?>", "", "width=1350, height=650");
             }
             function pAge() {
-                myWindow = window.open("filter/monthly_population_age.php?year=<?php echo $year?>", "", "width=800, height=650");
+                myWindow = window.open("filter/monthly_population_age.php?year=<?php echo $year?>", "", "width=1350, height=650");
             }
             function pQuarter() {
-                myWindow = window.open("filter/quarter_population.php?year=<?php echo $year?>", "", "width=800, height=650");
+                myWindow = window.open("filter/quarter_population.php?year=<?php echo $year?>", "", "width=1350, height=650");
             }
         </script>
         <script>

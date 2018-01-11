@@ -25,12 +25,14 @@ $fetch4 = $com->fetch_array();
             exportFileName: "Source of Patient", 
             exportEnabled: true,
             title: { 
-                text: "Source of Patient as of Year <?php echo $year?>",
+                text: "Bacolod City Health TB DOTS Center",
                 fontSize: 20
-            }, 
-            axisY: { 
-                title: "Source of Patient" 
-            }, 
+            },
+            subtitles:[
+                {
+                    text: "Source of Patient - Year  <?php echo $year?>"
+                }
+            ],
             legend :{ 
                 verticalAlign: "center", 
                 horizontalAlign: "left" 
@@ -44,11 +46,11 @@ $fetch4 = $com->fetch_array();
                     dataPoints: [ 
                         { label: "Public Health Center",  y: 
                          <?php
-    if($fetch1 == ""){
-        echo 0;
-    }else{
-        echo $fetch1['total'];
-    }	
+                         if($fetch1 == ""){
+                             echo 0;
+                         }else{
+                             echo $fetch1['total'];
+                         }	
                          ?>, legendText: "Public Health Center"},
 
                         { label: "Other Government Facilities/Hospitals",  y: 
@@ -59,7 +61,7 @@ $fetch4 = $com->fetch_array();
                              echo $fetch2['total'];
                          }	
                          ?>, legendText: "Other Government Facilities/Hospitals"},
-                        
+
                         { label: "Private Hospitals/Clinics/Physicians/NGO's",  y: 
                          <?php 
                          if($fetch3 == ""){
@@ -68,7 +70,7 @@ $fetch4 = $com->fetch_array();
                              echo $fetch3['total'];
                          }	
                          ?>, legendText: "Private Hospitals/Clinics/Physicians/NGO's"},
-                        
+
                         { label: "Community",  y: 
                          <?php 
                          if($fetch4 == ""){

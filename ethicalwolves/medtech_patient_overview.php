@@ -21,25 +21,19 @@ require ('config.php');
         $find = $query->fetch_array();
         ?>
         <div class="page-container">
+
             <?php require 'require/medtech_sidebar.php'?>
             <div class="page-content">
                 <?php require'require/medtech_header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
-                    <li><a href="medtech_patient_master_file.php">Patient Master File</a></li>
-                    <li class="active">Patient Overview</li>
+                    <li><a href="medtech_patient_master_file.php">Laboratory Results</a></li>
+                    <li class="active"><strong><mark><?php echo $_GET['patient_name']?></mark></strong></li>
 
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
-                        <?php
-    require 'config.php';
-            $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-            $fetch = $query->fetch_array();
-            $id = $fetch['patient_id'];
-            $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
-            $fetch2 = $query2->fetch_array();
-                        ?>
+
                         <div class="col-md-12">
                             <div class="panel panel-default tabs">
                                 <ul class="nav nav-tabs" role="tablist">
@@ -54,38 +48,46 @@ require ('config.php');
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                             <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-body">           <br>                         
-                                                            <div class="contact-info">
-                                                                <img src="assets/images/users/no-image.jpg" style="height:120px;width:120px;"> &nbsp;
-                                                                <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></strong></center></h6>    
-                                                            </div>
-                                                        </div>    
+                                                <div class="panel-body profile" style="background: url('assets/images/cover.png') center center no-repeat;">
+                                                    <div class="profile-image">
+                                                        <img src="assets/images/patient.ico" alt="Patient"/>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-5">   <br>                                             
-                                                    <h6><strong>Name: </strong><?php echo $fetch['patient_name']. ", " .$fetch['age']. " years old"?></h6>
+                                                    <?php
+    require 'config.php';
+            $query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+            $f = $query->fetch_array();
+            $id = $f['patient_id'];
+            $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+            $fetch2 = $query2->fetch_array();
+                                                    ?>
+                                                    <div class="profile-data">
+                                                        <div class="profile-data-name" style="color:#000"><strong><?php echo $f['patient_name']?></strong></div>
+                                                        <div class="profile-data-name" style="color: #000"><strong><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></strong></div>
+                                                    </div>                                  
+                                                </div>         
+
+                                                <div class="col-md-6">   <br>                                             
+                                                    <h6><strong>Age: </strong><?php echo $f['age']. " years old"?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
-                                                    <h6><strong>Height: </strong><?php echo $fetch['height'], " cms." ?></h6>
+                                                    <h6><strong>Height: </strong><?php echo $f['height'], " cms." ?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
-                                                    <h6><strong>Gender: </strong><?php echo $fetch['gender']?></h6>
+                                                    <h6><strong>Gender: </strong><?php echo $f['gender']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
-                                                    <h6><strong>Contact Number: </strong><?php echo $fetch['contact_number']?></h6>
+                                                    <h6><strong>Contact Number: </strong><?php echo $f['contact_number']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
-                                                    <h6><strong>Home Address: </strong><?php echo $fetch['address']?></h6>
+                                                    <h6><strong>Home Address: </strong><?php echo $f['address']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
-                                                    <h6><strong>Birthdate: </strong><?php echo $fetch['address']?></h6>
+                                                    <h6><strong>Birthdate: </strong><?php echo $f['birthdate']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
-                                                    <h6><strong>Occupation: </strong><?php echo $fetch['occupation']?></h6>
+                                                    <h6><strong>Occupation: </strong><?php echo $f['occupation']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
-                                                    <h6><strong>Contact Person: </strong><?php echo $fetch['contact_person']?></h6>
+                                                    <h6><strong>Contact Person: </strong><?php echo $f['contact_person']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
-                                                    <h6><strong>Emergency No: </strong><?php echo $fetch['emergency_no']?></h6>
+                                                    <h6><strong>Emergency No: </strong><?php echo $f['emergency_no']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
-                                                    <h6><strong>Philhealth No: </strong><?php echo $fetch['philhealth_no']?></h6>
+                                                    <h6><strong>Philhealth No: </strong><?php echo $f['philhealth_no']?></h6>
                                                 </div><br>
-                                                <div class="col-md-5">                        
+                                                <div class="col-md-6">       <br>                 
                                                     <h6><strong>Registration Date: </strong><?php echo $fetch2['registration_date']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
                                                     <h6><strong>DOTS Facility: </strong><?php echo $fetch2['dots_facility']?></h6>
@@ -126,8 +128,8 @@ require ('config.php');
                                                             <tbody>
                                                                 <?php
     require 'config.php';
-                                                                    $query = $conn->query("SELECT * FROM `family_member` WHERE `patient_id` = '$_GET[id]' ORDER BY `member_id` DESC") or die(mysqli_error());
-                                                                    while($fetch = $query->fetch_array()){
+                                                            $query = $conn->query("SELECT * FROM `family_member` WHERE `patient_id` = '$_GET[id]' ORDER BY `member_id` DESC") or die(mysqli_error());
+                                                            while($fetch = $query->fetch_array()){
                                                                 ?>
                                                                 <tr>
                                                                     <td><center><?php echo $fetch['name']?></center></td>
@@ -135,8 +137,8 @@ require ('config.php');
                                                                     <td><center><?php echo $fetch['date_screened']?></center></td>
                                                                 </tr>
                                                                 <?php
-                                                                    }
-                                                                    $conn->close();
+                                                            }
+                                                            $conn->close();
                                                                 ?>
                                                             </tbody>
                                                         </table>

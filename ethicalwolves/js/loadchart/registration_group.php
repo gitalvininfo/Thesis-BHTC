@@ -30,9 +30,14 @@ $fetch9 = $oth->fetch_array();
             exportFileName: "TB Patient Registration Group", 
             exportEnabled: true,
             title: { 
-                text: "Patient Registration Group as of Year <?php echo $year?>",
+                text: "Bacolod City Health TB DOTS Center",
                 fontSize: 20
             },
+            subtitles:[
+                {
+                    text: "Patient Registration Group - Year <?php echo $year?>"
+                }
+            ],
             axisY: { 
                 title: "Registration" 
             }, 
@@ -40,7 +45,7 @@ $fetch9 = $oth->fetch_array();
                 verticalAlign: "center", 
                 horizontalAlign: "left",
                 cursor: "pointer",
-			
+
             }, 
             data: [ 
                 { 

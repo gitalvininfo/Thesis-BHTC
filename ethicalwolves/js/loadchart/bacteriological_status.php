@@ -22,12 +22,14 @@ $fetch2 = $cd->fetch_array();
             exportFileName: "Bacteriological Status", 
             exportEnabled: true,
             title: { 
-                text: "Patient Bacteriological Status as of Year <?php echo $year?>",
+                text: "Bacolod City Health TB DOTS Center - Year <?php echo $year?>",
                 fontSize: 20
             }, 
-            axisY: { 
-                title: "Bacteriological Status" 
-            }, 
+            subtitles:[
+                {
+                    text: "Patient Bacteriological Status - Year <?php echo $year?>"
+                }
+            ],
             legend :{ 
                 verticalAlign: "center", 
                 horizontalAlign: "left" 
@@ -41,11 +43,11 @@ $fetch2 = $cd->fetch_array();
                     dataPoints: [ 
                         { label: "Bacteriologically Confirmed",  y: 
                          <?php
-                        if($fetch1 == ""){
-                        echo 0;
-                            }else{
-                                echo $fetch1['total'];
-                        }	
+    if($fetch1 == ""){
+        echo 0;
+    }else{
+        echo $fetch1['total'];
+    }	
                          ?>, legendText: "Bacteriologically Confirmed"},
 
                         { label: "Clinically Diagnosed",  y: 

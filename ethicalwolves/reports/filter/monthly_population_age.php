@@ -54,7 +54,12 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <?php 
+                                $query3 = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.year = '$year'") or die(mysqli_error());
+                                $fetch3 = $query3->fetch_array();
+                                ?>
                                 <h4><mark>Patient Summary - Age - Year <?php echo $_GET['year']?></mark></h4> <hr>
+                                <h4><mark>Total Population -  <?php echo $fetch3['total']?> </mark></h4> <hr>
                                 <table class="table table-condensed">
                                     <thead>
                                         <tr>
@@ -236,7 +241,7 @@
                                         </tr>
                                     </tbody>
                                 </table><hr>
-                               <div class="row">
+                                <div class="row">
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div id="page" style="width: 100%; height: 425px"></div>

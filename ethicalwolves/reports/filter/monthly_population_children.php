@@ -55,7 +55,23 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <?php 
+                                $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                $query1 = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && `age` <= 15 && registration.year = '$year'") or die(mysqli_error());
+                                $fetch1 = $query1->fetch_array();
+
+                                $query2 = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && `age` >= 16 && registration.year = '$year'") or die(mysqli_error());
+                                $fetch2 = $query2->fetch_array();
+
+                                $query3 = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.year = '$year'") or die(mysqli_error());
+                                $fetch3 = $query3->fetch_array();
+
+                                $percentchild = ($fetch1['total']/$fetch3['total']) * 100;
+                                $percentadult = ($fetch2['total']/$fetch3['total']) * 100;
+
+                                ?>
                                 <h4><mark>Patient Summary - Children and Adult - Year <?php echo $_GET['year']?></mark></h4> <hr>
+                                <h4><mark>Total Population -  <?php echo $fetch3['total']?> </mark></h4> <hr>
                                 <table class="table table-condensed">
                                     <thead>
                                         <tr>
@@ -72,6 +88,7 @@
                                             <th><center>Oct</center></th>
                                             <th><center>Nov</center></th>
                                             <th><center>Dec</center></th>
+                                            <th><center>Percentage</center></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -90,6 +107,7 @@
                                             <td><center><?php echo $a10['total']?></center></td>
                                             <td><center><?php echo $a11['total']?></center></td>
                                             <td><center><?php echo $a12['total']?></center></td>
+                                            <td><center><strong><?php echo number_format($percentadult)?>%</strong></center></td>
                                         </tr>
                                         <tr>
                                             <th><center>Children</center></th>
@@ -105,6 +123,7 @@
                                             <td><center><?php echo $c10['total']?></center></td>
                                             <td><center><?php echo $c11['total']?></center></td>
                                             <td><center><?php echo $c12['total']?></center></td>
+                                            <td><center><strong><?php echo number_format($percentchild)?>%</strong></center></td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -41,9 +41,14 @@ $fetch10 = $q10->fetch_array();
             exportFileName: "Annual Patient Population", 
             exportEnabled: true,
             title: { 
-                text: "Patient Annual Population",
+                text: "Bacolod City Health TB DOTS Center",
                 fontSize: 20
             },
+            subtitles:[
+                {
+                    text: "Patient Annual Population"
+                }
+            ],
             axisX: {		       
                 gridDashType: "dot",
                 gridThickness: 1,

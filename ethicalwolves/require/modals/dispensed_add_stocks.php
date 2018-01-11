@@ -3,8 +3,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <?php
+                $date = date('F j, Y');
+                ?>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="defModalHead">Medication Dispensation</h4>
+                <h4 class="modal-title" id="defModalHead">Medication Dispensation - <?php echo $date?></h4>
             </div>
             <form role="form" class="form-horizontal" action="medication_dispensation.php" method="post" onsubmit="return confirm('Are you sure you want to dispense this medicines?');">
                 <div class="modal-body">
@@ -56,38 +59,6 @@
                                     <?php
                                     }
                                     ?> 
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">                                        
-                            <label class="col-md-3 col-xs-12 control-label">Date Given</label>
-                            <div class="col-md-4">                                                 
-                                <select class="form-control select" data-live-search="true" name="month" required>
-                                    <option>Month</option>
-                                    <option value="January">January</option>
-                                    <option value="February">February</option>
-                                    <option value="March">March</option>
-                                    <option value="April">April</option>
-                                    <option value="May">May</option>
-                                    <option value="June">June</option>
-                                    <option value="July">July</option>
-                                    <option value="August">August</option>
-                                    <option value="September">September</option>
-                                    <option value="October">October</option>
-                                    <option value="November">November</option>
-                                    <option value="December">December</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">                                                 
-                                <select class="form-control select" data-live-search="true" name="day" required>
-                                    <option value="Day">Day</option>
-                                    <?php
-                                    for($y=1; $y<=31; $y++){
-                                    ?>
-                                    <option value="<?php echo $y ?>"><?php echo $y; ?></option>
-                                    <?php
-                                    }
-                                    ?>
                                 </select>
                             </div>
                         </div>

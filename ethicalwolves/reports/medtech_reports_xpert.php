@@ -29,7 +29,7 @@ require ('../config.php');
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li> <a href="../medtech_examination_reports.php">Examination Reports</a></li>
-                    <li class="active"><?php echo "Xpert MTB/RIF Year ". $year?> </li>
+                    <li class="active"><strong><mark><?php echo "Xpert MTB/RIF Year ". $year?></mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

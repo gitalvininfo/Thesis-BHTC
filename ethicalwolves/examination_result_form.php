@@ -29,7 +29,7 @@ require ('config.php');
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li><a href="medtech_laboratory_request.php">Laboratory Request</a></li>
-                    <li class="active">Examination Result Form</li>
+                    <li class="active"><strong><mark>Examination Result Form</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

@@ -10,7 +10,7 @@ while($fetch = $query->fetch_array()){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="defModalHead"><span class="fa fa-plus"></span> New Laboratory Request</h4>
+                <h4 class="modal-title" id="defModalHead"><strong><span class="fa fa-plus"></span> New Laboratory Request</strong></h4>
             </div>
             <form id="labrequest" role="form" class="form-horizontal" action="actions/add_laboratory_request.php" method="post" onsubmit="return confirm('Are you sure you want to add this laboratory request?');">
                 <div class="modal-body">
@@ -82,9 +82,16 @@ while($fetch = $query->fetch_array()){
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                    <label class="col-md-3 col-xs-12 control-label">Contact Number</label>
+                                    <label class="col-md-3 col-xs-12 control-label">Designation of Specimen Collector</label>
                                     <div class="col-md-9 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="right" title="Contact Number" placeholder="Contact Number" type="text" class="form-control" name="contact_number" required/>
+                                        <div class="form-group">
+                                            <select class="form-control select" id="formStatus"  name="designation" required>
+                                                <option value="">Choose Designation...</option>
+                                                <option value="Barangay Health Worker">Barangay Health Worker</option>
+                                                <option value="Midwife">Midwife</option>
+                                                <option value="Nurse">Nurse</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div><hr>
                                 <div class="col-md-12">

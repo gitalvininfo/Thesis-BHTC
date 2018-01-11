@@ -36,7 +36,10 @@ require 'config.php';
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Patients for Follow-up this month<strong></strong></h3>
+                                    <?php
+    $month = date("F Y", strtotime("+8 HOURS"));
+                                    ?>
+                                    <h3 class="panel-title">Patients for Follow-up this month of <?php echo $month?><strong></strong></h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                     <div class="panel-body">
@@ -53,11 +56,10 @@ require 'config.php';
                                             <tbody>
                                                 <?php
     $month = date("M", strtotime("+8 HOURS"));
-            require 'require/masterfile_patient_select_year.php';
-            require 'config.php';
-            $query = $conn->query("SELECT * FROM `follow_up`, `patient`, `registration` where registration.patient_id = patient.patient_id && patient.patient_id = follow_up.patient_id && DATE_FORMAT(follow_up_date, '%b') = '$month' group by patient_name") or die(mysqli_error());
-            while($fetch = $query->fetch_array()){
-
+                                        require 'require/masterfile_patient_select_year.php';
+                                        require 'config.php';
+                                        $query = $conn->query("SELECT * FROM `follow_up`, `patient`, `registration` where registration.patient_id = patient.patient_id && patient.patient_id = follow_up.patient_id && DATE_FORMAT(follow_up_date, '%b') = '$month' group by patient_name") or die(mysqli_error());
+                                        while($fetch = $query->fetch_array()){
                                                 ?>                                      
                                                 <tr>
                                                     <td><center><mark><?php echo $fetch['year']."080".$fetch['tb_case_no']?></mark></center></td>
@@ -67,8 +69,8 @@ require 'config.php';
                                                     <td><center><span style="color:red"><strong><?php echo $fetch['follow_up_date']?></strong></span></center></td>
                                                 </tr>
                                                 <?php
-            }
-            $conn->close();
+                                        }
+                                        $conn->close();
                                                 ?>
                                             </tbody>
                                         </table>   

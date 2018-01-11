@@ -35,9 +35,14 @@ $f7 = $ec->fetch_array();
             exportFileName: "Treatment Outcome", 
             exportEnabled: true,
             title: { 
-                text: "Patients Treatment Outcome in Year <?php echo $year?>",
+                text: "Bacolod City Health TB DOTS Center",
                 fontSize: 20
             },
+            subtitles:[
+                {
+                    text: "Patient Treatment Outcome - Year <?php echo $year?>"
+                }
+            ],
             axisX: {		       
                 gridDashType: "dot",
                 gridThickness: 1,

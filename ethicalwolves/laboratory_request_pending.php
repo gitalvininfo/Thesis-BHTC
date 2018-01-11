@@ -52,7 +52,7 @@ $f = $q->fetch_array();
                 <ul class="breadcrumb">
                     <li><a href="dashboard_medtech.php">Home</a></li>
                     <li><a href="medtech_laboratory_request.php">Laboratory Request</a></li>
-                    <li class="active">Confirm Laboratory Request</li>
+                    <li class="active"><strong><mark>Confirm</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -67,20 +67,50 @@ $f = $q->fetch_array();
                                         <h3 class="panel-title">Laboratory Requests of <strong> <?php echo $f1['patient_name']?></strong></h3>
                                     </div>
                                     <div class="panel-body">
+
+
                                         <?php
     $q1 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
                                             $f1 = $q1->fetch_array();
                                             $id = $f1['patient_id'];
                                             $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `status` DESC") or die(mysqli_error());
-                                            while ($f = $q->fetch_array()) 
-                                            {
+                                            while ($f = $q->fetch_array()) {
                                                 if($f['status'] == 'Pending'){
-                                                    echo "<textarea  style = color:#000;font-size:13px;height:68px;' disabled = 'disabled' class = 'form-control'>Date Requested:    ".$f['date_of_request']."                                                                                                                                                                                                                             Test Requested:     ".$f['test_requested']."                                                                                                                                                                                                                   Requesting Physician: ".$f['requesting_physician']."</textarea><br/><a class = 'btn btn-danger' href = 'examination_result_form.php?patient_id=".$_GET['id']."&lab_request_id=".$f['lab_request_id']."&patient_name=".$f1['patient_name']."'><span class = 'fa fa-pencil-square-o'></span> Confirm</a><br /><br />";
+                                                    echo 
+                                                        "
+                                                        <div class='messages'>
+                                                        <div class='item in'>
+                                                        <div class='text'>
+                                                        <div class='heading'>
+                                                        <strong>Test Requested: ".$f['test_requested']." </strong>
+                                                        <span class='date'><strong style='color:red'>Date Requested : ".$f['date_of_request']." </strong></span>
+                                                        </div>
+                                                        <strong>Requesting Physician : ".$f['requesting_physician']." </strong>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        <a class = 'btn btn-danger' href = 'examination_result_form.php?patient_id=".$_GET['id']."&lab_request_id=".$f['lab_request_id']."&patient_name=".$f1['patient_name']."'><span class = 'fa fa-pencil-square-o'></span> Confirm</a> <hr>
+                                                            ";
+
                                                 }
-                                                else{
-                                                    echo "<textarea  style = color:#000;font-size:13px;height:68px;' disabled = 'disabled' class = 'form-control'> Date Requested:    ".$f['date_of_request']."                                                                                   
- Test Requested:     ".$f['test_requested']."         
- Requesting Physician: ".$f['requesting_physician']."</textarea><br /><a class = 'btn btn-info' disabled = 'disabled'><span class = 'glyphicon glyphicon-check'></span>Done</a><br /><br />";
+                                                
+                                                else
+                                                {
+                                                    echo
+                                                        "
+                                                        <div class='messages'>
+                                                        <div class='item in'>
+                                                        <div class='text'>
+                                                        <div class='heading'>
+                                                        <strong>Test Requested: ".$f['test_requested']." </strong>
+                                                        <span class='date'><strong style='color:#1caf9a'>Date Requested : ".$f['date_of_request']." </strong></span>
+                                                        </div>
+                                                        <strong>Requesting Physician : ".$f['requesting_physician']."</strong>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        <a class = 'btn btn-info' disabled = 'disabled'><span class = 'glyphicon glyphicon-check'></span>Done</a> <hr>
+                                                            ";
                                                 }
                                             }
                                         ?>
@@ -89,45 +119,65 @@ $f = $q->fetch_array();
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <!-- START DATATABLE EXPORT -->
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Laboratory Request History</h3>
-                                </div>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
-                                    <div class="panel-body">
-                                        <table id="laboratory_request" class="table table-hover">
-                                            <thead>
-                                                <tr class="info">
-                                                    <th><center>Date Requested</center></th>
-                                                    <th><center>Status</center></th>
-                                                    <th><center>View Record</center></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                $query = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
-                                                while($fetch = $query->fetch_array()){
-                                                ?>
-                                                <tr>
-                                                    <td><center><?php echo $fetch['date_of_request']?></center></td>
-                                                    <td><center><strong><?php echo $fetch['status']?></strong></center></td>
-                                                    <td>
-                                                        <center>
-                                                            <a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-info btn-sm" ><span class="fa fa-search"></span> </a>
-                                                        </center>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                }
-                                                $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table>
+                            <?
+                            require 'config.php';
+                            $q = $conn->query("SELECT count(*) as total FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' && `status` = 'Done' ORDER BY `status` DESC") or die(mysqli_error());
+                            $f = $q->fetch_array(); 
+                            $q2 = $conn->query("SELECT count(*) as total FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' && `status` = 'Pending' ORDER BY `status` DESC") or die(mysqli_error());
+                            $f2 = $q2->fetch_array(); 
+                            ?>
+                            <div class="panel panel-default">
+                                <div class="panel-body profile" style="background: url('assets/images') center center no-repeat;">
+                                    <div class="profile-image">
+                                        <img src="assets/images/labreq.png" alt="Patient"/>
+                                    </div>
+                                    <div class="profile-data">
+                                        <div class="profile-data-name" style="color:#000">Laboratory Requests</div>
+                                        <div class="profile-data-title" style="color: #000">History</div>
+                                    </div>                                  
+                                </div>                                
+                                <div class="panel-body">                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button class="btn btn-info btn-rounded btn-block"><?php echo $f['total']?> Confirmed</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button class="btn btn-danger btn-rounded btn-block"><?php echo $f2['total']?> Pending</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <table id="laboratory_request" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th><center>Date Requested</center></th>
+                                            <th><center>Status</center></th>
+                                            <th><center>View Record</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                                $query = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
+                                                while($fetch = $query->fetch_array()){
+                                        ?>
+                                        <tr>
+                                            <td><center><?php echo $fetch['date_of_request']?></center></td>
+                                            <td><center><strong><?php echo $fetch['status']?></strong></center></td>
+                                            <td>
+                                                <center>
+                                                    <a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-info btn-sm" ><span class="fa fa-search"></span> </a>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                                }
+                                                $conn->close();
+                                        ?>
+                                    </tbody>
+                                </table>
+
+                            </div>                            
+
                         </div>
 
                     </div>

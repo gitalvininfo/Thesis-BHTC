@@ -24,7 +24,7 @@ require ('config.php');
                 <?php require 'require/medtech_header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
-                    <li class="active">Registered TB Patient</li>
+                    <li class="active"><strong><mark>Laboratory Results</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <!-- Export Code -->
@@ -52,7 +52,7 @@ require ('config.php');
                                             </thead>
                                             <tbody>
                                                 <?php
-     require 'config.php';
+    require 'config.php';
             $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $id = $fetch['patient_id'];

@@ -60,7 +60,7 @@ require ('config.php');
                                                 <tr>
                                                     <td><center><?php echo $fetch['dispensation_id']?></center></td>
                                                     <td><center><?php echo $fetch['medicine_name']?></center> </td>
-                                                    <td><center><?php echo $fetch['month']. " " .$fetch['day']. ", " .$fetch['year']?></center> </td>
+                                                    <td><center><?php echo $fetch['date_given']?></center> </td>
                                                     <td><center><?php echo $fetch['quantity']?> boxes</center> </td>
                                                     <td><center><?php echo $fetch['received_by']?></center> </td>
                                                 </tr>
@@ -138,7 +138,8 @@ require ('config.php');
                                                     <td><center><span class="label label-info label-form"><?php echo $fetch['quantity']. " boxes"?></span></center></td>
                                                     <td><center>
                                                         <a href="#two<?php echo $fetch['month']?>" data-target="#two<?php echo $fetch['month']?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-search"></span></a>
-                                                        </center></td>
+                                                        </center>
+                                                    </td>
                                                 </tr>
                                                 <?php
                                                 }
@@ -161,6 +162,7 @@ require ('config.php');
                                                 <tr class="default">
                                                     <th><center>Month</center></th>
                                                     <th><center>Quantity</center></th>
+                                                    <th><center>View</center></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -172,6 +174,10 @@ require ('config.php');
                                                 <tr>
                                                     <td><center><?php echo $fetch['month']. " " .$fetch['year']?></center></td>
                                                     <td><center><span class="label label-info label-form"><?php echo $fetch['quantity']. " boxes"?></span></center></td>
+                                                    <td><center>
+                                                        <a href="#three<?php echo $fetch['month']?>" data-target="#two<?php echo $fetch['month']?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-search"></span></a>
+                                                        </center>
+                                                    </td>
                                                 </tr>
                                                 <?php
                                                 }

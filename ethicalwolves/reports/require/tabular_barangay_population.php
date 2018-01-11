@@ -3032,7 +3032,6 @@
             <div class="modal-header">
                 <div class="btn-group pull-right">
                     <div class="pull-left">
-                        <a href="../print/mandalagan.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
                     </div>
                 </div>
                 <h4 class="modal-title" id="largeModalHead">Barangay Mandalagan Registered TB Patient as of Year <?php echo $year?></h4>
@@ -3089,7 +3088,7 @@
             <div class="modal-header">
                 <div class="btn-group pull-right">
                     <div class="pull-left">
-                        <a href="../print/mansilingan.php" class="btn btn-info btn-sm" ><span class="fa fa-print"></span> Print Preview</a>
+                        <a href="../print/mansilingan.php" > See Overview</a>
                     </div>
                 </div>
                 <h4 class="modal-title" id="largeModalHead">Barangay Mansilingan Registered TB Patient as of Year <?php echo $year?></h4>

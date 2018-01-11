@@ -68,18 +68,17 @@ require ('config.php');
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                             <div class="row">
-                                                <div class="col-md-2">`<br>
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-body">                                    
-                                                            <div class="contact-info">
-                                                                <img src="assets/images/users/no-image.jpg" style="height:130px;width:120px;"> &nbsp;
-                                                                <h6 style="color:red"><center><strong><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></strong></center></h6>    
-                                                            </div>
-                                                        </div>    
+                                                <div class="panel-body profile" style="background: url('assets/images/cover.png') center center no-repeat;">
+                                                    <div class="profile-image">
+                                                        <img src="assets/images/patient.ico" alt="Patient"/>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-5">   <br>                                             
-                                                    <h6><strong>Name: </strong><?php echo $f['patient_name']. ", " .$f['age']. " years old"?></h6>
+                                                    <div class="profile-data">
+                                                        <div class="profile-data-name" style="color:#000"><strong><?php echo $_GET['patient_name']?></strong></div>
+                                                        <div class="profile-data-name" style="color: #000"><strong><?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></strong></div>
+                                                    </div>                                  
+                                                </div> 
+                                                <div class="col-md-6">   <br>                                             
+                                                    <h6><strong>Age: </strong><?php echo $f['age']. " years old"?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
                                                     <h6><strong>Height: </strong><?php echo $f['height'], " cms." ?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
@@ -99,7 +98,7 @@ require ('config.php');
                                                     <hr style="margin:0px 0 5px 0;">
                                                     <h6><strong>Philhealth No: </strong><?php echo $f['philhealth_no']?></h6>
                                                 </div>
-                                                <div class="col-md-5">   <br>                     
+                                                <div class="col-md-6">   <br>                     
                                                     <h6><strong>Registration Date: </strong><?php echo $fetch2['registration_date']?></h6>
                                                     <hr style="margin:0px 0 5px 0;">
                                                     <h6><strong>DOTS Facility: </strong><?php echo $fetch2['dots_facility']?></h6>

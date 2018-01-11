@@ -9,9 +9,7 @@ $f = $q->fetch_array();
 ?>
 
 <html lang="eng">
-
     <head>
-        <!-- META SECTION -->
         <title>
             <?php 
 
@@ -45,8 +43,7 @@ $f = $q->fetch_array();
             <div class="page-content">
                 <?php require 'require/medtech_header.php'?>
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li class="active">Dashboard</li>
+                    <li class="active"><strong><mark>Dashboard</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">

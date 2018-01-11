@@ -24,7 +24,7 @@ require ('config.php');
                 <?php require 'require/medtech_header.php'?>
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
-                    <li class="active">Laboratory Request</li>
+                    <li class="active"><strong><mark>Laboratory Request</mark></strong></li>
                 </ul>
                 <!-- END BREADCRUMB -->      
 
@@ -57,7 +57,7 @@ require ('config.php');
                                             <tbody>
                                                 <?php
     require 'config.php';
-            $query = $conn->query("SELECT * FROM `laboratory_request` where `status` = 'Pending'") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `laboratory_request` where `status` = 'Pending' group by patient_id") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $id = $fetch['patient_id'];
                 $q2 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());

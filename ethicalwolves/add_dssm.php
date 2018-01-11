@@ -6,7 +6,7 @@ if(ISSET($_POST['add_dssm'])){
     $visual_appearance = $_POST['visual_appearance'];
     $visual_appearance2 = $_POST['visual_appearance2'];
     $reading = $_POST['reading'];
-    $reading2s = $_POST['reading2'];
+    $reading2 = $_POST['reading2'];
     $laboratory_diagnosis = $_POST['laboratory_diagnosis'];
     $examined_by = $_POST['examined_by'];
     $date_released = $_POST['date_released'];
