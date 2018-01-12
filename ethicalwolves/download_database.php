@@ -76,7 +76,7 @@ require ('config.php');
             </div>            
         </div>
         
-        <div class="message-box message-box-info animated fadeIn" data-sound="alert" id="message-box-info">
+        <div class="message-box message-box-info animated fadeIn" data-sound="fail" id="message-box-info">
             <div class="mb-container">
                 <div class="mb-middle">
                     <div class="mb-title"><span class="fa fa-cloud-download"></span> Export Database</div>
@@ -92,16 +92,16 @@ require ('config.php');
                 </div>
             </div>
         </div>
-        <div class="message-box message-box-warning animated fadeIn" data-sound="alert" id="message-box-warning">
+        <div class="message-box message-box-warning animated fadeIn" data-sound="fail" id="message-box-warning">
             <div class="mb-container">
                 <div class="mb-middle">
                     <div class="mb-title"><span class="fa fa-cloud-upload"></span> Import Database</div>
                     <div class="mb-content">
-                        <p>You are about to upload the recently exported database of BHTC-PMIS.</p>
+                        <p>You are about to upload the recently exported database of BHTC-PMIS. Last backup is January 12, 2018 1:30 am</p>
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                            <a href="export/import.php" class="btn btn-danger btn-lg pull-right"><span class="fa fa-cloud-download"></span>Import Database</a>
+                            <a href="export/import.php" class="btn btn-danger btn-lg pull-right"><span class="fa fa-cloud-upload"></span>Import Database</a>
                             <button class="btn btn-default btn-lg mb-control-close">Close</button>
                         </div>
                     </div>
@@ -115,8 +115,6 @@ require ('config.php');
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-        <script type="text/javascript" src="js/plugins/fileinput/fileinput.min.js"></script>        
-        <script type="text/javascript" src="js/plugins/filetree/jqueryFileTree.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>        
     </body>

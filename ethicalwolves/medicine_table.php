@@ -5,7 +5,7 @@ require 'config.php';
 if(ISSET($_POST['new_medicine'])){
     $medicine_name = mysqli_real_escape_string($conn, $_POST['medicine_name']);
     $medicine_description = mysqli_real_escape_string($conn, $_POST['medicine_description']);
-    
+
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
     $q1 = $conn->query ("SELECT * FROM `medicine` WHERE BINARY `medicine_name` = '$medicine_name'") or die(mysqli_error());
     $f1 = $q1->fetch_array();
@@ -34,6 +34,7 @@ if(ISSET($_POST['new_medicine'])){
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css"/>
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+
     </head>
     <body>
         <?php
@@ -130,6 +131,7 @@ if(ISSET($_POST['new_medicine'])){
                 }
             });
         </script>
+
     </body>
 </html>
 

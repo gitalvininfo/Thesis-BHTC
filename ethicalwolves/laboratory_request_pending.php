@@ -75,7 +75,7 @@ $f = $q->fetch_array();
                                             $id = $f1['patient_id'];
                                             $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `status` DESC") or die(mysqli_error());
                                             while ($f = $q->fetch_array()) {
-                                                if($f['status'] == 'Pending'){
+                                                if($f['status'] == 'Pending' && $f['test_requested'] == 'DSSM'){
                                                     echo 
                                                         "
                                                         <div class='messages'>
@@ -89,28 +89,66 @@ $f = $q->fetch_array();
                                                         </div>
                                                         </div>
                                                         </div>
-                                                        <a class = 'btn btn-danger' href = 'examination_result_form.php?patient_id=".$_GET['id']."&lab_request_id=".$f['lab_request_id']."&patient_name=".$f1['patient_name']."'><span class = 'fa fa-pencil-square-o'></span> Confirm</a> <hr>
+                                                        <a class = 'btn btn-danger' href = 'examination_result_form.php?patient_id=".$_GET['id']."&lab_request_id=".$f['lab_request_id']."&patient_name=".$f1['patient_name']."'><span class = 'fa fa-mail-forward'></span>Confirm</a> <hr>
                                                             ";
 
                                                 }
-                                                
-                                                else
-                                                {
-                                                    echo
+
+                                                if($f['status'] == 'Pending' && $f['test_requested'] == 'Xpert MTB/RIF'){
+                                                    echo 
                                                         "
                                                         <div class='messages'>
                                                         <div class='item in'>
                                                         <div class='text'>
                                                         <div class='heading'>
                                                         <strong>Test Requested: ".$f['test_requested']." </strong>
-                                                        <span class='date'><strong style='color:#1caf9a'>Date Requested : ".$f['date_of_request']." </strong></span>
+                                                        <span class='date'><strong style='color:red'>Date Requested : ".$f['date_of_request']." </strong></span>
                                                         </div>
-                                                        <strong>Requesting Physician : ".$f['requesting_physician']."</strong>
+                                                        <strong>Requesting Physician : ".$f['requesting_physician']." </strong>
                                                         </div>
                                                         </div>
                                                         </div>
-                                                        <a class = 'btn btn-info' disabled = 'disabled'><span class = 'glyphicon glyphicon-check'></span>Done</a> <hr>
+                                                        <a class = 'btn btn-danger' href = 'examination_result_form_xpert.php?patient_id=".$_GET['id']."&lab_request_id=".$f['lab_request_id']."&patient_name=".$f1['patient_name']."'><span class = 'fa fa-mail-forward'></span>Confirm</a> <hr>
                                                             ";
+
+                                                }
+
+                                                if($f['status'] == 'Pending' && $f['test_requested'] == 'TB Culture'){
+                                                    echo 
+                                                        "
+                                                        <div class='messages'>
+                                                        <div class='item in'>
+                                                        <div class='text'>
+                                                        <div class='heading'>
+                                                        <strong>Test Requested: ".$f['test_requested']." </strong>
+                                                        <span class='date'><strong style='color:red'>Date Requested : ".$f['date_of_request']." </strong></span>
+                                                        </div>
+                                                        <strong>Requesting Physician : ".$f['requesting_physician']." </strong>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        <a class = 'btn btn-danger' href = 'examination_result_form_tb_culture.php?patient_id=".$_GET['id']."&lab_request_id=".$f['lab_request_id']."&patient_name=".$f1['patient_name']."'><span class = 'fa fa-mail-forward'></span>Confirm</a> <hr>
+                                                            ";
+
+                                                }
+
+                                                if($f['status'] == 'Pending' && $f['test_requested'] == 'Drug Susceptible Testing'){
+                                                    echo 
+                                                        "
+                                                        <div class='messages'>
+                                                        <div class='item in'>
+                                                        <div class='text'>
+                                                        <div class='heading'>
+                                                        <strong>Test Requested: ".$f['test_requested']." </strong>
+                                                        <span class='date'><strong style='color:red'>Date Requested : ".$f['date_of_request']." </strong></span>
+                                                        </div>
+                                                        <strong>Requesting Physician : ".$f['requesting_physician']." </strong>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        <a class = 'btn btn-danger' href = 'examination_result_form_dst.php?patient_id=".$_GET['id']."&lab_request_id=".$f['lab_request_id']."&patient_name=".$f1['patient_name']."'><span class = 'fa fa-mail-forward'></span>Confirm</a> <hr>
+                                                            ";
+
                                                 }
                                             }
                                         ?>

@@ -4,8 +4,8 @@ $query = $conn->query("SELECT * FROM `laboratory_request`, `patient`, `registrat
 while($fetch = $query->fetch_array()){
 ?>
 <div id="viewdata<?php echo $fetch['lab_request_id'];?>"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true" style="display:none;">
-    <div class="modal-dialog">
-        <div class="modal-content modal-lg">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="largeModalHead">Laboratory Request of <?php echo $f1['patient_name']?></h4>

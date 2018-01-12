@@ -17,10 +17,12 @@ $f = $q->fetch_array();
         <script src="js/jquery.min.js"></script>
         <script src = "js/jquery.canvasjs.min.js"></script>
         <?php require 'js/loadchart/patient_population.php'?>
+        <link rel="stylesheet" type="text/css" href="js/jquery-confirm.css"/>
+        <script type="text/javascript" src="js/jquery-confirm.js"></script>
     </head>
     <body>
         <?php 
-        $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
+    $query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
         $find = $query->fetch_array();
         ?>
         <div class="page-container">
@@ -37,7 +39,7 @@ $f = $q->fetch_array();
                                 <div class="owl-carousel" id="owl-example">
                                     <div> 
                                         <?php
-            $year = date('Y');
+    $year = date('Y');
             if(isset($_GET['year']))
             {
                 $year=$_GET['year'];
@@ -171,7 +173,7 @@ $f = $q->fetch_array();
                                         <?php echo $f2['total'] ?>
                                     </div>
                                     <div class="widget-title">IPT Patients</div>
-                                    <div class="widget-subtitle">Currently in Treatment</div>
+                                    <div class="widget-subtitle">Registered this Year</div>
                                 </div>
                                 <div class="widget-controls">
                                     <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -184,6 +186,23 @@ $f = $q->fetch_array();
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <?php require 'require/select_year.php'?>
+                                    <button class="example2 btn btn-primary">example confirm</button>
+                                    <script type="text/javascript">
+                                        $('.example2').on('click', function () {
+                                            $.confirm({
+                                                title: 'Confirm!',
+                                                content: 'Simple confirm!',
+                                                buttons: {
+                                                    confirm: function () {
+                                                        $.alert('Confirmed!');
+                                                    },
+                                                    cancel: function () {
+                                                        $.alert('Canceled!');
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    </script>
                                 </div>
                                 <div class="panel-body">
                                     <div id="patient_population" style="width: 100%; height: 400px"></div>

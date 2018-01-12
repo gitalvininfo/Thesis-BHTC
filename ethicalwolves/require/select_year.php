@@ -1,7 +1,6 @@
 <div class="btn-group pull-right">
     <div class="pull-left">
         <select id="pyear" class="validate[required] select" data-style="btn-primary" data-live-search="true">
-            <option>Select Year...</option>
             <option value="<?php 
                            if(isset($_GET['year'])){
                                $value=$_GET['year']; 
