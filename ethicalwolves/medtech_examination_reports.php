@@ -11,7 +11,7 @@ require ('config.php');
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-blue.css" />
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
     </head>
     <body class="page-container-boxed">
@@ -41,7 +41,7 @@ require ('config.php');
                             </div>
                             <div class="panel-body">
                                 <div class="col-md-3">
-                                    <div class="widget widget-info widget-item-icon" onclick="location.href='reports/medtech_reports_total_examinations.php';" style="cursor:pointer;">
+                                    <div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_total_examinations.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-pie-chart"></span>
                                         </div>
@@ -58,7 +58,7 @@ require ('config.php');
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="widget widget-info widget-item-icon" onclick="location.href='reports/medtech_reports_dssm.php';" style="cursor:pointer;">
+                                    <div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_dssm.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-pie-chart"></span>
                                         </div>
@@ -75,7 +75,7 @@ require ('config.php');
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="widget widget-info widget-item-icon" onclick="location.href='reports/medtech_reports_xpert.php';" style="cursor:pointer;">
+                                    <div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_xpert.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-pie-chart"></span>
                                         </div>
@@ -92,7 +92,7 @@ require ('config.php');
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="widget widget-info widget-item-icon" onclick="location.href='reports/medtech_reports_dst.php';" style="cursor:pointer;">
+                                    <div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_dst.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
                                             <span class="fa fa-bar-chart"></span>
                                         </div>

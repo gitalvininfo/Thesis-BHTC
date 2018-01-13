@@ -10,7 +10,7 @@ require ('config.php');
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-blue.css"/>
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css"/>
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
     </head>
     <body class="page-container-boxed">
@@ -26,11 +26,7 @@ require ('config.php');
                     <li><a href="home.php">Home</a></li>
                     <li class="active"><strong><mark>Laboratory Request</mark></strong></li>
                 </ul>
-                <!-- END BREADCRUMB -->      
-
-                <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
-                    <!-- Export Code -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-info">
@@ -42,7 +38,7 @@ require ('config.php');
                                         </div>
                                     </div>  
                                 </div>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 410px;">
+                                <div class="panel-body list-group list-group-contacts scroll" style="height: 440px;">
                                     <div class="panel-body">
                                         <table id="lab_request" class="table datatable">
                                             <thead> 

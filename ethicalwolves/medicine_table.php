@@ -12,7 +12,7 @@ if(ISSET($_POST['new_medicine'])){
     $check = $q1->num_rows;
     if($check > 0){
         echo "<script> alert ('Medicine name already exist!')</script>";
-        echo "<script>document.location='medication_dispensation.php'</script>";
+        echo "<script>document.location='medicine_table.php'</script>";
     }
     else {
         $conn->query("INSERT INTO `medicine` VALUES('', '$medicine_name', '$medicine_description', '')") or die(mysqli_error());

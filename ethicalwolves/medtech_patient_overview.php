@@ -11,7 +11,7 @@ require ('config.php');
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-blue.css" />
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
     </head>
 
@@ -46,7 +46,7 @@ require ('config.php');
 
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
-                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 420px;">
                                             <div class="row">
                                                 <div class="panel-body profile" style="background: url('assets/images/cover.png') center center no-repeat;">
                                                     <div class="profile-image">

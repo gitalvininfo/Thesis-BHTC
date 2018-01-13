@@ -10,7 +10,7 @@ require ('config.php');
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-blue.css"/>
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css"/>
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
     </head>
     <body class="page-container-boxed">
@@ -27,16 +27,13 @@ require ('config.php');
                     <li class="active"><strong><mark>Laboratory Results</mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
-                    <!-- Export Code -->
                     <div class="row">
                         <div class="col-md-12">
-
-                            <!-- START DATATABLE EXPORT -->
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"> Laboratory Results</h3>
                                 </div>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 410px;">
+                                <div class="panel-body list-group list-group-contacts scroll" style="height: 440px;">
                                     <div class="panel-body">
                                         <table class="table datatable">
                                             <thead> 

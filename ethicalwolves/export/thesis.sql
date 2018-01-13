@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -61,6 +61,7 @@ INSERT INTO backup VALUES("111","Successfully imported database","January 9, 201
 INSERT INTO backup VALUES("112","Successfully exported database","January 11, 2018, 1:23 am"); 
 INSERT INTO backup VALUES("113","Successfully imported database","January 12, 2018, 1:09 am"); 
 INSERT INTO backup VALUES("114","Successfully imported database","January 12, 2018, 8:55 am"); 
+INSERT INTO backup VALUES("115","Successfully imported database","January 13, 2018, 12:09 pm"); 
 
 
 
@@ -572,7 +573,7 @@ CREATE TABLE `medicine` (
   `medicine_description` varchar(50) NOT NULL,
   `running_balance` int(10) NOT NULL,
   PRIMARY KEY (`medicine_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 INSERT INTO medicine VALUES("1","Isoniazid","This is Isoniazid","2000002"); 
 INSERT INTO medicine VALUES("2","name","nameolekfkldf","15"); 
@@ -588,6 +589,8 @@ INSERT INTO medicine VALUES("13","Bulong","Bulong nisa","0");
 INSERT INTO medicine VALUES("14","Bulong nisa","Bulong nisa","0"); 
 INSERT INTO medicine VALUES("15","qwer","qwr","0"); 
 INSERT INTO medicine VALUES("16","zxc","zxc","0"); 
+INSERT INTO medicine VALUES("17","Sample lng","Sample lnmg","0"); 
+INSERT INTO medicine VALUES("18","Medicine Name nisa","Medicine Description nisa","0"); 
 
 
 
@@ -827,7 +830,7 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `status` char(8) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 
 INSERT INTO user VALUES("40","Alson John","Bayon-on","132-131","Medical Technologist","alsonz","aTya03gHJdTyqLkWQfg15yUb31e3e4d864da1c761e4c8115745f801","Inactive"); 
 INSERT INTO user VALUES("41","Yanson","Alvin","","NTP Nurse Coordinator","admin","aTya03gHJdTyqLkWQfg15yU21232f297a57a5a743894a0e4a801fc3","Active"); 

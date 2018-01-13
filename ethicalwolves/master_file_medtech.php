@@ -116,15 +116,13 @@ if(ISSET($_POST['save_user'])){
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>    
-        <script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
-        <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>        
         <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>           
         <script type="text/javascript">
-            var medtech = $("#medtech").validate({
-                ignore: [],
+            $("#medtech").validate({
                 rules: {
                     firstname: {
                         required: true
+
                     },
                     lastname: {
                         required: true

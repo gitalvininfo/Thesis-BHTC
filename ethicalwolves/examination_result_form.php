@@ -11,7 +11,7 @@ require ('config.php');
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-blue.css" />
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
         <link rel="stylesheet" type="text/css" id="theme" href="css/mycustom.css" />
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
     </head>
@@ -33,15 +33,13 @@ require ('config.php');
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
-                        <div class="col-md-5">
-
+                        <div class="col-md-12">
                             <div class="panel panel-info">
-
                                 <div class="panel-heading">
                                     <?php
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[patient_id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-            $f = $q->fetch_array();
+                                    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+                                    $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[patient_id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+                                    $f = $q->fetch_array();
                                     ?>
                                     <h3 class="panel-title"><strong>Direct Sputum Smear Miscroscopy Result</strong></h3>
                                 </div>
