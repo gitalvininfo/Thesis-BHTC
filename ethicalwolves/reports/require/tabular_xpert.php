@@ -9,7 +9,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                  
+
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Visual Apperance</center></th>
@@ -24,13 +24,11 @@
                     $query2 = $conn->query("SELECT * FROM `gene_expert_examination` WHERE `result` = 'T' && `year` = '$year'") or die(mysqli_error());
                     while($fetch2 = $query2->fetch_array()){
                         $id = $fetch2['patient_id'];
-                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                        $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        
-                        
                             ?>
                             <tr>
-                                
+
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['visual_appearance']?></center></td>
@@ -64,7 +62,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                  
+
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Visual Apperance</center></th>
@@ -81,11 +79,11 @@
                         $id = $fetch2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        
-                        
+
+
                             ?>
                             <tr>
-                                
+
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['visual_appearance']?></center></td>
@@ -119,7 +117,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                  
+
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Visual Apperance</center></th>
@@ -136,11 +134,11 @@
                         $id = $fetch2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        
-                        
+
+
                             ?>
                             <tr>
-                                
+
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['visual_appearance']?></center></td>
@@ -174,7 +172,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                  
+
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Visual Apperance</center></th>
@@ -191,11 +189,11 @@
                         $id = $fetch2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        
-                        
+
+
                             ?>
                             <tr>
-                                
+
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['visual_appearance']?></center></td>
@@ -229,7 +227,7 @@
                     <table class="table datatable">
                         <thead>
                             <tr class="info">
-                                  
+
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Visual Apperance</center></th>
@@ -246,11 +244,11 @@
                         $id = $fetch2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());
                         $fetch = $query->fetch_array();
-                        
-                        
+
+
                             ?>
                             <tr>
-                                
+
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['visual_appearance']?></center></td>

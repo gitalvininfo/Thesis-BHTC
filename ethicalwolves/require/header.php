@@ -31,10 +31,10 @@
             while($f = $q->fetch_array())
             {
                 $id = $f['patient_id'];
-                $q2 = $conn->query("SELECT `patient_name` FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());
+                $q2 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());
                 $f2 = $q2->fetch_array();
                 ?>
-                <a href="#" class="list-group-item">
+                <a href="laboratory_request.php?id=<?php echo $id?>" class="list-group-item">
                     <div class="list-group-status status-offline"></div>
                     <img src="assets/images/patient.ico" class="pull-left" alt="John Doe" />
                     <span class="contacts-title"><?php echo $f2['patient_name']. "-" .$f['collection_unit']?></span>

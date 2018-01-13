@@ -37,89 +37,101 @@ require ('config.php');
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <?php
-                                    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                    $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[patient_id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                                    $f = $q->fetch_array();
+    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[patient_id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+            $f = $q->fetch_array();
                                     ?>
                                     <h3 class="panel-title"><strong>Direct Sputum Smear Miscroscopy Result</strong></h3>
+                                    <ul class="panel-controls">
+                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>                                            
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
+                                                <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span> Refresh</a></li>
+                                            </ul>                                        
+                                        </li>
+                                    </ul>
                                 </div>
-                                <form role="form" id= "dssm" class="form-horizontal" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this DSSM result?');">
-                                    <div class="panel-body" >
-                                        <h5 class="push-up-1">Date Examined</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <input type="text" class="form-control datepicker" name="date_examined" placeholder="Date Examined" data-toggle="tooltip" data-placement="top" title="Date Examined" required>
+                                <div class="panel-body" >
+                                    <form role="form" id= "dssm" class="form-horizontal" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this DSSM result?');">
+                                        <div class="col-md-6">
+                                            <h5 class="push-up-1"><mark>Date Examined</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control datepicker" name="date_examined" data-toggle="tooltip" data-placement="top" title="Date Examined" required>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Laboratory Number</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="number" class="form-control" name="laboratory_number" data-toggle="tooltip" data-placement="top" title="Laboratory Number" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Specimen 1 Visual Appearance</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="visual_appearance" required >
+                                                        <option value = "">Select...</option>
+                                                        <option value = "Salivary">Salivary</option>
+                                                        <option value = "Muco-Purulent">Muco-Purulent</option>
+                                                        <option value = "Blood-Stained">Blood-Stained</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Specimen 2 Visual Appearance</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="visual_appearance2" required >
+                                                        <option value = "">Select...</option>
+                                                        <option value = "Salivary">Salivary</option>
+                                                        <option value = "Muco-Purulent">Muco-Purulent</option>
+                                                        <option value = "Blood-Stained">Blood-Stained</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Specimen 1 Reading</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="reading" data-toggle="tooltip" data-placement="top" title="Specimen 1 Reading" required/>
+                                                </div>
                                             </div>
                                         </div>
-                                        <h5 class="push-up-1">Laboratory Number</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <input type="number" class="form-control" name="laboratory_number" placeholder=" Laboratory Number" data-toggle="tooltip" data-placement="top" title="Laboratory Number" required/>
+                                        <div class="col-md-6">
+                                            <h5 class="push-up-1"><mark>Specimen 2 Reading</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="reading2" data-toggle="tooltip" data-placement="top" title="Specimen 2 Reading" required/>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <h5 class="push-up-1">Specimen 1 Visual Appearance</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <select class="form-control select" name="visual_appearance" required >
-                                                    <option value = "">Select...</option>
-                                                    <option value = "Salivary">Salivary</option>
-                                                    <option value = "Muco-Purulent">Muco-Purulent</option>
-                                                    <option value = "Blood-Stained">Blood-Stained</option>
-                                                </select>
+                                            <h5 class="push-up-1"><mark>Laboratory Diagnosis</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="laboratory_diagnosis" required >
+                                                        <option value = "">Select...</option>
+                                                        <option value = "Positive (+)">Positive</option>
+                                                        <option value = "Negative (0)">Negative</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <h5 class="push-up-1">Specimen 2 Visual Appearance</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <select class="form-control select" name="visual_appearance2" required >
-                                                    <option value = "">Select...</option>
-                                                    <option value = "Salivary">Salivary</option>
-                                                    <option value = "Muco-Purulent">Muco-Purulent</option>
-                                                    <option value = "Blood-Stained">Blood-Stained</option>
-                                                </select>
+                                            <h5 class="push-up-1"><mark>Examined By</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="examined_by" data-toggle="tooltip" data-placement="top" title="Examined By" required/>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <h5 class="push-up-1">Specimen 1 Reading</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <input type="text" class="form-control" name="reading" placeholder="Specimen 1 Reading" data-toggle="tooltip" data-placement="top" title="Specimen 1 Reading" required/>
+                                            <h5 class="push-up-1"><mark>Date Released</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control datepicker" name="date_released" data-toggle="tooltip" data-placement="top" title="Date Released" required/>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <h5 class="push-up-1">Specimen 2 Reading</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <input type="text" class="form-control" name="reading2" placeholder="Specimen 2 Reading" data-toggle="tooltip" data-placement="top" title="Specimen 2 Reading" required/>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-1">Laboratory Diagnosis</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <select class="form-control select" name="laboratory_diagnosis" required >
-                                                    <option value = "">Select...</option>
-                                                    <option value = "Positive (+)">Positive</option>
-                                                    <option value = "Negative (0)">Negative</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-1">Examined By</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <input type="text" class="form-control" name="examined_by" placeholder="Examined By" data-toggle="tooltip" data-placement="top" title="Examined By" required/>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-1">Examined By</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" data-toggle="tooltip" data-placement="top" title="Date Released" required/>
-                                            </div>
-                                        </div>
-
-                                        <div class="panel-footer">
+                                            <hr>
                                             <button type="submit" name="add_dssm" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
                                         </div>
                                         <?php require_once 'add_dssm.php'?>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

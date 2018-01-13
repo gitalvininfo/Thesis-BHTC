@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="defModalHead">Create New Account</h4>
             </div>
-            <form role="form" id="medtech" class="form-horizontal" action="master_file_medtech.php" method="post">
+            <form role="form" id="medtech" class="form-horizontal" action="master_file_medtech.php" method="post" onsubmit="return confirm('Are you sure you want to add this account?');">
                 <div class="modal-body">
                     <div class="row">
                         <div class="panel-body">
@@ -38,12 +38,6 @@
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
                                         <input data-toggle="tooltip" data-placement="bottom" title="Password" type="password" class="form-control" name="password" placeholder="Password" required/>
-                                    </div>
-                                </div>
-                                <h5 class="push-up-1">Retype Password</h5>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Password" type="password" class="form-control" name="repassword" placeholder="Retype Password" required/>
                                     </div>
                                 </div>
                             </div>

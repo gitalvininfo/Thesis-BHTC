@@ -42,76 +42,80 @@ require ('config.php');
             $f = $q->fetch_array();
                                     ?>
                                     <h3 class="panel-title"><strong>Xpert MTB/RIF</strong></h3>
+                                    <ul class="panel-controls">
+                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>                                            
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
+                                                <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span> Refresh</a></li>
+                                            </ul>                                        
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="row">
-                                        <div class="panel-body scroll" style="height:393px;">
-                                            <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Date Examined</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control datepicker" name="date_examined" placeholder="Date Examined" data-toggle="tooltip" data-placement="top" title="Date Examined" required>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Laboratory Number</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="number" class="form-control" name="laboratory_number" placeholder="Laboratory Number" data-toggle="tooltip" data-placement="top" title="Laboratory Number" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Visual Appearance</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" name="visual_appearance" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "Salivary">Salivary</option>
-                                                                <option value = "Muco-Purulent">Muco-Purulent</option>
-                                                                <option value = "Blood-Stained">Blood-Stained</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Reading</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control" name="reading" placeholder="Reading" data-toggle="tooltip" data-placement="top" title="Reading" required/>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Examined By</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control" name="examined_by" placeholder="Examined By" data-toggle="tooltip" data-placement="top" title="Examined By" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Date Released</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" data-toggle="tooltip" data-placement="top" title="Date Released" required/> 
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Result</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" data-live-search="true" name="result" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "T">[T] - MTB detected, Rifampicin resistance not detected</option>
-                                                                <option value = "RR">[RR] - MTB detected, Rifampicin resistance detected</option>
-                                                                <option value = "TI">[TI] - MTB detected, Rifampicin resistance indeterminate</option>
-                                                                <option value = "N">[N] - MTB not detected</option>
-                                                                <option value = "I">[I] - Invalid / No Result</option>
-                                                            </select>
-                                                        </div>
-                                                    </div> <hr>
-                                                    <div class="tab-footer">
-                                                        <button type="submit" name="add_gene_expert" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                    </div>
-                                                    <?php require_once 'add_gene_expert.php' ?>
+                                    <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
+                                        <div class="col-md-12">
+                                            <h5 class="push-up-1"><mark>Date Examined</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control datepicker" name="date_examined" data-toggle="tooltip" data-placement="bottom" title="Date Examined" required>
                                                 </div>
-                                            </form>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Laboratory Number</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="number" class="form-control" name="laboratory_number" data-toggle="tooltip" data-placement="bottom" title="Laboratory Number" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Visual Appearance</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="visual_appearance" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "Salivary">Salivary</option>
+                                                        <option value = "Muco-Purulent">Muco-Purulent</option>
+                                                        <option value = "Blood-Stained">Blood-Stained</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Reading</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="reading" data-toggle="tooltip" data-placement="bottom" title="Reading" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Examined By</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="examined_by" data-toggle="tooltip" data-placement="bottom" title="Examined By" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Date Released</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control datepicker" name="date_released" data-toggle="tooltip" data-placement="bottom" title="Date Released" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Result</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" data-live-search="true" name="result" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "T">[T] - MTB detected, Rifampicin resistance not detected</option>
+                                                        <option value = "RR">[RR] - MTB detected, Rifampicin resistance detected</option>
+                                                        <option value = "TI">[TI] - MTB detected, Rifampicin resistance indeterminate</option>
+                                                        <option value = "N">[N] - MTB not detected</option>
+                                                        <option value = "I">[I] - Invalid / No Result</option>
+                                                    </select>
+                                                </div>
+                                            </div><hr>
+                                            <div class="tab-footer">
+                                                <button type="submit" name="add_gene_expert" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <?php require_once 'add_gene_expert.php' ?>
+                                    </form>
                                 </div>
                                 <!-- END TABS -->
                             </div>

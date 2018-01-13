@@ -62,15 +62,13 @@ $f = $q->fetch_array();
             $f1 = $q1->fetch_array();
                             ?>
                             <div class="panel panel-info">
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                <div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">Laboratory Requests of <strong> <?php echo $f1['patient_name']?></strong></h3>
                                     </div>
                                     <div class="panel-body">
-
-
                                         <?php
-    $q1 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                            $q1 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
                                             $f1 = $q1->fetch_array();
                                             $id = $f1['patient_id'];
                                             $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `status` DESC") or die(mysqli_error());

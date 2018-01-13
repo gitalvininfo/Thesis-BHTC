@@ -44,181 +44,174 @@ require ('config.php');
                                     <h3 class="panel-title"><strong>Drug Susceptible Testing</strong></h3>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="row">
-                                        <div class="panel-body scroll" style="height:393px;">
-                                            <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">TB Culture Laboratory</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control" name="tb_culture_laboratory" placeholder="TB Culture Laboratory"  data-toggle="tooltip" data-placement="top" title="TB Culture Laboratory" required/> 
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">DST Laboratory</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control" name="dst_laboratory" placeholder="DST Laboratory"  data-toggle="tooltip" data-placement="top" title="DST Laboratory" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Date Collected</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control datepicker" name="date_collected" placeholder="Date Collected" data-toggle="tooltip" data-placement="top" title="Date Collected" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Date Received</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control datepicker" name="date_received" placeholder="Date Received" data-toggle="tooltip" data-placement="top" title="Date Received" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Method</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control" name="method" placeholder="Method" data-toggle="tooltip" data-placement="top" title="Method" required/>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <label>First Line Drug Results</label>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Isoniazid</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" name="isoniazid" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "Resistant">[R] - Resistant</option>
-                                                                <option value = "Susceptible">[S] - Susceptible</option>
-                                                                <option value = "Not Done">[ND] - Not Done</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Rifampicin</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" name="rifampicin" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "Resistant">[R] - Resistant</option>
-                                                                <option value = "Susceptible">[S] - Susceptible</option>
-                                                                <option value = "Not Done">[ND] - Not Done</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Ethambutol</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" name="ethambutol" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "Resistant">[R] - Resistant</option>
-                                                                <option value = "Susceptible">[S] - Susceptible</option>
-                                                                <option value = "Not Done">[ND] - Not Done</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Streptomycin</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" name="streptomycin" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "Resistant">[R] - Resistant</option>
-                                                                <option value = "Susceptible">[S] - Susceptible</option>
-                                                                <option value = "Not Done">[ND] - Not Done</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Pyrazinamide</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" name="pyrazinamide" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "Resistant">[R] - Resistant</option>
-                                                                <option value = "Susceptible">[S] - Susceptible</option>
-                                                                <option value = "Not Done">[ND] - Not Done</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <hr>
-                                                    <label>Second Line Drug Results</label>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Levofloxacin</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" name="levofloxacin" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "Resistant">[R] - Resistant</option>
-                                                                <option value = "Susceptible">[S] - Susceptible</option>
-                                                                <option value = "Not Done">[ND] - Not Done</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Kanamycin</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" name="kanamycin" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "Resistant">[R] - Resistant</option>
-                                                                <option value = "Susceptible">[S] - Susceptible</option>
-                                                                <option value = "Not Done">[ND] - Not Done</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Amikacin</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" name="amikacin" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "Resistant">[R] - Resistant</option>
-                                                                <option value = "Susceptible">[S] - Susceptible</option>
-                                                                <option value = "Not Done">[ND] - Not Done</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Capreomycin</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control select" name="capreomycin" required >
-                                                                <option value = "">Select...</option>
-                                                                <option value = "Resistant">[R] - Resistant</option>
-                                                                <option value = "Susceptible">[S] - Susceptible</option>
-                                                                <option value = "Not Done">[ND] - Not Done</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Examined By</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control" name="examined_by" placeholder="Examined By" data-toggle="tooltip" data-placement="top" title="Examined By" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Remarks</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control" name="remarks" placeholder="Remarks" data-toggle="tooltip" data-placement="top" title="Remarks" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Reviewed By</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control" name="reviewed_by" placeholder="Reviewed By" data-toggle="tooltip" data-placement="top" title="Reviewed By" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Date Released</label>
-                                                        <div class="col-md-9 col-xs-12">
-                                                            <input type="text" class="form-control datepicker" name="date_released" placeholder="Date Released" data-toggle="tooltip" data-placement="top" title="Date Released" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tab-footer">
-                                                        <button type="submit" name="add_dst" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
-                                                    </div>
-                                                    <?php require_once 'add_dst.php'?>
+                                    <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
+                                        <div class="col-md-4">
+                                            <h5 class="push-up-1"><mark>TB Culture Laboratory</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="tb_culture_laboratory" data-toggle="tooltip" data-placement="bottom" title="TB Culture Laboratory" required/>
                                                 </div>
-                                            </form>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>DST Laboratory</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="dst_laboratory" data-toggle="tooltip" data-placement="bottom" title="DST Laboratory" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Date Collected</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control datepicker" name="date_collected" data-toggle="tooltip" data-placement="bottom" title="Date Collected YYYY-MM-DD" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Date Received</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control datepicker" name="date_received" data-toggle="tooltip" data-placement="bottom" title="Date Received YYYY-MM-DD" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Method</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="method" data-toggle="tooltip" data-placement="bottom" title="Method" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Examined By</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="examined_by" data-toggle="tooltip" data-placement="bottom" title="Examined By" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Remarks</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="remarks" data-toggle="tooltip" data-placement="bottom" title="Remarks" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Reviewed By</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="reviewed_by" data-toggle="tooltip" data-placement="bottom" title="Reviewed By" required/>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Date Released</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <input type="text" class="form-control datepicker" name="date_released" data-toggle="tooltip" data-placement="bottom" title="Date Released YYYY-MM-DD" required/>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="col-md-4">
+                                            <h5 class="push-up-1"><mark>Isoniazid</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="isoniazid" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "Resistant">[R] - Resistant</option>
+                                                        <option value = "Susceptible">[S] - Susceptible</option>
+                                                        <option value = "Not Done">[ND] - Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Rifampicin</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="rifampicin" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "Resistant">[R] - Resistant</option>
+                                                        <option value = "Susceptible">[S] - Susceptible</option>
+                                                        <option value = "Not Done">[ND] - Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Ethambutol</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="ethambutol" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "Resistant">[R] - Resistant</option>
+                                                        <option value = "Susceptible">[S] - Susceptible</option>
+                                                        <option value = "Not Done">[ND] - Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Streptomycin</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="streptomycin" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "Resistant">[R] - Resistant</option>
+                                                        <option value = "Susceptible">[S] - Susceptible</option>
+                                                        <option value = "Not Done">[ND] - Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Pyrazinamide</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="pyrazinamide" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "Resistant">[R] - Resistant</option>
+                                                        <option value = "Susceptible">[S] - Susceptible</option>
+                                                        <option value = "Not Done">[ND] - Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h5 class="push-up-1"><mark>Levofloxacin</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="levofloxacin" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "Resistant">[R] - Resistant</option>
+                                                        <option value = "Susceptible">[S] - Susceptible</option>
+                                                        <option value = "Not Done">[ND] - Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Kanamycin</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="kanamycin" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "Resistant">[R] - Resistant</option>
+                                                        <option value = "Susceptible">[S] - Susceptible</option>
+                                                        <option value = "Not Done">[ND] - Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Amikacin</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="amikacin" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "Resistant">[R] - Resistant</option>
+                                                        <option value = "Susceptible">[S] - Susceptible</option>
+                                                        <option value = "Not Done">[ND] - Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <h5 class="push-up-1"><mark>Capreomycin</mark></h5>
+                                            <div class="form-group ">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <select class="form-control select" name="capreomycin" required >
+                                                        <option value = "">Select</option>
+                                                        <option value = "Resistant">[R] - Resistant</option>
+                                                        <option value = "Susceptible">[S] - Susceptible</option>
+                                                        <option value = "Not Done">[ND] - Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="tab-footer">
+                                                <button type="submit" name="add_dst" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                            </div>
+                                        </div>
+                                        <?php require_once 'add_dst.php'?>
+                                    </form>
                                 </div>
-                                <!-- END TABS -->
                             </div>
-                            <!-- END PAGE CONTENT -->
                         </div>
                     </div>
                 </div>

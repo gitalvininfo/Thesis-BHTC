@@ -14,21 +14,19 @@ while($fetch = $query->fetch_array()){
             <form role="form" class="form-horizontal" action="edit_query.php" method="post">
                 <div class="modal-body">
                     <div class="panel-body">
+                        <h5 class="push-up-1">Medicine Name</h5>
                         <div class="form-group ">
-                            <label class="col-md-3 col-xs-12 control-label">Medicine Name</label>
-                            <div class="col-md-8 col-xs-12">
+                            <div class="col-md-12 col-xs-12">
                                 <input type="hidden" class="form-control" name="medicine_id" value="<?php echo $fetch['medicine_id'];?>" required>
-                                <input data-toggle="tooltip" data-placement="bottom" title="Medicine Name" type="text" class="form-control" name="medicine_name" value="<?php echo $fetch['medicine_name']?>" required/>
+                                <input data-toggle="tooltip" data-placement="bottom" title="Medicine Name" type="text" class="form-control" name="medicine_name" value="<?php echo $fetch['medicine_name']?>"/>
                             </div>
                         </div>
-
+                        <h5 class="push-up-1">Medicine Description</h5>
                         <div class="form-group ">
-                            <label class="col-md-3 col-xs-12 control-label">Description</label>
-                            <div class="col-md-8 col-xs-12">
-                                <input data-toggle="tooltip" data-placement="bottom" title="Medicine Description" type="text" class="form-control" name="medicine_description" value="<?php echo $fetch['medicine_description']?>" required/>
+                            <div class="col-md-12 col-xs-12">
+                                <textarea data-toggle="tooltip" data-placement="bottom" title="Medicine Name" type="text" class="form-control" name="medicine_description" placeholder="Medicine description"><?php echo $fetch['medicine_description']?></textarea>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="modal-footer">

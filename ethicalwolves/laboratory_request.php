@@ -38,7 +38,7 @@ require ('config.php');
                                 <div class="panel-heading">
                                     <?php
     require 'config.php';
-            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
             $f1 = $q->fetch_array();
                                     ?>
                                     <h3 class="panel-title"><strong>Laboratory Requests of <?php echo $f1['patient_name']?></strong></h3>
