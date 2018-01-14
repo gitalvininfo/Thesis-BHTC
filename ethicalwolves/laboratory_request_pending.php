@@ -68,6 +68,7 @@ $f = $q->fetch_array();
                                     </div>
                                     <div class="panel-body">
                                         <?php
+                                            require 'config.php';
                                             $q1 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
                                             $f1 = $q1->fetch_array();
                                             $id = $f1['patient_id'];
@@ -91,7 +92,6 @@ $f = $q->fetch_array();
                                                             ";
 
                                                 }
-
                                                 if($f['status'] == 'Pending' && $f['test_requested'] == 'Xpert MTB/RIF'){
                                                     echo 
                                                         "
@@ -110,7 +110,6 @@ $f = $q->fetch_array();
                                                             ";
 
                                                 }
-
                                                 if($f['status'] == 'Pending' && $f['test_requested'] == 'TB Culture'){
                                                     echo 
                                                         "
@@ -129,7 +128,6 @@ $f = $q->fetch_array();
                                                             ";
 
                                                 }
-
                                                 if($f['status'] == 'Pending' && $f['test_requested'] == 'Drug Susceptible Testing'){
                                                     echo 
                                                         "

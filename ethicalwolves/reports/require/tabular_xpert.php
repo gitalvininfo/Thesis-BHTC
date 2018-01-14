@@ -13,7 +13,6 @@
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Visual Apperance</center></th>
-                                <th><center>Reading</center></th>
                                 <th><center>Examined By</center></th>
                                 <th><center>Result</center></th>
                             </tr>
@@ -32,7 +31,6 @@
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['visual_appearance']?></center></td>
-                                <td><center><?php echo $fetch2['reading']?></center></td>
                                 <td><center><?php echo $fetch2['examined_by']?></center></td>
                                 <td><center><?php echo $fetch2['result']?></center></td>
                             </tr>
@@ -66,7 +64,7 @@
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Visual Apperance</center></th>
-                                <th><center>Reading</center></th>
+                                
                                 <th><center>Examined By</center></th>
                                 <th><center>Result</center></th>
                             </tr>
@@ -87,7 +85,7 @@
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['visual_appearance']?></center></td>
-                                <td><center><?php echo $fetch2['reading']?></center></td>
+                               
                                 <td><center><?php echo $fetch2['examined_by']?></center></td>
                                 <td><center><?php echo $fetch2['result']?></center></td>
                             </tr>
@@ -121,7 +119,7 @@
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Visual Apperance</center></th>
-                                <th><center>Reading</center></th>
+                                
                                 <th><center>Examined By</center></th>
                                 <th><center>Result</center></th>
                             </tr>
@@ -142,7 +140,7 @@
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['visual_appearance']?></center></td>
-                                <td><center><?php echo $fetch2['reading']?></center></td>
+                               
                                 <td><center><?php echo $fetch2['examined_by']?></center></td>
                                 <td><center><?php echo $fetch2['result']?></center></td>
                             </tr>
@@ -176,7 +174,7 @@
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Visual Apperance</center></th>
-                                <th><center>Reading</center></th>
+                                
                                 <th><center>Examined By</center></th>
                                 <th><center>Result</center></th>
                             </tr>
@@ -197,7 +195,7 @@
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['visual_appearance']?></center></td>
-                                <td><center><?php echo $fetch2['reading']?></center></td>
+                               
                                 <td><center><?php echo $fetch2['examined_by']?></center></td>
                                 <td><center><?php echo $fetch2['result']?></center></td>
                             </tr>
@@ -231,7 +229,7 @@
                                 <th><center>Patient Name</center></th>
                                 <th><center>Date Examined</center></th>
                                 <th><center>Visual Apperance</center></th>
-                                <th><center>Reading</center></th>
+                                
                                 <th><center>Examined By</center></th>
                                 <th><center>Result</center></th>
                             </tr>
@@ -252,7 +250,7 @@
                                 <td><center><?php echo $fetch['patient_name']?></center></td>
                                 <td><center><?php echo $fetch2['date_examined']?></center></td>
                                 <td><center><?php echo $fetch2['visual_appearance']?></center></td>
-                                <td><center><?php echo $fetch2['reading']?></center></td>
+                               
                                 <td><center><?php echo $fetch2['examined_by']?></center></td>
                                 <td><center><?php echo $fetch2['result']?></center></td>
                             </tr>

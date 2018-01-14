@@ -27,7 +27,7 @@
             <div class="panel-body list-group list-group-contacts scroll" style="height: 350px;">
                 <?php 
             $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-            $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' order by `lab_request_id`") or die(mysqli_error());
+            $q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' order by `lab_request_id` limit 10") or die(mysqli_error());
             while($f = $q->fetch_array())
             {
                 $id = $f['patient_id'];

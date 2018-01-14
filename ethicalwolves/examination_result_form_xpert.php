@@ -79,12 +79,6 @@ require ('config.php');
                                                     </select>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Reading</mark></h5>
-                                            <div class="form-group ">
-                                                <div class="col-md-12 col-xs-12">
-                                                    <input type="text" class="form-control" name="reading" data-toggle="tooltip" data-placement="bottom" title="Reading" required/>
-                                                </div>
-                                            </div>
                                             <h5 class="push-up-1"><mark>Examined By</mark></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">

@@ -44,29 +44,23 @@ require ('config.php');
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
                                     <div class="panel-body">
-                                        <table class="table table-hover">
-                                            <thead> 
-                                                <tr class="info">
-                                                    <th><center>Remarks</center></th>
-                                                    <th><center>Date and Time</center></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-    require 'config.php';
-                $query = $conn->query("SELECT * FROM `backup` ORDER BY `backup_id` DESC") or die(mysqli_error());
-                while($fetch = $query->fetch_array()){
-                                                ?>                                      
-                                                <tr>
-                                                    <td><center><?php echo $fetch['remarks']?></center></td>
-                                                    <td><center><?php echo $fetch['date']?></center></td>
-                                                </tr>
-                                                <?php
-                }
-                $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table>                                    
+                                        <?php
+                                        require 'config.php';
+                                        $query = $conn->query("SELECT * FROM `backup` ORDER BY `backup_id` DESC") or die(mysqli_error());
+                                        while ($fetch = $query->fetch_array()) {
+                                        echo 
+                                        "
+                                            <div class='list-group list-group-contacts border-bottom push-down-10'>
+                                                 <a href='#' class='list-group-item'> 
+                                                     <div class='list-group-status status-away'></div>
+                                                         <img src='assets/images/project_logo.png' class='pull-left' alt='Dmitry Ivaniuk'>
+                                                    <span class='contacts-title'>".$find['firstname']. " " .$find['lastname']."</span>
+                                                <span class='date' style='float:right;'>".$fetch['date']."</span>
+                                            <p>".$fetch['remarks']."</p>
+                                                 </a>
+                                                ";
+                                        }   
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +69,7 @@ require ('config.php');
                 </div>
             </div>            
         </div>
-        
+
         <div class="message-box message-box-info animated fadeIn" data-sound="fail" id="message-box-info">
             <div class="mb-container">
                 <div class="mb-middle">

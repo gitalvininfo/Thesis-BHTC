@@ -49,7 +49,7 @@ require ('config.php');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 410px;">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 382px;">
                                                         <div class="panel-body">
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
@@ -105,7 +105,7 @@ require ('config.php');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 410px;">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 382px;">
                                                         <div class="panel-body">
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
