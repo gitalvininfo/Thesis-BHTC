@@ -34,7 +34,7 @@ require ('config.php');
                             <div class="panel-heading">
                                 <h3 class="panel-title">Laboratory Request</h3>
                             </div>
-                            <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                            <div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
                                 <div class="panel-body">
                                     <table id="lab_request" class="table datatable">
                                         <thead>

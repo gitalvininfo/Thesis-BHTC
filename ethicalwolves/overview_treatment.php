@@ -32,15 +32,13 @@
                                 <?php
                                 require 'config.php';
                                 $query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` DESC ") or die(mysqli_error());
-                                $q2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                $f2 = $q2->fetch_array();
                                 while($fetch = $query->fetch_array()){
                                     if($fetch['remarks'] == 'Absent'){
                                         echo 
                                             "<tr>
                                                             <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#DB9079;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#f4b29e;'><strong><center> ".$fetch['remarks']." </center></strong></td>
                                                         </tr>";
 
                                     }
@@ -50,7 +48,7 @@
                                             "<tr>
                                                             <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#F0D6A7;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#cdf2f7;'><strong><center> ".$fetch['remarks']." </center></strong></td>
                                                         </tr>";
                                     }
                                 }
@@ -86,15 +84,13 @@
                                 <?php
                                 require 'config.php';
                                 $query = $conn->query("SELECT * FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `continuation_phase_id` DESC ") or die(mysqli_error());
-                                $q2 = $conn->query("SELECT sum(dosage) FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                $f2 = $q2->fetch_array();
                                 while($fetch = $query->fetch_array()){
                                     if($fetch['remarks'] == 'Absent'){
                                         echo 
                                             "<tr>
                                                             <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#DB9079;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#f4b29e;'><strong><center> ".$fetch['remarks']." </center></strong></td>
                                                         </tr>";
 
                                     }
@@ -104,7 +100,7 @@
                                             "<tr>
                                                             <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#F0D6A7;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#cdf2f7;'><strong><center> ".$fetch['remarks']." </center></strong></td>
                                                         </tr>";
                                     }
                                 }

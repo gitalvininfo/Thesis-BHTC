@@ -27,10 +27,10 @@ $f4 = $cnta->fetch_array();
             panEnabled: true,
             animationEnabled: true,
             animationDuration: 1000,
-            exportFileName: "Monthly Population", 
+            exportFileName: "Intensive and Continuation Phase", 
             exportEnabled: true,
             title: { 
-                text: "Total of Present and Missed Dates",
+                text: "Total of number of Present and Missed Dates of Drug Intake of <?php echo $_GET['patient_name']?>",
                 fontSize: 15
             },
             legend: {
@@ -58,14 +58,14 @@ $f4 = $cnta->fetch_array();
                 crosshair: {
                     enabled: true 
                 },
-                title: "Number of Days"
+                title: "Number of Treatment Days"
             }, 
             data: [ 
                 { 
                     type: "stackedBar",
                     showInLegend: true, 
                     legendText: "Present",
-                    color: "#F0D6A7",
+                    color: "#1caf9a",
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [ 
                         {label: "Intensive Phase", y: <?php echo $f1['total']?> },
@@ -76,7 +76,7 @@ $f4 = $cnta->fetch_array();
                     type: "stackedBar",
                     showInLegend: true, 
                     legendText: "Missed",
-                    color:"#DB9079",
+                    color:"#f4b29e",
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [
                         {label: "Intensive Phase", y: <?php echo $f3['total']?> },

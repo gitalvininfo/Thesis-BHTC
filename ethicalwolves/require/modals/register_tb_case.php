@@ -26,7 +26,7 @@ while($fetch = $query->fetch_array()){
                                             <select class="form-control select" name="source_of_patient" required>
                                                 <option>Select</option>
                                                 <option value="Public Health Center">Public Health Center</option>
-                                                <option value="Private Hospitals/Clinics/NGO's">Private Hospitals/Clinics/NGO's</option>
+                                                <option value="Private Hospitals">Private Hospitals/Clinics/NGO's</option>
                                                 <option value="Community">Community</option>
                                                 <option value="Other Government Facilities">Other Government Facilities</option>
                                             </select>

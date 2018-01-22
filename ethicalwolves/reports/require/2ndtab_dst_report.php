@@ -38,7 +38,7 @@
                     <td>Amikacin</td>
                     <td><center><strong><?php echo $f1['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ami"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#ami"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -46,7 +46,7 @@
                     <td>Capreomycin</td>
                     <td><center><strong><?php echo $f2['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#cap"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#cap"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -54,7 +54,7 @@
                     <td>Ethambutol</td>
                     <td><center><strong><?php echo $f3['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#eth"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#eth"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -62,7 +62,7 @@
                     <td>Isoniazid</td>
                     <td><center><strong><?php echo $f4['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#iso"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#iso"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -70,7 +70,7 @@
                     <td>Kanamycin</td>
                     <td><center><strong><?php echo $f5['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#kan"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#kan"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -78,7 +78,7 @@
                     <td>Levofloxacin</td>
                     <td><center><strong><?php echo $f6['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#lev"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#lev"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -86,7 +86,7 @@
                     <td>Pyrazinamide</td>
                     <td><center><strong><?php echo $f7['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#pyr"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#pyr"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -94,7 +94,7 @@
                     <td>Rifampicin</td>
                     <td><center><strong><?php echo $f8['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#rif"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#rif"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -102,7 +102,7 @@
                     <td>Streptomycin</td>
                     <td><center><strong><?php echo $f9['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#str"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#str"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -148,7 +148,7 @@
                     <td>Amikacin</td>
                     <td><center><strong><?php echo $f1['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#sami"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sami"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -156,7 +156,7 @@
                     <td>Capreomycin</td>
                     <td><center><strong><?php echo $f2['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#scap"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#scap"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -164,7 +164,7 @@
                     <td>Ethambutol</td>
                     <td><center><strong><?php echo $f3['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#seth"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#seth"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -172,7 +172,7 @@
                     <td>Isoniazid</td>
                     <td><center><strong><?php echo $f4['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#siso"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#siso"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -180,7 +180,7 @@
                     <td>Kanamycin</td>
                     <td><center><strong><?php echo $f5['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#skan"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#skan"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -188,7 +188,7 @@
                     <td>Levofloxacin</td>
                     <td><center><strong><?php echo $f6['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#slev"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#slev"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -196,7 +196,7 @@
                     <td>Pyrazinamide</td>
                     <td><center><strong><?php echo $f7['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#spyr"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#spyr"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -204,7 +204,7 @@
                     <td>Rifampicin</td>
                     <td><center><strong><?php echo $f8['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#srif"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#srif"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>
@@ -212,7 +212,7 @@
                     <td>Streptomycin</td>
                     <td><center><strong><?php echo $f9['total']?></strong></center></td>
                     <td><center>
-                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#sstr"><span class="fa fa-search"></span></button>
+                        <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#sstr"><span class="fa fa-search"></span></button>
                         </center>
                     </td>
                 </tr>

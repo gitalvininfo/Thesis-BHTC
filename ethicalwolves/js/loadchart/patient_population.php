@@ -180,7 +180,7 @@ $a12 = $a12->fetch_array();
                 },
 
                 { 
-                    type: "line", 
+                    type: "splineArea", 
                     showInLegend: true, 
                     legendText: "Children",
                     name: "Children", 
@@ -200,7 +200,7 @@ $a12 = $a12->fetch_array();
                     ] 
                 },
                 { 
-                    type: "line", 
+                    type: "spline", 
                     showInLegend: true, 
                     legendText: "Adult",
                     name: "Adult", 

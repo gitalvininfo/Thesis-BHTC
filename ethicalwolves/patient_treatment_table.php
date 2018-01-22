@@ -12,6 +12,7 @@ require ('config.php');
         <link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css"/>
         <link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
     </head>
     <body>
         <?php 
@@ -34,6 +35,11 @@ require ('config.php');
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">TB Case</a></li>
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">IPT Case</a></li>
+                                    <div class="btn-group pull-right">
+                                        <div class="pull-left">
+                                            <?php require 'require/select_year.php'?>
+                                        </div>
+                                    </div>
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
@@ -56,21 +62,23 @@ require ('config.php');
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-    require 'config.php';
-            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+    require 'require/masterfile_patient_select_year.php';
+            require 'config.php';
+            $query = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && patient.status = 'Registered' && registration.year = '$year'") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
-                $id = $fetch['patient_id'];
-                $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                $fetch2 = $query2->fetch_array();
                                                                     ?>                                      
                                                                     <tr>
-                                                                        <td><center><mark><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></mark></center></td>
+                                                                        <td><center><mark><?php echo $fetch['year']."080".$fetch['tb_case_no']?></mark></center></td>
                                                                         <td><center><mark><?php echo $fetch['patient_name']?></mark></center></td>
-                                                                        <td><center><?php echo $fetch2['registration_date']?></center></td>
-                                                                        <td><center><?php echo $fetch2['source_of_patient']?></center></td>
-                                                                        <td><center><?php echo $fetch2['registration_group']?></center></td>
+                                                                        <td><center><?php echo $fetch['registration_date']?></center></td>
+                                                                        <td><center><?php echo $fetch['source_of_patient']?></center></td>
+                                                                        <td><center><?php echo $fetch['registration_group']?></center></td>
                                                                         <td><center>
-                                                                            <a href="patient_treatment.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View</a></center></td>	
+                                                                            <a href="drug_intake.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-danger"  data-toggle="tooltip" data-placement="top" title="Drug Intake"><span class="fa fa-heartbeat"></span></a>
+
+                                                                            <a href="clinical_findings.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-warning"  data-toggle="tooltip" data-placement="top" title="Clinical Findings"><span class="fa fa-stethoscope"></span></a>
+                                                                            </center>
+                                                                        </td>	
                                                                     </tr>
                                                                     <?php
             }
@@ -104,21 +112,23 @@ require ('config.php');
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
+                                                                    require 'require/masterfile_patient_ipt_select_year.php';
                                                                     require 'config.php';
-                                                                    $query = $conn->query("SELECT * FROM `patient_ipt` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
-                                                                    while($fetch = $query->fetch_array()){
-                                                                        $id = $fetch['patient_id'];
-                                                                        $query2 = $conn->query("SELECT * FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                                                                        $fetch2 = $query2->fetch_array();
+                                                                    $query2 = $conn->query("SELECT * FROM `patient_ipt`, `registration_ipt` WHERE patient_ipt.patient_id = registration_ipt.patient_id && patient_ipt.status = 'Registered' && registration_ipt.year = '$year'") or die(mysqli_error());
+                                                                    while($fetch2 = $query2->fetch_array()){
                                                                     ?>                                      
                                                                     <tr>
                                                                         <td><center><mark><?php echo $fetch2['year']."".$fetch2['ipt_no']?></mark></center></td>
-                                                                        <td><center><mark><?php echo $fetch['name']?></mark></center></td>
-                                                                        <td><center><?php echo $fetch['gender']?></center></td>
+                                                                        <td><center><mark><?php echo $fetch2['name']?></mark></center></td>
+                                                                        <td><center><?php echo $fetch2['gender']?></center></td>
                                                                         <td><center><?php echo $fetch2['date_ipt_started']?></center></td>
                                                                         <td><center><?php echo $fetch2['diagnosis']?></center></td>
                                                                         <td><center>
-                                                                            <a href="patient_ipt_treatment.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View</a></center></td>	
+                                                                            <a href="drug_intake_ipt.php?id=<?php echo $fetch2['patient_id']?>&name=<?php echo $fetch2['name']?>" class="btn btn-sm btn-danger"  data-toggle="tooltip" data-placement="top" title="Drug Intake"><span class="fa fa-heartbeat"></span></a>
+
+                                                                            <a href="clinical_findings_ipt.php?id=<?php echo $fetch2['patient_id']?>&name=<?php echo $fetch2['name']?>" class="btn btn-sm btn-warning"  data-toggle="tooltip" data-placement="top" title="Clinical Findings"><span class="fa fa-stethoscope"></span></a>
+                                                                            </center>
+                                                                        </td>
                                                                     </tr>
                                                                     <?php
                                                                     }
@@ -132,7 +142,6 @@ require ('config.php');
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -140,37 +149,26 @@ require ('config.php');
                 </div>            
             </div>
         </div>
+        <script>
+            $(document).ready(function(){
+                $("#pyear").on('change', function(){
+                    var year=$(this).val();
+                    window.location = 'patient_treatment_table.php?year='+year;
+                });
+            });
+        </script>
+        <?php require 'require/modals/end_treatment.php'?>
 
-        <div class="message-box message-box-danger animated fadeIn" data-sound="alert" id="mb-signout">
-            <div class="mb-container">
-                <div class="mb-middle">
-                    <div class="mb-title"><span class="glyphicon glyphicon-off"></span> Log <strong>Out</strong> ?</div>
-                    <div class="mb-content">
-                        <p>Are you sure you want to log out?</p>
-                        <p>Press No if you want to continue work. Press Yes to logout current user.</p>
-                    </div>
-                    <div class="mb-footer">
-                        <div class="pull-right">
-                            <a href="logout.php" class="btn btn-danger btn-lg">Yes</a>
-                            <button class="btn btn-default btn-lg mb-control-close">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END MESSAGE BOX-->
-
-
-        <!-- START PRELOADS -->
-        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+        <?php require 'require/logout.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="js/plugins.js"></script>        
+        <script type="text/javascript" src="js/plugins.js"></script>
         <script type="text/javascript" src="js/actions.js"></script>
     </body>
 </html>

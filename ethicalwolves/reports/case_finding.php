@@ -400,7 +400,10 @@ require ('../config.php');
                                                 </tr>
 
                                             </tbody>
-                                        </table>
+                                        </table><hr> <br>
+                                        <h6 style="float:left"></h6><br><br>
+                                        <h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4><br><br>
+                                        <h6 style="float:left">Approved by:</h6>
                                     </div>
                                 </div>
                             </div>

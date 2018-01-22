@@ -1,13 +1,62 @@
 <div class="row">
     <div class="col-md-9">
         <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>Personal Information</strong></h3>
+            </div>
+            <div class="panel-body">   
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body profile">
+                                <div class="profile-image">
+                                    <img src="assets/images/patient.ico" alt="John Doe"/>
+                                </div>
+                                <div class="profile-data">
+                                    <div class="profile-data-name" style="color:#555252; font-size:20px;"><strong><?php echo $_GET['name']?></strong></div>
+                                    <div class="profile-data-title" style="color:#555252; font-size:12px;"><strong><?php echo $fetch2['year']."" .$fetch2['ipt_no']?></strong></div>
+                                </div>
+                            </div>                                
+                            <div class="panel-body">                                    
+                                <div class="contact-info">
+                                    <p><small style="font-size:13px;">Age</small><br/><?php echo $f['age']?> years old</p>
+                                    <p><small style="font-size:13px;">Contact Number</small><br/><?php echo $f['emergency_no']?></p>
+                                    <p><small style="font-size:13px;">Current Address</small><br/><?php echo $f['address']?></p>                                   
+                                </div>
+                            </div>                                
+                        </div>
+                    </div>
+                    <div class="col-md-5">   <br>                                             
+                        <h5><strong>Height: </strong><?php echo $f['height'], " cms." ?></h5>
+                        <hr style="margin:0px 0 5px 0;">
+                        <h5><strong>Gender: </strong><?php echo $f['gender']?></h5>
+                        <hr style="margin:0px 0 5px 0;">
+                        <h5><strong>Birthdate: </strong><?php echo $f['birthdate']?></h5>
+                        <hr style="margin:0px 0 5px 0;">
+                        <h5><strong>Contact Person: </strong><?php echo $f['contact_person']?></h5>
+                        <hr style="margin:0px 0 5px 0;">
+                        <h5><strong>Date IPT Started: </strong><?php echo $fetch2['date_ipt_started']?></h5>
+                        <hr style="margin:0px 0 5px 0;">
+                        <h5><strong>Date Evaluated: </strong><?php echo $fetch2['date_evaluated']?></h5>
+                        <hr style="margin:0px 0 5px 0;">
+                        <h5><strong>DOTS Facility: </strong><?php echo $fetch2['dots_facility']?></h5>
+                        <h5><strong>Source of Patient: </strong><?php echo $fetch2['source_of_patient']?></h5>
+                        <hr style="margin:0px 0 5px 0;">
+
+                        <h5><strong>Diagnosis: </strong><?php echo $fetch2['diagnosis']?></h5>
+                        <hr style="margin:0px 0 5px 0;">
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div class="panel panel-default">
             <div class="panel-body">                            
                 <div class="tocify-content">
                     &nbsp;
                     <?php 
-                    require 'config.php';
-                    $q1 = $conn->query("SELECT sum(dosage) FROM `intensive_phase_ipt` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                    $f1 = $q1->fetch_array();
+    require 'config.php';
+                                        $q1 = $conn->query("SELECT sum(dosage) FROM `intensive_phase_ipt` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+                                        $f1 = $q1->fetch_array();
                     ?>
 
 

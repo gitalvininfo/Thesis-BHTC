@@ -1,6 +1,5 @@
 <!-- Add Clinical -->
 <?php
-$date = date('F j, Y, l');
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
 while($fetch = $query->fetch_array()){
@@ -10,7 +9,7 @@ while($fetch = $query->fetch_array()){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="defModalHead"><span class="fa fa-stethoscope"></span> New Clinical Findings - <?php echo $date?></h4>
+                <h4 class="modal-title" id="defModalHead"><strong>New Clinical Findings</strong></h4>
             </div>
             <form role="form" class="form-horizontal" action="actions/clinical_findings.php" method="post" onsubmit="return confirm('Are you sure you want to add new clinical findings?');">
                 <div class="modal-body">

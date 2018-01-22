@@ -46,10 +46,10 @@ require ('config.php');
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><strong>Clinical Findings of <?php echo $_GET['patient_name']?></strong></h3>
+                                    <h3 class="panel-title"><strong>Drug Preparations for <?php echo $_GET['patient_name']?></strong></h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
-                                            <a href="#update_clinical<?php echo $f['patient_id'];?>" data-target="#update_clinical<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Findings</a>
+                                            <a href="#update_drug_preparations<?php echo $f['patient_id'];?>" data-target="#update_drug_preparations<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Preparations</a>
                                         </div>
                                     </div>
                                 </div>
@@ -60,44 +60,37 @@ require ('config.php');
                                                 <th data-toggle="tooltip" data-placement="top" title="Date Visited">
                                                     <center>Date</center>
                                                 </th>
-                                                <th data-toggle="tooltip" data-placement="top" title="Weight">
-                                                    <center>Weight</center>
+                                                <th data-toggle="tooltip" data-placement="top" title="Isoniazid [H] 10mg/kg (200mg/5ml)">
+                                                    <center>Isoniazid [H]</center>
                                                 </th>
-                                                <th data-toggle="tooltip" data-placement="top" title="Unexplained fever more than 2 weeks">
-                                                    <center>Fever more than 2 weeks</center>
+                                                <th data-toggle="tooltip" data-placement="top" title="Rifampicin [R] 15mg/kg (200mg/5ml)">
+                                                    <center>Rifampicin [R]</center>
                                                 </th>
-                                                <th data-toggle="tooltip" data-placement="top" title="Unexplained cough or wheezing more than 2 weeks">
-                                                    <center>Cough more than 2 weeks</center>
+                                                <th data-toggle="tooltip" data-placement="top" title="Pyrazinamide [Z] 30mg/kg (250mg/5ml)">
+                                                    <center>Pyrazinamide [Z]</center>
                                                 </th>
-                                                <th data-toggle="tooltip" data-placement="top" title="Unimproved general well-being">
-                                                    <center>Unimproved general well-being</center>
+                                                <th data-toggle="tooltip" data-placement="top" title="Ethambutol [E] 20mg/kg (400mg tab)">
+                                                    <center>Ethambutol [E]</center>
                                                 </th>
-                                                <th data-toggle="tooltip" data-placement="top" title="Poor appetite">
-                                                    <center>Poor Appetite</center>
-                                                </th>
-                                                <th data-toggle="tooltip" data-placement="top" title="Positive PE findings for Extra-Pulmonary TB">
-                                                    <center>PE Findings</center>
-                                                </th>
-                                                <th data-toggle="tooltip" data-placement="top" title="Side Effects">
-                                                    <center>Side Effects</center>
+                                                <th data-toggle="tooltip" data-placement="top" title="Streptomycin [S] 15mg/kg">
+                                                    <center>Streptomycin [S]</center>
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
+
                                             <?php
                                             $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                            $query = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' ORDER BY `clinical_id` DESC") or die(mysqli_error());
+                                            $query = $conn->query("SELECT * FROM `drug_preparations` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
                                             while($fetch = $query->fetch_array()){
                                             ?>
                                             <tr>
                                                 <td><center><?php echo $fetch['date_visited']?></center></td>
-                                                <td><center><?php echo $fetch['weight']?> kgs.</center></td>
-                                                <td><center><?php echo $fetch['q1']?></center></td>
-                                                <td><center><?php echo $fetch['q2']?></center></td>
-                                                <td><center><?php echo $fetch['q3']?></center></td>
-                                                <td><center><?php echo $fetch['q4']?></center></td>
-                                                <td><center><?php echo $fetch['q5']?></center></td>
-                                                <td><center><?php echo $fetch['q6']?></center></td>
+                                                <td><center><?php echo $fetch['isoniazid']?> ml</center></td>
+                                                <td><center><?php echo $fetch['rifampicin']?> ml</center></td>
+                                                <td><center><?php echo $fetch['pyrazinamide']?> ml</center></td>
+                                                <td><center><?php echo $fetch['ethambutol']?> tab</center></td>
+                                                <td><center><?php echo $fetch['streptomycin']?> ml</center></td>
                                             </tr>
                                             <?php
                                             }
@@ -112,7 +105,7 @@ require ('config.php');
                 </div>
             </div>
         </div>
-        <?php require 'require/modals/add_clinical_findings.php'?>
+        <?php require 'require/modals/add_drug_preparations.php'?>
         <?php require 'require/logout.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script src="js/plugins/jquery/jquery.min.js"></script>

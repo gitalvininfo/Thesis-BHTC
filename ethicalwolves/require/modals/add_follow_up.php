@@ -16,16 +16,16 @@ while($fetch = $query->fetch_array()){
                     <div class="row">
                         <div class="panel-body">
                             <div class="col-md-12">
+                                <h5 class="push-up-1">Follow-up Date</h5>
                                 <div class="form-group ">
-                                    <label class="col-md-3 col-xs-12 control-label">Follow-up Date</label>
-                                    <div class="col-md-9 col-xs-12">
+                                    <div class="col-md-12 col-xs-12">
                                         <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
                                         <input type="text" class="form-control datepicker" name="follow_up_date" data-toggle="tooltip" data-placement="bottom" title="Follow-up Date" required/>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 col-xs-12 control-label">Remarks</label>
-                                    <div class="col-md-9 col-xs-12">                                            
+                                <h5 class="push-up-1">Remarks</h5>
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
                                         <textarea class="form-control" rows="3" name="remarks" data-toggle="tooltip" data-placement="bottom" title="Remarks"></textarea>
                                     </div>
                                 </div>

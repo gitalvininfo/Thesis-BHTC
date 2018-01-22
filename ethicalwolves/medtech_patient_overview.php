@@ -234,7 +234,6 @@ require ('config.php');
                                                             <th><center>Date Examined</center></th>
                                                             <th><center>Laboratory Number</center></th>
                                                             <th><center>Visual Appearance</center></th>
-                                                            <th><center>Reading</center></th>
                                                             <th><center>Result</center></th>
                                                             <th><center>Examined By</center></th>
                                                             <th><center>Date Released</center></th>
@@ -252,7 +251,6 @@ require ('config.php');
                                                             <td><center><?php echo $fetch['date_examined']?></center></td>
                                                             <td><center><?php echo $fetch['laboratory_number']?></center></td>
                                                             <td><center><?php echo $fetch['visual_appearance']?></center></td>
-                                                            <td><center><?php echo $fetch['reading']?></center></td>
                                                             <td><center><?php echo $fetch['result']?></center></td>
                                                             <td><center><?php echo $fetch['examined_by']?></center></td>
                                                             <td><center><?php echo $fetch['date_released']?></center></td>

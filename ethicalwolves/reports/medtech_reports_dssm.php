@@ -50,7 +50,7 @@ require ('../config.php');
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab-second">
-                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 425px;">
+                                        <div class="panel-body list-group list-group-contacts scroll" style="height: 488px;">
                                             <div class="row">
                                                 <table class="table table-hover">
                                                     <thead>

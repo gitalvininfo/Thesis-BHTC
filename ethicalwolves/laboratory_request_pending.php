@@ -1,7 +1,6 @@
 <?php
 require_once 'logincheck.php';
 require ('config.php');
-
 $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
 $f = $q->fetch_array();
 
@@ -153,7 +152,7 @@ $f = $q->fetch_array();
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <?
+                            <?php 
                             require 'config.php';
                             $q = $conn->query("SELECT count(*) as total FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' && `status` = 'Done' ORDER BY `status` DESC") or die(mysqli_error());
                             $f = $q->fetch_array(); 

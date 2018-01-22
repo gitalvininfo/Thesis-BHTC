@@ -15,6 +15,16 @@
                                 <input data-toggle="tooltip" data-placement="bottom" title="Medicine Name" type="text" class="form-control" name="medicine_name" placeholder="Medicine name"/>
                             </div>
                         </div>
+                        <h5 class="push-up-1">Medicine Type</h5>
+                        <div class="form-group ">
+                            <div class="col-md-12 col-xs-12">
+                                <select class="form-control select" name="medicine_type">
+                                    <option>Choose</option>
+                                    <option value="Tablet">Tablet</option>
+                                    <option value="Syrup">Syrup</option>
+                                </select>
+                            </div>
+                        </div>
                         <h5 class="push-up-1">Medicine Description</h5>
                         <div class="form-group ">
                             <div class="col-md-12 col-xs-12">

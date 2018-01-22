@@ -51,11 +51,9 @@ require ('config.php');
                         <div class="col-md-12">
                             <div class="panel panel-default tabs">
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li  class="active"><a href="#tab-first" role="tab" data-toggle="tab">Intensive Phase</a></li>
+                                    <li><a href="#tab-first" role="tab" data-toggle="tab">Intensive Phase</a></li>
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">Continuation Phase</a></li>
-                                    <li><a href="#tab-third" role="tab" data-toggle="tab">Clinical Findings</a></li>
-                                    <li><a href="#tab-fourth" role="tab" data-toggle="tab">Drug Preparations</a></li>
-                                    <li><a href="#tab-fifth" role="tab" data-toggle="tab">Overview</a></li>
+                                    <li   class="active"><a href="#tab-third" role="tab" data-toggle="tab">Overview</a></li>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
                                             <a href="#end_treatment<?php echo $f['patient_id'];?>" data-target="#end_treatment<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-arrow-right"></span>End Treatment</a>
@@ -63,7 +61,7 @@ require ('config.php');
                                     </div>
                                 </ul>
                                 <div class="panel-body tab-content">
-                                    <div class="tab-pane active" id="tab-first">
+                                    <div class="tab-pane" id="tab-first">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="panel-group accordion">
@@ -80,10 +78,6 @@ require ('config.php');
                                                             $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                                                             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
                                                             $f = $q->fetch_array();
-                                                            $q2 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Present'") or die(mysqli_error());
-                                                            $f2 = $q2->fetch_array();
-                                                            $q3 = $conn->query("SELECT COUNT(*) as total FROM `intensive_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
-                                                            $f3 = $q3->fetch_array();
                                                             ?>
                                                             <form role="form" class="form-horizontal" method="post" onsubmit="return confirm('Are you sure you want to add this dosage?');">
                                                                 <h6 class="push-up-5">Date Taken</h6>
@@ -148,12 +142,24 @@ require ('config.php');
                                                                         <input type="number" class="form-control" name="dosage" placeholder="Dosage Taken /mg" required/>
                                                                     </div>
                                                                 </div> <hr>
-                                                                <h6 class="push-up-5">Total days of Drug Intake</h6>
+                                                                <h6 class="push-up-5">Drug Taken</h6>
                                                                 <div class="form-group ">
                                                                     <div class="col-md-12 col-xs-12">
-                                                                        <input class="form-control" style="font-size:15px;font-weight:bold;color:black" name="remarks" value="<?php echo $f2['total']. " days" ?>" readonly/>
+                                                                        <select class="form-control select" data-live-search="true" name="medicine_name" required>
+                                                                            <option value="#">Select</option>
+                                                                            <?php
+                                                                            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                                            $query = $conn->query("SELECT * FROM `medicine`") or die(mysqli_error());
+
+                                                                            while($fetch = $query->fetch_array()){
+                                                                            ?>
+                                                                            <option value="<?php echo $fetch['medicine_name'];?>"><?php echo $fetch['medicine_name'];?></option>
+                                                                            <?php
+                                                                            }
+                                                                            ?> 
+                                                                        </select>
                                                                     </div>
-                                                                </div>
+                                                                </div> <hr>
                                                                 <button type="submit" name="add_intensive_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
                                                                 <?php require_once 'require/add_intensive_phase.php' ?>
                                                             </form>
@@ -225,12 +231,6 @@ require ('config.php');
                                                                             <option value="31">31</option>
                                                                         </select>
                                                                     </div>
-                                                                </div> <hr>
-                                                                <h6 class="push-up-20">Total Days Missed</h6>
-                                                                <div class="form-group ">
-                                                                    <div class="col-md-12 col-xs-12">
-                                                                        <input  class="form-control" style="font-size:15px;font-weight:bold;color:red" name="dosage" value="<?php echo $f3['total']. " days" ?>" disabled/>
-                                                                    </div>
                                                                 </div>
                                                                 <button type="submit" name="add_absent_intensive" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
                                                                 <?php require_once 'require/add_intensive_phase.php' ?>
@@ -247,28 +247,35 @@ require ('config.php');
                                                                 <thead>
                                                                     <tr class="info">
                                                                         <th><center>Month</center></th>
-                                                                        <th><center>Day</center></th>
                                                                         <th><center>Dosage</center></th>
                                                                         <th><center>Remarks</center></th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                               $query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` ASC ") or die(mysqli_error());
+    require 'config.php';
+                                                                $query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` ASC ") or die(mysqli_error());
 
-                                                                               while($fetch = $query->fetch_array()){
+                                                                while($fetch = $query->fetch_array()){
+                                                                    if($fetch['remarks'] == 'Absent'){
+                                                                        echo 
+                                                                            "<tr>
+                                                            <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#f4b29e;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
 
-                                                                    ?>
-                                                                    <tr>
-                                                                        <td><center><?php echo $fetch['month']?></center></td>
-                                                                        <td><center><?php echo $fetch['day']?></center></td>
-                                                                        <td><center><?php echo $fetch['dosage']. " /mg"?></center></td>
-                                                                        <td><center><?php echo $fetch['remarks']?></center></td>
-                                                                    </tr>
-                                                                    <?php
-                                                                               }
-                                                                               $conn->close();
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        echo
+                                                                            "<tr>
+                                                            <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#cdf2f7;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
+                                                                    }
+                                                                }
                                                                     ?>
                                                                 </tbody>
                                                             </table>
@@ -297,10 +304,6 @@ require ('config.php');
                                                             $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
                                                             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
                                                             $f = $q->fetch_array();
-                                                            $q2 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Present'") or die(mysqli_error());
-                                                            $f2 = $q2->fetch_array();
-                                                            $q3 = $conn->query("SELECT COUNT(*) as total FROM `continuation_phase` where `patient_id` = '$_GET[id]' && `remarks` = 'Absent'") or die(mysqli_error());
-                                                            $f3 = $q3->fetch_array();
                                                             ?>
                                                             <form role="form" class="form-horizontal" method="post" onsubmit="return confirm('Are you sure you want to add this dosage?');">
                                                                 <h6 class="push-up-5">Date Taken</h6>
@@ -365,12 +368,24 @@ require ('config.php');
                                                                         <input type="number" class="form-control" name="dosage" placeholder="Dosage Taken /mg" required/>
                                                                     </div>
                                                                 </div> <hr>
-                                                                <h6 class="push-up-5">Total days of Drug Intake</h6>
+                                                                <h6 class="push-up-5">Drug Taken</h6>
                                                                 <div class="form-group ">
                                                                     <div class="col-md-12 col-xs-12">
-                                                                        <input class="form-control" style="font-size:15px;font-weight:bold;color:black" name="remarks" value="<?php echo $f2['total']. " days" ?>" readonly/>
+                                                                        <select class="form-control select" data-live-search="true" name="medicine_name" required>
+                                                                            <option value="#">Select</option>
+                                                                            <?php
+                                                                            $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+                                                                            $query = $conn->query("SELECT * FROM `medicine`") or die(mysqli_error());
+
+                                                                            while($fetch = $query->fetch_array()){
+                                                                            ?>
+                                                                            <option value="<?php echo $fetch['medicine_name'];?>"><?php echo $fetch['medicine_name'];?></option>
+                                                                            <?php
+                                                                            }
+                                                                            ?> 
+                                                                        </select>
                                                                     </div>
-                                                                </div>
+                                                                </div> <hr>
                                                                 <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
 
@@ -444,12 +459,6 @@ require ('config.php');
                                                                         </select>
                                                                     </div>
                                                                 </div> <hr>
-                                                                <h6 class="push-up-20">Total Days Missed</h6>
-                                                                <div class="form-group ">
-                                                                    <div class="col-md-12 col-xs-12">
-                                                                        <input  class="form-control" style="font-size:15px;font-weight:bold;color:red" name="dosage" value="<?php echo $f3['total']. " days" ?>" disabled/>
-                                                                    </div>
-                                                                </div>
                                                                 <button type="submit" name="add_absent_continuation" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
 
@@ -468,28 +477,35 @@ require ('config.php');
                                                                 <thead>
                                                                     <tr class="info">
                                                                         <th><center>Month</center></th>
-                                                                        <th><center>Day</center></th>
                                                                         <th><center>Dosage</center></th>
                                                                         <th><center>Remarks</center></th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-    $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                                               $query = $conn->query("SELECT * FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `continuation_phase_id` ASC ") or die(mysqli_error());
+    require 'config.php';
+                                                                $query = $conn->query("SELECT * FROM `continuation_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `continuation_phase_id` ASC ") or die(mysqli_error());
 
-                                                                               while($fetch = $query->fetch_array()){
+                                                                while($fetch = $query->fetch_array()){
+                                                                    if($fetch['remarks'] == 'Absent'){
+                                                                        echo 
+                                                                            "<tr>
+                                                            <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#f4b29e;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
 
-                                                                    ?>
-                                                                    <tr>
-                                                                        <td><center><?php echo $fetch['month']?></center></td>
-                                                                        <td><center><?php echo $fetch['day']?></center></td>
-                                                                        <td><center><?php echo $fetch['dosage']. " /mg"?></center></td>
-                                                                        <td><center><?php echo $fetch['remarks']?></center></td>
-                                                                    </tr>
-                                                                    <?php
-                                                                               }
-                                                                               $conn->close();
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        echo
+                                                                            "<tr>
+                                                            <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
+                                                            <td><center> ".$fetch['dosage']." </center></td>
+                                                            <td style='background-color:#cdf2f7;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                        </tr>";
+                                                                    }
+                                                                }
                                                                     ?>
                                                                 </tbody>
                                                             </table>
@@ -500,169 +516,13 @@ require ('config.php');
 
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="tab-third">
-                                        <div class="row">
-                                            <?php
-                                            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                                            $f = $q->fetch_array();
-                                            $id = $f['patient_id'];
-                                            $query3 = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
-                                            $f2 = $query3->fetch_array();
-                                            ?>
-                                            <div class="panel-body scroll" style="height:464px;">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">  ✓   - Present |  0  - Absent</h3>
-                                                    <div class="btn-group pull-right">
-                                                        <div class="pull-left">
-                                                            <a href="#update_clinical<?php echo $f['patient_id'];?>" data-target="#update_clinical<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Findings</a>
-                                                        </div>
-                                                    </div>
+                                    <div class="tab-pane active" id="tab-third">
+                                        <div class="col-md-12">
+                                            <div class="panel panel-info">
+                                                <div class="panel-body">
+                                                    <div id="intensive" style="width: 100%; height: 425px"></div>
                                                 </div>
-                                                <table id="laboratory_request" class="table table-hover">
-                                                    <thead>
-                                                        <tr class="info">
-                                                            <th data-toggle="tooltip" data-placement="top" title="Date Visited">
-                                                                <center>Date</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Weight">
-                                                                <center>Weight</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Unexplained fever more than 2 weeks">
-                                                                <center>Fever more than 2 weeks</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Unexplained cough or wheezing more than 2 weeks">
-                                                                <center>Cough more than 2 weeks</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Unimproved general well-being">
-                                                                <center>Unimproved general well-being</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Poor appetite">
-                                                                <center>Poor Appetite</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Positive PE findings for Extra-Pulmonary TB">
-                                                                <center>PE Findings</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Side Effects">
-                                                                <center>Side Effects</center>
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
-                                                        $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                        $query = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$id' ORDER BY `clinical_id` DESC") or die(mysqli_error());
-                                                        while($fetch = $query->fetch_array()){
-                                                        ?>
-                                                        <tr>
-                                                            <td><center><?php echo $fetch['date_visited']?></center></td>
-                                                            <td><center><?php echo $fetch['weight']?> kgs.</center></td>
-                                                            <td><center><?php echo $fetch['q1']?></center></td>
-                                                            <td><center><?php echo $fetch['q2']?></center></td>
-                                                            <td><center><?php echo $fetch['q3']?></center></td>
-                                                            <td><center><?php echo $fetch['q4']?></center></td>
-                                                            <td><center><?php echo $fetch['q5']?></center></td>
-                                                            <td><center><?php echo $fetch['q6']?></center></td>
-                                                        </tr>
-                                                        <?php
-                                                        }
-                                                        $conn->close();
-                                                        ?>
-                                                    </tbody>
-                                                </table>
-
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="tab-fourth">
-                                        <div class="row">
-                                            <?php
-                                            $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                                            $f = $q->fetch_array();
-                                            ?>
-                                            <div class="panel-body scroll" style="height:464px;">
-                                                <div class="panel-heading">
-                                                    <div class="btn-group pull-right">
-                                                        <div class="pull-left">
-                                                            <a href="#update_drug_preparations<?php echo $f['patient_id'];?>" data-target="#update_drug_preparations<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Preparations</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <table id="laboratory_request" class="table table-hover">
-                                                    <thead>
-                                                        <tr class="info">
-                                                            <th data-toggle="tooltip" data-placement="top" title="Date Visited">
-                                                                <center>Date</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Isoniazid [H] 10mg/kg (200mg/5ml)">
-                                                                <center>Isoniazid [H]</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Rifampicin [R] 15mg/kg (200mg/5ml)">
-                                                                <center>Rifampicin [R]</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Pyrazinamide [Z] 30mg/kg (250mg/5ml)">
-                                                                <center>Pyrazinamide [Z]</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Ethambutol [E] 20mg/kg (400mg tab)">
-                                                                <center>Ethambutol [E]</center>
-                                                            </th>
-                                                            <th data-toggle="tooltip" data-placement="top" title="Streptomycin [S] 15mg/kg">
-                                                                <center>Streptomycin [S]</center>
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
-                                                        $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                                        $query = $conn->query("SELECT * FROM `drug_preparations` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                                                        $id = $f['patient_id'];
-                                                        while($fetch = $query->fetch_array()){
-                                                        ?>
-                                                        <tr>
-                                                            <td>
-                                                                <center>
-                                                                    <?php echo $fetch['date_visited']?>
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <?php echo $fetch['isoniazid']?> ml</center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <?php echo $fetch['rifampicin']?> ml
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <?php echo $fetch['pyrazinamide']?> ml
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <?php echo $fetch['ethambutol']?> tab
-                                                                </center>
-                                                            </td>
-                                                            <td>
-                                                                <center>
-                                                                    <?php echo $fetch['streptomycin']?> ml
-                                                                </center>
-                                                            </td>
-                                                        </tr>
-                                                        <?php
-                                                        }
-                                                        $conn->close();
-                                                        ?>
-                                                    </tbody>
-                                                </table>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="tab-fifth">
-                                        <div class="row">
-                                            <?php require 'overview_intensive_continuation.php'?>                                               
                                         </div>
                                     </div>
                                 </div>
@@ -672,11 +532,7 @@ require ('config.php');
                 </div>
             </div>
         </div>
-        <?php require 'require/modals/monthly_dosage_continuation.php'?>
-        <?php require 'require/modals/monthly_dosage_intensive.php'?>
         <?php require 'require/modals/end_treatment.php'?>
-        <?php require 'require/modals/add_clinical_findings.php'?>
-        <?php require 'require/modals/add_drug_preparations.php'?>
         <?php require 'require/logout.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
@@ -688,12 +544,6 @@ require ('config.php');
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>
         <script type="text/javascript" src="js/actions.js"></script>
-        <script type="text/javascript" src="js/plugins/tocify/jquery.tocify.min.js"></script>
-        <script>
-            $(function() {
-                var toc = $("#tocify").tocify({context: ".tocify-content", showEffect: "fadeIn",extendPage:false,selectors: "h2, h3, h4" });
-            });
-        </script>
     </body>
 
 </html>

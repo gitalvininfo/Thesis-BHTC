@@ -31,25 +31,25 @@ require ('config.php');
                 $year=$_GET['year'];
             }
             require 'config.php';
-            $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+            $q = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]' && `name` = '$_GET[name]'") or die(mysqli_error());
             $f = $q->fetch_array();
-            $q1 = $conn->query("SELECT `tb_case_no` FROM `registration` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+            $q1 = $conn->query("SELECT `ipt_no` FROM `registration_ipt` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
             $f1 = $q1->fetch_array();
                     ?>
                     <li><a href="home.php">Home</a></li>
                     <li class="#">Transaction</li>
                     <li class="#"><a href="patient_treatment_table.php">Treatment</a></li>
-                    <li class="active"><strong><mark><?php echo $_GET['patient_name']?></mark></strong></li>
+                    <li class="active"><strong><mark><?php echo $_GET['name']?></mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><strong>Clinical Findings of <?php echo $_GET['patient_name']?></strong></h3>
+                                    <h3 class="panel-title"><strong>Clinical Findings of <?php echo $_GET['name']?></strong></h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
-                                            <a href="#update_clinical<?php echo $f['patient_id'];?>" data-target="#update_clinical<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Findings</a>
+                                            <a href="#update_clinical_ipt<?php echo $f['patient_id'];?>" data-target="#update_clinical_ipt<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Findings</a>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@ require ('config.php');
                                         <tbody>
                                             <?php
                                             $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                            $query = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' ORDER BY `clinical_id` DESC") or die(mysqli_error());
+                                            $query = $conn->query("SELECT * FROM `clinical_findings_ipt` WHERE `patient_id` = '$_GET[id]' ORDER BY `clinical_id` DESC") or die(mysqli_error());
                                             while($fetch = $query->fetch_array()){
                                             ?>
                                             <tr>
@@ -112,7 +112,7 @@ require ('config.php');
                 </div>
             </div>
         </div>
-        <?php require 'require/modals/add_clinical_findings.php'?>
+        <?php require 'require/modals/add_clinical_findings_ipt.php'?>
         <?php require 'require/logout.php'?>
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script src="js/plugins/jquery/jquery.min.js"></script>

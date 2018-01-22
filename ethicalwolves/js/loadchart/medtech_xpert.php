@@ -28,9 +28,15 @@ $fetch5 = $xpert5->fetch_array();
             exportFileName: "XPERT", 
             exportEnabled: true,
             title: { 
-                text: "Xpert MTB/RIF Results as of Year <?php echo $year?>",
+                text: "Bacolod City Health TB DOTS Center",
                 fontSize: 22
-            }, 
+            },
+			subtitles: [
+				{
+					text:"Xpert MTB/RIF Results as of Year <?php echo $year?>"
+				}
+				
+			],
             axisY: { 
                 title: "DSSM" 
             }, 

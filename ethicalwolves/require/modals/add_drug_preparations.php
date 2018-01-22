@@ -1,6 +1,5 @@
 <!-- Add Drug Preparations -->
 <?php
-$date = date('F j, Y, l');
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
 while($fetch = $query->fetch_array()){
@@ -10,15 +9,14 @@ while($fetch = $query->fetch_array()){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="defModalHead">Drug Preparations - <?php echo $date?></h4>
+                <h4 class="modal-title" id="defModalHead">Drug Preparations for <?php echo $fetch['patient_name']?></h4>
             </div>
             <form role="form" class="form-horizontal" action="actions/drug_preparations.php" method="post" onsubmit="return confirm('Are you sure you want to new drug preparations?');">
                 <div class="modal-body">
                     <div class="row">
                         <div class="panel-body">
                             <div class="block">
-                                <h3>Drug Preparations for <?php echo $fetch['patient_name']?></h3>
-                                <h5 class="push-up-20">Isoniazid</h5>
+                                <h5 class="push-up-1">Isoniazid</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
                                         <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>

@@ -3,10 +3,11 @@ if(ISSET($_POST['add_intensive_phase'])){
     $dosage = $_POST['dosage'];
     $month = $_POST['month'];
     $day = $_POST['day'];
+    $medicine_name = $_POST['medicine_name'];
     $patient_id = $_GET['id'];
 
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `intensive_phase` VALUES('', '$dosage', '$month', '$day', 'Present', '$patient_id')") or die(mysqli_error());
+    $conn->query("INSERT INTO `intensive_phase` VALUES('', '$dosage', '$month', '$day', '$medicine_name', 'Present', '$patient_id')") or die(mysqli_error());
     $conn->close();
 
 }
