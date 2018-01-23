@@ -119,6 +119,8 @@ if(ISSET($_POST['new_medicine'])){
 		<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/plugins/scrolltotop/scrolltopcontrol.js"></script>
 		<script type="text/javascript">
 			var medicine = $("#medicine").validate({
 				ignore: [],

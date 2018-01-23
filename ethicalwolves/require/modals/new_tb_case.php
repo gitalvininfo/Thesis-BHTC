@@ -14,7 +14,7 @@
                                 <h5 class="push-up-1">Complete Name</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Patient Name" type="text" class="form-control" name="patient_name" required/>
+                                        <input data-toggle="tooltip" data-placement="bottom" onkeyup="myFunction(this.id);" id="pname" title="Patient Name" type="text" class="form-control" name="patient_name" required/>
                                     </div>
                                 </div>
                                 <h5 class="push-up-1">Gender</h5>

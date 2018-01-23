@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -75,6 +75,7 @@ INSERT INTO backup VALUES("125","Successfully exported database","January 17, 20
 INSERT INTO backup VALUES("126","Successfully exported database","January 20, 2018, 2:05 am"); 
 INSERT INTO backup VALUES("127","Successfully exported database","January 20, 2018, 12:48 pm"); 
 INSERT INTO backup VALUES("128","Successfully exported database","January 22, 2018, 2:26 pm"); 
+INSERT INTO backup VALUES("129","Successfully exported database","January 23, 2018, 12:30 am"); 
 
 
 
@@ -526,7 +527,7 @@ CREATE TABLE `medicine` (
   `medicine_description` varchar(50) NOT NULL,
   `running_balance` int(10) NOT NULL,
   PRIMARY KEY (`medicine_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 INSERT INTO medicine VALUES("1","Isoniazid","","This is Isoniazid","198"); 
 INSERT INTO medicine VALUES("3","Rifampicin","","This is Rifampicin","400"); 
@@ -577,7 +578,7 @@ CREATE TABLE `patient` (
   `gender` char(6) NOT NULL,
   `address` varchar(50) NOT NULL,
   `barangay` varchar(50) NOT NULL,
-  `birthdate` date NOT NULL,
+  `birthdate` varchar(20) NOT NULL,
   `height` int(3) NOT NULL,
   `contact_number` char(14) NOT NULL,
   `province` varchar(50) NOT NULL,
@@ -589,7 +590,7 @@ CREATE TABLE `patient` (
   `treatment_partner` char(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`patient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
 
 INSERT INTO patient VALUES("1","Alson John Bayon-on","21","Male","Prk. Langis, Brgy. Banago, Bacolod City","Banago","2017-11-25","178","433-2449","Negros Occidental","Teacher","10992241","Dr. Sabay","433-2449 local 181","Registered","Done","2017"); 
 INSERT INTO patient VALUES("2","Alvin Yanson","3","Male","eroreco bacolod city","Mandalagan","2017-01-08","178","433-2449","Negros Occidental","Student","1993121","Dr. Haro","433-2449 local 181","Registered","Done","2017"); 
@@ -615,8 +616,8 @@ INSERT INTO patient VALUES("22","Mark Torres","21","Male","lizares ave. bacolod"
 INSERT INTO patient VALUES("23","qe","7","Male","qweqweq","Banago","2017-11-07","31","31231","Negros Occidental","eqeqw","eqweq","qweqweq","31231","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("24","John Wick","43","Male","Blk 33, Lot 4, Firmville Subd. Bacolod","Estefania ","2017-12-27","125","4332449","Negros Occidental","Killer","10-3213131-98","Dr. Haro","433-2449 local 181","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("25","Kenneth Cayetano","20","Male","Bacolod City","Sumag ","1997-05-08","178","4332449","Negros Occidental","Student","10-2312321-10","Alvin Yanson","433-2449","Unregister","Pending","2017"); 
-INSERT INTO patient VALUES("26","Dora Explorer","7","Female","qeqweqw","Banago","2011-08-24","123","4332449","Negros Occidental","Student","31321","Boots","433-2449","Registered","Pending","2018"); 
-INSERT INTO patient VALUES("27","Gabriel Banua","8","Male","asdahda","Bata","2009-04-15","178","2323303232","Negros Occidental","sTUDENT","2343242","21321","43234","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("26","Dora the Explorer","7","Female","qeqweqw","Banago","2011-08-24","123","4332449","Negros Occidental","Student","31321","Boots","433-2449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("27","Gabriel Banua","8","Male","asdahda","Bata","2009-04-15","178","2323303232","Negros Occidental","Student","2343242","21321","43234","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("28","Natasha	Rose","17","Female","Blk. 1, Lot 2, Firmville Subd., Bacolod City","Pahanocoy","2000-04-16","167","09125560202","Negros Occidental","","","Traci	Warren","433-2393","Unregister","Pending","2018"); 
 INSERT INTO patient VALUES("29","Cynthia	Smith","20","Female","Blk. 2, Lot 2, Firmville Subd., Bacolod City","Pahanocoy","1997-09-23","156","09123127267","Negros Occidental","","","Salvador Buchanan","433-2491","Unregister","Pending","2018"); 
 INSERT INTO patient VALUES("30","James Hunter","19","Male","Blk. 3, Lot 3, Firmville Subd., Bacolod City","Pahanocoy","1998-10-28","178","09235923789","Negros Occidental","","","Santos Boone","444-2333","Unregister","Pending","2018"); 
@@ -667,6 +668,7 @@ INSERT INTO patient VALUES("74","Samantha Robbins","43","Female","Blk. 23, Lot 2
 INSERT INTO patient VALUES("75","Alfredo Mills","42","Male","Blk. 24, Lot 25, Fiesta Homes Subd., Bacolod City","Sumag ","1975-05-05","189","09961319942","Negros Occidental","","","Nicole Buchanan","421-1891","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("76","Viola Sandoval","41","Female","Blk. 25, Lot 26, Fiesta Homes Subd., Bacolod City","Sumag ","1976-06-06","156","09786503712","Negros Occidental","","","Steve Wallace","476-2382","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("78","Cookies Leonel","7","Female","Blk. 1, Lot 2, Firmville Subd., Bacolod City","Pahanocoy","0000-00-00","178","4332449","Negros Occidental","Student","","Vincent Suyo","4332449","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("79","Michael De Los Santos","28","Male","Blk. 11, Lot 36, Firmville Subd., Bacolod City","Pahanocoy","April 12, 1989","178","4332449","Negros Occidental","Teacher","12","Dr. Haro","4332449","Unregister","Pending","2018"); 
 
 
 

@@ -16,6 +16,20 @@ require ('../config.php');
 		<script src="../js/plugins/jquery/jquery.min.js"></script>
 		<script src = "../js/jquery.canvasjs.min.js"></script>
 		<?php include_once '../js/loadchart/overview_barangay.php'?>
+		<style type="text/css">
+			@media print{
+				@page{
+					size:letter;
+				}
+			}
+			#print{
+				width:1100px;
+				height:800px;
+				margin:auto;
+				overflow:hidden;
+				border:0.5px solid #b3acac;
+			}
+		</style>
 	</head>
 	<body>
 		<?php 
@@ -95,149 +109,153 @@ require ('../config.php');
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-3">
-							<div class="panel panel-danger">
-								<div class="panel-heading">
-									<h3 class="panel-title"><span class="fa fa-circle text-danger"></span> Treatment Outcome</h3>
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div class="col-md-3">
+									<div class="panel panel-danger">
+										<div class="panel-heading">
+											<h3 class="panel-title"><span class="fa fa-circle text-danger"></span> Treatment Outcome</h3>
+										</div>
+										<div class="panel-body">
+											<?php
+											$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+											$cur = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Currently in Treatment'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+											$f8 = $cur->fetch_array();
+
+											$cur = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Cured'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+											$f1 = $cur->fetch_array();
+
+											$tc = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Treatment Completed'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+											$f2 = $tc->fetch_array();
+
+											$die = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Died'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+											$f3 = $die->fetch_array();
+
+											$fai = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Failed'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+											$f4 = $fai->fetch_array();
+
+											$ltf = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Lost to Follow-up'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+											$f5 = $ltf->fetch_array();
+
+											$ne = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Not Evaluated'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+											$f6 = $ne->fetch_array();
+
+											$exc = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Excluded from Cohort'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+											$f7 = $exc->fetch_array();
+
+											?>
+											<ul class="list-group border-bottom">
+												<li class="list-group-item">Currently in Treatment<span class="badge badge-danger"><?php echo $f8['total']?></span></li>
+												<li class="list-group-item">Cured<span class="badge badge-danger"><?php echo $f1['total']?></span></li>
+												<li class="list-group-item">Treatment Completed<span class="badge badge-danger"><?php echo $f2['total']?></span></li>
+												<li class="list-group-item">Died<span class="badge badge-danger"><?php echo $f3['total']?></span></li>
+												<li class="list-group-item">Failed<span class="badge badge-danger"><?php echo $f4['total']?></span></li>
+												<li class="list-group-item">Lost to Follow-up<span class="badge badge-danger"><?php echo $f5['total']?></span></li>
+												<li class="list-group-item">Not Evaluated<span class="badge badge-danger"><?php echo $f6['total']?></span></li>
+												<li class="list-group-item">Excluded from Cohort<span class="badge badge-danger"><?php echo $f7['total']?></span></li>
+											</ul>                                
+										</div>
+									</div>
 								</div>
-								<div class="panel-body">
-									<?php
-									$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-									$cur = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Currently in Treatment'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-									$f8 = $cur->fetch_array();
-
-									$cur = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Cured'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-									$f1 = $cur->fetch_array();
-
-									$tc = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Treatment Completed'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-									$f2 = $tc->fetch_array();
-
-									$die = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Died'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-									$f3 = $die->fetch_array();
-
-									$fai = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Failed'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-									$f4 = $fai->fetch_array();
-
-									$ltf = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Lost to Follow-up'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-									$f5 = $ltf->fetch_array();
-
-									$ne = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Not Evaluated'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-									$f6 = $ne->fetch_array();
-
-									$exc = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.status = 'Excluded from Cohort'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-									$f7 = $exc->fetch_array();
-
-									?>
-									<ul class="list-group border-bottom">
-										<li class="list-group-item">Currently in Treatment<span class="badge badge-danger"><?php echo $f8['total']?></span></li>
-										<li class="list-group-item">Cured<span class="badge badge-danger"><?php echo $f1['total']?></span></li>
-										<li class="list-group-item">Treatment Completed<span class="badge badge-danger"><?php echo $f2['total']?></span></li>
-										<li class="list-group-item">Died<span class="badge badge-danger"><?php echo $f3['total']?></span></li>
-										<li class="list-group-item">Failed<span class="badge badge-danger"><?php echo $f4['total']?></span></li>
-										<li class="list-group-item">Lost to Follow-up<span class="badge badge-danger"><?php echo $f5['total']?></span></li>
-										<li class="list-group-item">Not Evaluated<span class="badge badge-danger"><?php echo $f6['total']?></span></li>
-										<li class="list-group-item">Excluded from Cohort<span class="badge badge-danger"><?php echo $f7['total']?></span></li>
-									</ul>                                
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="panel panel-success">
-								<div class="panel-heading">
-									<h3 class="panel-title"><span class="fa fa-circle text-success"></span> Registration Group</h3>
-								</div>
-								<div class="panel-body">
-									<?php
+								<div class="col-md-3">
+									<div class="panel panel-success">
+										<div class="panel-heading">
+											<h3 class="panel-title"><span class="fa fa-circle text-success"></span> Registration Group</h3>
+										</div>
+										<div class="panel-body">
+											<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-											$new = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'New'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f1 = $new->fetch_array();
-											$rel = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'Relapse'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f2 = $rel->fetch_array();
-											$talf = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'Treatment After Failure'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f3 = $talf->fetch_array();
-											$taf = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'Treatment After Loss Follow-up'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f4 = $taf->fetch_array();
-											$ptou = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'PTOU'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f5 = $ptou->fetch_array();
-											$trans = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'Transfer-in'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f6 = $trans->fetch_array();
+													$new = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'New'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f1 = $new->fetch_array();
+													$rel = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'Relapse'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f2 = $rel->fetch_array();
+													$talf = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'Treatment After Failure'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f3 = $talf->fetch_array();
+													$taf = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'Treatment After Loss Follow-up'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f4 = $taf->fetch_array();
+													$ptou = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'PTOU'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f5 = $ptou->fetch_array();
+													$trans = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.registration_group = 'Transfer-in'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f6 = $trans->fetch_array();
 
-									?>
-									<ul class="list-group border-bottom">
-										<li class="list-group-item">New<span class="badge badge-success"><?php echo $f1['total']?></span></li>
-										<li class="list-group-item">Relapse<span class="badge badge-success"><?php echo $f2['total']?></span></li>
-										<li class="list-group-item">TALF<span class="badge badge-success"><?php echo $f3['total']?></span></li>
-										<li class="list-group-item">TAF<span class="badge badge-success"><?php echo $f4['total']?></span></li>
-										<li class="list-group-item">PTOU<span class="badge badge-success"><?php echo $f5['total']?></span></li>
-										<li class="list-group-item">Transfer-In<span class="badge badge-success"><?php echo $f6['total']?></span></li>
-									</ul>                                
+											?>
+											<ul class="list-group border-bottom">
+												<li class="list-group-item">New<span class="badge badge-success"><?php echo $f1['total']?></span></li>
+												<li class="list-group-item">Relapse<span class="badge badge-success"><?php echo $f2['total']?></span></li>
+												<li class="list-group-item">TALF<span class="badge badge-success"><?php echo $f3['total']?></span></li>
+												<li class="list-group-item">TAF<span class="badge badge-success"><?php echo $f4['total']?></span></li>
+												<li class="list-group-item">PTOU<span class="badge badge-success"><?php echo $f5['total']?></span></li>
+												<li class="list-group-item">Transfer-In<span class="badge badge-success"><?php echo $f6['total']?></span></li>
+											</ul>                                
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="panel panel-info">
-								<div class="panel-heading">
-									<h3 class="panel-title"><span class="fa fa-circle text-info"></span> Source of Patient</h3>
-								</div>
-								<div class="panel-body">
-									<?php
+								<div class="col-md-3">
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h3 class="panel-title"><span class="fa fa-circle text-info"></span> Source of Patient</h3>
+										</div>
+										<div class="panel-body">
+											<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-											$pub = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.source_of_patient = 'Public Health Center'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f1 = $pub->fetch_array();
-											$pri = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.source_of_patient = 'Private Hospitals'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f2 = $pri->fetch_array();
-											$com = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.source_of_patient = 'Community'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f3 = $com->fetch_array();
-											$oth = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.source_of_patient = 'Other Government Facilities'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f4 = $oth->fetch_array();
+													$pub = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.source_of_patient = 'Public Health Center'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f1 = $pub->fetch_array();
+													$pri = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.source_of_patient = 'Private Hospitals'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f2 = $pri->fetch_array();
+													$com = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.source_of_patient = 'Community'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f3 = $com->fetch_array();
+													$oth = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.source_of_patient = 'Other Government Facilities'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f4 = $oth->fetch_array();
 
-									?>
-									<ul class="list-group border-bottom">
-										<li class="list-group-item">Public Health Center<span class="badge badge-info"><?php echo $f1['total']?></span></li>
-										<li class="list-group-item">Private Hospitals<span class="badge badge-info"><?php echo $f2['total']?></span></li>
-										<li class="list-group-item">Community<span class="badge badge-info"><?php echo $f3['total']?></span></li>
-										<li class="list-group-item">Other Government Facilities<span class="badge badge-info"><?php echo $f4['total']?></span></li>
-									</ul>                                
+											?>
+											<ul class="list-group border-bottom">
+												<li class="list-group-item">Public Health Center<span class="badge badge-info"><?php echo $f1['total']?></span></li>
+												<li class="list-group-item">Private Hospitals<span class="badge badge-info"><?php echo $f2['total']?></span></li>
+												<li class="list-group-item">Community<span class="badge badge-info"><?php echo $f3['total']?></span></li>
+												<li class="list-group-item">Other Government Facilities<span class="badge badge-info"><?php echo $f4['total']?></span></li>
+											</ul>                                
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="panel panel-primary">
-								<div class="panel-heading">
-									<h3 class="panel-title"><span class="fa fa-circle text-default"></span> Bacteriological Status</h3>
-								</div>
-								<div class="panel-body">
-									<?php
+								<div class="col-md-3">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title"><span class="fa fa-circle text-default"></span> Bacteriological Status</h3>
+										</div>
+										<div class="panel-body">
+											<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-											$bac = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.bacteriological_status = 'Bacteriologically Confirmed'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f1 = $bac->fetch_array();
-											$cli = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.bacteriological_status = 'Clinically Diagnosed'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f2 = $cli->fetch_array();
-									?>
-									<ul class="list-group border-bottom">
-										<li class="list-group-item">Bacteriologically Confirmed<span class="badge badge-default"><?php echo $f1['total']?></span></li>
-										<li class="list-group-item">Clinically Diagnosed<span class="badge badge-default"><?php echo $f2['total']?></span></li>
-									</ul>                                
+													$bac = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.bacteriological_status = 'Bacteriologically Confirmed'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f1 = $bac->fetch_array();
+													$cli = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.bacteriological_status = 'Clinically Diagnosed'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f2 = $cli->fetch_array();
+											?>
+											<ul class="list-group border-bottom">
+												<li class="list-group-item">Bacteriologically Confirmed<span class="badge badge-default"><?php echo $f1['total']?></span></li>
+												<li class="list-group-item">Clinically Diagnosed<span class="badge badge-default"><?php echo $f2['total']?></span></li>
+											</ul>                                
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="panel panel-primary">
-								<div class="panel-heading">
-									<h3 class="panel-title"><span class="fa fa-circle text-default"></span> Classification of Tuberculosis</h3>
-								</div>
-								<div class="panel-body">
-									<?php
+								<div class="col-md-3">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title"><span class="fa fa-circle text-default"></span> Classification of TB</h3>
+										</div>
+										<div class="panel-body">
+											<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-											$pul = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.classification_of_tb = 'Pulmonary'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f1 = $pul->fetch_array();
-											$ext = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.classification_of_tb = 'Extra-pulmonary'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
-											$f2 = $ext->fetch_array();
-									?>
-									<ul class="list-group border-bottom">
-										<li class="list-group-item">Pulmonary<span class="badge badge-default"><?php echo $f1['total']?></span></li>
-										<li class="list-group-item">Extra-pulmonary<span class="badge badge-default"><?php echo $f2['total']?></span></li>
-									</ul>                                
+													$pul = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.classification_of_tb = 'Pulmonary'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f1 = $pul->fetch_array();
+													$ext = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.classification_of_tb = 'Extra-pulmonary'  && registration.year = '$_GET[year]' && patient.barangay = '$_GET[id]'") or die(mysqli_error());
+													$f2 = $ext->fetch_array();
+											?>
+											<ul class="list-group border-bottom">
+												<li class="list-group-item">Pulmonary<span class="badge badge-default"><?php echo $f1['total']?></span></li>
+												<li class="list-group-item">Extra-pulmonary<span class="badge badge-default"><?php echo $f2['total']?></span></li>
+											</ul>                                
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -249,8 +267,8 @@ require ('../config.php');
 		<!-- View Patient-->
 		<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-											$query = $conn->query("SELECT * FROM `patient`") or die(mysqli_error());
-											while($fetch = $query->fetch_array()){
+													$query = $conn->query("SELECT * FROM `patient`") or die(mysqli_error());
+													while($fetch = $query->fetch_array()){
 		?>
 		<div id="view<?php echo $_GET['id']?>"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
@@ -276,8 +294,8 @@ require ('../config.php');
 									<tbody>
 										<?php
 			$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-												$query = $conn->query("SELECT * FROM `patient`, `registration` WHERE registration.patient_id = patient.patient_id && `barangay` = '$_GET[id]' && registration.year = '$_GET[year]'") or die(mysqli_error());
-												while($fetch = $query->fetch_array()){
+														$query = $conn->query("SELECT * FROM `patient`, `registration` WHERE registration.patient_id = patient.patient_id && `barangay` = '$_GET[id]' && registration.year = '$_GET[year]'") or die(mysqli_error());
+														while($fetch = $query->fetch_array()){
 										?>
 										<tr>
 											<td><center><mark><?php echo $fetch['year']. "080" .$fetch['tb_case_no']?></mark></center></td>
@@ -288,7 +306,7 @@ require ('../config.php');
 											<td><center><?php echo $fetch['registration_group']?></center> </td>
 										</tr>
 										<?php
-												}
+														}
 										?>
 									</tbody>
 								</table>
@@ -302,12 +320,22 @@ require ('../config.php');
 			</div>
 		</div>
 		<?php
-											}
-											$conn->close();
+													}
+													$conn->close();
 		?> 
 		<!-- End View Patient-->
 
 		<?php require 'require/logout.php'?>
+		<script>
+			function printContent(el){
+				var restorepage = document.body.innerHTML;
+				var printcontent = document.getElementById(el).innerHTML;
+				document.body.innerHTML = printcontent;
+				window.print();
+				document.body.innerHTML = restorepage;
+			}
+		</script>
+
 		<audio id="audio-fail" src="../audio/fail.mp3" preload="auto"></audio>
 		<script type='text/javascript' src='../js/plugins/bootstrap/bootstrap-select.js'></script>
 

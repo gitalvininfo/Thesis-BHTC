@@ -14,7 +14,7 @@
                                 <h5 class="push-up-1">Complete Name</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Patient Name" type="text" class="form-control" name="name" style="text-transform:capitalize" required/>
+                                        <input data-toggle="tooltip" data-placement="bottom" id="name" title="Patient Name" type="text" class="form-control" name="name" style="text-transform:capitalize" required/>
                                     </div>
                                 </div>
                                 <h5 class="push-up-1">Birthdate</h5>
