@@ -5,7 +5,8 @@ header('Location:index.php');
 endif;
 
 $id = $_SESSION['user_id'];
-$name = $_POST['name'];
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 $old = $_POST['passwordold'];
@@ -28,20 +29,20 @@ $passold = $f2['password'];
 
 if ($passold==$pass){
 
-    if($password<>""){
-        $conn->query("UPDATE `user` SET `firstname` = '$name', `username` = '$username', `password` = '$passnew' WHERE `user_id` = '$id'") or die(mysqli_error());
-    }
-    else {
-        $conn->query("UPDATE `user` SET `firstname` = '$name', `username` = '$username' WHERE `user_id` = '$id'") or die(mysqli_error());
-    }
+	if($password<>""){
+		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `username` = '$username', `password` = '$passnew' WHERE `user_id` = '$id'") or die(mysqli_error());
+	}
+	else {
+		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `username` = '$username' WHERE `user_id` = '$id'") or die(mysqli_error());
+	}
 
-    $_SESSION['firstname'] = $name;
-    echo "<script type='text/javascript'> alert('Successfully changed account information!'); </script>";
-    echo "<script>document.location='change_password.php'</script>";
+	$_SESSION['firstname'] = $firstname;
+	echo "<script type='text/javascript'> alert('Successfully changed account information!'); </script>";
+	echo "<script>document.location='change_password.php'</script>";
 }
 else {
-    echo "<script type='text/javascript'> alert ('Old Password does not match!')</script>";
-    echo "<script>document.location='change_password.php'</script>";
+	echo "<script type='text/javascript'> alert ('Old Password does not match!')</script>";
+	echo "<script>document.location='change_password.php'</script>";
 }
 
 

@@ -21,7 +21,6 @@ require ('config.php');
 		$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 		$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = '$_SESSION[user_id]'") or die(mysqli_error());
 		$find = $query->fetch_array();
-		$id = $_SESSION['user_id'];
 		?>
 		<!-- START PAGE CONTAINER -->
 		<div class="page-container">
@@ -39,26 +38,33 @@ require ('config.php');
 						<div class="col-md-6">
 							<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+			$id = $_SESSION['user_id'];
 			$q = $conn->query("SELECT * FROM `user` where `user_id` = '$id'") or die(mysqli_error());
 			$f = $q->fetch_array();
-			$id=$_SESSION['user_id'];
+
 							?>
-							<form role="form" class="form-horizontal" action="update_profile.php" method="post" onsubmit="return confirm('Are you sure you want to your profile?');" onsubmit="return myFunction()">
+							<form role="form" id="user" class="form-horizontal" action="update_profile.php" method="post" onsubmit="return confirm('Are you sure you want to your profile?');" onsubmit="return myFunction()">
 								<div class="panel panel-info">
 									<div class="panel-heading">
 										<h3 class="panel-title"><strong> Update My Account</strong></h3>
 									</div>
 									<div class="panel-body">
-										<h5 class="push-up-1">Name</h5>
+										<h5 class="push-up-1">First Name</h5>
 										<div class="form-group ">
 											<div class="col-md-12 col-xs-12">
-												<input data-toggle="tooltip" data-placement="bottom" title="Name" type="text" class="form-control" name="name" value="<?php echo $f['firstname'];?>" required/>
+												<input data-toggle="tooltip" data-placement="bottom" title="Name" type="text" class="form-control" name="firstname" value="<?php echo $f['firstname']?>"/>
+											</div>
+										</div>
+										<h5 class="push-up-1">Last Name</h5>
+										<div class="form-group ">
+											<div class="col-md-12 col-xs-12">
+												<input data-toggle="tooltip" data-placement="bottom" title="Name" type="text" class="form-control" name="lastname" value="<?php echo $f['lastname']?>"/>
 											</div>
 										</div>
 										<h5 class="push-up-1">Username</h5>
 										<div class="form-group ">
 											<div class="col-md-12 col-xs-12">
-												<input data-toggle="tooltip" data-placement="bottom" title="Username" type="text" class="form-control" name="username" value="<?php echo $f['username'];?>" required/>
+												<input data-toggle="tooltip" data-placement="bottom" title="Username" type="text" class="form-control" name="username" value="<?php echo $f['username'];?>"/>
 											</div>
 										</div>
 										<h5 class="push-up-1">New Password</h5>
@@ -91,23 +97,22 @@ require ('config.php');
 			</div>
 		</div>
 		<?php require 'require/logout.php'?>
-		<audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
 
-		<script>
-			function myFunction() {
-				var pass1 = document.getElementById("password").value;
-				var pass2 = document.getElementById("cfmPassword").value;
-				var ok = true;
-				if (pass1 != pass2) {
-					alert("New Passwords Do not match...");
-					document.getElementById("password").style.borderColor = "#E34234";
-					document.getElementById("cfmPassword").style.borderColor = "#E34234";
-					ok = false;
-				}
-				return ok;
-			}
-		</script>
+		<!--	<script>
+function myFunction() {
+var pass1 = document.getElementById("password").value;
+var pass2 = document.getElementById("cfmPassword").value;
+var ok = true;
+if (pass1 != pass2) {
+alert("New Passwords Do not match...");
+document.getElementById("password").style.borderColor = "#E34234";
+document.getElementById("cfmPassword").style.borderColor = "#E34234";
+ok = false;
+}
+return ok;
+}
+</script> -->
 		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
@@ -115,12 +120,28 @@ require ('config.php');
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
-		<script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
-		<script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
 		<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
 		<script type='text/javascript' src='js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
+		<script>
+			$("#user").validate({
+				ignore: [],
+				rules: {
+					password: {
+						minlength: 5,
+						maxlength: 10
+					},
+					'newpassword': {
+						minlength: 5,
+						maxlength: 10,
+						equalTo: "#password"
+					}
+				}
+			});
+
+
+		</script>
 
 	</body>
 

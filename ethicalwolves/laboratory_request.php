@@ -44,7 +44,7 @@ require ('config.php');
                                     <h3 class="panel-title"><strong>Laboratory Requests of <?php echo $f1['patient_name']?></strong></h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
-                                            <a href="#new_lab_request<?php echo $f1['patient_id'];?>" data-target="#new_lab_request<?php echo $f1['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Request</a>
+                                            <a href="#new_lab_request<?php echo $f1['patient_id'];?>" data-target="#new_lab_request<?php echo $f1['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Lab Request</a>
                                         </div>
                                     </div>
                                 </div>

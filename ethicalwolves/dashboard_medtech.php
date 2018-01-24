@@ -101,8 +101,6 @@ $f = $q->fetch_array();
                             </div>         
                         </div>
                         <div class="col-md-3">
-
-                            <!-- START WIDGET SLIDER -->
                             <div class="widget widget-default widget-carousel">
                                 <div class="owl-carousel" id="owl-example">
                                     <div> 
@@ -113,32 +111,32 @@ $f = $q->fetch_array();
                                                 $year=$_GET['year'];
                                             }
                                             $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-                                            $q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'DSSM' && `year` = '$year'") or die(mysqli_error());
+                                            $q = $conn->query("SELECT COUNT(*) as total FROM `dssm_examination` WHERE `year` = '$year'") or die(mysqli_error());
                                             $f = $q->fetch_array();
-                                            $q2 = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'Xpert MTB/RIF' && `year` = '$year'") or die(mysqli_error());
+                                            $q2 = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `year` = '$year'") or die(mysqli_error());
                                             $fetch = $q2->fetch_array();
-                                            $q3 = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'TB Culture' && `year` = '$year'") or die(mysqli_error());
+                                            $q3 = $conn->query("SELECT COUNT(*) as total FROM `tb_culture_examination` WHERE `year` = '$year'") or die(mysqli_error());
                                             $fetch2 = $q3->fetch_array();
-                                            $q4 = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `test_requested` = 'Drug Susceptible Testing' && `year` = '$year'") or die(mysqli_error());
+                                            $q4 = $conn->query("SELECT COUNT(*) as total FROM `dst_examination` WHERE `year` = '$year'") or die(mysqli_error());
                                             $fetch3 = $q4->fetch_array();
                                         ?>                                   
-                                        <div class="widget-title">Test Requested</div>                                                                        
+                                        <div class="widget-title">Test Examined</div>                                                                        
                                         <div class="widget-subtitle">DSSM</div>
                                         <div class="widget-int"><?php echo $f['total']?></div>
                                     </div>
                                     <div>                                    
-                                        <div class="widget-title">Test Requested</div>
+                                        <div class="widget-title">Test Examined</div>
                                         <div class="widget-subtitle">Xpert MTB/RIF</div>
                                         <div class="widget-int"><?php echo $fetch['total']?> </div>
 
                                     </div>
                                     <div>                                    
-                                        <div class="widget-title">Test Requested</div>
+                                        <div class="widget-title">Test Examined</div>
                                         <div class="widget-subtitle">TB Culture</div>
                                         <div class="widget-int"><?php echo $fetch2['total']?></div>
                                     </div>
                                     <div>                                    
-                                        <div class="widget-title">Test Requested</div>
+                                        <div class="widget-title">Test Examined</div>
                                         <div class="widget-subtitle">Drug Susceptible Testing</div>
                                         <div class="widget-int"><?php echo $fetch3['total']?></div>
                                     </div>
