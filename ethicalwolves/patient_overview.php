@@ -217,7 +217,7 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-fourth">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 433px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<table id="laboratory_request" class="table table-hover">
 													<thead>
@@ -261,7 +261,7 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-fifth">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 433px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<table id="laboratory_request" class="table table-hover">
 													<thead>
@@ -298,7 +298,7 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-sixth">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 433px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
 													<table id="laboratory_request" class="table table-hover">
@@ -345,7 +345,7 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-seventh">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 433px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
 													<table id="laboratory_request" class="table table-hover">
@@ -396,7 +396,7 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-eigth">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 433px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<?php
 												require 'config.php';
@@ -445,7 +445,7 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-ninth">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 433px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<?php
 												require 'config.php';

@@ -209,7 +209,6 @@ require ('../config.php');
                 </div>
             </div>
         </div>
-
         <?php require 'require/tabular_monthly_population.php'?>
         <?php require 'require/logout.php'?>
         <script>

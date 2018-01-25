@@ -8,7 +8,7 @@ while($fetch = $query->fetch_array()){
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="defModalHead">Edit Medical Technologist Personal and Account Information</h4>
+				<h4 class="modal-title" id="defModalHead"><strong>Edit Account</strong></h4>
 			</div>
 			<form role="form" id="jvalidate" class="form-horizontal" action="edit_query.php" method="post">
 				<div class="modal-body">

@@ -39,7 +39,7 @@ require 'config.php';
                                     <?php
     $month = date("F Y", strtotime("+8 HOURS"));
                                     ?>
-                                    <h3 class="panel-title">Patients for Follow-up this month of <?php echo $month?><strong></strong></h3>
+									<h3 class="panel-title"><strong>Patients for Follow-up this month of <?php echo $month?></strong></h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                     <div class="panel-body">

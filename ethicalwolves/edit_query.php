@@ -123,9 +123,14 @@ if(ISSET($_POST['edit_user'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
     $status = $_POST['status'];
+	
+	
+	$pass1 = md5($password);
+	$salt = "aTya03gHJdTyqLkWQfg15yU";
+	$pass1 = $salt.$pass1;
 
     require ('config.php');
-    $conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `license` = '$license', `username` = '$username', `password` = '$password', `status` = '$status' WHERE `user_id` = '$user_id'") or die(mysqli_error());
+    $conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `license` = '$license', `username` = '$username', `password` = '$pass1', `status` = '$status' WHERE `user_id` = '$user_id'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully updated user account!');</script>";
     echo "<script>document.location='user_mgmt.php'</script>";  

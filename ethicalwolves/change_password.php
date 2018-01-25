@@ -87,7 +87,7 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="panel-footer">
-										<button type="submit" class="btn btn-info pull-right"> <span class="fa fa-check"> Update Profile</span></button>
+										<button type="submit" class="btn btn-info pull-right"> <span class="fa fa-check"></span>Update Profile</button>
 									</div>
 								</div>
 							</form>

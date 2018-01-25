@@ -15,7 +15,7 @@ $f = $q->fetch_array();
 		<link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
 		<link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
 		<script src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+		<script src = "js/jquery.canvasjs.min.js"></script>
 		<?php require 'js/loadchart/patient_population.php'?>
 	</head>
 	<body>
