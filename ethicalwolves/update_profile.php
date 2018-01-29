@@ -11,11 +11,11 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $old = $_POST['passwordold'];
 
-$pass = md5($old);
+$pass = sha1($old);
 $salt = "aTya03gHJdTyqLkWQfg15yU";
 $pass = $salt.$pass;
 
-$passnew = md5($password);
+$passnew = sha1($password);
 $salt = "aTya03gHJdTyqLkWQfg15yU";
 $passnew = $salt.$passnew;
 
@@ -36,7 +36,6 @@ if ($passold==$pass){
 		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `username` = '$username' WHERE `user_id` = '$id'") or die(mysqli_error());
 	}
 
-	$_SESSION['firstname'] = $firstname;
 	echo "<script type='text/javascript'> alert('Successfully changed account information!'); </script>";
 	echo "<script>document.location='change_password.php'</script>";
 }

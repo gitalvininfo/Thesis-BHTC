@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -79,6 +79,7 @@ INSERT INTO backup VALUES("129","Successfully exported database","January 23, 20
 INSERT INTO backup VALUES("130","Successfully exported database","January 24, 2018, 12:41 am"); 
 INSERT INTO backup VALUES("131","Successfully imported database","January 25, 2018, 12:33 am"); 
 INSERT INTO backup VALUES("132","Successfully exported database","January 25, 2018, 12:57 am"); 
+INSERT INTO backup VALUES("133","Successfully exported database","January 26, 2018, 2:11 am"); 
 
 
 
@@ -210,7 +211,7 @@ CREATE TABLE `dssm_examination` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`dssm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=latin1;
 
 INSERT INTO dssm_examination VALUES("19","2017-11-25","1001","Salivary","","Good","Good","Positive (+)","Dr. Haro","2017-11-22","2","Nov","2017"); 
 INSERT INTO dssm_examination VALUES("20","2017-12-13","1064","Salivary","Salivary","Good","Good","Negative (0)","Dr. Haro","2017-12-13","7","Dec","2017"); 
@@ -263,6 +264,34 @@ INSERT INTO dssm_examination VALUES("73","2018-01-24","100","Muco-Purulent","Muc
 INSERT INTO dssm_examination VALUES("74","2018-01-24","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Alvin Yanson","2018-01-24","36","Jan","2018"); 
 INSERT INTO dssm_examination VALUES("75","2018-01-24","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Carl Betio","2018-01-24","29","Jan","2018"); 
 INSERT INTO dssm_examination VALUES("76","2018-01-25","101","Muco-Purulent","Salivary","1+","1+","Positive (+)","Dr. Erul John Ubas","2018-01-25","73","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("77","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Sean Wilkins","2018-01-26","54","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("78","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Derrick Wagner","2018-01-26","51","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("79","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Alson Bayon-on","2018-01-26","53","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("80","2018-01-26","100","Salivary","Salivary","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","56","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("81","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","49","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("82","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","48","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("83","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","52","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("84","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","55","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("85","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","50","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("86","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","47","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("87","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","39","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("88","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","45","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("89","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","41","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("90","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","44","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("91","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","42","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("92","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","43","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("93","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","46","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("94","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","67","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("95","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","72","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("96","2018-01-26","10","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","83","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("97","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","84","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("98","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","80","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("99","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","25","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("100","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","70","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("101","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","40","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("102","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","81","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("103","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","82","Jan","2018"); 
+INSERT INTO dssm_examination VALUES("104","2018-01-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Leonel Entes","2018-01-26","75","Jan","2018"); 
 
 
 
@@ -499,7 +528,7 @@ CREATE TABLE `laboratory_request` (
   `status` char(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`lab_request_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=latin1;
 
 INSERT INTO laboratory_request VALUES("68","Mandalagan Health Center","2017-11-26","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-27","2017-11-28","Dr. Haro","433-2449","DSSM","2","Done","2017"); 
 INSERT INTO laboratory_request VALUES("127","Banago Barangay Health Station","2018-01-15","Dr. Alson John Bayon-on","Diagnostic","Sputum","Yes","2018-01-12","2018-01-12","Gabriel Banua","Barangay Health Worker","DSSM","45","Done","2018"); 
@@ -519,6 +548,37 @@ INSERT INTO laboratory_request VALUES("140","Sum-ag Barangay Health Station","20
 INSERT INTO laboratory_request VALUES("141","Banago Barangay Health Station","2018-01-24","Dr. Gabriel Banua","Diagnostic","Sputum","Yes","2018-01-22","2018-01-23","Carl Betio","Barangay Health Worker","DSSM","24","Done","2018"); 
 INSERT INTO laboratory_request VALUES("142","Handumanan Barangay Health Station","2018-01-24","Dr. Alvin Yanson","Diagnostic","Sputum","Yes","2018-01-22","2018-01-23","Alvin Yanson","Barangay Health Worker","DSSM","20","Done","2018"); 
 INSERT INTO laboratory_request VALUES("143","Alangilan Barangay Health Station","2018-01-24","Dr. Alvin Yanson","Diagnostic","Sputum","Yes","2018-01-22","2018-01-23","Daniel Molabin","Barangay Health Worker","DSSM","73","Done","2018"); 
+INSERT INTO laboratory_request VALUES("144","Banago Barangay Health Station","2018-01-24","Dr. Alvin","Diagnostic","Sputum","No","2018-01-24","2018-01-25","Daniel Molabin","Barangay Health Worker","DSSM","39","Done","2018"); 
+INSERT INTO laboratory_request VALUES("145","Granada Barangay Health Station","2018-01-26","Dr. Alvin Yanson","Diagnostic","Sputum","Yes","2018-01-24","2018-01-25","Dr. Alvin Yanson","Barangay Health Worker","DSSM","57","Pending","2018"); 
+INSERT INTO laboratory_request VALUES("146","Estefania Barangay Health Station","2018-01-25","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-01-24","2018-01-25","Alvin Yanson","Barangay Health Worker","Drug Susceptible Testing","73","Pending","2018"); 
+INSERT INTO laboratory_request VALUES("147","Banago Barangay Health Station","2018-01-26","Dr. Alvin","Diagnostic","Sputum","Yes","2018-01-25","2018-01-26","Alson John Bayon-on","Barangay Health Worker","DSSM","54","Done","2018"); 
+INSERT INTO laboratory_request VALUES("148","Alangilan Barangay Health Station","2018-01-24","Cecelia Hayes","Diagnostic","Sputum","Yes","2018-01-25","2018-01-25","Austin Poole","Barangay Health Worker","DSSM","51","Done","2018"); 
+INSERT INTO laboratory_request VALUES("149","Cabug Barangay Health Station","2018-01-25","Jermaine Hogan","Diagnostic","Sputum","Yes","2018-01-25","2018-01-25","Michael Morgan","Barangay Health Worker","DSSM","53","Done","2018"); 
+INSERT INTO laboratory_request VALUES("150","Cabug Barangay Health Station","2018-01-26","Mattie Myers","Diagnostic","Sputum","Yes","2018-01-25","2018-01-25","Salvatore Ballard","Barangay Health Worker","DSSM","56","Done","2018"); 
+INSERT INTO laboratory_request VALUES("151","Felisa Barangay Health Station","2018-01-25","Candice	Jacobs","Diagnostic","Sputum","Yes","2018-01-25","2018-01-25","Walter Jenkins","Barangay Health Worker","DSSM","49","Done","2018"); 
+INSERT INTO laboratory_request VALUES("152","Granada Barangay Health Station","2018-01-25","Darla Cain","Diagnostic","Sputum","Yes","2018-01-25","2018-01-25","Johanna	Floyd","Barangay Health Worker","DSSM","48","Done","2018"); 
+INSERT INTO laboratory_request VALUES("153","Granada Barangay Health Station","2018-01-25","Tom Fleming","Diagnostic","Sputum","Yes","2018-01-25","2018-01-25","Sergio Perez","Barangay Health Worker","DSSM","55","Done","2018"); 
+INSERT INTO laboratory_request VALUES("154","Handumanan Barangay Health Station","2018-01-26","Dorothy	Horton","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Kim	Mendoza","Barangay Health Worker","DSSM","52","Done","2018"); 
+INSERT INTO laboratory_request VALUES("155","Felisa Barangay Health Station","2018-01-26","Francis Alvarez","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Lois	Stephens","Midwife","DSSM","50","Done","2018"); 
+INSERT INTO laboratory_request VALUES("156","Mandalagan Barangay Health Station","2018-01-25","Darlene	Gibbs","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Ethel Webb","Barangay Health Worker","DSSM","47","Done","2018"); 
+INSERT INTO laboratory_request VALUES("157","Abcasa Barangay Health Station","2018-01-26","Dr. Alvin Yanson","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Jessie Page","Barangay Health Worker","DSSM","45","Done","2018"); 
+INSERT INTO laboratory_request VALUES("158","Banago Barangay Health Station","2018-01-26","Dr. Emmett Poole","Diagnostic","Sputum","No","2018-01-26","2018-01-26","Gabriel Banua","Barangay Health Worker","DSSM","41","Done","2018"); 
+INSERT INTO laboratory_request VALUES("159","Banago Barangay Health Station","2018-01-26","Dr. Ian Gardner","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Daniel Molabin","Barangay Health Worker","DSSM","44","Done","2018"); 
+INSERT INTO laboratory_request VALUES("160","Abcasa Barangay Health Station","2018-01-26","Dr. Emmett Poole","Diagnostic","Sputum","No","2018-01-26","2018-01-26","Daniel Molabin","Barangay Health Worker","DSSM","42","Done","2018"); 
+INSERT INTO laboratory_request VALUES("161","Cabug Barangay Health Station","2018-01-26","Dr. Emmett Poole","Diagnostic","Sputum","No","2018-01-26","2018-01-26","Daniel Molabin","Barangay Health Worker","DSSM","43","Done","2018"); 
+INSERT INTO laboratory_request VALUES("162","Felisa Barangay Health Station","2018-01-26","Dr. Mercedes Douglas","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Alessander Rubiato","Barangay Health Worker","DSSM","46","Done","2018"); 
+INSERT INTO laboratory_request VALUES("163","Banago Barangay Health Station","2018-01-26","Dr. Emmett Poole","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Daniel Molabin","Barangay Health Worker","DSSM","40","Done","2018"); 
+INSERT INTO laboratory_request VALUES("164","Tangub Barangay Health Station","2018-01-26","Dr. Emmett Poole","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Daniel Molabin","Barangay Health Worker","DSSM","25","Done","2018"); 
+INSERT INTO laboratory_request VALUES("165","Sum-ag Barangay Health Station","2018-01-26","Dr. Ian Gardner","Diagnostic","Sputum","Yes","2018-01-25","2018-01-26","Alessander Rubiato","Barangay Health Worker","DSSM","75","Done","2018"); 
+INSERT INTO laboratory_request VALUES("166","Sum-ag Barangay Health Station","2018-01-26","Dr. Ian Gardner","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Alessander Rubiato","Barangay Health Worker","DSSM","67","Done","2018"); 
+INSERT INTO laboratory_request VALUES("167","Sum-ag Barangay Health Station","2018-01-26","Dr. Ian Gardner","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Alessander Rubiato","Barangay Health Worker","DSSM","72","Done","2018"); 
+INSERT INTO laboratory_request VALUES("168","Sum-ag Barangay Health Station","2018-01-26","Dr. Ian Gardner","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Alessander Rubiato","Barangay Health Worker","DSSM","83","Done","2018"); 
+INSERT INTO laboratory_request VALUES("169","Sum-ag Barangay Health Station","2018-01-26","Dr. Ian Gardner","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Alessander Rubiato","Barangay Health Worker","DSSM","84","Done","2018"); 
+INSERT INTO laboratory_request VALUES("170","Sum-ag Barangay Health Station","2018-01-26","Dr. Ian Gardner","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Alessander Rubiato","Barangay Health Worker","DSSM","80","Done","2018"); 
+INSERT INTO laboratory_request VALUES("171","Sum-ag Barangay Health Station","2018-01-26","Dr. Ian Gardner","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Alessander Rubiato","Barangay Health Worker","DSSM","82","Done","2018"); 
+INSERT INTO laboratory_request VALUES("172","Sum-ag Barangay Health Station","2018-01-26","Dr. Ian Gardner","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Alessander Rubiato","Barangay Health Worker","DSSM","70","Done","2018"); 
+INSERT INTO laboratory_request VALUES("173","Sum-ag Barangay Health Station","2018-01-26","Dr. Ian Gardner","Diagnostic","Sputum","Yes","2018-01-26","2018-01-26","Alessander Rubiato","Barangay Health Worker","DSSM","81","Done","2018"); 
+INSERT INTO laboratory_request VALUES("174","Pahanocoy Barangay Health Station","2018-01-26","Dr. Emmett Poole","Diagnostic","Sputum","No","2018-01-26","2018-01-26","Daniel Molabin","Barangay Health Worker","DSSM","89","Pending","2018"); 
 
 
 
@@ -534,7 +594,7 @@ CREATE TABLE `medication_dispensation` (
   `quantity` int(10) NOT NULL,
   `received_by` varchar(30) NOT NULL,
   PRIMARY KEY (`dispensation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 INSERT INTO medication_dispensation VALUES("18","Banago Barangay Health Station","Biogesic","January 11, 2018","Jan","2018","25","Alson Bayon-on"); 
 INSERT INTO medication_dispensation VALUES("19","Banago Barangay Health Station","Biogesic","January 11, 2018","Jan","2018","15","Gabriel Banua"); 
@@ -542,6 +602,7 @@ INSERT INTO medication_dispensation VALUES("20","Alijis Barangay Health Station"
 INSERT INTO medication_dispensation VALUES("21","Banago Barangay Health Station","medicine sample","January 15, 2018","Jan","2018","50","alson"); 
 INSERT INTO medication_dispensation VALUES("22","Banago Barangay Health Station","medicine sample","January 15, 2018","Jan","2018","25","gabriel"); 
 INSERT INTO medication_dispensation VALUES("23","ABCASA Barangay Health Station","Isoniazid","January 22, 2018","Jan","2018","2","Dr. Haro"); 
+INSERT INTO medication_dispensation VALUES("24","Alangilan Barangay Health Station","Ethambutol","January 27, 2018","Jan","2018","10","Sir Rogy"); 
 
 
 
@@ -558,7 +619,7 @@ CREATE TABLE `medicine` (
 
 INSERT INTO medicine VALUES("1","Isoniazid","","This is Isoniazid","198"); 
 INSERT INTO medicine VALUES("3","Rifampicin","","This is Rifampicin","400"); 
-INSERT INTO medicine VALUES("4","Ethambutol","","This is Ethambutol","6"); 
+INSERT INTO medicine VALUES("4","Ethambutol","","This is Ethambutol","-4"); 
 INSERT INTO medicine VALUES("5","Streptomycin","","This is Streptomycin","6"); 
 INSERT INTO medicine VALUES("21","Pyrazinamide","","Pyrazinamide","0"); 
 
@@ -617,7 +678,7 @@ CREATE TABLE `patient` (
   `treatment_partner` char(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`patient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=latin1;
 
 INSERT INTO patient VALUES("1","Alson John Bayon-on","21","Male","Prk. Langis, Brgy. Banago, Bacolod City","Banago","2017-11-25","178","433-2449","Negros Occidental","Teacher","10992241","Dr. Sabay","433-2449 local 181","Registered","Done","2017"); 
 INSERT INTO patient VALUES("2","Alvin Yanson","3","Male","eroreco bacolod city","Mandalagan","2017-01-08","178","433-2449","Negros Occidental","Student","1993121","Dr. Haro","433-2449 local 181","Registered","Done","2017"); 
@@ -642,8 +703,8 @@ INSERT INTO patient VALUES("21","Aldren Yanson","23","Male","Prk. Casiana Bacolo
 INSERT INTO patient VALUES("22","Mark Torres","21","Male","lizares ave. bacolod","Brgy 39","1997-07-28","178","4332449","Negros Occidental","Student","No Philhealth","Dr. Haro","433-2449","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("23","qe","7","Male","qweqweq","Banago","2017-11-07","31","31231","Negros Occidental","eqeqw","eqweq","qweqweq","31231","Registered","Pending","2017"); 
 INSERT INTO patient VALUES("24","John Wick","43","Male","Blk 33, Lot 4, Firmville Subd. Bacolod","Estefania ","2017-12-27","125","4332449","Negros Occidental","Killer","10-3213131-98","Dr. Haro","433-2449 local 181","Registered","Pending","2017"); 
-INSERT INTO patient VALUES("25","Kenneth Cayetano","20","Male","Bacolod City","Sumag ","1997-05-08","178","4332449","Negros Occidental","Student","10-2312321-10","Alvin Yanson","433-2449","Unregister","Pending","2017"); 
-INSERT INTO patient VALUES("26","Dora the Explorer","7","Female","qeqweqw","Banago","2011-08-24","123","4332449","Negros Occidental","Student","31321","Boots","433-2449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("25","Kenneth Cayetano","20","Male","Bacolod City","Sumag ","1997-05-08","178","4332449","Negros Occidental","Student","10-2312321-10","Alvin Yanson","433-2449","Registered","Pending","2017"); 
+INSERT INTO patient VALUES("26","Matt Labarerjos","7","Male","qeqweqw","Banago","2011-08-24","123","4332449","Negros Occidental","Student","31321","Boots","433-2449","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("27","Gabriel Banua","8","Male","asdahda","Bata","2009-04-15","178","2323303232","Negros Occidental","Student","2343242","21321","43234","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("28","Natasha	Rose","17","Female","Blk. 1, Lot 2, Firmville Subd., Bacolod City","Pahanocoy","2000-04-16","167","09125560202","Negros Occidental","","","Traci	Warren","433-2393","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("29","Cynthia	Smith","20","Female","Blk. 2, Lot 2, Firmville Subd., Bacolod City","Pahanocoy","1997-09-23","156","09123127267","Negros Occidental","","","Salvador Buchanan","433-2491","Registered","Pending","2018"); 
@@ -657,23 +718,23 @@ INSERT INTO patient VALUES("36","Dianne Day","26","Female","Blk. 9, Lot 10, FIrm
 INSERT INTO patient VALUES("37","Israel Pope","14","Male","Blk. 1, Lot 1, Eroreco Subd., Bacolod City","Mandalagan","1992-10-12","167","09183650258","Negros Occidental","Architect","","Kayla Fitzgerald","444-6789","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("38","Rachel Bailey","24","Female","Blk. 2, Lot 2, Eroreco Subd., Bacolod City","Mandalagan","1993-08-03","189","09219146897","Negros Occidental","Make-up Artist","","Carroll Hoffman","432-0978","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("39","Willie Fields","50","Male","Blk. 4, Lot 4, Eroreco Subd., Bacolod City","Mandalagan","1967-12-28","159","09982745139","Negros Occidental","Driver","","Lee	Todd","433-8909","Registered","Pending","2018"); 
-INSERT INTO patient VALUES("40","Rose Richardson","26","Female","Blk. 1, Lot 2, Estefania Subd., Bacolod City","Estefania ","1991-10-26","178","09789256557","Negros Occidental","Taxi Driver","","Patsy Hill","445-1879","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("41","Cora Alexander","27","Female","Blk. 3, Lot 3, RPHS, Bacolod City","Alijis","1990-12-12","178","09187843740","Negros Occidental","Driver","","Colin Patton","431-9019","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("42","Gretchen Gross","39","Male","Blk. 2, Lot 2, RPHS Subd., Bacolod City","Alijis","1978-12-10","167","09185597119","Negros Occidental","Teacher","","Tanya Pena","444-5627","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("43","Julian Hicks","26","Male","Blk. 3, Lot 3, RPHS Subd., Bacolod City","Alijis","1991-06-06","190","09168459796","Negros Occidental","Driver","","Josefina Rose","444-9017","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("40","Rose Richardson","26","Female","Blk. 1, Lot 2, Estefania Subd., Bacolod City","Estefania ","1991-10-26","178","09789256557","Negros Occidental","Taxi Driver","","Patsy Hill","445-1879","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("41","Cora Alexander","27","Female","Blk. 3, Lot 3, RPHS, Bacolod City","Alijis","1990-12-12","178","09187843740","Negros Occidental","Driver","","Colin Patton","431-9019","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("42","Gretchen Gross","39","Male","Blk. 2, Lot 2, RPHS Subd., Bacolod City","Alijis","1978-12-10","167","09185597119","Negros Occidental","Teacher","","Tanya Pena","444-5627","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("43","Julian Hicks","26","Male","Blk. 3, Lot 3, RPHS Subd., Bacolod City","Alijis","1991-06-06","190","09168459796","Negros Occidental","Driver","","Josefina Rose","444-9017","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("44","Garrett Warren","28","Male","Blk. 4, Lot 4, RPHS, Bacolod City","Alijis","1989-10-11","165","09185865441","Negros Occidental","Driver","","Colleen Gibbs","442-1790","Registered","Pending","2018"); 
-INSERT INTO patient VALUES("45","Angelina Morrison","39","Female","Blk. 5, Lot ,5 RPHS, Bacolod City","Alijis","1978-02-02","189","09176378293","Negros Occidental","Teacher","","Rochelle	Freeman","433-1654","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("46","Rose Barker","19","Female","Blk. 6, Lot 7, RPHS, Bacolod City","Alijis","1998-06-08","189","09162196131","Negros Occidental","","","Noel Burke","444-5612","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("47","Rudolph	Moreno","27","Male","Blk. 4, Lot 5, Terra Nova Subd., Bacolod City","Mansilingan","1990-11-11","156","09256102730","Negros Occidental","","","Percy Goodwin","434-7810","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("48","Malcolm Dennis","36","Male","Blk. 3, Lot 3, Terra Nova Subd., Bacolod City","Mansilingan","1981-04-02","189","09958997710","Negros Occidental","Driver","","Enrique Paul","421-8910","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("49","Lewis Reeves","33","Male","Blk. 4, Lot 4, Terra Nova Subd., Bacolod City","Mansilingan","1984-03-26","178","09984930569","Negros Occidental","Driver","","Wilfred Flowers","421-8936","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("50","Roman Reyes","32","Male","Blk. 11, Lot 11, Terra Nova Subd., Bacolod City","Mansilingan","1985-10-09","171","09195892969","Negros Occidental","Driver","","Jasmine	Singleton","433-2019","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("51","Elsa	Stevens","25","Female","Blk. 12, Lot 12, Terra Nova Subd., Mansilingan","Mansilingan","1992-08-11","172","09157734718","Negros Occidental","","","Stacey Lyons","442-1868","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("52","Maryann Collier","24","Female","Blk. 14, Lot 4, Terra Nova Subd., Bacolod City","Mansilingan","1993-07-07","175","09942493132","Negros Occidental","","","Julian Torres","445-1893","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("53","Ervin Hughes","22","Male","Blk. 15, Lot 5, Terra Nova Subd., Bacolod City","Mansilingan","1995-02-07","176","09173945635","Negros Occidental","","","Wilfred Vega","453-2890","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("54","Elias Moody","20","Male","Blk. 21, Lot 5, Terra Nova Subd., Bacolod City","Mansilingan","1997-12-08","177","09967642920","Negros Occidental","","","Alton Ball","442-9078","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("55","Margarita Owen","18","Female","Blk. 25, Lot 1, Terra Nova Subd., Bacolod City","Mansilingan","1999-12-04","165","09955554660","Negros Occidental","","","Julie	Phillips","423-7890","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("56","Jason Massey","26","Male","Blk. 12, Lot 29, Terra Nova Subd., Bacolod City","Mansilingan","1991-05-02","167","09214176038","Negros Occidental","","","Tami Walker","432-9019","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("45","Angelina Morrison","39","Female","Blk. 5, Lot ,5 RPHS, Bacolod City","Alijis","1978-02-02","189","09176378293","Negros Occidental","Teacher","","Rochelle	Freeman","433-1654","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("46","Rose Barker","19","Female","Blk. 6, Lot 7, RPHS, Bacolod City","Alijis","1998-06-08","189","09162196131","Negros Occidental","","","Noel Burke","444-5612","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("47","Rudolph	Moreno","27","Male","Blk. 4, Lot 5, Terra Nova Subd., Bacolod City","Mansilingan","1990-11-11","156","09256102730","Negros Occidental","","","Percy Goodwin","434-7810","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("48","Malcolm Dennis","36","Male","Blk. 3, Lot 3, Terra Nova Subd., Bacolod City","Mansilingan","1981-04-02","189","09958997710","Negros Occidental","Driver","","Enrique Paul","421-8910","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("49","Lewis Reeves","33","Male","Blk. 4, Lot 4, Terra Nova Subd., Bacolod City","Mansilingan","1984-03-26","178","09984930569","Negros Occidental","Driver","","Wilfred Flowers","421-8936","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("50","Roman Reyes","32","Male","Blk. 11, Lot 11, Terra Nova Subd., Bacolod City","Mansilingan","1985-10-09","171","09195892969","Negros Occidental","Driver","","Jasmine	Singleton","433-2019","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("51","Elsa	Stevens","25","Female","Blk. 12, Lot 12, Terra Nova Subd., Mansilingan","Mansilingan","1992-08-11","172","09157734718","Negros Occidental","","","Stacey Lyons","442-1868","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("52","Maryann Collier","24","Female","Blk. 14, Lot 4, Terra Nova Subd., Bacolod City","Mansilingan","1993-07-07","175","09942493132","Negros Occidental","","","Julian Torres","445-1893","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("53","Ervin Hughes","22","Male","Blk. 15, Lot 5, Terra Nova Subd., Bacolod City","Mansilingan","1995-02-07","176","09173945635","Negros Occidental","","","Wilfred Vega","453-2890","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("54","Elias Moody","20","Male","Blk. 21, Lot 5, Terra Nova Subd., Bacolod City","Mansilingan","1997-12-08","177","09967642920","Negros Occidental","","","Alton Ball","442-9078","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("55","Margarita Owen","18","Female","Blk. 25, Lot 1, Terra Nova Subd., Bacolod City","Mansilingan","1999-12-04","165","09955554660","Negros Occidental","","","Julie	Phillips","423-7890","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("56","Jason Massey","26","Male","Blk. 12, Lot 29, Terra Nova Subd., Bacolod City","Mansilingan","1991-05-02","167","09214176038","Negros Occidental","","","Tami Walker","432-9019","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("57","Andrea Page","18","Female","Blk. 1, Lot 1, Florida St., Bacolod City","Villamonte","1999-10-02","168","09537241774","Negros Occidental","","","Marc Shelton","443-9078","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("58","Jon	Richardson","25","Male","Blk. 2, Lot 2, Florida St., Bacolod City","Villamonte","1992-10-08","189","09589695040","Negros Occidental","","","Penny Barnes","444-2719","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("59","Abraham Fuller","37","Male","Blk. 4, Lot 4, Florida St., Bacolod City","Villamonte","1981-01-01","189","09556797405","Negros Occidental","","","Peggy Weber","442-1902","Registered","Pending","2018"); 
@@ -696,6 +757,24 @@ INSERT INTO patient VALUES("75","Alfredo Mills","42","Male","Blk. 24, Lot 25, Fi
 INSERT INTO patient VALUES("76","Viola Sandoval","41","Female","Blk. 25, Lot 26, Fiesta Homes Subd., Bacolod City","Sumag ","1976-06-06","156","09786503712","Negros Occidental","","","Steve Wallace","476-2382","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("78","Cookies Leonel","7","Female","Blk. 1, Lot 2, Firmville Subd., Bacolod City","Pahanocoy","0000-00-00","178","4332449","Negros Occidental","Student","","Vincent Suyo","4332449","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("79","Michael De Los Santos","28","Male","Blk. 11, Lot 36, Firmville Subd., Bacolod City","Pahanocoy","April 12, 1989","178","4332449","Negros Occidental","Teacher","12","Dr. Haro","4332449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("80","Gilberto Lopez","28","Male","Blk. 1, Lot 2, Fiesta Homes Subd., Bacolod City","Sumag ","February 01, 1989","178","4332449","Negros Occidental","Teacher","","Monique Peterson","4332449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("81","Lorenzo Steele","26","Male","Blk. 1, Lot 2, Fiesta Homes, Subd., Bacolod City","Sumag ","February 08, 1991","178","7136113","Negros Occidental","Teacher","","Ellis	Sullivan","4332449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("82","Howard Carlson","8","Male","Blk. 3, Lot 3, Fiesta Homes Subd., Bacolod City","Sumag ","February 05, 2009","178","7136113","Negros Occidental","Teacher","","Kathryn	Jenkins","4332449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("83","Erika Grant","7","Female","Blk. 4, Lot 4, Fiesta Homes, Bacolod City","Sumag ","February 10, 2010","178","7136113","Negros Occidental","Teacher","","Angelica	Rice","4332449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("84","Fred Alvarez","37","Male","Blk. 5, Lot 5, Fiesta Homes, Subd., Bacolod City","Sumag ","April 09, 1980","178","7136113","Negros Occidental","Teacher","","Kristina Taylor","4332449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("85","Tiffany Burns","21","Female","Blk. 7, Lot 7, Fiesta Homes Subd., Bacolod City","Sumag ","April 18, 1996","178","7136113","Negros Occidental","Driver","","Abraham Pratt","4332449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("86","Troy Owens","15","Male","Blk. 8, Lot 8, Fiesta Homes Subd., Bacolod City","Sumag ","April 17, 2002","178","7136113","Negros Occidental","Driver","","Duane Pierce","4332449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("87","Mildred Powers","18","Male","Blk. 9, Lot 9, Fiesta Homes Subd., Bacolod City","Sumag ","March 10, 1999","178","7136113","Negros Occidental","Driver","","Todd Barnett","4332449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("88","Ricardo Warner","18","Male","Blk. 10, Lot 10, Fiesta Homes Subd., Bacolod City","Sumag ","April 14, 1999","178","7136113","Negros Occidental","Driver","","Kellie Bates","4332449","Registered","Pending","2018"); 
+INSERT INTO patient VALUES("89","Earl Floyd","17","Male","Blk. 1, Lot 1, Firmville Subd., Bacolod City","Pahanocoy","February 01, 2000","178","4337867","Negros Occidental","Teacher","","Karl	Lynch","4332449","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("90","Christy Weber","18","Male","Blk. 1, Lot 1, Florida St., Bacolod City","Villamonte","February 17, 1999","178","7136113","Negros Occidental","Teacher","","Roxanne Padilla","4332449","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("91","Lorena Hunt","16","Male","Blk. 1, Lot 2, Florida St., Bacolod City","Villamonte","March 12, 2001","178","7136113","Negros Occidental","Driver","","Christina Pratt","4332449","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("92","Mike Moore","16","Male","Blk. 3, Lot 3, Florida St., Bacolod City","Villamonte","April 04, 2001","178","4345678","Negros Occidental","Teacher","","Natasha	James","7138979","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("93","Donald Brewer","18","Male","Blk. 5, Lot 5, Florida St., Bacolod City","Villamonte","March 17, 1999","178","4335897","Negros Occidental","Teacher","","Cheryl Peterson","4330998","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("94","Glenn Fleming","18","Male","Blk. 6, Lot 6, Florida St., Bacolod City","Villamonte","February 03, 1999","178","4332354","Negros Occidental","Driver","","Clay	Bailey","4323890","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("95","Jan Torres","18","Male","Blk. 7, Lot 7, Florida St., Bacolod City","Villamonte","April 15, 1999","178","4337856","Negros Occidental","Teacher","","Horace	Townsend","43367231","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("96","Leigh Mendoza","17","Male","Blk. 8, Lot 8, Florida St., Bacolod City","Villamonte","February 03, 2000","178","4561323","Negros Occidental","Teacher","","Otis	Diaz","4338912","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("97","Julio Frank","17","Male","Blk. 9, Lot 9, Florida St., Bacolod City","Villamonte","February 11, 2000","178","4335678","Negros Occidental","Teacher","","Ann	Pittman","4356132","Unregister","Pending","2018"); 
 
 
 
@@ -745,7 +824,7 @@ CREATE TABLE `registration` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`tb_case_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=latin1;
 
 INSERT INTO registration VALUES("26","November 25, 2017","Bacolod City Health TB DOTS Center","Community","New","TB Disease","Bacteriologically Confirmed","Extra-pulmonary","Yes","Yes","Less than 1 month","Category Ia - 2HRZE/10HR","Alvin Yanson","Barangay Health Worker","Treatment Completed","2017","1","Nov","2017"); 
 INSERT INTO registration VALUES("27","November 21, 2017","Bacolod City Health TB DOTS Center","Public Health Center","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","Yes","Less than 1 month","Category Ia - 2HRZE/10HR","Alson John Bayon-on","Nurse","Currently in Treatment","","2","Nov","2017"); 
@@ -807,6 +886,32 @@ INSERT INTO registration VALUES("82","January 24, 2018","Bacolod City Health TB 
 INSERT INTO registration VALUES("83","January 24, 2018","Bacolod City Health TB DOTS Center","Public Health Center","New","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Dr. Alvin Yanson","Barangay Health Worker","Currently in Treatment","2018","79","Jan","2018"); 
 INSERT INTO registration VALUES("84","January 24, 2018","Bacolod City Health TB DOTS Center","Community","Treatment After Failure","TB Disease","Bacteriologically Confirmed","Pulmonary","No","Yes","None","Category I - 2HRZE/4HR","Dr. Alvin Yanson","Barangay Health Worker","Currently in Treatment","2018","28","Jan","2018"); 
 INSERT INTO registration VALUES("85","January 24, 2018","Bacolod City Health TB DOTS Center","Community","PTOU","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","No","None","Category I - 2HRZE/4HR","Dr. Alvin Yanson","Barangay Health Worker","Currently in Treatment","2018","35","Jan","2018"); 
+INSERT INTO registration VALUES("86","January 27, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Treatment After Failure","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","54","Jan","2018"); 
+INSERT INTO registration VALUES("87","January 27, 2018","Bacolod City Health TB DOTS Center","Community","New","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","51","Jan","2018"); 
+INSERT INTO registration VALUES("88","January 27, 2018","Bacolod City Health TB DOTS Center","Public Health Center","New","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","53","Jan","2018"); 
+INSERT INTO registration VALUES("89","January 27, 2018","Bacolod City Health TB DOTS Center","Public Health Center","PTOU","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","56","Jan","2018"); 
+INSERT INTO registration VALUES("90","January 27, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","49","Jan","2018"); 
+INSERT INTO registration VALUES("91","January 27, 2018","Bacolod City Health TB DOTS Center","Other Government Facilities","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","48","Jan","2018"); 
+INSERT INTO registration VALUES("92","January 27, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Midwife","Currently in Treatment","2018","55","Jan","2018"); 
+INSERT INTO registration VALUES("93","January 27, 2018","Bacolod City Health TB DOTS Center","Public Health Center","Treatment After Failure","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","52","Jan","2018"); 
+INSERT INTO registration VALUES("94","January 27, 2018","Bacolod City Health TB DOTS Center","Community","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","50","Jan","2018"); 
+INSERT INTO registration VALUES("95","January 27, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","47","Jan","2018"); 
+INSERT INTO registration VALUES("96","January 27, 2018","Bacolod City Health TB DOTS Center","Other Government Facilities","Treatment After Loss Follow-up","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","45","Jan","2018"); 
+INSERT INTO registration VALUES("97","January 27, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Treatment After Failure","TB Disease","Clinically Diagnosed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","41","Jan","2018"); 
+INSERT INTO registration VALUES("98","January 27, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Treatment After Failure","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","42","Jan","2018"); 
+INSERT INTO registration VALUES("99","January 27, 2018","Bacolod City Health TB DOTS Center","Other Government Facilities","Relapse","TB Disease","Bacteriologically Confirmed","Extra-pulmonary","Yes","Yes","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","43","Jan","2018"); 
+INSERT INTO registration VALUES("100","January 27, 2018","Bacolod City Health TB DOTS Center","Other Government Facilities","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","46","Jan","2018"); 
+INSERT INTO registration VALUES("101","January 27, 2018","Bacolod City Health TB DOTS Center","Public Health Center","New","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","84","Jan","2018"); 
+INSERT INTO registration VALUES("102","January 27, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Treatment After Failure","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","83","Jan","2018"); 
+INSERT INTO registration VALUES("103","January 27, 2018","Bacolod City Health TB DOTS Center","Community","Treatment After Failure","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","80","Jan","2018"); 
+INSERT INTO registration VALUES("104","January 27, 2018","Bacolod City Health TB DOTS Center","Public Health Center","New","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","82","Jan","2018"); 
+INSERT INTO registration VALUES("105","January 27, 2018","Bacolod City Health TB DOTS Center","Public Health Center","Treatment After Failure","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","81","Jan","2018"); 
+INSERT INTO registration VALUES("106","January 27, 2018","Bacolod City Health TB DOTS Center","Community","Transfer-in","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","87","Jan","2018"); 
+INSERT INTO registration VALUES("107","January 27, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","New","TB Disease","Clinically Diagnosed","Pulmonary","Yes","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","88","Jan","2018"); 
+INSERT INTO registration VALUES("108","January 27, 2018","Bacolod City Health TB DOTS Center","Public Health Center","Treatment After Failure","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","85","Jan","2018"); 
+INSERT INTO registration VALUES("109","January 27, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","86","Jan","2018"); 
+INSERT INTO registration VALUES("110","January 27, 2018","Bacolod City Health TB DOTS Center","Public Health Center","Treatment After Loss Follow-up","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","25","Jan","2018"); 
+INSERT INTO registration VALUES("111","January 27, 2018","Bacolod City Health TB DOTS Center","Community","PTOU","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","40","Jan","2018"); 
 
 
 
@@ -892,12 +997,13 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `status` char(8) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
-INSERT INTO user VALUES("40","Alson John","Bayon-on","132-131","Medical Technologist","alsonz","aTya03gHJdTyqLkWQfg15yU9f06bb75a3b6a1ec5e661bafe3414d18","Active"); 
 INSERT INTO user VALUES("41","Alvin","Yanson","","NTP Nurse Coordinator","Admin101","aTya03gHJdTyqLkWQfg15yU573d9378d0cda4bf2546007b5ac7661d","Active"); 
-INSERT INTO user VALUES("42","Carl Louie","Betio","1231-1231","Medical Technologist","medtech","aTya03gHJdTyqLkWQfg15yU647431b5ca55b04fdf3c2fce31ef1915","Active"); 
-INSERT INTO user VALUES("49","Alec","rubiato","10212-121","Medical Technologist","aleczxc","wtf","Active"); 
+INSERT INTO user VALUES("57","Alvin","Yanson","","NTP Nurse Coordinator","Admin1099","aTya03gHJdTyqLkWQfg15yUf3c1b631b2ade9a5a2afbb3af4bcd176d52eda16","Active"); 
+INSERT INTO user VALUES("58","Jay","Galoyo","10931-123","Medical Technologist","Jayalvin","aTya03gHJdTyqLkWQfg15yU8e0993993adc99777c50072d99423d5d6e47af32","Active"); 
+INSERT INTO user VALUES("59","Alson","Bayon-on","10313-13","Medical Technologist","Alsonz","aTya03gHJdTyqLkWQfg15yUac47166736bdccf7030da18b9b2ea4ceda24586c","Active"); 
+INSERT INTO user VALUES("60","Alvin","Yanson","100-9121","Medical Technologist","AlvinY","aTya03gHJdTyqLkWQfg15yU1793635d343e1a3e23acd199ca7272881757dda4","Active"); 
 
 
 

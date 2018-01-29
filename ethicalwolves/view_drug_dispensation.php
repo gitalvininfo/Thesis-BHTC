@@ -35,7 +35,7 @@ require ('config.php');
                         <div class="col-md-8">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Medication Dispensed Log</h3>
+                                    <h3 class="panel-title"><strong>Medication Dispensed Log</strong></h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
                                     <div class="panel-body">

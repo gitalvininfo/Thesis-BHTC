@@ -217,6 +217,7 @@ require ('config.php');
 															$id = $fetch['patient_id'];
 															$dssm = $fetch['dssm_id'];
 															$lab_request_id = $fetch2['lab_request_id'];
+															$test_requested = $fetch2['test_requested'];
 														?>
 														<tr>
 															<td><center><?php echo $fetch['date_examined']?></center></td>
@@ -230,7 +231,7 @@ require ('config.php');
 															<td><center><?php echo $fetch['date_released']?></center></td>
 															<td>
 																<center>
-																	<a href="print/dssm.php?dssmid=<?php echo $dssm?>&patient_id=<?php echo $id?>&lab_request_id=<?php echo $lab_request_id?>&patient_name=<?php echo $name?>"class="btn btn-default btn-sm">Preview</a>
+																	<a href="print/dssm.php?dssmid=<?php echo $dssm?>&test_requested=<?php echo $test_requested?>&patient_id=<?php echo $id?>&lab_request_id=<?php echo $lab_request_id?>&patient_name=<?php echo $name?>"class="btn btn-default btn-sm">Preview</a>
 																</center>
 															</td>
 														</tr>
@@ -261,10 +262,17 @@ require ('config.php');
 													<tbody>
 														<?php
 														$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-														$query = $conn->query("SELECT * FROM `gene_expert_examination` WHERE `patient_id` = '$_GET[id]' ORDER BY `xpert_id` DESC") or die(mysqli_error());
-														$id = $f['patient_id'];
+														$query = $conn->query("SELECT * FROM `gene_expert_examination` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+														$query2 = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+														$fetch2 = $query2->fetch_array();
+														$query3 = $conn->query("SELECT * FROM `patient` WHERE `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+														$fetch3 = $query3->fetch_array();
 														while($fetch = $query->fetch_array()){
+															$patient_name = $fetch3['patient_name'];
 															$id = $fetch['patient_id'];
+															$xpert = $fetch['xpert_id'];
+															$lab_request_id = $fetch2['lab_request_id'];
+															$test_requested = $fetch2['test_requested'];
 														?>
 														<tr>
 															<td><center><?php echo $fetch['date_examined']?></center></td>
@@ -275,7 +283,7 @@ require ('config.php');
 															<td><center><?php echo $fetch['date_released']?></center></td>
 															<td>
 																<center>
-																	<a href="print/dssm.php?dssmid=<?php echo $dssm?>&patient_id=<?php echo $id?>&lab_request_id=<?php echo $lab_request_id?>&patient_name=<?php echo $name?>"class="btn btn-default btn-sm">Preview</a>
+																	<a href="print/xpert.php?xpert_id=<?php echo $xpert?>&test_requested=<?php echo $test_requested?>&patient_id=<?php echo $id?>&lab_request_id=<?php echo $lab_request_id?>&patient_name=<?php echo $patient_name?>"class="btn btn-default btn-sm">Preview</a>
 																</center>
 															</td>
 														</tr>
@@ -295,16 +303,16 @@ require ('config.php');
 													<table id="laboratory_request" class="table table-hover">
 														<thead>
 															<tr class="info">
-																<th><center>Method</center></th>
-																<th><center>TB Culture Lab</center></th>
-																<th><center>Laboratory Number</center></th>
-																<th><center>Date Sample Collected</center></th>
-																<th><center>Date Sample Received</center></th>
-																<th><center>TB Culture Result</center></th>
-																<th><center>Remarks</center></th>
-																<th><center>Examined By</center></th>
-																<th><center>Reviewed By</center></th>
-																<th><center>Date Released</center></th>
+																<th style="font-size:10px"><center>Method</center></th>
+																<th style="font-size:10px"><center>TB Culture Lab</center></th>
+																<th style="font-size:10px"><center>Laboratory Number</center></th>
+																<th style="font-size:10px"><center>Date Sample Collected</center></th>
+																<th style="font-size:10px"><center>Date Sample Received</center></th>
+																<th style="font-size:10px"><center>TB Culture Result</center></th>
+																<th style="font-size:10px"><center>Remarks</center></th>
+																<th style="font-size:10px"><center>Examined By</center></th>
+																<th style="font-size:10px"><center>Reviewed By</center></th>
+																<th style="font-size:10px"><center>Date Released</center></th>
 															</tr>
 														</thead>
 														<tbody>

@@ -56,9 +56,8 @@ require ('config.php');
 																</thead>
 																<tbody>
 																	<?php
-	require 'require/masterfile_patient_select_year.php';
-			require 'config.php';
-			$query = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && patient.status = 'Registered' && registration.year = '$year'") or die(mysqli_error());
+	require 'config.php';
+			$query = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && patient.status = 'Registered'") or die(mysqli_error());
 			while($fetch = $query->fetch_array()){
 																	?>                                      
 																	<tr>

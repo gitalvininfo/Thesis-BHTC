@@ -246,9 +246,9 @@ if(ISSET($_POST['login'])){
     $user = mysqli_real_escape_string($conn,$username);
     $pass1 = mysqli_real_escape_string($conn,$password);
 
-    $pass = md5($pass1);
-    $salt = "aTya03gHJdTyqLkWQfg15yU";
-    $pass = $salt.$pass;
+    $pass = sha1($pass1);
+	$salt = "aTya03gHJdTyqLkWQfg15yU";
+	$pass = $salt.$pass;
 
     $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
     $query = $conn->query("SELECT * FROM `user` WHERE BINARY `username` = '$user' && BINARY `password` = '$pass' && `status` = 'Active'") or die(mysqli_error());

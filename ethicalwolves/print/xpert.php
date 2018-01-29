@@ -57,12 +57,12 @@ require ('../config.php');
 						</div>
 						<?php
 						$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-						$query = $conn->query("SELECT * FROM `dssm_examination` WHERE `dssm_id` = '$_GET[dssmid]'") or die(mysqli_error());
-						$fetch = $query->fetch_array();
-						$query2 = $conn->query("SELECT * FROM `laboratory_request` WHERE `lab_request_id` = '$_GET[lab_request_id]'") or die(mysqli_error());
-						$fetch2 = $query2->fetch_array();
-						$query3 = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-						$fetch3 = $query3->fetch_array();
+						$query = $conn->query("SELECT * FROM `gene_expert_examination` WHERE `xpert_id` = '$_GET[xpert_id]'") or die(mysqli_error());
+									   $fetch = $query->fetch_array();
+									   $query2 = $conn->query("SELECT * FROM `laboratory_request` WHERE `lab_request_id` = '$_GET[lab_request_id]'") or die(mysqli_error());
+									   $fetch2 = $query2->fetch_array();
+									   $query3 = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+									   $fetch3 = $query3->fetch_array();
 						?>   
 						<div id="print">
 							<div class="row">
@@ -124,27 +124,22 @@ require ('../config.php');
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										Designation of Specimen Collector: <strong><?php echo $fetch2['designation']?></strong>
 									</h5><hr>
-									<h3><strong><center>Direct Sputum Smear Miscroscopy Result</center></strong></h3>
+									<h3><strong><center>Xpert MTB/RIF Results</center></strong></h3>
 									<table id="laboratory_request" class="table">
 										<thead>
 											<tr>
 												<th ><center>Laboratory Number</center></th>
+												<th ><center>Date Sample Collected</center></th>
 												<th ><center>Visual Appearance</center></th>
-												<th ><center>Reading</center></th>
-												<th rowspan="2"><center>Laboratory Diagnosis</center></th>
+												<th rowspan="2"><center>Result</center></th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
 												<td><center><?php echo $fetch['laboratory_number']?></center></td>
+												<td><center><?php echo $fetch2['date_sample_collected']?></center></td>
 												<td><center><?php echo $fetch['visual_appearance']?></center></td>
-												<td><center><?php echo $fetch['reading']?></center></td>
-											</tr>
-											<tr>
-												<td><center><?php echo $fetch['laboratory_number']?></center></td>
-												<td><center><?php echo $fetch['visual_appearance2']?></center></td>
-												<td><center><?php echo $fetch['reading2']?></center></td>
-												<td ><center><?php echo $fetch['laboratory_diagnosis']?></center></td>
+												<td><center><?php echo $fetch['result']?></center></td>
 											</tr>
 										</tbody>
 									</table> 

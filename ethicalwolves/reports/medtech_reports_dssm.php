@@ -15,7 +15,7 @@ require ('../config.php');
         <link rel="stylesheet" type="text/css" href="../assets2/vendor/font-awesome/css/font-awesome.min.css" />
         <script src="../js/plugins/jquery/jquery.min.js"></script>
         <script src = "../js/jquery.canvasjs.min.js"></script>
-        <?php include_once '../js/loadchart/medtech_dssm.php'?>
+        <?php require '../js/loadchart/medtech_dssm.php'?>
     </head>
     <body class="page-container-boxed">
         <?php 

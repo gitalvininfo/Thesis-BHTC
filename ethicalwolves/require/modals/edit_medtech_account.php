@@ -10,7 +10,7 @@ while($fetch = $query->fetch_array()){
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 				<h4 class="modal-title" id="defModalHead"><strong>Edit Account</strong></h4>
 			</div>
-			<form role="form" id="jvalidate" class="form-horizontal" action="edit_query.php" method="post">
+			<form role="form" id="medtech" class="form-horizontal" action="edit_query.php" method="post" onsubmit="return myFunction()">
 				<div class="modal-body">
 					<div class="row">
 						<div class="panel-body">
@@ -40,10 +40,16 @@ while($fetch = $query->fetch_array()){
 										<input data-toggle="tooltip" data-placement="bottom" title="Username" type="text" class="form-control" name="username" value="<?php echo $fetch['username']?>" required/>
 									</div>
 								</div>
-								<h5 class="push-up-1">Password</h5>
+								<h5 class="push-up-1">New Password</h5>
 								<div class="form-group ">
 									<div class="col-md-12 col-xs-12">
-										<input data-toggle="tooltip" data-placement="bottom" title="Password" type="password" class="form-control" name="password" value="<?php echo $fetch['password']?>" required/>
+										<input data-toggle="tooltip" data-placement="bottom" id="password" title="Password" type="text" class="form-control" name="password"/>
+									</div>
+								</div>
+								<h5 class="push-up-1">Confirm Password</h5>
+								<div class="form-group ">
+									<div class="col-md-12 col-xs-12">
+										<input data-toggle="tooltip" data-placement="bottom" title="Confirm Password" type="text" class="form-control" name="newpassword"/>
 									</div>
 								</div>
 								<h5 class="push-up-1">Status</h5>

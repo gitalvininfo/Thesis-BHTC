@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title></title>
+		<style type="text/css">
+			body
+			{
+				font-family: Arial;
+				font-size: 10pt;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript">
+			var markers = [
+				{
+					"title": 'Mandalagan',
+					"lat": '10.6892474',
+					"lng": '122.967538',
+					"description": 'Barangay Mandalagan.'
+				},
+				{
+					"title": 'Villamonte',
+					"lat": '10.6723487',
+					"lng": '122.9607749',
+					"description": 'Barangay Villamonte.'
+				}
+			];
+			window.onload = function () {
+				LoadMap();
+			};
+
+			var map;
+			var marker;
+			function LoadMap() {
+				var mapOptions = {
+					center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+					zoom: 10,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+				SetMarker(0);
+			};
+			function SetMarker(position) {
+				//Remove previous Marker.
+				if (marker != null) {
+					marker.setMap(null);
+				}
+
+				//Set Marker on Map.
+				var data = markers[position];
+				var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+				marker = new google.maps.Marker({
+					position: myLatlng,
+					map: map,
+					title: data.title
+				});
+
+				//Create and open InfoWindow.
+				var infoWindow = new google.maps.InfoWindow();
+				infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.description + "</div>");
+				infoWindow.open(map, marker);
+			};
+		</script>
+		<div>
+			<select onChange="SetMarker(this.value)">
+				<option id="rbMarker0" value="0">Mandalagan</option>
+				<option id="rbMarker1" value="1">Villamonte</option>
+			</select>
+		</div>
+		<hr />
+		<div id="dvMap" style="width: 1300px; height: 500px">
+		</div>
+	</body>
+</html>
