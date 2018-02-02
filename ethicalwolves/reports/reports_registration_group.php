@@ -18,7 +18,7 @@ require ('../config.php');
 		<?php include_once '../js/loadchart/registration_group.php'?>
 	</head>
 	<body>
-		<?php 
+		<?php
 	$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
 		$find = $query->fetch_array();
 		?>
