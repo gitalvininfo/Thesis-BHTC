@@ -301,16 +301,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>&nbsp;<hr>
-
-
-                <h2> <strong>Weight Progress</strong></h2><hr>
-                <h4>Overview</h4>
-                <div class="panel-body">
-                    <div id="weight" style="height: 200px; width: 100%;">
-                    </div>
                 </div>
-
             </div>
         </div>
     </div>

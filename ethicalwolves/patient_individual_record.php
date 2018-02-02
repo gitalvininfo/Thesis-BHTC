@@ -13,11 +13,7 @@ require ('config.php');
 		<link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
 		<link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
-		<script src = "js/jquery.canvasjs.min.js"></script>
-		<?php include_once 'js/loadchart/weight.php'?>
-
 	</head>
-
 	<body>
 		<?php
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());

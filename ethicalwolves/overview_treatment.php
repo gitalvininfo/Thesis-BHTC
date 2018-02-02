@@ -184,62 +184,6 @@
                     </div>
                     <!-- End Clinical Findings-->
 
-                    <!-- Drug Preparations-->
-                    <h2><strong>Drug Preparations</strong></h2><hr>
-                    <h3>Overview</h3>
-                    <div class="row">
-                        <?php
-                        $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                        $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-                        $f = $q->fetch_array();
-                        ?>
-                        <table id="laboratory_request" class="table table-bordered">
-                            <thead>
-                                <tr class="info">
-                                    <th data-toggle="tooltip" data-placement="top" title="Date Visited">
-                                        <center>Date</center>
-                                    </th>
-                                    <th data-toggle="tooltip" data-placement="top" title="Isoniazid [H] 10mg/kg (200mg/5ml)">
-                                        <center>Isoniazid [H]</center>
-                                    </th>
-                                    <th data-toggle="tooltip" data-placement="top" title="Rifampicin [R] 15mg/kg (200mg/5ml)">
-                                        <center>Rifampicin [R]</center>
-                                    </th>
-                                    <th data-toggle="tooltip" data-placement="top" title="Pyrazinamide [Z] 30mg/kg (250mg/5ml)">
-                                        <center>Pyrazinamide [Z]</center>
-                                    </th>
-                                    <th data-toggle="tooltip" data-placement="top" title="Ethambutol [E] 20mg/kg (400mg tab)">
-                                        <center>Ethambutol [E]</center>
-                                    </th>
-                                    <th data-toggle="tooltip" data-placement="top" title="Streptomycin [S] 15mg/kg">
-                                        <center>Streptomycin [S]</center>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-                                $query = $conn->query("SELECT * FROM `drug_preparations` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                                $id = $f['patient_id'];
-                                while($fetch = $query->fetch_array()){
-                                ?>
-                                <tr>
-                                    <td><center><?php echo $fetch['date_visited']?> ml</center></td>
-                                    <td><center><?php echo $fetch['isoniazid']?> ml</center></td>
-                                    <td><center><?php echo $fetch['rifampicin']?> ml</center></td>
-                                    <td><center><?php echo $fetch['pyrazinamide']?> ml</center></td>
-                                    <td><center><?php echo $fetch['ethambutol']?> tab</center></td>
-                                    <td><center><?php echo $fetch['streptomycin']?> ml</center></td>
-                                </tr>
-                                <?php
-                                }
-                                $conn->close();
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- End Drug Preparations-->
-
                     <!-- Follow-up Visit-->
                     <h2><strong>Follow-up Visit</strong></h2><hr>
                     <h3>Overview</h3>
