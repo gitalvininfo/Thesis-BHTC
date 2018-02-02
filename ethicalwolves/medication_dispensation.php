@@ -67,8 +67,8 @@ if(ISSET($_POST['medicine_stock'])){
 						<div class="col-md-12">
 							<div class="panel panel-default tabs">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Medication Dispensation Log</a></li>
-									<li><a href="#tab-second" role="tab" data-toggle="tab">Medicine Stockin List</a></li>
+									<li><a href="#tab-first" role="tab" data-toggle="tab">Medication Dispensation Log</a></li>
+									<li class="active"><a href="#tab-second" role="tab" data-toggle="tab">Medicine Stockin List</a></li>
 									<div class="btn-group pull-right">
 										<div class="pull-left">
 											<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#dispensed"><span class="fa fa-arrow-up"></span>Release </button>
@@ -78,7 +78,7 @@ if(ISSET($_POST['medicine_stock'])){
 								</ul>
 								<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 									<div class="panel-body tab-content">
-										<div class="tab-pane active" id="tab-first">
+										<div class="tab-pane" id="tab-first">
 											<div class="row">
 												<div class="panel panel-default">
 													<div class="panel-body">
@@ -116,7 +116,7 @@ if(ISSET($_POST['medicine_stock'])){
 												</div>  
 											</div>
 										</div>
-										<div class="tab-pane" id="tab-second">
+										<div class="tab-pane active" id="tab-second">
 											<div class="row">
 												<div class="panel panel-default">
 													<div class="panel-body">

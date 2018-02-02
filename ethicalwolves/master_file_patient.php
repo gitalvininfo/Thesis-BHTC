@@ -68,7 +68,8 @@ require ('config.php');
 																		<td><center><?php echo $fetch['registration_group']?></center></td>
 																		<td><center>
 																			<a href="#updatepatient<?php echo $fetch['patient_id'];?>" data-target="#updatepatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="left" title="Edit Patient Information"></span></a>
-																			<a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span><Record></Record> </a></center></td>	
+																			<a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span><Record></Record> </a></center>
+																		</td>	
 																	</tr>
 																	<?php
 			}

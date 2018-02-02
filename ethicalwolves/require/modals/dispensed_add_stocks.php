@@ -63,16 +63,16 @@
 								</select>
 							</div>
 						</div>
-						<h5 class="push-up-1">Quantity in box</h5>
+						<h5 class="push-up-1">Quantity in kit</h5>
 						<div class="form-group ">
 							<div class="col-md-12 col-xs-12">
-								<input data-toggle="tooltip" id="quantity" data-placement="right" title="Quantity" type="text" class="form-control" name="quantity"/>
+								<input data-toggle="tooltip" id="quantity" data-placement="bottom" title="Quantity" type="text" class="form-control" name="quantity"/>
 							</div>
 						</div>
 						<h5 class="push-up-1">Received By</h5>
 						<div class="form-group ">
 							<div class="col-md-12 col-xs-12">
-								<input data-toggle="tooltip" id="received" data-placement="right" title="Received By" type="text" class="form-control" name="received_by" required/>
+								<input data-toggle="tooltip" id="received" data-placement="bottom" title="Received By" type="text" class="form-control" name="received_by" required/>
 							</div>
 						</div>
 					</div>
@@ -120,7 +120,7 @@
 						<div class="form-group">
 							<label class="col-md-3 col-xs-12 control-label">Quantity</label>
 							<div class="col-md-9">                                  
-								<input data-toggle="tooltip" data-placement="right" title="Quantity" type="number" class="form-control" name="quantity" 
+								<input data-toggle="tooltip" data-placement="bottom" title="Quantity" type="number" class="form-control" name="quantity" 
 									   placeholder="Quantity / Box" required/>
 							</div>
 						</div>
@@ -211,19 +211,19 @@ while($fetch = $query->fetch_array()){
 						<div class="form-group">                                        
 							<label class="col-md-3 col-xs-12 control-label">Date Given</label>
 							<div class="col-md-9">
-								<input data-toggle="tooltip" data-placement="right" title="Date Given" type="text" class="form-control datepicker" value="<?php echo $fetch['date_given']?>" name="date_given">                        
+								<input data-toggle="tooltip" data-placement="bottom" title="Date Given" type="text" class="form-control datepicker" value="<?php echo $fetch['date_given']?>" name="date_given">                        
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-3 col-xs-12 control-label">Quantity</label>
 							<div class="col-md-9">
-								<input data-toggle="tooltip" data-placement="right" title="Quantity" type="number" class="form-control" name="quantity" value="<?php echo $fetch['quantity']?>"/>
+								<input data-toggle="tooltip" data-placement="bottom" title="Quantity" type="number" class="form-control" name="quantity" value="<?php echo $fetch['quantity']?>"/>
 							</div>                                            
 						</div>
 						<div class="form-group">
 							<label class="col-md-3 col-xs-12 control-label">Received By</label>
 							<div class="col-md-9">   
-								<input data-toggle="tooltip" data-placement="right" title="Received By" type="text" class="form-control" name="received_by" value="<?php echo $fetch['received_by']?>"/>
+								<input data-toggle="tooltip" data-placement="bottom" title="Received By" type="text" class="form-control" name="received_by" value="<?php echo $fetch['received_by']?>"/>
 							</div>                                            
 						</div>
 					</div>

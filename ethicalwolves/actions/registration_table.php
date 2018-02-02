@@ -68,7 +68,7 @@ if(ISSET($_POST['register_patient_ipt'])){
     $patient_id = $_POST['patient_id'];
     $year = date("Y", strtotime("+8 HOURS"));
     $conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-    $conn->query("INSERT INTO `registration_ipt` VALUES('', '$date_evaluated', '$diagnosis', '$date_ipt_started', '$source_of_patient', '$treatment_partner_name', '$designation_treatment_partner', 'Bacolod City Health TB DOTS Center', '$patient_id', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `registration_ipt` VALUES('', '$date_evaluated', '$diagnosis', '$date_ipt_started', '$source_of_patient', '$treatment_partner_name', '$designation_treatment_partner', 'Bacolod City Health TB DOTS Center', 'Currently in Treatment', '', '$patient_id', '$year')") or die(mysqli_error());
     $conn->query("UPDATE `patient_ipt` SET `status` = 'Registered' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully registered IPT Case!');</script>";

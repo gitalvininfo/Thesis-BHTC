@@ -268,15 +268,15 @@
                             require 'config.php';
                             $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
                             $f = $q->fetch_array();
-                            $q1 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q1` = '/'") or die (mysqli_error());
+                            $q1 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q1` = '✓'") or die (mysqli_error());
                             $f1 = $q1->fetch_array();
-                            $q2 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q2` = '/'") or die (mysqli_error());
+                            $q2 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q2` = '✓'") or die (mysqli_error());
                             $f2 = $q2->fetch_array();
-                            $q3 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q3` = '/'") or die (mysqli_error());
+                            $q3 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q3` = '✓'") or die (mysqli_error());
                             $f3 = $q3->fetch_array();
-                            $q4 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q4` = '/'") or die (mysqli_error());
+                            $q4 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q4` = '✓'") or die (mysqli_error());
                             $f4 = $q4->fetch_array();
-                            $q5 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q5` = '/'") or die (mysqli_error());
+                            $q5 = $conn->query("SELECT COUNT(*) as total FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' && `q5` = '✓'") or die (mysqli_error());
                             $f5 = $q5->fetch_array();
                             ?>
                             <tr>

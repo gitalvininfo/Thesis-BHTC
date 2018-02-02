@@ -1,10 +1,10 @@
 <?php
 require_once 'logincheck.php';
 require ('config.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<title>BHTC-PMIS</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,16 +12,16 @@ require ('config.php');
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
+		<link rel="stylesheet" type="text/css" id="theme" href="css/mycustom.css" />
 		<link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
-		<script src = "js/jquery.canvasjs.min.js"></script>
-		<?php include_once 'js/loadchart/weight.php'?>
+		<script src="js/plugins/jquery/jquery.min.js"></script>
+		<script src="js/jquery.canvasjs.min.js"></script>
+		<?php require 'js/loadchart/intensive_phase_ipt.php'?>
 
 	</head>
-
 	<body>
-		<?php
-	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-		$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = '$_SESSION[user_id]'") or die(mysqli_error());
+		<?php 
+	$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
 		$find = $query->fetch_array();
 		?>
 		<div class="page-container">
@@ -29,21 +29,21 @@ require ('config.php');
 			<div class="page-content">
 				<?php require 'require/header.php'?>
 				<ul class="breadcrumb">
-					<li><a href="home.php">Home</a></li>
-					<li>Reports</li>
-					<li><a href="patient_record_report.php">Patient Record Reports</a></li>
-					<li class="active"><strong><mark><?php echo $_GET['patient_name']?></mark></strong></li>
 
+					<li><a href="home.php">Home</a></li>
+					<li>Data Entry</li>
+					<li><a href="master_file_patient.php">Patient Master File</a></li>
+					<li class="active"><strong><mark><?php echo $_GET['name']?></mark></strong></li>
 				</ul>
 				<div class="page-content-wrap">
 					<div class="row">
 						<div class="col-md-12">
 							<?php
 	require 'config.php';
-			$query = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-			$fetch = $query->fetch_array();
-			$id = $fetch['patient_id'];
-			$query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
+			$query = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]' && `name` = '$_GET[name]'") or die(mysqli_error());
+			$f = $query->fetch_array();
+			$id = $f['patient_id'];
+			$query2 = $conn->query("SELECT * FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
 			$fetch2 = $query2->fetch_array();
 							?>
 							<div class="panel panel-info">
@@ -57,7 +57,7 @@ require ('config.php');
 									</div>  
 								</div>
 								<div class="panel-body">
-									<?php require 'require/exam_treatment_report.php'?>
+									<?php require 'overview_intensive_ipt.php'?>
 								</div>
 							</div>
 						</div>
@@ -65,15 +65,16 @@ require ('config.php');
 				</div>
 			</div>
 		</div>
+		<?php require 'require/modals/monthly_dosage_ipt.php'?>
 		<?php require 'require/logout.php'?>
-		<audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
 		<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
 		<script type="text/javascript" src="js/settings.js"></script>
@@ -85,5 +86,4 @@ require ('config.php');
 			});
 		</script>
 	</body>
-
 </html>
