@@ -35,11 +35,6 @@ require ('config.php');
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">TB Case</a></li>
                                     <li><a href="#tab-second" role="tab" data-toggle="tab">IPT Case</a></li>
-                                    <div class="btn-group pull-right">
-                                        <div class="pull-left">
-                                            <?php require 'require/select_year.php'?>
-                                        </div>
-                                    </div>
                                 </ul>
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
@@ -149,14 +144,6 @@ require ('config.php');
                 </div>            
             </div>
         </div>
-        <script>
-            $(document).ready(function(){
-                $("#pyear").on('change', function(){
-                    var year=$(this).val();
-                    window.location = 'patient_treatment_table.php?year='+year;
-                });
-            });
-        </script>
         <?php require 'require/modals/end_treatment.php'?>
 
         <?php require 'require/logout.php'?>

@@ -139,7 +139,7 @@ require ('config.php');
                                                                 <h6 class="push-up-5">Dosage</h6>
                                                                 <div class="form-group ">
                                                                     <div class="col-md-12 col-xs-12">
-                                                                        <input type="number" class="form-control" name="dosage" placeholder="Dosage Taken /mg" required/>
+                                                                        <input type="number" class="form-control" name="dosage" required/>
                                                                     </div>
                                                                 </div> <hr>
                                                                 <h6 class="push-up-5">Drug Taken</h6>
@@ -365,7 +365,7 @@ require ('config.php');
                                                                 <h6 class="push-up-5">Dosage</h6>
                                                                 <div class="form-group ">
                                                                     <div class="col-md-12 col-xs-12">
-                                                                        <input type="number" class="form-control" name="dosage" placeholder="Dosage Taken /mg" required/>
+                                                                        <input type="number" class="form-control" name="dosage" required/>
                                                                     </div>
                                                                 </div> <hr>
                                                                 <h6 class="push-up-5">Drug Taken</h6>

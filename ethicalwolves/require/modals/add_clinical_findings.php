@@ -16,61 +16,46 @@ while($fetch = $query->fetch_array()){
                     <div class="row">
                         <div class="panel-body">
                             <div class="block">
-                                <h5 class="push-up-1">Weight in Kg.</h5>
-                                <div class="form-group ">
-                                    <div class="col-md-22 col-xs-12">
-                                        <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Weight in kg." type="number" class="form-control" name="weight" placeholder="Weight in kg." required/>
-                                    </div>
-                                </div>
-                                <hr>
-                                <h4>* Check the appropriate symptoms for <?php echo $fetch['patient_name']?></h4>
-                                <h5 class="push-up-20"> 1. Unexplained fever greater than 2 weeks</h5>
-                                <div class="form-group">
-                                    <div class="col-md-2">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="✓" name="q1" required/> Yes</label>
-                                    </div>
-                                    <div class="col-md-2">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="0" name="q1" required/> No </label>
-                                    </div>
-                                </div>
-                                <h5 class="push-up-20"> 2. Unexplained cough or wheezing greater than 2 weeks</h5>
-                                <div class="form-group">
-                                    <div class="col-md-2">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="✓" name="q2" required/> Yes</label>
-                                    </div>
-                                    <div class="col-md-2">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="0" name="q2" required/> No </label>
-                                    </div>
-                                </div>
-                                <h5 class="push-up-20"> 3. Unimproved general well-being</h5>
-                                <div class="form-group">
-                                    <div class="col-md-2">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="✓" name="q3" required/> Yes</label>
-                                    </div>
-                                    <div class="col-md-2">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="0" name="q3" required/> No </label>
-                                    </div>
-                                </div>
-                                <h5 class="push-up-20"> 4. Poor appetite</h5>
-                                <div class="form-group">
-                                    <div class="col-md-2">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="✓" name="q4" required/> Yes</label>
-                                    </div>
-                                    <div class="col-md-2">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="0" name="q4" required/> No </label>
-                                    </div>
-                                </div>
-                                <h5 class="push-up-20"> 5. Positive PE findings for Extra-Pulmonary TB</h5>
-                                <div class="form-group">
-                                    <div class="col-md-2">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="✓" name="q5" required/> Yes</label>
-                                    </div>
-                                    <div class="col-md-2">                                    
-                                        <label class="check"><input type="radio" class="iradio" value="0" name="q5" required/> No </label>
-                                    </div>
-                                </div>
-                                <h5 class="push-up-20"> 6. Side Effects</h5>
+                                <table id="laboratory_request" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">Check the appropriate symtoms for <?php echo $fetch['patient_name']?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1. Unexplained fever greater than 2 weeks</td>
+                                            <input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
+                                            <td><center> <label class="check"><input type="radio" class="iradio" value="✓" name="q1" required/> Yes</label></center></td>
+                                            <td><center><label class="check"><input type="radio" class="iradio" value="0" name="q1" required/> No </label></center></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2. Unexplained cough greater than 2 weeks</td>
+                                            <td><center> <label class="check"><input type="radio" class="iradio" value="✓" name="q2" required/> Yes</label></center></td>
+                                            <td><center><label class="check"><input type="radio" class="iradio" value="0" name="q2" required/> No </label></center></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3. Unimproved general well-being</td>
+                                            <td><center> <label class="check"><input type="radio" class="iradio" value="✓" name="q3" required/> Yes</label></center></td>
+                                            <td><center><label class="check"><input type="radio" class="iradio" value="0" name="q3" required/> No </label></center></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4. Poor appetite</td>
+                                            <td><center> <label class="check"><input type="radio" class="iradio" value="✓" name="q4" required/> Yes</label></center></td>
+                                            <td><center><label class="check"><input type="radio" class="iradio" value="0" name="q4" required/> No </label></center></td>
+                                        </tr>
+                                        <tr>
+                                            <td> 5. Positive PE findings for Extra-Pulmonary TB</td>
+                                            <td><center> <label class="check"><input type="radio" class="iradio" value="✓" name="q5" required/> Yes</label></center></td>
+                                            <td><center><label class="check"><input type="radio" class="iradio" value="0" name="q5" required/> No </label></center></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6. Weight in Kilogram</td>
+                                            <td colspan="2"><center><input data-toggle="tooltip" data-placement="bottom" title="Weight in kg." type="number" class="form-control" name="weight" required/></center></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h6 class="push-up-20"> 7. Check the appropriate side effects</h6>
                                 <div class="form-group">
                                     <div class="col-md-4">                                    
                                         <label class="check"><input type="checkbox" class="icheckbox" name="q6[]" value="Itchiness"/> Itchiness</label>
