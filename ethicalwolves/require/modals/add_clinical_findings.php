@@ -16,7 +16,7 @@ while($fetch = $query->fetch_array()){
                     <div class="row">
                         <div class="panel-body">
                             <div class="block">
-                                <table id="laboratory_request" class="table table-hover">
+                                <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th colspan="3">Check the appropriate symtoms for <?php echo $fetch['patient_name']?></th>

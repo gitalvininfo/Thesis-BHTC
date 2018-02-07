@@ -63,7 +63,7 @@
 								</select>
 							</div>
 						</div>
-						<h5 class="push-up-1">Quantity in kit</h5>
+						<h5 class="push-up-1">Number of Kits</h5>
 						<div class="form-group ">
 							<div class="col-md-12 col-xs-12">
 								<input data-toggle="tooltip" id="quantity" data-placement="bottom" title="Quantity" type="text" class="form-control" name="quantity"/>
@@ -99,11 +99,11 @@
 			<form role="form" class="form-horizontal" action="medication_dispensation.php" method="post" onsubmit="return confirm('Are you sure you want to add new stocks for this medicine?');">
 				<div class="modal-body">
 					<div class="panel-body">
-						<div class="form-group">
-							<label class="col-md-3 col-xs-12 control-label">Medicine Name</label>
-							<div class="col-md-9">       
+						<h5 class="push-up-1">Name of Medicine</h5>
+						<div class="form-group ">
+							<div class="col-md-12 col-xs-12">
 								<select class="form-control select" data-live-search="true" name="medicine_name" required>
-									<option>Select Medicine</option>
+									<option>Select</option>
 									<?php
 									$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 									$query = $conn->query("SELECT * FROM `medicine`") or die(mysqli_error());
@@ -117,11 +117,11 @@
 								</select>
 							</div>
 						</div>
-						<div class="form-group">
-							<label class="col-md-3 col-xs-12 control-label">Quantity</label>
-							<div class="col-md-9">                                  
+						<h5 class="push-up-1">Number of Kits</h5>
+						<div class="form-group ">
+							<div class="col-md-12 col-xs-12">
 								<input data-toggle="tooltip" data-placement="bottom" title="Quantity" type="number" class="form-control" name="quantity" 
-									   placeholder="Quantity / Box" required/>
+									   required/>
 							</div>
 						</div>
 					</div>

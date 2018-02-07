@@ -58,7 +58,7 @@ if(ISSET($_POST['save_user'])){
 						<div class="col-md-12">
 							<div class="panel panel-info">
 								<div class="panel-heading">
-									<h3 class="panel-title">Medical Technologists</h3>
+									<h3 class="panel-title"><strong>Medical Technologists</strong></h3>
 									<div class="btn-group pull-right">
 										<div class="pull-left">
 											<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_physician"><span class="fa fa-user-plus"></span> New Account </button>

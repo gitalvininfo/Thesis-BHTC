@@ -13,7 +13,7 @@
 		$q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
 		$f = $q->fetch_array();
 		?>
-		<a href="#"><span class="fa fa-bell-o"></span></a>
+		<a href="#"><span class="fa fa-file-text"></span></a>
 		<div class="informer informer-danger">
 			<?php echo $f['total']?>
 		</div>
@@ -35,11 +35,12 @@
 				$f2 = $q2->fetch_array();
 				?>
 				<a href="laboratory_request.php?id=<?php echo $id?>" class="list-group-item">
-					<div class="list-group-status status-offline"></div>
 					<img src="assets/images/patient.ico" class="pull-left" alt="John Doe" />
-					<span class="contacts-title"><?php echo $f2['patient_name']. "-" .$f['collection_unit']?></span>
+					<span class="contacts-title"><?php echo $f2['patient_name']?></span>
 					<p>
-						<?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?>
+						<i><?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;<?php echo $f['collection_unit']?></i>
 					</p>
 				</a>
 				<?php
@@ -76,11 +77,10 @@
 			while($f = $q->fetch_array()){
 				?>
 				<a href="#" class="list-group-item">
-					<div class="list-group-status status-offline"></div>
 					<img src="assets/images/medicine.png" class="pull-left" alt="John Doe" />
-					<span class="contacts-title"><?php echo $f['medicine_name']?></span>
+					<span class="contacts-title"><?php echo $f['medicine_name']. "-" . $f['medicine_type']?></span>
 					<p>
-						Running Balance: <?php echo $f['running_balance']. " boxes"?>
+						<i>Running Balance: <span style="color:#fc5454"><?php echo $f['running_balance']. " boxes"?></span></i>
 					</p>
 				</a>
 				<?php
@@ -90,7 +90,7 @@
 			</div>
 			<div class="panel-footer text-center">
 				<a href="medicine_table.php" class="text-left">Show all medicines</a> &nbsp;
-				<a href="medicine_table.php" class="text-right">Add Stocks Now</a>
+				<a href="medication_dispensation.php" class="text-right">Add Stocks Now</a>
 			</div>
 		</div>
 	</li>

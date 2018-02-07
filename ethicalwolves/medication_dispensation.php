@@ -89,7 +89,7 @@ if(ISSET($_POST['medicine_stock'])){
 																	<th><center>Health Center</center></th>
 																	<th><center>Medicine Name</center></th>
 																	<th><center>Date</center></th>
-																	<th><center>Quantity</center></th>
+																	<th><center>Number of Kits</center></th>
 																	<th><center>Received By</center></th>
 																</tr>
 															</thead>
@@ -124,7 +124,7 @@ if(ISSET($_POST['medicine_stock'])){
 															<thead> 
 																<tr>
 																	<th><center>Medicine Name</center></th>
-																	<th><center>Quantity</center></th>
+																	<th><center>Number of Kits</center></th>
 																	<th><center>Date Created</center></th>
 
 																</tr>

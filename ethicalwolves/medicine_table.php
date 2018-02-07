@@ -71,6 +71,7 @@ if(ISSET($_POST['new_medicine'])){
 											<tr>
 												<th><center>Medicine ID</center></th>
 												<th><center>Medicine Name</center></th>
+												<th><center>Medicine Type</center></th>
 												<th><center>Medicine Description</center></th>
 												<th><center>Running Balance</center></th>
 												<th><center>Action</center></th>
@@ -85,6 +86,7 @@ if(ISSET($_POST['new_medicine'])){
 											<tr>
 												<td><center><?php echo $fetch['medicine_id']?></center></td>
 												<td><center><?php echo $fetch['medicine_name']?></center></td>
+												<td><center><?php echo $fetch['medicine_type']?></center></td>
 												<td><center><?php echo $fetch['medicine_description']?></center></td>
 												<td><center><strong><?php echo $fetch['running_balance']?></strong></center></td>
 												<td><center>

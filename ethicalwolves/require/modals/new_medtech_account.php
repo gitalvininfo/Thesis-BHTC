@@ -13,31 +13,31 @@
                                 <h5 class="push-up-1">First Name</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="First Name" type="text" class="form-control" name="firstname" placeholder="First Name" required/>
+                                        <input data-toggle="tooltip" data-placement="bottom" title="First Name" type="text" class="form-control" name="firstname" required/>
                                     </div>
                                 </div>
                                 <h5 class="push-up-1">Last Name</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Last Name" type="text" class="form-control" name="lastname" placeholder="Last Name" required/>
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Last Name" type="text" class="form-control" name="lastname" required/>
                                     </div>
                                 </div>
                                 <h5 class="push-up-1">License Number</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="License Number" type="text" class="form-control" name="license" placeholder="License Number" required/>
+                                        <input data-toggle="tooltip" data-placement="bottom" title="License Number" type="text" class="form-control" name="license" required/>
                                     </div>
                                 </div>
                                 <h5 class="push-up-1">Username</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Username" type="text" class="form-control" name="username" placeholder="Username" required/>
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Username" type="text" class="form-control" name="username" required/>
                                     </div>
                                 </div>
                                 <h5 class="push-up-1">Password</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Password" type="password" class="form-control" name="password" placeholder="Password" required/>
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Password" type="password" class="form-control" name="password" required/>
                                     </div>
                                 </div>
                             </div>

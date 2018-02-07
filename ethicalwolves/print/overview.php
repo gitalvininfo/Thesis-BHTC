@@ -27,7 +27,7 @@ require ('../config.php');
 			}
 			#print{
 				width:800px;
-				height:800px;
+				height:1180px;
 				margin:auto;
 				overflow:hidden;
 				border:1px solid #000;
@@ -51,7 +51,7 @@ require ('../config.php');
 							<div class="btn-group pull-right">
 								<div class="pull-left">
 									<button class="btn btn-default btn-sm" onclick="printContent('print')">Print</button>
-									<a href="../medtech_patient_overview.php?id=<?php echo $_GET['patient_id']?>&patient_name=<?php echo $_GET['patient_name']?>" class="btn btn-default btn-sm">Back</a>
+									<a href="../patient_individual_record.php?id=<?php echo $_GET['patient_id']?>&patient_name=<?php echo $_GET['patient_name']?>" class="btn btn-default btn-sm">Back</a>
 								</div>
 							</div>  
 						</div>
@@ -121,7 +121,7 @@ require ('../config.php');
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<strong>DOTS Facility:</strong> <?php echo $f1['dots_facility']?>
 									</h5> <hr>
-									<h3><strong>DSSM Examination:</strong></h3>
+									<h3><strong>DSSM Examination</strong></h3>
 									<table class="table table-condensed">
 										<thead>
 											<tr>
@@ -155,7 +155,7 @@ require ('../config.php');
 											?>
 										</tbody>
 									</table>
-									<h3><strong>Xpert MTB/RIF Examination:</strong></h3>
+									<h3><strong>Xpert MTB/RIF Examination</strong></h3>
 									<table class="table table-condensed">
 										<thead>
 											<tr>
@@ -187,7 +187,7 @@ require ('../config.php');
 											?>
 										</tbody>
 									</table>
-									<h3><strong>TB Culture Examination:</strong></h3>
+									<h3><strong>TB Culture Examination</strong></h3>
 									<table class="table table-condensed">
 										<thead>
 											<tr>
@@ -218,6 +218,114 @@ require ('../config.php');
 											<?php
 											}
 											$conn->close();
+											?>
+										</tbody>
+									</table>
+									<h3><strong>Drug Susceptible Test</strong></h3>
+									<table class="table table-condensed">
+										<thead>
+											<tr>
+												<th><center>Isoniazid</center></th>
+												<th><center>Rifampicin</center></th>
+												<th><center>Ethambutol</center></th>
+												<th><center>Streptomycin</center></th>
+												<th><center>Pyrazinamide</center></th>
+												<th><center>Examined By</center></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+											$q5 = $conn->query("SELECT * FROM `patient`, `dst_examination` WHERE patient.patient_id = dst_examination.patient_id && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+											while($f5 = $q5->fetch_array()){
+											?>  
+											<tr>
+												<td><center><?php echo $f5['isoniazid']?></center></td>
+												<td><center><?php echo $f5['rifampicin']?></center></td>
+												<td><center><?php echo $f5['ethambutol']?></center></td>
+												<td><center><?php echo $f5['streptomycin']?></center></td>
+												<td><center><?php echo $f5['pyrazinamide']?></center></td>
+												<td><center><?php echo $f5['examined_by']?></center></td>
+											</tr>
+											<?php
+											}
+											?>
+										</tbody>
+										<thead>
+											<tr>
+												<th><center>Levofloxacin</center></th>
+												<th><center>Kanamycin</center></th>
+												<th><center>Amikacin</center></th>
+												<th><center>Capreomyin</center></th>
+												<th><center>Remarks</center></th>
+												<th><center>Examined By</center></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+											$q5 = $conn->query("SELECT * FROM `patient`, `dst_examination` WHERE patient.patient_id = dst_examination.patient_id && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+											while($f5 = $q5->fetch_array()){
+											?>  
+											<tr>
+												<td><center><?php echo $f5['levofloxacin']?></center></td>
+												<td><center><?php echo $f5['kanamycin']?></center></td>
+												<td><center><?php echo $f5['amikacin']?></center></td>
+												<td><center><?php echo $f5['capreomycin']?></center></td>
+												<td><center><?php echo $f5['remarks']?></center></td>
+												<td><center><?php echo $f5['examined_by']?></center></td>
+											</tr>
+											<?php
+											}
+											$conn->close();
+											?>
+										</tbody>
+									</table>
+									<h3><strong>Tuberculin Skin Test</strong></h3>
+									<table class="table table-condensed">
+										<thead>
+											<tr>
+												<th><center>Tuberculin Skin Test Result</center></th>
+												<th><center>Date Read</center></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+											$q6 = $conn->query("SELECT * FROM `patient`, `tst` WHERE patient.patient_id = tst.patient_id && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+											while($f6 = $q6->fetch_array()){
+											?>  
+											<tr>
+												<td><center><?php echo $f6['result']?></center></td>
+												<td><center><?php echo $f6['date_read']?></center></td>
+											</tr>
+											<?php
+											}
+											?>
+										</tbody>
+									</table>
+									<h3><strong>Chest X-ray</strong></h3>
+									<table class="table table-condensed">
+										<thead>
+											<tr>
+												<th><center>Chest X-ray Findings</center></th>
+												<th><center>Date of Exam</center></th>
+												<th><center>TB Diagnostic Committee</center></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+											$q7 = $conn->query("SELECT * FROM `patient`, `cxr` WHERE patient.patient_id = cxr.patient_id && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+											while($f7 = $q7->fetch_array()){
+											?>  
+											<tr>
+												<td><center><?php echo $f7['cxr_findings']?></center></td>
+												<td><center><?php echo $f7['date_of_exam']?></center></td>
+												<td><center><?php echo $f7['tbdc']?></center></td>
+											</tr>
+											<?php
+											}
 											?>
 										</tbody>
 									</table>

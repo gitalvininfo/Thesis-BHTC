@@ -49,8 +49,8 @@ require ('config.php');
                         <div class="panel-heading">
                             <div class="btn-group pull-right">
                                 <div class="pull-left">
-                                    <button class="btn btn-default btn-sm" onclick="printContent('print')"><span class="fa fa-print"></span> Print Content</button>
-                                    <a href="patient_certification_table.php" class="btn btn-default btn-sm"><span class="fa fa-arrow-circle-left"></span> Back</a>
+                                    <button class="btn btn-default btn-sm" onclick="printContent('print')">Print</button>
+                                    <a href="patient_certification_table.php" class="btn btn-default btn-sm">Back</a>
                                 </div>
                             </div>  
                         </div>

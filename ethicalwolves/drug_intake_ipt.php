@@ -138,7 +138,7 @@ require ('config.php');
                                                                 <h6 class="push-up-5">Dosage</h6>
                                                                 <div class="form-group ">
                                                                     <div class="col-md-12 col-xs-12">
-                                                                        <input type="number" class="form-control" name="dosage" placeholder="Dosage Taken /mg" required/>
+                                                                        <input type="number" class="form-control" name="dosage" required/>
                                                                     </div>
                                                                 </div> <hr>
                                                                 <h6 class="push-up-5">Drug Taken</h6>
@@ -245,8 +245,8 @@ require ('config.php');
                                                             <table id="laboratory_request" class="table datatable">
                                                                 <thead>
                                                                     <tr class="info">
-                                                                        <th><center>Month</center></th>
-                                                                        <th><center>Dosage</center></th>
+                                                                        <th><center>Date Taken/Missed</center></th>
+                                                                        <th><center>Dosage Taken</center></th>
                                                                         <th><center>Remarks</center></th>
                                                                     </tr>
                                                                 </thead>

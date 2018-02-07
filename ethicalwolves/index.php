@@ -36,7 +36,7 @@
                                     </div>
                                     <button type="submit" name="login" class="btn btn-primary btn-lg btn-block"><span class="fa fa-sign-in"></span> LOGIN</button>
                                     <div class="bottom">
-                                        <span class="helper-text"><i class="fa fa-code"></i> <a href="#">Developed by Ethical Wolves</a></span>
+                                        <span class="helper-text"><i class="fa fa-code"></i> <a href="page-lockscreen.html">Developed by Ethical Wolves</a></span>
                                     </div>
                                 </form>
                             </div>
