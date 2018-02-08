@@ -58,14 +58,15 @@ if(ISSET($_POST['new_medicine'])){
 						<div class="col-md-12">
 							<div class="panel panel-info">
 								<div class="panel-heading">
-									<h3 class="panel-title">Medicine's List <strong></strong></h3>
+									<h3 class="panel-title"><strong>Medicine's List </strong><strong></strong></h3>
 									<div class="btn-group pull-right">
 										<div class="pull-left">
 											<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_medicine"><span class="fa fa-plus"></span>New Medicine </button>
+											<a href="medication_dispensation.php" class="btn btn-md btn-danger"><span class="fa fa-arrow-right"></span>Go to Stocks</a>
 										</div>
 									</div>
 								</div>
-								<div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+								<div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
 									<table class="table table-hover">
 										<thead> 
 											<tr>
@@ -74,6 +75,7 @@ if(ISSET($_POST['new_medicine'])){
 												<th><center>Medicine Type</center></th>
 												<th><center>Medicine Description</center></th>
 												<th><center>Running Balance</center></th>
+												<th><center>Reorder</center></th>
 												<th><center>Action</center></th>
 											</tr>
 										</thead>
@@ -88,7 +90,10 @@ if(ISSET($_POST['new_medicine'])){
 												<td><center><?php echo $fetch['medicine_name']?></center></td>
 												<td><center><?php echo $fetch['medicine_type']?></center></td>
 												<td><center><?php echo $fetch['medicine_description']?></center></td>
-												<td><center><strong><?php echo $fetch['running_balance']?></strong></center></td>
+												<td><center><?php if ($fetch['running_balance']<=5) 
+												echo "<span style='color:red'>".$fetch['running_balance']."</span>"; if ($fetch['running_balance']>=6) 
+												echo "<span>".$fetch['running_balance']."</span>"; ?></center></td>
+												<td><center><?php if ($fetch['running_balance']<=5)echo "<span class='badge badge-danger'><span class='fa fa-refresh'></span> Reorder</span>"?></center></td>
 												<td><center>
 													<a href="#updatedata<?php echo $fetch['medicine_id'];?>" data-target="#updatedata<?php echo $fetch['medicine_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
 													</center></td>
@@ -121,8 +126,6 @@ if(ISSET($_POST['new_medicine'])){
 		<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
-		<script type="text/javascript" src="js/settings.js"></script>
-		<script type="text/javascript" src="js/plugins/scrolltotop/scrolltopcontrol.js"></script>
 		<script type="text/javascript">
 			var medicine = $("#medicine").validate({
 				ignore: [],

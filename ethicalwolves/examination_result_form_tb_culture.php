@@ -44,7 +44,7 @@ require ('config.php');
                                     <h3 class="panel-title"><strong>TB Culture</strong></h3>
                                 </div>
                                 <div class="panel-body">
-                                    <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
+                                    <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this TB Culture result?');">
                                         <div class="col-md-6">
                                             <h5 class="push-up-1"><mark>Method</mark></h5>
                                             <div class="form-group ">

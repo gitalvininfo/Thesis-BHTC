@@ -11,14 +11,24 @@ if(ISSET($_POST['medication_dispensation'])){
 	$quantity = $_POST['quantity'];
 	$received_by = $_POST['received_by'];
 
-	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-	$conn->query("INSERT INTO `medication_dispensation` VALUES('', '$health_center', '$medicine_name', '$date_given', '$month', '$year', '$quantity', '$received_by')") or die(mysqli_error());
-	$conn->query("UPDATE `medicine` SET `running_balance` = `running_balance` - '$quantity' WHERE `medicine_name` = '$medicine_name'") or die(mysqli_error());
-	$conn->close();
-	echo "<script type='text/javascript'>alert('Successfully dispensed medicine!');</script>";
-	echo "<script>document.location='medication_dispensation.php'</script>";  
+	$conn = new mysqli("localhost", 'root', '', 'thesis') or die(mysqli_error());
+	$query = $conn->query ("SELECT * FROM `medicine` where `medicine_name` = '$medicine_name'") or die(mysqli_error());
+	$fetch = $query->fetch_array();
+	$running_balance = $fetch['running_balance'];
+	if($quantity > $running_balance){
+		echo "<script> alert ('You only have $running_balance kits left. Your input is $quantity. Enter Again.') </script>";
+		echo "<script>document.location='medication_dispensation.php'</script>"; 
+	}
 
+	else {
+		$conn->query("INSERT INTO `medication_dispensation` VALUES('', '$health_center', '$medicine_name', '$date_given', '$month', '$year', '$quantity', '$received_by')") or die(mysqli_error());
+		$conn->query("UPDATE `medicine` SET `running_balance` = `running_balance` - '$quantity' WHERE `medicine_name` = '$medicine_name'") or die(mysqli_error());
+		$conn->close();
+		echo "<script type='text/javascript'>alert('Successfully dispensed medicine!');</script>";
+		echo "<script>document.location='medication_dispensation.php'</script>";  
+	}
 }
+
 
 if(ISSET($_POST['medicine_stock'])){
 	$medicine_name = $_POST['medicine_name'];
@@ -72,7 +82,7 @@ if(ISSET($_POST['medicine_stock'])){
 									<div class="btn-group pull-right">
 										<div class="pull-left">
 											<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#dispensed"><span class="fa fa-arrow-up"></span>Release </button>
-											<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_stock"><span class="fa fa-plus"></span>Add Stock</button>
+											<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_stock"><span class="fa fa-plus"></span>Add Stocks</button>
 										</div>
 									</div>
 								</ul>
@@ -189,8 +199,7 @@ if(ISSET($_POST['medicine_stock'])){
 					quantity: {
 						required: true,
 						number: true,
-						min:1,
-						max: 25
+						min:1
 					},
 					received: {
 						required: true,

@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="defModalHead">New Medicine</h4>
+                <h4 class="modal-title" id="defModalHead"><strong>New Medicine</strong></h4>
             </div>
             <form role="form" id="medicine" class="form-horizontal" action="medicine_table.php" method="post" onsubmit="return confirm('Are you sure you want to add this new medicine?');" >
                 <div class="modal-body">

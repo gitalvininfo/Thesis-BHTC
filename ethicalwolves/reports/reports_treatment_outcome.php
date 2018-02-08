@@ -62,6 +62,8 @@ require ('../config.php');
 			$f5 = $lf->fetch_array();
 			$ne = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Not Evaluated' && `year` = '$year'") or die(mysqli_error());
 			$f6 = $ne->fetch_array();
+			$ct = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Currently in Treatment' && `year` = '$year'") or die(mysqli_error());
+			$f7 = $ct->fetch_array();
 			$gra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `year` = '$year'") or die(mysqli_error());
 			$f10 = $gra->fetch_array();
 										?>
@@ -118,7 +120,7 @@ require ('../config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-second">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 455px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<table class="table table-hover">
 													<thead>
@@ -169,6 +171,14 @@ require ('../config.php');
 															<td><center><strong><?php echo $f6['total']?></strong></center></td>
 															<td><center>
 																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ne"><span class="fa fa-search"></span></button>
+																</center>
+															</td>
+														</tr>
+														<tr>
+															<td>Currently in Treatment</td>
+															<td><center><strong><?php echo $f7['total']?></strong></center></td>
+															<td><center>
+																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ct"><span class="fa fa-search"></span></button>
 																</center>
 															</td>
 														</tr>

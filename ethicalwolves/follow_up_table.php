@@ -58,18 +58,15 @@ require 'config.php';
                                                                 <tbody>
                                                                     <?php
     require 'config.php';
-            $query = $conn->query("SELECT * FROM `patient` WHERE `status` = 'Registered' ORDER BY `patient_id` DESC") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && patient.status = 'Registered' && registration.status = 'Currently in Treatment'") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
-                $id = $fetch['patient_id'];
-                $query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
-                $fetch2 = $query2->fetch_array();
                                                                     ?>                                      
                                                                     <tr>
-                                                                        <td><center><mark><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></mark></center></td>
+                                                                        <td><center><mark><?php echo $fetch['year']."080".$fetch['tb_case_no']?></mark></center></td>
                                                                         <td><center><mark><?php echo $fetch['patient_name']?></mark></center></td>
-                                                                        <td><center><?php echo $fetch2['registration_date']?></center></td>
-                                                                        <td><center><?php echo $fetch2['source_of_patient']?></center></td>
-                                                                        <td><center><?php echo $fetch2['registration_group']?></center></td>
+                                                                        <td><center><?php echo $fetch['registration_date']?></center></td>
+                                                                        <td><center><?php echo $fetch['source_of_patient']?></center></td>
+                                                                        <td><center><?php echo $fetch['registration_group']?></center></td>
                                                                         <td><center>
                                                                             <a href="#follow_up<?php echo $fetch['patient_id'];?>" data-target="#follow_up<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-check"></span>Follow-up Visit</a>
                                                                             </center></td>	

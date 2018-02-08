@@ -7,7 +7,7 @@
 				$date = date('F j, Y');
 				?>
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="defModalHead">Medication Dispensation - <?php echo $date?></h4>
+				<h4 class="modal-title" id="defModalHead"><strong>Medication Dispensation - <?php echo $date?></strong></h4>
 			</div>
 			<form role="form" id="dispensation" class="form-horizontal" action="medication_dispensation.php" method="post" onsubmit="return confirm('Are you sure you want to dispense this medicines?');">
 				<div class="modal-body">
@@ -49,14 +49,14 @@
 						<div class="form-group ">
 							<div class="col-md-12 col-xs-12">
 								<select class="form-control select" data-live-search="true" name="medicine_name">
-									<option value="#">Select Medicine</option>
+									<option value="#">Select</option>
 									<?php
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 					$query = $conn->query("SELECT * FROM `medicine` where `running_balance` >= 0") or die(mysqli_error());
 
 					while($fetch = $query->fetch_array()){
 									?>
-									<option value="<?php echo $fetch['medicine_name'];?>"><?php echo $fetch['medicine_name'];?></option>
+									<option value="<?php echo $fetch['medicine_name'];?>"><?php echo $fetch['medicine_name']?></option>
 									<?php
 					}
 									?> 
@@ -81,7 +81,6 @@
 					<button type="submit" class="btn btn-info" name="medication_dispensation"><span class="fa fa-check"></span>Save</button> 
 					<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
 				</div>
-
 			</form>
 		</div>
 	</div>

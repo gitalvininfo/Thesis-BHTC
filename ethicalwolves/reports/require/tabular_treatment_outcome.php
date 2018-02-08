@@ -293,11 +293,11 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="ec" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+<div class="modal fade" id="ct" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="largeModalHead"> Treatment Outcome - Excluded from Cohort <strong> Year <?php echo $year?></strong></h4>
+                <h4 class="modal-title" id="largeModalHead"> Treatment Outcome - Currently in Treatment <strong> Year <?php echo $year?></strong></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-body">
@@ -314,7 +314,7 @@
                         <tbody>
                             <?php
     require '../config.php';
-                    $q2 = $conn->query("SELECT * FROM `registration` WHERE `status` = 'Excluded from Cohort' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
+                    $q2 = $conn->query("SELECT * FROM `registration` WHERE `status` = 'Currently in Treatment' && `year` = '$year' ORDER BY `patient_id` DESC") or die(mysqli_error());
                     while($f2 = $q2->fetch_array()){
                         $id = $f2['patient_id'];
                         $query = $conn->query("SELECT  `patient_name`, `patient_id` FROM `patient` WHERE `patient_id` = '$id' ORDER BY `patient_id` DESC") or die(mysqli_error());

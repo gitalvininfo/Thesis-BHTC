@@ -377,8 +377,10 @@
 					zoom: 14,
 					mapTypeId: google.maps.MapTypeId.HYBRID
 				};
+
 				map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
 				SetMarker(0);
+				
 			};
 			function SetMarker(position) {
 				//gna kakas ang previous na marker kay masaylo sa.

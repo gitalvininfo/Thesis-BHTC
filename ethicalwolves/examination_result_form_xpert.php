@@ -54,7 +54,7 @@ require ('config.php');
                                     </ul>
                                 </div>
                                 <div class="panel-body">
-                                    <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
+                                    <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this Xpert MTB/RIF result?');">
                                         <div class="col-md-12">
                                             <h5 class="push-up-1"><mark>Date Examined</mark></h5>
                                             <div class="form-group ">

@@ -9,7 +9,7 @@ while($fetch = $query->fetch_array()){
         <div class="modal-content" style="height:auto">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="defModalHead">Update Treatment Partner</h4>
+                <h4 class="modal-title" id="defModalHead"><strong>Update Treatment Partner</strong></h4>
             </div>
             <form role="form" class="form-horizontal" action="edit_query.php" method="post" onsubmit="return confirm('Are you sure you want to this treatment partner?');">
                 <div class="modal-body">

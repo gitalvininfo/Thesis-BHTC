@@ -160,7 +160,7 @@ require ('config.php');
                                                                         </select>
                                                                     </div>
                                                                 </div> <hr>
-                                                                <button type="submit" name="add_intensive_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
+                                                                <button type="submit" name="add_intensive_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> </span>Save</button>
                                                                 <?php require_once 'require/add_intensive_phase.php' ?>
                                                             </form>
                                                         </div>
@@ -232,7 +232,7 @@ require ('config.php');
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" name="add_absent_intensive" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
+                                                                <button type="submit" name="add_absent_intensive" class="btn btn-info pull-right"> <span class="fa fa-check"> </span>Save</button>
                                                                 <?php require_once 'require/add_intensive_phase.php' ?>
                                                             </form>
                                                         </div>
@@ -386,7 +386,7 @@ require ('config.php');
                                                                         </select>
                                                                     </div>
                                                                 </div> <hr>
-                                                                <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
+                                                                <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> </span>Save</button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                             </form>
@@ -459,7 +459,7 @@ require ('config.php');
                                                                         </select>
                                                                     </div>
                                                                 </div> <hr>
-                                                                <button type="submit" name="add_absent_continuation" class="btn btn-info pull-right"> <span class="fa fa-check"> Save </span></button>
+                                                                <button type="submit" name="add_absent_continuation" class="btn btn-info pull-right"> <span class="fa fa-check"> </span>Save</button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                             </form>

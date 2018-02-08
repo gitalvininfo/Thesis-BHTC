@@ -54,16 +54,15 @@ require ('../config.php');
 									<div class="tab-pane" id="tab-second">
 										<div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
 											<div class="row">
-											</div>
-											<table class="table datatable">
-												<thead> 
-													<tr>
-														<th><center>Name of Barangay</center></th>
-														<th><center>Action</center></th>
-													</tr>
-												</thead>
-												<tbody>
-													<?php
+												<table class="table datatable">
+													<thead> 
+														<tr>
+															<th><center>Name of Barangay</center></th>
+															<th><center>Action</center></th>
+														</tr>
+													</thead>
+													<tbody>
+														<?php
 	$year = date('Y');
 			if(isset($_GET['year']))
 			{
@@ -72,19 +71,19 @@ require ('../config.php');
 			require '../config.php';
 			$query = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && patient.status = 'Registered' && registration.year = '$year' group by barangay") or die(mysqli_error());
 			while($fetch = $query->fetch_array()){
-													?>                                      
-													<tr>
-														<td><center><mark>Barangay <?php echo $fetch['barangay']?></mark></center></td>
-														<td><center>
-															<a href="viewbarangay.php?id=<?php echo $fetch['barangay']?>&year=<?php echo $year?>" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span><Record></Record> </a></center></td>	
-													</tr>
-													<?php
+														?>                                      
+														<tr>
+															<td><center><mark>Barangay <?php echo $fetch['barangay']?></mark></center></td>
+															<td><center>
+																<a href="viewbarangay.php?id=<?php echo $fetch['barangay']?>&year=<?php echo $year?>" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span><Record></Record> </a></center></td>	
+														</tr>
+														<?php
 			}
 			$conn->close();
-													?>
-												</tbody>
-											</table>                                    
-
+														?>
+													</tbody>
+												</table>   
+											</div>                               
 										</div>
 									</div>
 								</div>

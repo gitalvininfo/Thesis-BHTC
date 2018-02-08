@@ -22,7 +22,7 @@ require ('../../config.php');
 			}
 			#print{
 				width:700px;
-				height:1300px;
+				height:1220px;
 				overflow: hidden;
 				margin:auto;
 				border:0.5px solid #8f8888;

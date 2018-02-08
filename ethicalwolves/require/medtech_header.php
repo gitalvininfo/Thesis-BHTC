@@ -26,9 +26,7 @@ $conn->close();
 		$f = $q->fetch_array();
 		?>
 		<a href="#"><span class="fa fa-file-text"></span></a>
-		<div class="informer informer-danger">
-			<?php echo $f['total']?>
-		</div>
+		<?php if ($f['total']>0)echo "<div class='informer informer-danger'>".$f['total']."</div>";?>
 		<div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
 			<div class="panel-heading">
 				<h3 class="panel-title">Pending Laboratory Requests</h3>
@@ -36,15 +34,15 @@ $conn->close();
 					<span class="label label-danger"><?php echo $f['total']?></span>
 				</div>
 			</div>
-			<div class="panel-body list-group list-group-contacts scroll" style="height: 350px;">
+			<div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
 				<?php 
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-			$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' order by `lab_request_id`") or die(mysqli_error());
-			while($f = $q->fetch_array())
-			{
-				$id = $f['patient_id'];
-				$q2 = $conn->query("SELECT `patient_name` FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());
-				$f2 = $q2->fetch_array();
+						$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' order by `lab_request_id`") or die(mysqli_error());
+						while($f = $q->fetch_array())
+						{
+							$id = $f['patient_id'];
+							$q2 = $conn->query("SELECT `patient_name` FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());
+							$f2 = $q2->fetch_array();
 				?>
 				<a href="laboratory_request_pending.php?id=<?php echo $f['patient_id']?>" class="list-group-item">
 					<img src="assets/images/patient.ico" class="pull-left" alt="John Doe" />
@@ -56,8 +54,8 @@ $conn->close();
 					</p>
 				</a>
 				<?php
-			}
-			$conn->close();
+						}
+						$conn->close();
 				?>
 			</div>
 			<div class="panel-footer text-center">

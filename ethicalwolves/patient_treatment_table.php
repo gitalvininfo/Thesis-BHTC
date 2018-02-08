@@ -59,7 +59,7 @@ require ('config.php');
                                                                     <?php
     require 'require/masterfile_patient_select_year.php';
             require 'config.php';
-            $query = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && patient.status = 'Registered' && registration.year = '$year'") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && patient.status = 'Registered' && registration.status = 'Currently in Treatment'") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                                                                     ?>                                      
                                                                     <tr>
@@ -109,7 +109,7 @@ require ('config.php');
                                                                     <?php
                                                                     require 'require/masterfile_patient_ipt_select_year.php';
                                                                     require 'config.php';
-                                                                    $query2 = $conn->query("SELECT * FROM `patient_ipt`, `registration_ipt` WHERE patient_ipt.patient_id = registration_ipt.patient_id && patient_ipt.status = 'Registered' && registration_ipt.year = '$year'") or die(mysqli_error());
+                                                                    $query2 = $conn->query("SELECT * FROM `patient_ipt`, `registration_ipt` WHERE patient_ipt.patient_id = registration_ipt.patient_id && patient_ipt.status = 'Registered' && registration_ipt.status = 'Currently in Treatment'") or die(mysqli_error());
                                                                     while($fetch2 = $query2->fetch_array()){
                                                                     ?>                                      
                                                                     <tr>

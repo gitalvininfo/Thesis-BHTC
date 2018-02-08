@@ -36,7 +36,7 @@ $conn->close();
 					<span class="label label-danger"><?php echo $f['total']?></span>
 				</div>
 			</div>
-			<div class="panel-body list-group list-group-contacts scroll" style="height: 350px;">
+			<div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
 				<?php 
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 			$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' order by `lab_request_id`") or die(mysqli_error());

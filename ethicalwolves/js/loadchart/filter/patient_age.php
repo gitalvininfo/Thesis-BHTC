@@ -75,16 +75,16 @@ $a10 = $q10->fetch_array();
                     type: "bar", 
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [ 
-                        { label: "10 years old", y: <?php echo $a1['total']?> },
-                         { label: "20 years old", y: <?php echo $a2['total']?> },
-                        { label: "30 years old", y: <?php echo $a3['total']?> },
-                         { label: "40 years old", y: <?php echo $a4['total']?> },
-                        { label: "50 years old", y: <?php echo $a5['total']?> },
-                         { label: "60 years old", y: <?php echo $a6['total']?> },
-                        { label: "70 years old", y: <?php echo $a7['total']?> },
-                         { label: "80 years old", y: <?php echo $a8['total']?> },
-                        { label: "90 years old", y: <?php echo $a9['total']?> },
-                         { label: "100 years old", y: <?php echo $a10['total']?> }
+                        { label: "1-10 years old", y: <?php echo $a1['total']?> },
+                         { label: "11-20 years old", y: <?php echo $a2['total']?> },
+                        { label: "21-30 years old", y: <?php echo $a3['total']?> },
+                         { label: "31-40 years old", y: <?php echo $a4['total']?> },
+                        { label: "41-50 years old", y: <?php echo $a5['total']?> },
+                         { label: "51-60 years old", y: <?php echo $a6['total']?> },
+                        { label: "61-70 years old", y: <?php echo $a7['total']?> },
+                         { label: "71-80 years old", y: <?php echo $a8['total']?> },
+                        { label: "81-90 years old", y: <?php echo $a9['total']?> },
+                         { label: "91-100 years old", y: <?php echo $a10['total']?> }
                     ] 
                 }
             ] 

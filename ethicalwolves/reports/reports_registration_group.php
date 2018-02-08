@@ -123,7 +123,7 @@ require ('../config.php');
 										<hr>
 									</div>
 									<div class="tab-pane" id="tab-second">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 455px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<table class="table table-hover">
 													<thead>
@@ -222,7 +222,5 @@ require ('../config.php');
 		<script type="text/javascript" src="../js/plugins.js"></script>
 		<script type="text/javascript" src="../js/plugins/owl/owl.carousel.min.js"></script>
 		<script type="text/javascript" src="../js/actions.js"></script>
-		<script type="text/javascript" src="../js/settings.js"></script>
-		<script type="text/javascript" src="../js/plugins/scrolltotop/scrolltopcontrol.js"></script>
 	</body>
 </html>

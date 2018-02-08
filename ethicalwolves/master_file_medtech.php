@@ -26,7 +26,7 @@ if(ISSET($_POST['save_user'])){
 		echo "<script type='text/javascript'> alert ('Account registered successfully!');</script>";
 		echo "<script>window.location='master_file_medtech.php'</script>";
 	}
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
