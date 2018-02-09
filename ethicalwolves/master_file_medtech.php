@@ -26,7 +26,7 @@ if(ISSET($_POST['save_user'])){
 		echo "<script type='text/javascript'> alert ('Account registered successfully!');</script>";
 		echo "<script>window.location='master_file_medtech.php'</script>";
 	}
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,7 +89,11 @@ if(ISSET($_POST['save_user'])){
 												<td><center><?php echo $fetch['license']?></center></td>
 												<td><center><?php echo $fetch['username']?></center></td>
 												<td><center>*******</center></td>
-												<td><center><?php echo $fetch['status']?></center></td>
+												<td><center>
+													<?php if ($fetch['status']=='Active')echo "<span class='badge badge-info'><span class='fa fa-check'></span> Active</span>";
+				if ($fetch['status']=='Inactive')echo "<span class='badge badge-danger'><span class='fa fa-times'></span> Inactive</span>"
+													?>
+													</center></td>
 											</tr>
 											<?php
 			}

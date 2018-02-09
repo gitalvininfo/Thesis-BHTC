@@ -137,6 +137,5 @@ if(ISSET($_POST['edit_user'])){
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully updated user account!');</script>";
 	echo "<script>document.location='user_mgmt.php'</script>";  
-
 }
 ?>

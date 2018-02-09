@@ -75,7 +75,7 @@ if(ISSET($_POST['new_medicine'])){
 												<th><center>Medicine Type</center></th>
 												<th><center>Medicine Description</center></th>
 												<th><center>Running Balance</center></th>
-												<th><center>Reorder</center></th>
+												<th><center>Status</center></th>
 												<th><center>Action</center></th>
 											</tr>
 										</thead>
@@ -93,7 +93,9 @@ if(ISSET($_POST['new_medicine'])){
 												<td><center><?php if ($fetch['running_balance']<=5) 
 												echo "<span style='color:red'>".$fetch['running_balance']."</span>"; if ($fetch['running_balance']>=6) 
 												echo "<span>".$fetch['running_balance']."</span>"; ?></center></td>
-												<td><center><?php if ($fetch['running_balance']<=5)echo "<span class='badge badge-danger'><span class='fa fa-refresh'></span> Reorder</span>"?></center></td>
+												<td><center><?php if ($fetch['running_balance']<=5)echo "<span class='badge badge-danger'><span class='fa fa-refresh'></span> Reorder</span>";
+				if ($fetch['running_balance']>=6)echo "<span class='badge badge-info'><span class='fa fa-check'></span> Average</span>"
+													?></center></td>
 												<td><center>
 													<a href="#updatedata<?php echo $fetch['medicine_id'];?>" data-target="#updatedata<?php echo $fetch['medicine_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
 													</center></td>

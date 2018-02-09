@@ -2,7 +2,7 @@
 $year = date('Y');
 if(isset($_GET['year']))
 {
-    $year=$_GET['year'];
+	$year=$_GET['year'];
 }
 
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
@@ -47,85 +47,88 @@ $f18 = $capreomycin2->fetch_array();
 
 ?>
 <script type="text/javascript"> 
-    window.onload = function(){ 
-        $("#dst").CanvasJSChart({
-            theme: "light2",
-            zoomEnabled: true,
-            zoomType: "x",
-            panEnabled: true,
-            animationEnabled: true,
-            animationDuration: 1000,
-            exportFileName: "Monthly Population", 
-            exportEnabled: true,
-            title: { 
-                text: "Drug Susceptible Test Results as of Year <?php echo $year?>",
-                fontSize: 20
-            },
-            legend: {
-                cursor: "pointer",
-                itemclick: function (e) {
-                    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                        e.dataSeries.visible = false;
-                    } else {
-                        e.dataSeries.visible = true;
-                    }
-                    e.chart.render();
-                }
-            },
-            axisX: {		       
-                gridDashType: "dot",
-                gridThickness: 1,
-                labelFontColor: "black",
-                crosshair: {
-                    enabled: true 
-                }
-            },
-            axisY: { 
-                includeZero: true,
-                labelFontColor: "black",
-                crosshair: {
-                    enabled: true 
-                },
-                title: "Number of Patient with Resistant and Susceptible"
-            }, 
-            data: [ 
-                { 
-                    type: "stackedBar",
-                    showInLegend: true, 
-                    legendText: "Resistant",
-                    color:"#DB9079",
-                    toolTipContent: "{label}: {y}", 
-                    dataPoints: [ 
-                        { label: "Isoniazid", y: <?php echo $f1['total']?> },
-                         { label: "Rifampicin", y: <?php echo $f2['total']?> },
-                        { label: "Ethambutol", y: <?php echo $f3['total']?> },
-                         { label: "Streptomycin", y: <?php echo $f4['total']?> },
-                        { label: "Pyrazinamide", y: <?php echo $f5['total']?> },
-                         { label: "Levofloxacin", y: <?php echo $f6['total']?> },
-                        { label: "Kanamycin", y: <?php echo $f7['total']?> },
-                         { label: "Amikacin", y: <?php echo $f8['total']?> },
-                        { label: "Capreomycin", y: <?php echo $f9['total']?> }
-                         ] 
-                        },
-                        {        
-                            type: "stackedBar",
-                            showInLegend: true, 
-                            legendText: "Susceptible",
-                            color: "#F0D6A7",
-                            toolTipContent: "{label}: {y}", 
-                            dataPoints: [
-                                { label: "Isoniazid", y: <?php echo $f10['total']?> },
-                                 { label: "Rifampicin", y: <?php echo $f11['total']?>},
-                                { label: "Ethambutol", y: <?php echo $f12['total']?> },
-                                 { label: "Streptomycin", y: <?php echo $f13['total']?> },
-                                { label: "Pyrazinamide", y: <?php echo $f14['total']?> },
-                                 { label: "Levofloxacin", y: <?php echo $f15['total']?> },
-                                { label: "Kanamycin", y: <?php echo $f16['total']?> },
-                                 { label: "Amikacin", y: <?php echo $f17['total']?> },
-                                { label: "Capreomycin", y: <?php echo $f18['total']?>}
-                                 ]
-                                }
-                            ] 
-                        }); 
-                        }
+	window.onload = function(){ 
+		$("#dst").CanvasJSChart({
+			theme: "light2",
+			zoomEnabled: true,
+			zoomType: "x",
+			panEnabled: true,
+			animationEnabled: true,
+			animationDuration: 1000,
+			exportFileName: "Monthly Population", 
+			exportEnabled: true,
+			toolTip: {
+				shared: true  
+			},
+			title: { 
+				text: "Drug Susceptible Test Results as of Year <?php echo $year?>",
+				fontSize: 20
+			},
+			legend: {
+				cursor: "pointer",
+				itemclick: function (e) {
+					if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+						e.dataSeries.visible = false;
+					} else {
+						e.dataSeries.visible = true;
+					}
+					e.chart.render();
+				}
+			},
+			axisX: {		       
+				gridDashType: "dot",
+				gridThickness: 1,
+				labelFontColor: "black",
+				crosshair: {
+					enabled: true 
+				}
+			},
+			axisY: { 
+				includeZero: true,
+				labelFontColor: "black",
+				crosshair: {
+					enabled: true 
+				},
+				title: "Number of Patient with Resistant and Susceptible"
+			}, 
+			data: [ 
+				{ 
+					type: "stackedBar",
+					showInLegend: true, 
+					legendText: "Resistant",
+					name: "Resistant",
+					color:"#DB9079", 
+					dataPoints: [ 
+						{ label: "Isoniazid", y: <?php echo $f1['total']?> },
+						 { label: "Rifampicin", y: <?php echo $f2['total']?> },
+						{ label: "Ethambutol", y: <?php echo $f3['total']?> },
+						 { label: "Streptomycin", y: <?php echo $f4['total']?> },
+						{ label: "Pyrazinamide", y: <?php echo $f5['total']?> },
+						 { label: "Levofloxacin", y: <?php echo $f6['total']?> },
+						{ label: "Kanamycin", y: <?php echo $f7['total']?> },
+						 { label: "Amikacin", y: <?php echo $f8['total']?> },
+						{ label: "Capreomycin", y: <?php echo $f9['total']?> }
+						 ] 
+						},
+						{        
+							type: "stackedBar",
+							showInLegend: true, 
+							legendText: "Susceptible",
+							name: "Susceptible",
+							color: "#F0D6A7", 
+							dataPoints: [
+								{ label: "Isoniazid", y: <?php echo $f10['total']?> },
+								 { label: "Rifampicin", y: <?php echo $f11['total']?>},
+								{ label: "Ethambutol", y: <?php echo $f12['total']?> },
+								 { label: "Streptomycin", y: <?php echo $f13['total']?> },
+								{ label: "Pyrazinamide", y: <?php echo $f14['total']?> },
+								 { label: "Levofloxacin", y: <?php echo $f15['total']?> },
+								{ label: "Kanamycin", y: <?php echo $f16['total']?> },
+								 { label: "Amikacin", y: <?php echo $f17['total']?> },
+								{ label: "Capreomycin", y: <?php echo $f18['total']?>}
+								 ]
+								}
+							] 
+						}); 
+						}
 </script>

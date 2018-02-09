@@ -85,7 +85,9 @@ if(ISSET($_POST['save_user'])){
 												<td><center><?php echo $fetch['license']?></center></td>
 												<td><center><?php echo $fetch['username']?></center></td>
 												<td><center>*******</center></td>
-												<td><center><strong><?php echo $fetch['status']?></strong></center></td>
+												<td><center><strong><?php if ($fetch['status']=='Active')echo "<span class='badge badge-info'><span class='fa fa-check'></span> Active</span>";
+				if ($fetch['status']=='Inactive')echo "<span class='badge badge-danger'><span class='fa fa-times'></span> Inactive</span>"
+													?></strong></center></td>
 												<td><center>
 													<a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
 													</center></td>

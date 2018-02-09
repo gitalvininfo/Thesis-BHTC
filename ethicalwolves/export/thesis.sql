@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -82,6 +82,7 @@ INSERT INTO backup VALUES("132","Successfully exported database","January 25, 20
 INSERT INTO backup VALUES("133","Successfully exported database","January 26, 2018, 2:11 am"); 
 INSERT INTO backup VALUES("134","Successfully imported database","January 29, 2018, 5:21 pm"); 
 INSERT INTO backup VALUES("135","Successfully exported database","February 8, 2018, 12:52 am"); 
+INSERT INTO backup VALUES("136","Successfully exported database","February 9, 2018, 12:02 am"); 
 
 
 
@@ -629,7 +630,7 @@ CREATE TABLE `medication_dispensation` (
   `quantity` int(10) NOT NULL,
   `received_by` varchar(30) NOT NULL,
   PRIMARY KEY (`dispensation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 INSERT INTO medication_dispensation VALUES("18","Banago Barangay Health Station","Biogesic","January 11, 2018","Jan","2018","25","Alson Bayon-on"); 
 INSERT INTO medication_dispensation VALUES("19","Banago Barangay Health Station","Biogesic","January 11, 2018","Jan","2018","15","Gabriel Banua"); 
@@ -647,6 +648,8 @@ INSERT INTO medication_dispensation VALUES("30","Alijis Barangay Health Station"
 INSERT INTO medication_dispensation VALUES("31","Granada Barangay Health Station","Pyrazinamide","February 8, 2018","Feb","2018","20","Dr. Alvin"); 
 INSERT INTO medication_dispensation VALUES("32","Granada Barangay Health Station","Pyrazinamide","February 8, 2018","Feb","2018","100","Dr. Alvin"); 
 INSERT INTO medication_dispensation VALUES("33","Estefania Barangay Health Station","Levofloxacin","February 8, 2018","Feb","2018","100","Dr. Alvin"); 
+INSERT INTO medication_dispensation VALUES("34","Handumanan Barangay Health Station","Pyrazinamide","February 8, 2018","Feb","2018","100","Dr. Alvin"); 
+INSERT INTO medication_dispensation VALUES("35","Alijis Barangay Health Station","Pyrazinamide","February 9, 2018","Feb","2018","2","alson"); 
 
 
 
@@ -665,7 +668,7 @@ INSERT INTO medicine VALUES("1","Isoniazid","Tablet","This is Isoniazid","198");
 INSERT INTO medicine VALUES("3","Rifampicin","Tablet","This is Rifampicin","400"); 
 INSERT INTO medicine VALUES("4","Ethambutol","Tablet","This is Ethambutol","99"); 
 INSERT INTO medicine VALUES("5","Streptomycin","Tablet","This is Streptomycin","101"); 
-INSERT INTO medicine VALUES("21","Pyrazinamide","Tablet","Pyrazinamide","103"); 
+INSERT INTO medicine VALUES("21","Pyrazinamide","Tablet","Pyrazinamide","1"); 
 INSERT INTO medicine VALUES("22","Levofloxacin","Tablet","This is Levofloxacin","0"); 
 
 
@@ -1060,10 +1063,8 @@ CREATE TABLE `user` (
 
 INSERT INTO user VALUES("41","Alvin","Yanson","","NTP Nurse Coordinator","Admin101","aTya03gHJdTyqLkWQfg15yU573d9378d0cda4bf2546007b5ac7661d","Active"); 
 INSERT INTO user VALUES("57","Alvin","Yanson","","NTP Nurse Coordinator","Alvin1099","aTya03gHJdTyqLkWQfg15yU130e188b23a6d62494b239d4703282858c3a3d57","Active"); 
-INSERT INTO user VALUES("58","Jay","Galoyo","10931-123","Medical Technologist","Jayalvin","aTya03gHJdTyqLkWQfg15yU8e0993993adc99777c50072d99423d5d6e47af32","Active"); 
-INSERT INTO user VALUES("59","Alvin","Yanson","10313-13","Medical Technologist","Alvin1011","aTya03gHJdTyqLkWQfg15yU3d88cca9c7ba92f2020c95ff5b41b09a080da6ae","Active"); 
-INSERT INTO user VALUES("60","Alvin","Yanson","100-9121","Medical Technologist","AlvinY","aTya03gHJdTyqLkWQfg15yU1793635d343e1a3e23acd199ca7272881757dda4","Active"); 
-INSERT INTO user VALUES("61","","","","Medical Technologist","","","Active"); 
+INSERT INTO user VALUES("59","Alvin","Yanson","10313-13","Medical Technologist","medtech101","aTya03gHJdTyqLkWQfg15yUc6e9dc91aefe1a00974de3b68c57016e50f96a15","Active"); 
+INSERT INTO user VALUES("60","Alvin","Yanson","100-9121","Medical Technologist","alvin","aTya03gHJdTyqLkWQfg15yU59d97cb9530a12325b70e648432cc8de75741c2c","Inactive"); 
 
 
 
