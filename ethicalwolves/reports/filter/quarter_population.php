@@ -18,15 +18,8 @@ require ('../../config.php');
 		<style type="text/css">
 			@media print{
 				@page{
-					size:letter;
+					size:landscape;
 				}
-			}
-			#print{
-				width:700px;
-				height:1300px;
-				overflow: hidden;
-				margin:auto;
-				border:0.5px solid #8f8888;
 			}
 		</style>
 	</head>
@@ -42,81 +35,50 @@ require ('../../config.php');
 					<div class="panel panel-default">
 						<div class="panel-heading">
 
-							<h3 class="panel-title"></h3>
+							<h3 class="panel-title"><strong>Quarterly Population</strong> <span style="font-size:12px"><i>- as of <?php echo date('F j, Y', strtotime("+8 HOURS"));?></i></span></h3>
 							<div class="btn-group pull-right">
 								<div class="pull-left">
-									<button class="btn btn-default btn-sm" onclick="printContent('print')">Print</button>
+									<button class="btn btn-default btn-sm" onclick="javascript:window.print()">Print</button>
 								</div>
 							</div>  
 						</div>
-						<div id="print">
+						<div class="row">
 							<div class="panel-body">
-								<div class="row">
-									<h6 style="float:right"><u>Date: <?php echo date('F j, Y', strtotime("+8 HOURS"));?></u></h6>
-									<div class="col-md-3"><img style="height:100px;width:100px;" src="../../assets/images/bc.png"></div><br>
-									<div class="col-md-5">
-										<h6>Bacolod City Health TB DOTS Center</h6>
-										<p>BBB St., Bacolod City, Philippines  <br>
-											(034) 434 4098 <br>
-											cho_bacolod_city@yahoo.com
-										</p>
-									</div>
+								<div class="col-md-12">
+									<?php 
+									$query3 = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.year = '$year'") or die(mysqli_error());
+									$fetch3 = $query3->fetch_array();
+									?>
+									<h4><strong>Total Population -  <?php echo $fetch3['total']?></strong> TB Patients</h4> <hr>
+									<table class="table table-condensed">
+										<thead>
+											<tr>
+												<th><center>Quarter 1</center></th>
+												<th><center>Quarter 2</center></th>
+												<th><center>Quarter 3</center></th>
+												<th><center>Quarter 4</center></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php require '../require/load_quarter_population.php'?>
+											<tr>
+												<td><center><strong><?php echo $f1['total']?></strong></center></td>
+												<td><center><strong><?php echo $f2['total']?></strong></center></td>
+												<td><center><strong><?php echo $f3['total']?></strong></center></td>
+												<td><center><strong><?php echo $f4['total']?></strong></center></td>
+											</tr>
+										</tbody>
+									</table>
+									<div id="quarterly" style="width: 100%; height: 425px"></div>
+									<h6 style="float:left">Approved by:</h6><br><br>
+									<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4>
 								</div>
-								<hr>
-								<?php 
-								$query3 = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.year = '$year'") or die(mysqli_error());
-								$fetch3 = $query3->fetch_array();
-								?>
-								<h4><mark>Patient Population - Quarterly - Year <?php echo $_GET['year']?></mark></h4> <hr>
-								<h4><mark>Total Population -  <?php echo $fetch3['total']?> </mark></h4> <hr>
-								<table class="table table-condensed">
-									<thead>
-										<tr>
-											<th><center>Quarter 1</center></th>
-											<th><center>Quarter 2</center></th>
-											<th><center>Quarter 3</center></th>
-											<th><center>Quarter 4</center></th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php require '../require/load_quarter_population.php'?>
-										<tr>
-											<td><center><strong><?php echo $f1['total']?></strong></center></td>
-											<td><center><strong><?php echo $f2['total']?></strong></center></td>
-											<td><center><strong><?php echo $f3['total']?></strong></center></td>
-											<td><center><strong><?php echo $f4['total']?></strong></center></td>
-										</tr>
-
-
-									</tbody>
-								</table>
-								<hr>
-								<div class="row">
-									<div class="panel-body">
-										<div class="col-md-12">
-											<div id="quarterly" style="width: 100%; height: 425px"></div>
-										</div>
-									</div>
-								</div>
-								<hr>
-								<h6 style="float:left"></h6><br><br>
-								<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4><br><br>
-								<h6 style="float:left">Approved by:</h6>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<script>
-			function printContent(el){
-				var restorepage = document.body.innerHTML;
-				var printcontent = document.getElementById(el).innerHTML;
-				document.body.innerHTML = printcontent;
-				window.print();
-				document.body.innerHTML = restorepage;
-			}
-		</script>
 		<script type="text/javascript" src="../../js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../../js/plugins/bootstrap/bootstrap.min.js"></script>        
 		<script type="text/javascript" src="../../js/plugins/datatables/jquery.dataTables.min.js"></script>  

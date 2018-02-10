@@ -6,17 +6,17 @@ if(isset($_GET['year']))
 }
 
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$cured = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Cured' && `year_ended` = '$year'") or die(mysqli_error());
-$f1 = $cured->fetch_array();
-$tc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Treatment Completed' && `year_ended` = '$year'") or die(mysqli_error());
+$cured = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Cured' && `year` = '$year'") or die(mysqli_error());
+$a1 = $cured->fetch_array();
+$tc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Treatment Completed' && `year` = '$year'") or die(mysqli_error());
 $f2 = $tc->fetch_array();
-$died = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Died' && `year_ended` = '$year'") or die(mysqli_error());
+$died = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Died' && `year` = '$year'") or die(mysqli_error());
 $f3 = $died->fetch_array();
-$failed = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Failed' && `year_ended` = '$year'") or die(mysqli_error());
+$failed = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Failed' && `year` = '$year'") or die(mysqli_error());
 $f4 = $failed->fetch_array();
-$lf = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Lost to Follow-up' && `year_ended` = '$year'") or die(mysqli_error());
+$lf = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Lost to Follow-up' && `year` = '$year'") or die(mysqli_error());
 $f5 = $lf->fetch_array();
-$ne = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Not Evaluated' && `year_ended` = '$year'") or die(mysqli_error());
+$ne = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Not Evaluated' && `year` = '$year'") or die(mysqli_error());
 $f6 = $ne->fetch_array();
 $ct = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Currently in Treatment' && `year` = '$year'") or die(mysqli_error());
 $f7 = $ct->fetch_array();
@@ -64,7 +64,7 @@ $f7 = $ct->fetch_array();
                     type: "bar", 
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [ 
-                        { label: "Cured", y: <?php echo $f1['total']?> },
+                        { label: "Cured", y: <?php echo $a1['total']?> },
                          { label: "Treatment Completed", y: <?php echo $f2['total']?> },
                         { label: "Died", y: <?php echo $f3['total']?> },
                          { label: "Failed", y: <?php echo $f4['total']?> },

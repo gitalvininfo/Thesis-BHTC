@@ -32,7 +32,7 @@ while($fetch = $query->fetch_array()){
                                         <label class="check"><input type="radio" class="iradio" name="status" value="Failed" required/> Failed</label>
                                     </div>
                                     <div class="col-md-12">                                    
-                                        <label class="check"><input type="radio" class="iradio" name="status" value="Lost to Follow-up" required/> Lost to Follow-up</label>
+                                        <label class="check"><input type="radio" class="iradio" name="status" value="Lost to followup" required/> Lost to Follow-up</label>
                                     </div>
                                     <div class="col-md-12">                                    
                                         <label class="check"><input type="radio" class="iradio" name="status" value="Not Evaluated" required/> Not Evaluated</label>

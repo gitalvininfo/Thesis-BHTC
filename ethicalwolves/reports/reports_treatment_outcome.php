@@ -122,6 +122,17 @@ require ('../config.php');
 									<div class="tab-pane" id="tab-second">
 										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
+												<div class="panel-heading">
+													<div class="btn-group pull-left">
+														<div class="btn-group">
+															<a href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle">Filter By <span class="caret"></span></a>
+															<ul class="dropdown-menu" role="menu">
+																<li><a href="#" onclick="oMon()">Monthly</a></li>
+																<li><a href="#" onclick="oQua()">Quarter</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
 												<table class="table table-hover">
 													<thead>
 														<tr>
@@ -203,6 +214,14 @@ require ('../config.php');
 					window.location = 'reports_treatment_outcome.php?year='+year;
 				});
 			});
+		</script>
+		<script>
+			function oMon() {
+				myWindow = window.open("filter/monthly_treatment_outcome.php?year=<?php echo $year?>", "", "width=1350, height=650");
+			}
+			function oQua() {
+				myWindow = window.open("filter/quarter_treatment_outcome.php?year=<?php echo $year?>", "", "width=1350, height=650");
+			}
 		</script>
 		<audio id="audio-alert" src="../audio/alert.mp3" preload="auto"></audio>
 		<audio id="audio-fail" src="../audio/fail.mp3" preload="auto"></audio>

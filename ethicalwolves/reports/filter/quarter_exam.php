@@ -12,21 +12,15 @@ require ('../../config.php');
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" href="../../assets/images/project_logo.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" id="theme" href="../../css/theme-blue.css"/>
+		<link href="../../css/print.css" rel="stylesheet" media="print">
 		<script src="../../js/plugins/jquery/jquery.min.js"></script>
 		<script src = "../../js/jquery.canvasjs.min.js"></script>
 		<?php require '../../js/loadchart/filter/quarter_exam_population.php'?>
 		<style type="text/css">
 			@media print{
 				@page{
-					size:letter;
+					size:landscape;
 				}
-			}
-			#print{
-				width:1300px;
-				height:770px;
-				overflow: hidden;
-				margin:auto;
-				border:0.5px solid #8f8888;
 			}
 		</style>
 	</head>
@@ -42,27 +36,15 @@ require ('../../config.php');
 					<div class="panel panel-default">
 						<div class="panel-heading">
 
-							<h3 class="panel-title"></h3>
+							<h3 class="panel-title"><strong>Quarterly Exam Population </strong> <span style="font-size:12px;"> <i>- As of <?php echo date('F j, Y', strtotime("+8 HOURS"));?></i></span></h3>
 							<div class="btn-group pull-right">
 								<div class="pull-left">
-									<button class="btn btn-default btn-sm" onclick="printContent('print')">Print</button>
+									<button class="btn btn-default btn-sm" onclick="javascript:window.print()">Print</button>
 								</div>
 							</div>  
 						</div>
 						<div id="print">
 							<div class="panel-body">
-								<div class="row">
-									<h6 style="float:right"><u>Date: <?php echo date('F j, Y', strtotime("+8 HOURS"));?></u></h6>
-									<div class="col-md-1"><img style="height:100px;width:100px;" src="../../assets/images/bc.png"></div><br>
-									<div class="col-md-5">
-										<h6>Bacolod City Health TB DOTS Center</h6>
-										<p>BBB St., Bacolod City, Philippines  <br>
-											(034) 434 4098 <br>
-											cho_bacolod_city@yahoo.com
-										</p>
-									</div>
-								</div>
-								<hr>
 								<table class="table table-condensed">
 									<thead>
 										<tr>
@@ -110,11 +92,10 @@ require ('../../config.php');
 								<div class="row">
 									<div class="panel-body">
 										<div class="col-md-12">
-											<div id="quarter_exam" style="width: 100%; height: 425px"></div>
+											<div id="quarter_exam" style="width: 100%; height: 380px"></div>
 										</div>
 									</div>
 								</div>
-								<hr>
 								<h6 style="float:left"></h6><br><br>
 								<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4><br><br>
 								<h6 style="float:left">Approved by:</h6>
@@ -124,15 +105,6 @@ require ('../../config.php');
 				</div>
 			</div>
 		</div>
-		<script>
-			function printContent(el){
-				var restorepage = document.body.innerHTML;
-				var printcontent = document.getElementById(el).innerHTML;
-				document.body.innerHTML = printcontent;
-				window.print();
-				document.body.innerHTML = restorepage;
-			}
-		</script>
 		<script type="text/javascript" src="../../js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../../js/plugins/bootstrap/bootstrap.min.js"></script>        
 		<script type="text/javascript" src="../../js/plugins/datatables/jquery.dataTables.min.js"></script>  

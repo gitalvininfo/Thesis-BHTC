@@ -8,8 +8,8 @@
 			panEnabled: true,
 			animationEnabled: true,
 			animationDuration: 1000,
-			exportFileName: "Monthly Examination Conducted", 
-			exportEnabled: true,
+			//exportFileName: "Monthly Examination Conducted", 
+			//exportEnabled: true,
 			toolTip: {
 				shared: true  
 			},
