@@ -127,15 +127,23 @@ if(ISSET($_POST['edit_user'])){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$status = $_POST['status'];
+	if ($password ==""){
+		require ('config.php');
+		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `license` = '$license', `username` = '$username', `status` = '$status' WHERE `user_id` = '$user_id'") or die(mysqli_error());
+		$conn->close();
+		echo "<script type='text/javascript'>alert('Successfully updated user account!');</script>";
+		echo "<script>document.location='user_mgmt.php'</script>";  
+	}
+	else {
+		$pass1 = sha1($password);
+		$salt = "aTya03gHJdTyqLkWQfg15yU";
+		$pass1 = $salt.$pass1;
 
-	$pass1 = sha1($password);
-	$salt = "aTya03gHJdTyqLkWQfg15yU";
-	$pass1 = $salt.$pass1;
-
-	require ('config.php');
-	$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `license` = '$license', `username` = '$username', `password` = '$pass1', `status` = '$status' WHERE `user_id` = '$user_id'") or die(mysqli_error());
-	$conn->close();
-	echo "<script type='text/javascript'>alert('Successfully updated user account!');</script>";
-	echo "<script>document.location='user_mgmt.php'</script>";  
+		require ('config.php');
+		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `license` = '$license', `username` = '$username', `password` = '$pass1', `status` = '$status' WHERE `user_id` = '$user_id'") or die(mysqli_error());
+		$conn->close();
+		echo "<script type='text/javascript'>alert('Successfully updated user account!');</script>";
+		echo "<script>document.location='user_mgmt.php'</script>";  
+	}
 }
 ?>

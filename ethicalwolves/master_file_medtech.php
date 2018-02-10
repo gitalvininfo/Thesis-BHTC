@@ -22,7 +22,7 @@ if(ISSET($_POST['save_user'])){
 		echo "<script> alert ('Username already taken. Try another one.')</script>";
 	}
 	else{
-		$conn->query ("INSERT INTO `user` VALUES(' ', '$firstname', '$lastname', '$license', 'Medical Technologist', '$username', '$pass1', 'Active')") or die(mysqli_error());
+		$conn->query ("INSERT INTO `user` VALUES(' ', '$firstname', '$lastname', '$license', 'Medical Technologist', '$username', '$pass1', 'Active', ' ')") or die(mysqli_error());
 		echo "<script type='text/javascript'> alert ('Account registered successfully!');</script>";
 		echo "<script>window.location='master_file_medtech.php'</script>";
 	}
@@ -74,6 +74,7 @@ if(ISSET($_POST['save_user'])){
 												<th><center>License Number</center></th>
 												<th><center>Username</center></th>
 												<th><center>Password</center></th>
+												<th><center>Last Login</center></th>
 												<th><center>Status</center></th>
 											</tr>
 										</thead>
@@ -89,6 +90,7 @@ if(ISSET($_POST['save_user'])){
 												<td><center><?php echo $fetch['license']?></center></td>
 												<td><center><?php echo $fetch['username']?></center></td>
 												<td><center>*******</center></td>
+												<td><center><?php echo $fetch['login']?></center></td>
 												<td><center>
 													<?php if ($fetch['status']=='Active')echo "<span class='badge badge-info'><span class='fa fa-check'></span> Active</span>";
 				if ($fetch['status']=='Inactive')echo "<span class='badge badge-danger'><span class='fa fa-times'></span> Inactive</span>"

@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -83,6 +83,7 @@ INSERT INTO backup VALUES("133","Successfully exported database","January 26, 20
 INSERT INTO backup VALUES("134","Successfully imported database","January 29, 2018, 5:21 pm"); 
 INSERT INTO backup VALUES("135","Successfully exported database","February 8, 2018, 12:52 am"); 
 INSERT INTO backup VALUES("136","Successfully exported database","February 9, 2018, 12:02 am"); 
+INSERT INTO backup VALUES("137","Successfully exported database","February 10, 2018, 12:16 am"); 
 
 
 
@@ -630,7 +631,7 @@ CREATE TABLE `medication_dispensation` (
   `quantity` int(10) NOT NULL,
   `received_by` varchar(30) NOT NULL,
   PRIMARY KEY (`dispensation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 INSERT INTO medication_dispensation VALUES("18","Banago Barangay Health Station","Biogesic","January 11, 2018","Jan","2018","25","Alson Bayon-on"); 
 INSERT INTO medication_dispensation VALUES("19","Banago Barangay Health Station","Biogesic","January 11, 2018","Jan","2018","15","Gabriel Banua"); 
@@ -650,6 +651,7 @@ INSERT INTO medication_dispensation VALUES("32","Granada Barangay Health Station
 INSERT INTO medication_dispensation VALUES("33","Estefania Barangay Health Station","Levofloxacin","February 8, 2018","Feb","2018","100","Dr. Alvin"); 
 INSERT INTO medication_dispensation VALUES("34","Handumanan Barangay Health Station","Pyrazinamide","February 8, 2018","Feb","2018","100","Dr. Alvin"); 
 INSERT INTO medication_dispensation VALUES("35","Alijis Barangay Health Station","Pyrazinamide","February 9, 2018","Feb","2018","2","alson"); 
+INSERT INTO medication_dispensation VALUES("36","Lopez Jaena Health Plus","Rifampicin","February 10, 2018","Feb","2018","300","Alvin Yanson"); 
 
 
 
@@ -662,14 +664,15 @@ CREATE TABLE `medicine` (
   `medicine_description` varchar(50) NOT NULL,
   `running_balance` int(10) NOT NULL,
   PRIMARY KEY (`medicine_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 INSERT INTO medicine VALUES("1","Isoniazid","Tablet","This is Isoniazid","198"); 
-INSERT INTO medicine VALUES("3","Rifampicin","Tablet","This is Rifampicin","400"); 
+INSERT INTO medicine VALUES("3","Rifampicin","Tablet","This is Rifampicin","100"); 
 INSERT INTO medicine VALUES("4","Ethambutol","Tablet","This is Ethambutol","99"); 
 INSERT INTO medicine VALUES("5","Streptomycin","Tablet","This is Streptomycin","101"); 
 INSERT INTO medicine VALUES("21","Pyrazinamide","Tablet","Pyrazinamide","1"); 
 INSERT INTO medicine VALUES("22","Levofloxacin","Tablet","This is Levofloxacin","0"); 
+INSERT INTO medicine VALUES("23","Sample Medicine","Tablet","This is sample","250"); 
 
 
 
@@ -681,7 +684,7 @@ CREATE TABLE `medicine_stocks` (
   `quantity` int(10) NOT NULL,
   `date` varchar(30) NOT NULL,
   PRIMARY KEY (`medicine_stock_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 INSERT INTO medicine_stocks VALUES("1","Isoniazid","100","2017-11-25 20:52:15"); 
 INSERT INTO medicine_stocks VALUES("2","name","12","2017-11-29 20:11:39"); 
@@ -711,6 +714,7 @@ INSERT INTO medicine_stocks VALUES("26","Ethambutol","100","February 8, 2018, 9:
 INSERT INTO medicine_stocks VALUES("27","Streptomycin","100","February 8, 2018, 9:41 pm"); 
 INSERT INTO medicine_stocks VALUES("28","Pyrazinamide","100","February 8, 2018, 9:48 pm"); 
 INSERT INTO medicine_stocks VALUES("29","Pyrazinamide","100","February 8, 2018, 9:50 pm"); 
+INSERT INTO medicine_stocks VALUES("30","Sample Medicine","250","February 11, 2018, 1:29 am"); 
 
 
 
@@ -883,7 +887,7 @@ CREATE TABLE `registration` (
 ) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=latin1;
 
 INSERT INTO registration VALUES("26","November 25, 2017","Bacolod City Health TB DOTS Center","Community","New","TB Disease","Bacteriologically Confirmed","Extra-pulmonary","Yes","Yes","Less than 1 month","Category Ia - 2HRZE/10HR","Alvin Yanson","Barangay Health Worker","Cured","2018","1","Nov","2017"); 
-INSERT INTO registration VALUES("27","November 21, 2017","Bacolod City Health TB DOTS Center","Public Health Center","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","Yes","Less than 1 month","Category Ia - 2HRZE/10HR","Alson John Bayon-on","Nurse","Currently in Treatment","","2","Nov","2017"); 
+INSERT INTO registration VALUES("27","November 21, 2017","Bacolod City Health TB DOTS Center","Public Health Center","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","Yes","Less than 1 month","Category Ia - 2HRZE/10HR","Alson John Bayon-on","Nurse","Cured","2018","2","Nov","2017"); 
 INSERT INTO registration VALUES("28","November 21, 2017","Bacolod City Health TB DOTS Center","Other Government Facilities","Relapse","TB Disease","Clinically Diagnosed","Pulmonary","No","No","Less than 1 month","Category Ia - 2HRZE/10HR","Carl Betio","Nurse","Currently in Treatment","","6","Nov","2017"); 
 INSERT INTO registration VALUES("29","November 21, 2017","Bacolod City Health TB DOTS Center","Community","PTOU","TB Disease","Bacteriologically Confirmed","Pulmonary","No","Yes","Less than 1 month","Category Ia - 2HRZE/10HR","Gabriel banua","Nurse","Currently in Treatment","","7","Nov","2017"); 
 INSERT INTO registration VALUES("30","November 25, 2017","Bacolod City Health TB DOTS Center","Public Health Center","New","TB Disease","Clinically Diagnosed","Pulmonary","Yes","Yes","Less than 1 month","Category Ia - 2HRZE/10HR","Jal Alvin Galoyo","Nurse","Currently in Treatment","","3","Nov","2017"); 
@@ -969,8 +973,8 @@ INSERT INTO registration VALUES("109","January 27, 2018","Bacolod City Health TB
 INSERT INTO registration VALUES("110","January 27, 2018","Bacolod City Health TB DOTS Center","Public Health Center","Treatment After Loss Follow-up","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","25","Jan","2018"); 
 INSERT INTO registration VALUES("111","January 27, 2018","Bacolod City Health TB DOTS Center","Community","PTOU","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Gabriel Banua","Barangay Health Worker","Currently in Treatment","2018","40","Jan","2018"); 
 INSERT INTO registration VALUES("112","February 7, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Relapse","TB Disease","Clinically Diagnosed","Pulmonary","Yes","No","None","Category I - 2HRZE/4HR","Alvin Yanson","Barangay Health Worker","Currently in Treatment","2018","90","Feb","2018"); 
-INSERT INTO registration VALUES("113","February 7, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","Yes","Less than 1 month","Category I - 2HRZE/4HR","Alvin Yanson","Barangay Health Worker","Currently in Treatment","2018","97","Feb","2018"); 
-INSERT INTO registration VALUES("114","February 8, 2018","Bacolod City Health TB DOTS Center","Community","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Dr. Alvin Yanson","Barangay Health Worker","Currently in Treatment","2018","92","Feb","2018"); 
+INSERT INTO registration VALUES("113","February 7, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","Yes","Less than 1 month","Category I - 2HRZE/4HR","Alvin Yanson","Barangay Health Worker","Cured","2018","97","Feb","2018"); 
+INSERT INTO registration VALUES("114","February 8, 2018","Bacolod City Health TB DOTS Center","Community","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Dr. Alvin Yanson","Barangay Health Worker","Cured","2018","92","Feb","2018"); 
 
 
 
@@ -1058,13 +1062,14 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(100) NOT NULL,
   `status` char(8) NOT NULL,
+  `login` varchar(50) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
 
-INSERT INTO user VALUES("41","Alvin","Yanson","","NTP Nurse Coordinator","Admin101","aTya03gHJdTyqLkWQfg15yU573d9378d0cda4bf2546007b5ac7661d","Active"); 
-INSERT INTO user VALUES("57","Alvin","Yanson","","NTP Nurse Coordinator","Alvin1099","aTya03gHJdTyqLkWQfg15yU130e188b23a6d62494b239d4703282858c3a3d57","Active"); 
-INSERT INTO user VALUES("59","Alvin","Yanson","10313-13","Medical Technologist","medtech101","aTya03gHJdTyqLkWQfg15yUc6e9dc91aefe1a00974de3b68c57016e50f96a15","Active"); 
-INSERT INTO user VALUES("60","Alvin","Yanson","100-9121","Medical Technologist","alvin","aTya03gHJdTyqLkWQfg15yU59d97cb9530a12325b70e648432cc8de75741c2c","Inactive"); 
+INSERT INTO user VALUES("57","Alvin","Yanson","","NTP Nurse Coordinator","nurse101","aTya03gHJdTyqLkWQfg15yU5b18b25be6c088cda0cc33754c98966b151312f6","Active","February 10, 2018, 11:58 pm"); 
+INSERT INTO user VALUES("59","Alvin","Yanson","10313-13","Medical Technologist","medtech101","aTya03gHJdTyqLkWQfg15yUc6e9dc91aefe1a00974de3b68c57016e50f96a15","Active","February 10, 2018, 11:55 pm"); 
+INSERT INTO user VALUES("60","Erulskie","Ubas","100-9121","Medical Technologist","erulg","aTya03gHJdTyqLkWQfg15yU09775882de339a62dd9114f200b34b91a2aceb70","Active","February 10, 2018, 11:55 pm"); 
+INSERT INTO user VALUES("62","Alson John","Bayon-on","109099-1212","Medical Technologist","alsonbuno","aTya03gHJdTyqLkWQfg15yU9a44c481e58892b12591a67690fcea7349ff8be0","Inactive","February 10, 2018, 11:58 pm"); 
 
 
 

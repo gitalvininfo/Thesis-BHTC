@@ -35,11 +35,14 @@ if(ISSET($_POST['new_medicine'])){
 		<link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css"/>
 		<link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+		<script src="js/plugins/jquery/jquery.min.js"></script>
+		<script src = "js/jquery.canvasjs.min.js"></script>
+		<?php require 'js/loadchart/medicine.php'?>
 
 	</head>
 	<body>
 		<?php
-		$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 		$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = '$_SESSION[user_id]'") or die(mysqli_error());
 		$find = $query->fetch_array();
 		?>
@@ -55,7 +58,7 @@ if(ISSET($_POST['new_medicine'])){
 				</ul>
 				<div class="page-content-wrap">
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-7">
 							<div class="panel panel-info">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong>Medicine's List </strong><strong></strong></h3>
@@ -70,10 +73,9 @@ if(ISSET($_POST['new_medicine'])){
 									<table class="table table-hover">
 										<thead> 
 											<tr>
-												<th><center>Medicine ID</center></th>
-												<th><center>Medicine Name</center></th>
-												<th><center>Medicine Type</center></th>
-												<th><center>Medicine Description</center></th>
+												<th><center>Name</center></th>
+												<th><center>Type</center></th>
+												<th><center>Description</center></th>
 												<th><center>Running Balance</center></th>
 												<th><center>Status</center></th>
 												<th><center>Action</center></th>
@@ -86,7 +88,6 @@ if(ISSET($_POST['new_medicine'])){
 			while($fetch = $query->fetch_array()){
 											?>
 											<tr>
-												<td><center><?php echo $fetch['medicine_id']?></center></td>
 												<td><center><?php echo $fetch['medicine_name']?></center></td>
 												<td><center><?php echo $fetch['medicine_type']?></center></td>
 												<td><center><?php echo $fetch['medicine_description']?></center></td>
@@ -109,6 +110,17 @@ if(ISSET($_POST['new_medicine'])){
 								</div>
 							</div>
 						</div>
+						<div class="col-md-5">
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title"><strong>Graphical</strong><strong></strong></h3>
+								</div>
+								<div class="panel-body scroll" style="height: 470px;">
+									<div id="medicine" style="width: 100%; height: 425px"></div>
+								</div>
+							</div>
+						</div>
+
 					</div>                    
 				</div>
 			</div>            
@@ -117,7 +129,6 @@ if(ISSET($_POST['new_medicine'])){
 		<?php require 'require/modals/edit_medicine.php'?>
 		<?php require 'require/logout.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
