@@ -18,8 +18,8 @@ $f2 = $q2->fetch_array();
             theme: "light2",
             animationEnabled: true,
             animationDuration: 1000,
-            exportFileName: "Male and Female Registration", 
-            exportEnabled: true,
+            //exportFileName: "Male and Female Registration", 
+            //exportEnabled: true,
             title: { 
                 text: "Male and Female Registration as of Year <?php echo $year?>",
                 fontSize: 20

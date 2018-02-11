@@ -8,8 +8,8 @@
 			panEnabled: true,
 			animationEnabled: true,
 			animationDuration: 1000,
-			exportFileName: "Quarter Population", 
-			exportEnabled: true,
+			//exportFileName: "Quarter Population", 
+			//exportEnabled: true,
 			toolTip: {
 				shared: true  
 			},

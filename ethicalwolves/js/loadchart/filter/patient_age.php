@@ -48,8 +48,8 @@ $a10 = $q10->fetch_array();
             panEnabled: true,
             animationEnabled: true,
             animationDuration: 1000,
-            exportFileName: "Monthly Population", 
-            exportEnabled: true,
+            //exportFileName: "Monthly Population", 
+            //exportEnabled: true,
             title: { 
                 text: "Patient Population as of Year",
                 fontSize: 20

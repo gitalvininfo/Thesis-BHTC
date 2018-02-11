@@ -380,7 +380,7 @@
 
 				map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
 				SetMarker(0);
-				
+
 			};
 			function SetMarker(position) {
 				//gna kakas ang previous na marker kay masaylo sa.
@@ -418,13 +418,6 @@
 
 			};
 		</script>
-		<ul class="breadcrumb">
-			<li><a href="../home.php">Home</a></li>
-			<li class="#">Reports</li>
-			<li><a href="../reports.php">TB Cases Report</a></li>
-			<li><a href="../reports/reports_barangay_population.php">Barangay Population</a></li>
-			<li class="active"><strong><mark>Geo Tagging</mark></strong></li>
-		</ul>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-info">

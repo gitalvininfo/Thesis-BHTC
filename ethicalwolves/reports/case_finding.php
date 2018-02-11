@@ -22,8 +22,8 @@ require ('../config.php');
                 }
             }
             #print{
-                width:1010px;
-                height:2000px;
+                width:100%;
+                height:100%;
                 margin:auto;
                 overflow:hidden;
                 border:0.5px solid #8f8888;
@@ -396,7 +396,7 @@ require ('../config.php');
                                                 <?php require 'require/case_finding_table5.php'?>
                                                 <tr>
                                                     <td>Children age 0-4</td>
-                                                    <td><center><strong><?php echo $f3['total']?></strong></center></td>
+                                                    <td><center><strong><?php echo $f2['total']?></strong></center></td>
                                                 </tr>
 
                                             </tbody>

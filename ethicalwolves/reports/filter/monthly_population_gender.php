@@ -5,7 +5,7 @@ require ('../../config.php');
 <!DOCTYPE html>
 <html lang="en">
 	<head>        
-		<title>BHTC-PMIS</title>            
+		<title>BBB St., Bacolod City, Negros Occidental, Philippines 6100</title>            
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,9 +15,9 @@ require ('../../config.php');
 		<script src = "../../js/jquery.canvasjs.min.js"></script>
 		<?php require '../../js/loadchart/filter/patient_gender.php'?>
 		<style type="text/css">
-			@media print{
-				@page{
-					size:landscape;
+			@media print {
+				#print{
+					display: none !important;
 				}
 			}
 		</style>
@@ -32,13 +32,18 @@ require ('../../config.php');
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-
-							<h3 class="panel-title"><strong>Male and Female Registration</strong> <span style="font-size:12px"><i>- as of <?php echo date('F j, Y', strtotime("+8 HOURS"));?></i></span></h3>
+							<div class="btn-group pull-left">
+								<div class="pull-left">
+									<img src="../../assets/images/bcreport.png" alt="BC Logo"/>     
+								</div>
+							</div>
+							<h3 class="panel-title"><strong>Bacolod City Health TB DOTS Center - Male and Female Registration</strong><span style="font-size:12px;"> </span></h3>
 							<div class="btn-group pull-right">
 								<div class="pull-left">
-									<button class="btn btn-default btn-sm" onclick="javascript:window.print()">Print</button>
+									<i>as of <?php echo date('F j, Y', strtotime("+8 HOURS"));?></i>
+									<button id="print" class="btn btn-default btn-sm" onclick="javascript:window.print()">Print</button>      
 								</div>
-							</div>  
+							</div> 
 						</div>
 						<div class="row">
 							<div class="panel-body">
