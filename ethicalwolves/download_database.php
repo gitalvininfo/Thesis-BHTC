@@ -36,8 +36,8 @@ require ('config.php');
 								<div class="panel-heading">
 									<div class="btn-group pull-right">
 										<div class="pull-right">
-											<a class="btn btn-default mb-control" data-box="#message-box-info">Export Database</a>
-											<a class="btn btn-info mb-control" data-box="#message-box-success">Import Database</a>
+											<a class="btn btn-info mb-control" data-box="#message-box-info">Export Database</a>
+											<a class="btn btn-warning mb-control" data-box="#message-box-warning">Import Database</a>
 										</div>
 									</div>
 									<h3 class="panel-title"><strong>History Log - Export and Import Database</strong></h3>
@@ -77,7 +77,7 @@ require ('config.php');
 		<div class="message-box message-box-info animated fadeIn" data-sound="fail" id="message-box-info">
 			<div class="mb-container">
 				<div class="mb-middle">
-					<div class="mb-title"><span class="fa fa-cloud-download"></span> Export Database</div>
+					<div class="mb-title"><span class="fa fa-cloud-download"></span> Export Database ?</div>
 					<div class="mb-content">
 						<p>You are about to download the database of BHTC-PMIS. Your last backup of database was <?php echo $fetch['date']?></p>
 					</div>
@@ -98,10 +98,10 @@ require ('config.php');
 		$query = $conn->query("SELECT * FROM `backup` WHERE backup_id=(select max(backup_id) from backup)") or die(mysqli_error());
 		while ($fetch = $query->fetch_array()) {
 		?>
-		<div class="message-box message-box-success animated fadeIn" data-sound="fail" id="message-box-success">
+		<div class="message-box message-box-warning animated fadeIn" data-sound="fail" id="message-box-warning">
 			<div class="mb-container">
 				<div class="mb-middle">
-					<div class="mb-title"><span class="fa fa-cloud-upload"></span> Import Database</div>
+					<div class="mb-title"><span class="fa fa-cloud-upload"></span> Import Database ?</div>
 					<div class="mb-content">
 						<p>You are about to upload the recently exported database. Your last backup of database was <?php echo $fetch['date']?></p>
 					</div>

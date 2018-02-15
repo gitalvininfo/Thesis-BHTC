@@ -52,7 +52,7 @@ require ('../config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-second">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 488px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<table class="table table-hover">
 													<thead>
@@ -67,7 +67,7 @@ require ('../config.php');
 															<td>Direct Sputum Smear Microscopy</td>
 															<td><center><strong><?php echo $f1['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#dssm"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#dssm">View Record</button>
 																</center>
 															</td>
 														</tr>
@@ -75,7 +75,7 @@ require ('../config.php');
 															<td>Xpert MTB/RIF</td>
 															<td><center><strong><?php echo $f2['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#xpert"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#xpert">View Record</button>
 																</center>
 															</td>
 														</tr>
@@ -83,7 +83,7 @@ require ('../config.php');
 															<td>TB Culture</td>
 															<td><center><strong><?php echo $f3['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tbculture"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#tbculture">View Record</button>
 																</center>
 															</td>
 														</tr>
@@ -91,7 +91,7 @@ require ('../config.php');
 															<td>Drug Susceptible Test</td>
 															<td><center><strong><?php echo $f4['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#dst"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#dst">View Record</button>
 																</center>
 															</td>
 														</tr>

@@ -15,10 +15,10 @@
                     <hr>
                     <div class="btn-group pull-right">
                         <div class="pull-left">
-                            <a href="#intensive<?php echo $f['patient_id'];?>" data-target="#intensive<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-info-circle"></span>Monthly Dosage</a>
+                            <a href="#intensive<?php echo $f['patient_id'];?>" data-target="#intensive<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-md">Monthly Dosage</a>
                         </div>
                     </div>
-                    <h3>Date of Intake</h3>
+                    <h4>Date of Intake</h4>
                     <div class="panel-body">
                         <table class="table datatable">
                             <thead>
@@ -38,7 +38,7 @@
                                             "<tr>
                                                             <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#f4b29e;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#ff5050;'><strong><center><span style='color:#fff'> ".$fetch['remarks']." </span></center></strong></td>
                                                         </tr>";
 
                                     }
@@ -48,7 +48,7 @@
                                             "<tr>
                                                             <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#cdf2f7;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#95B75D;'><strong><center><span style='color:#fff'> ".$fetch['remarks']." </span></center></strong></td>
                                                         </tr>";
                                     }
                                 }
@@ -67,14 +67,14 @@
                     <h2><strong>Continuation Phase - <?php echo $f1['sum(dosage)']. " mg"?></strong></h2> <hr>
                     <div class="btn-group pull-right">
                         <div class="pull-left">
-                            <a href="#continuation<?php echo $f['patient_id'];?>" data-target="#continuation<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-info-circle"></span>Monthly Dosage</a>
+                            <a href="#continuation<?php echo $f['patient_id'];?>" data-target="#continuation<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-md">Monthly Dosage</a>
                         </div>
                     </div>
-                    <h3>Date of Intake</h3>
+                    <h4>Date of Intake</h4>
                     <div class="panel-body">
                         <table class="table datatable">
                             <thead>
-                                <tr class="default">
+                                <tr>
                                     <th><center>Date</center></th>
                                     <th><center>Dosage</center></th>
                                     <th><center>Remarks</center></th>
@@ -90,9 +90,8 @@
                                             "<tr>
                                                             <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#f4b29e;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#ff5050;'><strong><center><span style='color:#fff'> ".$fetch['remarks']." </span></center></strong></td>
                                                         </tr>";
-
                                     }
                                     else
                                     {
@@ -100,7 +99,7 @@
                                             "<tr>
                                                             <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#cdf2f7;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#95B75D;'><strong><center> <span style='color:#fff'>".$fetch['remarks']." </span></center></strong></td>
                                                         </tr>";
                                     }
                                 }
@@ -113,7 +112,7 @@
                     <!-- Graph Drug Intake Phase-->
                     <div class="row">
                         <h2><strong>Summary Drug Intake</strong></h2> <hr>
-                        <h3>Graphical</h3>
+                        <h4>Graphical</h4>
                         <div id="intensive" style="width: 100%; height: 425px"></div>
                     </div>
                     <!-- End Graph Drug Intake Phase-->
@@ -130,9 +129,9 @@
                         $query3 = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
                         $f2 = $query3->fetch_array();
                         ?>
-                        <table id="laboratory_request" class="table table-bordered">
+                        <table class="table table-bordered">
                             <thead>
-                                <tr class="info">
+                                <tr>
                                     <th data-toggle="tooltip" data-placement="top" title="Date Visited">
                                         <center>Date</center>
                                     </th>
@@ -193,9 +192,9 @@
                         $q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
                         $f = $q->fetch_array();
                         ?>
-                        <table id="laboratory_request" class="table table-bordered">
+                        <table class="table table-bordered">
                             <thead>
-                                <tr class="info">
+                                <tr>
                                     <th><center>Follow-up Date</center></th>
                                     <th><center>Remarks</center></th>
                                 </tr>

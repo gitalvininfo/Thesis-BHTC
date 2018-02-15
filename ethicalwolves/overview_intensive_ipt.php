@@ -64,7 +64,7 @@
 					<hr>
 					<div class="btn-group pull-right">
 						<div class="pull-left">
-							<a href="#intensive<?php echo $f['patient_id'];?>" data-target="#intensive<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-info-circle"></span>Monthly Dosage</a>
+							<a href="#intensive<?php echo $f['patient_id'];?>" data-target="#intensive<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-md">Monthly Dosage</a>
 						</div>
 					</div>
 					<h4>Date of Intake</h4>
@@ -89,7 +89,7 @@
 											"<tr>
                                                             <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#f9d6d6;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#ff5050;'><strong><center> <span style='color:#fff'>".$fetch['remarks']."</span> </center></strong></td>
                                                         </tr>";
 
 									}
@@ -99,7 +99,7 @@
 											"<tr>
                                                             <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#e7f8f4;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#95B75D;'><strong><center> <span style='color:#fff'>".$fetch['remarks']."</span> </center></strong></td>
                                                         </tr>";
 									}
 								}
@@ -122,9 +122,9 @@
 						$f = $q->fetch_array();
 						$id=$f['patient_id'];
 						?>
-						<table id="laboratory_request" class="table table-bordered">
+						<table class="table table-bordered">
 							<thead>
-								<tr class="info">
+								<tr>
 									<th><center>Follow-up Date</center></th>
 									<th><center>Remarks</center></th>
 								</tr>

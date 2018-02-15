@@ -68,7 +68,7 @@ require 'config.php';
                                                                         <td><center><?php echo $fetch['source_of_patient']?></center></td>
                                                                         <td><center><?php echo $fetch['registration_group']?></center></td>
                                                                         <td><center>
-                                                                            <a href="#follow_up<?php echo $fetch['patient_id'];?>" data-target="#follow_up<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md">Follow-up Visit</a>
+                                                                            <a href="#follow_up<?php echo $fetch['patient_id'];?>" data-target="#follow_up<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Follow-up Visit</a>
                                                                             </center></td>	
                                                                     </tr>
                                                                     <?php
@@ -122,7 +122,7 @@ require 'config.php';
                                                                         <td><center><?php echo $fetch2['address']?></center></td>
                                                                         <td>
                                                                             <center>
-                                                                                <a href="#follow_up_ipt<?php echo $fetch2['patient_id'];?>" data-target="#follow_up_ipt<?php echo $fetch2['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md">Follow-up Visit</a>
+                                                                                <a href="#follow_up_ipt<?php echo $fetch2['patient_id'];?>" data-target="#follow_up_ipt<?php echo $fetch2['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Follow-up Visit</a>
                                                                             </center>
                                                                         </td>
                                                                     </tr>

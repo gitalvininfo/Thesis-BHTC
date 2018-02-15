@@ -66,7 +66,7 @@ require ('../config.php');
                                                             <td>[T] - MTB detected, Rifampicin resistance not detected</td>
                                                             <td><center><strong><?php echo $f1['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#t"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#t">View Record</button>
                                                                 </center>
                                                             </td>
                                                         </tr>
@@ -74,7 +74,7 @@ require ('../config.php');
                                                             <td>[RR] - MTB detected, Rifampicin resistance detected</td>
                                                             <td><center><strong><?php echo $f2['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#rr"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#rr">View Record</button>
                                                                 </center>
                                                             </td>
                                                         </tr>
@@ -82,7 +82,7 @@ require ('../config.php');
                                                             <td>[TI] - MTB detected, Rifampicin resistance indeterminate</td>
                                                             <td><center><strong><?php echo $f3['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ti"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#ti">View Record</button>
                                                                 </center>
                                                             </td>
                                                         </tr>
@@ -90,7 +90,7 @@ require ('../config.php');
                                                             <td>[N] - MTB not detected</td>
                                                             <td><center><strong><?php echo $f4['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#n"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#n">View Record</button>
                                                                 </center>
                                                             </td>
                                                         </tr>
@@ -98,7 +98,7 @@ require ('../config.php');
                                                             <td>[I] - Invalid / No Result</td>
                                                             <td><center><strong><?php echo $f5['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#i"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#i">View Record</button>
                                                                 </center>
                                                             </td>
                                                         </tr>

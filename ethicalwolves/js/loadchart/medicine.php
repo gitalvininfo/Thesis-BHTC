@@ -34,7 +34,7 @@ json_encode($data_points);
 				shared: true  
 			},
 			title: { 
-				text: "Medicines Available",
+				text: "Medicines Remaining Stocks",
 				fontSize: 20
 			},
 			legend: {

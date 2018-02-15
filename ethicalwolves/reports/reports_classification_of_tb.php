@@ -97,14 +97,14 @@ require ('../config.php');
                                                             <td>Pulmonary</td>
                                                             <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#pul"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#pul">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Extra-pulmonary</td>
                                                             <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ext"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#ext">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr class="danger">

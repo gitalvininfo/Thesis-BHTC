@@ -64,7 +64,7 @@ require ('config.php');
                                                 <td><center><?php echo $fetch['address']?></center></td>
                                                 <td>
                                                     <center>
-                                                        <a href="laboratory_request.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info">Request <span class = "badge"><?php echo $f['total']?></span></a>
+                                                        <a href="laboratory_request.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-default">Request <span class = "badge"><?php echo $f['total']?></span></a>
                                                     </center>
                                                 </td>
                                             </tr>

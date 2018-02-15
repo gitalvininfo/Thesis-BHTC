@@ -4,7 +4,6 @@ require ('config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
 		<title>BHTC-PMIS</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -17,8 +16,6 @@ require ('config.php');
 		<script src="js/plugins/jquery/jquery.min.js"></script>
 		<script src="js/jquery.canvasjs.min.js"></script>
 		<?php require 'js/loadchart/intensive_phase.php'?>
-
-
 	</head>
 	<body>
 		<?php 
@@ -137,8 +134,7 @@ require ('config.php');
 														</div>
 													</div>
 													<div class="panel-body">
-														<table id="laboratory_request" class="table table-hover">
-
+														<table class="table table-hover">
 															<thead>
 																<tr>
 																	<th><center>Name</center></th>
@@ -218,9 +214,9 @@ require ('config.php');
 									<div class="tab-pane" id="tab-fourth">
 										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
-												<table id="laboratory_request" class="table table-hover">
+												<table class="table table-hover">
 													<thead>
-														<tr class="info">
+														<tr>
 															<th><center>Date Examined</center></th>
 															<th><center>Laboratory Number</center></th>
 															<th><center>Visual Appearance 1</center></th>
@@ -262,9 +258,9 @@ require ('config.php');
 									<div class="tab-pane" id="tab-fifth">
 										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
-												<table id="laboratory_request" class="table table-hover">
+												<table class="table table-hover">
 													<thead>
-														<tr class="info">
+														<tr>
 															<th><center>Date Examined</center></th>
 															<th><center>Laboratory Number</center></th>
 															<th><center>Visual Appearance</center></th>
@@ -300,19 +296,19 @@ require ('config.php');
 										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
-													<table id="laboratory_request" class="table table-hover">
+													<table class="table table-hover">
 														<thead>
-															<tr class="info">
-																<th><center>Method</center></th>
-																<th><center>TB Culture Lab</center></th>
-																<th><center>Laboratory Number</center></th>
-																<th><center>Date Sample Collected</center></th>
-																<th><center>Date Sample Received</center></th>
-																<th><center>TB Culture Result</center></th>
-																<th><center>Remarks</center></th>
-																<th><center>Examined By</center></th>
-																<th><center>Reviewed By</center></th>
-																<th><center>Date Released</center></th>
+															<tr>
+																<th style="font-size:10px"><center>Method</center></th>
+																<th style="font-size:10px"><center>TB Culture Lab</center></th>
+																<th style="font-size:10px"><center>Laboratory Number</center></th>
+																<th style="font-size:10px"><center>Date Sample Collected</center></th>
+																<th style="font-size:10px"><center>Date Sample Received</center></th>
+																<th style="font-size:10px"><center>TB Culture Result</center></th>
+																<th style="font-size:10px"><center>Remarks</center></th>
+																<th style="font-size:10px"><center>Examined By</center></th>
+																<th style="font-size:10px"><center>Reviewed By</center></th>
+																<th style="font-size:10px"><center>Date Released</center></th>
 															</tr>
 														</thead>
 														<tbody>
@@ -347,9 +343,9 @@ require ('config.php');
 										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
 											<div class="row">
 												<form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
-													<table id="laboratory_request" class="table table-hover">
+													<table class="table table-hover">
 														<thead>
-															<tr class="info">
+															<tr>
 																<th><center>TB Culture Laboratory</center></th>
 																<th><center>DST Laboratory</center></th>
 																<th><center>Method</center></th>
@@ -403,15 +399,15 @@ require ('config.php');
 												$fetch = $query->fetch_array();
 												?>
 												<div class="col-md-12">
-													<div class="panel panel-info">
+													<div class="panel panel-primary">
 														<div class="panel-heading">
 															<div class="btn-group pull-right">
 																<div class="pull-left">
-																	<a href="#new_tst<?php echo $fetch['patient_id'];?>" data-target="#new_tst<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span> TST Result</a>
+																	<a href="#new_tst<?php echo $fetch['patient_id'];?>" data-target="#new_tst<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-md">TST Result</a>
 																</div>
 															</div>
 														</div>
-														<table id="laboratory_request" class="table table-hover">
+														<table class="table table-hover">
 															<thead>
 																<tr>
 																	<th><center>Tuberculin Skin Testing Result</center></th>
@@ -429,7 +425,7 @@ require ('config.php');
 																	<td><center><?php echo $fetch['result']?></center></td>
 																	<td><center><?php echo $fetch['date_read']?></center></td>
 																	<td><center>
-																		<a href="#updatetst<?php echo $fetch['tst_id'];?>" data-target="#updatetst<?php echo $fetch['tst_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit </a>
+																		<a href="#updatetst<?php echo $fetch['tst_id'];?>" data-target="#updatetst<?php echo $fetch['tst_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Edit </a>
 																		</center></td>
 																</tr>
 																<?php
@@ -452,15 +448,15 @@ require ('config.php');
 												$fetch = $query->fetch_array();
 												?>
 												<div class="col-md-12">
-													<div class="panel panel-info">
+													<div class="panel panel-primary">
 														<div class="panel-heading">
 															<div class="btn-group pull-right">
 																<div class="pull-left">
-																	<a href="#new_cxr<?php echo $fetch['patient_id'];?>" data-target="#new_cxr<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span> Chest X-Ray Findings</a>
+																	<a href="#new_cxr<?php echo $fetch['patient_id'];?>" data-target="#new_cxr<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-md">Chest X-Ray Findings</a>
 																</div>
 															</div>
 														</div>
-														<table id="laboratory_request" class="table table-hover">
+														<table class="table table-hover">
 															<thead>
 																<tr>
 																	<th><center>Chest X-ray Findings</center></th>
@@ -480,7 +476,7 @@ require ('config.php');
 																	<td><center><?php echo $fetch['date_of_exam']?></center></td>
 																	<td><center><?php echo $fetch['tbdc']?></center></td>
 																	<td><center>
-																		<a href="#updatecxr<?php echo $fetch['cxr_id'];?>" data-target="#updatecxr<?php echo $fetch['cxr_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
+																		<a href="#updatecxr<?php echo $fetch['cxr_id'];?>" data-target="#updatecxr<?php echo $fetch['cxr_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Edit</a>
 																		</center></td>
 																</tr>
 																<?php

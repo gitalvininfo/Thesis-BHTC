@@ -16,7 +16,7 @@ require ('config.php');
 	</head>
 	<body>
 		<?php
-	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+		$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 		$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = '$_SESSION[user_id]'") or die(mysqli_error());
 		$find = $query->fetch_array();
 		?>
@@ -47,7 +47,7 @@ require ('config.php');
 									<h3 class="panel-title"><strong><?php echo $fetch2['status']?></strong></h3>
 									<div class="btn-group pull-right">
 										<div class="pull-left">
-											<a href="print/overview.php?patient_id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-default btn-sm">Print</a>
+											<a href="#" class="btn btn-default btn-sm" onclick="openP()">Print</a>
 											<a href="patient_record_report.php" class="btn btn-info btn-sm">Back</a>
 										</div>
 									</div>  
@@ -61,8 +61,12 @@ require ('config.php');
 				</div>
 			</div>
 		</div>
+		<script>
+			function openP() {
+				myWindow = window.open("print/overview.php?id=<?php echo $_GET['id']?>&patient_name=<?php echo $_GET['patient_name']?>", "", "width=1350, height=650");
+			}
+		</script>
 		<?php require 'require/logout.php'?>
-		<audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
 		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>

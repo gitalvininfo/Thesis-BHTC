@@ -30,9 +30,14 @@ $f4 = $cnta->fetch_array();
             exportFileName: "Intensive and Continuation Phase", 
             exportEnabled: true,
             title: { 
-                text: "Total of number of Present and Missed Dates of Drug Intake of <?php echo $_GET['patient_name']?>",
-                fontSize: 15
+                text: "Intensive Phase and Continuation Phase",
+                fontSize: 20
             },
+            subtitles:[
+                {
+                    text: "Present and Missed Date of Drug Intake of <?php echo $_GET['patient_name']?>"
+                }
+            ],
             legend: {
                 cursor: "pointer",
                 itemclick: function (e) {
@@ -65,7 +70,7 @@ $f4 = $cnta->fetch_array();
                     type: "stackedBar",
                     showInLegend: true, 
                     legendText: "Present",
-                    color: "#1caf9a",
+                    color: "#95B75D",
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [ 
                         {label: "Intensive Phase", y: <?php echo $f1['total']?> },
@@ -76,7 +81,7 @@ $f4 = $cnta->fetch_array();
                     type: "stackedBar",
                     showInLegend: true, 
                     legendText: "Missed",
-                    color:"#f4b29e",
+                    color:"#ff5050",
                     toolTipContent: "{label}: {y}", 
                     dataPoints: [
                         {label: "Intensive Phase", y: <?php echo $f3['total']?> },

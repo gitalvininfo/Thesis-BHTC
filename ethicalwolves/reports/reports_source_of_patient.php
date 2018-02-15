@@ -116,28 +116,28 @@ require ('../config.php');
                                                             <td>Public Health Center</td>
                                                             <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#phc"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#phc">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Other Government Facilities/Hospital</td>
                                                             <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#oth"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#oth">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Private Hospitals/Clinics/Physicians/NGO's</td>
                                                             <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#priv"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#priv">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Community</td>
                                                             <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#comm"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#comm">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr class="danger">

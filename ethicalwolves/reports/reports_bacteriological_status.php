@@ -105,7 +105,7 @@ require ('../config.php');
 															</td>
 															<td>
 																<center>
-																	<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#bc"><span class="fa fa-search"></span></button>
+																	<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#bc">View Record</button>
 																</center>
 															</td>
 														</tr>
@@ -116,7 +116,7 @@ require ('../config.php');
 															</td>
 															<td>
 																<center>
-																	<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#cd"><span class="fa fa-search"></span></button>
+																	<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#cd">View Record</button>
 																</center>
 															</td>
 														</tr>

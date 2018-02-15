@@ -24,12 +24,15 @@ $conn->close();
 		$fetch = $query->fetch_array();
 		$q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
 		$f = $q->fetch_array();
+		$check = $q->num_rows;
 		?>
-		<a href="#"><span class="fa fa-file-text"></span></a>
+		<a href="#"><span class="fa fa-envelope"></span></a>
 		<?php if ($f['total']>0)echo "<div class='informer informer-danger'>".$f['total']."</div>";?>
 		<div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
 			<div class="panel-heading">
-				<h3 class="panel-title">Pending Laboratory Requests</h3>
+				<h3 class="panel-title"><?php if($check > 0) echo "No Pending Laboratory Request";
+					else echo "Pending Laboratory Requests";
+					?></h3>
 				<div class="pull-right">
 					<span class="label label-danger"><?php echo $f['total']?></span>
 				</div>

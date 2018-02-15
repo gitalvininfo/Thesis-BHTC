@@ -24,9 +24,14 @@ $f3 = $inta->fetch_array();
 			exportFileName: "Intensive Phase Treatment", 
 			exportEnabled: true,
 			title: { 
-				text: "Total of number of Present and Missed Dates of Drug Intake of <?php echo $_GET['name']?>",
-				fontSize: 15
-			},
+                text: "Intensive Phase",
+                fontSize: 20
+            },
+            subtitles:[
+                {
+                    text: "Present and Missed Date of Drug Intake of <?php echo $_GET['name']?>"
+                }
+            ],
 			legend: {
 				cursor: "pointer",
 				itemclick: function (e) {
@@ -59,20 +64,18 @@ $f3 = $inta->fetch_array();
 					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Present",
-					color: "#1caf9a",
-					toolTipContent: "{label}: {y}", 
+					color: "#95B75D",
 					dataPoints: [ 
-						{label: "Intensive Phase", y: <?php echo $f1['total']?> }
+						{label: "Present", y: <?php echo $f1['total']?> }
 						 ] 
 						},
 						{        
 							type: "stackedBar",
 							showInLegend: true, 
 							legendText: "Missed",
-							color:"#f4b29e",
-							toolTipContent: "{label}: {y}", 
+							color:"#ff5050",
 							dataPoints: [
-								{label: "Intensive Phase", y: <?php echo $f3['total']?> }
+								{label: "Missed", y: <?php echo $f3['total']?> }
 								 ]
 								}
 							] 

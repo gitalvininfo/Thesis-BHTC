@@ -12,25 +12,28 @@
 		$fetch = $query->fetch_array();
 		$q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Pending'") or die(mysqli_error());
 		$f = $q->fetch_array();
+		$check = $q->num_rows;
 		?>
-		<a href="#"><span class="fa fa-file-text"></span></a>
+		<a href="#"><span class="fa fa-envelope"></span></a>
 		<?php if ($f['total']>0)echo "<div class='informer informer-danger'>".$f['total']."</div>";?>
 		<div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
 			<div class="panel-heading">
-				<h3 class="panel-title">Pending Laboratory Requests</h3>
+				<h3 class="panel-title"><?php if($check > 0) echo "No Pending Laboratory Request";
+					else echo "Pending Laboratory Requests";
+					?></h3>
 				<div class="pull-right">
 					<span class="label label-danger"><?php echo $f['total']?></span>
 				</div>
 			</div>
 			<div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
 				<?php 
-				$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-				$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' order by `lab_request_id` limit 10") or die(mysqli_error());
-				while($f = $q->fetch_array())
-				{
-					$id = $f['patient_id'];
-					$q2 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());
-					$f2 = $q2->fetch_array();
+	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+						$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' order by `lab_request_id` limit 10") or die(mysqli_error());
+						while($f = $q->fetch_array())
+						{
+							$id = $f['patient_id'];
+							$q2 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());
+							$f2 = $q2->fetch_array();
 				?>
 				<a href="laboratory_request.php?id=<?php echo $id?>" class="list-group-item">
 					<img src="assets/images/patient.ico" class="pull-left" alt="John Doe" />
@@ -42,8 +45,8 @@
 					</p>
 				</a>
 				<?php
-				}
-				$conn->close();
+						}
+						$conn->close();
 				?>
 			</div>
 			<div class="panel-footer text-center">
@@ -63,7 +66,8 @@
 
 		<div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
 			<div class="panel-heading">
-				<h3 class="panel-title">You have <?php echo $f['count']. " medicines that runs out of balance " ?></h3>
+				<h3 class="panel-title">
+				You have <?php echo $f['count']. " medicines that runs out of balance " ?></h3>
 				<div class="pull-right">
 					<span class="label label-danger"><?php echo $f['count']?></span>
 				</div>

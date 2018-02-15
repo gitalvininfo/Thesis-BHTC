@@ -29,7 +29,7 @@ require ('config.php');
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-info">
+                            <div class="panel panel-primary">
 
                                 <div class="panel-heading">
                                     <h3 class="panel-title"> Laboratory Requests</h3>
@@ -40,9 +40,9 @@ require ('config.php');
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 440px;">
                                     <div class="panel-body">
-                                        <table id="lab_request" class="table datatable">
+                                        <table class="table datatable">
                                             <thead> 
-                                                <tr class="info">
+                                                <tr>
                                                     <th><center>Patient Name</center></th>
                                                     <th><center>Date of Request</center></th>
                                                     <th><center>Requesting Physician</center></th>

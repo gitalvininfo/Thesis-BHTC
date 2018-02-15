@@ -56,7 +56,7 @@ require ('config.php');
                                     <li   class="active"><a href="#tab-third" role="tab" data-toggle="tab">Overview</a></li>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
-                                            <a href="#end_treatment<?php echo $f['patient_id'];?>" data-target="#end_treatment<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-arrow-right"></span>End Treatment</a>
+                                            <a href="#end_treatment<?php echo $f['patient_id'];?>" data-target="#end_treatment<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md">End Treatment</a>
                                         </div>
                                     </div>
                                 </ul>
@@ -65,7 +65,7 @@ require ('config.php');
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="panel-group accordion">
-                                                    <div class="panel panel-info">
+                                                    <div class="panel panel-primary">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
                                                                 <a href="#accOneColOne">
@@ -160,7 +160,7 @@ require ('config.php');
                                                                         </select>
                                                                     </div>
                                                                 </div> <hr>
-                                                                <button type="submit" name="add_intensive_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> </span>Save</button>
+                                                                <button type="submit" name="add_intensive_phase" class="btn btn-primary pull-right">Save</button>
                                                                 <?php require_once 'require/add_intensive_phase.php' ?>
                                                             </form>
                                                         </div>
@@ -232,7 +232,7 @@ require ('config.php');
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" name="add_absent_intensive" class="btn btn-info pull-right"> <span class="fa fa-check"> </span>Save</button>
+                                                                <button type="submit" name="add_absent_intensive" class="btn btn-primary pull-right">Save</button>
                                                                 <?php require_once 'require/add_intensive_phase.php' ?>
                                                             </form>
                                                         </div>
@@ -240,12 +240,12 @@ require ('config.php');
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="panel panel-info">
+                                                <div class="panel panel-primary">
                                                     <div class="panel-body list-group list-group-contacts scroll" style="height: 442px;">
                                                         <div class="panel-body">
-                                                            <table id="laboratory_request" class="table datatable">
+                                                            <table class="table datatable">
                                                                 <thead>
-                                                                    <tr class="info">
+                                                                    <tr>
                                                                         <th><center>Month</center></th>
                                                                         <th><center>Dosage</center></th>
                                                                         <th><center>Remarks</center></th>
@@ -262,7 +262,7 @@ require ('config.php');
                                                                             "<tr>
                                                             <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#f4b29e;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#ff5050;'><strong><center> <span style='color:#fff'>".$fetch['remarks']."</span> </center></strong></td>
                                                         </tr>";
 
                                                                     }
@@ -272,7 +272,7 @@ require ('config.php');
                                                                             "<tr>
                                                             <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#cdf2f7;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#95B75D;'><strong><center><span style='color:#fff'> ".$fetch['remarks']." </span></center></strong></td>
                                                         </tr>";
                                                                     }
                                                                 }
@@ -291,7 +291,7 @@ require ('config.php');
                                             <div class="col-md-4">
                                                 <!-- START ACCORDION -->
                                                 <div class="panel-group accordion">
-                                                    <div class="panel panel-info">
+                                                    <div class="panel panel-primary">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
                                                                 <a href="#accOneColThree">
@@ -386,7 +386,7 @@ require ('config.php');
                                                                         </select>
                                                                     </div>
                                                                 </div> <hr>
-                                                                <button type="submit" name="add_continuation_phase" class="btn btn-info pull-right"> <span class="fa fa-check"> </span>Save</button>
+                                                                <button type="submit" name="add_continuation_phase" class="btn btn-primary pull-right">Save</button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                             </form>
@@ -459,7 +459,7 @@ require ('config.php');
                                                                         </select>
                                                                     </div>
                                                                 </div> <hr>
-                                                                <button type="submit" name="add_absent_continuation" class="btn btn-info pull-right"> <span class="fa fa-check"> </span>Save</button>
+                                                                <button type="submit" name="add_absent_continuation" class="btn btn-primary pull-right">Save</button>
                                                                 <?php require_once 'require/add_continuation_phase.php' ?>
 
                                                             </form>
@@ -470,12 +470,12 @@ require ('config.php');
                                             </div>
                                             <div class="col-md-8">
                                                 <!-- START DATATABLE EXPORT -->
-                                                <div class="panel panel-info">
+                                                <div class="panel panel-primary">
                                                     <div class="panel-body list-group list-group-contacts scroll" style="height: 442px;">
                                                         <div class="panel-body">
                                                             <table id="laboratory_request" class="table datatable">
                                                                 <thead>
-                                                                    <tr class="info">
+                                                                    <tr>
                                                                         <th><center>Month</center></th>
                                                                         <th><center>Dosage</center></th>
                                                                         <th><center>Remarks</center></th>
@@ -492,7 +492,7 @@ require ('config.php');
                                                                             "<tr>
                                                             <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#f4b29e;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#ff5050;'><strong><center> <span style='color:#fff'>".$fetch['remarks']."<span> </center></strong></td>
                                                         </tr>";
 
                                                                     }
@@ -502,7 +502,7 @@ require ('config.php');
                                                                             "<tr>
                                                             <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#cdf2f7;'><strong><center> ".$fetch['remarks']." </center></strong></td>
+                                                            <td style='background-color:#95B75D;'><strong><center> <span style='color:#fff'>".$fetch['remarks']."</span> </center></strong></td>
                                                         </tr>";
                                                                     }
                                                                 }
@@ -518,7 +518,7 @@ require ('config.php');
                                     </div>
                                     <div class="tab-pane active" id="tab-third">
                                         <div class="col-md-12">
-                                            <div class="panel panel-info">
+                                            <div class="panel panel-primary">
                                                 <div class="panel-body">
                                                     <div id="intensive" style="width: 100%; height: 425px"></div>
                                                 </div>

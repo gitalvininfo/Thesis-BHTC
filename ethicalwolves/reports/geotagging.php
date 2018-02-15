@@ -375,7 +375,9 @@
 				var mapOptions = {
 					center: new google.maps.LatLng(10.640739, 122.968956),
 					zoom: 14,
-					mapTypeId: google.maps.MapTypeId.HYBRID
+					mapTypeId: google.maps.MapTypeId.HYBRID,
+					tilt: 45,
+					rotateControl: true
 				};
 
 				map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
@@ -393,7 +395,8 @@
 				marker = new google.maps.Marker({
 					position: myLatlng,
 					map: map,
-					title: data.title
+					title: data.title,
+					animation:google.maps.Animation.BOUNCE
 				});
 
 				var CicleOption = {

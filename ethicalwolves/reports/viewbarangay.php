@@ -16,20 +16,6 @@ require ('../config.php');
 		<script src="../js/plugins/jquery/jquery.min.js"></script>
 		<script src = "../js/jquery.canvasjs.min.js"></script>
 		<?php include_once '../js/loadchart/overview_barangay.php'?>
-		<style type="text/css">
-			@media print{
-				@page{
-					size:letter;
-				}
-			}
-			#print{
-				width:1100px;
-				height:800px;
-				margin:auto;
-				overflow:hidden;
-				border:0.5px solid #b3acac;
-			}
-		</style>
 	</head>
 	<body>
 		<?php 
@@ -48,10 +34,15 @@ require ('../config.php');
 				</ul>
 				<div class="page-content-wrap">
 					<div class="row">
-						<div class="col-md-9">
+						<div class="col-md-12">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h3 class="panel-title"></h3>
+									<div class="btn-group pull-right">
+										<div class="pull-left">
+											<a href="reports_barangay_population.php" class="btn btn-default btn-sm">Back</a>
+											<a href="#" onclick="openGeo()" class="btn btn-default btn-sm">Geo Tagging</a>
+										</div>
+									</div> 
 								</div>
 								<div class="panel-body">
 									<div id="patient_population" style="width: 100%; height: 400px"></div>
@@ -59,48 +50,29 @@ require ('../config.php');
 
 							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-12">
 							<div class="panel panel-default">
-								<div class="panel-body profile" style="background: url('../assets/images/bacolod.png') center center no-repeat;">
-									<div class="profile-image">
-										<img src="../assets/images/bc.png" alt="Bacolod Logo"/>
-									</div>
-									<?php
+								<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
 			$q1 = $conn->query("SELECT *, count(*) as total FROM `patient`, `registration` WHERE registration.patient_id = patient.patient_id && `barangay` = '$_GET[id]' && registration.year = '$_GET[year]' ") or die(mysqli_error());
 			$fe2 = $q1->fetch_array();
-									?>
-									<div class="profile-data">
-										<div class="profile-data-name" style="color: #000;">Barangay <?php echo $fe2['barangay']?></div>
-										<div class="profile-data-title" style="color: #000;">Bacolod City</div>
-									</div>                                    
-								</div>                                
-								<div class="panel-body">                                    
-									<div class="row">
-										<div class="col-md-6">
-											<button class="btn btn-info btn-rounded btn-block"><?php echo $fe2['total']?> Patients</button>
-										</div>
-										<div class="col-md-6">
-											<button class="btn btn-primary btn-rounded btn-block">Year <?php echo $fe2['year']?></button>
-										</div>
-									</div>
-								</div>
+								?>
 								<div class="panel-body">
-									<h4 class="text-title">Patients Registered</h4>
+									<h4 class="text-title">Patients Registered - Year <?php echo $year?></h4>
 									<div class="row">
 										<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-											$query = $conn->query("SELECT * FROM `patient`, `registration` WHERE registration.patient_id = patient.patient_id && registration.year = '$_GET[year]' && `barangay` = '$_GET[id]' LIMIT 3") or die(mysqli_error());
-											while($fetch = $query->fetch_array()){
-												echo 
-													"<div class='col-md-4 col-xs-4'>
+										$query = $conn->query("SELECT * FROM `patient`, `registration` WHERE registration.patient_id = patient.patient_id && registration.year = '$_GET[year]' && `barangay` = '$_GET[id]' LIMIT 12") or die(mysqli_error());
+										while($fetch = $query->fetch_array()){
+											echo 
+												"<div class='col-md-1 col-xs-1'>
 													<a href='#' class='friend'>
 													<img src='../assets/images/patient.ico'/>
 													<span>".$fetch['patient_name']."</span>
 													</a>
 													</div>"
-													;
-											}   
+												;
+										}   
 										?>
 									</div>
 									<a href="#view<?php echo $_GET['id'];?>" data-target="#view<?php echo $_GET['id'];?>" data-toggle="modal" >See Full List </a>
@@ -327,18 +299,12 @@ require ('../config.php');
 
 		<?php require 'require/logout.php'?>
 		<script>
-			function printContent(el){
-				var restorepage = document.body.innerHTML;
-				var printcontent = document.getElementById(el).innerHTML;
-				document.body.innerHTML = printcontent;
-				window.print();
-				document.body.innerHTML = restorepage;
+			function openGeo() {
+				myWindow = window.open("geotagging.php", "", "width=1350, height=670");
 			}
 		</script>
-
 		<audio id="audio-fail" src="../audio/fail.mp3" preload="auto"></audio>
 		<script type='text/javascript' src='../js/plugins/bootstrap/bootstrap-select.js'></script>
-
 		<script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>
 		<script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>
@@ -346,6 +312,7 @@ require ('../config.php');
 		<script type="text/javascript" src="../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 		<script type="text/javascript" src="../js/plugins.js"></script>
 		<script type="text/javascript" src="../js/actions.js"></script>
-
+		<script type="text/javascript" src="../js/settings.js"></script>
+		<script type="text/javascript" src="../js/plugins/scrolltotop/scrolltopcontrol.js"></script>
 	</body>
 </html>

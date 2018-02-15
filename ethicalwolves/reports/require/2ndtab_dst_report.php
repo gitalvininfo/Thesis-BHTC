@@ -112,7 +112,7 @@
     <div class="col-md-6">
         <table class="table table-hover">
             <thead>
-                <tr class="warning">
+                <tr class="success">
                     <th colspan="3">Susceptible</th>
                 </tr>
                 <tr>

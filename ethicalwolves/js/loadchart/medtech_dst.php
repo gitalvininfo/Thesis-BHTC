@@ -61,9 +61,14 @@ $f18 = $capreomycin2->fetch_array();
 				shared: true  
 			},
 			title: { 
-				text: "Drug Susceptible Test Results as of Year <?php echo $year?>",
-				fontSize: 20
+				text: "Bacolod City Health TB DOTS Center",
+				fontSize: 22
 			},
+			subtitles:[
+				{
+					text: "Drug Susceptible Test Results - Year <?php echo $year?>"
+				}
+			],
 			legend: {
 				cursor: "pointer",
 				itemclick: function (e) {
@@ -97,7 +102,7 @@ $f18 = $capreomycin2->fetch_array();
 					showInLegend: true, 
 					legendText: "Resistant",
 					name: "Resistant",
-					color:"#DB9079", 
+					color:"#ff5050", 
 					dataPoints: [ 
 						{ label: "Isoniazid", y: <?php echo $f1['total']?> },
 						 { label: "Rifampicin", y: <?php echo $f2['total']?> },
@@ -115,7 +120,7 @@ $f18 = $capreomycin2->fetch_array();
 							showInLegend: true, 
 							legendText: "Susceptible",
 							name: "Susceptible",
-							color: "#F0D6A7", 
+							color: "#95B75D", 
 							dataPoints: [
 								{ label: "Isoniazid", y: <?php echo $f10['total']?> },
 								 { label: "Rifampicin", y: <?php echo $f11['total']?>},

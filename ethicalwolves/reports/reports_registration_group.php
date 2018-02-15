@@ -123,7 +123,7 @@ require ('../config.php');
 										<hr>
 									</div>
 									<div class="tab-pane" id="tab-second">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 456px;">
 											<div class="row">
 												<table class="table table-hover">
 													<thead>
@@ -138,49 +138,49 @@ require ('../config.php');
 															<td>New</td>
 															<td><center><strong><?php echo $fetch3['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#new"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#new">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Relapse</td>
 															<td><center><strong><?php echo $fetch4['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#relapse"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#relapse">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Treatment After Loss Follow-up</td>
 															<td><center><strong><?php echo $fetch5['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#talf"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#talf">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Treatment After Failure</td>
 															<td><center><strong><?php echo $fetch6['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#taf"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#taf">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Previous Treatment Outcome Unknown</td>
 															<td><center><strong><?php echo $fetch7['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ptou"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#ptou">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Transfer-in</td>
 															<td><center><strong><?php echo $fetch8['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#trans"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#trans">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Others</td>
 															<td><center><strong><?php echo $fetch9['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#oth"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#oth">View Record</button>
 																</center></td>
 														</tr>
 														<tr class="danger">

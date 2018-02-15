@@ -54,7 +54,7 @@ require ('config.php');
 
 								<div class="panel-body tab-content">
 									<div class="tab-pane active" id="tab-first">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 420px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 416px;">
 											<div class="row">
 												<div class="col-md-3">
 													<div class="panel panel-default">
@@ -187,9 +187,9 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-second">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 420px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 416px;">
 											<div class="row">
-												<table id="laboratory_request" class="table table-hover">
+												<table class="table table-hover">
 													<thead>
 														<tr>
 															<th style="font-size:10px"><center>Date Examined</center></th>
@@ -245,11 +245,11 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-third">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 420px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 416px;">
 											<div class="row">
-												<table id="laboratory_request" class="table table-hover">
+												<table class="table table-hover">
 													<thead>
-														<tr class="info">
+														<tr>
 															<th><center>Date Examined</center></th>
 															<th><center>Laboratory Number</center></th>
 															<th><center>Visual Appearance</center></th>
@@ -297,12 +297,12 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-fourth">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 420px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 416px;">
 											<div class="row">
 												<form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
-													<table id="laboratory_request" class="table table-hover">
+													<table class="table table-hover">
 														<thead>
-															<tr class="info">
+															<tr>
 																<th style="font-size:10px"><center>Method</center></th>
 																<th style="font-size:10px"><center>TB Culture Lab</center></th>
 																<th style="font-size:10px"><center>Laboratory Number</center></th>
@@ -344,12 +344,12 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="tab-pane" id="tab-fifth">
-										<div class="panel-body list-group list-group-contacts scroll" style="height: 420px;">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 416px;">
 											<div class="row">
 												<form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
-													<table id="laboratory_request" class="table table-hover">
+													<table class="table table-hover">
 														<thead>
-															<tr class="info">
+															<tr>
 																<th><center>TB Culture Laboratory</center></th>
 																<th><center>DST Laboratory</center></th>
 																<th><center>Method</center></th>
@@ -378,7 +378,7 @@ require ('config.php');
 																<td><center><?php echo $fetch['remarks']?></center></td>
 																<td>
 																	<center>
-																		<a href="#viewdst<?php echo $fetch['dst_id'];?>" data-toggle="modal" data-target="#viewdst<?php echo $fetch['dst_id'];?>" class="btn btn-info btn-xs"><span class="fa fa-search"></span> </a>
+																		<a href="#viewdst<?php echo $fetch['dst_id'];?>" data-toggle="modal" data-target="#viewdst<?php echo $fetch['dst_id'];?>" class="btn btn-default btn-sm">View</a>
 																	</center>
 																</td>
 															</tr>

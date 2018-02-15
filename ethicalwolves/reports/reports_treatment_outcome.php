@@ -146,42 +146,42 @@ require ('../config.php');
 															<td>Cured</td>
 															<td><center><strong><?php echo $f1['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#cured"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#cured">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Treatment Completed</td>
 															<td><center><strong><?php echo $f2['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tc"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#tc">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Died</td>
 															<td><center><strong><?php echo $f3['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#died"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#died">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Failed</td>
 															<td><center><strong><?php echo $f4['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#failed"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#failed">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Lost to Follow-up</td>
 															<td><center><strong><?php echo $f5['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ltf"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#ltf">View Record</button>
 																</center></td>
 														</tr>
 														<tr>
 															<td>Not Evaluated</td>
 															<td><center><strong><?php echo $f6['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ne"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#ne">View Record</button>
 																</center>
 															</td>
 														</tr>
@@ -189,7 +189,7 @@ require ('../config.php');
 															<td>Currently in Treatment</td>
 															<td><center><strong><?php echo $f7['total']?></strong></center></td>
 															<td><center>
-																<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#ct"><span class="fa fa-search"></span></button>
+																<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#ct">View Record</button>
 																</center>
 															</td>
 														</tr>

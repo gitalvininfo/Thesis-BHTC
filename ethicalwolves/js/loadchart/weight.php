@@ -1,56 +1,76 @@
 <?php
-$year = date('Y');
-if(isset($_GET['year']))
-{
-    $year=$_GET['year'];
-}
-
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
-$f = $q->fetch_array();
-$q1 = $conn->query("SELECT `weight` FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]'") or die (mysqli_error());
-$f1 = $q1->fetch_array();
-$qjan = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `month` = 'Jan' && `year` = '$year'") or die(mysqli_error());
-$fjan = $qjan->fetch_array();
-
-
+$res = $conn->query("SELECT * FROM `clinical_findings` where `patient_id` = '$_GET[id]' group by date_visited") or die(mysqli_error());
+$data_points = array();
+while($result = $res->fetch_array()){
+	$R = $result['weight'];
+	$q1 = $conn->query("SELECT * FROM `clinical_findings` WHERE `weight` = '$R'") or die(mysqli_error());
+	$f1 = $q1->fetch_array();
+	$FR = intval($f1['weight']);
+	$point = array('label' => $R, 'y' => $FR);
+	array_push($data_points, $point);
+}
+json_encode($data_points);
 ?>
+<script type="text/javascript"> 
+	window.onload = function(){
 
-<script type="text/javascript">
-    window.onload = function () {
-        var chart = new CanvasJS.Chart("weight",
-                                       {
-            theme: "light2",
-            animationEnabled: true,
-            animationDuration: 1000,
-            axisX: {		       
-                gridDashType: "dot",
-                gridThickness: 1,
-                labelFontColor: "black",
-                crosshair: {
-                    enabled: true 
-                }
-            },
-            axisY: { 
-                title: "Weight in kg.", 
-                includeZero: false,
-                labelFontColor: "black",
-                crosshair: {
-                    enabled: true 
-                }
-            }, 
-
-            data: [ 
-                { 
-                    type: "column", 
-                    toolTipContent: "{label}: {y}", 
-                    dataPoints: [ 
-                        { label: "Visit", y: <?php echo $f1['weight']?> }
-                         ] 
-                        }
-                    ] 
-                });
-
-                chart.render();
-                }
+		$("#weight").CanvasJSChart({
+			theme: "light2",
+			zoomEnabled: true,
+			zoomType: "x",
+			panEnabled: true,
+			animationEnabled: true,
+			animationDuration: 1000,
+			//exportFileName: "Available Stocks", 
+			//exportEnabled: true,
+			toolTip: {
+				shared: true  
+			},
+			title: { 
+				text: "Weight Progress ka mango",
+				fontSize: 20
+			},
+			legend: {
+				cursor: "pointer",
+				itemclick: function (e) {
+					if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+						e.dataSeries.visible = false;
+					} else {
+						e.dataSeries.visible = true;
+					}
+					e.chart.render();
+				}
+			},
+			axisX: {	
+				title: "Products", 
+				gridDashType: "dot",
+				gridThickness: 1,
+				labelFontColor: "black",
+				crosshair: {
+					enabled: true 
+				}
+			},
+			axisY: { 
+				title: "Total Number of Purchase", 
+				includeZero: false,
+				labelFontColor: "black",
+				crosshair: {
+					enabled: true,
+					snapToDataPoint: true
+				}
+			},
+			data: [ 
+				{ 
+					type: "bar", 
+					//showInLegend: true, 
+					toolTipContent: "{label} <br/> {y}", 
+					indexLabel: "{y}", 
+					//legendText: "<?php echo $f1['weight']?>",
+					//name: "Total Patients this year",
+					dataPoints: <?php echo json_encode($data_points); ?>
+				}
+					] 
+				}); 
+				}
 </script>

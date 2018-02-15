@@ -29,15 +29,15 @@ require ('config.php');
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-info">
+                            <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"> Laboratory Results</h3>
                                 </div>
-                                <div class="panel-body list-group list-group-contacts scroll" style="height: 440px;">
+                                <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                     <div class="panel-body">
                                         <table class="table datatable">
                                             <thead> 
-                                                <tr class="info">
+                                                <tr>
                                                     <th><center>TB Case No</center></th>
                                                     <th><center>Patient Name</center></th>
                                                     <th><center>Registration Date</center></th>
@@ -63,7 +63,7 @@ require ('config.php');
                                                     <td><center><?php echo $fetch2['source_of_patient']?></center></td>
                                                     <td><center><?php echo $fetch2['registration_group']?></center></td>
                                                     <td><center>
-                                                        <a href="medtech_patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View</a></center></td>	
+                                                        <a href="medtech_patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="left" title="View Record">View</a></center></td>	
                                                 </tr>
                                                 <?php
             }

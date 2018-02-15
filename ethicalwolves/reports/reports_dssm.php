@@ -68,7 +68,7 @@ require ('../config.php');
                                                             <td>Positive (+)</td>
                                                             <td><center><strong><?php echo $f1['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#pos"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#pos">View Record</button>
                                                                 </center>
                                                             </td>
                                                         </tr>
@@ -76,7 +76,7 @@ require ('../config.php');
                                                             <td>Negative (0)</td>
                                                             <td><center><strong><?php echo $f2['total']?></strong></center></td>
                                                             <td><center>
-                                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#neg"><span class="fa fa-search"></span></button>
+                                                                <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#neg">View Record</button>
                                                                 </center>
                                                             </td>
                                                         </tr>

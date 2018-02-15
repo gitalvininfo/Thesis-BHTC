@@ -124,12 +124,12 @@ $a12 = $a12->fetch_array();
 				shared: true  
 			},
 			title: { 
-				text: "Barangay <?php echo $_GET['id']?>",
+				text: "Bacolod City Health TB DOTS Center",
 				fontSize: 20
 			},
 			subtitles:[
 				{
-					text: "Patient Monthly Population - Year <?php echo $year?>"
+					text: "Barangay <?php echo $_GET['id']?> Patient Population - Year <?php echo $year?>"
 				}
 			],
 			legend: {

@@ -12,7 +12,6 @@ require ('config.php');
 		<link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css"/>
 		<link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
-		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 	</head>
 	<body>
 		<?php 
@@ -91,7 +90,7 @@ require ('config.php');
 														<div class="panel-body">
 															<table class="table datatable">
 																<thead> 
-																	<tr class="info">
+																	<tr>
 																		<th><center>IPT No</center></th>
 																		<th><center>Patient Name</center></th>
 																		<th><center>Age</center></th>
@@ -122,8 +121,8 @@ require ('config.php');
 																		<td><center><?php echo $fetch['emergency_no']?></center></td>
 																		<td><center><?php echo $fetch['address']?></center></td>
 																		<td><center>
-																			<a href="#updateipt<?php echo $fetch['patient_id'];?>" data-target="#updateipt<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="left" title="Edit Patient Information"></span></a>
-																			<a href="patient_overview_ipt.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span><Record></Record> </a></center></td>	
+																			<a href="#updateipt<?php echo $fetch['patient_id'];?>" data-target="#updateipt<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Edit</a>
+																			<a href="patient_overview_ipt.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="left" title="View Record">View</a></center></td>	
 																	</tr>
 																	<?php
 																	}
@@ -149,6 +148,7 @@ require ('config.php');
 		<?php require 'require/modals/edit_ipt_case.php'?>
 		<?php require 'require/logout.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>

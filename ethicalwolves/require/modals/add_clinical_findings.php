@@ -17,11 +17,6 @@ while($fetch = $query->fetch_array()){
                         <div class="panel-body">
                             <div class="block">
                                 <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">Check the appropriate symtoms for <?php echo $fetch['patient_name']?></th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         <tr>
                                             <td>1. Unexplained fever greater than 2 weeks</td>
@@ -91,8 +86,8 @@ while($fetch = $query->fetch_array()){
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-info" name="add_new_clinical"><span class="fa fa-check"></span>Save</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                    <button type="submit" class="btn btn-default" name="add_new_clinical">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>

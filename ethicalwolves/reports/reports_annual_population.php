@@ -95,82 +95,82 @@ require ('../config.php');
                                                         <tr>
                                                             <td>2013</td>
                                                             <td><center><strong><?php echo $fetch1['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2013"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2013">View Record</button>
                                                                 </center></td>
                                                         </tr>
 
                                                         <tr>
                                                             <td>2014</td>
                                                             <td><center><strong><?php echo $fetch2['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2014"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2014">View Record</button>
                                                                 </center></td>
                                                         </tr>
 
                                                         <tr>
                                                             <td>2015</td>
                                                             <td><center><strong><?php echo $fetch3['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2015"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2015">View Record</button>
                                                                 </center></td>
                                                         </tr>
 
                                                         <tr>
                                                             <td>2016</td>
                                                             <td><center><strong><?php echo $fetch4['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2016"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2016">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2017</td>
                                                             <td><center><strong><?php echo $fetch5['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2017"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2017">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2018</td>
                                                             <td><center><strong><?php echo $fetch6['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2018"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2018">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2019</td>
                                                             <td><center><strong><?php echo $fetch7['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2019"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2019">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2020</td>
                                                             <td><center><strong><?php echo $fetch8['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2020"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2020">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2021</td>
                                                             <td><center><strong><?php echo $fetch9['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2021"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2021">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2022</td>
                                                             <td><center><strong><?php echo $fetch10['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2022"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2022">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2023</td>
                                                             <td><center><strong><?php echo $fetch11['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2023"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2023">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2024</td>
                                                             <td><center><strong><?php echo $fetch12['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2024"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2024">View Record</button>
                                                                 </center></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2025</td>
                                                             <td><center><strong><?php echo $fetch13['total']?></strong></center></td>
-                                                            <td><center><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#2025"><span class="fa fa-search"></span></button>
+                                                            <td><center><button class="btn btn-default btn-sm" data-toggle="modal" data-target="#2025">View Record</button>
                                                                 </center>
                                                             </td>
                                                         </tr>

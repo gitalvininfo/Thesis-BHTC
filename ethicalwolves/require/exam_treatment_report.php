@@ -124,7 +124,6 @@
 					</table>
 				</div>&nbsp;<hr>
 
-
 				<h2> <strong>TB Culture</strong></h2><hr>
 				<h4>Results</h4>
 				<div class="panel-body panel-body-table">
@@ -206,11 +205,11 @@
 						</thead>
 						<tbody>
 							<?php
-	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-						   $query = $conn->query("SELECT * FROM `cxr` WHERE `patient_id` = '$_GET[id]' ORDER BY `cxr_id` DESC") or die(mysqli_error());
-						   $id = $fetch['patient_id'];
-						   while($fetch2 = $query->fetch_array()){
-							   $id = $fetch2['patient_id'];
+							$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+							$query = $conn->query("SELECT * FROM `cxr` WHERE `patient_id` = '$_GET[id]' ORDER BY `cxr_id` DESC") or die(mysqli_error());
+							$id = $fetch['patient_id'];
+							while($fetch2 = $query->fetch_array()){
+								$id = $fetch2['patient_id'];
 							?>
 							<tr>
 								<td><center><?php echo $fetch2['cxr_findings']?></center></td>
@@ -218,8 +217,8 @@
 								<td><center><?php echo $fetch2['tbdc']?></center></td>
 							</tr>
 							<?php
-						   }
-						   $conn->close();
+							}
+							$conn->close();
 							?>
 						</tbody>
 					</table>
@@ -275,7 +274,7 @@
 							</tr>
 						</tbody>
 					</table>
-				</div>
+				</div>&nbsp;
 			</div>
 		</div>
 	</div>
