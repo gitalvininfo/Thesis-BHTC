@@ -33,7 +33,7 @@ require ('config.php');
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-8">
-                            <div class="panel panel-info">
+                            <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><strong>Medication Dispensed Log</strong></h3>
                                 </div>
@@ -41,7 +41,7 @@ require ('config.php');
                                     <div class="panel-body">
                                         <table class="table datatable">
                                             <thead>
-                                                <tr class="info">
+                                                <tr>
                                                     <th><center>Number</center></th>
                                                     <th><center>Drug Name</center></th>
                                                     <th><center>Date Given</center></th>
@@ -77,7 +77,7 @@ require ('config.php');
                         </div>
                         <div class="col-md-4">
                             <div class="panel-group accordion">
-                                <div class="panel panel-danger">
+                                <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a href="#accOneColOne">
@@ -110,7 +110,7 @@ require ('config.php');
                                         </table> 
                                     </div>
                                 </div>
-                                <div class="panel panel-danger">
+                                <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a href="#accOneColTwo">
@@ -137,7 +137,7 @@ require ('config.php');
                                                     <td><center><?php echo $fetch['month']. " " .$fetch['year']?></center></td>
                                                     <td><center><span class="label label-info label-form"><?php echo $fetch['quantity']. " boxes"?></span></center></td>
                                                     <td><center>
-                                                        <a href="#two<?php echo $fetch['month']?>" data-target="#two<?php echo $fetch['month']?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-search"></span></a>
+                                                        <a href="#two<?php echo $fetch['month']?>" data-target="#two<?php echo $fetch['month']?>" data-toggle="modal" class="btn btn-default btn-sm">View</a>
                                                         </center>
                                                     </td>
                                                 </tr>
@@ -148,7 +148,7 @@ require ('config.php');
                                         </table> 
                                     </div>
                                 </div>
-                                <div class="panel panel-danger">
+                                <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a href="#accOneColThree">
@@ -175,7 +175,7 @@ require ('config.php');
                                                     <td><center><?php echo $fetch['month']. " " .$fetch['year']?></center></td>
                                                     <td><center><span class="label label-info label-form"><?php echo $fetch['quantity']. " boxes"?></span></center></td>
                                                     <td><center>
-                                                        <a href="#three<?php echo $fetch['month']?>" data-target="#two<?php echo $fetch['month']?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-search"></span></a>
+                                                        <a href="#three<?php echo $fetch['month']?>" data-target="#two<?php echo $fetch['month']?>" data-toggle="modal" class="btn btn-default btn-sm">View</a>
                                                         </center>
                                                     </td>
                                                 </tr>

@@ -32,7 +32,7 @@ require ('config.php');
 				<div class="page-content-wrap">
 					<div class="row">
 						<div class="col-md-5">
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong>Barangay Health Stations</strong></h3>
 								</div>
@@ -40,9 +40,9 @@ require ('config.php');
 									<div class="panel-body">
 										<table class="table datatable">
 											<thead>
-												<tr class="info">
-													<th><center>Name</center></th>
-													<th><center>Action</center></th>
+												<tr >
+													<th>Name</th>
+													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -52,11 +52,9 @@ require ('config.php');
 			while($fetch = $query->fetch_array()){
 												?>
 												<tr>
-													<td><center><?php echo $fetch['health_center']?></center></td>
+													<td><?php echo $fetch['health_center']?></td>
 													<td>
-														<center>
-															<a href="view_drug_dispensation.php?id=<?php echo $fetch['health_center_id']?>&health_center=<?php echo $fetch['health_center']?>" class="btn btn-sm btn-info"><span class="fa fa-arrow-right"></span></a>
-														</center>
+														<a href="view_drug_dispensation.php?id=<?php echo $fetch['health_center_id']?>&health_center=<?php echo $fetch['health_center']?>" class="btn btn-sm btn-default">View</a>
 													</td>
 												</tr>
 												<?php
@@ -71,7 +69,7 @@ require ('config.php');
 							</div>
 						</div>
 						<div class="col-md-7">
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong>Medicine Dispensation Log</strong></h3>
 								</div>
@@ -79,7 +77,7 @@ require ('config.php');
 									<div class="panel-body">
 										<table class="table datatable">
 											<thead>
-												<tr class="info">
+												<tr >
 													<th><center>Health Station</center></th>
 													<th><center>Medicine</center></th>
 													<th><center>Number of Kits</center></th>

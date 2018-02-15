@@ -45,7 +45,7 @@ require 'config.php';
                                                         <div class="panel-body">
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
-                                                                    <tr class="info">
+                                                                    <tr >
                                                                         <th><center>TB Case Number</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Gender</center></th>
@@ -68,7 +68,7 @@ require 'config.php';
                                                                         <td><center><?php echo $fetch['source_of_patient']?></center></td>
                                                                         <td><center><?php echo $fetch['registration_group']?></center></td>
                                                                         <td><center>
-                                                                            <a href="#follow_up<?php echo $fetch['patient_id'];?>" data-target="#follow_up<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-check"></span>Follow-up Visit</a>
+                                                                            <a href="#follow_up<?php echo $fetch['patient_id'];?>" data-target="#follow_up<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md">Follow-up Visit</a>
                                                                             </center></td>	
                                                                     </tr>
                                                                     <?php
@@ -91,7 +91,7 @@ require 'config.php';
                                                         <div class="panel-body">
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
-                                                                    <tr class="info">
+                                                                    <tr >
                                                                         <th><center>IPT No</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Age</center></th>
@@ -122,7 +122,7 @@ require 'config.php';
                                                                         <td><center><?php echo $fetch2['address']?></center></td>
                                                                         <td>
                                                                             <center>
-                                                                                <a href="#follow_up_ipt<?php echo $fetch2['patient_id'];?>" data-target="#follow_up_ipt<?php echo $fetch2['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md"><span class="fa fa-check"></span>Follow-up Visit</a>
+                                                                                <a href="#follow_up_ipt<?php echo $fetch2['patient_id'];?>" data-target="#follow_up_ipt<?php echo $fetch2['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-md">Follow-up Visit</a>
                                                                             </center>
                                                                         </td>
                                                                     </tr>

@@ -44,19 +44,19 @@ require ('config.php');
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-info">
+                            <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><strong>Clinical Findings of <?php echo $_GET['patient_name']?></strong></h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
-                                            <a href="#update_clinical<?php echo $f['patient_id'];?>" data-target="#update_clinical<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Findings</a>
+                                            <a href="#update_clinical<?php echo $f['patient_id'];?>" data-target="#update_clinical<?php echo $f['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-md">New Findings</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                     <table id="laboratory_request" class="table table-hover">
                                         <thead>
-                                            <tr class="info">
+                                            <tr>
                                                 <th data-toggle="tooltip" data-placement="top" title="Date Visited">
                                                     <center>Date</center>
                                                 </th>

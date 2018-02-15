@@ -49,7 +49,7 @@ require ('config.php');
 															</div>
 														</div>
 													</div>
-													<div class="panel-body list-group list-group-contacts scroll" style="height: 385px;">
+													<div class="panel-body list-group list-group-contacts scroll" style="height: 380px;">
 														<div class="panel-body">
 															<table id="lab_request" class="table datatable">
 																<thead>
@@ -79,7 +79,7 @@ require ('config.php');
 																		<td><center><?php echo $fetch['contact_number']?></center></td>
 																		<td><center><?php echo $fetch['address']?></center></td>
 																		<td><center>
-																			<a href="#registerpatient<?php echo $fetch['patient_id'];?>" data-target="#registerpatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-check"></span>Register</a>
+																			<a href="#registerpatient<?php echo $fetch['patient_id'];?>" data-target="#registerpatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Register</a>
 																			</center></td>
 																	</tr>
 																	<?php

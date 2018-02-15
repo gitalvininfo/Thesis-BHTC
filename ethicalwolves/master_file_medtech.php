@@ -56,19 +56,19 @@ if(ISSET($_POST['save_user'])){
 				<div class="page-content-wrap">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong>Medical Technologists</strong></h3>
 									<div class="btn-group pull-right">
 										<div class="pull-left">
-											<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_physician"><span class="fa fa-user-plus"></span> New Account </button>
+											<button class="btn btn-default btn-md" data-toggle="modal" data-target="#new_physician">New Account </button>
 										</div>
 									</div>
 								</div>
 								<div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
 									<table class="table table-hover">
 										<thead> 
-											<tr class="info">
+											<tr >
 												<th><center>First Name</center></th>
 												<th><center>Last Name</center></th>
 												<th><center>License Number</center></th>

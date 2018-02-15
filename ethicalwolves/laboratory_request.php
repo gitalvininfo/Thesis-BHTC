@@ -34,7 +34,7 @@ require ('config.php');
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-info">
+                            <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <?php
     require 'config.php';
@@ -44,14 +44,14 @@ require ('config.php');
                                     <h3 class="panel-title"><strong>Laboratory Requests of <?php echo $f1['patient_name']?></strong></h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
-                                            <a href="#new_lab_request<?php echo $f1['patient_id'];?>" data-target="#new_lab_request<?php echo $f1['patient_id'];?>" data-toggle="modal" class="btn btn-danger btn-md"><span class="fa fa-plus"></span>New Lab Request</a>
+                                            <a href="#new_lab_request<?php echo $f1['patient_id'];?>" data-target="#new_lab_request<?php echo $f1['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-md">New Lab Request</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
                                     <table id="laboratory_request" class="table table-hover">
                                         <thead>
-                                            <tr class="info">
+                                            <tr>
                                                 <th><center>Date Requested</center></th>
                                                 <th><center>Requesting Physician</center></th>
                                                 <th><center>Reason for Examination</center></th>
@@ -77,7 +77,7 @@ require ('config.php');
                                                 <td><center> <?php echo $fetch['test_requested']?> </center></td>
                                                 <td><center><strong><?php echo $fetch['status']?></strong></center></td>
                                                 <td>
-                                                    <center><a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-info btn-sm"><span class="fa fa-search"></span> </a>
+                                                    <center><a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-info btn-sm">View</a>
                                                     </center>
                                                 </td>
                                             </tr>

@@ -30,7 +30,7 @@ require ('config.php');
                 </ul>
                 <div class="page-content-wrap">
                     <div class="col-md-12">
-                        <div class="panel panel-info">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><strong>Laboratory Request</strong></h3>
                             </div>
@@ -38,11 +38,10 @@ require ('config.php');
                                 <div class="panel-body">
                                     <table id="lab_request" class="table datatable">
                                         <thead>
-                                            <tr class="info">
+                                            <tr>
                                                 <th><center>Patient Name</center></th>
                                                 <th><center>Age</center></th>
                                                 <th><center>Gender</center></th>
-                                                <th><center>Birthdate</center></th>
                                                 <th><center>Contact No</center></th>
                                                 <th><center>Address</center></th>
                                                 <th><center>Action</center></th>
@@ -61,7 +60,6 @@ require ('config.php');
                                                 <td><center><mark><?php echo $fetch['patient_name']?></mark></center></td>
                                                 <td><center><?php echo $fetch['age']?></center></td>
                                                 <td><center><?php echo $fetch['gender']?></center></td>
-                                                <td><center><?php echo $fetch['birthdate']?></center></td>
                                                 <td><center><?php echo $fetch['contact_number']?></center></td>
                                                 <td><center><?php echo $fetch['address']?></center></td>
                                                 <td>

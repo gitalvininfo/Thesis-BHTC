@@ -43,8 +43,8 @@ require ('config.php');
 			$f = $q->fetch_array();
 
 							?>
-							<form role="form" id="user" class="form-horizontal" action="update_profile.php" method="post" onsubmit="return confirm('Are you sure you want to your profile?');" onsubmit="return myFunction()">
-								<div class="panel panel-info">
+							<form role="form" id="user" class="form-horizontal" action="update_profile.php" method="post" onsubmit="return confirm('Are you sure you want to update your profile?');">
+								<div class="panel panel-primary">
 									<div class="panel-heading">
 										<h3 class="panel-title"><strong> Update My Account</strong></h3>
 									</div>
@@ -87,7 +87,7 @@ require ('config.php');
 										</div>
 									</div>
 									<div class="panel-footer">
-										<button type="submit" class="btn btn-info pull-right"> <span class="fa fa-check"></span>Update Profile</button>
+										<button type="submit" class="btn btn-info pull-right">Update Profile</button>
 									</div>
 								</div>
 							</form>

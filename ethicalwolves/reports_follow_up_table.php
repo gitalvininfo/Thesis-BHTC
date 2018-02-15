@@ -34,7 +34,7 @@ require 'config.php';
                 <div class="page-content-wrap">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-info">
+                            <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <?php
     $month = date("F Y", strtotime("+8 HOURS"));

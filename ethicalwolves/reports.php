@@ -30,7 +30,7 @@ require ('config.php');
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
-                        <div class="panel panel-info">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <?php $date = date("Y", strtotime("+ 8 HOURS"));?>
                                 <h3 class="panel-title"> <strong>TB Cases Reports as of Year <?php echo $date?></strong></h3>

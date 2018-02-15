@@ -32,12 +32,12 @@ require ('config.php');
 					</ul>
 					<div class="row">
 						<div class="col-md-12">
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<div class="btn-group pull-right">
 										<div class="pull-right">
-											<a class="btn btn-info mb-control" data-box="#message-box-info"><span class="fa fa-cloud-download"></span>Export Database</a>
-											<a class="btn btn-warning mb-control" data-box="#message-box-warning"><span class="fa fa-cloud-upload"></span>Import Database</a>
+											<a class="btn btn-default mb-control" data-box="#message-box-info">Export Database</a>
+											<a class="btn btn-info mb-control" data-box="#message-box-success">Import Database</a>
 										</div>
 									</div>
 									<h3 class="panel-title"><strong>History Log - Export and Import Database</strong></h3>
@@ -52,7 +52,6 @@ require ('config.php');
 						"
                                             <div class='list-group list-group-contacts border-bottom push-down-10'>
                                                  <a href='#' class='list-group-item'> 
-                                                     <div class='list-group-status status-away'></div>
                                                          <img src='assets/images/project_logo.png' class='pull-left' alt='Dmitry Ivaniuk'>
                                                     <span class='contacts-title'>".$find['firstname']. " " .$find['lastname']."</span>
                                                 <span class='date' style='float:right;'>".$fetch['date']."</span>
@@ -84,7 +83,7 @@ require ('config.php');
 					</div>
 					<div class="mb-footer">
 						<div class="pull-right">
-							<a href="export/export.php" class="btn btn-danger btn-lg pull-right"><span class="fa fa-cloud-download"></span>Export Database</a>
+							<a href="export/export.php" class="btn btn-danger btn-lg pull-right">Export Anyway</a>
 							<button class="btn btn-default btn-lg mb-control-close">Close</button>
 						</div>
 					</div>
@@ -99,7 +98,7 @@ require ('config.php');
 		$query = $conn->query("SELECT * FROM `backup` WHERE backup_id=(select max(backup_id) from backup)") or die(mysqli_error());
 		while ($fetch = $query->fetch_array()) {
 		?>
-		<div class="message-box message-box-warning animated fadeIn" data-sound="fail" id="message-box-warning">
+		<div class="message-box message-box-success animated fadeIn" data-sound="fail" id="message-box-success">
 			<div class="mb-container">
 				<div class="mb-middle">
 					<div class="mb-title"><span class="fa fa-cloud-upload"></span> Import Database</div>
@@ -108,7 +107,7 @@ require ('config.php');
 					</div>
 					<div class="mb-footer">
 						<div class="pull-right">
-							<a href="export/import.php" class="btn btn-danger btn-lg pull-right"><span class="fa fa-cloud-upload"></span>Import Database</a>
+							<a href="export/import.php" class="btn btn-danger btn-lg pull-right">Import Anyway</a>
 							<button class="btn btn-default btn-lg mb-control-close">Close</button>
 						</div>
 					</div>

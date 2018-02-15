@@ -40,12 +40,12 @@ require ('config.php');
 									<div class="tab-pane active" id="tab-first">
 										<div class="row">
 											<div class="col-md-12">
-												<div class="panel panel-info">
+												<div class="panel panel-default">
 													<div class="panel-body list-group list-group-contacts scroll" style="height: 480px;">
 														<div class="panel-body">
 															<table class="table datatable">
 																<thead> 
-																	<tr class="info">
+																	<tr >
 																		<th><center>TB Case No</center></th>
 																		<th><center>Patient Name</center></th>
 																		<th><center>Registration Date</center></th>
@@ -72,7 +72,7 @@ require ('config.php');
 																		<td><center><?php echo $fetch2['source_of_patient']?></center></td>
 																		<td><center><?php echo $fetch2['registration_group']?></center></td>
 																		<td><center>
-																			<a href="patient_individual_record.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
+																			<a href="patient_individual_record.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="left" title="View Record">View <Record></Record> </a></center></td>	
 																	</tr>
 																	<?php
 			}
@@ -89,12 +89,12 @@ require ('config.php');
 									<div class="tab-pane" id="tab-second">
 										<div class="row">
 											<div class="col-md-12">
-												<div class="panel panel-info">
+												<div class="panel panel-default">
 													<div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
 														<div class="panel-body">
 															<table class="table datatable">
 																<thead> 
-																	<tr class="info">
+																	<tr >
 																		<th><center>IPT No</center></th>
 																		<th><center>Patient Name</center></th>
 																		<th><center>Age</center></th>
@@ -125,7 +125,7 @@ require ('config.php');
 																		<td><center><?php echo $fetch['emergency_no']?></center></td>
 																		<td><center><?php echo $fetch['address']?></center></td>
 																		<td><center>
-																			<a href="patient_individual_record_ipt.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="left" title="View Record"><span class="fa fa-search"></span>View <Record></Record> </a></center></td>	
+																			<a href="patient_individual_record_ipt.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="left" title="View Record">View <Record></Record> </a></center></td>	
 																	</tr>
 																	<?php
 																	}

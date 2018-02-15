@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -85,6 +85,7 @@ INSERT INTO backup VALUES("135","Successfully exported database","February 8, 20
 INSERT INTO backup VALUES("136","Successfully exported database","February 9, 2018, 12:02 am"); 
 INSERT INTO backup VALUES("137","Successfully exported database","February 10, 2018, 12:16 am"); 
 INSERT INTO backup VALUES("138","Successfully exported database","February 11, 2018, 1:29 am"); 
+INSERT INTO backup VALUES("139","Successfully exported database","February 11, 2018, 2:16 pm"); 
 
 
 
@@ -1067,8 +1068,8 @@ CREATE TABLE `user` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
 
-INSERT INTO user VALUES("57","Alvin","Yanson","","NTP Nurse Coordinator","nurse101","aTya03gHJdTyqLkWQfg15yU5b18b25be6c088cda0cc33754c98966b151312f6","Active","February 11, 2018, 12:39 pm"); 
-INSERT INTO user VALUES("59","Alvin","Yanson","10313-13","Medical Technologist","medtech101","aTya03gHJdTyqLkWQfg15yUc6e9dc91aefe1a00974de3b68c57016e50f96a15","Active","February 10, 2018, 11:55 pm"); 
+INSERT INTO user VALUES("57","Alvin","Yanson","","NTP Nurse Coordinator","nurse101","aTya03gHJdTyqLkWQfg15yU5b18b25be6c088cda0cc33754c98966b151312f6","Active","February 12, 2018, 5:20 pm"); 
+INSERT INTO user VALUES("59","Alvin","Yanson","10313-13","Medical Technologist","medtech101","aTya03gHJdTyqLkWQfg15yUc6e9dc91aefe1a00974de3b68c57016e50f96a15","Active","February 11, 2018, 2:23 pm"); 
 INSERT INTO user VALUES("60","Erulskie","Ubas","100-9121","Medical Technologist","erulg","aTya03gHJdTyqLkWQfg15yU09775882de339a62dd9114f200b34b91a2aceb70","Active","February 10, 2018, 11:55 pm"); 
 INSERT INTO user VALUES("62","Alson John","Bayon-on","109099-1212","Medical Technologist","alsonbuno","aTya03gHJdTyqLkWQfg15yU9a44c481e58892b12591a67690fcea7349ff8be0","Inactive","February 10, 2018, 11:58 pm"); 
 

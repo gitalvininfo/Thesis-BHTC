@@ -30,14 +30,14 @@ require ('config.php');
 				<div class="page-content-wrap">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong>Medical Technologists</strong></h3>
 								</div>
 								<div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
 									<table class="table table-hover">
 										<thead> 
-											<tr class="info">
+											<tr>
 												<th><center>First Name</center></th>
 												<th><center>Last Name</center></th>
 												<th><center>License Number</center></th>
@@ -65,7 +65,7 @@ require ('config.php');
 				if ($fetch['status']=='Inactive')echo "<span class='badge badge-danger'><span class='fa fa-times'></span> Inactive</span>"
 													?></strong></center></td>
 												<td><center>
-													<a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
+													<a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Edit</a>
 													</center></td>
 											</tr>
 											<?php

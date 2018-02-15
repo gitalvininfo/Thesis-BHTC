@@ -81,19 +81,18 @@ if(ISSET($_POST['medicine_stock'])){
 									<li class="active"><a href="#tab-second" role="tab" data-toggle="tab">Medicine Stockin List</a></li>
 									<div class="btn-group pull-right">
 										<div class="pull-left">
-											<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#dispensed"><span class="fa fa-arrow-up"></span>Release </button>
-											<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_stock"><span class="fa fa-plus"></span>Add Stocks</button>
+											<button class="btn btn-default btn-md" data-toggle="modal" data-target="#dispensed">Dispense Stocks </button>
+											<button class="btn btn-info btn-md" data-toggle="modal" data-target="#new_stock">Add Stocks</button>
 										</div>
 									</div>
 								</ul>
-								<div class="panel-body list-group list-group-contacts scroll" style="height: 460px;">
+								<div class="panel-body list-group list-group-contacts scroll" style="height: 485px;">
 									<div class="panel-body tab-content">
 										<div class="tab-pane" id="tab-first">
 											<div class="row">
 												<div class="panel panel-default">
 													<div class="panel-body">
 														<table id="medication_dispensation" class="table datatable">
-
 															<thead> 
 																<tr>
 																	<th><center>Health Center</center></th>

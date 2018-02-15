@@ -42,13 +42,13 @@ require ('config.php');
 			$query2 = $conn->query("SELECT * FROM `registration` WHERE `patient_id` = '$id'") or die(mysqli_error());
 			$fetch2 = $query2->fetch_array();
 							?>
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong><?php echo $fetch2['status']?></strong></h3>
 									<div class="btn-group pull-right">
 										<div class="pull-left">
 											<a href="print/overview.php?patient_id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-default btn-sm">Print</a>
-											<a href="patient_record_report.php" class="btn btn-default btn-sm">Back</a>
+											<a href="patient_record_report.php" class="btn btn-info btn-sm">Back</a>
 										</div>
 									</div>  
 								</div>

@@ -46,7 +46,7 @@ require 'config.php';
                                                         <div class="panel-body">
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
-                                                                    <tr class="info">
+                                                                    <tr>
                                                                         <th><center>TB Case No</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Registration Date</center></th>
@@ -72,7 +72,7 @@ require 'config.php';
                                                                         <td><center><?php echo $fetch2['registration_group']?></center></td>
                                                                         <td>
                                                                             <center>
-                                                                                <a href="patient_certification.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>"class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="left" title="Print Preview"><span class="fa fa-print"></span>Preview</a>
+                                                                                <a href="patient_certification.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>"class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="left" title="Print Preview">Preview</a>
                                                                             </center>
                                                                         </td>
                                                                     </tr>
@@ -97,7 +97,7 @@ require 'config.php';
                                                         <div class="panel-body">
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
-                                                                    <tr class="info">
+                                                                    <tr>
                                                                         <th><center>IPT No</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Age</center></th>
@@ -123,7 +123,7 @@ require 'config.php';
                                                                         <td><center><?php echo $fetch2['source_of_patient']?></center></td>
                                                                         <td>
                                                                             <center>
-                                                                                <a href="patient_certification_ipt.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>"class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="left" title="Print Preview"><span class="fa fa-print"></span>Preview</a>
+                                                                                <a href="patient_certification_ipt.php?id=<?php echo $fetch['patient_id']?>&name=<?php echo $fetch['name']?>"class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="left" title="Print Preview">Preview</a>
                                                                             </center>
                                                                         </td>
                                                                     </tr>

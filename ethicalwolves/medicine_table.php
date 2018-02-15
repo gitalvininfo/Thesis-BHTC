@@ -59,13 +59,13 @@ if(ISSET($_POST['new_medicine'])){
 				<div class="page-content-wrap">
 					<div class="row">
 						<div class="col-md-8">
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong>Medicine's List </strong><strong></strong></h3>
 									<div class="btn-group pull-right">
 										<div class="pull-left">
-											<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_medicine"><span class="fa fa-plus"></span>New Medicine </button>
-											<a href="medication_dispensation.php" class="btn btn-md btn-danger"><span class="fa fa-arrow-right"></span>Go to Stocks</a>
+											<button class="btn btn-default btn-md" data-toggle="modal" data-target="#new_medicine">New Medicine </button>
+											<a href="medication_dispensation.php" class="btn btn-md btn-default">Go to Stocks</a>
 										</div>
 									</div>
 								</div>
@@ -98,7 +98,7 @@ if(ISSET($_POST['new_medicine'])){
 				if ($fetch['running_balance']>=6)echo "<span class='badge badge-info'><span class='fa fa-check'></span> Average</span>"
 													?></center></td>
 												<td><center>
-													<a href="#updatedata<?php echo $fetch['medicine_id'];?>" data-target="#updatedata<?php echo $fetch['medicine_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-pencil-square-o"></span>Edit</a>
+													<a href="#updatedata<?php echo $fetch['medicine_id'];?>" data-target="#updatedata<?php echo $fetch['medicine_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Edit</a>
 													</center></td>
 											</tr>
 											<?php
@@ -111,7 +111,7 @@ if(ISSET($_POST['new_medicine'])){
 							</div>
 						</div>
 						<div class="col-md-4">
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong>Graphical</strong><strong></strong></h3>
 								</div>

@@ -41,12 +41,12 @@ require ('config.php');
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="panel panel-default">
-                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                                         <div class="panel-body">
                                                             <table class="table datatable">
 
                                                                 <thead> 
-                                                                    <tr class="info">
+                                                                    <tr>
                                                                         <th><center>TB Case No</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Registration Date</center></th>
@@ -69,9 +69,9 @@ require ('config.php');
                                                                         <td><center><?php echo $fetch['source_of_patient']?></center></td>
                                                                         <td><center><?php echo $fetch['registration_group']?></center></td>
                                                                         <td><center>
-                                                                            <a href="drug_intake.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-danger"  data-toggle="tooltip" data-placement="top" title="Drug Intake"><span class="fa fa-heartbeat"></span></a>
+                                                                            <a href="drug_intake.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="top" title="Drug Intake"><span class="fa fa-heartbeat"></span></a>
 
-                                                                            <a href="clinical_findings.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-warning"  data-toggle="tooltip" data-placement="top" title="Clinical Findings"><span class="fa fa-stethoscope"></span></a>
+                                                                            <a href="clinical_findings.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="top" title="Clinical Findings"><span class="fa fa-stethoscope"></span></a>
                                                                             </center>
                                                                         </td>	
                                                                     </tr>
@@ -92,11 +92,11 @@ require ('config.php');
                                             <div class="col-md-12">
                                                 <div class="panel panel-default">
 
-                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+                                                    <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                                         <div class="panel-body">
                                                             <table class="table datatable">
                                                                 <thead> 
-                                                                    <tr class="info">
+                                                                    <tr>
                                                                         <th><center>IPT No</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Gender</center></th>
@@ -119,9 +119,9 @@ require ('config.php');
                                                                         <td><center><?php echo $fetch2['date_ipt_started']?></center></td>
                                                                         <td><center><?php echo $fetch2['diagnosis']?></center></td>
                                                                         <td><center>
-                                                                            <a href="drug_intake_ipt.php?id=<?php echo $fetch2['patient_id']?>&name=<?php echo $fetch2['name']?>" class="btn btn-sm btn-danger"  data-toggle="tooltip" data-placement="top" title="Drug Intake"><span class="fa fa-heartbeat"></span></a>
+                                                                            <a href="drug_intake_ipt.php?id=<?php echo $fetch2['patient_id']?>&name=<?php echo $fetch2['name']?>" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="top" title="Drug Intake"><span class="fa fa-heartbeat"></span></a>
 
-                                                                            <a href="clinical_findings_ipt.php?id=<?php echo $fetch2['patient_id']?>&name=<?php echo $fetch2['name']?>" class="btn btn-sm btn-warning"  data-toggle="tooltip" data-placement="top" title="Clinical Findings"><span class="fa fa-stethoscope"></span></a>
+                                                                            <a href="clinical_findings_ipt.php?id=<?php echo $fetch2['patient_id']?>&name=<?php echo $fetch2['name']?>" class="btn btn-sm btn-info"  data-toggle="tooltip" data-placement="top" title="Clinical Findings"><span class="fa fa-stethoscope"></span></a>
                                                                             </center>
                                                                         </td>
                                                                     </tr>
