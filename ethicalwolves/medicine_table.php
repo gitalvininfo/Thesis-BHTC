@@ -58,7 +58,7 @@ if(ISSET($_POST['new_medicine'])){
 				</ul>
 				<div class="page-content-wrap">
 					<div class="row">
-						<div class="col-md-8">
+						<div class="col-md-7">
 							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong>Medicine's List </strong><strong></strong></h3>
@@ -110,7 +110,7 @@ if(ISSET($_POST['new_medicine'])){
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-5">
 							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong>Graphical</strong><strong></strong></h3>

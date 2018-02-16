@@ -36,7 +36,7 @@ require ('config.php');
 			$year = date('Y');
 								?>
 
-								<h3 class="panel-title"><span class="fa fa-bar-chart-o"></span> Examination Reports as of <?php echo $date?></h3>
+								<h3 class="panel-title">Examination Reports as of <?php echo $date?></h3>
 								<div class="btn-group pull-right">
 									<div class="pull-left">
 										<a href="#" class="btn btn-default btn-sm" onclick="openE()">DSSM and Xpert</a>
