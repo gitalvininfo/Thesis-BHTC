@@ -13,10 +13,13 @@ require ('config.php');
 		<link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
 		<link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+		<script src="js/plugins/jquery/jquery.min.js"></script>
+		<script src="js/jquery.canvasjs.min.js"></script>
+		<?php require 'js/loadchart/medicines_taken.php'?>
 	</head>
 	<body>
 		<?php
-		$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 		$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = '$_SESSION[user_id]'") or die(mysqli_error());
 		$find = $query->fetch_array();
 		?>
@@ -68,7 +71,6 @@ require ('config.php');
 		</script>
 		<?php require 'require/logout.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>

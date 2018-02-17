@@ -72,6 +72,5 @@ while($fetch = $query->fetch_array()){
 </div>
 <?php
                                      }
-$conn->close();
 ?> 
 <!-- End Register IPT -->

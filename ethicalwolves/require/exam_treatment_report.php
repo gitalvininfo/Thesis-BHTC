@@ -275,6 +275,9 @@
 						</tbody>
 					</table>
 				</div>&nbsp;
+				<h2> <strong>Medicines and Dosages Taken</strong></h2><hr>
+				<h4>Graphical</h4>    
+				<div id="medicines_taken" style="width: 100%; height: 425px"></div>
 			</div>
 		</div>
 	</div>

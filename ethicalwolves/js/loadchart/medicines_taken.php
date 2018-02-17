@@ -6,13 +6,13 @@ if(isset($_GET['year']))
 }
 
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$res = $conn->query("SELECT * FROM `medicine` GROUP BY medicine_name") or die(mysqli_error());
+$res = $conn->query("SELECT * FROM `intensive_phase` where `patient_id` = '$_GET[id]' group by medicine_name") or die(mysqli_error());
 $data_points = array();
 while($result = $res->fetch_array()){
 	$R = $result['medicine_name'];
-	$q1 = $conn->query("SELECT * FROM `medicine` WHERE `medicine_name` = '$R'") or die(mysqli_error());
+	$q1 = $conn->query("SELECT *, SUM(dosage)  AS total FROM (SELECT * FROM intensive_phase UNION SELECT * FROM continuation_phase ) as total WHERE `medicine_name` = '$R' && `patient_id` = '$_GET[id]'") or die(mysqli_error());
 	$f1 = $q1->fetch_array();
-	$FR = intval($f1['running_balance']);
+	$FR = intval($f1['total']);
 	$point = array('label' => $R, 'y' => $FR);
 	array_push($data_points, $point);
 }
@@ -21,7 +21,7 @@ json_encode($data_points);
 <script type="text/javascript"> 
 	window.onload = function(){
 
-		$("#medicine").CanvasJSChart({
+		$("#medicines_taken").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
 			zoomType: "x",
@@ -34,9 +34,14 @@ json_encode($data_points);
 				shared: true  
 			},
 			title: { 
-				text: "Medicines Remaining Stocks",
+				text: "Medicines and Dosages Taken During Treatment",
 				fontSize: 20
 			},
+			subtitles:[
+				{
+					text: "Intensive and Continuation Phase - 6 months"
+				}
+			],
 			legend: {
 				cursor: "pointer",
 				itemclick: function (e) {
@@ -57,7 +62,6 @@ json_encode($data_points);
 				}
 			},
 			axisY: { 
-				title: "Stocks Remaining", 
 				labelFontColor: "black",
 				crosshair: {
 					enabled: true 
@@ -71,8 +75,7 @@ json_encode($data_points);
 					indexLabel: "{y}", 
 					//legendText: "<?php echo $f1['medicine_name']?>",
 					//name: "Total Patients this year",
-					dataPoints: <?php echo json_encode($data_points); ?>
-
+					dataPoints: <?php echo json_encode($data_points)?>
 				}
 					] 
 				}); 

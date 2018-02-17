@@ -53,7 +53,7 @@ require ('config.php');
 														<div class="panel-body">
 															<table id="lab_request" class="table datatable">
 																<thead>
-																	<tr class="info">
+																	<tr>
 																		<th><center>Name</center></th>
 																		<th><center>Age</center></th>
 																		<th><center>Birthdate</center></th>
@@ -101,7 +101,7 @@ require ('config.php');
 													<div class="panel-heading">
 														<div class="btn-group pull-right">
 															<div class="pull-left">
-																<button class="btn btn-danger btn-md" data-toggle="modal" data-target="#new_ipt"><span class="fa fa-user-plus"></span> New Patient </button>
+																<button class="btn btn-default btn-md" data-toggle="modal" data-target="#new_ipt">New Patient </button>
 															</div>
 														</div>
 													</div>
@@ -109,7 +109,7 @@ require ('config.php');
 														<div class="panel-body">
 															<table id="lab_request" class="table datatable">
 																<thead>
-																	<tr class="info">
+																	<tr>
 																		<th><center>Name</center></th>
 																		<th><center>Age</center></th>
 																		<th><center>Gender</center></th>
@@ -135,7 +135,7 @@ require ('config.php');
 																		<td><center><?php echo $fetch['emergency_no']?></center></td>
 																		<td><center><?php echo $fetch['birthdate']?></center></td>
 																		<td><center>
-																			<a href="#registeript<?php echo $fetch['patient_id'];?>" data-target="#registeript<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-info btn-sm"><span class="fa fa-check"></span>Register</a>
+																			<a href="#registeript<?php echo $fetch['patient_id'];?>" data-target="#registeript<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Register</a>
 																			</center></td>
 																	</tr>
 																	<?php

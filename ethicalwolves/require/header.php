@@ -18,9 +18,7 @@
 		<?php if ($f['total']>0)echo "<div class='informer informer-danger'>".$f['total']."</div>";?>
 		<div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
 			<div class="panel-heading">
-				<h3 class="panel-title"><?php if($check > 0) echo "No Pending Laboratory Request";
-					else echo "Pending Laboratory Requests";
-					?></h3>
+				<h3 class="panel-title"><?php echo $f['total']. " Pending Laboratory Requests  " ?></h3>
 				<div class="pull-right">
 					<span class="label label-danger"><?php echo $f['total']?></span>
 				</div>

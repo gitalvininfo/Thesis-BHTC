@@ -72,7 +72,7 @@ require ('config.php');
 																		<td><center><?php echo $fetch2['source_of_patient']?></center></td>
 																		<td><center><?php echo $fetch2['registration_group']?></center></td>
 																		<td><center>
-																			<a href="patient_individual_record.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="left" title="View Record">View <Record></Record> </a></center></td>	
+																			<a href="patient_individual_record.php?id=<?php echo $fetch['patient_id']?>&cid=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="left" title="View Record">View <Record></Record> </a></center></td>	
 																	</tr>
 																	<?php
 			}

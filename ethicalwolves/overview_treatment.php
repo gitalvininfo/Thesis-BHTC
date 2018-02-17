@@ -125,7 +125,7 @@
 
 					<!-- Clinical Findings-->
 					<h2><strong>Clinical Findings</strong></h2> <hr>
-					<h3>Overview</h3>
+					<h4>Overview</h4>
 					<div class="row">
 						<?php
 						$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
@@ -191,7 +191,7 @@
 
 					<!-- Follow-up Visit-->
 					<h2><strong>Follow-up Visit</strong></h2><hr>
-					<h3>Overview</h3>
+					<h4>Overview</h4>
 					<div class="row">
 						<?php
 						$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());

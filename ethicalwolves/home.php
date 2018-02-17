@@ -152,7 +152,7 @@ $f = $q->fetch_array();
 								</div>
 								<div class="widget-data">
 									<?php
-	$q = $conn->query("SELECT COUNT(*) as total FROM `user` where `position` = 'Medical Technologist'") or die(mysqli_error());
+	$q = $conn->query("SELECT COUNT(*) as total FROM `user` where `position` = 'Medical Technologist' && `status` = 'Active'") or die(mysqli_error());
 										 $f = $q->fetch_array();
 									?>
 									<div class="widget-int num-count counter" data-count="<?php echo $f['total']?>">
@@ -309,7 +309,6 @@ $f = $q->fetch_array();
 				});  
 			});
 		</script>
-		<audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>

@@ -395,8 +395,7 @@
 				marker = new google.maps.Marker({
 					position: myLatlng,
 					map: map,
-					title: data.title,
-					animation:google.maps.Animation.BOUNCE
+					title: data.title
 				});
 
 				var CicleOption = {
