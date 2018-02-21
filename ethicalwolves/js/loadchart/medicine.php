@@ -57,7 +57,7 @@ json_encode($data_points);
 				}
 			},
 			axisY: { 
-				title: "Stocks Remaining", 
+				//title: "Stocks Remaining", 
 				labelFontColor: "black",
 				crosshair: {
 					enabled: true 

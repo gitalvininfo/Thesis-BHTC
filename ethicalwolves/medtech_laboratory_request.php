@@ -32,7 +32,7 @@ require ('config.php');
                             <div class="panel panel-primary">
 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"> Laboratory Requests</h3>
+                                    <h3 class="panel-title"> <strong>Laboratory Requests</strong></h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
                                         </div>
@@ -42,7 +42,7 @@ require ('config.php');
                                     <div class="panel-body">
                                         <table class="table datatable">
                                             <thead> 
-                                                <tr>
+                                                <tr class="warning">
                                                     <th><center>Patient Name</center></th>
                                                     <th><center>Date of Request</center></th>
                                                     <th><center>Requesting Physician</center></th>
@@ -62,12 +62,12 @@ require ('config.php');
                 $f = $q->fetch_array();
                                                 ?>                                      
                                                 <tr>
-                                                    <td><center><mark><?php echo $f2['patient_name']?></mark></center></td>
+                                                    <td><center><strong><?php echo $f2['patient_name']?></strong></center></td>
                                                     <td><center><?php echo $fetch['date_of_request']?></center></td>
                                                     <td><center><?php echo $fetch['requesting_physician']?></center></td>
                                                     <td><center><?php echo $fetch['test_requested']?></center></td>
                                                     <td><center>
-                                                        <a href="laboratory_request_pending.php?id=<?php echo $f2['patient_id']?>" class="btn btn-sm btn-info">Request <span class = "badge"><?php echo $f['total']?></span></a>
+                                                        <a href="laboratory_request_pending.php?id=<?php echo $f2['patient_id']?>" class="btn btn-sm btn-default">Request <span class = "badge"><?php echo $f['total']?></span></a>
                                                         </center>
                                                     </td>		
                                                 </tr>

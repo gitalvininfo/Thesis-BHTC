@@ -1,4 +1,4 @@
-<!-- Edit TB Case -->
+t<!-- Edit TB Case -->
 <?php
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());

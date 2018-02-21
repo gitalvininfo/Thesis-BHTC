@@ -45,7 +45,7 @@ require 'config.php';
                                                         <div class="panel-body">
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
-                                                                    <tr >
+                                                                    <tr class="warning">
                                                                         <th><center>TB Case Number</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Gender</center></th>
@@ -57,13 +57,13 @@ require 'config.php';
 
                                                                 <tbody>
                                                                     <?php
-    require 'config.php';
-            $query = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && patient.status = 'Registered' && registration.status = 'Currently in Treatment'") or die(mysqli_error());
-            while($fetch = $query->fetch_array()){
+    														require 'config.php';
+															$query = $conn->query("SELECT * FROM `patient`, `registration` WHERE patient.patient_id = registration.patient_id && patient.status = 'Registered' && registration.status = 'Currently in Treatment'") or die(mysqli_error());
+            												while($fetch = $query->fetch_array()){
                                                                     ?>                                      
                                                                     <tr>
-                                                                        <td><center><mark><?php echo $fetch['year']."080".$fetch['tb_case_no']?></mark></center></td>
-                                                                        <td><center><mark><?php echo $fetch['patient_name']?></mark></center></td>
+                                                                        <td><center><strong><?php echo $fetch['year']."080".$fetch['tb_case_no']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
                                                                         <td><center><?php echo $fetch['registration_date']?></center></td>
                                                                         <td><center><?php echo $fetch['source_of_patient']?></center></td>
                                                                         <td><center><?php echo $fetch['registration_group']?></center></td>
@@ -91,7 +91,7 @@ require 'config.php';
                                                         <div class="panel-body">
                                                             <table id="lab_request" class="table datatable">
                                                                 <thead>
-                                                                    <tr >
+                                                                    <tr class="warning">
                                                                         <th><center>IPT No</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Age</center></th>

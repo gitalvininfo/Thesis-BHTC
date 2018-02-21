@@ -53,7 +53,7 @@ require ('config.php');
 														<div class="panel-body">
 															<table id="lab_request" class="table datatable">
 																<thead>
-																	<tr>
+																	<tr class="warning">
 																		<th><center>Name</center></th>
 																		<th><center>Age</center></th>
 																		<th><center>Birthdate</center></th>
@@ -72,22 +72,20 @@ require ('config.php');
 			while($fetch = $query->fetch_array()){
 																	?>
 																	<tr>
-																		<td><center><mark><?php echo $fetch['patient_name']?></mark></center></td>
+																		<td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
 																		<td><center><?php echo $fetch['age']?></center></td>
 																		<td><center><?php echo $fetch['birthdate']?></center></td>
 																		<td><center><?php echo $fetch['gender']?></center></td>
 																		<td><center><?php echo $fetch['contact_number']?></center></td>
 																		<td><center><?php echo $fetch['address']?></center></td>
 																		<td><center>
-																			<a href="#registerpatient<?php echo $fetch['patient_id'];?>" data-target="#registerpatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Register</a>
-																			</center></td>
+																			<a href="#registerpatient<?php echo $fetch['patient_id'];?>" data-target="#registerpatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Register</a></center></td>
 																	</tr>
 																	<?php
 			}
 			$conn->close();
 																	?>
-																</tbody>
-															</table>
+																</tbody>															</table>
 														</div>
 													</div>
 												</div>
@@ -109,7 +107,7 @@ require ('config.php');
 														<div class="panel-body">
 															<table id="lab_request" class="table datatable">
 																<thead>
-																	<tr>
+																	<tr class="warning">
 																		<th><center>Name</center></th>
 																		<th><center>Age</center></th>
 																		<th><center>Gender</center></th>
@@ -158,11 +156,11 @@ require ('config.php');
 			</div>
 		</div>
 
+		<?php require 'require/logout.php'?>
 		<?php require 'require/modals/new_tb_case.php'?>
 		<?php require 'require/modals/register_tb_case.php'?>
 		<?php require 'require/modals/new_ipt.php'?>
 		<?php require 'require/modals/register_ipt_case.php'?>
-		<?php require 'require/logout.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
 		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
@@ -203,8 +201,7 @@ require ('config.php');
 					},
 					philhealth_no: {
 						number: true,
-						min: 12,
-						max: 12
+						minlength: 12
 					},
 					contact_person: {
 						required: true

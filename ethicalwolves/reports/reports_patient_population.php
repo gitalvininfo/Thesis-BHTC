@@ -45,7 +45,7 @@ require ('../config.php');
                                     <div class="tab-pane active" id="tab-first">
                                         <div class="row">
                                             <div class="panel-body">
-                                                <div id="patient_population" style="width: 100%; height: 400px"></div>
+                                                <div id="patient_population" style="width: 100%; height: 420px"></div>
                                             </div>
                                         </div>
                                     </div>

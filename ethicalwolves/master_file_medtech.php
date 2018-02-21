@@ -68,7 +68,7 @@ if(ISSET($_POST['save_user'])){
 								<div class="panel-body list-group list-group-contacts scroll" style="height: 474px;">
 									<table class="table table-hover">
 										<thead> 
-											<tr >
+											<tr class="warning">
 												<th><center>First Name</center></th>
 												<th><center>Last Name</center></th>
 												<th><center>License Number</center></th>

@@ -46,7 +46,7 @@ require ('config.php');
                                                             <table class="table datatable">
 
                                                                 <thead> 
-                                                                    <tr>
+                                                                    <tr class="warning">
                                                                         <th><center>TB Case No</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Registration Date</center></th>
@@ -63,8 +63,8 @@ require ('config.php');
             while($fetch = $query->fetch_array()){
                                                                     ?>                                      
                                                                     <tr>
-                                                                        <td><center><mark><?php echo $fetch['year']."080".$fetch['tb_case_no']?></mark></center></td>
-                                                                        <td><center><mark><?php echo $fetch['patient_name']?></mark></center></td>
+                                                                        <td><center><strong><?php echo $fetch['year']."080".$fetch['tb_case_no']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
                                                                         <td><center><?php echo $fetch['registration_date']?></center></td>
                                                                         <td><center><?php echo $fetch['source_of_patient']?></center></td>
                                                                         <td><center><?php echo $fetch['registration_group']?></center></td>
@@ -96,7 +96,7 @@ require ('config.php');
                                                         <div class="panel-body">
                                                             <table class="table datatable">
                                                                 <thead> 
-                                                                    <tr>
+                                                                    <tr class="warning">
                                                                         <th><center>IPT No</center></th>
                                                                         <th><center>Patient Name</center></th>
                                                                         <th><center>Gender</center></th>
@@ -113,8 +113,8 @@ require ('config.php');
                                                                     while($fetch2 = $query2->fetch_array()){
                                                                     ?>                                      
                                                                     <tr>
-                                                                        <td><center><mark><?php echo $fetch2['year']."".$fetch2['ipt_no']?></mark></center></td>
-                                                                        <td><center><mark><?php echo $fetch2['name']?></mark></center></td>
+                                                                        <td><center><strong><?php echo $fetch2['year']."".$fetch2['ipt_no']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch2['name']?></strong></center></td>
                                                                         <td><center><?php echo $fetch2['gender']?></center></td>
                                                                         <td><center><?php echo $fetch2['date_ipt_started']?></center></td>
                                                                         <td><center><?php echo $fetch2['diagnosis']?></center></td>
@@ -147,7 +147,7 @@ require ('config.php');
         <?php require 'require/modals/end_treatment.php'?>
 
         <?php require 'require/logout.php'?>
-        <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+        <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>	
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>

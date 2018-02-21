@@ -36,7 +36,7 @@ require ('../config.php');
 					<div class="panel-heading">
 						<div class="btn-group pull-left">
 							<div class="pull-left">
-								<img src="assets/images/bcreport.png" alt="BC Logo"/>     
+								<img src="../assets/images/bcreport.png" alt="BC Logo"/>     
 							</div>
 						</div>
 						<h3 class="panel-title">Bacolod City Health TB DOTS Center - Case Finding - Year <?php echo $year?></h3>

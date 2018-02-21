@@ -56,7 +56,7 @@
 					<table  class="table table-bordered">
 
 						<thead>
-							<tr>
+							<tr class="warning">
 								<th><center>Laboratory Number</center></th>
 								<th><center>Examined By</center></th>
 								<th><center>Date Examined</center></th>
@@ -91,7 +91,7 @@
 				<div class="panel-body panel-body-table">
 					<table  class="table table-bordered">
 						<thead>
-							<tr>
+							<tr class="warning">
 								<th><center>Date Examined</center></th>
 								<th><center>Laboratory Number</center></th>
 								<th><center>Visual Appearance</center></th>
@@ -129,7 +129,7 @@
 				<div class="panel-body panel-body-table">
 					<table class="table table-bordered">
 						<thead>
-							<tr>
+							<tr class="warning">
 								<th><center>Method</center></th>
 								<th><center>TB Culture Laboratory</center></th>
 								<th><center>TB Culture Result</center></th>
@@ -167,7 +167,7 @@
 				<div class="panel-body panel-body-table">
 					<table  class="table table-bordered">
 						<thead>
-							<tr>
+							<tr class="warning">
 								<th><center>Date Released</center></th>
 								<th><center>Result</center></th>
 							</tr>
@@ -197,7 +197,7 @@
 				<div class="panel-body panel-body-table">
 					<table  class="table table-bordered">
 						<thead>
-							<tr>
+							<tr class="warning"> 
 								<th><center>Chest X-ray Findings</center></th>
 								<th><center>Date of Exam</center></th>
 								<th><center>TBDC</center></th>
@@ -230,7 +230,7 @@
 					<table  class="table table-bordered">
 
 						<thead>
-							<tr>
+							<tr class="warning">
 								<th><center>Criteria</center></th>
 								<th><center>Frequency of occurences during treatment</center></th>
 

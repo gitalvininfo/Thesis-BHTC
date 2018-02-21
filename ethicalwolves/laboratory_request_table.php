@@ -38,7 +38,7 @@ require ('config.php');
                                 <div class="panel-body">
                                     <table id="lab_request" class="table datatable">
                                         <thead>
-                                            <tr>
+                                            <tr class="warning">
                                                 <th><center>Patient Name</center></th>
                                                 <th><center>Age</center></th>
                                                 <th><center>Gender</center></th>
@@ -57,7 +57,7 @@ require ('config.php');
                 $f = $q->fetch_array();
                                             ?>
                                             <tr>
-                                                <td><center><mark><?php echo $fetch['patient_name']?></mark></center></td>
+                                                <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
                                                 <td><center><?php echo $fetch['age']?></center></td>
                                                 <td><center><?php echo $fetch['gender']?></center></td>
                                                 <td><center><?php echo $fetch['contact_number']?></center></td>

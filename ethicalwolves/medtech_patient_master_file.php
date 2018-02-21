@@ -31,13 +31,13 @@ require ('config.php');
                         <div class="col-md-12">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"> Laboratory Results</h3>
+                                    <h3 class="panel-title"> <strong>Laboratory Results</strong></h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 430px;">
                                     <div class="panel-body">
                                         <table class="table datatable">
                                             <thead> 
-                                                <tr>
+                                                <tr class="warning">
                                                     <th><center>TB Case No</center></th>
                                                     <th><center>Patient Name</center></th>
                                                     <th><center>Registration Date</center></th>
@@ -57,8 +57,8 @@ require ('config.php');
                 $fetch2 = $query2->fetch_array();
                                                 ?>                                     
                                                 <tr>
-                                                    <td><center><mark><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></mark></center></td>
-                                                    <td><center><mark><?php echo $fetch['patient_name']?></mark></center></td>
+                                                    <td><center><strong><?php echo $fetch2['year']."080".$fetch2['tb_case_no']?></strong></center></td>
+                                                    <td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
                                                     <td><center><?php echo $fetch2['registration_date']?></center></td>
                                                     <td><center><?php echo $fetch2['source_of_patient']?></center></td>
                                                     <td><center><?php echo $fetch2['registration_group']?></center></td>

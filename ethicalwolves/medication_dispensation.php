@@ -94,7 +94,7 @@ if(ISSET($_POST['medicine_stock'])){
 													<div class="panel-body">
 														<table id="medication_dispensation" class="table datatable">
 															<thead> 
-																<tr>
+																<tr class="warning">
 																	<th><center>Health Center</center></th>
 																	<th><center>Medicine Name</center></th>
 																	<th><center>Date</center></th>
@@ -112,7 +112,7 @@ if(ISSET($_POST['medicine_stock'])){
 																	<td><center><?php echo $fetch['health_center']?></center></td>
 																	<td><center><?php echo $fetch['medicine_name']?></center></td>
 																	<td><center><?php echo $fetch['date_given']?></center></td>
-																	<td><center><?php echo $fetch['quantity']?> boxes</center></td>
+																	<td><center><?php echo $fetch['quantity']?> kits</center></td>
 																	<td><center><?php echo $fetch['received_by']?></center></td>
 																</tr>
 																<?php
@@ -131,7 +131,7 @@ if(ISSET($_POST['medicine_stock'])){
 													<div class="panel-body">
 														<table id="medication_dispensation" class="table datatable">
 															<thead> 
-																<tr>
+																<tr class="warning">
 																	<th><center>Medicine Name</center></th>
 																	<th><center>Number of Kits</center></th>
 																	<th><center>Date Created</center></th>

@@ -220,7 +220,6 @@ require ('../config.php');
 		<script type="text/javascript" src="../js/plugins/datatables/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 		<script type="text/javascript" src="../js/plugins.js"></script>
-		<script type="text/javascript" src="../js/plugins/owl/owl.carousel.min.js"></script>
 		<script type="text/javascript" src="../js/actions.js"></script>
 	</body>
 </html>

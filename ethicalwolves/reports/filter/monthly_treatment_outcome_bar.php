@@ -14,7 +14,7 @@ require ('../../config.php');
 		<link rel="stylesheet" type="text/css" id="theme" href="../../css/theme-blue.css"/>
 		<script src="../../js/plugins/jquery/jquery.min.js"></script>
 		<script src = "../../js/jquery.canvasjs.min.js"></script>
-		<?php require '../../js/loadchart/filter/monthly_treatment_outcome.php'?>
+		<?php require '../../js/loadchart/filter/monthly_treatment_outcome_bar.php'?>
 		<style type="text/css">
 			@media print {
 				#print{
@@ -190,7 +190,7 @@ require ('../../config.php');
 							<div class="row">
 								<div class="panel-body">
 									<div class="col-md-12">
-										<div id="treatment_outcome" style="width: 100%; height: 275px"></div>
+										<div id="bar" style="width: 100%; height: 300px;"></div>
 									</div>
 								</div>
 							</div>
@@ -202,12 +202,6 @@ require ('../../config.php');
 			</div>
 		</div>
 		<script>
-			function oDou() {
-				myWindow = window.open("monthly_treatment_outcome_doughnut.php?year=<?php echo $year?>", "", "width=1350, height=650");
-			}
-			function oPie() {
-				myWindow = window.open("monthly_treatment_outcome_pie.php?year=<?php echo $year?>", "", "width=1350, height=650");
-			}
 			function oBar() {
 				myWindow = window.open("monthly_treatment_outcome_bar.php?year=<?php echo $year?>", "", "width=1350, height=650");
 			}

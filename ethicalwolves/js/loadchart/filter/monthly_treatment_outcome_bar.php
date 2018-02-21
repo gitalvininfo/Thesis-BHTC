@@ -1,7 +1,7 @@
 <?php require "../../reports/require/load_monthly_treatment_outcome.php"?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
-		$("#treatment_outcome").CanvasJSChart({
+		$("#bar").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
 			zoomType: "x",
@@ -13,15 +13,6 @@
 			toolTip: {
 				shared: true
 			},
-			title: { 
-				text: "Bacolod City Health TB DOTS Center",
-				fontSize: 20
-			},
-			subtitles:[
-				{
-					text: "Patient Treatment Outcome - Year <?php echo $year?>"
-				}
-			],
 			legend: {
 				cursor: "pointer",
 				itemclick: function (e) {
@@ -33,7 +24,8 @@
 					e.chart.render();
 				}
 			},
-			axisX: {		       
+			axisX: {
+				interval: 1,
 				gridDashType: "dot",
 				gridThickness: 1,
 				labelFontColor: "black",
@@ -51,7 +43,7 @@
 			}, 
 			data: [ 
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Cured",
 					color:"#95B75D",
@@ -72,7 +64,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Currently in Treatment",
 					color:"#1caf9a",
@@ -93,7 +85,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Died",
 					color:"#ca0101",
@@ -114,7 +106,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Not Evaluated",
 					color:"#7E8F74",
@@ -135,7 +127,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Lost to Follow-up",
 					color:"#f97acd",
@@ -156,7 +148,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Failed",
 					color:"#ff5050",
@@ -177,7 +169,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Treatment Completed",
 					color:"#a8ee06",

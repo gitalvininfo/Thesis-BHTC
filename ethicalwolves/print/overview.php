@@ -12,6 +12,9 @@ require ('../config.php');
 		<link rel="icon" href="../assets/images/project_logo.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" id="theme" href="../css/theme-brown.css"/>
 		<link rel="stylesheet" type="text/css" href="../assets2/vendor/font-awesome/css/font-awesome.min.css" />
+		<script src="../js/plugins/jquery/jquery.min.js"></script>
+		<script src="../js/jquery.canvasjs.min.js"></script>
+		<?php require '../js/loadchart/medicines_taken.php'?>
 		<style type="text/css">
 			@media print {
 				#print{
@@ -22,7 +25,7 @@ require ('../config.php');
 	</head>
 	<body>
 		<?php 
-		$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
 		$find = $query->fetch_array();
 		date_default_timezone_set('Asia/Manila');
 		$date = date('F j, Y');
@@ -315,21 +318,14 @@ require ('../config.php');
 									</tbody>
 								</table>
 							</div>
+							<h3> <strong>Medicines and Dosages Taken</strong></h3><hr>
+							<h4>Graphical</h4>    
+							<div id="medicines_taken" style="width: 100%; height: 350px"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<script>
-			$(document).ready(function(){
-				$("#pyear").on('change', function(){
-					var year=$(this).val();
-					window.location = 'case_finding.php?year='+year;
-				});
-			});
-		</script>
-		<script src="../js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>        
 		<script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>

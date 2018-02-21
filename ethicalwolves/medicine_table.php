@@ -72,7 +72,7 @@ if(ISSET($_POST['new_medicine'])){
 								<div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
 									<table class="table table-hover">
 										<thead> 
-											<tr>
+											<tr class="warning">
 												<th><center>Name</center></th>
 												<th><center>Type</center></th>
 												<th><center>Description</center></th>
