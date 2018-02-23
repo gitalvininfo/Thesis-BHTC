@@ -3,7 +3,7 @@
 $year = date('Y');
 if(isset($_GET['year']))
 {
-    $year=$_GET['year'];
+	$year=$_GET['year'];
 }
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 $xpert = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE `result` = 'T' && `year` = '$year'") or die(mysqli_error());
@@ -20,86 +20,96 @@ $fetch5 = $xpert5->fetch_array();
 ?>
 
 <script type="text/javascript"> 
-    window.onload = function() { 
-        $("#xpert").CanvasJSChart({
-            theme: "light2",
-            animationEnabled: true,
-            animationDuration: 1000,
-            exportFileName: "XPERT", 
-            exportEnabled: true,
-            title: { 
-                text: "Bacolod City Health TB DOTS Center",
-                fontSize: 22
-            },
+	window.onload = function() { 
+		CanvasJS.addColorSet("customColorSet", [ 
+			"#393f63",
+			"#e5d8B0", 
+			"#ffb367", 
+			"#f98461", 
+			"#d9695f",
+			"#e05850",
+			"#7E8F74",
+		]);
+		$("#xpert").CanvasJSChart({
+			theme: "light2",
+			animationEnabled: true,
+			animationDuration: 1000,
+			colorSet: "customColorSet",
+			exportFileName: "XPERT", 
+			exportEnabled: true,
+			title: { 
+				text: "Bacolod City Health TB DOTS Center",
+				fontSize: 22
+			},
 			subtitles: [
 				{
 					text:"Xpert MTB/RIF Results as of Year <?php echo $year?>"
 				}
-				
+
 			],
-            axisY: { 
-                title: "DSSM" 
-            }, 
-            legend :{ 
-                verticalAlign: "center", 
-                horizontalAlign: "left" 
-            }, 
-            data: [ 
-                { 
-                    type: "doughnut", 
-                    showInLegend: true, 
-                    toolTipContent: "{label} <br/> {y}", 
-                    indexLabel: "{y}", 
-                    dataPoints: [ 
-                        { label: "[T] - MTB detected, Rifampicin resistance not detected",  y: 
-                         <?php
-    if($fetch1 == ""){
-        echo 0;
-    }else{
-        echo $fetch1['total'];
-    }	
-                         ?>, legendText: "[T] - MTB detected, Rifampicin resistance not detected"},
+			axisY: { 
+				title: "DSSM" 
+			}, 
+			legend :{ 
+				verticalAlign: "center", 
+				horizontalAlign: "left" 
+			}, 
+			data: [ 
+				{ 
+					type: "doughnut", 
+					showInLegend: true, 
+					toolTipContent: "{label} <br/> {y}", 
+					indexLabel: "{y}", 
+					dataPoints: [ 
+						{ label: "[T] - MTB detected, Rifampicin resistance not detected",  y: 
+						 <?php
+	if($fetch1 == ""){
+		echo 0;
+	}else{
+		echo $fetch1['total'];
+	}	
+						 ?>, legendText: "[T] - MTB detected, Rifampicin resistance not detected"},
 
-                        { label: "[RR] - MTB detected, Rifampicin resistance detected",  y: 
-                         <?php 
-                         if($fetch2 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch2['total'];
-                         }	
-                         ?>, legendText: "[RR] - MTB detected, Rifampicin resistance detected"},
+						{ label: "[RR] - MTB detected, Rifampicin resistance detected",  y: 
+						 <?php 
+						 if($fetch2 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch2['total'];
+						 }	
+						 ?>, legendText: "[RR] - MTB detected, Rifampicin resistance detected"},
 
-                        { label: "[TI] - MTB detected, Rifampicin resistance indeterminate",  y: 
-                         <?php 
-                         if($fetch3 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch3['total'];
-                         }	
-                         ?>, legendText: "[TI] - MTB detected, Rifampicin resistance indeterminate"},
+						{ label: "[TI] - MTB detected, Rifampicin resistance indeterminate",  y: 
+						 <?php 
+						 if($fetch3 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch3['total'];
+						 }	
+						 ?>, legendText: "[TI] - MTB detected, Rifampicin resistance indeterminate"},
 
-                        { label: "[N] - MTB not detected",  y: 
-                         <?php 
-                         if($fetch4 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch4['total'];
-                         }	
-                         ?>, legendText: "[N] - MTB not detected"},
+						{ label: "[N] - MTB not detected",  y: 
+						 <?php 
+						 if($fetch4 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch4['total'];
+						 }	
+						 ?>, legendText: "[N] - MTB not detected"},
 
-                        { label: "Invalid / No Result",  y: 
-                         <?php 
-                         if($fetch5 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch5['total'];
-                         }	
-                         ?>, legendText: "[I] - Invalid / No Result"},
+						{ label: "Invalid / No Result",  y: 
+						 <?php 
+						 if($fetch5 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch5['total'];
+						 }	
+						 ?>, legendText: "[I] - Invalid / No Result"},
 
 
-                    ] 
-                } 
-            ] 
-        }); 
-    } 
+					] 
+				} 
+			] 
+		}); 
+	} 
 </script>

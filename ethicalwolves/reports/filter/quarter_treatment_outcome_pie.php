@@ -14,7 +14,7 @@ require ('../../config.php');
 		<link rel="stylesheet" type="text/css" id="theme" href="../../css/theme-blue.css"/>
 		<script src="../../js/plugins/jquery/jquery.min.js"></script>
 		<script src = "../../js/jquery.canvasjs.min.js"></script>
-		<?php require '../../js/loadchart/filter/quarter_treatment_outcome.php'?>
+		<?php require '../../js/loadchart/filter/quarter_treatment_outcome_pie.php'?>
 		<style type="text/css">
 			@media print {
 				#print{
@@ -53,7 +53,7 @@ require ('../../config.php');
 										</ul>
 									</div>
 									<button id="print" class="btn btn-default btn-md" onclick="javascript:window.print()">Print</button>
-									<i><?php echo date('F j, Y', strtotime("+8 HOURS"));?></i>
+									<i><?php echo date('F j, Y', strtotime("+8 HOURS"));?></i>      
 								</div>
 							</div> 
 						</div>
@@ -126,7 +126,7 @@ require ('../../config.php');
 								</table>
 								<div class="panel-body">
 									<div class="col-md-12">
-										<div id="treatment_outcome" style="width: 100%; height: 275px"></div>
+										<div id="pie" style="width: 100%; height: 275px"></div>
 									</div>
 								</div>
 							</div>

@@ -81,13 +81,13 @@ $f = $q->fetch_array();
                                                         <div class='text'>
                                                         <div class='heading'>
                                                         <strong>Test Requested: ".$f['test_requested']." </strong>
-                                                        <span class='date'><strong style='color:red'>Date Requested : ".$f['date_of_request']." </strong></span>
+                                                        <span class='date'><strong style='color:#000'>Date Requested : ".$f['date_of_request']." </strong></span>
                                                         </div>
                                                         <strong>Requesting Physician : ".$f['requesting_physician']." </strong>
                                                         </div>
                                                         </div>
                                                         </div>
-                                                        <a class = 'btn btn-danger' href = 'examination_result_form.php?patient_id=".$_GET['id']."&lab_request_id=".$f['lab_request_id']."&patient_name=".$f1['patient_name']."'><span class = 'fa fa-mail-forward'></span>Confirm</a> <hr>
+                                                        <a class = 'btn btn-danger' href = 'examination_result_form.php?patient_id=".$_GET['id']."&lab_request_id=".$f['lab_request_id']."&patient_name=".$f1['patient_name']."'>Confirm</a> <hr>
                                                             ";
 
                                                 }

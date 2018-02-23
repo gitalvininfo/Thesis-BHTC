@@ -1,6 +1,15 @@
 <?php require '../../reports/require/load_quarter_population.php'?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
+		CanvasJS.addColorSet("customColorSet", [ 
+			"#393f63",
+			"#ffb367", 
+			"#e5d8B0", 
+			"#f98461", 
+			"#d9695f",
+			"#e05850",
+			"#7E8F74"
+		]);
 		$("#quarterly").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
@@ -8,6 +17,7 @@
 			panEnabled: true,
 			animationEnabled: true,
 			animationDuration: 1000,
+			colorSet: "customColorSet",
 			//exportFileName: "Quarter Population", 
 			//exportEnabled: true,
 			toolTip: {
@@ -38,7 +48,6 @@
 				{ 
 					type: "column", 
 					name: "Total Patients this quarter",
-					color: "#ff5050",
 					dataPoints: [ 
 						{ label: "Quarter 1", y: <?php echo $f1['total']?> },
 						 { label: "Quarter 2", y: <?php echo $f2['total']?> },

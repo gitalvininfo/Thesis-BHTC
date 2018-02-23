@@ -2,7 +2,7 @@
 $year = date('Y');
 if(isset($_GET['year']))
 {
-    $year=$_GET['year'];
+	$year=$_GET['year'];
 }
 
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
@@ -24,56 +24,79 @@ $f7 = $ct->fetch_array();
 
 ?>
 <script type="text/javascript"> 
-    window.onload = function(){ 
-        $("#treatment_outcome").CanvasJSChart({
-            theme: "light2",
-            zoomEnabled: true,
-            zoomType: "x",
-            panEnabled: true,
-            animationEnabled: true,
-            animationDuration: 1000,
-            exportFileName: "Treatment Outcome", 
-            exportEnabled: true,
-            title: { 
-                text: "Bacolod City Health TB DOTS Center",
-                fontSize: 20
-            },
-            subtitles:[
-                {
-                    text: "Patient Treatment Outcome - Year <?php echo $year?>"
-                }
-            ],
-            axisX: {		       
-                gridDashType: "dot",
-                gridThickness: 1,
-                labelFontColor: "black",
-                crosshair: {
-                    enabled: true 
-                }
-            },
-            axisY: { 
-                title: "Number of Patients", 
-                includeZero: false,
-                labelFontColor: "black",
-                crosshair: {
-                    enabled: true 
-                }
-            }, 
-            data: [ 
-                { 
-                    type: "bar", 
-                    toolTipContent: "{label}: {y}", 
-                    dataPoints: [ 
-                        { label: "Cured", y: <?php echo $a1['total']?> },
-                         { label: "Treatment Completed", y: <?php echo $f2['total']?> },
-                        { label: "Died", y: <?php echo $f3['total']?> },
-                         { label: "Failed", y: <?php echo $f4['total']?> },
-                        { label: "Lost to Follow-up", y: <?php echo $f5['total']?> },
-                         { label: "Not Evaluated", y: <?php echo $f6['total']?> },
-                        { label: "Currently in Treatment", y: <?php echo $f7['total']?> }
-                         ] 
-                        }
-                    ] 
-                }); 
-                }
+	window.onload = function(){ 
+		CanvasJS.addColorSet("customColorSet", [ 
+			"#e5d8B0", 
+			"#ffb367", 
+			"#f98461", 
+			"#d9695f",
+			"#e05850",
+			"#7E8F74",
+			"#393f63"
+		]);
+		$("#treatment_outcome").CanvasJSChart({
+			theme: "light2",
+			zoomEnabled: true,
+			zoomType: "x",
+			panEnabled: true,
+			animationEnabled: true,
+			animationDuration: 1000,
+			colorSet: "customColorSet",
+			exportFileName: "Treatment Outcome", 
+			exportEnabled: true,
+			toolTip: {
+				shared: true  
+			},
+			title: { 
+				text: "Bacolod City Health TB DOTS Center",
+				fontSize: 20
+			},
+			subtitles:[
+				{
+					text: "Patient Treatment Outcome - Year <?php echo $year?>"
+				}
+			],
+			legend: {
+				cursor: "pointer",
+				itemclick: function (e) {
+					if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+						e.dataSeries.visible = false;
+					} else {
+						e.dataSeries.visible = true;
+					}
+					e.chart.render();
+				}
+			},
+			axisX: {		       
+				gridDashType: "dot",
+				gridThickness: 1,
+				labelFontColor: "black",
+				crosshair: {
+					enabled: true 
+				}
+			},
+			axisY: { 
+				title: "Number of Patients per Category", 
+				includeZero: false,
+				labelFontColor: "black",
+				crosshair: {
+					enabled: true 
+				}
+			}, 
+			data: [ 
+				{ 
+					type: "bar",
+					dataPoints: [ 
+						{ label: "Cured", y: <?php echo $a1['total']?> },
+						 { label: "Treatment Completed", y: <?php echo $f2['total']?> },
+						{ label: "Died", y: <?php echo $f3['total']?> },
+						 { label: "Failed", y: <?php echo $f4['total']?> },
+						{ label: "Lost to Follow-up", y: <?php echo $f5['total']?> },
+						 { label: "Not Evaluated", y: <?php echo $f6['total']?> },
+						{ label: "Currently in Treatment", y: <?php echo $f7['total']?> }
+						 ] 
+						}
+					] 
+				}); 
+				}
 </script>

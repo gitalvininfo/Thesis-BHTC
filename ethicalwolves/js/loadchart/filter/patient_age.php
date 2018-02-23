@@ -2,7 +2,7 @@
 $year = date('Y');
 if(isset($_GET['year']))
 {
-    $year=$_GET['year'];
+	$year=$_GET['year'];
 }
 
 
@@ -40,54 +40,64 @@ $a10 = $q10->fetch_array();
 
 ?>
 <script type="text/javascript"> 
-    window.onload = function(){ 
-        $("#page").CanvasJSChart({
-            theme: "light2",
-            zoomEnabled: true,
-            zoomType: "x",
-            panEnabled: true,
-            animationEnabled: true,
-            animationDuration: 1000,
-            //exportFileName: "Monthly Population", 
-            //exportEnabled: true,
-            title: { 
-                text: "Patient Population as of Year",
-                fontSize: 20
-            },
-            axisX: {		       
-                gridDashType: "dot",
-                gridThickness: 1,
-                labelFontColor: "black",
-                crosshair: {
-                    enabled: true 
-                }
-            },
-            axisY: { 
-                title: "Total Population", 
-                includeZero: false,
-                labelFontColor: "black",
-                crosshair: {
-                    enabled: true 
-                }
-            }, 
-            data: [ 
-                { 
-                    type: "bar", 
-                    toolTipContent: "{label}: {y}", 
-                    dataPoints: [ 
-                        { label: "1-10 years old", y: <?php echo $a1['total']?> },
-                         { label: "11-20 years old", y: <?php echo $a2['total']?> },
-                        { label: "21-30 years old", y: <?php echo $a3['total']?> },
-                         { label: "31-40 years old", y: <?php echo $a4['total']?> },
-                        { label: "41-50 years old", y: <?php echo $a5['total']?> },
-                         { label: "51-60 years old", y: <?php echo $a6['total']?> },
-                        { label: "61-70 years old", y: <?php echo $a7['total']?> },
-                         { label: "71-80 years old", y: <?php echo $a8['total']?> },
-                        { label: "81-90 years old", y: <?php echo $a9['total']?> },
-                         { label: "91-100 years old", y: <?php echo $a10['total']?> }
-                    ] 
-                }
-            ] 
-        }); 
-    }
+	window.onload = function(){ 
+		CanvasJS.addColorSet("customColorSet", [ 
+			"#e5d8B0", 
+			"#ffb367", 
+			"#f98461", 
+			"#d9695f",
+			"#e05850",
+			"#7E8F74",
+			"#393f63"
+		]);
+		$("#page").CanvasJSChart({
+			theme: "light2",
+			zoomEnabled: true,
+			zoomType: "x",
+			panEnabled: true,
+			animationEnabled: true,
+			animationDuration: 1000,
+			colorSet: "customColorSet",
+			//exportFileName: "Monthly Population", 
+			//exportEnabled: true,
+			title: { 
+				text: "Patient Population as of Year",
+				fontSize: 20
+			},
+			axisX: {		       
+				gridDashType: "dot",
+				gridThickness: 1,
+				labelFontColor: "black",
+				crosshair: {
+					enabled: true 
+				}
+			},
+			axisY: { 
+				title: "Total Population", 
+				includeZero: false,
+				labelFontColor: "black",
+				crosshair: {
+					enabled: true 
+				}
+			}, 
+			data: [ 
+				{ 
+					type: "bar", 
+					toolTipContent: "{label}: {y}", 
+					dataPoints: [ 
+						{ label: "1-10 years old", y: <?php echo $a1['total']?> },
+						 { label: "11-20 years old", y: <?php echo $a2['total']?> },
+						{ label: "21-30 years old", y: <?php echo $a3['total']?> },
+						 { label: "31-40 years old", y: <?php echo $a4['total']?> },
+						{ label: "41-50 years old", y: <?php echo $a5['total']?> },
+						 { label: "51-60 years old", y: <?php echo $a6['total']?> },
+						{ label: "61-70 years old", y: <?php echo $a7['total']?> },
+						 { label: "71-80 years old", y: <?php echo $a8['total']?> },
+						{ label: "81-90 years old", y: <?php echo $a9['total']?> },
+						 { label: "91-100 years old", y: <?php echo $a10['total']?> }
+					] 
+				}
+			] 
+		}); 
+	}
 </script>

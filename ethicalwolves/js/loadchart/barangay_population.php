@@ -2,7 +2,7 @@
 $year = date('Y');
 if(isset($_GET['year']))
 {
-    $year=$_GET['year'];
+	$year=$_GET['year'];
 }
 
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
@@ -203,116 +203,127 @@ $grandtotal = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE `statu
 $fetch25 = $grandtotal->fetch_array();
 ?>
 <script type="text/javascript"> 
-    window.onload = function(){ 
-        $("#barangay_population").CanvasJSChart({
-            theme: "light2",
-            zoomEnabled: true,
-            zoomType: "x",
-            panEnabled: true,
-            animationEnabled: true,
-            animationDuration: 1000,
-            exportFileName: "TB Patient Population per Barangay", 
-            exportEnabled: true,
-            title: { 
-                text: "Bacolod City Health TB DOTS Center",
-                fontSize: 20
-            },
-            subtitles:[
-                {
-                    text: "Barangay Population - Year <?php echo $year. " | Total: " .$fetch25['total']?> TB patients"
-                }
-            ],
-            axisY: { 
-                title: "Total Population", 
-                includeZero: false,
-                labelFontColor: "black",
-                crosshair: {
-                    enabled: true 
-                }
-            },
-            axisX: {		       
-                gridDashType: "dot",
-                gridThickness: 1,
-                labelFontColor: "black",
-                crosshair: {
-                    enabled: true 
-                }
-            },
-            data: [ 
-                { 
-                    type: "column",
+	window.onload = function(){ 
+		CanvasJS.addColorSet("customColorSet", [ 
+			"#393f63",
+			"#e5d8B0", 
+			"#ffb367", 
+			"#f98461", 
+			"#d9695f",
+			"#e05850",
+			"#7E8F74",
+		]);
+		$("#barangay_population").CanvasJSChart({
+			theme: "light2",
+			zoomEnabled: true,
+			zoomType: "x",
+			panEnabled: true,
+			animationEnabled: true,
+			animationDuration: 1000,
+			colorSet: "customColorSet",
+			exportFileName: "TB Patient Population per Barangay", 
+			exportEnabled: true,
+			title: { 
+				text: "Bacolod City Health TB DOTS Center",
+				fontSize: 20
+			},
+			subtitles:[
+				{
+					text: "Barangay Population - Year <?php echo $year. " | Total: " .$fetch25['total']?> TB patients"
+				}
+			],
+			axisY: { 
+				title: "Total Population", 
+				includeZero: false,
+				labelFontColor: "black",
+				crosshair: {
+					enabled: true 
+				}
+			},
+			axisX: {		
+				interval: 1.5,
+				gridDashType: "dot",
+				gridThickness: 1,
+				labelFontColor: "black",
+				crosshair: {
+					enabled: true 
+				}
+			},
+			data: [ 
+				{ 
+					type: "column",
 
-                    dataPoints: [ 
-                        { label: " Brgy. Abcasa", y: <?php echo $fetch1['total']?>}, 
-                         { label: " Brgy. Alangilan", y: <?php echo $fetch2['total']?> },
-                        { label: " Brgy. Alijis", y: <?php echo $fetch3['total']?> },
-                         { label: " Brgy. Banago", y: <?php echo $fetch4['total']?> },
-                        { label: " Brgy. Bata", y: <?php echo $fetch5['total']?> },
-                         { label: " Brgy. Cabug", y: <?php echo $fetch6['total']?> },
-                        { label: " Brgy. Estefania", y: <?php echo $fetch7['total']?> },
-                         { label: " Brgy. Felisa", y: <?php echo $fetch8['total']?> },
-                        { label: " Brgy. Granada", y: <?php echo $fetch9['total']?> },
-                         { label: " Brgy. Handumanan", y: <?php echo $fetch10['total']?> },
-                        { label: " Brgy. Lopez Jaena", y: <?php echo $fetch11['total']?> },
-                         { label: " Brgy. Mabini", y: <?php echo $fetch12['total']?> },
-                        { label: " Brgy. Mandalagan", y: <?php echo $fetch13['total']?> },
-                         { label: " Brgy. Mansilingan", y: <?php echo $fetch14['total']?> },
-                        { label: " Brgy. Montevista", y: <?php echo $fetch15['total']?> },
-                         { label: " Brgy. Pahanocoy", y: <?php echo $fetch16['total']?> },
-                        { label: " Brgy. Punta Taytay", y: <?php echo $fetch17['total']?> },
-                         { label: " Brgy. Singcang", y: <?php echo $fetch18['total']?> },
-                        { label: " Brgy. Sum-ag", y: <?php echo $fetch19['total']?> },
-                         { label: " Brgy. Taculing", y: <?php echo $fetch20['total']?> },
-                        { label: " Brgy. Tangub", y: <?php echo $fetch21['total']?> },
-                         { label: " Brgy. Villa Esperanza", y: <?php echo $fetch22['total']?> },
-                        { label: " Brgy. Villamonte", y: <?php echo $fetch23['total']?> },
-                         { label: " Brgy. Vista Alegre", y: <?php echo $fetch24['total']?> },
-                        { label: " Brgy. 1", y: <?php echo $fetch26['total']?> },
-                         { label: " Brgy. 2", y: <?php echo $fetch27['total']?> },
-                        { label: " Brgy. 3", y: <?php echo $fetch28['total']?> },
-                         { label: " Brgy. 4", y: <?php echo $fetch29['total']?> },
-                        { label: " Brgy. 5", y: <?php echo $fetch30['total']?> },
-                         { label: " Brgy. 6", y: <?php echo $fetch31['total']?> },
-                        { label: " Brgy. 7", y: <?php echo $fetch32['total']?> },
-                         { label: " Brgy. 8", y: <?php echo $fetch33['total']?> },
-                        { label: " Brgy. 9", y: <?php echo $fetch34['total']?> },
-                         { label: " Brgy. 10", y: <?php echo $fetch35['total']?> },
-                        { label: " Brgy. 11", y: <?php echo $fetch36['total']?> },
-                         { label: " Brgy. 12", y: <?php echo $fetch37['total']?> },
-                        { label: " Brgy. 13", y: <?php echo $fetch38['total']?> },
-                         { label: " Brgy. 14", y: <?php echo $fetch39['total']?> },
-                        { label: " Brgy. 15", y: <?php echo $fetch40['total']?> },
-                         { label: " Brgy. 16", y: <?php echo $fetch41['total']?> },
-                        { label: " Brgy. 17", y: <?php echo $fetch42['total']?> },
-                         { label: " Brgy. 18", y: <?php echo $fetch43['total']?> },
-                        { label: " Brgy. 19", y: <?php echo $fetch44['total']?> },
-                         { label: " Brgy. 20", y: <?php echo $fetch45['total']?> },
-                        { label: " Brgy. 21", y: <?php echo $fetch46['total']?> },
-                         { label: " Brgy. 22", y: <?php echo $fetch47['total']?> },
-                        { label: " Brgy. 23", y: <?php echo $fetch48['total']?> },
-                         { label: " Brgy. 24", y: <?php echo $fetch49['total']?> },
-                        { label: " Brgy. 25", y: <?php echo $fetch50['total']?> },
-                         { label: " Brgy. 26", y: <?php echo $fetch51['total']?> },
-                        { label: " Brgy. 27", y: <?php echo $fetch52['total']?> },
-                         { label: " Brgy. 28", y: <?php echo $fetch53['total']?> },
-                        { label: " Brgy. 29", y: <?php echo $fetch54['total']?> },
-                         { label: " Brgy. 30", y: <?php echo $fetch55['total']?> },
-                        { label: " Brgy. 31", y: <?php echo $fetch56['total']?> },
-                         { label: " Brgy. 32", y: <?php echo $fetch57['total']?> },
-                        { label: " Brgy. 33", y: <?php echo $fetch58['total']?> },
-                         { label: " Brgy. 34", y: <?php echo $fetch59['total']?> },
-                        { label: " Brgy. 35", y: <?php echo $fetch60['total']?> },
-                         { label: " Brgy. 36", y: <?php echo $fetch61['total']?> },
-                        { label: " Brgy. 37", y: <?php echo $fetch62['total']?> },
-                         { label: " Brgy. 38", y: <?php echo $fetch63['total']?> },
-                        { label: " Brgy. 39", y: <?php echo $fetch64['total']?> },
-                         { label: " Brgy. 40", y: <?php echo $fetch65['total']?> },
+					dataPoints: [ 
+						{ label: " Brgy. Abcasa", y: <?php echo $fetch1['total']?>}, 
+						 { label: " Brgy. Alangilan", y: <?php echo $fetch2['total']?> },
+						{ label: " Brgy. Alijis", y: <?php echo $fetch3['total']?> },
+						 { label: " Brgy. Banago", y: <?php echo $fetch4['total']?> },
+						{ label: " Brgy. Bata", y: <?php echo $fetch5['total']?> },
+						 { label: " Brgy. Cabug", y: <?php echo $fetch6['total']?> },
+						{ label: " Brgy. Estefania", y: <?php echo $fetch7['total']?> },
+						 { label: " Brgy. Felisa", y: <?php echo $fetch8['total']?> },
+						{ label: " Brgy. Granada", y: <?php echo $fetch9['total']?> },
+						 { label: " Brgy. Handumanan", y: <?php echo $fetch10['total']?> },
+						{ label: " Brgy. Lopez Jaena", y: <?php echo $fetch11['total']?> },
+						 { label: " Brgy. Mabini", y: <?php echo $fetch12['total']?> },
+						{ label: " Brgy. Mandalagan", y: <?php echo $fetch13['total']?> },
+						 { label: " Brgy. Mansilingan", y: <?php echo $fetch14['total']?> },
+						{ label: " Brgy. Montevista", y: <?php echo $fetch15['total']?> },
+						 { label: " Brgy. Pahanocoy", y: <?php echo $fetch16['total']?> },
+						{ label: " Brgy. Punta Taytay", y: <?php echo $fetch17['total']?> },
+						 { label: " Brgy. Singcang", y: <?php echo $fetch18['total']?> },
+						{ label: " Brgy. Sum-ag", y: <?php echo $fetch19['total']?> },
+						 { label: " Brgy. Taculing", y: <?php echo $fetch20['total']?> },
+						{ label: " Brgy. Tangub", y: <?php echo $fetch21['total']?> },
+						 { label: " Brgy. Villa Esperanza", y: <?php echo $fetch22['total']?> },
+						{ label: " Brgy. Villamonte", y: <?php echo $fetch23['total']?> },
+						 { label: " Brgy. Vista Alegre", y: <?php echo $fetch24['total']?> },
+						{ label: " Brgy. 1", y: <?php echo $fetch26['total']?> },
+						 { label: " Brgy. 2", y: <?php echo $fetch27['total']?> },
+						{ label: " Brgy. 3", y: <?php echo $fetch28['total']?> },
+						 { label: " Brgy. 4", y: <?php echo $fetch29['total']?> },
+						{ label: " Brgy. 5", y: <?php echo $fetch30['total']?> },
+						 { label: " Brgy. 6", y: <?php echo $fetch31['total']?> },
+						{ label: " Brgy. 7", y: <?php echo $fetch32['total']?> },
+						 { label: " Brgy. 8", y: <?php echo $fetch33['total']?> },
+						{ label: " Brgy. 9", y: <?php echo $fetch34['total']?> },
+						 { label: " Brgy. 10", y: <?php echo $fetch35['total']?> },
+						{ label: " Brgy. 11", y: <?php echo $fetch36['total']?> },
+						 { label: " Brgy. 12", y: <?php echo $fetch37['total']?> },
+						{ label: " Brgy. 13", y: <?php echo $fetch38['total']?> },
+						 { label: " Brgy. 14", y: <?php echo $fetch39['total']?> },
+						{ label: " Brgy. 15", y: <?php echo $fetch40['total']?> },
+						 { label: " Brgy. 16", y: <?php echo $fetch41['total']?> },
+						{ label: " Brgy. 17", y: <?php echo $fetch42['total']?> },
+						 { label: " Brgy. 18", y: <?php echo $fetch43['total']?> },
+						{ label: " Brgy. 19", y: <?php echo $fetch44['total']?> },
+						 { label: " Brgy. 20", y: <?php echo $fetch45['total']?> },
+						{ label: " Brgy. 21", y: <?php echo $fetch46['total']?> },
+						 { label: " Brgy. 22", y: <?php echo $fetch47['total']?> },
+						{ label: " Brgy. 23", y: <?php echo $fetch48['total']?> },
+						 { label: " Brgy. 24", y: <?php echo $fetch49['total']?> },
+						{ label: " Brgy. 25", y: <?php echo $fetch50['total']?> },
+						 { label: " Brgy. 26", y: <?php echo $fetch51['total']?> },
+						{ label: " Brgy. 27", y: <?php echo $fetch52['total']?> },
+						 { label: " Brgy. 28", y: <?php echo $fetch53['total']?> },
+						{ label: " Brgy. 29", y: <?php echo $fetch54['total']?> },
+						 { label: " Brgy. 30", y: <?php echo $fetch55['total']?> },
+						{ label: " Brgy. 31", y: <?php echo $fetch56['total']?> },
+						 { label: " Brgy. 32", y: <?php echo $fetch57['total']?> },
+						{ label: " Brgy. 33", y: <?php echo $fetch58['total']?> },
+						 { label: " Brgy. 34", y: <?php echo $fetch59['total']?> },
+						{ label: " Brgy. 35", y: <?php echo $fetch60['total']?> },
+						 { label: " Brgy. 36", y: <?php echo $fetch61['total']?> },
+						{ label: " Brgy. 37", y: <?php echo $fetch62['total']?> },
+						 { label: " Brgy. 38", y: <?php echo $fetch63['total']?> },
+						{ label: " Brgy. 39", y: <?php echo $fetch64['total']?> },
+						 { label: " Brgy. 40", y: <?php echo $fetch65['total']?> },
 
 
 
-                    ] 
-                } 
-            ] 
-        }); 
-    }
+					] 
+				} 
+			] 
+		}); 
+	}
 </script>

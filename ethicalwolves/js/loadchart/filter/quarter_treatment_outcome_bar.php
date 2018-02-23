@@ -10,7 +10,7 @@
 			"#e05850",
 			"#7E8F74",
 		]);
-		$("#treatment_outcome").CanvasJSChart({
+		$("#bar").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
 			zoomType: "x",
@@ -61,7 +61,7 @@
 			}, 
 			data: [ 
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Cured",
 					name: "Cured",
@@ -73,7 +73,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Currently in Treatment",
 					name: "Currently in Treatment",
@@ -85,7 +85,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Died",
 					name: "Died",
@@ -97,7 +97,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Not Evaluated",
 					name: "Not Evaluated",
@@ -109,7 +109,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Lost tol Follow-up",
 					name: "Lost tol Follow-up",
@@ -121,7 +121,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Failed",
 					name: "Failed",
@@ -133,7 +133,7 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn",
+					type: "stackedBar",
 					showInLegend: true, 
 					legendText: "Treatment Completed",
 					name: "Treatment Completed",

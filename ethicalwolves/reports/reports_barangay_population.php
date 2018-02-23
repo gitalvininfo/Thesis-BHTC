@@ -40,7 +40,7 @@ require ('../config.php');
 									<li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Graphical</a></li>
 									<li><a href="#tab-second" role="tab" data-toggle="tab">Tabular</a></li>
 									<?php require '../require/select_year.php'?>
-									<a href="#" class="btn btn sm btn-info" onclick="openGeo()"><span class="fa fa-map-marker"></span> Geotagging</a>
+									<a href="#" class="btn btn sm btn-info" onclick="openGeo()">Geotagging</a>
 								</ul>
 								<div class="panel-body tab-content">
 									<div class="tab-pane active" id="tab-first">

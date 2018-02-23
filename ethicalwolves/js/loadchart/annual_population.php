@@ -84,6 +84,15 @@ $f39 = $q39->fetch_array();
 ?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
+		CanvasJS.addColorSet("customColorSet", [ 
+			"#393f63",
+			"#e5d8B0", 
+			"#ffb367", 
+			"#f98461", 
+			"#d9695f",
+			"#e05850",
+			"#7E8F74",
+		]);
 		$("#annual_population").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
@@ -91,6 +100,7 @@ $f39 = $q39->fetch_array();
 			panEnabled: true,
 			animationEnabled: true,
 			animationDuration: 1000,
+			colorSet: "customColorSet",
 			exportFileName: "Annual Patient Population", 
 			exportEnabled: true,
 			toolTip: {
@@ -138,7 +148,6 @@ $f39 = $q39->fetch_array();
 					showInLegend: true, 
 					legendText: "Total Number of Patients",
 					name: "Total Patients this Year",
-					color:"#7E8F74",
 					markerType: "cross",
 					dataPoints: [ 
 						{ label: "2013", y: <?php echo $fetch11['total']?> },

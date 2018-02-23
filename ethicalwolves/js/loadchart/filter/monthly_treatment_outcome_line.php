@@ -1,6 +1,15 @@
 <?php require "../../reports/require/load_monthly_treatment_outcome.php"?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
+		CanvasJS.addColorSet("customColorSet", [ 
+			"#e5d8B0", 
+			"#393f63",
+			"#ffb367", 
+			"#f98461", 
+			"#d9695f",
+			"#e05850",
+			"#7E8F74",
+		]);
 		$("#line").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
@@ -8,6 +17,7 @@
 			panEnabled: true,
 			animationEnabled: true,
 			animationDuration: 1000,
+			colorSet: "customColorSet",
 			//exportFileName: "Treatment Outcome", 
 			//exportEnabled: true,
 			toolTip: {
@@ -45,7 +55,6 @@
 					type: "line",
 					showInLegend: true, 
 					legendText: "Cured",
-					color:"#95B75D",
 					name: "Cured",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $c1['total']?> },
@@ -66,7 +75,6 @@
 					type: "line",
 					showInLegend: true, 
 					legendText: "Currently in Treatment",
-					color:"#1caf9a",
 					name: "Currently in Treatment",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $t1['total']?> },
@@ -87,7 +95,6 @@
 					type: "line",
 					showInLegend: true, 
 					legendText: "Died",
-					color:"#ca0101",
 					name: "Died",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $d1['total']?> },
@@ -108,7 +115,6 @@
 					type: "line",
 					showInLegend: true, 
 					legendText: "Not Evaluated",
-					color:"#7E8F74",
 					name: "Not Evaluated",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $n1['total']?> },
@@ -129,7 +135,6 @@
 					type: "line",
 					showInLegend: true, 
 					legendText: "Lost to Follow-up",
-					color:"#f97acd",
 					name: "Lost to Follow-up",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $l1['total']?> },
@@ -150,7 +155,6 @@
 					type: "line",
 					showInLegend: true, 
 					legendText: "Failed",
-					color:"#ff5050",
 					name: "Failed",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $f1['total']?> },
@@ -171,7 +175,6 @@
 					type: "line",
 					showInLegend: true, 
 					legendText: "Treatment Completed",
-					color:"#a8ee06",
 					name: "Treatment Completed",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $tc1['total']?> },

@@ -35,7 +35,7 @@ require ('../config.php');
 				<div class="page-content-wrap">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<div class="btn-group pull-right">
 										<div class="pull-left">
@@ -51,7 +51,7 @@ require ('../config.php');
 							</div>
 						</div>
 						<div class="col-md-12">
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 								<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
 			$q1 = $conn->query("SELECT *, count(*) as total FROM `patient`, `registration` WHERE registration.patient_id = patient.patient_id && `barangay` = '$_GET[id]' && registration.year = '$_GET[year]' ") or die(mysqli_error());
@@ -84,9 +84,9 @@ require ('../config.php');
 						<div class="panel panel-default">
 							<div class="panel-body">
 								<div class="col-md-3">
-									<div class="panel panel-danger">
+									<div class="panel panel-primary">
 										<div class="panel-heading">
-											<h3 class="panel-title"><span class="fa fa-circle text-danger"></span> Treatment Outcome</h3>
+											<h3 class="panel-title">Treatment Outcome</h3>
 										</div>
 										<div class="panel-body">
 											<?php
@@ -130,9 +130,9 @@ require ('../config.php');
 									</div>
 								</div>
 								<div class="col-md-3">
-									<div class="panel panel-success">
+									<div class="panel panel-primary">
 										<div class="panel-heading">
-											<h3 class="panel-title"><span class="fa fa-circle text-success"></span> Registration Group</h3>
+											<h3 class="panel-title">Registration Group</h3>
 										</div>
 										<div class="panel-body">
 											<?php
@@ -163,9 +163,9 @@ require ('../config.php');
 									</div>
 								</div>
 								<div class="col-md-3">
-									<div class="panel panel-info">
+									<div class="panel panel-primary">
 										<div class="panel-heading">
-											<h3 class="panel-title"><span class="fa fa-circle text-info"></span> Source of Patient</h3>
+											<h3 class="panel-title">Source of Patient</h3>
 										</div>
 										<div class="panel-body">
 											<?php
@@ -192,7 +192,7 @@ require ('../config.php');
 								<div class="col-md-3">
 									<div class="panel panel-primary">
 										<div class="panel-heading">
-											<h3 class="panel-title"><span class="fa fa-circle text-default"></span> Bacteriological Status</h3>
+											<h3 class="panel-title"> Bacteriological Status</h3>
 										</div>
 										<div class="panel-body">
 											<?php
@@ -212,7 +212,7 @@ require ('../config.php');
 								<div class="col-md-3">
 									<div class="panel panel-primary">
 										<div class="panel-heading">
-											<h3 class="panel-title"><span class="fa fa-circle text-default"></span> Classification of TB</h3>
+											<h3 class="panel-title">Classification of TB</h3>
 										</div>
 										<div class="panel-body">
 											<?php

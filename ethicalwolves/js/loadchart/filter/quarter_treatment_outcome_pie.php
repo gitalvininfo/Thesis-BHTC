@@ -1,32 +1,5 @@
 <?php 
-
-
-$year = date('Y');
-if(isset($_GET['year']))
-{
-	$year=$_GET['year'];
-}
-$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$c1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Cured' && `year` = '$year'") or die(mysqli_error());
-$c1 = $c1->fetch_array();
-
-$t1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Currently in Treatment' && `year` = '$year'") or die(mysqli_error());
-$t1 = $t1->fetch_array();
-
-$d1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Died' && `year` = '$year'") or die(mysqli_error());
-$d1 = $d1->fetch_array();
-
-$n1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Not Evaluated' && `year` = '$year'") or die(mysqli_error());
-$n1 = $n1->fetch_array();
-
-$l1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Lost to followup' && `year` = '$year'") or die(mysqli_error());
-$l1 = $l1->fetch_array();
-
-$f1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Failed' && `year` = '$year'") or die(mysqli_error());
-$f1 = $f1->fetch_array();
-
-$tc1 = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `status` = 'Treatment Completed' && `year` = '$year'") or die(mysqli_error());
-$tc1 = $tc1->fetch_array();
+require "../../reports/require/load_quarter_treatment_outcome.php";
 ?>
 <script type="text/javascript">
 	window.onload = function() {

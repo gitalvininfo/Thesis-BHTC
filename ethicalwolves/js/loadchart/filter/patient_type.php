@@ -1,6 +1,16 @@
 <?php require '../../reports/require/load_monthly_patient.php'  ?>
 <script>
 	window.onload = function(){ 
+		CanvasJS.addColorSet("customColorSet", [ 
+			"#ffb367", 
+			"#393f63",
+			"#e5d8B0", 
+			"#f98461", 
+			"#d9695f",
+			"#e05850",
+			"#7E8F74",
+
+		]);
 		$("#ptype").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
@@ -8,6 +18,7 @@
 			panEnabled: true,
 			animationEnabled: true,
 			animationDuration: 1000,
+			colorSet: "customColorSet",
 			//exportFileName: "Monthly Population", 
 			//exportEnabled: true,
 			toolTip: {
@@ -56,7 +67,6 @@
 					showInLegend: true, 
 					legendText: "Children",
 					name: "Children", 
-					color: "#1caf9a",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $c1['total']?> },
 						 { label: "February", y: <?php echo $c2['total']?> },
@@ -77,7 +87,6 @@
 					showInLegend: true, 
 					legendText: "Adult",
 					name: "Adult", 
-					color: "#95B75D",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $a1['total']?> },
 						 { label: "February", y: <?php echo $a2['total']?> },

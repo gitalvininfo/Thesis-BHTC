@@ -3,7 +3,7 @@
 $year = date('Y');
 if(isset($_GET['year']))
 {
-    $year=$_GET['year'];
+	$year=$_GET['year'];
 }
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 $new = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'New' && `year` = '$year'") or die(mysqli_error());
@@ -22,103 +22,113 @@ $oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registr
 $fetch9 = $oth->fetch_array();
 ?>
 <script type="text/javascript">
-    window.onload = function() {
-        $("#registration_group").CanvasJSChart({
-            theme: "light2",
-            animationEnabled: true,
-            animationDuration: 1000,
-            exportFileName: "TB Patient Registration Group", 
-            exportEnabled: true,
-            title: { 
-                text: "Bacolod City Health TB DOTS Center",
-                fontSize: 20
-            },
-            subtitles:[
-                {
-                    text: "Patient Registration Group - Year <?php echo $year?>"
-                }
-            ],
-            axisY: { 
-                title: "Registration" 
-            }, 
-            legend :{ 
-                verticalAlign: "center", 
-                horizontalAlign: "left",
-                cursor: "pointer",
+	window.onload = function() {
+		CanvasJS.addColorSet("customColorSet", [ 
+			"#393f63",
+			"#e5d8B0", 
+			"#ffb367", 
+			"#f98461", 
+			"#d9695f",
+			"#e05850",
+			"#7E8F74",
+		]);
+		$("#registration_group").CanvasJSChart({
+			theme: "light2",
+			animationEnabled: true,
+			animationDuration: 1000,
+			colorSet: "customColorSet",
+			exportFileName: "TB Patient Registration Group", 
+			exportEnabled: true,
+			title: { 
+				text: "Bacolod City Health TB DOTS Center",
+				fontSize: 20
+			},
+			subtitles:[
+				{
+					text: "Patient Registration Group - Year <?php echo $year?>"
+				}
+			],
+			axisY: { 
+				title: "Registration" 
+			}, 
+			legend :{ 
+				verticalAlign: "center", 
+				horizontalAlign: "left",
+				cursor: "pointer",
 
-            }, 
-            data: [ 
-                { 
-                    type: "doughnut", 
-                    showInLegend: true, 
-                    toolTipContent: "{label} <br/> {y}", 
-                    indexLabel: "{y}", 
-                    dataPoints: [ 
-                        { label: "New",  y: 
-                         <?php
-    if($fetch3 == ""){
-        echo 0;
-    }else{
-        echo $fetch3['total'];
-    }	
-                         ?>, legendText: "New"},
+			}, 
+			data: [ 
+				{ 
+					type: "doughnut", 
+					showInLegend: true, 
+					toolTipContent: "{label} <br/> {y}", 
+					indexLabel: "{y}", 
+					dataPoints: [ 
+						{ label: "New",  y: 
+						 <?php
+	if($fetch3 == ""){
+		echo 0;
+	}else{
+		echo $fetch3['total'];
+	}	
+						 ?>, legendText: "New"},
 
-                        { label: "Relapse",  y: 
-                         <?php 
-                         if($fetch4 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch4['total'];
-                         }	
-                         ?>, legendText: "Relapse"},
+						{ label: "Relapse",  y: 
+						 <?php 
+						 if($fetch4 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch4['total'];
+						 }	
+						 ?>, legendText: "Relapse"},
 
-                        { label: "Treatment After Loss Follow-up",  y: 
-                         <?php 
-                         if($fetch5 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch5['total'];
-                         }	
-                         ?>, legendText: "Treatment After Loss Follow-up"}, 
+						{ label: "Treatment After Loss Follow-up",  y: 
+						 <?php 
+						 if($fetch5 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch5['total'];
+						 }	
+						 ?>, legendText: "Treatment After Loss Follow-up"}, 
 
-                        { label: "Treatment After Failure",  y: 
-                         <?php 
-                         if($fetch6 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch6['total'];
-                         }	
-                         ?>, legendText: "Treatment After Failure"},
+						{ label: "Treatment After Failure",  y: 
+						 <?php 
+						 if($fetch6 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch6['total'];
+						 }	
+						 ?>, legendText: "Treatment After Failure"},
 
-                        { label: "Previous Treatment Outcome Unknown",  y: 
-                         <?php 
-                         if($fetch7 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch7['total'];
-                         }	
-                         ?>, legendText: "Previous Treatment Outcome Unknown"}, 
+						{ label: "Previous Treatment Outcome Unknown",  y: 
+						 <?php 
+						 if($fetch7 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch7['total'];
+						 }	
+						 ?>, legendText: "Previous Treatment Outcome Unknown"}, 
 
-                        { label: "Transfer-in",  y: 
-                         <?php 
-                         if($fetch8 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch8['total'];
-                         }	
-                         ?>, legendText: "Transfer-in"}, 
+						{ label: "Transfer-in",  y: 
+						 <?php 
+						 if($fetch8 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch8['total'];
+						 }	
+						 ?>, legendText: "Transfer-in"}, 
 
-                        { label: "Others",  y: 
-                         <?php 
-                         if($fetch9 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch9['total'];
-                         }	
-                         ?>, legendText: "Others"}
-                    ] 
-                } 
-            ] 
-        }); 
-    } 
+						{ label: "Others",  y: 
+						 <?php 
+						 if($fetch9 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch9['total'];
+						 }	
+						 ?>, legendText: "Others"}
+					] 
+				} 
+			] 
+		}); 
+	} 
 </script>

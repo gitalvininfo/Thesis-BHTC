@@ -48,16 +48,18 @@ require ('../../config.php');
 										<ul class="dropdown-menu" role="menu">
 											<li><a href="#" onclick="oDou()">Doughnut Graph</a></li>
 											<li><a href="#" onclick="oPie()">Pie Graph</a></li>
-											<li><a href="#" onclick="oBar()">Bar Graph</a></li>
+											<li><a href="#" onclick="oBar()">Stacked Bar Graph</a></li>
 											<li><a href="#" onclick="oLine()">Line Graph</a></li>
+											<li><a href="#" onclick="oCol()">Stacked Column Graph</a></li>
 										</ul>
 									</div>
-									<i>as of <?php echo date('F j, Y', strtotime("+8 HOURS"));?></i>
-									<button id="print" class="btn btn-default btn-sm" onclick="javascript:window.print()">Print</button>      
+									<button id="print" class="btn btn-default btn-md" onclick="javascript:window.print()">Print</button>
+									<i><?php echo date('F j, Y', strtotime("+8 HOURS"));?></i>
 								</div>
 							</div> 
 						</div>
 						<div class="panel-body">
+							<h4 class="title" id="print">Press F5 to print</h4>
 							<table class="table table-condensed">
 								<thead>
 									<tr>
@@ -190,24 +192,41 @@ require ('../../config.php');
 							<div class="row">
 								<div class="panel-body">
 									<div class="col-md-12">
-										<div id="bar" style="width: 100%; height: 300px;"></div>
+										<div id="bar" style="width: 100%; height: 275px;"></div>
 									</div>
 								</div>
 							</div>
 							<h6 style="float:left">Approved by:</h6><br><br>
-							<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4>
+							<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4><br><br>
+							<h6><?php echo $find['position']?></h6>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<script>
+			function oDou() {
+				window.location="monthly_treatment_outcome_doughnut.php?year=<?php echo $year?>";
+			}
+			function oPie() {
+				window.location="monthly_treatment_outcome_pie.php?year=<?php echo $year?>";
+			}
 			function oBar() {
-				myWindow = window.open("monthly_treatment_outcome_bar.php?year=<?php echo $year?>", "", "width=1350, height=650");
+				window.location="monthly_treatment_outcome_bar.php?year=<?php echo $year?>";
 			}
 			function oLine() {
-				myWindow = window.open("monthly_treatment_outcome_line.php?year=<?php echo $year?>", "", "width=1350, height=650");
+				window.location="monthly_treatment_outcome_line.php?year=<?php echo $year?>";
 			}
+			function oCol() {
+				window.location="monthly_treatment_outcome.php?year=<?php echo $year?>";
+			}
+		</script>
+		<script>
+			document.body.addEventListener("keydown", function (event) {
+				if (event.keyCode === 116) {
+					javascript:window.print();
+				}
+			});
 		</script>
 		<script type="text/javascript" src="../../js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../../js/plugins/bootstrap/bootstrap.min.js"></script>        

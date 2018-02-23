@@ -48,6 +48,15 @@ $f18 = $capreomycin2->fetch_array();
 ?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
+		CanvasJS.addColorSet("customColorSet", [ 
+			"#393f63",
+			"#ffb367", 
+			"#e5d8B0", 
+			"#f98461", 
+			"#d9695f",
+			"#e05850",
+			"#7E8F74",
+		]);
 		$("#dst").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
@@ -55,6 +64,7 @@ $f18 = $capreomycin2->fetch_array();
 			panEnabled: true,
 			animationEnabled: true,
 			animationDuration: 1000,
+			colorSet: "customColorSet",
 			exportFileName: "Monthly Population", 
 			exportEnabled: true,
 			toolTip: {
@@ -102,7 +112,6 @@ $f18 = $capreomycin2->fetch_array();
 					showInLegend: true, 
 					legendText: "Resistant",
 					name: "Resistant",
-					color:"#ff5050", 
 					dataPoints: [ 
 						{ label: "Isoniazid", y: <?php echo $f1['total']?> },
 						 { label: "Rifampicin", y: <?php echo $f2['total']?> },
@@ -120,7 +129,6 @@ $f18 = $capreomycin2->fetch_array();
 							showInLegend: true, 
 							legendText: "Susceptible",
 							name: "Susceptible",
-							color: "#95B75D", 
 							dataPoints: [
 								{ label: "Isoniazid", y: <?php echo $f10['total']?> },
 								 { label: "Rifampicin", y: <?php echo $f11['total']?>},
