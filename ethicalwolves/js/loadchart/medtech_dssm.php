@@ -14,20 +14,10 @@ $fetch2 = $dssm2->fetch_array();
 
 <script type="text/javascript"> 
 	window.onload = function() { 
-		CanvasJS.addColorSet("customColorSet", [ 
-			"#393f63",
-			"#ffb367",  
-			"#f98461",
-			"#e5d8B0", 
-			"#d9695f",
-			"#e05850",
-			"#7E8F74",
-		]);
 		$("#dssm").CanvasJSChart({
 			theme: "light2",
 			animationEnabled: true,
 			animationDuration: 1000,
-			colorSet: "customColorSet",
 			exportFileName: "DSSM", 
 			exportEnabled: true,
 			title: { 

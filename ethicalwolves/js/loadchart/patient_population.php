@@ -107,16 +107,6 @@ $a12 = $a12->fetch_array();
 
 <script type="text/javascript"> 
 	window.onload = function(){ 
-		CanvasJS.addColorSet("customColorSet", [ 
-			"#393f63",
-			"#e5d8B0",	
-			"#ffb367", 
-			"#e05850",
-			"#f98461", 
-			"#d9695f",
-
-			"#7E8F74"
-		]);
 		$("#patient_population").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
@@ -124,7 +114,6 @@ $a12 = $a12->fetch_array();
 			panEnabled: true,
 			animationEnabled: true,
 			animationDuration: 1000,
-			colorSet: "customColorSet",
 			exportFileName: "Monthly Population", 
 			exportEnabled: true,
 			toolTip: {
@@ -173,6 +162,8 @@ $a12 = $a12->fetch_array();
 					showInLegend: true, 
 					legendText: "Total Number of Patients",
 					name: "Total Patients this month",
+					markerType: "cross",
+					color: "#7f7f7f",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $fjan['total']?> },
 						 { label: "February", y: <?php echo $ffeb['total']?> },
@@ -194,6 +185,7 @@ $a12 = $a12->fetch_array();
 					showInLegend: true, 
 					legendText: "Children",
 					name: "Children", 
+					markerType: "cross",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $c1['total']?> },
 						 { label: "February", y: <?php echo $c2['total']?> },
@@ -213,7 +205,8 @@ $a12 = $a12->fetch_array();
 					type: "spline", 
 					showInLegend: true, 
 					legendText: "Adult",
-					name: "Adult", 
+					name: "Adult",
+					markerType: "cross",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $a1['total']?> },
 						 { label: "February", y: <?php echo $a2['total']?> },

@@ -40,8 +40,16 @@ require ('../../config.php');
 							<h3 class="panel-title"><strong>Bacolod City Health TB DOTS Center - Male and Female Registration</strong><span style="font-size:12px;"> </span></h3>
 							<div class="btn-group pull-right">
 								<div class="pull-left">
-									<i>as of <?php echo date('F j, Y', strtotime("+8 HOURS"));?></i>
-									<button id="print" class="btn btn-default btn-sm" onclick="javascript:window.print()">Print</button>      
+									<div class="btn-group" id="print">
+										<a href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle">Switch to<span class="caret"></span></a>
+										<ul class="dropdown-menu" role="menu">
+											<li><a href="#" onclick="oBar()">Stacked Bar Graph</a></li>
+											<li><a href="#" onclick="oLine()">Line Graph</a></li>
+											<li><a href="#" onclick="oCol()">Stacked Column Graph</a></li>
+										</ul>
+									</div>
+									<button id="print" class="btn btn-default btn-md" onclick="javascript:window.print()">Print</button>    
+									<i>as of <?php echo date('F j, Y', strtotime("+8 HOURS"));?></i>  
 								</div>
 							</div> 
 						</div>
@@ -130,7 +138,24 @@ require ('../../config.php');
 				</div>
 			</div>
 		</div>
-
+		<script>
+			function oBar() {
+				window.location="monthly_population_gender_bar.php?year=<?php echo $year?>";
+			}
+			function oLine() {
+				window.location="monthly_population_gender_line.php?year=<?php echo $year?>";
+			}
+			function oCol() {
+				window.location="monthly_population_gender.php?year=<?php echo $year?>";
+			}
+		</script>
+		<script>
+			document.body.addEventListener("keydown", function (event) {
+				if (event.keyCode === 116) {
+					javascript:window.print();
+				}
+			});
+		</script>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
 		<script type="text/javascript" src="../../js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../../js/plugins/bootstrap/bootstrap.min.js"></script>        

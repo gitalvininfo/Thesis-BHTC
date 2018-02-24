@@ -41,7 +41,7 @@ $a10 = $q10->fetch_array();
 ?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
-		$("#page").CanvasJSChart({
+		$("#line").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
 			zoomType: "x",
@@ -72,7 +72,7 @@ $a10 = $q10->fetch_array();
 			}, 
 			data: [ 
 				{ 
-					type: "bar", 
+					type: "line", 
 					toolTipContent: "{label}: {y}", 
 					dataPoints: [ 
 						{ label: "1-10 years old", y: <?php echo $a1['total']?> },

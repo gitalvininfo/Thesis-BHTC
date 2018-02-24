@@ -1,7 +1,7 @@
 <?php require '../../reports/require/load_monthly_patient.php'  ?>
 <script>
 	window.onload = function(){ 
-		$("#ptype").CanvasJSChart({
+		$("#line").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
 			zoomType: "x",
@@ -52,10 +52,11 @@
 			}, 
 			data: [ 
 				{ 
-					type: "stackedColumn", 
+					type: "line", 
 					showInLegend: true, 
 					legendText: "Children",
 					name: "Children",
+					markerType: "cross",
 					color: "#e05850",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $c1['total']?> },
@@ -73,10 +74,11 @@
 					] 
 				},
 				{ 
-					type: "stackedColumn", 
+					type: "line", 
 					showInLegend: true, 
 					legendText: "Adult",
 					name: "Adult", 
+					markerType: "cross",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $a1['total']?> },
 						 { label: "February", y: <?php echo $a2['total']?> },

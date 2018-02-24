@@ -25,15 +25,6 @@ $f7 = $ct->fetch_array();
 ?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
-		CanvasJS.addColorSet("customColorSet", [ 
-			"#e5d8B0", 
-			"#ffb367", 
-			"#f98461", 
-			"#d9695f",
-			"#e05850",
-			"#7E8F74",
-			"#393f63"
-		]);
 		$("#treatment_outcome").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
@@ -41,7 +32,6 @@ $f7 = $ct->fetch_array();
 			panEnabled: true,
 			animationEnabled: true,
 			animationDuration: 1000,
-			colorSet: "customColorSet",
 			exportFileName: "Treatment Outcome", 
 			exportEnabled: true,
 			toolTip: {

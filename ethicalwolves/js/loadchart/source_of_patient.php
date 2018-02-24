@@ -18,19 +18,10 @@ $fetch4 = $com->fetch_array();
 ?>
 <script type="text/javascript"> 
 	window.onload = function() { 
-		CanvasJS.addColorSet("customColorSet", [ 
-			"#393f63",
-			"#e5d8B0", 
-			"#ffb367", 
-			"#f98461", 
-			"#d9695f",
-			"#e05850",
-		]);
 		$("#source_of_patient").CanvasJSChart({
 			theme: "light2",
 			animationEnabled: true,
 			animationDuration: 1000,
-			colorSet: "customColorSet",
 			exportFileName: "Source of Patient", 
 			exportEnabled: true,
 			title: { 

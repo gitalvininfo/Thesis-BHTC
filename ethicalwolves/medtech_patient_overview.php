@@ -50,6 +50,7 @@ require ('config.php');
 									<li><a href="#tab-third" role="tab" data-toggle="tab">Xpert MTB</a></li>
 									<li><a href="#tab-fourth" role="tab" data-toggle="tab">TB Culture</a></li>
 									<li><a href="#tab-fifth" role="tab" data-toggle="tab">DST</a></li>
+									<li><a href="#tab-sixth" role="tab" data-toggle="tab">Laboratory Request</a></li>
 								</ul>
 
 								<div class="panel-body tab-content">
@@ -191,7 +192,7 @@ require ('config.php');
 											<div class="row">
 												<table class="table table-hover">
 													<thead>
-														<tr>
+														<tr class="warning">
 															<th style="font-size:10px"><center>Date Examined</center></th>
 															<th style="font-size:10px"><center>Laboratory Number</center></th>
 															<th style="font-size:10px"><center>Visual Appearance 1</center></th>
@@ -201,7 +202,6 @@ require ('config.php');
 															<th style="font-size:10px"><center>Lab. Diagnosis</center></th>
 															<th style="font-size:10px"><center>Examined By</center></th>
 															<th style="font-size:10px"><center>Date Released</center></th>
-															<th style="font-size:10px"><center>Action</center></th>
 														</tr>
 													</thead>
 													<tbody>
@@ -229,11 +229,6 @@ require ('config.php');
 															<td><center><?php echo $fetch['laboratory_diagnosis']?></center></td>
 															<td><center><?php echo $fetch['examined_by']?></center></td>
 															<td><center><?php echo $fetch['date_released']?></center></td>
-															<td>
-																<center>
-																	<a href="print/dssm.php?dssmid=<?php echo $dssm?>&test_requested=<?php echo $test_requested?>&patient_id=<?php echo $id?>&lab_request_id=<?php echo $lab_request_id?>&patient_name=<?php echo $name?>"class="btn btn-default btn-sm">Preview</a>
-																</center>
-															</td>
 														</tr>
 														<?php
 														}
@@ -249,14 +244,13 @@ require ('config.php');
 											<div class="row">
 												<table class="table table-hover">
 													<thead>
-														<tr>
+														<tr class="warning">
 															<th><center>Date Examined</center></th>
 															<th><center>Laboratory Number</center></th>
 															<th><center>Visual Appearance</center></th>
 															<th><center>Result</center></th>
 															<th><center>Examined By</center></th>
 															<th><center>Date Released</center></th>
-															<th><center>Action</center></th>
 														</tr>
 													</thead>
 													<tbody>
@@ -281,11 +275,6 @@ require ('config.php');
 															<td><center><?php echo $fetch['result']?></center></td>
 															<td><center><?php echo $fetch['examined_by']?></center></td>
 															<td><center><?php echo $fetch['date_released']?></center></td>
-															<td>
-																<center>
-																	<a href="print/xpert.php?xpert_id=<?php echo $xpert?>&test_requested=<?php echo $test_requested?>&patient_id=<?php echo $id?>&lab_request_id=<?php echo $lab_request_id?>&patient_name=<?php echo $patient_name?>"class="btn btn-default btn-sm">Preview</a>
-																</center>
-															</td>
 														</tr>
 														<?php
 														}
@@ -302,7 +291,7 @@ require ('config.php');
 												<form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
 													<table class="table table-hover">
 														<thead>
-															<tr>
+															<tr class="warning">
 																<th style="font-size:10px"><center>Method</center></th>
 																<th style="font-size:10px"><center>TB Culture Lab</center></th>
 																<th style="font-size:10px"><center>Laboratory Number</center></th>
@@ -349,7 +338,7 @@ require ('config.php');
 												<form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
 													<table class="table table-hover">
 														<thead>
-															<tr>
+															<tr class="warning">
 																<th><center>TB Culture Laboratory</center></th>
 																<th><center>DST Laboratory</center></th>
 																<th><center>Method</center></th>
@@ -381,6 +370,47 @@ require ('config.php');
 																		<a href="#viewdst<?php echo $fetch['dst_id'];?>" data-toggle="modal" data-target="#viewdst<?php echo $fetch['dst_id'];?>" class="btn btn-default btn-sm">View</a>
 																	</center>
 																</td>
+															</tr>
+															<?php
+															}
+															$conn->close();
+															?>
+														</tbody>
+													</table>
+												</form>
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane" id="tab-sixth">
+										<div class="panel-body list-group list-group-contacts scroll" style="height: 416px;">
+											<div class="row">
+												<form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data">
+													<table class="table table-hover">
+														<thead>
+															<tr class="warning">
+																<th><center>Date of Request</center></th>
+																<th><center>Collection Unit</center></th>
+																<th><center>Requesting Physician</center></th>
+																<th><center>Reason for Examination</center></th>
+																<th><center>Test Requested</center></th>
+																<th><center>Status</center></th>
+															</tr>
+														</thead>
+														<tbody>
+															<?php
+															$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+															$query = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
+															while($fetch = $query->fetch_array()){
+															?>
+															<tr>
+																<td><center><?php echo $fetch['date_of_request']?></center></td>
+																<td><center><?php echo $fetch['collection_unit']?></center></td>
+																<td><center><?php echo $fetch['requesting_physician']?></center></td>
+																<td><center><?php echo $fetch['reason_for_examination']?></center></td>
+																<td><center><?php echo $fetch['test_requested']?></center></td>
+																<td><center><strong><?php if ($fetch['status'] == 'Done') 
+																echo "<span class='label label-success'>".$fetch['status']."</span>"; if ($fetch['status'] == 'Pending') 
+																echo "<span class='label label-danger'>".$fetch['status']."</span>"; ?></strong></center></td>
 															</tr>
 															<?php
 															}

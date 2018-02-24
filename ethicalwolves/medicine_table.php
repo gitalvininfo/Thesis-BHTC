@@ -94,8 +94,8 @@ if(ISSET($_POST['new_medicine'])){
 												<td><center><?php if ($fetch['running_balance']<=5) 
 												echo "<span style='color:red'>".$fetch['running_balance']."</span>"; if ($fetch['running_balance']>=6) 
 												echo "<span>".$fetch['running_balance']."</span>"; ?></center></td>
-												<td><center><?php if ($fetch['running_balance']<=5)echo "<span class='badge badge-danger'><span class='fa fa-refresh'></span> Reorder</span>";
-				if ($fetch['running_balance']>=6)echo "<span class='badge badge-info'><span class='fa fa-check'></span> Average</span>"
+												<td><center><?php if ($fetch['running_balance']<=5)echo "<span class='badge badge-danger'>Reorder</span>";
+				if ($fetch['running_balance']>=6)echo "<span class='badge badge-info'>Average</span>"
 													?></center></td>
 												<td><center>
 													<a href="#updatedata<?php echo $fetch['medicine_id'];?>" data-target="#updatedata<?php echo $fetch['medicine_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Edit</a>

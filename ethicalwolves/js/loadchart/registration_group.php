@@ -23,20 +23,10 @@ $fetch9 = $oth->fetch_array();
 ?>
 <script type="text/javascript">
 	window.onload = function() {
-		CanvasJS.addColorSet("customColorSet", [ 
-			"#393f63",
-			"#e5d8B0", 
-			"#ffb367", 
-			"#f98461", 
-			"#d9695f",
-			"#e05850",
-			"#7E8F74",
-		]);
 		$("#registration_group").CanvasJSChart({
 			theme: "light2",
 			animationEnabled: true,
 			animationDuration: 1000,
-			colorSet: "customColorSet",
 			exportFileName: "TB Patient Registration Group", 
 			exportEnabled: true,
 			title: { 

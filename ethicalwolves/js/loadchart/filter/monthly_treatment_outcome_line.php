@@ -1,15 +1,6 @@
 <?php require "../../reports/require/load_monthly_treatment_outcome.php"?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
-		CanvasJS.addColorSet("customColorSet", [ 
-			"#e5d8B0", 
-			"#393f63",
-			"#ffb367", 
-			"#f98461", 
-			"#d9695f",
-			"#e05850",
-			"#7E8F74",
-		]);
 		$("#line").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
@@ -17,7 +8,6 @@
 			panEnabled: true,
 			animationEnabled: true,
 			animationDuration: 1000,
-			colorSet: "customColorSet",
 			//exportFileName: "Treatment Outcome", 
 			//exportEnabled: true,
 			toolTip: {

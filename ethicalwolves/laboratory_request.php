@@ -51,7 +51,7 @@ require ('config.php');
 								<div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
 									<table id="laboratory_request" class="table table-hover">
 										<thead>
-											<tr>
+											<tr class="warning">
 												<th><center>Date Requested</center></th>
 												<th><center>Requesting Physician</center></th>
 												<th><center>Reason for Examination</center></th>

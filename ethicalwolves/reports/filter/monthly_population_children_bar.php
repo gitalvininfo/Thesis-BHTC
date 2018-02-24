@@ -13,7 +13,7 @@ require ('../../config.php');
 		<link rel="stylesheet" type="text/css" id="theme" href="../../css/theme-blue.css"/>
 		<script src="../../js/plugins/jquery/jquery.min.js"></script>
 		<script src = "../../js/jquery.canvasjs.min.js"></script>
-		<?php require '../../js/loadchart/filter/patient_type.php'?>
+		<?php require '../../js/loadchart/filter/patient_type_bar.php'?>
 		<style type="text/css">
 			@media print {
 				#print{
@@ -129,7 +129,7 @@ require ('../../config.php');
 											</tr>
 										</tbody>
 									</table>
-									<div id="ptype" style="width: 100%; height: 400px"></div>
+									<div id="bar" style="width: 100%; height: 400px"></div>
 									<h6 style="float:left">Approved by:</h6><br><br>
 									<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4>
 								</div>

@@ -14,7 +14,7 @@ require ('../../config.php');
 		<link rel="stylesheet" type="text/css" id="theme" href="../../css/theme-blue.css"/>
 		<script src="../../js/plugins/jquery/jquery.min.js"></script>
 		<script src = "../../js/jquery.canvasjs.min.js"></script>
-		<?php require '../../js/loadchart/filter/quarterly_population.php'?>
+		<?php require '../../js/loadchart/filter/quarterly_population_line.php'?>
 		<style type="text/css">
 			@media print {
 				#print{
@@ -45,7 +45,7 @@ require ('../../config.php');
 									<div class="btn-group" id="print">
 										<a href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle">Switch to<span class="caret"></span></a>
 										<ul class="dropdown-menu" role="menu">
-											<li><a href="#" onclick="oBar()">Bar Graph</a></li>
+											<li><a href="#" onclick="oBar()">Stacked Bar Graph</a></li>
 											<li><a href="#" onclick="oLine()">Line Graph</a></li>
 											<li><a href="#" onclick="oCol()">Column Graph</a></li>
 										</ul>
@@ -84,7 +84,7 @@ require ('../../config.php');
 											</tr>
 										</tbody>
 									</table>
-									<div id="quarterly" style="width: 100%; height: 425px"></div>
+									<div id="line" style="width: 100%; height: 425px"></div>
 									<h6 style="float:left">Approved by:</h6><br><br>
 									<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4>
 								</div>

@@ -112,6 +112,7 @@ $f18 = $capreomycin2->fetch_array();
 					showInLegend: true, 
 					legendText: "Resistant",
 					name: "Resistant",
+					color: "#95B75D",
 					dataPoints: [ 
 						{ label: "Isoniazid", y: <?php echo $f1['total']?> },
 						 { label: "Rifampicin", y: <?php echo $f2['total']?> },
@@ -129,6 +130,7 @@ $f18 = $capreomycin2->fetch_array();
 							showInLegend: true, 
 							legendText: "Susceptible",
 							name: "Susceptible",
+							color:"#ff5050",
 							dataPoints: [
 								{ label: "Isoniazid", y: <?php echo $f10['total']?> },
 								 { label: "Rifampicin", y: <?php echo $f11['total']?>},

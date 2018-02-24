@@ -29,7 +29,7 @@ require ('config.php');
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li><a href="medtech_laboratory_request.php">Laboratory Request</a></li>
-                    <li class="active"><strong><mark>Examination Result Form</mark></strong></li>
+                    <li class="active"><strong>Examination Result Form</strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -46,31 +46,31 @@ require ('config.php');
                                 <div class="panel-body">
                                     <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this TB Culture result?');">
                                         <div class="col-md-6">
-                                            <h5 class="push-up-1"><mark>Method</mark></h5>
+                                            <h5 class="push-up-1"><strong>Method</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control" name="method" data-toggle="tooltip" data-placement="top" title="Method" required/>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>TB Culture Laboratory</mark></h5>
+                                            <h5 class="push-up-1"><strong>TB Culture Laboratory</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control" name="tb_culture_laboratory" data-toggle="tooltip" data-placement="top" title="TB Culture Laboratory" required/>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Laboratory Number</mark></h5>
+                                            <h5 class="push-up-1"><strong>Laboratory Number</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control" name="laboratory_no" data-toggle="tooltip" data-placement="top" title="Laboratory Number" required/>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Date Sample Collected</mark></h5>
+                                            <h5 class="push-up-1"><strong>Date Sample Collected</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control datepicker" name="date_sample_collected" data-toggle="tooltip" data-placement="top" title="Date Sample Collected YYYY-MM-DD" required/>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Date Sample Received</mark></h5>
+                                            <h5 class="push-up-1"><strong>Date Sample Received</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control datepicker" name="date_sample_received" data-toggle="tooltip" data-placement="top" title="Date Sample Collected YYYY-MM-DD" required/>
@@ -78,7 +78,7 @@ require ('config.php');
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <h5 class="push-up-1"><mark>TB Culture Result</mark></h5>
+                                            <h5 class="push-up-1"><strong>TB Culture Result</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <select class="form-control select" name="tb_culture_result" required >
@@ -88,25 +88,25 @@ require ('config.php');
                                                     </select>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Remarks</mark></h5>
+                                            <h5 class="push-up-1"><strong>Remarks</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control" name="remarks" data-toggle="tooltip" data-placement="top" title="Remarks" required/>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Examined By</mark></h5>
+                                            <h5 class="push-up-1"><strong>Examined By</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control" name="examined_by" data-toggle="tooltip" data-placement="top" title="Examined By" required/>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Reviewed By</mark></h5>
+                                            <h5 class="push-up-1"><strong>Reviewed By</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control" name="reviewed_by" data-toggle="tooltip" data-placement="top" title="Reviewed By" required/>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Date Released</mark></h5>
+                                            <h5 class="push-up-1"><strong>Date Released</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control datepicker" name="date_released" data-toggle="tooltip" data-placement="top" title="Date Released YYYY-MM-DD" required/>

@@ -1,7 +1,7 @@
 <?php require '../../reports/require/load_quarter_population.php'?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
-		$("#quarterly").CanvasJSChart({
+		$("#line").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
 			zoomType: "x",
@@ -36,7 +36,7 @@
 			}, 
 			data: [ 
 				{ 
-					type: "column", 
+					type: "line", 
 					name: "Total Patients this quarter",
 					color: "#ff5050",
 					dataPoints: [ 

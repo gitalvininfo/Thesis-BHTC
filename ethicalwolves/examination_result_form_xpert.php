@@ -29,7 +29,7 @@ require ('config.php');
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li><a href="medtech_laboratory_request.php">Laboratory Request</a></li>
-                    <li class="active"><strong><mark>Examination Result Form</mark></strong></li>
+                    <li class="active"><strong>Examination Result Form</strong></li>
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
@@ -56,19 +56,19 @@ require ('config.php');
                                 <div class="panel-body">
                                     <form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this Xpert MTB/RIF result?');">
                                         <div class="col-md-12">
-                                            <h5 class="push-up-1"><mark>Date Examined</mark></h5>
+                                            <h5 class="push-up-1"><strong>Date Examined</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control datepicker" name="date_examined" data-toggle="tooltip" data-placement="bottom" title="Date Examined" required>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Laboratory Number</mark></h5>
+                                            <h5 class="push-up-1"><strong>Laboratory Number</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="number" class="form-control" name="laboratory_number" data-toggle="tooltip" data-placement="bottom" title="Laboratory Number" required/>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Visual Appearance</mark></h5>
+                                            <h5 class="push-up-1"><strong>Visual Appearance</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <select class="form-control select" name="visual_appearance" required >
@@ -79,19 +79,19 @@ require ('config.php');
                                                     </select>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Examined By</mark></h5>
+                                            <h5 class="push-up-1"><strong>Examined By</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control" name="examined_by" data-toggle="tooltip" data-placement="bottom" title="Examined By" required/>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Date Released</mark></h5>
+                                            <h5 class="push-up-1"><strong>Date Released</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <input type="text" class="form-control datepicker" name="date_released" data-toggle="tooltip" data-placement="bottom" title="Date Released" required/>
                                                 </div>
                                             </div>
-                                            <h5 class="push-up-1"><mark>Result</mark></h5>
+                                            <h5 class="push-up-1"><strong>Result</strong></h5>
                                             <div class="form-group ">
                                                 <div class="col-md-12 col-xs-12">
                                                     <select class="form-control select" data-live-search="true" name="result" required >
@@ -105,7 +105,7 @@ require ('config.php');
                                                 </div>
                                             </div><hr>
                                             <div class="tab-footer">
-                                                <button type="submit" name="add_gene_expert" class="btn btn-info pull-right"> <span class="fa fa-check"> Submit </span></button>
+                                                <button type="submit" name="add_gene_expert" class="btn btn-info pull-right">Submit</button>
                                             </div>
                                         </div>
                                         <?php require_once 'add_gene_expert.php' ?>

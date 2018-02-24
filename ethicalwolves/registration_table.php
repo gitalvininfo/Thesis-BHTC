@@ -56,7 +56,6 @@ require ('config.php');
 																	<tr class="warning">
 																		<th><center>Name</center></th>
 																		<th><center>Age</center></th>
-																		<th><center>Birthdate</center></th>
 																		<th><center>Gender</center></th>
 																		<th><center>Contact Number</center></th>
 																		<th><center>Home Address</center></th>
@@ -74,12 +73,11 @@ require ('config.php');
 																	<tr>
 																		<td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
 																		<td><center><?php echo $fetch['age']?></center></td>
-																		<td><center><?php echo $fetch['birthdate']?></center></td>
 																		<td><center><?php echo $fetch['gender']?></center></td>
 																		<td><center><?php echo $fetch['contact_number']?></center></td>
 																		<td><center><?php echo $fetch['address']?></center></td>
 																		<td><center>
-																			<a href="#registerpatient<?php echo $fetch['patient_id'];?>" data-target="#registerpatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Register</a></center></td>
+																			<a href="registration_form.php?id=<?php echo $fetch['patient_id']?>"  class="btn btn-default btn-sm">Register</a></center></td>
 																	</tr>
 																	<?php
 			}
@@ -158,7 +156,6 @@ require ('config.php');
 
 		<?php require 'require/logout.php'?>
 		<?php require 'require/modals/new_tb_case.php'?>
-		<?php require 'require/modals/register_tb_case.php'?>
 		<?php require 'require/modals/new_ipt.php'?>
 		<?php require 'require/modals/register_ipt_case.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
