@@ -69,6 +69,11 @@ require ('config.php');
 	require 'config.php';
 			$query = $conn->query("SELECT * FROM `patient` where `status` = 'Unregister' ORDER BY `patient_id` DESC") or die(mysqli_error());
 			while($fetch = $query->fetch_array()){
+				$patient_id = $fetch['patient_id'];
+				$q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` where `patient_id` = '$patient_id' && `status` = 'Done' ") or die(mysqli_error());
+				$f = $q->fetch_array();
+
+
 																	?>
 																	<tr>
 																		<td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
@@ -77,7 +82,11 @@ require ('config.php');
 																		<td><center><?php echo $fetch['contact_number']?></center></td>
 																		<td><center><?php echo $fetch['address']?></center></td>
 																		<td><center>
-																			<a href="registration_form.php?id=<?php echo $fetch['patient_id']?>"  class="btn btn-default btn-sm">Register</a></center></td>
+																			<?php if ($f['total'] <= 0)echo "<a disabled class = 'btn btn-danger' href = 'registration_form.php?id=".$fetch['patient_id']."'>Pending</a>";
+				if ($f['total'] > 0)echo "<a class = 'btn btn-info btn-md' href = 'registration_form.php?id=".$fetch['patient_id']."'>Register</a>";
+																			?>
+
+																			</center></td>
 																	</tr>
 																	<?php
 			}

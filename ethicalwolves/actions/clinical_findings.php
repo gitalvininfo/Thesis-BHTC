@@ -23,6 +23,6 @@ if(ISSET($_POST['add_new_clinical'])){
     $conn->query("INSERT INTO `clinical_findings` VALUES('', '$date_visited', '$weight', '$q1', '$q2', '$q3', '$q4', '$q5', '$new', '$patient_id')") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully added new clinical findings!');</script>";
-    echo "<script>document.location='../patient_treatment_table.php'</script>";
+    echo "<script>document.location='../clinical_findings.php?id=$patient_id'</script>";
 }
 ?>

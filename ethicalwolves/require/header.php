@@ -74,7 +74,7 @@
 			</div>
 			<div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
 				<?php 
-	$date_today = date('F j, Y');
+					$date_today = date('F j, Y');
 					$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 					$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Done' && `date_today` = '$date_today' order by `lab_request_id` limit 10") or die(mysqli_error());
 					while($f = $q->fetch_array())
@@ -87,7 +87,7 @@
 					<img src="assets/images/patient.ico" class="pull-left" alt="Patient" />
 					<span class="contacts-title"><?php echo $f2['patient_name']?></span>
 					<p>
-						<i><?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - '?> <span class="label label-info">Result Available</span><br>
+						<i><?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - '?> <span class="label label-info">Result Available, <?php echo $f['date_today']?></span><br>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;<?php echo $f['collection_unit']?></i>
 					</p>

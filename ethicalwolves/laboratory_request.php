@@ -44,7 +44,7 @@ require ('config.php');
 									<h3 class="panel-title"><strong>Laboratory Requests of <?php echo $f1['patient_name']?></strong></h3>
 									<div class="btn-group pull-right">
 										<div class="pull-left">
-											<a href="#new_lab_request<?php echo $f1['patient_id'];?>" data-target="#new_lab_request<?php echo $f1['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-md">New Lab Request</a>
+											<a href="laboratory_request_form.php?id=<?php echo $f1['patient_id']?>"  class="btn btn-default btn-md">New Lab Request</a>
 										</div>
 									</div>
 								</div>
@@ -64,9 +64,9 @@ require ('config.php');
 										</thead>
 										<tbody>
 											<?php
-											$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-											$query = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
-											while($fetch = $query->fetch_array()){
+	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
+										$query = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[id]' ORDER BY `lab_request_id` DESC") or die(mysqli_error());
+										while($fetch = $query->fetch_array()){
 											?>
 											<tr>
 												<td><center><?php echo $fetch['date_of_request']?></center></td>
@@ -79,13 +79,13 @@ require ('config.php');
 												echo "<span class='label label-success'>".$fetch['status']."</span>"; if ($fetch['status'] == 'Pending') 
 												echo "<span class='label label-danger'>".$fetch['status']."</span>"; ?></strong></center></td>
 												<td>
-													<center><a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-default btn-sm">View</a>
+													<center><a href="view_results.php?id=<?php echo $_GET['id']?>" class="btn btn-default btn-sm">View</a>
 													</center>
 												</td>
 											</tr>
 											<?php
-											}
-											$conn->close();
+										}
+										$conn->close();
 											?>
 										</tbody>
 									</table>
@@ -98,7 +98,6 @@ require ('config.php');
 		</div>
 
 		<?php require 'require/modals/view_lab_request_history.php'?>
-		<?php require 'require/modals/new_lab_request.php'?>
 		<?php require 'require/logout.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
 		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>

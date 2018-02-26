@@ -34,9 +34,6 @@ $f7 = $ct->fetch_array();
 			animationDuration: 1000,
 			exportFileName: "Treatment Outcome", 
 			exportEnabled: true,
-			toolTip: {
-				shared: true  
-			},
 			title: { 
 				text: "Bacolod City Health TB DOTS Center",
 				fontSize: 20
@@ -46,17 +43,6 @@ $f7 = $ct->fetch_array();
 					text: "Patient Treatment Outcome - Year <?php echo $year?>"
 				}
 			],
-			legend: {
-				cursor: "pointer",
-				itemclick: function (e) {
-					if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-						e.dataSeries.visible = false;
-					} else {
-						e.dataSeries.visible = true;
-					}
-					e.chart.render();
-				}
-			},
 			axisX: {		       
 				gridDashType: "dot",
 				gridThickness: 1,

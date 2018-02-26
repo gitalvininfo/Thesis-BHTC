@@ -81,7 +81,6 @@ json_encode($data_points);
 					//legendText: "<?php echo $f1['medicine_name']?>",
 					//name: "Total Patients this year",
 					dataPoints: <?php echo json_encode($data_points); ?>
-
 				}
 					] 
 				}); 
