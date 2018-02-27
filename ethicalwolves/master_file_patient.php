@@ -159,15 +159,13 @@ require ('config.php');
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
 		<script>
-			var date =new Date();
-			$('#ebirthdate').datepicker({
-				format: 'MM dd, yyyy',
-				language: 'en',
-				startDate : new Date('1900-01-01'),
-				endDate : date
+			$("#tbirthdate").change(function(){
+				var tbirthdate = new Date($(this).val());
+				var today = new Date();
+				var tage = Math.floor((today-tbirthdate) / (365.25 * 24 * 60 * 60 * 1000));
+				$('#tage').val(tage);
 			});
 		</script>
-
 	</body>
 </html>
 

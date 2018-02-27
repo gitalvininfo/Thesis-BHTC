@@ -14,7 +14,15 @@ if(ISSET($_POST['save_user'])){
 	$salt = "aTya03gHJdTyqLkWQfg15yU";
 	$pass1 = $salt.$pass1;
 
-	$conn = new mysqli("localhost", 'root', '', 'thesis') or die(mysqli_error());
+	date_default_timezone_set('Asia/Manila');	
+	$date=date("F j, Y, g:i a");
+	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
+	$fetch = $query->fetch_array();
+	$id = $fetch['user_id'];
+	$name = $fetch['firstname']. " " . $fetch['lastname'];
+	$remarks = "created account for $firstname $lastname";
+
 	$q1 = $conn->query ("SELECT * FROM `user` WHERE BINARY `username` = '$username'") or die(mysqli_error());
 	$f1 = $q1->fetch_array();
 	$check = $q1->num_rows;
@@ -23,6 +31,8 @@ if(ISSET($_POST['save_user'])){
 	}
 	else{
 		$conn->query ("INSERT INTO `user` VALUES(' ', '$firstname', '$lastname', '$license', 'Medical Technologist', '$username', '$pass1', 'Active', ' ')") or die(mysqli_error());
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
+		$conn->close();
 		echo "<script type='text/javascript'> alert ('Account registered successfully!');</script>";
 		echo "<script>window.location='master_file_medtech.php'</script>";
 	}

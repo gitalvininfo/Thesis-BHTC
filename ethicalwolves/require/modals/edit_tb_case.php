@@ -11,7 +11,7 @@ while($fetch = $query->fetch_array()){
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 				<h4 class="modal-title" id="largeModalHead"><strong>Update Personal Information</strong></h4>
 			</div>
-			<form role="form" class="form-horizontal" action="edit_query.php" method="post">
+			<form role="form" class="form-horizontal" action="edit_query.php" method="post" onsubmit="return confirm('Are you sure you want to edit this patient?');">
 				<div class="modal-body">
 					<div class="row">
 						<div class="panel-body">
@@ -26,13 +26,7 @@ while($fetch = $query->fetch_array()){
 								<h5 class="push-up-1">Birthdate</h5>
 								<div class="form-group ">
 									<div class="col-md-12 col-xs-12">
-										<input data-toggle="tooltip" data-placement="bottom" title="Birthdate" id="ebirthdate" type="text" class="form-control datepicker" value="<?php echo $fetch['birthdate']?>" name="birthdate" required/>
-									</div>
-								</div>
-								<h5 class="push-up-1">Age</h5>
-								<div class="form-group ">
-									<div class="col-md-12 col-xs-12">
-										<input data-toggle="tooltip" data-placement="bottom" title="Patient Age" type="text" class="form-control" name="age" value="<?php echo $fetch ['age']?>" style="color:#000"readonly/>
+										<input data-toggle="tooltip" data-placement="bottom" title="Birthdate" id="tbirthdate" type="text" class="form-control datepicker" value="<?php echo $fetch['birthdate']?>" name="birthdate" required/>
 									</div>
 								</div>
 								<h5 class="push-up-1">Gender</h5>

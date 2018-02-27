@@ -66,6 +66,7 @@
 				<li><a href="change_password.php"><span class="fa fa-lock"></span><span class="xn-text">My Account</span></a></li>
 				<li><a href="user_mgmt.php"><span class="fa fa-refresh"></span><span class="xn-text">User Management</span></a></li>
 				<li><a href="download_database.php"><span class="fa fa-cloud-download"></span><span class="xn-text">System Backup</span></a></li>
+				<li><a href="history_log.php"><span class="fa fa-exclamation-triangle"></span><span class="xn-text">Users Activity Log</span></a></li>
 			</ul>
 		</li> 
 	</ul>

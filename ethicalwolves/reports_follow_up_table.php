@@ -65,8 +65,8 @@ require 'config.php';
 												<tr>
 													<td><center><strong><?php echo $fetch['year']."080".$fetch['tb_case_no']?></strong></center></td>
 													<td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
-													<td><center><strong><?php echo $fetch['contact_number']?></strong></center></td>
-													<td><center><mark><?php echo $fetch['address']?></mark></center></td>
+													<td><center><?php echo $fetch['contact_number']?></center></td>
+													<td><center><?php echo $fetch['address']?></center></td>
 													<td><center><?php echo $fetch['source_of_patient']?></center></td>
 													<td><center><?php echo $fetch['follow_up_date']?></center></td>
 												</tr>

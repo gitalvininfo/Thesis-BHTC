@@ -34,7 +34,7 @@
 						$f2 = $q2->fetch_array();
 				?>
 				<a href="laboratory_request.php?id=<?php echo $id?>" class="list-group-item">
-					<img src="assets/images/patient.ico" class="pull-left" alt="Patient" />
+					<img src="assets/images/pending.png" class="pull-left" alt="Patient" />
 					<span class="contacts-title"><?php echo $f2['patient_name']?></span>
 					<p>
 						<i><?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?><br>
@@ -84,7 +84,7 @@
 						$f2 = $q2->fetch_array();
 				?>
 				<a href="laboratory_request.php?id=<?php echo $id?>" class="list-group-item">
-					<img src="assets/images/patient.ico" class="pull-left" alt="Patient" />
+					<img src="assets/images/file.png" class="pull-left" alt="Patient" />
 					<span class="contacts-title"><?php echo $f2['patient_name']?></span>
 					<p>
 						<i><?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - '?> <span class="label label-info">Result Available, <?php echo $f['date_today']?></span><br>
@@ -127,7 +127,7 @@
 					while($f = $q->fetch_array()){
 				?>
 				<a href="#" class="list-group-item">
-					<img src="assets/images/medicine.png" class="pull-left" alt="Patient" />
+					<img src="assets/images/med.png" class="pull-left" alt="Patient" />
 					<span class="contacts-title"><?php echo $f['medicine_name']. "-" . $f['medicine_type']?></span>
 					<p>
 						<i>Running Balance: <span style="color:#fc5454"><?php echo $f['running_balance']. " kits"?></span></i>

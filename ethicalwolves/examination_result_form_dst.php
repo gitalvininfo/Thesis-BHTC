@@ -1,6 +1,49 @@
 <?php
 require_once 'logincheck.php';
 require ('config.php');
+
+if(ISSET($_POST['add_dst'])){
+	$tb_culture_laboratory = $_POST['tb_culture_laboratory'];
+	$dst_laboratory = $_POST['dst_laboratory'];
+	$date_collected = $_POST['date_collected'];
+	$date_received = $_POST['date_received'];
+	$method = $_POST['method'];
+	$isoniazid = $_POST['isoniazid'];
+	$rifampicin = $_POST['rifampicin'];
+	$ethambutol = $_POST['ethambutol'];
+	$streptomycin = $_POST['streptomycin'];
+	$pyrazinamide = $_POST['pyrazinamide'];
+	$levofloxacin = $_POST['levofloxacin'];
+	$kanamycin = $_POST['kanamycin'];
+	$amikacin = $_POST['amikacin'];
+	$capreomycin = $_POST['capreomycin'];
+	$examined_by = $_POST['examined_by'];
+	$remarks = $_POST['remarks'];
+	$reviewed_by = $_POST['reviewed_by'];
+	$date_released = $_POST['date_released'];
+	$lab_request_id = $_POST['lab_request_id'];
+	$patient_id = $_POST['patient_id'];
+	$patient_name = $_POST['patient_name'];
+	$month = date("M", strtotime("+8 HOURS"));
+	$year = date("Y", strtotime("+8 HOURS"));
+	
+	date_default_timezone_set('Asia/Manila');	
+	$date=date("F j, Y, g:i a");
+	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
+	$fetch = $query->fetch_array();
+	$id=$_SESSION['user_id'];
+	$labremarks = "confirmed the laboratory request of $patient_name";
+
+	$conn->query("INSERT INTO `dst_examination` VALUES('', '$tb_culture_laboratory', '$dst_laboratory', '$date_collected', '$date_received', '$method', '$isoniazid', '$rifampicin', '$ethambutol', '$streptomycin', '$pyrazinamide', '$levofloxacin', '$kanamycin', '$amikacin', '$capreomycin', '$examined_by', '$remarks', '$reviewed_by', '$date_released', '$patient_id', '$month', '$year')") or die(mysqli_error());
+
+	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
+	
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$labremarks', '$date')") or die(mysqli_error());
+	$conn->close();
+	echo "<script type='text/javascript'>alert('Successfully added the DST Result!');</script>";
+	echo "<script>document.location='medtech_laboratory_request.php'</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,15 +83,20 @@ require ('config.php');
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
 			$q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[patient_id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
 			$f = $q->fetch_array();
+			$q2 = $conn->query("SELECT * FROM `laboratory_request` WHERE `patient_id` = '$_GET[patient_id]'") or die(mysqli_error());
+			$f2 = $q2->fetch_array();
 									?>
 									<h3 class="panel-title"><strong>Drug Susceptible Testing</strong></h3>
 								</div>
 								<div class="panel-body">
-									<form role="form" class="form-horizontal" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this DST result?');">
+									<form role="form" class="form-horizontal" action="examination_result_form_dst.php" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this DST result?');">
 										<div class="col-md-4">
 											<h5 class="push-up-1"><strong>TB Culture Laboratory</strong></h5>
 											<div class="form-group ">
 												<div class="col-md-12 col-xs-12">
+													<input type="hidden" class="form-control" name="lab_request_id" value="<?php echo $_GET['lab_request_id']?>"/>
+													<input type="hidden" class="form-control" name="patient_id" value="<?php echo $_GET['patient_id']?>"/>
+													<input type="hidden" class="form-control" name="patient_name" value="<?php echo $_GET['patient_name']?>"/>
 													<input type="text" class="form-control" name="tb_culture_laboratory" data-toggle="tooltip" data-placement="bottom" title="TB Culture Laboratory" required/>
 												</div>
 											</div>
@@ -208,7 +256,6 @@ require ('config.php');
 												<button type="submit" name="add_dst" class="btn btn-info pull-right">Submit</button>
 											</div>
 										</div>
-										<?php require_once 'add_dst.php'?>
 									</form>
 								</div>
 							</div>

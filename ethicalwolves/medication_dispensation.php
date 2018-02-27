@@ -11,7 +11,14 @@ if(ISSET($_POST['medication_dispensation'])){
 	$quantity = $_POST['quantity'];
 	$received_by = $_POST['received_by'];
 
-	$conn = new mysqli("localhost", 'root', '', 'thesis') or die(mysqli_error());
+	date_default_timezone_set('Asia/Manila');
+	$date=date("F j, Y, g:i a");
+	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
+	$fetch = $query->fetch_array();
+	$id=$_SESSION['user_id'];
+	$remarks = "dispensed $quantity $medicine_name kits to $health_center";
+
 	$query = $conn->query ("SELECT * FROM `medicine` where `medicine_name` = '$medicine_name'") or die(mysqli_error());
 	$fetch = $query->fetch_array();
 	$running_balance = $fetch['running_balance'];
@@ -22,7 +29,10 @@ if(ISSET($_POST['medication_dispensation'])){
 
 	else {
 		$conn->query("INSERT INTO `medication_dispensation` VALUES('', '$health_center', '$medicine_name', '$date_given', '$month', '$year', '$quantity', '$received_by')") or die(mysqli_error());
+
 		$conn->query("UPDATE `medicine` SET `running_balance` = `running_balance` - '$quantity' WHERE `medicine_name` = '$medicine_name'") or die(mysqli_error());
+
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
 		$conn->close();
 		echo "<script type='text/javascript'>alert('Successfully dispensed medicine!');</script>";
 		echo "<script>document.location='medication_dispensation.php'</script>";  
@@ -33,11 +43,20 @@ if(ISSET($_POST['medication_dispensation'])){
 if(ISSET($_POST['medicine_stock'])){
 	$medicine_name = $_POST['medicine_name'];
 	$quantity = $_POST['quantity'];
+
 	date_default_timezone_set('Asia/Manila');
 	$date=date("F j, Y, g:i a");
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
+	$fetch = $query->fetch_array();
+	$id=$_SESSION['user_id'];
+	$remarks = "added $quantity kits of $medicine_name to stocks";
+
 	$conn->query("INSERT INTO `medicine_stocks` VALUES('', '$medicine_name', '$quantity', '$date')") or die(mysqli_error());
+
 	$conn->query("UPDATE `medicine` SET `running_balance` = `running_balance` + '$quantity' WHERE `medicine_name` = '$medicine_name'") or die(mysqli_error());
+
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added new stocks!');</script>";
 	echo "<script>document.location='medication_dispensation.php'</script>";  

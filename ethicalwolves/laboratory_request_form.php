@@ -38,7 +38,7 @@ require ('config.php');
 								<div class="panel-heading">
 									<?php
 	require 'config.php';
-			$q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
+			$q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
 			$f1 = $q->fetch_array();
 									?>
 									<h3 class="panel-title"><strong>Laboratory Request Form</strong></h3>
@@ -53,7 +53,8 @@ require ('config.php');
 															<h5 class="push-up-1">Name of Collection Unit</h5>
 															<div class="form-group ">
 																<div class="col-md-12 col-xs-12">
-																	<input type="hidden" class="form-control" name="patient_id" value="<?php echo $_GET['id'];?>" required>
+																<input type="hidden" class="form-control" name="patient_id" value="<?php echo $_GET['id'];?>" required>
+																	<input type="hidden" class="form-control" name="patient_name" value="<?php echo $_GET['patient_name']?>"required/>
 																	<select class="form-control select" data-live-search="true" name="collection_unit" required>
 																		<option>Select</option>
 																		<option value="Abcasa Barangay Health Station">Abcasa Barangay Health Station</option>

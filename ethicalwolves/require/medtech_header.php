@@ -46,7 +46,7 @@ $conn->close();
 						$f2 = $q2->fetch_array();
 				?>
 				<a href="laboratory_request_pending.php?id=<?php echo $f['patient_id']?>" class="list-group-item">
-					<img src="assets/images/patient.ico" class="pull-left" alt="John Doe" />
+					<img src="assets/images/pending.png" class="pull-left" alt="John Doe" />
 					<span class="contacts-title"><?php echo $f2['patient_name']?></span>
 					<p>
 						<i><?php echo $f['reason_for_examination']. ' - ' . $f['test_requested']. ' - ' . $f['date_of_request']?><br>

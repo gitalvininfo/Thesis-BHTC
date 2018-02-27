@@ -82,8 +82,11 @@ require ('config.php');
 																		<td><center><?php echo $fetch['contact_number']?></center></td>
 																		<td><center><?php echo $fetch['address']?></center></td>
 																		<td><center>
-																			<?php if ($f['total'] <= 0)echo "<a disabled class = 'btn btn-danger' href = 'registration_form.php?id=".$fetch['patient_id']."'>Pending</a>";
-				if ($f['total'] > 0)echo "<a class = 'btn btn-info btn-md' href = 'registration_form.php?id=".$fetch['patient_id']."'>Register</a>";
+																			<?php if ($f['total'] <= 0)echo "<a class = 'btn btn-danger' href = '#'
+
+																			data-container='body' data-toggle='popover' data-placement='left' data-content='Patient not yet examined. Please submit laboratory request.'>Pending</a>";
+				
+																			if ($f['total'] > 0)echo "<a class = 'btn btn-default btn-md' href = 'registration_form.php?id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'>Register</a>";
 																			?>
 
 																			</center></td>
@@ -255,7 +258,6 @@ require ('config.php');
 				var tage = Math.floor((today-tbirthdate) / (365.25 * 24 * 60 * 60 * 1000));
 				$('#tage').val(tage);
 			});
-
 		</script>
 		<script>
 			$("#birthdate").change(function(){
@@ -266,24 +268,26 @@ require ('config.php');
 			});
 
 		</script>
-		<script>
-			var date=new Date();
-			$('#birthdate').datepicker({
-				format: 'MM dd, yyyy',
-				language: 'en',
-				startDate : new Date('1900-01-01'),
-				endDate : date
-			});
-		</script>
-		<script>
-			var date=new Date();
-			$('#tbirthdate').datepicker({
-				format: 'MM dd, yyyy',
-				language: 'en',
-				startDate : new Date('1900-01-01'),
-				endDate : date
-			});
-		</script>
+		<!--<script>
+var date=new Date();
+$('#birthdate').datepicker({
+format: 'MM dd, yyyy',
+language: 'en',
+startDate : new Date('1900-01-01'),
+endDate : date
+});
+</script>-->
+		<!--
+<script>
+var date=new Date();
+$('#tbirthdate').datepicker({
+format: 'MM dd, yyyy',
+language: 'en',
+startDate : new Date('1900-01-01'),
+endDate : date
+});
+</script>
+-->
 		<script>
 			function myFunction(textboxid) {
 

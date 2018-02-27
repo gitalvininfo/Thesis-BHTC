@@ -5,7 +5,7 @@ CREATE TABLE `backup` (
   `remarks` char(40) NOT NULL,
   `date` varchar(50) NOT NULL,
   PRIMARY KEY (`backup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=149 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=152 DEFAULT CHARSET=latin1;
 
 INSERT INTO backup VALUES("61","Successfully imported database","December 20, 2017, 7:53 pm"); 
 INSERT INTO backup VALUES("62","Successfully imported database","December 20, 2017, 7:56 pm"); 
@@ -95,6 +95,9 @@ INSERT INTO backup VALUES("145","Successfully exported database","February 19, 2
 INSERT INTO backup VALUES("146","Successfully exported database","February 22, 2018, 1:10 am"); 
 INSERT INTO backup VALUES("147","Successfully exported database","February 24, 2018, 1:08 am"); 
 INSERT INTO backup VALUES("148","Successfully exported database","February 25, 2018, 1:17 am"); 
+INSERT INTO backup VALUES("149","Successfully exported database","February 27, 2018, 1:01 am"); 
+INSERT INTO backup VALUES("150","Successfully exported database","February 27, 2018, 11:44 pm"); 
+INSERT INTO backup VALUES("151","Successfully exported database","February 27, 2018, 11:45 pm"); 
 
 
 
@@ -240,7 +243,7 @@ CREATE TABLE `dssm_examination` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`dssm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=latin1;
 
 INSERT INTO dssm_examination VALUES("19","2017-11-25","1001","Salivary","","Good","Good","Positive (+)","Dr. Haro","2017-11-22","2","Nov","2017"); 
 INSERT INTO dssm_examination VALUES("20","2017-12-13","1064","Salivary","Salivary","Good","Good","Negative (0)","Dr. Haro","2017-12-13","7","Dec","2017"); 
@@ -351,6 +354,17 @@ INSERT INTO dssm_examination VALUES("131","2018-02-26","100","Muco-Purulent","Mu
 INSERT INTO dssm_examination VALUES("132","2018-02-26","100","Muco-Purulent","Muco-Purulent","1+","1+1","Positive (+)","Dr. Elmer Haro","2018-02-26","189","Feb","2018"); 
 INSERT INTO dssm_examination VALUES("133","2018-02-26","100","Salivary","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-26","184","Feb","2018"); 
 INSERT INTO dssm_examination VALUES("134","2018-02-26","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Alvin Yanson","2018-02-26","184","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("135","2018-02-27","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","187","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("136","2018-02-27","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","191","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("137","2018-02-27","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","91","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("138","2018-02-27","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","75","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("139","2018-02-27","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","2","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("140","2018-02-27","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","73","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("141","2018-02-27","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","171","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("142","2018-02-27","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","89","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("143","2018-02-27","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","44","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("144","2018-02-27","100","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","30","Feb","2018"); 
+INSERT INTO dssm_examination VALUES("145","2018-02-27","199","Muco-Purulent","Muco-Purulent","1+","1+","Positive (+)","Dr. Elmer Haro","2018-02-27","172","Feb","2018"); 
 
 
 
@@ -380,7 +394,7 @@ CREATE TABLE `dst_examination` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`dst_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 INSERT INTO dst_examination VALUES("1","12","12","2017-12-03","2017-12-03","Method 1","Resistant","Resistant","Resistant","Resistant","Resistant","Susceptible","Resistant","Susceptible","Susceptible","Dr. Adricula","Good","Dr. Haro","2017-12-05","6","Dec","2017"); 
 INSERT INTO dst_examination VALUES("2","12","12","2017-12-12","2017-12-12","Method 1","Susceptible","Resistant","Resistant","Resistant","Resistant","Susceptible","Susceptible","Susceptible","Susceptible","Dr. Adricula","Good","Dr. Adricula","2017-12-20","1","Dec","2017"); 
@@ -388,6 +402,7 @@ INSERT INTO dst_examination VALUES("3","12","12","2018-01-10","2018-01-03","Meth
 INSERT INTO dst_examination VALUES("4","100","100","2018-02-08","2018-02-08","Method","Resistant","Resistant","Susceptible","Susceptible","Resistant","Not Done","Not Done","Not Done","Not Done","Dr. Alvin","Good","Dr. Alvin","2018-02-08","1","Feb","2018"); 
 INSERT INTO dst_examination VALUES("5","100","100","2018-02-08","2018-02-08","Method 1","Resistant","Resistant","Resistant","Resistant","Resistant","Not Done","Not Done","Not Done","Not Done","Dr. Haro","Good","Dr. Haro","2018-02-08","73","Feb","2018"); 
 INSERT INTO dst_examination VALUES("6","102","100","2018-02-24","2018-02-24","Method 1","Resistant","Resistant","Susceptible","Susceptible","Susceptible","Resistant","Resistant","Resistant","Susceptible","Dr. ALvin Yanson","Resistant","Dr. Alvin","2018-02-24","59","Feb","2018"); 
+INSERT INTO dst_examination VALUES("7","100","100","2018-02-27","2018-02-27","Method 1","Resistant","Resistant","Resistant","Susceptible","Susceptible","Resistant","Susceptible","Susceptible","Susceptible","Dr. Alvin Yanson","Good","Dr. Alvin Yanson","2018-02-27","69","Feb","2018"); 
 
 
 
@@ -428,7 +443,7 @@ CREATE TABLE `follow_up` (
   `remarks` varchar(50) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`follow_up_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 INSERT INTO follow_up VALUES("7","2018-01-08","may klase na...","2"); 
 INSERT INTO follow_up VALUES("15","2018-01-17","Alson","1"); 
@@ -453,6 +468,9 @@ INSERT INTO follow_up VALUES("33","2018-02-23","Remarks","10");
 INSERT INTO follow_up VALUES("34","2018-02-24","Remarks","7"); 
 INSERT INTO follow_up VALUES("35","2018-02-22","Remarks","3"); 
 INSERT INTO follow_up VALUES("36","2018-02-28","Remarks","93"); 
+INSERT INTO follow_up VALUES("37","2018-02-28","added a follow-up date for Erul John Ubas","3"); 
+INSERT INTO follow_up VALUES("38","2018-03-10","added a follow-up date for Erul John Ubas","3"); 
+INSERT INTO follow_up VALUES("39","2018-03-29","added a follow-up date for Ivan Buglosa","11"); 
 
 
 
@@ -464,8 +482,10 @@ CREATE TABLE `follow_up_ipt` (
   `remarks` varchar(50) NOT NULL,
   `patient_id` int(10) NOT NULL,
   PRIMARY KEY (`follow_up_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
+INSERT INTO follow_up_ipt VALUES("1","2018-03-10","added a follow-up date for ","21"); 
+INSERT INTO follow_up_ipt VALUES("2","2018-03-10","added a follow-up date for John Peter","21"); 
 
 
 
@@ -483,7 +503,7 @@ CREATE TABLE `gene_expert_examination` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`xpert_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 INSERT INTO gene_expert_examination VALUES("1","2017-11-26","12","Good","Dr. Haro","2017-11-26","T","1","Nov","2017"); 
 INSERT INTO gene_expert_examination VALUES("2","2017-12-06","1256","Salivary","Dr","2017-12-06","TI","19","Dec","2017"); 
@@ -506,6 +526,10 @@ INSERT INTO gene_expert_examination VALUES("18","2018-02-18","100","Muco-Purulen
 INSERT INTO gene_expert_examination VALUES("19","2018-02-01","012345","Salivary","ewewewe@#$","2018-02-23","N","59","Feb","2018"); 
 INSERT INTO gene_expert_examination VALUES("20","2018-02-24","100","Salivary","Dr. Alvin Yanson","2018-02-23","T","99","Feb","2018"); 
 INSERT INTO gene_expert_examination VALUES("21","2018-02-25","100","Muco-Purulent","Dr. Elmer Haro","2018-02-23","T","61","Feb","2018"); 
+INSERT INTO gene_expert_examination VALUES("22","2018-02-27","100","Muco-Purulent","Dr. Elmer Haro","2018-02-27","T","186","Feb","2018"); 
+INSERT INTO gene_expert_examination VALUES("23","2018-02-27","100","Muco-Purulent","Dr. Elmer Haro","2018-02-27","T","185","Feb","2018"); 
+INSERT INTO gene_expert_examination VALUES("24","2018-02-27","100","Muco-Purulent","Dr. Elmer Haro","2018-02-27","RR","190","Feb","2018"); 
+INSERT INTO gene_expert_examination VALUES("25","2018-02-27","199","Muco-Purulent","Dr. Elmer Haro","2018-02-27","T","192","Feb","2018"); 
 
 
 
@@ -541,6 +565,48 @@ INSERT INTO health_center VALUES("21","Tangub Barangay Health Station");
 INSERT INTO health_center VALUES("22","Villa Esperanza Barangay Health Station"); 
 INSERT INTO health_center VALUES("23","Villamonte Barangay Health Station"); 
 INSERT INTO health_center VALUES("24","Vista Alegre Barangay Health Station"); 
+
+
+
+DROP TABLE history_log;
+
+CREATE TABLE `history_log` (
+  `log_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `action` varchar(100) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  PRIMARY KEY (`log_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+
+INSERT INTO history_log VALUES("12","59","  confirmed the laboratory request of Cathy Halsted","February 27, 2018, 9:00 pm"); 
+INSERT INTO history_log VALUES("13","59","confirmed the laboratory request of Earl Floyd","February 27, 2018, 9:06 pm"); 
+INSERT INTO history_log VALUES("14","63","confirmed the laboratory request of Garrett Warren","February 27, 2018, 9:08 pm"); 
+INSERT INTO history_log VALUES("15","63","confirmed the laboratory request of ","February 27, 2018, 9:25 pm"); 
+INSERT INTO history_log VALUES("16","63","confirmed the laboratory request of Jazmine Peskin","February 27, 2018, 9:30 pm"); 
+INSERT INTO history_log VALUES("17","63","confirmed the laboratory request of Velma Dennis","February 27, 2018, 9:40 pm"); 
+INSERT INTO history_log VALUES("18","62","confirmed the laboratory request of Victoria Higgins","February 27, 2018, 10:01 pm"); 
+INSERT INTO history_log VALUES("19","59","confirmed the laboratory request of Willie Fields","February 27, 2018, 10:11 pm"); 
+INSERT INTO history_log VALUES("20","59","confirmed the laboratory request of Wayne Walters","February 27, 2018, 10:21 pm"); 
+INSERT INTO history_log VALUES("21","59","confirmed the laboratory request of Terrance Delgado","February 27, 2018, 10:30 pm"); 
+INSERT INTO history_log VALUES("22","57","Alvin Yanson added alaxan","February 27, 2018, 10:34 pm"); 
+INSERT INTO history_log VALUES("23","57","Alvin Yanson created account for Alec Rubiato","February 27, 2018, 10:41 pm"); 
+INSERT INTO history_log VALUES("24","57","added test","February 27, 2018, 10:55 pm"); 
+INSERT INTO history_log VALUES("25","57","added test2","February 27, 2018, 10:58 pm"); 
+INSERT INTO history_log VALUES("26","0","added patient - Jake Wall","February 27, 2018, 11:01 pm"); 
+INSERT INTO history_log VALUES("27","0","added patient - Mike Andrew","February 27, 2018, 11:02 pm"); 
+INSERT INTO history_log VALUES("28","0","added patient - Paul Bill","February 27, 2018, 11:04 pm"); 
+INSERT INTO history_log VALUES("29","57","added patient - Peter George","February 27, 2018, 11:06 pm"); 
+INSERT INTO history_log VALUES("30","57","added patient - Russel Moore","February 27, 2018, 11:16 pm"); 
+INSERT INTO history_log VALUES("31","57","registered - Lamar Robertson","February 27, 2018, 11:22 pm"); 
+INSERT INTO history_log VALUES("36","57","added laboratory request for - Alson John Bayon-on","February 27, 2018, 11:40 pm"); 
+INSERT INTO history_log VALUES("37","57","dispensed 20 Isoniazid kits to Banago Barangay Health Station","February 27, 2018, 5:13 pm"); 
+INSERT INTO history_log VALUES("38","57","added 100 Kanamycin to stocks","February 28, 2018, 12:17 am"); 
+INSERT INTO history_log VALUES("39","57","added 50 kits of Biogesic to stocks","February 28, 2018, 12:17 am"); 
+INSERT INTO history_log VALUES("40","0","added a follow-up date for Erul John Ubas","February 28, 2018, 12:26 am"); 
+INSERT INTO history_log VALUES("41","57","added a follow-up date for Erul John Ubas","February 28, 2018, 12:26 am"); 
+INSERT INTO history_log VALUES("42","57","added a follow-up date for Ivan Buglosa","February 28, 2018, 12:29 am"); 
+INSERT INTO history_log VALUES("43","57","added a follow-up date for ","February 28, 2018, 12:29 am"); 
+INSERT INTO history_log VALUES("44","57","added a follow-up date for John Peter","February 28, 2018, 12:30 am"); 
 
 
 
@@ -629,7 +695,7 @@ CREATE TABLE `laboratory_request` (
   `date_today` varchar(50) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`lab_request_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=210 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=233 DEFAULT CHARSET=latin1;
 
 INSERT INTO laboratory_request VALUES("68","Mandalagan Health Center","2017-11-26","Dr. Haro","Diagnostic","Sputum","Yes","2017-11-27","2017-11-28","Dr. Haro","433-2449","DSSM","2","Done","","2017"); 
 INSERT INTO laboratory_request VALUES("127","Banago Barangay Health Station","2018-01-15","Dr. Alson John Bayon-on","Diagnostic","Sputum","Yes","2018-01-12","2018-01-12","Gabriel Banua","Barangay Health Worker","DSSM","45","Done","","2018"); 
@@ -714,7 +780,30 @@ INSERT INTO laboratory_request VALUES("205","Taculing Barangay Health Station","
 INSERT INTO laboratory_request VALUES("206","Abcasa Barangay Health Station","2018-02-23","Dr. Alvin Yanson","Diagnostic","Sputum","Yes","2018-02-26","2018-02-26","Dr. Alvin Yanson","Barangay Health Worker","DSSM","189","Done","February 26, 2018","2018"); 
 INSERT INTO laboratory_request VALUES("207","Villamonte Barangay Health Station","2018-02-26","Dr. Elmer Haro","Diagnostic","Sputum","No","2018-02-26","2018-02-26","Alvin Yanson","Midwife","DSSM","184","Done","February 26, 2018","2018"); 
 INSERT INTO laboratory_request VALUES("208","Alangilan Barangay Health Station","2018-02-23","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-26","2018-02-26","Alvin Yanson","Barangay Health Worker","DSSM","184","Done","February 27, 2018","2018"); 
-INSERT INTO laboratory_request VALUES("209","Alangilan Barangay Health Station","2018-02-27","Alvin Yanson","Diagnostic","Sputum","Yes","2018-02-26","2018-02-26","Alvin Yanson","Barangay Health Worker","DSSM","187","Pending","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("209","Alangilan Barangay Health Station","2018-02-27","Alvin Yanson","Diagnostic","Sputum","Yes","2018-02-26","2018-02-26","Alvin Yanson","Barangay Health Worker","DSSM","187","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("210","Banago Barangay Health Station","2018-02-27","Dr. Alvin Yanson","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Alvin Yanson","Barangay Health Worker","DSSM","191","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("211","Banago Barangay Health Station","2018-02-27","Dr. Alvin Yanson","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Leonel Entes","Barangay Health Worker","DSSM","91","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("212","Banago Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","Xpert MTB/RIF","190","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("213","Banago Barangay Health Station","2018-02-27","Dr. Elmer Haro","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Alvin Yanson","Barangay Health Worker","Xpert MTB/RIF","188","Pending","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("214","Banago Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","Xpert MTB/RIF","192","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("215","Banago Barangay Health Station","2018-02-27","Dr. Elmer Haro","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","Xpert MTB/RIF","186","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("216","Banago Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","Xpert MTB/RIF","185","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("217","Banago Barangay Health Station","2018-02-27","Dr. Alvin Yanson","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","DSSM","75","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("218","Mandalagan Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","DSSM","2","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("219","Estefania Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","DSSM","73","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("220","Bata Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","DSSM","171","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("221","Pahanocoy Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","DSSM","89","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("222","Mandalagan Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","DSSM","44","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("223","Alijis Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","DSSM","30","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("224","Cabug Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","DSSM","172","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("225","Alijis Barangay Health Station","2018-02-27","Dr. Alvin Yanson","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","TB Culture","39","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("226","Alijis Barangay Health Station","2018-02-27","Dr. Elmer Haro","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","TB Culture","35","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("227","Banago Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","Drug Susceptible Testing","69","Done","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("228","Estefania Barangay Health Station","2018-02-27","Dr. Alvin Yanson","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","DSSM","21","Pending","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("229","Granada Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","Xpert MTB/RIF","73","Pending","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("230","Mandalagan Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","Xpert MTB/RIF","2","Pending","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("231","Banago Barangay Health Station","2018-02-27","Dr. Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","Xpert MTB/RIF","175","Pending","February 27, 2018","2018"); 
+INSERT INTO laboratory_request VALUES("232","Banago Barangay Health Station","2018-02-27","Leonel Entes","Diagnostic","Sputum","Yes","2018-02-27","2018-02-27","Dr. Alvin Yanson","Barangay Health Worker","Xpert MTB/RIF","1","Pending","February 27, 2018","2018"); 
 
 
 
@@ -730,7 +819,7 @@ CREATE TABLE `medication_dispensation` (
   `quantity` int(10) NOT NULL,
   `received_by` varchar(30) NOT NULL,
   PRIMARY KEY (`dispensation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 INSERT INTO medication_dispensation VALUES("18","Banago Barangay Health Station","Biogesic","January 11, 2018","Jan","2018","25","Alson Bayon-on"); 
 INSERT INTO medication_dispensation VALUES("19","Banago Barangay Health Station","Biogesic","January 11, 2018","Jan","2018","15","Gabriel Banua"); 
@@ -754,6 +843,9 @@ INSERT INTO medication_dispensation VALUES("36","Lopez Jaena Health Plus","Rifam
 INSERT INTO medication_dispensation VALUES("37","Alijis Barangay Health Station","Pyrazinamide","February 15, 2018","Feb","2018","100","Dr. Alvin"); 
 INSERT INTO medication_dispensation VALUES("38","Alijis Barangay Health Station","Levofloxacin","February 15, 2018","Feb","2018","97","Dr. Alvin"); 
 INSERT INTO medication_dispensation VALUES("39","ABCASA Barangay Health Station","Levofloxacin","February 17, 2018","Feb","2018","50","Dr. Alvin Yanson"); 
+INSERT INTO medication_dispensation VALUES("40","Alijis Barangay Health Station","Rifampicin","February 27, 2018","Feb","2018","4","Dr. Leonel Entes"); 
+INSERT INTO medication_dispensation VALUES("41","Villa Esperanza Barangay Health Station","Isoniazid","February 27, 2018","Feb","2018","20","Alvin Yanson"); 
+INSERT INTO medication_dispensation VALUES("42","Banago Barangay Health Station","Isoniazid","February 27, 2018","Feb","2018","20","ALson John Bayon-on"); 
 
 
 
@@ -766,17 +858,22 @@ CREATE TABLE `medicine` (
   `medicine_description` varchar(50) NOT NULL,
   `running_balance` int(10) NOT NULL,
   PRIMARY KEY (`medicine_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
-INSERT INTO medicine VALUES("1","Isoniazid","Tablet","This is Isoniazid","198"); 
-INSERT INTO medicine VALUES("3","Rifampicin","Tablet","This is Rifampicin","100"); 
+INSERT INTO medicine VALUES("1","Isoniazid","Tablet","This is Isoniazid","158"); 
+INSERT INTO medicine VALUES("3","Rifampicin","Tablet","This is Rifampicin","96"); 
 INSERT INTO medicine VALUES("4","Ethambutol","Tablet","This is Ethambutol","99"); 
 INSERT INTO medicine VALUES("5","Streptomycin","Tablet","This is Streptomycin","101"); 
 INSERT INTO medicine VALUES("21","Pyrazinamide","Tablet","Pyrazinamide","101"); 
 INSERT INTO medicine VALUES("22","Levofloxacin","Syrup","This is Levofloxacin","58"); 
 INSERT INTO medicine VALUES("23","Sample Medicine","Tablet","This is sample","250"); 
-INSERT INTO medicine VALUES("24","Biogesic","Tablet","Biogesic","0"); 
-INSERT INTO medicine VALUES("25","Kanamycin","Tablet","This is Kanamycin","0"); 
+INSERT INTO medicine VALUES("24","Biogesic","Tablet","Biogesic","50"); 
+INSERT INTO medicine VALUES("25","Kanamycin","Tablet","This is Kanamycin","100"); 
+INSERT INTO medicine VALUES("30","wtf medicine","Tablet","This is sample","0"); 
+INSERT INTO medicine VALUES("31","New Medicine","Tablet","This is a new medicine","0"); 
+INSERT INTO medicine VALUES("32","alaxan","Tablet","This is tablet","0"); 
+INSERT INTO medicine VALUES("33","test","Tablet","test","0"); 
+INSERT INTO medicine VALUES("34","test2","Tablet","test2","0"); 
 
 
 
@@ -788,7 +885,7 @@ CREATE TABLE `medicine_stocks` (
   `quantity` int(10) NOT NULL,
   `date` varchar(30) NOT NULL,
   PRIMARY KEY (`medicine_stock_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 INSERT INTO medicine_stocks VALUES("1","Isoniazid","100","2017-11-25 20:52:15"); 
 INSERT INTO medicine_stocks VALUES("2","name","12","2017-11-29 20:11:39"); 
@@ -824,6 +921,8 @@ INSERT INTO medicine_stocks VALUES("32","Levofloxacin","100","February 15, 2018,
 INSERT INTO medicine_stocks VALUES("33","Pyrazinamide","100","February 15, 2018, 10:26 pm"); 
 INSERT INTO medicine_stocks VALUES("34","Levofloxacin","50","February 17, 2018, 1:09 am"); 
 INSERT INTO medicine_stocks VALUES("35","Levofloxacin","55","February 24, 2018, 9:34 pm"); 
+INSERT INTO medicine_stocks VALUES("36","Kanamycin","100","February 28, 2018, 12:17 am"); 
+INSERT INTO medicine_stocks VALUES("37","Biogesic","50","February 28, 2018, 12:17 am"); 
 
 
 
@@ -848,11 +947,11 @@ CREATE TABLE `patient` (
   `treatment_partner` char(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`patient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=198 DEFAULT CHARSET=latin1;
 
-INSERT INTO patient VALUES("1","Alson John Bayon-on","21","Male","Prk. Langis, Brgy. Banago, Bacolod City","Banago","2017-11-25","178","433-2449","Negros Occidental","Teacher","10992241","Dr. Sabay","433-2449 local 181","Registered","Done","2017"); 
+INSERT INTO patient VALUES("1","Alson John Bayon-on","0","Male","Prk. Langis, Brgy. Banago, Bacolod City","Banago","1991-06-12","178","433-2449","Negros Occidental","Teacher","10992241","Dr. Sabay","433-2449 local 181","Registered","Done","2017"); 
 INSERT INTO patient VALUES("2","Alvin Yanson","3","Male","eroreco bacolod city","Mandalagan","2017-01-08","178","433-2449","Negros Occidental","Student","1993121","Dr. Haro","433-2449 local 181","Registered","Done","2017"); 
-INSERT INTO patient VALUES("3","Erul John Ubas","21","Male","Sum-ag, Bacolod City","Sumag ","2017-03-13","178","433-2449 local","Negros Occidental","","","Dr. Adricula","433-2449 local 181","Registered","Done","2017"); 
+INSERT INTO patient VALUES("3","Erul John Ubas","21","Male","Sum-ag, Bacolod City","Sumag ","1997-08-19","178","433-2449 local","Negros Occidental","","","Dr. Adricula","433-2449 local 181","Registered","Done","2017"); 
 INSERT INTO patient VALUES("5","Gabriel Francis Banua","22","Male","Taculing, Bacolod City","Taculing","2017-10-29","178","433-2449","Negros Occidental","","","Dr. Sabay","433-2449","Registered","Done","2017"); 
 INSERT INTO patient VALUES("6","Alec Rubiato","20","Male","Banago, Bacolod City","Banago","2016-12-25","174","433-2449","Negros Occidental","","","Dr. Torres","433-2449","Registered","Done","2017"); 
 INSERT INTO patient VALUES("7","Daniel Molabin","20","Male","Lizares Avenue","Felisa","2017-10-29","168","433-2449","Negros Occidental","","","Dr. Haro","433-2449 local 181","Registered","Done","2017"); 
@@ -968,9 +1067,14 @@ INSERT INTO patient VALUES("187","Jay Webb","21","Male","Blk. 5, Lot 1, Fortune 
 INSERT INTO patient VALUES("188","Vicki Santiago","21","Female","Blk. 6, Lot 1, Fortune Towne, Bacolod City","Estefania","January 21, 1996","178","4332489","Negros Occidental","Teacher","102453509081","Elmer Haro","4332783","Unregister","Pending","2018"); 
 INSERT INTO patient VALUES("189","Eloise Dunn","20","Female","Blk. 7, Lot 1, Fortune Towne, Bacolod City","Estefania","January 21, 1997","178","4332489","Negros Occidental","Teacher","102453509081","Elmer Haro","4332783","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("190","Velma Dennis","40","Female","Blk. 8, Lot 1, Fortune Towne, Bacolod City","Estefania","January 21, 1977","178","4332489","Negros Occidental","Teacher","102453509081","Elmer Haro","4332783","Unregister","Pending","2018"); 
-INSERT INTO patient VALUES("191","Lamar Robertson","41","Male","Blk. 9, Lot 1, Fortune Towne, Bacolod City","Estefania","January 21, 1976","178","4332489","Negros Occidental","Teacher","102453509081","Elmer Haro","4332783","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("191","Lamar Robertson","41","Male","Blk. 9, Lot 1, Fortune Towne, Bacolod City","Estefania","January 21, 1976","178","4332489","Negros Occidental","Teacher","102453509081","Elmer Haro","4332783","Registered","Pending","2018"); 
 INSERT INTO patient VALUES("192","Victoria Higgins
 ","41","Female","Blk. 10, Lot 1, Fortune Towne, Bacolod City","Estefania","January 21, 1976","178","4332489","Negros Occidental","Teacher","102453509081","Elmer Haro","4332783","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("193","Jake Wall","19","Male","Blk. 1, Lot 2, Firmville Subd., Bacolod City","Pahanocoy","1999-02-10","178","4332449","Negros Occidental","Teacher","109234204234","Leonel Entes","4332449","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("194","Mike Andrew","18","Male","Blk. 1, Lot 3, Firmville, Bacolod City","Pahanocoy","1999-03-15","178","4332449","Negros Occidental","Teacher","109234204234","Leonel Entes","4332449","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("195","Paul Bill","25","Male","Blk. 2, Lot 5, Firmville Bacolod City","Pahanocoy","1992-04-08","178","4332449","Negros Occidental","Teacher","109234204234","Leonel Entes","4332449","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("196","Peter George","24","Male","Blk. 4, Lot 7, Firmville Bacolod City","Pahanocoy","1993-06-23","178","4332449","Negros Occidental","Teacher","109234204234","Leonel Entes","4332449","Unregister","Pending","2018"); 
+INSERT INTO patient VALUES("197","Russel Moore","20","Male","Blk. 1, Lot 8, Firmville, Bacolod City","Pahanocoy","1997-08-09","178","4332449","Negros Occidental","Teacher","109234204234","Leonel Entes","4332449","Unregister","Pending","2018"); 
 
 
 
@@ -1022,7 +1126,7 @@ CREATE TABLE `registration` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`tb_case_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=141 DEFAULT CHARSET=latin1;
 
 INSERT INTO registration VALUES("26","November 25, 2017","Bacolod City Health TB DOTS Center","Community","New","TB Disease","Bacteriologically Confirmed","Extra-pulmonary","Yes","Yes","Less than 1 month","Category Ia - 2HRZE/10HR","Alvin Yanson","Barangay Health Worker","Cured","2018","1","Nov","2017"); 
 INSERT INTO registration VALUES("27","November 21, 2017","Bacolod City Health TB DOTS Center","Public Health Center","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","Yes","Less than 1 month","Category Ia - 2HRZE/10HR","Alson John Bayon-on","Nurse","Cured","2018","2","Nov","2017"); 
@@ -1138,6 +1242,7 @@ INSERT INTO registration VALUES("136","February 26, 2018","Bacolod City Health T
 INSERT INTO registration VALUES("137","February 26, 2018","Bacolod City Health TB DOTS Center","Public Health Center","Treatment After Failure","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Alvin Yanson","Barangay Health Worker","Currently in Treatment","2018","96","Feb","2018"); 
 INSERT INTO registration VALUES("138","February 26, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","New","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Alson John Bayon-on","Barangay Health Worker","Currently in Treatment","2018","182","Feb","2018"); 
 INSERT INTO registration VALUES("139","February 26, 2018","Bacolod City Health TB DOTS Center","Public Health Center","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","Yes","No","None","Category I - 2HRZE/4HR","Carl Betio","Barangay Health Worker","Currently in Treatment","2018","184","Feb","2018"); 
+INSERT INTO registration VALUES("140","February 27, 2018","Bacolod City Health TB DOTS Center","Private Hospitals","Relapse","TB Disease","Bacteriologically Confirmed","Pulmonary","No","No","None","Category I - 2HRZE/4HR","Leonel Entes","Barangay Health Worker","Currently in Treatment","2018","191","Feb","2018"); 
 
 
 
@@ -1182,11 +1287,13 @@ CREATE TABLE `tb_culture_examination` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL,
   PRIMARY KEY (`tb_culture_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 INSERT INTO tb_culture_examination VALUES("1","Method 1","1264","1265","2017-12-05","2017-12-05","Resistant","MTB detected","Dr. Torres","Dr. Torres","2017-12-06","1","Dec","2017"); 
 INSERT INTO tb_culture_examination VALUES("2","Method 1","100","100","2018-02-07","2018-02-08","Resistant","Good","Dr. Haro","Dr. Haro","2018-02-08","6","Feb","2018"); 
 INSERT INTO tb_culture_examination VALUES("3","Method 1","100","100","2018-02-25","2018-02-26","Resistant","Good","Dr. Alvin","Dr. Alvin","2018-02-26","6","Feb","2018"); 
+INSERT INTO tb_culture_examination VALUES("4","Method 1","100","100","2018-02-27","2018-02-27","Resistant","confirmed the laboratory reque","Dr. Leonel Entes","Dr. Leonel Entes","2018-02-28","39","Feb","2018"); 
+INSERT INTO tb_culture_examination VALUES("5","Method 2","199","100","2018-02-27","2018-02-27","Resistant","Good","Dr. Elmer Haro","Dr. Elmer Haro","2018-02-27","35","Feb","2018"); 
 
 
 
@@ -1228,12 +1335,14 @@ CREATE TABLE `user` (
   `status` char(8) NOT NULL,
   `login` varchar(50) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
 
-INSERT INTO user VALUES("57","Alvin","Yanson","","NTP Nurse Coordinator","nurse101","aTya03gHJdTyqLkWQfg15yU5b18b25be6c088cda0cc33754c98966b151312f6","Active","February 27, 2018, 12:51 am"); 
-INSERT INTO user VALUES("59","Alvins","Yanson","10313-13","Medical Technologist","medtech101","aTya03gHJdTyqLkWQfg15yUc6e9dc91aefe1a00974de3b68c57016e50f96a15","Active","February 27, 2018, 12:50 am"); 
+INSERT INTO user VALUES("57","Alvin","Yanson","","NTP Nurse Coordinator","nurse101","aTya03gHJdTyqLkWQfg15yU5b18b25be6c088cda0cc33754c98966b151312f6","Active","February 27, 2018, 11:45 pm"); 
+INSERT INTO user VALUES("59","Medtech","Medtech","10313-13","Medical Technologist","medtech101","aTya03gHJdTyqLkWQfg15yUc6e9dc91aefe1a00974de3b68c57016e50f96a15","Active","February 27, 2018, 10:29 pm"); 
 INSERT INTO user VALUES("60","Erul","Ubas","100-9121","Medical Technologist","erulg","aTya03gHJdTyqLkWQfg15yU09775882de339a62dd9114f200b34b91a2aceb70","Active","February 10, 2018, 11:55 pm"); 
-INSERT INTO user VALUES("62","Alson John","Bayon-on","109099-1212","Medical Technologist","alson","aTya03gHJdTyqLkWQfg15yU9639cda54513fdb91202fa34fdc5c79df7ac786e","Inactive","February 16, 2018, 1:04 am"); 
+INSERT INTO user VALUES("62","Alson John","Bayon-on","109099-1212","Medical Technologist","alson","aTya03gHJdTyqLkWQfg15yU9639cda54513fdb91202fa34fdc5c79df7ac786e","Active","February 27, 2018, 9:42 pm"); 
+INSERT INTO user VALUES("63","Gabriel","Banua","1009224","Medical Technologist","gabriel","aTya03gHJdTyqLkWQfg15yU18a98c35f49808b45edadc75fb1b25ebfd4037d6","Active","February 27, 2018, 9:34 pm"); 
+INSERT INTO user VALUES("64","Alec","Rubiato","100909","Medical Technologist","alecboy","aTya03gHJdTyqLkWQfg15yU58c3975d6e9446c00516c194a87ebcc1b0602698","Active","February 27, 2018, 11:45 pm"); 
 
 
 

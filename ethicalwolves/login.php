@@ -179,12 +179,6 @@ session_start();
 					transform: translate(1,1) scale(1,1); 
 				}
 			}
-
-
-
-
-
-
 			@-webkit-keyframes forth_object {
 				0% {
 					-ms-transform: translate(1,1) scale(1,1); 

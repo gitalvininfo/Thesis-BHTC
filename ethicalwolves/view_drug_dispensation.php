@@ -27,7 +27,7 @@ require ('config.php');
                 <ul class="breadcrumb">
                     <li><a href="home.php">Home</a></li>
                     <li>Reports</li>
-                    <li><a href="medication_dispense_table.php">Barangay Health Stations</a></li>
+                    <li><a href="medication_dispense_table.php">Medicines Dispensed</a></li>
                     <li class="active"><strong><mark><?php echo $_GET['health_center']?></mark></strong></li>
                 </ul>
                 <div class="page-content-wrap">
@@ -35,13 +35,13 @@ require ('config.php');
                         <div class="col-md-8">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><strong>Medication Dispensed Log</strong></h3>
+                                    <h3 class="panel-title"><strong>Medication Dispensation Log</strong></h3>
                                 </div>
                                 <div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
                                     <div class="panel-body">
                                         <table class="table datatable">
                                             <thead>
-                                                <tr>
+                                                <tr class="warning">
                                                     <th><center>Number</center></th>
                                                     <th><center>Drug Name</center></th>
                                                     <th><center>Date Given</center></th>

@@ -4,7 +4,6 @@
 if(ISSET($_POST['edit_patient'])){
 	$patient_id = $_POST['patient_id'];
 	$patient_name= $_POST['patient_name'];    
-	$age = $_POST['age'];
 	$gender = $_POST['gender'];
 	$address = $_POST['address'];
 	$barangay = $_POST['barangay'];
@@ -16,8 +15,8 @@ if(ISSET($_POST['edit_patient'])){
 	$contact_person = $_POST['contact_person'];
 	$emergency_no = $_POST['emergency_no'];
 	require ('config.php');
-	$conn->query("UPDATE `patient` SET `patient_name` = '$patient_name', `age` = '$age', `gender` = '$gender', `address` = '$address', 
-			`barangay` = '$barangay', `age` = '$age', `address` = '$address', `gender` = '$gender', `address` = '$address', `birthdate` = '$birthdate', `height` = '$height', `contact_number` = '$contact_number', `province` = 'Negros Occidental', `occupation` = '$occupation', `philhealth_no` = '$philhealth_no', `contact_person` = '$contact_person', `emergency_no` = '$emergency_no' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
+	$conn->query("UPDATE `patient` SET `patient_name` = '$patient_name', `gender` = '$gender', `address` = '$address', 
+			`barangay` = '$barangay', `birthdate` = '$birthdate', `height` = '$height', `contact_number` = '$contact_number', `province` = 'Negros Occidental', `occupation` = '$occupation', `philhealth_no` = '$philhealth_no', `contact_person` = '$contact_person', `emergency_no` = '$emergency_no' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully updated personal information!');</script>";
 	echo "<script>document.location='master_file_patient.php'</script>";  
