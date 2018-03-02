@@ -12,6 +12,7 @@ if(ISSET($_POST['add_gene_expert'])){
 	$lab_request_id = $_POST['lab_request_id'];
 	$patient_id = $_POST['patient_id'];
 	$patient_name = $_POST['patient_name'];
+	$date_today=date("F j, Y");
 	$month = date("M", strtotime("+8 HOURS"));
 	$year = date("Y", strtotime("+8 HOURS"));
 
@@ -25,9 +26,9 @@ if(ISSET($_POST['add_gene_expert'])){
 
 	$conn->query("INSERT INTO `gene_expert_examination` VALUES('', '$date_examined', '$laboratory_number', '$visual_appearance', '$examined_by', '$date_released', '$result', '$patient_id', '$month', '$year')") or die(mysqli_error());
 
-	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
+	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
 	header('location:medtech_laboratory_request.php');
-	
+
 	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added the Xpert Result!');</script>";

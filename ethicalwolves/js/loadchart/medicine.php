@@ -62,7 +62,8 @@ json_encode($data_points);
 					e.chart.render();
 				}
 			},
-			axisX: {		       
+			axisX: {
+				interval: 1,
 				gridDashType: "dot",
 				gridThickness: 1,
 				labelFontColor: "black",

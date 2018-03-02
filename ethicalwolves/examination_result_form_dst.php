@@ -23,10 +23,11 @@ if(ISSET($_POST['add_dst'])){
 	$date_released = $_POST['date_released'];
 	$lab_request_id = $_POST['lab_request_id'];
 	$patient_id = $_POST['patient_id'];
+	$date_today=date("F j, Y");
 	$patient_name = $_POST['patient_name'];
 	$month = date("M", strtotime("+8 HOURS"));
 	$year = date("Y", strtotime("+8 HOURS"));
-	
+
 	date_default_timezone_set('Asia/Manila');	
 	$date=date("F j, Y, g:i a");
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
@@ -37,8 +38,8 @@ if(ISSET($_POST['add_dst'])){
 
 	$conn->query("INSERT INTO `dst_examination` VALUES('', '$tb_culture_laboratory', '$dst_laboratory', '$date_collected', '$date_received', '$method', '$isoniazid', '$rifampicin', '$ethambutol', '$streptomycin', '$pyrazinamide', '$levofloxacin', '$kanamycin', '$amikacin', '$capreomycin', '$examined_by', '$remarks', '$reviewed_by', '$date_released', '$patient_id', '$month', '$year')") or die(mysqli_error());
 
-	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
-	
+	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
+
 	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$labremarks', '$date')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added the DST Result!');</script>";

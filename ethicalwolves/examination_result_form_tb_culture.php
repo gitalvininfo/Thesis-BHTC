@@ -15,6 +15,7 @@ if(ISSET($_POST['add_tb_culture'])){
 	$date_released = $_POST['date_released'];
 	$lab_request_id = $_POST['lab_request_id'];
 	$patient_id = $_POST['patient_id'];
+	$date_today=date("F j, Y");
 	$patient_name = $_POST['patient_name'];
 	$month = date("M", strtotime("+8 HOURS"));
 	$year = date("Y", strtotime("+8 HOURS"));
@@ -29,8 +30,8 @@ if(ISSET($_POST['add_tb_culture'])){
 
 	$conn->query("INSERT INTO `tb_culture_examination` VALUES('', '$method', '$tb_culture_laboratory', '$laboratory_no', '$date_sample_collected', '$date_sample_received', '$tb_culture_result', '$remarks', '$examined_by', '$reviewed_by', '$date_released', '$patient_id', '$month', '$year')") or die(mysqli_error());
 
-	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
-	
+	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
+
 	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$labremarks', '$date')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added the TB Culture Result!');</script>";

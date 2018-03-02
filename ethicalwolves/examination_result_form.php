@@ -1,7 +1,7 @@
 <?php
 require_once 'logincheck.php';
 require ('config.php');
-
+date_default_timezone_set('Asia/Manila');
 if(ISSET($_POST['add_dssm'])){
 	$date_examined = $_POST['date_examined'];
 	$laboratory_number = $_POST['laboratory_number'];
@@ -15,11 +15,13 @@ if(ISSET($_POST['add_dssm'])){
 	$lab_request_id = $_POST['lab_request_id'];
 	$patient_id = $_POST['patient_id'];
 	$patient_name = $_POST['patient_name'];
+	$date_today=date("F j, Y");
 	$month = date("M", strtotime("+8 HOURS"));
 	$year = date("Y", strtotime("+8 HOURS"));
 
 	date_default_timezone_set('Asia/Manila');	
-	$date=date("F j, Y, g:i a");
+	$time=date("g:i a");
+	$date=date("F j, Y");
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
@@ -28,8 +30,9 @@ if(ISSET($_POST['add_dssm'])){
 
 
 	$conn->query("INSERT INTO `dssm_examination` VALUES('', '$date_examined', '$laboratory_number', '$visual_appearance', '$visual_appearance2', '$reading', '$reading2', '$laboratory_diagnosis', '$examined_by', '$date_released', '$patient_id', '$month', '$year')") or die(mysqli_error());
-	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
-	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
+
+	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry - Confirmed Laboratory Request', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added the DSSM Result!');</script>";
 	echo "<script>document.location='medtech_laboratory_request.php'</script>";  

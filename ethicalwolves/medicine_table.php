@@ -7,12 +7,13 @@ if(ISSET($_POST['new_medicine'])){
 	$medicine_type = mysqli_real_escape_string($conn, $_POST['medicine_type']);
 	$medicine_description = mysqli_real_escape_string($conn, $_POST['medicine_description']);
 	date_default_timezone_set('Asia/Manila');	
-	$date=date("F j, Y, g:i a");
+	$time=date("g:i a");
+	$date=date("F j, Y");
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
 	$id=$_SESSION['user_id'];
-	$remarks = "added $medicine_name";
+	$remarks = "Added $medicine_name as new medicine";
 
 	$q1 = $conn->query ("SELECT * FROM `medicine` WHERE BINARY `medicine_name` = '$medicine_name'") or die(mysqli_error());
 	$f1 = $q1->fetch_array();
@@ -23,7 +24,7 @@ if(ISSET($_POST['new_medicine'])){
 	}
 	else {
 		$conn->query("INSERT INTO `medicine` VALUES('', '$medicine_name', '$medicine_type', '$medicine_description', '')") or die(mysqli_error());
-		$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry - Medicine', '$remarks', '$date', '$time')") or die(mysqli_error());
 		$conn->close();
 		echo "<script type='text/javascript'>alert('Successfully added new medicine!');</script>";
 		echo "<script>document.location='medicine_table.php'</script>";  

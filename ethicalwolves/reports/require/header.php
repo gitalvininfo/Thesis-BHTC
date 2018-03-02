@@ -77,7 +77,7 @@
 			</div>
 			<div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
 				<?php 
-	$date_today = date('F j, Y');
+					$date_today = date('F j, Y');
 					$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 					$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Done' && `date_today` = '$date_today' order by `lab_request_id` limit 10") or die(mysqli_error());
 					while($f = $q->fetch_array())
@@ -86,7 +86,7 @@
 						$q2 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$id'") or die(mysqli_error());
 						$f2 = $q2->fetch_array();
 				?>
-				<a href="laboratory_request.php?id=<?php echo $id?>" class="list-group-item">
+				<a href="../laboratory_request.php?id=<?php echo $id?>" class="list-group-item">
 					<img src="../assets/images/file.png" class="pull-left" alt="Patient" />
 					<span class="contacts-title"><?php echo $f2['patient_name']?></span>
 					<p>
@@ -101,7 +101,7 @@
 				?>
 			</div>
 			<div class="panel-footer text-center">
-				<a href="laboratory_request_table.php">Show all laboratory requests</a>
+				<a href="../laboratory_request_table.php">Show all laboratory requests</a>
 			</div>
 		</div>
 	</li>
