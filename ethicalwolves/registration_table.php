@@ -82,14 +82,12 @@ require ('config.php');
 																		<td><center><?php echo $fetch['contact_number']?></center></td>
 																		<td><center><?php echo $fetch['address']?></center></td>
 																		<td><center>
-																			<?php if ($f['total'] <= 0)echo "<a class = 'btn btn-danger' href = '#'
-
+																			<?php if ($f['total'] <= 0)echo "<a class = 'btn btn-danger btn-sm' href = '#'
 																			data-container='body' data-toggle='popover' data-placement='left' data-content='Patient not yet examined. Please submit laboratory request.'>Pending</a>";
-				
 																			if ($f['total'] > 0)echo "<a class = 'btn btn-default btn-md' href = 'registration_form.php?id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'>Register</a>";
 																			?>
-
-																			</center></td>
+																			</center>
+																		</td>
 																	</tr>
 																	<?php
 			}
@@ -136,7 +134,7 @@ require ('config.php');
 																	while($fetch = $query->fetch_array()){
 																	?>
 																	<tr>
-																		<td><center><mark><?php echo $fetch['name']?></mark></center></td>
+																		<td><center><strong><?php echo $fetch['name']?></strong></center></td>
 																		<td><center><?php echo $fetch['age']?></center></td>
 																		<td><center><?php echo $fetch['gender']?></center></td>
 																		<td><center><?php echo $fetch['address']?></center></td>

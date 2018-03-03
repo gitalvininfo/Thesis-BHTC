@@ -33,9 +33,11 @@ require ('config.php');
 						<div class="panel panel-primary">
 							<div class="panel-heading">
 								<h3 class="panel-title"><strong>User's Activity Log</strong></h3>
+								<div class="btn-group pull-right">
+								</div>
 							</div>
 							<div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
-								<div class="panel-body">
+								<div class="panel-body-table">
 									<table class="table datatable">
 										<thead> 
 											<tr class="warning">
@@ -90,7 +92,7 @@ require ('config.php');
 												<div class='messages messages-img'>
 											<div class='item'>
 												<div class='image'>
-													<img src='assets/images/recent.jpg'/>
+													<img src='assets/images/user.png'/>
 												</div>
 												<div class='text'>
 													<div class='heading'>

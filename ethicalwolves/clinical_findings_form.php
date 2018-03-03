@@ -43,7 +43,7 @@ require ('config.php');
 									?>
 									<h3 class="panel-title"><strong>New Clinical Findings</strong></h3>
 								</div>
-								<div class="panel-body list-group list-group-contacts scroll" style="height: 455px;">
+								<div class="panel-body list-group list-group-contacts scroll" style="height: 600px;">
 									<form role="form" class="form-horizontal" action="actions/clinical_findings.php" method="post" onsubmit="return confirm('Are you sure you want to add new clinical findings?');">
 										<div class="modal-body">
 											<div class="row">

@@ -55,10 +55,10 @@ require ('../config.php');
 											<div class="row">
 												<div class="panel panel-default">
 													<div class="panel-body">
-														<div class="col-md-7">
+														<div class="col-md-12">
 															<table class="table datatable">
 																<thead> 
-																	<tr>
+																	<tr class="warning">
 																		<th><center>Name of Barangay</center></th>
 																		<th><center>Total Population</center></th>
 																		<th><center>Action</center></th>
@@ -89,25 +89,7 @@ require ('../config.php');
 																</tbody>
 															</table>   
 														</div>
-														<div class="col-md-5">
-															<div class="panel-heading">
-																<h3 class="panel-title"><strong>Top 10 Barangays with High Cases of TB</strong></h3>
-															</div>
-															<div class="panel-body">
-																<?php
-																require '../config.php';
-																$query = $conn->query("select *, count(*) as total from patient where `year` = '$year' && status = 'Registered' group by barangay order by total desc limit 10") or die(mysqli_error());
-																while ($fetch = $query->fetch_array()) {
-																	echo 
-																		"
-                                           <ul class='list-group border-bottom'>
-										   <li class='list-group-item'><span class='fa fa-map-marker'></span> Barangay ".$fetch['barangay']." <span class='badge badge-danger'>".$fetch['total']."</span></li>
-										   </ul>
-                                                ";
-																}   
-																?>        
-															</div>
-														</div>
+
 													</div>
 												</div>
 											</div>                               

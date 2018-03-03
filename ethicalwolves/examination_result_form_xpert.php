@@ -17,19 +17,20 @@ if(ISSET($_POST['add_gene_expert'])){
 	$year = date("Y", strtotime("+8 HOURS"));
 
 	date_default_timezone_set('Asia/Manila');	
-	$date=date("F j, Y, g:i a");
+	$time=date("g:i a");
+	$date=date("F j, Y");
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
 	$id=$_SESSION['user_id'];
-	$remarks = "confirmed the laboratory request of $patient_name";
+	$remarks = "Added result to Xpert MTB/RIF of $patient_name";
 
 	$conn->query("INSERT INTO `gene_expert_examination` VALUES('', '$date_examined', '$laboratory_number', '$visual_appearance', '$examined_by', '$date_released', '$result', '$patient_id', '$month', '$year')") or die(mysqli_error());
 
 	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
 	header('location:medtech_laboratory_request.php');
 
-	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry - Confirmed Laboratory Request', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added the Xpert Result!');</script>";
 	echo "<script>document.location='medtech_laboratory_request.php'</script>";
@@ -48,7 +49,6 @@ if(ISSET($_POST['add_gene_expert'])){
 		<link rel="stylesheet" type="text/css" id="theme" href="css/mycustom.css" />
 		<link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
 	</head>
-
 	<body class="page-container-boxed">
 		<?php 
 		$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());

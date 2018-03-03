@@ -198,7 +198,7 @@ $f = $q->fetch_array();
                                             <td><center><strong><?php echo $fetch['status']?></strong></center></td>
                                             <td>
                                                 <center>
-                                                    <a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-info btn-sm" ><span class="fa fa-search"></span> </a>
+                                                    <a href="#viewdata<?php echo $fetch['lab_request_id'];?>" data-toggle="modal" data-target="#viewdata<?php echo $fetch['lab_request_id'];?>" class="btn btn-default btn-sm" >View </a>
                                                 </center>
                                             </td>
                                         </tr>

@@ -12,7 +12,8 @@ if(ISSET($_POST['medication_dispensation'])){
 	$received_by = $_POST['received_by'];
 
 	date_default_timezone_set('Asia/Manila');
-	$date=date("F j, Y, g:i a");
+	$time=date("g:i a");
+	$date=date("F j, Y");
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
@@ -32,7 +33,7 @@ if(ISSET($_POST['medication_dispensation'])){
 
 		$conn->query("UPDATE `medicine` SET `running_balance` = `running_balance` - '$quantity' WHERE `medicine_name` = '$medicine_name'") or die(mysqli_error());
 
-		$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Transactions - Medication Dispensation', '$remarks', '$date', '$time')") or die(mysqli_error());
 		$conn->close();
 		echo "<script type='text/javascript'>alert('Successfully dispensed medicine!');</script>";
 		echo "<script>document.location='medication_dispensation.php'</script>";  
@@ -45,7 +46,8 @@ if(ISSET($_POST['medicine_stock'])){
 	$quantity = $_POST['quantity'];
 
 	date_default_timezone_set('Asia/Manila');
-	$date=date("F j, Y, g:i a");
+	$time=date("g:i a");
+	$date=date("F j, Y");
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
@@ -56,7 +58,7 @@ if(ISSET($_POST['medicine_stock'])){
 
 	$conn->query("UPDATE `medicine` SET `running_balance` = `running_balance` + '$quantity' WHERE `medicine_name` = '$medicine_name'") or die(mysqli_error());
 
-	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Transactions - Add Stocks', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added new stocks!');</script>";
 	echo "<script>document.location='medication_dispensation.php'</script>";  

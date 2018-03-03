@@ -26,12 +26,13 @@ if(ISSET($_POST['add_dssm'])){
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
 	$id=$_SESSION['user_id'];
-	$remarks = "confirmed the laboratory request of $patient_name";
+	$remarks = "Added result to DSSM of $patient_name";
 
 
 	$conn->query("INSERT INTO `dssm_examination` VALUES('', '$date_examined', '$laboratory_number', '$visual_appearance', '$visual_appearance2', '$reading', '$reading2', '$laboratory_diagnosis', '$examined_by', '$date_released', '$patient_id', '$month', '$year')") or die(mysqli_error());
 
 	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
+	
 	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry - Confirmed Laboratory Request', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added the DSSM Result!');</script>";

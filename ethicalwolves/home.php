@@ -185,15 +185,22 @@ $f = $q->fetch_array();
 									</div>
 									<div class="panel-body">
 										<?php
-	require 'config.php';
+										require 'config.php';
 										 $query = $conn->query("select *, count(*) as total from patient where `year` = '$year' && status = 'Registered' group by barangay order by total desc limit 10") or die(mysqli_error());
 										 while ($fetch = $query->fetch_array()) {
-											 echo 
-												 "
-                                           <ul class='list-group border-bottom'>
-										   <li class='list-group-item'><span class='fa fa-map-marker'></span> Barangay ".$fetch['barangay']." <span class='badge badge-danger'>".$fetch['total']."</span></li>
-										   </ul>
-                                                ";
+											 echo "
+												<div class='messages'>
+											<div class='item'>
+												<div class='text'>
+													<div class='heading'>
+														<a href='#'>Barangay ".$fetch['barangay']."</a>
+													<span class='date'> Year ".$fetch['year']."</span>
+														</div>
+														Total Population: ".$fetch['total']."
+														</div>
+														</div>
+														</div>
+														";
 										 }   
 										?>        
 									</div>
@@ -222,20 +229,18 @@ $f = $q->fetch_array();
 										?>
 
 										<ul class='list-group border-bottom'>
-											<li class='list-group-item'><span class='fa fa-smile-o'></span>Cured<span class='badge badge-success'><?php echo $f1['total']?></span></li>
-											<li class='list-group-item'><span class='fa fa-thumbs-up'></span>Treatment Completed<span class='badge badge-success'><?php echo $f2['total']?></span></li>
-											<li class='list-group-item'><span class='fa fa-times'></span>Died<span class='badge badge-success'><?php echo $f3['total']?></span></li>
-											<li class='list-group-item'><span class='fa fa-thumbs-down'></span>Failed<span class='badge badge-success'><?php echo $f4['total']?></span></li>
-											<li class='list-group-item'><span class='fa fa-frown-o'></span>Lost to Follow-up<span class='badge badge-success'><?php echo $f5['total']?></span></li>
-											<li class='list-group-item'><span class='fa fa-question'></span>Not Evaluated<span class='badge badge-success'><?php echo $f6['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-smile-o'></span>Cured<span class='badge badge-info'><?php echo $f1['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-thumbs-up'></span>Treatment Completed<span class='badge badge-info'><?php echo $f2['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-times'></span>Died<span class='badge badge-info'><?php echo $f3['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-thumbs-down'></span>Failed<span class='badge badge-info'><?php echo $f4['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-frown-o'></span>Lost to Follow-up<span class='badge badge-info'><?php echo $f5['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-question'></span>Not Evaluated<span class='badge badge-info'><?php echo $f6['total']?></span></li>
 										</ul>
 
 
 
 									</div>
 								</div>
-							</div>
-							<div class="col-md-4">
 								<div class="panel panel-primary">
 									<div class="panel-heading">
 										<h3 class="panel-title"><strong>Patient Classification - Gender</strong></h3>
@@ -276,7 +281,70 @@ $f = $q->fetch_array();
 									</div>
 								</div>
 							</div>
+							<div class="col-md-4">
+								<div class="panel panel-primary">
+									<div class="panel-heading">
+										<h3 class="panel-title"><strong>Registration Group - Year <?php echo $year?></strong></h3>
+									</div>
+									<div class="panel-body">
+										<?php
+	require 'config.php';
+												$new = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'New' && `year` = '$year'") or die(mysqli_error());
+												$fetch3 = $new->fetch_array();
+												$relapse = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Relapse' && `year` = '$year'") or die(mysqli_error());
+												$fetch4 = $relapse->fetch_array();
+												$talf = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'TALF' && `year` = '$year'") or die(mysqli_error());
+												$fetch5 = $talf->fetch_array();
+												$taf = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Treatment After Failure' && `year` = '$year'") or die(mysqli_error());
+												$fetch6 = $taf->fetch_array();
+												$ptou = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'PTOU' && `year` = '$year'") or die(mysqli_error());
+												$fetch7 = $ptou->fetch_array();
+												$tra = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Transfer-in' && `year` = '$year'") or die(mysqli_error());
+												$fetch8 = $tra->fetch_array();
+												$oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `registration_group` = 'Others' && `year` = '$year'") or die(mysqli_error());
+												$fetch9 = $oth->fetch_array();
+										?>
+										<ul class='list-group border-bottom'>
+											<li class='list-group-item'><span class='fa fa-star'></span>New<span class='badge badge-info'><?php echo $fetch3['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-refresh'></span>Relapse<span class='badge badge-info'><?php echo $fetch4['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-meh-o'></span>TALF<span class='badge badge-info'><?php echo $fetch5['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-thumbs-down'></span>Treatment After Failure<span class='badge badge-info'><?php echo $fetch6['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-times'></span>PTOU<span class='badge badge-info'><?php echo $fetch7['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-reply'></span>Transfer-In<span class='badge badge-info'><?php echo $fetch8['total']?></span></li>
+										</ul>
+
+
+
+									</div>
+								</div>
+								<div class="panel panel-primary">
+									<div class="panel-heading">
+										<h3 class="panel-title"><strong>Source of Patient - Year <?php echo $year?></strong></h3>
+									</div>
+									<div class="panel-body">
+										<?php
+	require 'config.php';
+												$phc = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Public Health Center' && `year` = '$year'") or die(mysqli_error());
+												$fetch1 = $phc->fetch_array();
+												$oth = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Other Government Facilities' && `year` = '$year'") or die(mysqli_error());
+												$fetch2 = $oth->fetch_array();
+												$pri = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Private Hospitals' && `year` = '$year'") or die(mysqli_error());
+												$fetch3 = $pri->fetch_array();
+												$com = $conn->query("SELECT COUNT(*) as total FROM `registration` WHERE `source_of_patient` = 'Community' && `year` = '$year'") or die(mysqli_error());
+												$fetch4 = $com->fetch_array();
+
+										?>
+										<ul class='list-group border-bottom'>
+											<li class='list-group-item'><span class='fa fa-map-marker'></span>Public Health Center<span class='badge badge-info'><?php echo $fetch1['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-building-o'></span>Other Gov't Facilities<span class='badge badge-info'><?php echo $fetch2['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-building'></span>Private Hospitals/Clinics<span class='badge badge-info'><?php echo $fetch3['total']?></span></li>
+											<li class='list-group-item'><span class='fa fa-home'></span>Community<span class='badge badge-info'><?php echo $fetch4['total']?></span></li>
+										</ul>
+									</div>
+								</div>
+							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>

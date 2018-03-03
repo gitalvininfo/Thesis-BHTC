@@ -30,6 +30,7 @@ require ('config.php');
 				height:500px;
 				margin:10px auto;
 				border:1px solid #000;
+				overflow: hidden;
 			}
 
 		</style>
