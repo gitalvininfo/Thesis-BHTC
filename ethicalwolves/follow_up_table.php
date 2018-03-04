@@ -113,8 +113,8 @@ require 'config.php';
 
                                                                     ?> 
                                                                     <tr>
-                                                                        <td><center><?php echo $f['year']. "" .$f['ipt_no']?></center></td>
-                                                                        <td><center><?php echo $fetch2['name']?></center></td>
+                                                                        <td><center><strong><?php echo $f['year']. "" .$f['ipt_no']?></strong></center></td>
+                                                                        <td><center><strong><?php echo $fetch2['name']?></strong></center></td>
                                                                         <td><center><?php echo $fetch2['age']?></center></td>		
                                                                         <td><center><?php echo $fetch2['gender']?></center></td>				
                                                                         <td><center><?php echo $fetch2['birthdate']?></center></td>

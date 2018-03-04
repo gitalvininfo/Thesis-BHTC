@@ -1,5 +1,6 @@
 <?php
-
+require 'logincheck.php';
+require 'config.php';
 
 if(ISSET($_POST['edit_patient'])){
 	$patient_id = $_POST['patient_id'];
@@ -126,9 +127,19 @@ if(ISSET($_POST['edit_user'])){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$status = $_POST['status'];
+	date_default_timezone_set('Asia/Manila');	
+	$time=date("g:i a");
+	$date=date("F j, Y");
+	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
+	$fetch = $query->fetch_array();
+	$id=$_SESSION['user_id'];
+	$remarks = "Edit account of - $firstname $lastname";
+
 	if ($password ==""){
-		require ('config.php');
+		// require ('config.php');
 		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `license` = '$license', `username` = '$username', `status` = '$status' WHERE `user_id` = '$user_id'") or die(mysqli_error());
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'System Maintenance - User Mgmt', '$remarks', '$date', '$time')") or die(mysqli_error());
 		$conn->close();
 		echo "<script type='text/javascript'>alert('Successfully updated user account!');</script>";
 		echo "<script>document.location='user_mgmt.php'</script>";  
@@ -140,7 +151,10 @@ if(ISSET($_POST['edit_user'])){
 
 		require ('config.php');
 		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `license` = '$license', `username` = '$username', `password` = '$pass1', `status` = '$status' WHERE `user_id` = '$user_id'") or die(mysqli_error());
+		
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'System Maintenance - User Mgmt', '$remarks', '$date', '$time')") or die(mysqli_error());
 		$conn->close();
+		
 		echo "<script type='text/javascript'>alert('Successfully updated user account!');</script>";
 		echo "<script>document.location='user_mgmt.php'</script>";  
 	}

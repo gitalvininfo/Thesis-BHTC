@@ -1,7 +1,8 @@
 <?php
 require_once 'logincheck.php';
 require ('config.php');
-
+date_default_timezone_set('Asia/Manila');	
+	
 if(ISSET($_POST['add_tb_culture'])){
 	$method = $_POST['method'];
 	$tb_culture_laboratory = $_POST['tb_culture_laboratory'];
@@ -26,7 +27,7 @@ if(ISSET($_POST['add_tb_culture'])){
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
 	$id=$_SESSION['user_id'];
-	$labremarks = "confirmed the laboratory request of $patient_name";
+	$labremarks = "Added result to TB Culture of  $patient_name";
 
 	$conn->query("INSERT INTO `tb_culture_examination` VALUES('', '$method', '$tb_culture_laboratory', '$laboratory_no', '$date_sample_collected', '$date_sample_received', '$tb_culture_result', '$remarks', '$examined_by', '$reviewed_by', '$date_released', '$patient_id', '$month', '$year')") or die(mysqli_error());
 

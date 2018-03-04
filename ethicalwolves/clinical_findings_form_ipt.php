@@ -38,13 +38,13 @@ require ('config.php');
 								<div class="panel-heading">
 									<?php
 	require 'config.php';
-			$q = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]' && `patient_name` = '$_GET[patient_name]'") or die(mysqli_error());
+			$q = $conn->query("SELECT * FROM `patient_ipt` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
 			$f1 = $q->fetch_array();
 									?>
 									<h3 class="panel-title"><strong>New Clinical Findings</strong></h3>
 								</div>
 								<div class="panel-body list-group list-group-contacts scroll" style="height: 600px;">
-									<form role="form" class="form-horizontal" action="actions/clinical_findings.php" method="post" onsubmit="return confirm('Are you sure you want to add new clinical findings?');">
+									<form role="form" class="form-horizontal" action="actions/clinical_findings_ipt.php" method="post" onsubmit="return confirm('Are you sure you want to add new clinical findings?');">
 										<div class="modal-body">
 											<div class="row">
 												<div class="panel-body">
@@ -53,7 +53,6 @@ require ('config.php');
 															<tbody>
 																<tr>
 																	<td>1. Unexplained fever greater than 2 weeks</td>
-																	<input type="hidden" class="form-control" name="patient_name" value="<?php echo $_GET['patient_name'];?>" required>
 																	<input type="hidden" class="form-control" name="patient_id" value="<?php echo $_GET['id'];?>" required>
 																	<td><center> <label class="check"><input type="radio" class="iradio" value="✓" name="q1" required/> Yes</label></center></td>
 																	<td><center><label class="check"><input type="radio" class="iradio" value="X" name="q1" required/> No </label></center></td>

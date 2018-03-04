@@ -1,7 +1,7 @@
-<?php require '../../reports/require/load_monthly_population_gender.php'  ?>
-<script type="text/javascript"> 
+<?php require '../../reports/require/load_monthly_patient.php'  ?>
+<script>
 	window.onload = function(){ 
-		$("#line").CanvasJSChart({
+		$("#area").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
 			zoomType: "x",
@@ -19,7 +19,7 @@
 			},
 			subtitles:[
 				{
-					text: "Male and Female Registration - Year <?php echo $year?>"
+					text: "Children and Adult Registration - Year <?php echo $year?>"
 				}
 			],
 			legend: {
@@ -52,10 +52,10 @@
 			}, 
 			data: [ 
 				{ 
-					type: "line", 
+					type: "stackedArea", 
 					showInLegend: true, 
-					legendText: "Male",
-					name: "Male", 
+					legendText: "Children",
+					name: "Children",
 					markerType: "cross",
 					color: "#e05850",
 					dataPoints: [ 
@@ -74,10 +74,10 @@
 					] 
 				},
 				{ 
-					type: "line", 
+					type: "stackedArea", 
 					showInLegend: true, 
-					legendText: "Female",
-					name: "Female", 
+					legendText: "Adult",
+					name: "Adult", 
 					markerType: "cross",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $a1['total']?> },

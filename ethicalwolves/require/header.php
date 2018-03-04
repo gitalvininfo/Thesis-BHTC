@@ -59,7 +59,7 @@
 		$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 		$query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
 		$fetch = $query->fetch_array();
-		$q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Done' && `date_today` = '$date_today' order by `lab_request_id` DESC") or die(mysqli_error());
+		$q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Done' && `date_today` = '$date_today'") or die(mysqli_error());
 		$f = $q->fetch_array();
 		$check = $q->num_rows;
 		?>

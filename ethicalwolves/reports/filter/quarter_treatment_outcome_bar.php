@@ -46,16 +46,15 @@ require ('../../config.php');
 									<div class="btn-group" id="print">
 										<a href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle">Switch to<span class="caret"></span></a>
 										<ul class="dropdown-menu" role="menu">
-											<li><a href="#" onclick="oDou()">Doughnut Graph</a></li>
-											<li><a href="#" onclick="oPie()">Pie Graph</a></li>
 											<li><a href="#" onclick="oBar()">Stacked Bar Graph</a></li>
 											<li><a href="#" onclick="oLine()">Line Graph</a></li>
 											<li><a href="#" onclick="oCol()">Stacked Column Graph</a></li>
+											<li><a href="#" onclick="oAre()">Stacked Area Graph</a></li>
 										</ul>
 									</div>
 									<button id="print" class="btn btn-default btn-md" onclick="javascript:window.print()">Print</button>      
 									<i><?php echo date('F j, Y', strtotime("+8 HOURS"));?></i>
-									
+
 								</div>
 							</div> 
 						</div>
@@ -141,12 +140,6 @@ require ('../../config.php');
 			</div>
 		</div>
 		<script>
-			function oDou() {
-				window.location="quarter_treatment_outcome_doughnut.php?year=<?php echo $year?>";
-			}
-			function oPie() {
-				window.location="quarter_treatment_outcome_pie.php?year=<?php echo $year?>";
-			}
 			function oBar() {
 				window.location="quarter_treatment_outcome_bar.php?year=<?php echo $year?>";
 			}
@@ -155,6 +148,9 @@ require ('../../config.php');
 			}
 			function oCol() {
 				window.location="quarter_treatment_outcome.php?year=<?php echo $year?>";
+			}
+			function oAre() {
+				window.location="quarter_treatment_outcome_area.php?year=<?php echo $year?>";
 			}
 		</script>
 		<script>

@@ -35,7 +35,7 @@ if(ISSET($_POST['add_dssm'])){
 	
 	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry - Confirmed Laboratory Request', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
-	echo "<script type='text/javascript'>alert('Successfully added the DSSM Result!');</script>";
+	echo "<script type='text/javascript'>alert('Successfully added the DSSM Result!')</script>";
 	echo "<script>document.location='medtech_laboratory_request.php'</script>";  
 }
 

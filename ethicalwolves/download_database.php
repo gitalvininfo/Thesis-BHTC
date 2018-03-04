@@ -48,14 +48,26 @@ require ('config.php');
 	require 'config.php';
 				$query = $conn->query("SELECT * FROM `backup` ORDER BY `backup_id` DESC") or die(mysqli_error());
 				while ($fetch = $query->fetch_array()) {
-					echo 
+
+					if ($fetch['remarks'] == 'Successfully exported database')
+						echo 
 						"
                                             <div class='list-group list-group-contacts border-bottom push-down-10'>
                                                  <a href='#' class='list-group-item'> 
-                                                         <img src='assets/images/project_logo.png' class='pull-left' alt='Dmitry Ivaniuk'>
                                                     <span class='contacts-title'>".$find['firstname']. " " .$find['lastname']."</span>
                                                 <span class='date' style='float:right;'>".$fetch['date']."</span>
-                                            <p>".$fetch['remarks']."</p>
+                                            <p><span class='label label-info'>".$fetch['remarks']."</span></p>
+                                                 </a>
+                                                ";
+
+					if ($fetch['remarks'] == 'Successfully imported database')
+						echo 
+						"
+                                            <div class='list-group list-group-contacts border-bottom push-down-10'>
+                                                 <a href='#' class='list-group-item'>
+                                                    <span class='contacts-title'>".$find['firstname']. " " .$find['lastname']."</span>
+                                                <span class='date' style='float:right;'>".$fetch['date']."</span>
+                                            <p><span class='label label-success'>".$fetch['remarks']."</span></p>
                                                  </a>
                                                 ";
 				}   

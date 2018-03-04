@@ -1,7 +1,7 @@
 <?php
 require_once 'logincheck.php';
 require ('config.php');
-
+date_default_timezone_set('Asia/Manila');
 if(ISSET($_POST['add_gene_expert'])){
 	$date_examined = $_POST['date_examined'];
 	$laboratory_number = $_POST['laboratory_number'];
@@ -28,11 +28,10 @@ if(ISSET($_POST['add_gene_expert'])){
 	$conn->query("INSERT INTO `gene_expert_examination` VALUES('', '$date_examined', '$laboratory_number', '$visual_appearance', '$examined_by', '$date_released', '$result', '$patient_id', '$month', '$year')") or die(mysqli_error());
 
 	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
-	header('location:medtech_laboratory_request.php');
 
 	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry - Confirmed Laboratory Request', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
-	echo "<script type='text/javascript'>alert('Successfully added the Xpert Result!');</script>";
+	echo "<script type='text/javascript'>alert('Successfully added the Xpert MTB/RIF Result!')</script>";
 	echo "<script>document.location='medtech_laboratory_request.php'</script>";
 }
 ?>
@@ -89,7 +88,7 @@ if(ISSET($_POST['add_gene_expert'])){
 									</ul>
 								</div>
 								<div class="panel-body">
-									<form role="form" class="form-horizontal" action="examination_result_form_xpert.php" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this Xpert MTB/RIF result?');">
+									<form role="form" class="form-horizontal" action="examination_result_form_xpert.php" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this DSSM result?');">
 										<div class="col-md-12">
 											<h5 class="push-up-1"><strong>Date Examined</strong></h5>
 											<div class="form-group ">

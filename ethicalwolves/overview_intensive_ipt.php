@@ -109,7 +109,7 @@
 					</div>
 					<div class="panel-body">
 						<h2><strong>Intensive Phase Summary - 6 months</strong></h2> <hr>
-						<h3>Summary</h3>
+						<h4>Summary</h4>
 						<div id="intensive_ipt" style="width: 100%; height: 425px"></div>
 					</div>
 					<!-- Follow-up Visit-->

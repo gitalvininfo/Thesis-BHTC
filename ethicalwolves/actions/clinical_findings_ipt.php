@@ -13,10 +13,16 @@ if(ISSET($_POST['add_new_clinical'])){
 	$q6 = $_POST['q6'];
 	$new = "";
 
-	foreach($q6 as $value)  
-	{  
-		$new .= $value . ",";  
-	}  
+	if (empty($_POST["q6"])) {
+		$new = 'No Side Effects';
+
+	}
+	else {
+		foreach($q6 as $value)  
+		{  
+			$new .= $value . ",";  
+		}
+	}
 
 	$patient_id = $_POST['patient_id'];
 
@@ -24,6 +30,6 @@ if(ISSET($_POST['add_new_clinical'])){
 	$conn->query("INSERT INTO `clinical_findings_ipt` VALUES('', '$date_visited', '$weight', '$q1', '$q2', '$q3', '$q4', '$q5', '$new', '$patient_id')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added new clinical findings!');</script>";
-	echo "<script>document.location='../patient_treatment_table.php'</script>";
+	echo "<script>document.location='../clinical_findings_ipt.php?id=$patient_id'</script>";
 }
 ?>

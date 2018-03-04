@@ -41,7 +41,7 @@ $a10 = $q10->fetch_array();
 ?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
-		$("#line").CanvasJSChart({
+		$("#area").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
 			zoomType: "x",
@@ -72,7 +72,7 @@ $a10 = $q10->fetch_array();
 			}, 
 			data: [ 
 				{ 
-					type: "line", 
+					type: "area", 
 					toolTipContent: "{label}: {y}", 
 					markerType: "cross",
 					dataPoints: [ 

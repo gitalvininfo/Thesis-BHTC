@@ -47,6 +47,7 @@ require ('../../config.php');
 											<li><a href="#" onclick="oBar()">Stacked Bar Graph</a></li>
 											<li><a href="#" onclick="oLine()">Line Graph</a></li>
 											<li><a href="#" onclick="oCol()">Stacked Column Graph</a></li>
+											<li><a href="#" onclick="oAre()">Area Graph</a></li>
 										</ul>
 									</div>
 									<button id="print" class="btn btn-default btn-md" onclick="javascript:window.print()">Print</button>  
@@ -150,6 +151,9 @@ require ('../../config.php');
 			}
 			function oCol() {
 				window.location="monthly_population_children.php?year=<?php echo $year?>";
+			}
+			function oAre() {
+				window.location="monthly_population_children_area.php?year=<?php echo $year?>";
 			}
 		</script>
 		<script>

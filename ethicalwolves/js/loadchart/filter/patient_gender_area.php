@@ -1,7 +1,7 @@
 <?php require '../../reports/require/load_monthly_population_gender.php'  ?>
 <script type="text/javascript"> 
 	window.onload = function(){ 
-		$("#line").CanvasJSChart({
+		$("#area").CanvasJSChart({
 			theme: "light2",
 			zoomEnabled: true,
 			zoomType: "x",
@@ -33,7 +33,8 @@
 					e.chart.render();
 				}
 			},
-			axisX: {		       
+			axisX: {	
+				interval: 1,
 				gridDashType: "dot",
 				gridThickness: 1,
 				labelFontColor: "black",
@@ -52,12 +53,12 @@
 			}, 
 			data: [ 
 				{ 
-					type: "line", 
+					type: "stackedArea", 
 					showInLegend: true, 
 					legendText: "Male",
 					name: "Male", 
-					markerType: "cross",
 					color: "#e05850",
+					markerType: "cross",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $c1['total']?> },
 						 { label: "February", y: <?php echo $c2['total']?> },
@@ -74,7 +75,7 @@
 					] 
 				},
 				{ 
-					type: "line", 
+					type: "stackedArea", 
 					showInLegend: true, 
 					legendText: "Female",
 					name: "Female", 

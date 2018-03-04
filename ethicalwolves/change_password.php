@@ -41,7 +41,6 @@ require ('config.php');
 			$id = $_SESSION['user_id'];
 			$q = $conn->query("SELECT * FROM `user` where `user_id` = '$id'") or die(mysqli_error());
 			$f = $q->fetch_array();
-
 							?>
 							<form role="form" id="user" class="form-horizontal" action="update_profile.php" method="post" onsubmit="return confirm('Are you sure you want to update your profile?');">
 								<div class="panel panel-primary">
