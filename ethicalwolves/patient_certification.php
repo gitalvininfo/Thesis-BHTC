@@ -20,13 +20,14 @@ require ('config.php');
 		<style type="text/css">
 			@media print{
 				@page{
-					size:portrait;
+					size: 4in 4in auto;
+					margin: 10%;
 				}
 
 			}
 			#print{
 				width:500px;
-				height:500px;
+				height:100%;
 				margin:auto;
 				border:1px solid #000;
 				overflow: hidden;

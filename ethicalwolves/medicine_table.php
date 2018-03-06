@@ -24,7 +24,7 @@ if(ISSET($_POST['new_medicine'])){
 	}
 	else {
 		$conn->query("INSERT INTO `medicine` VALUES('', '$medicine_name', '$medicine_type', '$medicine_description', '')") or die(mysqli_error());
-		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry - Medicine', '$remarks', '$date', '$time')") or die(mysqli_error());
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry', '$remarks', '$date', '$time')") or die(mysqli_error());
 		$conn->close();
 		echo "<script type='text/javascript'>alert('Successfully added new medicine!');</script>";
 		echo "<script>document.location='medicine_table.php'</script>";  

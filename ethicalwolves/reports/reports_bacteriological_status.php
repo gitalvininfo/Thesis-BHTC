@@ -59,6 +59,18 @@ require ('../config.php');
 			$fetch3 = $gra->fetch_array();
 										?>
 										<div class="row">
+											<div class="col-md-9">
+												<div class="panel-body">
+													<div id="bacteriological_status" style="width: 100%; height: 425px"></div>
+												</div>
+											</div>
+											<div class="col-md-3">                        
+												<a href="#" class="tile tile-default">
+													<?php echo $fetch3['total']?>
+													<p>Total Patient</p>    
+													<div class="informer informer-primary dir-tr"><span class="fa fa-male"></span></div>                               
+												</a>                        
+											</div>
 											<div class="col-md-3">                        
 												<a href="#" class="tile tile-success">
 													<?php echo $fetch1['total']?>
@@ -72,12 +84,6 @@ require ('../config.php');
 													<p>Clinically Diagnosed</p>      
 													<div class="informer informer-default dir-tr"><span class="fa fa-search"></span></div>                             
 												</a>                        
-											</div>
-										</div>
-										<hr>
-										<div class="row">
-											<div class="panel-body">
-												<div id="bacteriological_status" style="width: 100%; height: 425px"></div>
 											</div>
 										</div>
 									</div>

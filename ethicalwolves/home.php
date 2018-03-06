@@ -387,7 +387,6 @@ $f = $q->fetch_array();
 		<script type="text/javascript" src="js/plugins/owl/owl.carousel.min.js"></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>      
-		<script type="text/javascript" src="js/settings.js"></script>
 		<script type="text/javascript" src="js/plugins/scrolltotop/scrolltopcontrol.js"></script>
 
 	</body>
