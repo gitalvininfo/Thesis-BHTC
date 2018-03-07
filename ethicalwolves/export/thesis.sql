@@ -1,4 +1,3 @@
-DROP TABLE backup;
 
 CREATE TABLE `backup` (
   `backup_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -103,7 +102,6 @@ INSERT INTO backup VALUES("153","Successfully exported database","March 3, 2018,
 
 
 
-DROP TABLE clinical_findings;
 
 CREATE TABLE `clinical_findings` (
   `clinical_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -129,7 +127,6 @@ INSERT INTO clinical_findings VALUES("7","February 26, 2018","89","X","✓","X",
 
 
 
-DROP TABLE clinical_findings_ipt;
 
 CREATE TABLE `clinical_findings_ipt` (
   `clinical_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -156,7 +153,6 @@ INSERT INTO clinical_findings_ipt VALUES("10","February 17, 2018","65","✓","�
 
 
 
-DROP TABLE continuation_phase;
 
 CREATE TABLE `continuation_phase` (
   `continuation_phase_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -180,7 +176,6 @@ INSERT INTO continuation_phase VALUES("19","20","Feb","February 17, 2018","Pyraz
 
 
 
-DROP TABLE cxr;
 
 CREATE TABLE `cxr` (
   `cxr_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -204,7 +199,6 @@ INSERT INTO cxr VALUES("11","Suggestive of TB","2018-02-15","Alson John Bayon-on
 
 
 
-DROP TABLE drug_preparations;
 
 CREATE TABLE `drug_preparations` (
   `drug_preparation_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -228,7 +222,6 @@ INSERT INTO drug_preparations VALUES("7","January 15, 2018","11","11","11","11",
 
 
 
-DROP TABLE dssm_examination;
 
 CREATE TABLE `dssm_examination` (
   `dssm_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -380,7 +373,6 @@ INSERT INTO dssm_examination VALUES("155","2018-03-01","100","Muco-Purulent","Mu
 
 
 
-DROP TABLE dst_examination;
 
 CREATE TABLE `dst_examination` (
   `dst_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -418,7 +410,6 @@ INSERT INTO dst_examination VALUES("7","100","100","2018-02-27","2018-02-27","Me
 
 
 
-DROP TABLE family_member;
 
 CREATE TABLE `family_member` (
   `member_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -447,7 +438,6 @@ INSERT INTO family_member VALUES("19","Erul John Ubaszxc","19","2018-01-19","2")
 
 
 
-DROP TABLE follow_up;
 
 CREATE TABLE `follow_up` (
   `follow_up_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -486,7 +476,6 @@ INSERT INTO follow_up VALUES("39","2018-03-29","added a follow-up date for Ivan 
 
 
 
-DROP TABLE follow_up_ipt;
 
 CREATE TABLE `follow_up_ipt` (
   `follow_up_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -501,7 +490,6 @@ INSERT INTO follow_up_ipt VALUES("2","2018-03-10","added a follow-up date for Jo
 
 
 
-DROP TABLE gene_expert_examination;
 
 CREATE TABLE `gene_expert_examination` (
   `xpert_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -550,7 +538,6 @@ INSERT INTO gene_expert_examination VALUES("30","2018-02-28","100","Muco-Purulen
 
 
 
-DROP TABLE health_center;
 
 CREATE TABLE `health_center` (
   `health_center_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -585,7 +572,6 @@ INSERT INTO health_center VALUES("24","Vista Alegre Barangay Health Station");
 
 
 
-DROP TABLE history_log;
 
 CREATE TABLE `history_log` (
   `log_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -609,8 +595,6 @@ INSERT INTO history_log VALUES("83","59","Data Entry - Confirmed Laborat","confi
 INSERT INTO history_log VALUES("84","59","Data Entry - Confirmed Laborat","confirmed the laboratory request of Andrea Page","March 3, 2018","1:10 am"); 
 
 
-
-DROP TABLE intensive_phase;
 
 CREATE TABLE `intensive_phase` (
   `intensive_phase_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -645,7 +629,6 @@ INSERT INTO intensive_phase VALUES("120","20","Feb","February 18, 2018","Isoniaz
 
 
 
-DROP TABLE intensive_phase_ipt;
 
 CREATE TABLE `intensive_phase_ipt` (
   `intensive_phase_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -675,7 +658,6 @@ INSERT INTO intensive_phase_ipt VALUES("13","100","Feb","February 17, 2018","Iso
 
 
 
-DROP TABLE laboratory_request;
 
 CREATE TABLE `laboratory_request` (
   `lab_request_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -813,7 +795,6 @@ INSERT INTO laboratory_request VALUES("239","Alangilan Barangay Health Station",
 
 
 
-DROP TABLE medication_dispensation;
 
 CREATE TABLE `medication_dispensation` (
   `dispensation_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -855,7 +836,6 @@ INSERT INTO medication_dispensation VALUES("42","Banago Barangay Health Station"
 
 
 
-DROP TABLE medicine;
 
 CREATE TABLE `medicine` (
   `medicine_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -886,7 +866,6 @@ INSERT INTO medicine VALUES("45","test 6","Tablet","test 6","0");
 
 
 
-DROP TABLE medicine_stocks;
 
 CREATE TABLE `medicine_stocks` (
   `medicine_stock_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -935,7 +914,6 @@ INSERT INTO medicine_stocks VALUES("37","Biogesic","50","February 28, 2018, 12:1
 
 
 
-DROP TABLE patient;
 
 CREATE TABLE `patient` (
   `patient_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -1087,8 +1065,6 @@ INSERT INTO patient VALUES("197","Russel Moore","20","Male","Blk. 1, Lot 8, Firm
 
 
 
-DROP TABLE patient_ipt;
-
 CREATE TABLE `patient_ipt` (
   `patient_id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -1112,7 +1088,6 @@ INSERT INTO patient_ipt VALUES("23","Peter John","3","178","Male","Blk. 2, Lot 1
 
 
 
-DROP TABLE registration;
 
 CREATE TABLE `registration` (
   `tb_case_no` int(10) NOT NULL AUTO_INCREMENT,
@@ -1262,7 +1237,6 @@ INSERT INTO registration VALUES("147","March 2, 2018","Bacolod City Health TB DO
 
 
 
-DROP TABLE registration_ipt;
 
 CREATE TABLE `registration_ipt` (
   `ipt_no` int(10) NOT NULL AUTO_INCREMENT,
@@ -1284,8 +1258,6 @@ INSERT INTO registration_ipt VALUES("2","January 16, 2018","TB Infection","Janua
 INSERT INTO registration_ipt VALUES("3","February 7, 2018","TB Infection","February 7, 2018","Public Health Center","Alvin Yanson","Barangay Health Worker","Bacolod City Health TB DOTS Center","Currently in Treatment","21","2018","2018"); 
 
 
-
-DROP TABLE tb_culture_examination;
 
 CREATE TABLE `tb_culture_examination` (
   `tb_culture_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1313,7 +1285,6 @@ INSERT INTO tb_culture_examination VALUES("5","Method 2","199","100","2018-02-27
 
 
 
-DROP TABLE tst;
 
 CREATE TABLE `tst` (
   `tst_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -1337,8 +1308,6 @@ INSERT INTO tst VALUES("9","15mm","2018-01-17","26","Jan","2018");
 INSERT INTO tst VALUES("10","20 mm","2018-01-25","26","Jan","2018"); 
 
 
-
-DROP TABLE user;
 
 CREATE TABLE `user` (
   `user_id` int(10) NOT NULL AUTO_INCREMENT,
