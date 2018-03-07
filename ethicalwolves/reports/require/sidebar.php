@@ -58,6 +58,8 @@
 				<li><a href="../reports.php"><span class="fa fa-line-chart"></span><span class="xn-text">TB Cases Report</span></a></li>
 				<li><a href="../patient_record_report.php"><span class="fa fa-user"></span><span class="xn-text">Patient Record Report</span></a></li>
 				<li><a href="../medication_dispense_table.php"><span class="fa fa-apple"></span><span class="xn-text">Medicine Dispensed</span></a></li>
+				<li><a href="../sputum_submission.php"><span class="fa fa-upload"></span><span class="xn-text">Sputum Submission</span></a></li>
+
 			</ul>
 		</li>
 		<li class="xn-openable">
@@ -66,6 +68,7 @@
 				<li><a href="../change_password.php"><span class="fa fa-lock"></span><span class="xn-text">My Account</span></a></li>
 				<li><a href="../user_mgmt.php"><span class="fa fa-refresh"></span><span class="xn-text">User Management</span></a></li>
 				<li><a href="../download_database.php"><span class="fa fa-cloud-download"></span><span class="xn-text">System Backup</span></a></li>
+				<li><a href="../history_log.php"><span class="fa fa-exclamation-triangle"></span><span class="xn-text">User's Activity Log</span></a></li>
 			</ul>
 		</li> 
 	</ul>

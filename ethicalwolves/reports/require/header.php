@@ -28,7 +28,7 @@
 			<div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
 				<?php 
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-					$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' order by `lab_request_id` limit 10") or die(mysqli_error());
+					$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Pending' order by `lab_request_id` DESC limit 10") or die(mysqli_error());
 					while($f = $q->fetch_array())
 					{
 						$id = $f['patient_id'];
@@ -62,7 +62,7 @@
 		$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 		$query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
 		$fetch = $query->fetch_array();
-		$q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Done' && `date_today` = '$date_today' order by `lab_request_id`") or die(mysqli_error());
+		$q = $conn->query("SELECT COUNT(*) as total FROM `laboratory_request` WHERE `status` = 'Done' && `date_today` = '$date_today'") or die(mysqli_error());
 		$f = $q->fetch_array();
 		$check = $q->num_rows;
 		?>
@@ -79,7 +79,7 @@
 				<?php 
 					$date_today = date('F j, Y');
 					$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-					$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Done' && `date_today` = '$date_today' order by `lab_request_id` limit 10") or die(mysqli_error());
+					$q = $conn->query("SELECT * FROM `laboratory_request` WHERE `status` = 'Done' && `date_today` = '$date_today' order by `lab_request_id` DESC limit 10") or die(mysqli_error());
 					while($f = $q->fetch_array())
 					{
 						$id = $f['patient_id'];

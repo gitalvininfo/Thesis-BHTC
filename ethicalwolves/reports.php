@@ -46,7 +46,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_registration_group.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-pie-chart"></span>
+											<span class="fa fa-bars"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">
@@ -63,7 +63,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_bacteriological_status.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-pie-chart"></span>
+											<span class="fa fa-stethoscope"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">
@@ -80,7 +80,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_source_of_patient.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-pie-chart"></span>
+											<span class="fa fa-building-o"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">
@@ -97,7 +97,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_classification_of_tb.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-pie-chart"></span>
+											<span class="fa fa-warning"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">
@@ -114,7 +114,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_treatment_outcome.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-bar-chart"></span>
+											<span class="fa fa-user-md"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">
@@ -131,7 +131,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_patient_population.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-bar-chart"></span>
+											<span class="fa fa-calendar"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">
@@ -148,7 +148,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_annual_population.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-bar-chart"></span>
+											<span class="fa fa-line-chart"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">
@@ -165,7 +165,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_barangay_population.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-bar-chart"></span>
+											<span class="fa fa-map-marker"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">

@@ -43,20 +43,20 @@ require ('config.php');
 				</ul>
 				<div class="page-content-wrap">
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-8">
 							<div class="panel panel-primary">
 								<div class="panel-heading">
-									<h3 class="panel-title"><strong>Clinical Findings Form</strong></h3>
+									<h3 class="panel-title"><strong>Clinical Findings</strong></h3>
 									<div class="btn-group pull-right">
 										<div class="pull-left">
-											<a href="clinical_findings_form.php?id=<?php echo $f['patient_id']?>"  class="btn btn-default btn-md">New Clinical Findings</a>
+											<a href="clinical_findings_form.php?id=<?php echo $f['patient_id']?>&patient_name=<?php echo $f['patient_name']?>"  class="btn btn-default btn-md">New Clinical Findings</a>
 										</div>
 									</div>
 								</div>
-								<div class="panel-body list-group list-group-contacts scroll" style="height: 450px;">
+								<div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
 									<table id="laboratory_request" class="table table-hover">
 										<thead>
-											<tr>
+											<tr class="warning">
 												<th data-toggle="tooltip" data-placement="top" title="Date Visited">
 													<center>Date</center>
 												</th>
@@ -64,30 +64,30 @@ require ('config.php');
 													<center>Weight</center>
 												</th>
 												<th data-toggle="tooltip" data-placement="top" title="Unexplained fever more than 2 weeks">
-													<center>Fever more than 2 weeks</center>
+													<center>Q1</center>
 												</th>
 												<th data-toggle="tooltip" data-placement="top" title="Unexplained cough or wheezing more than 2 weeks">
-													<center>Cough more than 2 weeks</center>
+													<center>Q2</center>
 												</th>
 												<th data-toggle="tooltip" data-placement="top" title="Unimproved general well-being">
-													<center>Unimproved general well-being</center>
+													<center>Q3</center>
 												</th>
 												<th data-toggle="tooltip" data-placement="top" title="Poor appetite">
-													<center>Poor Appetite</center>
+													<center>Q4</center>
 												</th>
 												<th data-toggle="tooltip" data-placement="top" title="Positive PE findings for Extra-Pulmonary TB">
-													<center>PE Findings</center>
+													<center>Q5</center>
 												</th>
 												<th data-toggle="tooltip" data-placement="top" title="Side Effects">
-													<center>Side Effects</center>
+													<center>Q6</center>
 												</th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-						$query = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' ORDER BY `clinical_id` DESC") or die(mysqli_error());
-						while($fetch = $query->fetch_array()){
+											   $query = $conn->query("SELECT * FROM `clinical_findings` WHERE `patient_id` = '$_GET[id]' ORDER BY `clinical_id` DESC") or die(mysqli_error());
+											   while($fetch = $query->fetch_array()){
 											?>
 											<tr>
 												<td><center><?php echo $fetch['date_visited']?></center></td>
@@ -100,13 +100,27 @@ require ('config.php');
 												<td><center><?php echo $fetch['q6']?></center></td>
 											</tr>
 											<?php
-						}
-						$conn->close();
+											   }
+											   $conn->close();
 											?>
 										</tbody>
 									</table>
 								</div>
 							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="block">
+								<h4>Legend</h4>
+								<div class="list-group list-group-simple">                                
+									<a href="#" class="list-group-item"><span class="fa fa-circle text-info"></span> Q1 - Unexplained fever for more than 2 weeks</a>
+									<a href="#" class="list-group-item"><span class="fa fa-circle text-info"></span> Q2 - Unexplained cough for more than 2 weeks</a>
+									<a href="#" class="list-group-item"><span class="fa fa-circle text-info"></span> Q3 - Unimproved general well-being</a>
+									<a href="#" class="list-group-item"><span class="fa fa-circle text-info"></span> Q4 - Poor Appetite</a>
+									<a href="#" class="list-group-item"><span class="fa fa-circle text-info"></span> Q5 - Positive PE findings for Extra-Pulmonary TB </a>
+									<a href="#" class="list-group-item"><span class="fa fa-circle text-info"></span> Q6 - Side Effects </a>
+								</div>
+							</div>
+
 						</div>
 					</div>
 				</div>

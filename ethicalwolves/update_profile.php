@@ -19,11 +19,15 @@ $passnew = sha1($password);
 $salt = "aTya03gHJdTyqLkWQfg15yU";
 $passnew = $salt.$passnew;
 
+
 $conn = new mysqli("localhost", 'root', '', 'thesis') or die(mysqli_error());
 $q2 = $conn->query ("SELECT * FROM `user` WHERE `user_id` = $id") or die(mysqli_error());
 $f2 = $q2->fetch_array();
 $id = $f2['user_id'];
-
+date_default_timezone_set('Asia/Manila');	
+$time=date("g:i a");
+$date=date("F j, Y");
+$remarks = "You edited your profile";
 
 $passold = $f2['password'];
 
@@ -31,11 +35,13 @@ if ($passold==$pass){
 
 	if($password<>""){
 		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `username` = '$username', `password` = '$passnew' WHERE `user_id` = '$id'") or die(mysqli_error());
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'System Maintenance - Update Profile', '$remarks', '$date', '$time')") or die(mysqli_error());
 	}
 	else {
 		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `username` = '$username' WHERE `user_id` = '$id'") or die(mysqli_error());
-	}
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'System Maintenance - Update Profile', '$remarks', '$date', '$time')") or die(mysqli_error());
 
+	}
 	echo "<script type='text/javascript'> alert('Successfully changed account information!'); </script>";
 	echo "<script>document.location='change_password.php'</script>";
 }

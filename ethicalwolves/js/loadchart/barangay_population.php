@@ -241,7 +241,7 @@ $fetch25 = $grandtotal->fetch_array();
 				}
 			},
 			axisX: {		
-				interval: 1.5,
+				interval: 2,
 				gridDashType: "dot",
 				gridThickness: 1,
 				labelFontColor: "black",

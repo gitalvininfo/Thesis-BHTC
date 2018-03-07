@@ -17,7 +17,8 @@ if(ISSET($_POST['add_new_patient'])){
 	$year = date("Y", strtotime("+8 HOURS"));
 
 	date_default_timezone_set('Asia/Manila');	
-	$date=date("F j, Y, g:i a");
+	$time=date("g:i a");
+	$date=date("F j, Y");
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
@@ -25,7 +26,7 @@ if(ISSET($_POST['add_new_patient'])){
 	$remarks = "added patient - $patient_name";
 
 	$conn->query("INSERT INTO `patient` VALUES('', '$patient_name', '$age', '$gender', '$address', '$barangay', '$birthdate', '$height', '$contact_number', 'Negros Occidental', '$occupation', '$philhealth_no', '$contact_person', '$emergency_no', 'Unregister', 'Pending', '$year')") or die(mysqli_error());
-	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Transaction - Registration', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added new Patient!');</script>";
 	echo "<script>document.location='../laboratory_request_table.php'</script>";  
@@ -66,18 +67,19 @@ if(ISSET($_POST['register_patient'])){
 
 
 	date_default_timezone_set('Asia/Manila');	
-	$date=date("F j, Y, g:i a");
+	$time=date("g:i a");
+	$date=date("F j, Y");
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
 	$id=$_SESSION['user_id'];
-	$remarks = "registered - $patient_name";
+	$remarks = "Registers - $patient_name";
 
 	$conn->query("INSERT INTO `registration` VALUES('', '$registration_date', 'Bacolod City Health TB DOTS Center', '$source_of_patient', '$registration_group', 'TB Disease', '$bacteriological_status', '$classification_of_tb', '$bcg_scar', '$history', '$duration', '$treatment_regimen_category', '$treatment_partner_name', '$designation_treatment_partner', 'Currently in Treatment', '$year', '$patient_id', '$month', '$year')") or die(mysqli_error());
 
 	$conn->query("UPDATE `patient` SET `status` = 'Registered' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
 
-	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$remarks', '$date')") or die(mysqli_error());
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Transaction - Registration', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully registered!');</script>";
 	echo "<script>document.location='../registration_table.php'</script>";

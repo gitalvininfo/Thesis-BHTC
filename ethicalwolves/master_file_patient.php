@@ -66,7 +66,7 @@ require ('config.php');
 																		<td><center><?php echo $fetch['source_of_patient']?></center></td>
 																		<td><center><?php echo $fetch['registration_group']?></center></td>
 																		<td><center>
-																			<a href="#updatepatient<?php echo $fetch['patient_id'];?>" data-target="#updatepatient<?php echo $fetch['patient_id'];?>" data-toggle="modal" class="btn btn-default btn-sm">Edit</a>
+																			<a href="edit_patient.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-default btn-sm">Edit</a>
 																			<a href="patient_overview.php?id=<?php echo $fetch['patient_id']?>&patient_name=<?php echo $fetch['patient_name']?>" class="btn btn-sm btn-info">View</a></center>
 																		</td>	
 																	</tr>
@@ -144,7 +144,6 @@ require ('config.php');
 			</div>
 		</div>
 
-		<?php require 'require/modals/edit_tb_case.php'?>
 		<?php require 'require/modals/edit_ipt_case.php'?>
 		<?php require 'require/logout.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>

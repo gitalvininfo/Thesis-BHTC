@@ -71,6 +71,8 @@ require ('config.php');
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/plugins/scrolltotop/scrolltopcontrol.js"></script>
 		<script type="text/javascript" src="js/plugins/tocify/jquery.tocify.min.js"></script>
 		<script>
 			$(function() {

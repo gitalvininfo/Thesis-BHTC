@@ -41,7 +41,7 @@ require ('config.php');
                                 <div class="col-md-3">
                                     <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_total_examinations.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
-                                            <span class="fa fa-pie-chart"></span>
+                                            <span class="fa fa-sitemap"></span>
                                         </div>
                                         <div class="widget-data">
                                             <div class="widget-int num-count">
@@ -58,14 +58,14 @@ require ('config.php');
                                 <div class="col-md-3">
                                     <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_dssm.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
-                                            <span class="fa fa-pie-chart"></span>
+                                            <span class="fa fa-location-arrow"></span>
                                         </div>
                                         <div class="widget-data">
                                             <div class="widget-int num-count">
                                                 BHTC
                                             </div>
                                             <div class="widget-title">Reports by</div>
-                                            <div class="widget-subtitle">DSSM</div>
+                                            <div class="widget-subtitle">Direct Sputum Smear Microscopy</div>
                                             <div class="widget-controls">
                                                 <a href="#" class="widget-control-right" data-toggle="tooltip" data-placement="top" title="View Detailed Reports"><span class="fa fa-info"></span></a>
                                             </div>
@@ -75,7 +75,7 @@ require ('config.php');
                                 <div class="col-md-3">
                                     <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_xpert.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
-                                            <span class="fa fa-pie-chart"></span>
+                                            <span class="fa fa-barcode"></span>
                                         </div>
                                         <div class="widget-data">
                                             <div class="widget-int num-count">
@@ -92,7 +92,7 @@ require ('config.php');
                                 <div class="col-md-3">
                                     <div class="widget widget-info widget-item-icon" onclick="location.href='reports/reports_dst.php';" style="cursor:pointer;">
                                         <div class="widget-item-left">
-                                            <span class="fa fa-bar-chart"></span>
+                                            <span class="fa fa-code-fork"></span>
                                         </div>
                                         <div class="widget-data">
                                             <div class="widget-int num-count">

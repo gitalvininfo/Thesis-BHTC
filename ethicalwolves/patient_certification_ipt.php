@@ -29,7 +29,8 @@ require ('config.php');
                 height:500px;
                 margin:auto;
                 overflow:hidden;
-                border:2px solid #000;
+                border:1px solid #000;
+				overflow:hidden;
             }
 
         </style>
@@ -49,8 +50,8 @@ require ('config.php');
                         <div class="panel-heading">
                             <div class="btn-group pull-right">
                                 <div class="pull-left">
-                                    <button class="btn btn-default btn-sm" onclick="printContent('print')"><span class="fa fa-print"></span> Print Content</button>
-                                    <a href="patient_certification_table.php" class="btn btn-default btn-sm"><span class="fa fa-arrow-circle-left"></span> Back</a>
+                                    <button class="btn btn-default btn-sm" onclick="printContent('print')">Print</button>
+                                    <a href="patient_certification_table.php" class="btn btn-default btn-sm">Back</a>
                                 </div>
                             </div>  
                         </div>
@@ -87,42 +88,6 @@ require ('config.php');
                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                             Signature over Printed Name</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="panel-body">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title"><strong>Intensive Phase</strong></h3>
-                                        </div>
-                                        <table class="table table-condensed">
-                                            <thead>
-                                                <tr>
-                                                    <th><center>Date</center></th>
-                                                    <th><center>Dosage</center></th>
-                                                    <th><center>Remarks</center></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-    require 'config.php';
-                                            $query = $conn->query("SELECT * FROM `intensive_phase_ipt` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` DESC ") or die(mysqli_error());
-                                            $q2 = $conn->query("SELECT sum(dosage) FROM `intensive_phase_ipt` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
-                                            $f2 = $q2->fetch_array();
-                                            while($fetch = $query->fetch_array()){
-
-                                                ?>
-                                                <tr>
-                                                    <td><center><?php echo $fetch['month']. " " .$fetch['day']?></center></td>
-                                                    <td><center><?php echo $fetch['dosage']?></center></td>
-                                                    <td><center><?php echo $fetch['remarks']?></center></td>
-                                                </tr>
-                                                <?php
-                                            }
-                                            $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table> 
-
                                     </div>
                                 </div>
                             </div>

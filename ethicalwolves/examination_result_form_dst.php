@@ -1,7 +1,7 @@
 <?php
 require_once 'logincheck.php';
 require ('config.php');
-
+date_default_timezone_set('Asia/Manila');
 if(ISSET($_POST['add_dst'])){
 	$tb_culture_laboratory = $_POST['tb_culture_laboratory'];
 	$dst_laboratory = $_POST['dst_laboratory'];
@@ -34,7 +34,7 @@ if(ISSET($_POST['add_dst'])){
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
 	$id=$_SESSION['user_id'];
-	$labremarks = "confirmed the laboratory request of $patient_name";
+	$labremarks = "Added result to DST of  $patient_name";
 
 	$conn->query("INSERT INTO `dst_examination` VALUES('', '$tb_culture_laboratory', '$dst_laboratory', '$date_collected', '$date_received', '$method', '$isoniazid', '$rifampicin', '$ethambutol', '$streptomycin', '$pyrazinamide', '$levofloxacin', '$kanamycin', '$amikacin', '$capreomycin', '$examined_by', '$remarks', '$reviewed_by', '$date_released', '$patient_id', '$month', '$year')") or die(mysqli_error());
 

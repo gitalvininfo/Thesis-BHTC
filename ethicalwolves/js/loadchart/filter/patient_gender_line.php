@@ -56,6 +56,7 @@
 					showInLegend: true, 
 					legendText: "Male",
 					name: "Male", 
+					markerType: "cross",
 					color: "#e05850",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $c1['total']?> },
@@ -77,6 +78,7 @@
 					showInLegend: true, 
 					legendText: "Female",
 					name: "Female", 
+					markerType: "cross",
 					dataPoints: [ 
 						{ label: "January", y: <?php echo $a1['total']?> },
 						 { label: "February", y: <?php echo $a2['total']?> },

@@ -1,5 +1,6 @@
 <?php
-
+require 'logincheck.php';
+require 'config.php';
 
 if(ISSET($_POST['edit_patient'])){
 	$patient_id = $_POST['patient_id'];
@@ -14,10 +15,21 @@ if(ISSET($_POST['edit_patient'])){
 	$philhealth_no = $_POST['philhealth_no'];
 	$contact_person = $_POST['contact_person'];
 	$emergency_no = $_POST['emergency_no'];
-	require ('config.php');
+
+	date_default_timezone_set('Asia/Manila');	
+	$time=date("g:i a");
+	$date=date("F j, Y");
+	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
+	$fetch = $query->fetch_array();
+	$id=$_SESSION['user_id'];
+	$remarks = "Edited the personal profile of $patient_name";
+
 	$conn->query("UPDATE `patient` SET `patient_name` = '$patient_name', `gender` = '$gender', `address` = '$address', 
 			`barangay` = '$barangay', `birthdate` = '$birthdate', `height` = '$height', `contact_number` = '$contact_number', `province` = 'Negros Occidental', `occupation` = '$occupation', `philhealth_no` = '$philhealth_no', `contact_person` = '$contact_person', `emergency_no` = '$emergency_no' WHERE `patient_id` = '$patient_id'") or die(mysqli_error());
-	$conn->close();
+	
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry', '$remarks', '$date', '$time')") or die(mysqli_error());
+		$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully updated personal information!');</script>";
 	echo "<script>document.location='master_file_patient.php'</script>";  
 }
@@ -92,10 +104,21 @@ if(ISSET($_POST['edit_medicine'])){
 	$medicine_name= $_POST['medicine_name'];    
 	$medicine_type= $_POST['medicine_type'];    
 	$medicine_description = $_POST['medicine_description'];
+	date_default_timezone_set('Asia/Manila');	
+	$time=date("g:i a");
+	$date=date("F j, Y");
 
-	require ('config.php');
+	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
+	$fetch = $query->fetch_array();
+	$id=$_SESSION['user_id'];
+	$remarks = "Edited $medicine_name";
+
 	$conn->query("UPDATE `medicine` SET `medicine_name` = '$medicine_name', `medicine_type` = '$medicine_type', `medicine_description` = '$medicine_description' WHERE `medicine_id` = '$medicine_id'") or die(mysqli_error());
+
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
+
 	echo "<script type='text/javascript'>alert('Successfully updated medicine!');</script>";
 	echo "<script>document.location='medicine_table.php'</script>";  
 }
@@ -126,9 +149,19 @@ if(ISSET($_POST['edit_user'])){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$status = $_POST['status'];
+	date_default_timezone_set('Asia/Manila');	
+	$time=date("g:i a");
+	$date=date("F j, Y");
+	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
+	$fetch = $query->fetch_array();
+	$id=$_SESSION['user_id'];
+	$remarks = "Edited the account of $firstname $lastname";
+
 	if ($password ==""){
-		require ('config.php');
+		// require ('config.php');
 		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `license` = '$license', `username` = '$username', `status` = '$status' WHERE `user_id` = '$user_id'") or die(mysqli_error());
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'System Maintenance', '$remarks', '$date', '$time')") or die(mysqli_error());
 		$conn->close();
 		echo "<script type='text/javascript'>alert('Successfully updated user account!');</script>";
 		echo "<script>document.location='user_mgmt.php'</script>";  
@@ -140,7 +173,10 @@ if(ISSET($_POST['edit_user'])){
 
 		require ('config.php');
 		$conn->query("UPDATE `user` SET `firstname` = '$firstname', `lastname` = '$lastname', `license` = '$license', `username` = '$username', `password` = '$pass1', `status` = '$status' WHERE `user_id` = '$user_id'") or die(mysqli_error());
+
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'System Maintenance', '$remarks', '$date', '$time')") or die(mysqli_error());
 		$conn->close();
+
 		echo "<script type='text/javascript'>alert('Successfully updated user account!');</script>";
 		echo "<script>document.location='user_mgmt.php'</script>";  
 	}

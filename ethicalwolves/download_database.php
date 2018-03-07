@@ -1,6 +1,68 @@
 <?php
 require_once 'logincheck.php';
 require ('config.php');
+
+$message = '';
+
+if(isset($_POST['import']))
+{
+	if($_FILES['database']['name'] != '')
+	{
+		$array = explode(".", $_FILES['database']['name']);
+		$extension = end($array);
+		if($extension == 'sql'){
+			$connect = mysqli_connect("localhost", "root", "", "thesis");
+			$output = '';
+			$count = 0;
+			$file_data = file($_FILES['database']['tmp_name']);
+			foreach($file_data as $row){
+				$start_character = substr(trim($row), 0, 2);
+				if($start_character != '--' || $start_character != '/*'
+				   || $start_character != '//' || $row != ''){
+					$output = $output . $row;
+					$end_character = substr(trim($row), -1, 1);
+					if($end_character == ';'){
+						if(!mysqli_query($connect, $output)){
+							$count++;
+						}
+						$output = '';
+					}
+				}
+			}
+			if($count > 0) {
+				$message = 'Error occurred';
+			}
+			else {
+				$message = 'Successful';
+				date_default_timezone_set('Asia/Manila');
+				$date=date("F j, Y, g:i a");
+				$time=date("g:i a");
+				$date2=date("F j, Y");
+				$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+				$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
+				$fetch = $query->fetch_array();
+				$id=$_SESSION['user_id'];
+				$remarks = "Imported database";
+
+				$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'System Maintenance', '$remarks', '$date2', '$time')") or die(mysqli_error());
+
+				$conn->query("INSERT INTO `backup` VALUES('', 'Successfully imported database', '$date')") or die(mysqli_error());
+				$conn->close();
+				echo "<script>alert('Successfully imported database!')</script>";
+				echo "<script>document.location='download_database.php'</script>";  
+			}
+		}
+		else {
+			echo "<script type='text/javascript'>alert('You must upload SQL file only!');</script>";
+			echo "<script>document.location='download_database.php'</script>";
+		}
+	}
+	else {
+		$message = 'Select SQL File.';
+	}
+
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +99,7 @@ require ('config.php');
 									<div class="btn-group pull-right">
 										<div class="pull-right">
 											<a class="btn btn-info mb-control" data-box="#message-box-info">Export Database</a>
-											<a class="btn btn-warning mb-control" data-box="#message-box-warning">Import Database</a>
+											<button class="btn btn-warning btn-md" data-toggle="modal" data-target="#modal_basic">Import Database</button>
 										</div>
 									</div>
 									<h3 class="panel-title"><strong>History Log - Export and Import Database</strong></h3>
@@ -48,14 +110,26 @@ require ('config.php');
 	require 'config.php';
 				$query = $conn->query("SELECT * FROM `backup` ORDER BY `backup_id` DESC") or die(mysqli_error());
 				while ($fetch = $query->fetch_array()) {
-					echo 
+
+					if ($fetch['remarks'] == 'Successfully exported database')
+						echo 
 						"
                                             <div class='list-group list-group-contacts border-bottom push-down-10'>
                                                  <a href='#' class='list-group-item'> 
-                                                         <img src='assets/images/project_logo.png' class='pull-left' alt='Dmitry Ivaniuk'>
                                                     <span class='contacts-title'>".$find['firstname']. " " .$find['lastname']."</span>
                                                 <span class='date' style='float:right;'>".$fetch['date']."</span>
-                                            <p>".$fetch['remarks']."</p>
+                                            <p><span class='label label-info'>".$fetch['remarks']."</span></p>
+                                                 </a>
+                                                ";
+
+					if ($fetch['remarks'] == 'Successfully imported database')
+						echo 
+						"
+                                            <div class='list-group list-group-contacts border-bottom push-down-10'>
+                                                 <a href='#' class='list-group-item'>
+                                                    <span class='contacts-title'>".$find['firstname']. " " .$find['lastname']."</span>
+                                                <span class='date' style='float:right;'>".$fetch['date']."</span>
+                                            <p><span class='label label-success'>".$fetch['remarks']."</span></p>
                                                  </a>
                                                 ";
 				}   
@@ -69,17 +143,12 @@ require ('config.php');
 			</div>            
 		</div>
 
-		<?php
-		require 'config.php';
-		$query = $conn->query("SELECT * FROM `backup` WHERE backup_id=(select max(backup_id) from backup)") or die(mysqli_error());
-		while ($fetch = $query->fetch_array()) {
-		?>
 		<div class="message-box message-box-info animated fadeIn" data-sound="fail" id="message-box-info">
 			<div class="mb-container">
 				<div class="mb-middle">
-					<div class="mb-title"><span class="fa fa-cloud-download"></span> Export Database ?</div>
+					<div class="mb-title"><span class="fa fa-cloud-download"></span> Export Database</div>
 					<div class="mb-content">
-						<p>You are about to download the database of BHTC-PMIS. Your last backup of database was <?php echo $fetch['date']?></p>
+						<p>You are about to download the database of BHTC-PMIS.</p>
 					</div>
 					<div class="mb-footer">
 						<div class="pull-right">
@@ -90,33 +159,27 @@ require ('config.php');
 				</div>
 			</div>
 		</div>
-		<?php
-		}
-		?>
-		<?php
-		require 'config.php';
-		$query = $conn->query("SELECT * FROM `backup` WHERE backup_id=(select max(backup_id) from backup)") or die(mysqli_error());
-		while ($fetch = $query->fetch_array()) {
-		?>
-		<div class="message-box message-box-warning animated fadeIn" data-sound="fail" id="message-box-warning">
-			<div class="mb-container">
-				<div class="mb-middle">
-					<div class="mb-title"><span class="fa fa-cloud-upload"></span> Import Database ?</div>
-					<div class="mb-content">
-						<p>You are about to upload the recently exported database. Your last backup of database was <?php echo $fetch['date']?></p>
+		<div class="modal fade" id="modal_basic" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="defModalHead"><strong>Upload SQL File</strong></h4>
 					</div>
-					<div class="mb-footer">
-						<div class="pull-right">
-							<a href="export/import.php" class="btn btn-danger btn-lg pull-right">Import Anyway</a>
-							<button class="btn btn-default btn-lg mb-control-close">Close</button>
+					<form method="post" enctype="multipart/form-data">
+						<div class="modal-body">
+							<h5>Select from files</h5>
+							<input type="file" name="database">
 						</div>
-					</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-info" name="import">Upload</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-		<?php
-		}
-		?>
+
 		<?php require 'require/logout.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
 		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>

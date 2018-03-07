@@ -43,7 +43,7 @@ while($fetch = $query->fetch_array()){
                                     <h5 class="push-up-1">Treatment Partner Name</h5>
                                     <div class="form-group ">
                                         <div class="col-md-12 col-xs-12">
-                                            <input data-toggle="tooltip" data-placement="bottom" title="Treatment Partner Name" type="text" class="form-control" name="treatment_partner_name" placeholder="Treatment Partner Name" required/>
+                                            <input data-toggle="tooltip" data-placement="bottom" title="Treatment Partner Name" type="text" class="form-control" name="treatment_partner_name" required/>
                                         </div>
                                     </div>
                                     <h5 class="push-up-1">Designation of Treatment Partner</h5>

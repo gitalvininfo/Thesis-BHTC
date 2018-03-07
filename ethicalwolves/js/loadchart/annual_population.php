@@ -116,7 +116,8 @@ $f39 = $q39->fetch_array();
 					e.chart.render();
 				}
 			},
-			axisX: {		       
+			axisX: {	
+				interval: 1,
 				gridDashType: "dot",
 				gridThickness: 1,
 				labelFontColor: "black",

@@ -86,20 +86,20 @@
 								while($fetch = $query->fetch_array()){
 									if($fetch['remarks'] == 'Absent'){
 										echo 
-											"<tr>
-                                                            <td><center> ".$fetch['month']. " ".$fetch['day']. "</center></td>
+											"<tr class='danger'>
+                                                            <td><center> ".$fetch['date_taken']."</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#ff5050;'><strong><center> <span style='color:#fff'>".$fetch['remarks']."</span> </center></strong></td>
+                                                            <td><strong><center>".$fetch['remarks']."</center></strong></td>
                                                         </tr>";
 
 									}
 									else
 									{
 										echo
-											"<tr>
-                                                            <td><center> ".$fetch['month']." ".$fetch['day']."</center></td>
+											"<tr class='success'>
+                                                            <td><center> ".$fetch['date_taken']."</center></td>
                                                             <td><center> ".$fetch['dosage']." </center></td>
-                                                            <td style='background-color:#95B75D;'><strong><center> <span style='color:#fff'>".$fetch['remarks']."</span> </center></strong></td>
+                                                            <td><strong><center>".$fetch['remarks']."</center></strong></td>
                                                         </tr>";
 									}
 								}
@@ -109,7 +109,7 @@
 					</div>
 					<div class="panel-body">
 						<h2><strong>Intensive Phase Summary - 6 months</strong></h2> <hr>
-						<h3>Summary</h3>
+						<h4>Summary</h4>
 						<div id="intensive_ipt" style="width: 100%; height: 425px"></div>
 					</div>
 					<!-- Follow-up Visit-->

@@ -20,7 +20,7 @@ if(ISSET($_POST['save_user'])){
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
-	$id = $fetch['user_id'];
+	$id=$_SESSION['user_id'];
 	$name = $fetch['firstname']. " " . $fetch['lastname'];
 	$remarks = "Created account for $firstname $lastname";
 
@@ -32,7 +32,7 @@ if(ISSET($_POST['save_user'])){
 	}
 	else{
 		$conn->query ("INSERT INTO `user` VALUES(' ', '$firstname', '$lastname', '$license', 'Medical Technologist', '$username', '$pass1', 'Active', ' ')") or die(mysqli_error());
-		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry - New Account', '$remarks', '$date', '$time')") or die(mysqli_error());
+		$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry', '$remarks', '$date', '$time')") or die(mysqli_error());
 		$conn->close();
 		echo "<script type='text/javascript'> alert ('Account registered successfully!');</script>";
 		echo "<script>window.location='master_file_medtech.php'</script>";

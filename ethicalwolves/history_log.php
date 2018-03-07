@@ -29,10 +29,12 @@ require ('config.php');
 					<li class="active"><strong><mark>User's Activity Log</mark></strong></li>
 				</ul>
 				<div class="page-content-wrap">
-					<div class="col-md-8">
+					<div class="col-md-12">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
 								<h3 class="panel-title"><strong>User's Activity Log</strong></h3>
+								<div class="btn-group pull-right">
+								</div>
 							</div>
 							<div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
 								<div class="panel-body">
@@ -41,7 +43,7 @@ require ('config.php');
 											<tr class="warning">
 												<th><center>User</center></th>
 												<th><center>Type</center></th>
-												<th><center>Remarks</center></th>
+												<th><center>Action</center></th>
 												<th><center>Date and Time</center></th>
 											</tr>
 										</thead>
@@ -63,49 +65,6 @@ require ('config.php');
 											?>
 										</tbody>
 									</table>   
-
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="panel panel-primary">
-							<div class="panel-heading">
-								<h3 class="panel-title"><strong>Most Recent User Activities</strong></h3>
-							</div>
-							<div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
-								<div class="panel-body">
-									<div class="col-md-12">
-										<?php
-										date_default_timezone_set('Asia/Manila');
-										$date_today = date('F j, Y,  g:i a');
-										$recent = date('F j, Y');
-										?>
-										<h4><?php echo $date_today?></h4>
-										<?php
-	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-											$query = $conn->query("SELECT * FROM `history_log`, `user` where user.user_id = history_log.user_id && date = '$recent' order by log_id DESC limit 10") or die(mysqli_error());
-											while($fetch = $query->fetch_array()){
-												echo "
-												<div class='messages messages-img'>
-											<div class='item'>
-												<div class='image'>
-													<img src='assets/images/recent.jpg'/>
-												</div>
-												<div class='text'>
-													<div class='heading'>
-														<a href='#'>".$fetch['firstname']." ".$fetch['lastname']."</a>
-													<span class='date'>".$fetch['date']." ".$fetch['time']."</span>
-														</div>
-														".$fetch['action']."
-														</div>
-														</div>
-														</div>
-														";
-
-											}
-										?>                  
-									</div>
 
 								</div>
 							</div>

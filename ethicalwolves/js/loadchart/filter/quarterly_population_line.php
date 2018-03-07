@@ -39,6 +39,7 @@
 					type: "line", 
 					name: "Total Patients this quarter",
 					color: "#ff5050",
+					markerType: "cross",
 					dataPoints: [ 
 						{ label: "Quarter 1", y: <?php echo $f1['total']?> },
 						 { label: "Quarter 2", y: <?php echo $f2['total']?> },

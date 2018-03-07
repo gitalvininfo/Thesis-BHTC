@@ -7,7 +7,6 @@ require ('config.php');
 <html lang="en">
 
 	<head>
-		<!-- META SECTION -->
 		<title>BHTC-PMIS</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,15 +20,17 @@ require ('config.php');
 		<style type="text/css">
 			@media print{
 				@page{
-					size:letter;
+					size: 4in 4in auto;
+					margin: 10%;
 				}
 
 			}
 			#print{
 				width:500px;
-				height:500px;
-				margin:10px auto;
+				height:100%;
+				margin:auto;
 				border:1px solid #000;
+				overflow: hidden;
 			}
 
 		</style>
@@ -47,7 +48,6 @@ require ('config.php');
 					<!-- START TEXT ELEMENTS -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h6 class="title"><a href="#">Press F5 to print</a></h6>
 							<div class="btn-group pull-right">
 								<div class="pull-left">
 									<button class="btn btn-default btn-sm" onclick="printContent('print')">Print</button>
@@ -102,14 +102,6 @@ require ('config.php');
 				window.print();
 				document.body.innerHTML = restorepage;
 			}
-		</script>
-		<script>
-			document.body.addEventListener("keydown", function (event) {
-				if (event.keyCode === 116) {
-					window.print();
-					document.body.innerHTML = restorepage;
-				}
-			});
 		</script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
