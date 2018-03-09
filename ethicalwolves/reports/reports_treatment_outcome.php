@@ -68,47 +68,41 @@ require ('../config.php');
 			$f10 = $gra->fetch_array();
 										?>
 										<div class="row">
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-success">
-													<?php echo $f1['total']?>
-													<p>Cured</p>         
-													<div class="informer informer-default dir-tr"><span class="fa fa-smile-o"></span></div>                          
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-success">
+													<div class="widget-big-int counter" data-count="<?php echo $f1['total']?>"><span class="num-count">0</span></div> 
+													<p>Cured</p>
+												</div>                        
 											</div>
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-info">
-													<?php echo $f2['total']?>
-													<p>Treat. Completed</p> 
-													<div class="informer informer-default dir-tr"><span class="fa fa-thumbs-up"></span></div>                                  
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-info">
+													<div class="widget-big-int counter" data-count="<?php echo $f2['total']?>"><span class="num-count">0</span></div> 
+													<p>Treat. Completed</p>
+												</div>                        
 											</div>
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-danger">
-													<?php echo $f3['total']?>
-													<p>Died</p>            
-													<div class="informer informer-default dir-tr"><span class="fa fa-times"></span></div>                       
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-danger">
+													<div class="widget-big-int counter" data-count="<?php echo $f3['total']?>"><span class="num-count">0</span></div> 
+													<p>Died</p>
+												</div>                        
 											</div>
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-primary">
-													<?php echo $f4['total']?>
-													<p>Failed</p>     
-													<div class="informer informer-default dir-tr"><span class="fa fa-thumbs-down"></span></div>                              
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-primary">
+													<div class="widget-big-int counter" data-count="<?php echo $f4['total']?>"><span class="num-count">0</span></div> 
+													<p>Failed</p>
+												</div>                        
 											</div>
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-default">
-													<?php echo $f5['total']?>
-													<p>Lost to Follow-up</p>    
-													<div class="informer informer-primary dir-tr"><span class="fa fa-frown-o"></span></div>                               
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-default">
+													<div class="widget-big-int counter" data-count="<?php echo $f5['total']?>"><span class="num-count">0</span></div> 
+													<p>Lost to Follow-up</p>
+												</div>                        
 											</div>
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-warning">
-													<?php echo $f6['total']?>
-													<p>Not Evaluated</p> 
-													<div class="informer informer-default dir-tr"><span class="fa fa-question"></span></div>                                  
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-warning">
+													<div class="widget-big-int counter" data-count="<?php echo $f7['total']?>"><span class="num-count">0</span></div> 
+													<p>In Treatment</p>
+												</div>                        
 											</div>
 										</div>
 
@@ -223,6 +217,7 @@ require ('../config.php');
 				myWindow = window.open("filter/quarter_treatment_outcome.php?year=<?php echo $year?>", "", "width=1350, height=650");
 			}
 		</script>
+		<script src="../js/counter.js"></script>
 		<audio id="audio-alert" src="../audio/alert.mp3" preload="auto"></audio>
 		<audio id="audio-fail" src="../audio/fail.mp3" preload="auto"></audio>
 		<script type='text/javascript' src='../js/plugins/bootstrap/bootstrap-select.js'></script>

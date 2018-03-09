@@ -23,10 +23,11 @@ if (isset($_POST['uploadBtn'])){
 			$patient_name = $myData[0];
 			$date1 = $myData[1];
 			$date2 = $myData[2];
-			$health_center = $myData[3];
+			$specimen_collector = $myData[3];
+			$health_center = $myData[4];
 
 			$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-			$conn->query("INSERT INTO `submission` VALUES('', '$patient_name', '$date1', '$date2', '$health_center', '$date_created')") or die(mysqli_error());
+			$conn->query("INSERT INTO `submission` VALUES('', '$patient_name', '$date1', '$date2', '$specimen_collector', '$health_center', '$date_created')") or die(mysqli_error());
 			$conn->close();
 			echo "<script type='text/javascript'>alert('Successfully uploaded file!');</script>";
 			echo "<script>document.location='sputum_submission.php'</script>";

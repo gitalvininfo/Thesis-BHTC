@@ -50,6 +50,7 @@ require ('config.php');
 													<th><center>Name of Patient</center></th>
 													<th><center>Date Specimen 1 Collected</center></th>
 													<th><center>Date Specimen 2 Collected</center></th>
+													<th><center>Specimen Collector</center></th>
 													<th><center>Barangay Health Center</center></th>
 													<th><center>Date and Time Uploaded</center></th>
 												</tr>
@@ -64,6 +65,7 @@ require ('config.php');
 													<td><center><strong><?php echo $fetch['patient_name']?></strong></center></td>
 													<td><center><?php echo $fetch['date1']?></center></td>
 													<td><center><?php echo $fetch['date2']?></center></td>
+													<td><center><?php echo $fetch['specimen_collector']?></center></td>
 													<td><center><?php echo $fetch['health_center']?></center></td>
 													<td><center><?php echo $fetch['date_created']?></center></td>
 												</tr>

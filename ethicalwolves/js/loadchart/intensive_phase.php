@@ -26,7 +26,7 @@ $f4 = $cnta->fetch_array();
             zoomType: "x",
             panEnabled: true,
             animationEnabled: true,
-            animationDuration: 1000,
+            animationDuration: 3800,
             exportFileName: "Intensive and Continuation Phase", 
             exportEnabled: true,
             title: { 

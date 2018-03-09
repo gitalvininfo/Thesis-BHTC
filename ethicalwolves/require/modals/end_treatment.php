@@ -4,12 +4,12 @@ require 'config.php';
 $query = $conn->query("SELECT * FROM `patient` ORDER BY `patient_id` DESC") or die(mysqli_error());
 while($fetch = $query->fetch_array()){
 ?>
-<div id="end_treatment<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
+<div id="end_treatment<?php echo $fetch['patient_id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="largeModalHead">Treatment Outcome</h4>
+				<h4 class="modal-title" id="defModalHead">Treatment Outcome</h4>
 			</div>
 			<form role="form" class="form-horizontal" action="actions/end_treatment.php" method="post">
 				<div class="modal-body">
@@ -36,9 +36,6 @@ while($fetch = $query->fetch_array()){
 									</div>
 									<div class="col-md-12">                                    
 										<label class="check"><input type="radio" class="iradio" name="status" value="Not Evaluated" required/> Not Evaluated</label>
-									</div>
-									<div class="col-md-12">                                    
-										<label class="check"><input type="radio" class="iradio" name="status" value="Excluded from Cohort" required/> Excluded from Cohort</label>
 									</div>
 								</div>
 							</div>

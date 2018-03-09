@@ -31,7 +31,7 @@ $f7 = $ct->fetch_array();
 			zoomType: "x",
 			panEnabled: true,
 			animationEnabled: true,
-			animationDuration: 1000,
+			animationDuration: 1800,
 			exportFileName: "Treatment Outcome", 
 			exportEnabled: true,
 			title: { 

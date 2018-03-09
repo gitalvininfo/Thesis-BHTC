@@ -73,6 +73,7 @@ $a10 = $q10->fetch_array();
 			data: [ 
 				{ 
 					type: "bar", 
+					
 					toolTipContent: "{label}: {y}", 
 					dataPoints: [ 
 						{ label: "1-10 years old", y: <?php echo $a1['total']?> },

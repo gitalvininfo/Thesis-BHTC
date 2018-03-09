@@ -1,13 +1,14 @@
 <?php
 $conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-$res = $conn->query("SELECT * FROM `clinical_findings` where `patient_id` = '$_GET[id]' group by date_visited") or die(mysqli_error());
+$res = $conn->query("SELECT * FROM `clinical_findings` where `patient_id` = '$_GET[id]'") or die(mysqli_error());
 $data_points = array();
 while($result = $res->fetch_array()){
+	$d = $result['date_visited'];
 	$R = $result['weight'];
-	$q1 = $conn->query("SELECT * FROM `clinical_findings` WHERE `weight` = '$R'") or die(mysqli_error());
+	$q1 = $conn->query("SELECT * FROM `clinical_findings` WHERE `weight` = '$R' && `patient_id` = '$_GET[id]' order by clinical_id DESC") or die(mysqli_error());
 	$f1 = $q1->fetch_array();
 	$FR = intval($f1['weight']);
-	$point = array('label' => $R, 'y' => $FR);
+	$point = array('label' => $d, 'y' => $FR );
 	array_push($data_points, $point);
 }
 json_encode($data_points);
@@ -24,13 +25,6 @@ json_encode($data_points);
 			animationDuration: 1000,
 			//exportFileName: "Available Stocks", 
 			//exportEnabled: true,
-			toolTip: {
-				shared: true  
-			},
-			title: { 
-				text: "Weight Progress ka mango",
-				fontSize: 20
-			},
 			legend: {
 				cursor: "pointer",
 				itemclick: function (e) {
@@ -43,7 +37,8 @@ json_encode($data_points);
 				}
 			},
 			axisX: {	
-				title: "Products", 
+				interval: 1,
+				title: "Date Visited", 
 				gridDashType: "dot",
 				gridThickness: 1,
 				labelFontColor: "black",
@@ -52,23 +47,20 @@ json_encode($data_points);
 				}
 			},
 			axisY: { 
-				title: "Total Number of Purchase", 
-				includeZero: false,
+				title: "Weight in Kgs.", 
 				labelFontColor: "black",
 				crosshair: {
-					enabled: true,
-					snapToDataPoint: true
+					enabled: true 
 				}
-			},
+			}, 
 			data: [ 
 				{ 
-					type: "bar", 
+					type: "line", 
+					color: "#1caf9a",
+					markerType: "cross",
 					//showInLegend: true, 
-					toolTipContent: "{label} <br/> {y}", 
-					indexLabel: "{y}", 
-					//legendText: "<?php echo $f1['weight']?>",
 					//name: "Total Patients this year",
-					dataPoints: <?php echo json_encode($data_points); ?>
+					dataPoints: <?php echo json_encode($data_points) ?>
 				}
 					] 
 				}); 

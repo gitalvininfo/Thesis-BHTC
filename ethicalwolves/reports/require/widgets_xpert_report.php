@@ -12,40 +12,37 @@ $i = $conn->query("SELECT COUNT(*) as total FROM `gene_expert_examination` WHERE
 $f5 = $i->fetch_array();
 ?>
 <div class="row">
-    <div class="col-md-3">                        
-        <a href="#" class="tile tile-success">
-            <?php echo $f1['total']?>
-            <p>MTB Detected, Rifampicin resistance detected</p>  
-            <div class="informer informer-default dir-tr"><span class="fa fa-check-circle"></span></div>                          
-        </a>                        
-    </div>
-    <div class="col-md-3">                        
-        <a href="#" class="tile tile-info">
-            <?php echo $f2['total']?>
-            <p>MTB Detected, Rifampicin resistance not detected</p>  
-            <div class="informer informer-default dir-tr"><span class="fa fa-star"></span></div>                          
-        </a>                        
-    </div>
-    <div class="col-md-3">                        
-        <a href="#" class="tile tile-danger">
-            <?php echo $f3['total']?>
-            <p>MTB Detected, Rifampicin resistance indeterminate</p>  
-            <div class="informer informer-default dir-tr"><span class="fa fa-star"></span></div>                          
-        </a>                        
-    </div>
-    <div class="col-md-3">
-        <div class="widget widget-primary widget-carousel">
-            <div class="owl-carousel" id="owl-example">
-                <div> 
-                    <div class="widget-subtitle">MTB Detected</div>
-                    <div class="widget-int"><?php echo $f4['total']?></div>
-                </div>
-                <div> 
-                    <div class="widget-subtitle">Invalid/No Result</div>
-                    <div class="widget-int"><?php echo $f5['total']?></div>
-                </div>
-            </div>         
-        </div>
-    </div>
+	<div class="col-md-3">
+		<div class="tile tile-success">
+			<div class="widget-big-int counter" data-count="<?php echo $f1['total']?>"><span class="num-count">0</span></div> 
+			<p>MTB Detected, Rifampicin resistance detected</p>  
+		</div>                        
+	</div>
+	<div class="col-md-3">
+		<div class="tile tile-info">
+			<div class="widget-big-int counter" data-count="<?php echo $f2['total']?>"><span class="num-count">0</span></div> 
+			<p>MTB Detected, Rifampicin resistance not detected</p>  
+		</div>                        
+	</div>
+	<div class="col-md-3">
+		<div class="tile tile-danger">
+			<div class="widget-big-int counter" data-count="<?php echo $f3['total']?>"><span class="num-count">0</span></div> 
+			<p>MTB Detected, Rifampicin resistance indeterminate</p>    
+		</div>                        
+	</div>
+	<div class="col-md-3">
+		<div class="widget widget-primary widget-carousel">
+			<div class="owl-carousel" id="owl-example">
+				<div> 
+					<div class="widget-subtitle">MTB Detected</div>
+					<div class="widget-int"><?php echo $f4['total']?></div>
+				</div>
+				<div> 
+					<div class="widget-subtitle">Invalid/No Result</div>
+					<div class="widget-int"><?php echo $f5['total']?></div>
+				</div>
+			</div>         
+		</div>
+	</div>
 
 </div>

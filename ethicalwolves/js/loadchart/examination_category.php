@@ -9,48 +9,52 @@ $fetch2 = $xpert->fetch_array();
 
 ?>
 <script type="text/javascript"> 
-    window.onload = function() { 
-        $("#examination_category").CanvasJSChart({  
-            theme: "light2",
-            title: { 
-                text: "Total Number of Examinations Conducted as of <?php echo $date?>",
-                fontSize: 20
-            }, 
-            axisY: { 
-                title: "Examinations" 
-            }, 
-            legend :{ 
-                verticalAlign: "center", 
-                horizontalAlign: "left" 
-            }, 
-            data: [ 
-                { 
-                    type: "pie", 
-                    showInLegend: true, 
-                    toolTipContent: "{label} <br/> {y}", 
-                    indexLabel: "{y}", 
-                    dataPoints: [ 
-                        { label: "Direct Sputum Smear Microscopy",  y: 
-                         <?php
-    if($fetch1 == ""){
-        echo 0;
-    }else{
-        echo $fetch1['total'];
-    }	
-                         ?>, legendText: "DSSM"},
+	window.onload = function() { 
+		$("#examination_category").CanvasJSChart({  
+			theme: "light2",
+			animationEnabled: true,
+			animationDuration: 1800,
+			exportFileName: "Examination Category", 
+			exportEnabled: true,
+			title: { 
+				text: "Total Number of Examinations Conducted as of <?php echo $date?>",
+				fontSize: 20
+			}, 
+			axisY: { 
+				title: "Examinations" 
+			}, 
+			legend :{ 
+				verticalAlign: "center", 
+				horizontalAlign: "left" 
+			}, 
+			data: [ 
+				{ 
+					type: "pie", 
+					showInLegend: true, 
+					toolTipContent: "{label} <br/> {y}", 
+					indexLabel: "{y}", 
+					dataPoints: [ 
+						{ label: "Direct Sputum Smear Microscopy",  y: 
+						 <?php
+	if($fetch1 == ""){
+		echo 0;
+	}else{
+		echo $fetch1['total'];
+	}	
+						 ?>, legendText: "DSSM"},
 
-                        { label: "Xpert MTB/RIF",  y: 
-                         <?php 
-                         if($fetch2 == ""){
-                             echo 0;
-                         }else{
-                             echo $fetch2['total'];
-                         }	
-                         ?>, legendText: "XPERT"}
+						{ label: "Xpert MTB/RIF",  y: 
+						 <?php 
+						 if($fetch2 == ""){
+							 echo 0;
+						 }else{
+							 echo $fetch2['total'];
+						 }	
+						 ?>, legendText: "XPERT"}
 
-                    ] 
-                } 
-            ] 
-        }); 
-    } 
+					] 
+				} 
+			] 
+		}); 
+	} 
 </script>

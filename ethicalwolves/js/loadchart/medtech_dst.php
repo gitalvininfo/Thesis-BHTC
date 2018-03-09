@@ -63,7 +63,7 @@ $f18 = $capreomycin2->fetch_array();
 			zoomType: "x",
 			panEnabled: true,
 			animationEnabled: true,
-			animationDuration: 1000,
+			animationDuration: 3800,
 			colorSet: "customColorSet",
 			exportFileName: "Monthly Population", 
 			exportEnabled: true,

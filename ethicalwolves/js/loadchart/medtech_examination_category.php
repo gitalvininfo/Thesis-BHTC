@@ -21,7 +21,7 @@ $fetch4 = $dst->fetch_array();
 		$("#examination").CanvasJSChart({
 			theme: "light2",
 			animationEnabled: true,
-			animationDuration: 1000,
+			animationDuration: 1800,
 			exportFileName: "Examinations Conducted", 
 			exportEnabled: true,
 			title: { 

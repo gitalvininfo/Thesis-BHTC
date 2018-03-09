@@ -47,7 +47,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_total_examinations.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-pie-chart"></span>
+											<span class="fa fa-sitemap"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">
@@ -64,7 +64,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_dssm.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-pie-chart"></span>
+											<span class="fa fa-location-arrow"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">
@@ -81,7 +81,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_xpert.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-pie-chart"></span>
+											<span class="fa fa-barcode"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">
@@ -98,7 +98,7 @@ require ('config.php');
 								<div class="col-md-3">
 									<div class="widget widget-default widget-item-icon" onclick="location.href='reports/medtech_reports_dst.php';" style="cursor:pointer;">
 										<div class="widget-item-left">
-											<span class="fa fa-bar-chart"></span>
+											<span class="fa fa-code-fork"></span>
 										</div>
 										<div class="widget-data">
 											<div class="widget-int num-count">

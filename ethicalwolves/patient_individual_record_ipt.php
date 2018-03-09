@@ -46,7 +46,7 @@ require ('config.php');
 			$query2 = $conn->query("SELECT * FROM `registration_ipt` WHERE `patient_id` = '$id'") or die(mysqli_error());
 			$fetch2 = $query2->fetch_array();
 							?>
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><strong><?php echo $fetch2['status']?></strong></h3>
 									<div class="btn-group pull-right">

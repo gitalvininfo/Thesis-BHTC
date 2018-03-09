@@ -64,26 +64,43 @@ require ('../config.php');
 													<div id="bacteriological_status" style="width: 100%; height: 425px"></div>
 												</div>
 											</div>
-											<div class="col-md-3">                        
-												<a href="#" class="tile tile-default">
-													<?php echo $fetch3['total']?>
-													<p>Total Patient</p>    
-													<div class="informer informer-primary dir-tr"><span class="fa fa-male"></span></div>                               
-												</a>                        
+											<div class="col-md-3">
+												<div class="widget widget-default widget-item-icon">
+													<div class="widget-item-left">
+														<span class="fa fa-male"></span>
+													</div>
+													<div class="widget-data">
+														<div class="widget-int num-count counter" data-count="<?php echo $fetch3['total']?>">0</div>
+														<div class="widget-title">Total Patients</div>
+														<div class="widget-subtitle">Registered Year - <?php echo $year?></div>
+													</div>                            
+												</div>
+
 											</div>
-											<div class="col-md-3">                        
-												<a href="#" class="tile tile-success">
-													<?php echo $fetch1['total']?>
-													<p>Bacteriologically Confirmed</p>    
-													<div class="informer informer-default dir-tr"><span class="fa fa-stethoscope"></span></div>                               
-												</a>                        
+											<div class="col-md-3">
+												<div class="widget widget-success widget-item-icon">
+													<div class="widget-item-left">
+														<span class="fa fa-stethoscope"></span>
+													</div>
+													<div class="widget-data">
+														<div class="widget-int num-count counter" data-count="<?php echo $fetch1['total']?>">0</div>
+														<div class="widget-title">Bacteriologically</div>
+														<div class="widget-subtitle">Confirmed</div>
+													</div>                            
+												</div>
+
 											</div>
-											<div class="col-md-3">                        
-												<a href="#" class="tile tile-info">
-													<?php echo $fetch2['total']?>
-													<p>Clinically Diagnosed</p>      
-													<div class="informer informer-default dir-tr"><span class="fa fa-search"></span></div>                             
-												</a>                        
+											<div class="col-md-3">
+												<div class="widget widget-info widget-item-icon">
+													<div class="widget-item-left">
+														<span class="fa fa-hospital-o"></span>
+													</div>
+													<div class="widget-data">
+														<div class="widget-int num-count counter" data-count="<?php echo $fetch2['total']?>">0</div>
+														<div class="widget-title">Clinically</div>
+														<div class="widget-subtitle">Diagnosed</div>
+													</div>                            
+												</div>
 											</div>
 										</div>
 									</div>
@@ -159,6 +176,7 @@ require ('../config.php');
 				});
 			});
 		</script>
+		<script src="../js/counter.js"></script>
 		<audio id="audio-alert" src="../audio/alert.mp3" preload="auto"></audio>
 		<audio id="audio-fail" src="../audio/fail.mp3" preload="auto"></audio>
 		<script type='text/javascript' src='../js/plugins/bootstrap/bootstrap-select.js'></script>

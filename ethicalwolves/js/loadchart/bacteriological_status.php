@@ -18,7 +18,7 @@ $fetch2 = $cd->fetch_array();
 		$("#bacteriological_status").CanvasJSChart({
 			theme: "light2",
 			animationEnabled: true,
-			animationDuration: 1000,
+			animationDuration: 1800,
 			exportFileName: "Bacteriological Status", 
 			exportEnabled: true,
 			title: { 

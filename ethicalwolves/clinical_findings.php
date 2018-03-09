@@ -13,10 +13,13 @@ require ('config.php');
 		<link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
 		<link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+		<script src="js/plugins/jquery/jquery.min.js"></script>
+		<script src = "js/jquery.canvasjs.min.js"></script>
+		<?php require 'js/loadchart/weight.php'?>
 	</head>
 	<body>
 		<?php 
-		$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
 		$find = $query->fetch_array();
 		?>
 		<div class="page-container">
@@ -109,6 +112,14 @@ require ('config.php');
 							</div>
 						</div>
 						<div class="col-md-4">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title"><strong>Weight Progress</strong><strong></strong></h3>
+								</div>
+								<div class="panel-body">
+									<div id="weight" style="width: 100%; height: 200px"></div>
+								</div>
+							</div>
 							<div class="block">
 								<h4>Legend</h4>
 								<div class="list-group list-group-simple">                                
@@ -121,6 +132,7 @@ require ('config.php');
 								</div>
 							</div>
 
+
 						</div>
 					</div>
 				</div>
@@ -128,7 +140,6 @@ require ('config.php');
 		</div>
 		<?php require 'require/logout.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-		<script src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>

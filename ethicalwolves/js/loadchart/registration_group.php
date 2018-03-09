@@ -26,7 +26,7 @@ $fetch9 = $oth->fetch_array();
 		$("#registration_group").CanvasJSChart({
 			theme: "light2",
 			animationEnabled: true,
-			animationDuration: 1000,
+			animationDuration: 1800,
 			exportFileName: "TB Patient Registration Group", 
 			exportEnabled: true,
 			title: { 

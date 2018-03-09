@@ -13,10 +13,13 @@ require ('config.php');
 		<link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
 		<link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+		<script src="js/plugins/jquery/jquery.min.js"></script>
+		<script src = "js/jquery.canvasjs.min.js"></script>
+		<?php require 'js/loadchart/weight_ipt.php'?>
 	</head>
 	<body>
 		<?php 
-		$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
+	$query = $conn->query("SELECT * FROM `user` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
 		$find = $query->fetch_array();
 		?>
 		<div class="page-container">
@@ -86,8 +89,8 @@ require ('config.php');
 										<tbody>
 											<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
-						$query = $conn->query("SELECT * FROM `clinical_findings_ipt` WHERE `patient_id` = '$_GET[id]' ORDER BY `clinical_id` DESC") or die(mysqli_error());
-						while($fetch = $query->fetch_array()){
+											   $query = $conn->query("SELECT * FROM `clinical_findings_ipt` WHERE `patient_id` = '$_GET[id]' ORDER BY `clinical_id` DESC") or die(mysqli_error());
+											   while($fetch = $query->fetch_array()){
 											?>
 											<tr>
 												<td><center><?php echo $fetch['date_visited']?></center></td>
@@ -100,8 +103,8 @@ require ('config.php');
 												<td><center><?php echo $fetch['q6']?></center></td>
 											</tr>
 											<?php
-						}
-						$conn->close();
+											   }
+											   $conn->close();
 											?>
 										</tbody>
 									</table>
@@ -109,6 +112,14 @@ require ('config.php');
 							</div>
 						</div>
 						<div class="col-md-4">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title"><strong>Weight Progress</strong><strong></strong></h3>
+								</div>
+								<div class="panel-body">
+									<div id="weight" style="width: 100%; height: 200px"></div>
+								</div>
+							</div>
 							<div class="block">
 								<h4>Legend</h4>
 								<div class="list-group list-group-simple">                                
@@ -129,7 +140,6 @@ require ('config.php');
 		<?php require 'require/modals/add_clinical_findings_ipt.php'?>
 		<?php require 'require/logout.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-		<script src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>

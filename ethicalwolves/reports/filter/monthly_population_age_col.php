@@ -37,13 +37,18 @@ require ('../../config.php');
 									<img src="../../assets/images/bcreport.png" alt="BC Logo"/>     
 								</div>
 							</div>
-							<h3 class="panel-title"><strong>Bacolod City Health TB DOTS Center - Patient Comparison by Age</strong><span style="font-size:12px;"> </span></h3>
+							<?php 
+							$query3 = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.year = '$year'") or die(mysqli_error());
+							$fetch3 = $query3->fetch_array();
+							?>
+
+							<h3 class="panel-title"><strong>Bacolod City Health TB DOTS Center - Patient Comparison by Age - <?php echo $fetch3['total']?> TB patients</strong><span style="font-size:12px;"> </span></h3>
 							<div class="btn-group pull-right">
 								<div class="pull-left">
 									<div class="btn-group" id="print">
 										<a href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle">Switch to<span class="caret"></span></a>
 										<ul class="dropdown-menu" role="menu">
-											<li><a href="#" onclick="oBar()">Stacked Bar Graph</a></li>
+											<li><a href="#" onclick="oBar()">Bar Graph</a></li>
 											<li><a href="#" onclick="oLine()">Line Graph</a></li>
 											<li><a href="#" onclick="oCol()">Stacked Column Graph</a></li>
 											<li><a href="#" onclick="oAre()">Area Graph</a></li>
@@ -57,11 +62,6 @@ require ('../../config.php');
 						<div class="row">
 							<div class="panel-body">
 								<div class="col-md-12">
-									<?php 
-									$query3 = $conn->query("select count(*) as total from `patient`, `registration` where registration.patient_id = patient.patient_id && registration.year = '$year'") or die(mysqli_error());
-									$fetch3 = $query3->fetch_array();
-									?>
-									<h4>Total Population - <strong><?php echo $fetch3['total']?> TB patients</strong></h4><hr>
 									<h4 class="title" id="print">Press F5 to print</h4>
 									<table class="table table-condensed">
 										<thead>
@@ -83,7 +83,7 @@ require ('../../config.php');
 										</thead>
 										<tbody>
 											<?php require '../require/load_monthly_population_age.php'?>
-											<tr>
+											<tr class="success">
 												<th><center>1-10 yrs. old</center></th>
 												<td><center><?php echo $a1['total']?></center></td>
 												<td><center><?php echo $a2['total']?></center></td>
@@ -98,7 +98,7 @@ require ('../../config.php');
 												<td><center><?php echo $a11['total']?></center></td>
 												<td><center><?php echo $a12['total']?></center></td>
 											</tr>
-											<tr>
+											<tr class="info">
 												<?php require '../require/load_monthly_population_age_20.php'?>
 												<th><center>11-20 yrs. old</center></th>
 												<td><center><?php echo $b1['total']?></center></td>
@@ -114,7 +114,7 @@ require ('../../config.php');
 												<td><center><?php echo $b11['total']?></center></td>
 												<td><center><?php echo $b12['total']?></center></td>
 											</tr>
-											<tr>
+											<tr class="danger">
 												<?php require '../require/load_monthly_population_age_30.php'?>
 												<th><center>21-30 yrs. old</center></th>
 												<td><center><?php echo $c1['total']?></center></td>
@@ -130,7 +130,7 @@ require ('../../config.php');
 												<td><center><?php echo $c11['total']?></center></td>
 												<td><center><?php echo $c12['total']?></center></td>
 											</tr>
-											<tr>
+											<tr class="warning">
 												<?php require '../require/load_monthly_population_age_40.php'?>
 												<th><center>31-40 yrs. old</center></th>
 												<td><center><?php echo $d1['total']?></center></td>
@@ -146,7 +146,7 @@ require ('../../config.php');
 												<td><center><?php echo $d11['total']?></center></td>
 												<td><center><?php echo $d12['total']?></center></td>
 											</tr>
-											<tr>
+											<tr class="success">
 												<?php require '../require/load_monthly_population_age_50.php'?>
 												<th><center>41-50 yrs. old</center></th>
 												<td><center><?php echo $e1['total']?></center></td>
@@ -162,7 +162,7 @@ require ('../../config.php');
 												<td><center><?php echo $e11['total']?></center></td>
 												<td><center><?php echo $e12['total']?></center></td>
 											</tr>
-											<tr>
+											<tr class="info">
 												<?php require '../require/load_monthly_population_age_60.php'?>
 												<th><center>51-60 yrs. old</center></th>
 												<td><center><?php echo $f1['total']?></center></td>
@@ -178,7 +178,7 @@ require ('../../config.php');
 												<td><center><?php echo $f11['total']?></center></td>
 												<td><center><?php echo $f12['total']?></center></td>
 											</tr>
-											<tr>
+											<tr class="danger">
 												<?php require '../require/load_monthly_population_age_70.php'?>
 												<th><center>61-70 yrs. old</center></th>
 												<td><center><?php echo $g1['total']?></center></td>
@@ -194,7 +194,7 @@ require ('../../config.php');
 												<td><center><?php echo $g11['total']?></center></td>
 												<td><center><?php echo $g12['total']?></center></td>
 											</tr>
-											<tr>
+											<tr class="warning">
 												<?php require '../require/load_monthly_population_age_80.php'?>
 												<th><center>71-80 yrs. old</center></th>
 												<td><center><?php echo $h1['total']?></center></td>
@@ -210,7 +210,7 @@ require ('../../config.php');
 												<td><center><?php echo $h11['total']?></center></td>
 												<td><center><?php echo $h12['total']?></center></td>
 											</tr>
-											<tr>
+											<tr class="success">
 												<?php require '../require/load_monthly_population_age_90.php'?>
 												<th><center>81-90 yrs. old</center></th>
 												<td><center><?php echo $i1['total']?></center></td>
@@ -226,7 +226,7 @@ require ('../../config.php');
 												<td><center><?php echo $i11['total']?></center></td>
 												<td><center><?php echo $i12['total']?></center></td>
 											</tr>
-											<tr>
+											<tr class="info">
 												<?php require '../require/load_monthly_population_age_100.php'?>
 												<th><center>91-100 yrs. old</center></th>
 												<td><center><?php echo $j1['total']?></center></td>
@@ -245,8 +245,8 @@ require ('../../config.php');
 										</tbody>
 									</table>
 									<div id="column" style="width: 100%; height: 221px"></div>
-									<h6 style="float:left">Approved by:</h6><br><br>
-									<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4>
+									<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4><br><br>
+									<h6 style="float:left"><?php echo $find['position']?></h6>
 								</div>
 							</div>
 						</div>

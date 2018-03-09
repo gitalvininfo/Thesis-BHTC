@@ -75,6 +75,7 @@ $a10 = $q10->fetch_array();
 					type: "area", 
 					toolTipContent: "{label}: {y}", 
 					markerType: "cross",
+					color: "#1caf9a",
 					dataPoints: [ 
 						{ label: "1-10 years old", y: <?php echo $a1['total']?> },
 						 { label: "11-20 years old", y: <?php echo $a2['total']?> },

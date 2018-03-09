@@ -36,7 +36,7 @@ if(ISSET($_POST['add_new_clinical'])){
 
 	$conn->query("INSERT INTO `clinical_findings` VALUES('', '$date_visited', '$weight', '$q1', '$q2', '$q3', '$q4', '$q5', '$new', '$patient_id')") or die(mysqli_error());
 
-	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Transactions - Clinical Findings', '$remarks2', '$date', '$time')") or die(mysqli_error());
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Transactions', '$remarks2', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 
 	echo "<script type='text/javascript'>alert('Successfully added new clinical findings!');</script>";

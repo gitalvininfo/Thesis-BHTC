@@ -69,47 +69,41 @@ require ('../config.php');
 			$fetch10 = $gra->fetch_array();
 										?>
 										<div class="row">
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-success">
-													<?php echo $fetch3['total']?>
-													<p>New</p>  
-													<div class="informer informer-default dir-tr"><span class="fa fa-star"></span></div>                          
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-success">
+													<div class="widget-big-int counter" data-count="<?php echo $fetch3['total']?>"><span class="num-count">0</span></div> 
+													<p>New</p>
+												</div>                        
 											</div>
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-info">
-													<?php echo $fetch4['total']?>
-													<p>Relapse</p>  
-													<div class="informer informer-default dir-tr"><span class="fa fa-refresh"></span></div>                                 
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-info">
+													<div class="widget-big-int counter" data-count="<?php echo $fetch4['total']?>"><span class="num-count">0</span></div> 
+													<p>Relapse</p>
+												</div>                        
 											</div>
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-danger">
-													<?php echo $fetch5['total']?>
-													<p>TALF</p>       
-													<div class="informer informer-default dir-tr"><span class="fa fa-meh-o"></span></div>                            
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-danger">
+													<div class="widget-big-int counter" data-count="<?php echo $fetch5['total']?>"><span class="num-count">0</span></div> 
+													<p>TALF</p>
+												</div>                        
 											</div>
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-primary">
-													<?php echo $fetch6['total']?>
-													<p>TAF</p>      
-													<div class="informer informer-default dir-tr"><span class="fa fa-thumbs-down"></span></div>       
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-primary">
+													<div class="widget-big-int counter" data-count="<?php echo $fetch6['total']?>"><span class="num-count">0</span></div> 
+													<p>TAF</p>
+												</div>                        
 											</div>
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-default">
-													<?php echo $fetch7['total']?>
-													<p>PTOU</p>   
-													<div class="informer informer-primary dir-tr"><span class="fa fa-times"></span></div>                                
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-default">
+													<div class="widget-big-int counter" data-count="<?php echo $fetch7['total']?>"><span class="num-count">0</span></div> 
+													<p>PTOU</p>
+												</div>                        
 											</div>
-											<div class="col-md-2">                        
-												<a href="#" class="tile tile-warning">
-													<?php echo $fetch8['total']?>
-													<p>Transfer-in</p> 
-													<div class="informer informer-default dir-tr"><span class="fa fa-reply"></span></div>                                  
-												</a>                        
+											<div class="col-md-2">
+												<div class="tile tile-warning">
+													<div class="widget-big-int counter" data-count="<?php echo $fetch8['total']?>"><span class="num-count">0</span></div> 
+													<p>Transfer-in</p>
+												</div>                        
 											</div>
 										</div>
 										<hr>
@@ -210,7 +204,7 @@ require ('../config.php');
 				});
 			});
 		</script>
-
+		<script src="../js/counter.js"></script>
 		<audio id="audio-alert" src="../audio/alert.mp3" preload="auto"></audio>
 		<audio id="audio-fail" src="../audio/fail.mp3" preload="auto"></audio>
 		<script type='text/javascript' src='../js/plugins/bootstrap/bootstrap-select.js'></script>

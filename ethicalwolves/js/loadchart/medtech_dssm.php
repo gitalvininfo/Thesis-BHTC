@@ -17,7 +17,7 @@ $fetch2 = $dssm2->fetch_array();
 		$("#dssm").CanvasJSChart({
 			theme: "light2",
 			animationEnabled: true,
-			animationDuration: 1000,
+			animationDuration: 1800,
 			exportFileName: "DSSM", 
 			exportEnabled: true,
 			title: { 

@@ -145,22 +145,22 @@
 										<center>Weight</center>
 									</th>
 									<th data-toggle="tooltip" data-placement="top" title="Unexplained fever more than 2 weeks">
-										<center>Fever more than 2 weeks</center>
+										<center>Q1</center>
 									</th>
 									<th data-toggle="tooltip" data-placement="top" title="Unexplained cough or wheezing more than 2 weeks">
-										<center>Cough more than 2 weeks</center>
+										<center>Q2</center>
 									</th>
 									<th data-toggle="tooltip" data-placement="top" title="Unimproved general well-being">
-										<center>Unimproved general well-being</center>
+										<center>Q3</center>
 									</th>
 									<th data-toggle="tooltip" data-placement="top" title="Poor appetite">
-										<center>Poor Appetite</center>
+										<center>Q4</center>
 									</th>
 									<th data-toggle="tooltip" data-placement="top" title="Positive PE findings for Extra-Pulmonary TB">
-										<center>PE Findings</center>
+										<center>Q5</center>
 									</th>
 									<th data-toggle="tooltip" data-placement="top" title="Side Effects">
-										<center>Side Effects</center>
+										<center>Q6</center>
 									</th>
 								</tr>
 							</thead>

@@ -132,7 +132,8 @@ require ('../../config.php');
 									</table>
 									<div id="ptype" style="width: 100%; height: 400px"></div>
 									<h6 style="float:left">Approved by:</h6><br><br>
-									<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4>
+									<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4><br><br>
+									<h4 style="float:left"><strong><?php echo $find['position']?></strong></h4>
 								</div>
 							</div>
 						</div>

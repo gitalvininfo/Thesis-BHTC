@@ -24,7 +24,7 @@ $fetch5 = $xpert5->fetch_array();
 		$("#xpert").CanvasJSChart({
 			theme: "light2",
 			animationEnabled: true,
-			animationDuration: 1000,
+			animationDuration: 1800,
 			exportFileName: "XPERT", 
 			exportEnabled: true,
 			title: { 

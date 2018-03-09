@@ -10,32 +10,28 @@ $dst = $conn->query("SELECT COUNT(*) as total FROM `dst_examination` WHERE `year
 $f4 = $dst->fetch_array();
 ?>
 <div class="row">
-    <div class="col-md-3">                        
-        <a href="#" class="tile tile-success">
-            <?php echo $f1['total']?>
-            <p>Direct Sputum Smear Micro.</p>  
-            <div class="informer informer-default dir-tr"><span class="fa fa-leaf"></span></div>                          
-        </a>                        
-    </div>
-    <div class="col-md-3">                        
-        <a href="#" class="tile tile-info">
-            <?php echo $f2['total']?>
-            <p>Xpert MTB/RIF</p>  
-            <div class="informer informer-default dir-tr"><span class="fa fa-code-fork"></span></div>                          
-        </a>                        
-    </div>
-    <div class="col-md-3">                        
-        <a href="#" class="tile tile-danger">
-            <?php echo $f3['total']?>
-            <p>TB Culture</p>  
-            <div class="informer informer-default dir-tr"><span class="fa fa-search-plus"></span></div>                          
-        </a>                        
-    </div>
-    <div class="col-md-3">                        
-        <a href="#" class="tile tile-primary">
-            <?php echo $f4['total']?>
-            <p>Drug Susceptible Test</p>  
-            <div class="informer informer-default dir-tr"><span class="fa fa-star"></span></div>                          
-        </a>                        
-    </div>
+	<div class="col-md-3">
+		<div class="tile tile-success">
+			<div class="widget-big-int counter" data-count="<?php echo $f1['total']?>"><span class="num-count">0</span></div> 
+			<p>DSSM</p>
+		</div>                        
+	</div>
+	<div class="col-md-3">
+		<div class="tile tile-info">
+			<div class="widget-big-int counter" data-count="<?php echo $f2['total']?>"><span class="num-count">0</span></div> 
+			<p>Xpert MTB/RIF</p>
+		</div>                        
+	</div>
+	<div class="col-md-3">
+		<div class="tile tile-danger">
+			<div class="widget-big-int counter" data-count="<?php echo $f3['total']?>"><span class="num-count">0</span></div> 
+			<p>TB Culture</p>
+		</div>                        
+	</div>
+	<div class="col-md-3">
+		<div class="tile tile-primary">
+			<div class="widget-big-int counter" data-count="<?php echo $f4['total']?>"><span class="num-count">0</span></div> 
+			<p>Drug Susceptible Test</p>
+		</div>                        
+	</div>
 </div>
