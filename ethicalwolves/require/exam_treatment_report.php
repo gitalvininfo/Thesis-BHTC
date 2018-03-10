@@ -2,7 +2,7 @@
 	<div class="col-md-9">
 		<div class="panel-body">
 			<div class="tocify-content">
-				<h2> <strong><mark>TB Case No: <?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></strong></h2><hr>
+			<h2> <strong><mark>TB Case No: <?php echo $fetch2['year']. "080" .$fetch2['tb_case_no']?></mark></strong></h2><hr>
 				<h4>Overview</h4>
 				<div class="panel-body">
 					<div class="row">

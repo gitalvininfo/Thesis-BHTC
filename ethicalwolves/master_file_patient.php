@@ -147,6 +147,8 @@ require ('config.php');
 		<?php require 'require/modals/edit_ipt_case.php'?>
 		<?php require 'require/logout.php'?>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+		
+		
 		<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
@@ -157,6 +159,8 @@ require ('config.php');
 		<script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/shortcut.js"></script>
 		<script>
 			$("#tbirthdate").change(function(){
 				var tbirthdate = new Date($(this).val());

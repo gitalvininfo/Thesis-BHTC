@@ -349,6 +349,8 @@ require ('config.php');
 		<script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/shortcut.js"></script>
 		<script>
 			var date=new Date();
 			$('#date_taken').datepicker({

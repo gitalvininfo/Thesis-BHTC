@@ -123,6 +123,8 @@ return ok;
 		<script type='text/javascript' src='js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/shortcut.js"></script>
 		<script>
 			$("#user").validate({
 				ignore: [],

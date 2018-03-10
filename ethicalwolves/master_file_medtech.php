@@ -92,7 +92,7 @@ if(ISSET($_POST['save_user'])){
 										<tbody>
 											<?php
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-			$query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `user_id` DESC") or die(mysqli_error());
+			$query = $conn->query("SELECT * FROM `user` WHERE `position` = 'Medical Technologist' ORDER BY `status` ASC") or die(mysqli_error());
 			while($fetch = $query->fetch_array()){
 											?>                                      
 											<tr>
@@ -103,8 +103,8 @@ if(ISSET($_POST['save_user'])){
 												<td><center>*******</center></td>
 												<td><center><?php echo $fetch['login']?></center></td>
 												<td><center>
-													<?php if ($fetch['status']=='Active')echo "<span class='badge badge-info'><span class='fa fa-check'></span> Active</span>";
-				if ($fetch['status']=='Inactive')echo "<span class='badge badge-danger'><span class='fa fa-times'></span> Inactive</span>"
+													<?php if ($fetch['status']=='Active')echo "<span class='badge badge-info'> Active</span>";
+				if ($fetch['status']=='Inactive')echo "<span class='badge badge-danger'>Inactive</span>"
 													?>
 													</center></td>
 											</tr>
@@ -133,7 +133,9 @@ if(ISSET($_POST['save_user'])){
 		<script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="js/plugins.js"></script>        
 		<script type="text/javascript" src="js/actions.js"></script>    
-		<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>           
+		<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>    
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/shortcut.js"></script>       
 		<script type="text/javascript">
 			$("#medtech").validate({
 				rules: {

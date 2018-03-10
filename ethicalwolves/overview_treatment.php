@@ -32,7 +32,7 @@
 							<tbody>
 								<?php
 								require 'config.php';
-								$query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` DESC ") or die(mysqli_error());
+								$query = $conn->query("SELECT * FROM `intensive_phase` WHERE `patient_id` = '$_GET[id]' ORDER BY `intensive_phase_id` DESC limit 10") or die(mysqli_error());
 								while($fetch = $query->fetch_array()){
 									if($fetch['remarks'] == 'Absent'){
 										echo 

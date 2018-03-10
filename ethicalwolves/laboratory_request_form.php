@@ -190,6 +190,8 @@ require ('config.php');
 		<script type="text/javascript" src="js/actions.js"></script>
 		<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/shortcut.js"></script>
 	</body>
 
 </html>

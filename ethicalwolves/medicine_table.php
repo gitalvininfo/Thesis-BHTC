@@ -136,6 +136,7 @@ if(ISSET($_POST['new_medicine'])){
 		<?php require 'require/modals/new_medicine.php'?>
 		<?php require 'require/modals/edit_medicine.php'?>
 		<?php require 'require/logout.php'?>
+		<script type="text/javascript" src="js/shortcut.js"></script>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
@@ -147,6 +148,7 @@ if(ISSET($_POST['new_medicine'])){
 		<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
 		<script type="text/javascript">
 			var medicine = $("#medicine").validate({
 				ignore: [],

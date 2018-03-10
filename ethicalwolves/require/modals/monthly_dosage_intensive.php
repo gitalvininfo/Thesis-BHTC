@@ -9,7 +9,7 @@ while($f = $query->fetch_array()){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="defModalHead">Intensive Phase - Monthly Dosage Given</h4>
+                <h4 class="modal-title" id="defModalHead"><strong>Intensive Phase - Monthly Dosage Given</strong></h4>
             </div>
             <form role="form" class="form-horizontal" method="post">
                 <div class="panel-body">

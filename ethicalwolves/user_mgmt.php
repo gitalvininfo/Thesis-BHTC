@@ -96,7 +96,9 @@ require ('config.php');
 		<script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
 		<script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>        
 		<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>    
-		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>       
+		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>    
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/shortcut.js"></script>   
 		<script type="text/javascript">
 			$("#medtech").validate({
 				rules: {

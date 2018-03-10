@@ -206,6 +206,8 @@ if(ISSET($_POST['medicine_stock'])){
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
 		<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/shortcut.js"></script>
 		<script type="text/javascript">
 			$('#dispensation').validate({
 				ignore: [],

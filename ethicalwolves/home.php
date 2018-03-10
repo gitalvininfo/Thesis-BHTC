@@ -379,6 +379,7 @@ $f = $q->fetch_array();
 			});
 		</script>
 		<audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+		<script type="text/javascript" src="js/shortcut.js"></script>
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
@@ -386,8 +387,10 @@ $f = $q->fetch_array();
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 		<script type="text/javascript" src="js/plugins/owl/owl.carousel.min.js"></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
-		<script type="text/javascript" src="js/actions.js"></script>      
+		<script type="text/javascript" src="js/actions.js"></script>    
+		<script type="text/javascript" src="js/settings.js"></script>      
 		<script type="text/javascript" src="js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+		
 
 	</body>
 </html>

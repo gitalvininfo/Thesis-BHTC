@@ -13,6 +13,7 @@ require ('config.php');
 		<link rel="icon" href="assets/images/project_logo.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" id="theme" href="css/theme-brown.css" />
 		<link rel="stylesheet" type="text/css" href="assets2/vendor/font-awesome/css/font-awesome.min.css" />
+		<limk rel="stylesheet" type="text/css" href="css/animation.css"/>
 		<script src="js/plugins/jquery/jquery.min.js"></script>
 		<script src="js/jquery.canvasjs.min.js"></script>
 		<?php require 'js/loadchart/medicines_taken.php'?>
@@ -79,6 +80,7 @@ require ('config.php');
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
 		<script type="text/javascript" src="js/settings.js"></script>
+		<script src="js/shortcut.js"></script>
 		<script type="text/javascript" src="js/plugins/scrolltotop/scrolltopcontrol.js"></script>
 		<script type="text/javascript" src="js/plugins/tocify/jquery.tocify.min.js"></script>
 		<script>
