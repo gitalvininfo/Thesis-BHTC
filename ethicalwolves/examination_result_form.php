@@ -32,8 +32,8 @@ if(ISSET($_POST['add_dssm'])){
 	$conn->query("INSERT INTO `dssm_examination` VALUES('', '$date_examined', '$laboratory_number', '$visual_appearance', '$visual_appearance2', '$reading', '$reading2', '$laboratory_diagnosis', '$examined_by', '$date_released', '$patient_id', '$month', '$year')") or die(mysqli_error());
 
 	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
-	
-	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry - Confirmed Laboratory Request', '$remarks', '$date', '$time')") or die(mysqli_error());
+
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added the DSSM Result!')</script>";
 	echo "<script>document.location='medtech_laboratory_request.php'</script>";  
@@ -187,8 +187,7 @@ if(ISSET($_POST['add_dssm'])){
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
 		<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
-		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
-		<script type="text/javascript" src="js/plugins/smartwizard/jquery.smartWizard-2.0.min.js"></script>        
+		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>        
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
 		<script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
 		<script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>        
@@ -197,5 +196,7 @@ if(ISSET($_POST['add_dssm'])){
 		<script type="text/javascript" src="js/actions.js"></script>
 		<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+		<script type="text/javascript" src="js/settings2.js"></script>
+		<script type="text/javascript" src="js/shortcut2.js"></script> 
 	</body>
 </html>

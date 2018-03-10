@@ -375,12 +375,13 @@
 				var mapOptions = {
 					center: new google.maps.LatLng(10.640739, 122.968956),
 					zoom: 14,
-					mapTypeId: google.maps.MapTypeId.HYBRID
+					mapTypeId: google.maps.MapTypeId.HYBRID,
+					mapTypeControl: true,
+					mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
 				};
 
 				map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
 				SetMarker(0);
-
 			};
 			function SetMarker(position) {
 				//gna kakas ang previous na marker kay masaylo sa.
@@ -422,11 +423,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<a href="geotagging.php" class="btn btn-default btn-sm">Default</a>
-						<a href="geotagging_dark.php" class="btn btn-default btn-sm">Night</a>
-						<a href="geotagging_silver.php" class="btn btn-default btn-sm">Silver</a>
-						<a href="geotagging_retro.php" class="btn btn-default btn-sm">Retro</a>
-						<a href="geotagging_aubergine.php" class="btn btn-default btn-sm">Aubergine</a>
+						<button class="btn btn-info btn-md" data-toggle="modal" data-target="#statistics">Overview</button>
 						<div class="btn-group pull-right">
 							<div class="pull-left">
 								<select onchange="SetMarker(this.value)" class="validate[required] select" data-style="btn-primary" data-live-search="true">
@@ -493,6 +490,66 @@
 						<div class="panel-body">
 							<div id="dvMap" style="width: 100%; height: 100%"></div>
 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="statistics" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="largeModalHead"><strong>Overview</strong></h4>
+					</div>
+					<?php
+	require '../config.php';
+$q1 = $conn->query("select `barangay`, count(*) as total from patient where status = 'Registered' && gender = 'Male' group by barangay order by total desc limit 1") or die(mysqli_error());
+$f1 = $q1->fetch_array();
+$q2 = $conn->query("select `barangay`, count(*) as total from patient where status = 'Registered' && gender = 'Female' group by barangay order by total desc limit 1") or die(mysqli_error());
+$f2 = $q2->fetch_array();
+$q3 = $conn->query("select `barangay`, count(*) as total from patient where status = 'Registered' && age <= 15 group by barangay order by total desc limit 1") or die(mysqli_error());
+$f3 = $q3->fetch_array();
+$q4 = $conn->query("select `barangay`, count(*) as total from patient where status = 'Registered' && age >= 16 group by barangay order by total desc limit 1") or die(mysqli_error());
+$f4 = $q4->fetch_array();
+					?>
+
+					<div class="modal-body">
+						<div class="panel-body">
+							<div class="col-md-12">
+								<div class="col-md-3">
+									<div class="widget widget-info">
+										<div class="widget-title">Most Males</div>
+										<div class="widget-subtitle">Barangay <?php echo $f1['barangay']?></div>
+										<div class="widget-int"><?php echo $f1['total']?></div>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="widget widget-info">
+										<div class="widget-title">Most Females</div>
+										<div class="widget-subtitle">Barangay <?php echo $f2['barangay']?></div>
+										<div class="widget-int"><?php echo $f2['total']?></div>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="widget widget-info">
+										<div class="widget-title">Most Children</div>
+										<div class="widget-subtitle">Barangay <?php echo $f3['barangay']?></div>
+										<div class="widget-int"><?php echo $f3['total']?></div>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="widget widget-info">
+										<div class="widget-title">Most Adult</div>
+										<div class="widget-subtitle">Barangay <?php echo $f4['barangay']?></div>
+										<div class="widget-int"><?php echo $f4['total']?></div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
 					</div>
 				</div>
 			</div>

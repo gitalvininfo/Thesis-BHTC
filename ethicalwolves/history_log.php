@@ -50,10 +50,11 @@ require ('config.php');
 										<tbody>
 											<?php
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-			$query = $conn->query("SELECT * FROM `history_log`, `user` where user.user_id = history_log.user_id order by log_id DESC") or die(mysqli_error());
+			$query = $conn->query("SELECT * FROM `history_log`, `user` where user.user_id = history_log.user_id ORDER BY `log_id` DESC") or die(mysqli_error());
 			while($fetch = $query->fetch_array()){
 											?>
 											<tr>
+											
 												<td><center><?php echo $fetch['firstname']. " " .$fetch['lastname']?></center></td>
 												<td><center><?php echo $fetch['type']?></center></td>
 												<td><center><?php echo $fetch['action']?></center></td>

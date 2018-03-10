@@ -165,9 +165,10 @@ require ('config.php');
 							</tbody>
 						</table>
 						<hr> <br>
-						<h6 style="float:left"></h6><br><br>
+						<h6 style="float:left">Approved by:</h6><br><br>
 						<h4 style="float:left"><strong><?php echo $find['firstname']. " " .$find['lastname']?></strong></h4><br><br>
-						<h6 style="float:left">Approved by:</h6>
+						<h6 style="float:left"><strong><?php echo $find['position']?></strong></h6>
+
 					</div>
 				</div>
 			</div>

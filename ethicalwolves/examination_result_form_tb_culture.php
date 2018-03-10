@@ -2,7 +2,7 @@
 require_once 'logincheck.php';
 require ('config.php');
 date_default_timezone_set('Asia/Manila');	
-	
+
 if(ISSET($_POST['add_tb_culture'])){
 	$method = $_POST['method'];
 	$tb_culture_laboratory = $_POST['tb_culture_laboratory'];
@@ -175,8 +175,7 @@ if(ISSET($_POST['add_tb_culture'])){
 		<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
 		<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
-		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
-		<script type="text/javascript" src="js/plugins/smartwizard/jquery.smartWizard-2.0.min.js"></script>        
+		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>      
 		<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
 		<script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
 		<script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>        
@@ -185,5 +184,7 @@ if(ISSET($_POST['add_tb_culture'])){
 		<script type="text/javascript" src="js/actions.js"></script>
 		<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+		<script type="text/javascript" src="js/settings2.js"></script>
+		<script type="text/javascript" src="js/shortcut2.js"></script> 
 	</body>
 </html>

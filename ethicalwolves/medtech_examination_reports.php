@@ -133,5 +133,7 @@ require ('config.php');
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
+		<script type="text/javascript" src="js/settings2.js"></script>
+		<script type="text/javascript" src="js/shortcut2.js"></script> 
 	</body>
 </html>

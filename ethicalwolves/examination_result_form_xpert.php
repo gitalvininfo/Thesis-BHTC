@@ -29,7 +29,7 @@ if(ISSET($_POST['add_gene_expert'])){
 
 	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
 
-	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry - Confirmed Laboratory Request', '$remarks', '$date', '$time')") or die(mysqli_error());
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry', '$remarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added the Xpert MTB/RIF Result!')</script>";
 	echo "<script>document.location='medtech_laboratory_request.php'</script>";
@@ -171,5 +171,7 @@ if(ISSET($_POST['add_gene_expert'])){
 		<script type="text/javascript" src="js/actions.js"></script>
 		<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+		<script type="text/javascript" src="js/settings2.js"></script>
+		<script type="text/javascript" src="js/shortcut2.js"></script> 
 	</body>
 </html>

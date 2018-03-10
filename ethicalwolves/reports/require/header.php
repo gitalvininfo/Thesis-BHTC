@@ -108,7 +108,7 @@
 	<li class="xn-icon-button pull-right">
 		<?php
 		$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-		$q = $conn->query("SELECT COUNT(*) as count from `medicine` WHERE `running_balance` <= 5") or die(mysqli_error());
+		$q = $conn->query("SELECT COUNT(*) as count from `medicine` WHERE `running_balance` <= 15") or die(mysqli_error());
 		$f = $q->fetch_array();
 		?>
 		<a href="#"><span class="fa fa-medkit"></span></a>
@@ -123,7 +123,7 @@
 		<div class="panel-body list-group list-group-contacts scroll" style="height: 400px;">
 			<?php 
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
-				$q = $conn->query("SELECT * FROM `medicine` WHERE `running_balance` <= 5") or die(mysqli_error());
+				$q = $conn->query("SELECT * FROM `medicine` WHERE `running_balance` <= 15") or die(mysqli_error());
 				while($f = $q->fetch_array()){
 			?>
 			<a href="#" class="list-group-item">
