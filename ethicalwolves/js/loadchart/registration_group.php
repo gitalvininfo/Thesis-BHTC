@@ -44,8 +44,7 @@ $fetch9 = $oth->fetch_array();
 			legend :{ 
 				verticalAlign: "center", 
 				horizontalAlign: "left",
-				cursor: "pointer",
-
+				cursor: "pointer"
 			}, 
 			data: [ 
 				{ 

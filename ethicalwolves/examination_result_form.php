@@ -73,7 +73,7 @@ if(ISSET($_POST['add_dssm'])){
 				<div class="page-content-wrap">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
@@ -103,7 +103,7 @@ if(ISSET($_POST['add_dssm'])){
 													<input type="hidden" class="form-control" name="lab_request_id" value="<?php echo $_GET['lab_request_id']?>"/>
 													<input type="hidden" class="form-control" name="patient_id" value="<?php echo $_GET['patient_id']?>"/>
 													<input type="hidden" class="form-control" name="patient_name" value="<?php echo $_GET['patient_name']?>"/>
-													<input type="text" class="form-control datepicker" name="date_examined" data-toggle="tooltip" data-placement="top" title="Date Examined" required>
+													<input type="text" class="form-control datepicker" id="date_examined" name="date_examined" data-toggle="tooltip" data-placement="top" title="Date Examined" required>
 												</div>
 											</div>
 											<h5 class="push-up-1"><strong>Laboratory Number</strong></h5>
@@ -167,7 +167,7 @@ if(ISSET($_POST['add_dssm'])){
 											<h5 class="push-up-1"><strong>Date Released</strong></h5>
 											<div class="form-group ">
 												<div class="col-md-12 col-xs-12">
-													<input type="text" class="form-control datepicker" name="date_released" data-toggle="tooltip" data-placement="top" title="Date Released" required/>
+													<input type="text" class="form-control datepicker" id="date_released" name="date_released" data-toggle="tooltip" data-placement="top" title="Date Released" required/>
 												</div>
 											</div>
 											<hr>
@@ -197,6 +197,24 @@ if(ISSET($_POST['add_dssm'])){
 		<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 		<script type="text/javascript" src="js/settings2.js"></script>
-		<script type="text/javascript" src="js/shortcut2.js"></script> 
+		<script type="text/javascript" src="js/shortcut2.js"></script>
+		<script>
+			var date=new Date();
+			$('#date_examined').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
+		<script>
+			var date=new Date();
+			$('#date_released').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
 	</body>
 </html>

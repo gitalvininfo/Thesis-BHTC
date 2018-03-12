@@ -12,13 +12,13 @@
                         <h5 class="push-up-1">Medicine Name</h5>
                         <div class="form-group ">
                             <div class="col-md-12 col-xs-12">
-                                <input data-toggle="tooltip" data-placement="bottom" title="Medicine Name" type="text" class="form-control" name="medicine_name" />
+                                <input data-toggle="tooltip" data-placement="bottom" title="Medicine Name" type="text" class="form-control" name="medicine_name" required/>
                             </div>
                         </div>
                         <h5 class="push-up-1">Medicine Type</h5>
                         <div class="form-group ">
                             <div class="col-md-12 col-xs-12">
-                                <select class="form-control select" name="medicine_type">
+                                <select class="form-control select" name="medicine_type" required>
                                     <option>Choose</option>
                                     <option value="Tablet">Tablet</option>
                                     <option value="Syrup">Syrup</option>
@@ -28,7 +28,7 @@
                         <h5 class="push-up-1">Medicine Description</h5>
                         <div class="form-group ">
                             <div class="col-md-12 col-xs-12">
-                                <textarea data-toggle="tooltip" data-placement="bottom" title="Medicine Name" type="text" class="form-control" name="medicine_description" ></textarea>
+                                <textarea data-toggle="tooltip" data-placement="bottom" title="Medicine Name" type="text" class="form-control" name="medicine_description" required ></textarea>
                             </div>
                         </div>
                     </div>

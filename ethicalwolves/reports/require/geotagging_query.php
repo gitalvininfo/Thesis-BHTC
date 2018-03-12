@@ -196,4 +196,7 @@ $f65 = $brgy40->fetch_array();
 $brgy41 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE  `status` = 'Registered' && `barangay` = 'Brgy 41'") or die(mysqli_error());
 $f66 = $brgy41->fetch_array();
 
+$brgy41 = $conn->query("SELECT COUNT(*) as total FROM `patient` WHERE  `status` = 'Registered' && `barangay` = 'Brgy 41'") or die(mysqli_error());
+$f66 = $brgy41->fetch_array();
+
 ?>

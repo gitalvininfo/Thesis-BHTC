@@ -28,9 +28,9 @@ if(ISSET($_POST['add_dst'])){
 	$month = date("M", strtotime("+8 HOURS"));
 	$year = date("Y", strtotime("+8 HOURS"));
 
-	date_default_timezone_set('Asia/Manila');	
-	$date=date("F j, Y, g:i a");
-	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
+	date_default_timezone_set('Asia/Manila');
+	$time=date("g:i a");
+	$date=date("F j, Y");$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
 	$id=$_SESSION['user_id'];
@@ -40,7 +40,7 @@ if(ISSET($_POST['add_dst'])){
 
 	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
 
-	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$labremarks', '$date')") or die(mysqli_error());
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry', '$labremarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added the DST Result!');</script>";
 	echo "<script>document.location='medtech_laboratory_request.php'</script>";
@@ -78,7 +78,7 @@ if(ISSET($_POST['add_dst'])){
 				<div class="page-content-wrap">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<?php
 	$conn = new mysqli('localhost', 'root', '', 'thesis') or die(mysqli_error());
@@ -88,6 +88,16 @@ if(ISSET($_POST['add_dst'])){
 			$f2 = $q2->fetch_array();
 									?>
 									<h3 class="panel-title"><strong>Drug Susceptible Testing</strong></h3>
+									<ul class="panel-controls">
+										<li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>     
+											<ul class="dropdown-menu">
+												<li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
+												<li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span> Refresh</a></li>
+											</ul>                                        
+										</li>
+									</ul>
 								</div>
 								<div class="panel-body">
 									<form role="form" class="form-horizontal" action="examination_result_form_dst.php" method="post" enctype="multi-part/form-data" onsubmit="return confirm('Are you sure you want to add this DST result?');">
@@ -110,13 +120,13 @@ if(ISSET($_POST['add_dst'])){
 											<h5 class="push-up-1"><strong>Date Collected</strong></h5>
 											<div class="form-group ">
 												<div class="col-md-12 col-xs-12">
-													<input type="text" class="form-control datepicker" name="date_collected" data-toggle="tooltip" data-placement="bottom" title="Date Collected YYYY-MM-DD" required/>
+													<input type="text" class="form-control datepicker" id="date_collected" name="date_collected" data-toggle="tooltip" data-placement="bottom" title="Date Collected " required/>
 												</div>
 											</div>
 											<h5 class="push-up-1"><strong>Date Received</strong></h5>
 											<div class="form-group ">
 												<div class="col-md-12 col-xs-12">
-													<input type="text" class="form-control datepicker" name="date_received" data-toggle="tooltip" data-placement="bottom" title="Date Received YYYY-MM-DD" required/>
+													<input type="text" class="form-control datepicker" id="date_received" name="date_received" data-toggle="tooltip" data-placement="bottom" title="Date Received " required/>
 												</div>
 											</div>
 											<h5 class="push-up-1"><strong>Method</strong></h5>
@@ -249,7 +259,7 @@ if(ISSET($_POST['add_dst'])){
 											<h5 class="push-up-1"><strong>Date Released</strong></h5>
 											<div class="form-group ">
 												<div class="col-md-12 col-xs-12">
-													<input type="text" class="form-control datepicker" name="date_released" data-toggle="tooltip" data-placement="bottom" title="Date Released YYYY-MM-DD" required/>
+													<input type="text" class="form-control datepicker" id="date_released" name="date_released" data-toggle="tooltip" data-placement="bottom" title="Date Released " required/>
 												</div>
 											</div>
 											<hr>
@@ -283,5 +293,32 @@ if(ISSET($_POST['add_dst'])){
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 		<script type="text/javascript" src="js/settings2.js"></script>
 		<script type="text/javascript" src="js/shortcut2.js"></script> 
+		<script>
+			var date=new Date();
+			$('#date_collected').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
+		<script>
+			var date=new Date();
+			$('#date_received').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
+		<script>
+			var date=new Date();
+			$('#date_released').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
 	</body>
 </html>

@@ -22,7 +22,8 @@ if(ISSET($_POST['add_tb_culture'])){
 	$year = date("Y", strtotime("+8 HOURS"));
 
 	date_default_timezone_set('Asia/Manila');	
-	$date=date("F j, Y, g:i a");
+	$time=date("g:i a");
+	$date=date("F j, Y");
 	$conn = new mysqli("localhost", "root", "", "thesis") or die(mysqli_error());
 	$query = $conn->query("SELECT * FROM `user`") or die(mysqli_error());
 	$fetch = $query->fetch_array();
@@ -33,7 +34,7 @@ if(ISSET($_POST['add_tb_culture'])){
 
 	$conn->query("UPDATE `laboratory_request` SET `status` = 'Done', `date_today` = '$date_today' WHERE `patient_id` = '$patient_id' && `lab_request_id` = '$lab_request_id'") or die(mysqli_error());
 
-	$conn->query("INSERT INTO `history_log` VALUES('', '$id', '$labremarks', '$date')") or die(mysqli_error());
+	$conn->query("INSERT INTO `history_log` VALUES('', '$id', 'Data Entry', '$labremarks', '$date', '$time')") or die(mysqli_error());
 	$conn->close();
 	echo "<script type='text/javascript'>alert('Successfully added the TB Culture Result!');</script>";
 	echo "<script>document.location='medtech_laboratory_request.php'</script>";
@@ -109,13 +110,13 @@ if(ISSET($_POST['add_tb_culture'])){
 											<h5 class="push-up-1"><strong>Date Sample Collected</strong></h5>
 											<div class="form-group ">
 												<div class="col-md-12 col-xs-12">
-													<input type="text" class="form-control datepicker" name="date_sample_collected" data-toggle="tooltip" data-placement="top" title="Date Sample Collected YYYY-MM-DD" required/>
+													<input type="text" class="form-control datepicker" id="date_sample_collected" name="date_sample_collected" data-toggle="tooltip" data-placement="top" title="Date Sample Collected" required/>
 												</div>
 											</div>
 											<h5 class="push-up-1"><strong>Date Sample Received</strong></h5>
 											<div class="form-group ">
 												<div class="col-md-12 col-xs-12">
-													<input type="text" class="form-control datepicker" name="date_sample_received" data-toggle="tooltip" data-placement="top" title="Date Sample Collected YYYY-MM-DD" required/>
+													<input type="text" class="form-control datepicker" id="date_sample_received" name="date_sample_received" data-toggle="tooltip" data-placement="top" title="Date Sample Collected" required/>
 												</div>
 											</div>
 										</div>
@@ -151,7 +152,7 @@ if(ISSET($_POST['add_tb_culture'])){
 											<h5 class="push-up-1"><strong>Date Released</strong></h5>
 											<div class="form-group ">
 												<div class="col-md-12 col-xs-12">
-													<input type="text" class="form-control datepicker" name="date_released" data-toggle="tooltip" data-placement="top" title="Date Released YYYY-MM-DD" required/>
+													<input type="text" class="form-control datepicker" id="date_released" name="date_released" data-toggle="tooltip" data-placement="top" title="Date Released" required/>
 												</div>
 											</div>
 											<hr>
@@ -186,5 +187,32 @@ if(ISSET($_POST['add_tb_culture'])){
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 		<script type="text/javascript" src="js/settings2.js"></script>
 		<script type="text/javascript" src="js/shortcut2.js"></script> 
+		<script>
+			var date=new Date();
+			$('#date_sample_collected').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
+		<script>
+			var date=new Date();
+			$('#date_sample_received').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
+		<script>
+			var date=new Date();
+			$('#date_released').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
 	</body>
 </html>

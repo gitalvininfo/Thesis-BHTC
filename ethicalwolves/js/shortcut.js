@@ -11,7 +11,7 @@ document.body.addEventListener("keydown", function (event) {
 	if (event.keyCode === 115) {
 		window.location.href="laboratory_request_table.php";
 	}
-	if (event.keyCode === 9) {
+	if (event.keyCode === 45) {
 		window.location.href="patient_treatment_table.php";
 	}		
 	if (event.keyCode === 117) {

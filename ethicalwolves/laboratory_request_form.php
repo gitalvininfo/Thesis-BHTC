@@ -53,7 +53,7 @@ require ('config.php');
 															<h5 class="push-up-1">Name of Collection Unit</h5>
 															<div class="form-group ">
 																<div class="col-md-12 col-xs-12">
-																<input type="hidden" class="form-control" name="patient_id" value="<?php echo $_GET['id'];?>" required>
+																	<input type="hidden" class="form-control" name="patient_id" value="<?php echo $_GET['id'];?>" required>
 																	<input type="hidden" class="form-control" name="patient_name" value="<?php echo $_GET['patient_name']?>"required/>
 																	<select class="form-control select" data-live-search="true" name="collection_unit" required>
 																		<option>Select</option>
@@ -87,7 +87,7 @@ require ('config.php');
 															<h5 class="push-up-1">Date of Request</h5>
 															<div class="form-group ">
 																<div class="col-md-12 col-xs-12">
-																	<input data-toggle="tooltip" data-placement="bottom" title="Date of Request" type="text" class="form-control datepicker" name="date_of_request" />
+																	<input data-toggle="tooltip" data-placement="bottom" title="Date of Request" type="text" class="form-control datepicker" id="date_of_request" name="date_of_request" />
 																</div>
 															</div>
 															<h5 class="push-up-1">Name of Requesting Physician</h5>
@@ -99,13 +99,13 @@ require ('config.php');
 															<h5 class="push-up-1">Date Specimen 1 Collected</h5>
 															<div class="form-group ">
 																<div class="col-md-12 col-xs-12">
-																	<input data-toggle="tooltip" data-placement="bottom" title="Date Sample 1 Collected" type="text" class="form-control datepicker" name="date_sample_collected" required/>
+																	<input data-toggle="tooltip" data-placement="bottom" title="Date Sample 1 Collected" type="text" class="form-control datepicker" id="date_sample_collected" name="date_sample_collected" required/>
 																</div>
 															</div>
 															<h5 class="push-up-1">Date Specimen 2 Collected</h5>
 															<div class="form-group ">
 																<div class="col-md-12 col-xs-12">
-																	<input data-toggle="tooltip" data-placement="bottom" title="Date Sample 2 Collected" type="text" class="form-control datepicker" name="date_sample_collected2"/>
+																	<input data-toggle="tooltip" data-placement="bottom" title="Date Sample 2 Collected" type="text" class="form-control datepicker" id="date_sample_collected2" name="date_sample_collected2"/>
 																</div>
 															</div>
 														</div>
@@ -192,6 +192,33 @@ require ('config.php');
 		<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 		<script type="text/javascript" src="js/settings.js"></script>
 		<script type="text/javascript" src="js/shortcut.js"></script>
+		<script>
+			var date=new Date();
+			$('#date_of_request').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
+		<script>
+			var date=new Date();
+			$('#date_sample_collected').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
+		<script>
+			var date=new Date();
+			$('#date_sample_collected2').datepicker({
+				format: 'MM dd, yyyy',
+				language: 'en',
+				startDate : new Date('1900-01-01'),
+				endDate : date
+			});
+		</script> 
 	</body>
 
 </html>

@@ -60,7 +60,7 @@ $f = $q->fetch_array();
 	$q1 = $conn->query("SELECT * FROM `patient` WHERE `patient_id` = '$_GET[id]'") or die(mysqli_error());
 			$f1 = $q1->fetch_array();
 							?>
-							<div class="panel panel-info">
+							<div class="panel panel-primary">
 								<div class="panel-body list-group list-group-contacts scroll" style="height: 470px;">
 									<div class="panel-heading">
 										<h3 class="panel-title">Laboratory Requests of <strong> <?php echo $f1['patient_name']?></strong></h3>

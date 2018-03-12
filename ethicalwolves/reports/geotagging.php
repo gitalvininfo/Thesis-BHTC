@@ -362,13 +362,42 @@
 					"lat": '10.6617878',
 					"lng": '122.9446245',
 					"description": '<b><center><p style="font-size:15px;">Barangay 41 </b></center><hr><b><?php echo $f66['total']?></b> Patients registered in this area <br> <b><?php echo $g66['total']?></b> Male <br> <b> <?php echo $h66['total']?></b> Female <br> <b> <?php echo $c66['total']?></b> Children <br> <b> <?php echo $a66['total']?></b> Adult <hr> <b> <?php echo $t66['total']?></b> Currently in Treatment <br> <b><?php echo $ok66['total']?></b> Cured <br><b><?php echo $d66['total']?></b> Died <br> <b><?php echo $fa13['total']?></b> Failed'
+				},
+				{
+					"title": '<p style="font-size:15px;">Barangay 3',
+					"lat": '10.6858675',
+					"lng": '122.9529784',
+					"description": '<b><center><p style="font-size:15px;">Barangay 3 </b></center><hr><b><?php echo $f28['total']?></b> Patients registered in this area <br> <b><?php echo $g28['total']?></b> Male <br> <b> <?php echo $h28['total']?></b> Female <br> <b> <?php echo $c28['total']?></b> Children <br> <b> <?php echo $a28['total']?></b> Adult <hr> <b> <?php echo $t28['total']?></b> Currently in Treatment <br> <b><?php echo $ok28['total']?></b> Cured <br><b><?php echo $d28['total']?></b> Died <br> <b><?php echo $fa28['total']?></b> Failed'
+				},
+				{
+					"title": '<p style="font-size:15px;">Barangay 4',
+					"lat": '10.6805788',
+					"lng": '122.9559179',
+					"description": '<b><center><p style="font-size:15px;">Barangay 4 </b></center><hr><b><?php echo $f66['total']?></b> Patients registered in this area <br> <b><?php echo $g66['total']?></b> Male <br> <b> <?php echo $h66['total']?></b> Female <br> <b> <?php echo $c66['total']?></b> Children <br> <b> <?php echo $a66['total']?></b> Adult <hr> <b> <?php echo $t66['total']?></b> Currently in Treatment <br> <b><?php echo $ok66['total']?></b> Cured <br><b><?php echo $d66['total']?></b> Died <br> <b><?php echo $fa13['total']?></b> Failed'
+				},
+				{
+					"title": '<p style="font-size:15px;">Barangay 12',
+					"lat": '10.6694716',
+					"lng": '122.9537208',
+					"description": '<b><center><p style="font-size:15px;">Barangay 12 </b></center><hr><b><?php echo $f66['total']?></b> Patients registered in this area <br> <b><?php echo $g66['total']?></b> Male <br> <b> <?php echo $h66['total']?></b> Female <br> <b> <?php echo $c66['total']?></b> Children <br> <b> <?php echo $a66['total']?></b> Adult <hr> <b> <?php echo $t66['total']?></b> Currently in Treatment <br> <b><?php echo $ok66['total']?></b> Cured <br><b><?php echo $d66['total']?></b> Died <br> <b><?php echo $fa13['total']?></b> Failed'
+				},
+				{
+					"title": '<p style="font-size:15px;">Barangay 14',
+					"lat": '10.6677178',
+					"lng": '122.9405275',
+					"description": '<b><center><p style="font-size:15px;">Barangay 14 </b></center><hr><b><?php echo $f66['total']?></b> Patients registered in this area <br> <b><?php echo $g66['total']?></b> Male <br> <b> <?php echo $h66['total']?></b> Female <br> <b> <?php echo $c66['total']?></b> Children <br> <b> <?php echo $a66['total']?></b> Adult <hr> <b> <?php echo $t66['total']?></b> Currently in Treatment <br> <b><?php echo $ok66['total']?></b> Cured <br><b><?php echo $d66['total']?></b> Died <br> <b><?php echo $fa13['total']?></b> Failed'
+				},
+				{
+					"title": '<p style="font-size:15px;">Barangay 34',
+					"lat": '10.6641197',
+					"lng": '122.9379738',
+					"description": '<b><center><p style="font-size:15px;">Barangay 34 </b></center><hr><b><?php echo $f66['total']?></b> Patients registered in this area <br> <b><?php echo $g66['total']?></b> Male <br> <b> <?php echo $h66['total']?></b> Female <br> <b> <?php echo $c66['total']?></b> Children <br> <b> <?php echo $a66['total']?></b> Adult <hr> <b> <?php echo $t66['total']?></b> Currently in Treatment <br> <b><?php echo $ok66['total']?></b> Cured <br><b><?php echo $d66['total']?></b> Died <br> <b><?php echo $fa13['total']?></b> Failed'
 				}
 
 			];
 			window.onload = function () {
 				LoadMap();
 			};
-
 			var map;
 			var marker;
 			function LoadMap() {
@@ -423,7 +452,6 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<button class="btn btn-info btn-md" data-toggle="modal" data-target="#statistics">Overview</button>
 						<div class="btn-group pull-right">
 							<div class="pull-left">
 								<select onchange="SetMarker(this.value)" class="validate[required] select" data-style="btn-primary" data-live-search="true">
@@ -484,72 +512,17 @@
 									<option id="rbMarker54" value="54"> Brgy. 39</option>
 									<option id="rbMarker55" value="55"> Brgy. 40</option>
 									<option id="rbMarker56" value="56"> Brgy. 41</option>
+									<option id="rbMarker57" value="57"> Brgy. 3</option>
+									<option id="rbMarker58" value="58"> Brgy. 4</option>
+									<option id="rbMarker59" value="59"> Brgy. 12</option>
+									<option id="rbMarker60" value="60"> Brgy. 14</option>
+									<option id="rbMarker61" value="61"> Brgy. 34</option>
 								</select>
 							</div>
 						</div>
 						<div class="panel-body">
 							<div id="dvMap" style="width: 100%; height: 100%"></div>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade" id="statistics" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						<h4 class="modal-title" id="largeModalHead"><strong>Overview</strong></h4>
-					</div>
-					<?php
-	require '../config.php';
-$q1 = $conn->query("select `barangay`, count(*) as total from patient where status = 'Registered' && gender = 'Male' group by barangay order by total desc limit 1") or die(mysqli_error());
-$f1 = $q1->fetch_array();
-$q2 = $conn->query("select `barangay`, count(*) as total from patient where status = 'Registered' && gender = 'Female' group by barangay order by total desc limit 1") or die(mysqli_error());
-$f2 = $q2->fetch_array();
-$q3 = $conn->query("select `barangay`, count(*) as total from patient where status = 'Registered' && age <= 15 group by barangay order by total desc limit 1") or die(mysqli_error());
-$f3 = $q3->fetch_array();
-$q4 = $conn->query("select `barangay`, count(*) as total from patient where status = 'Registered' && age >= 16 group by barangay order by total desc limit 1") or die(mysqli_error());
-$f4 = $q4->fetch_array();
-					?>
-
-					<div class="modal-body">
-						<div class="panel-body">
-							<div class="col-md-12">
-								<div class="col-md-3">
-									<div class="widget widget-info">
-										<div class="widget-title">Most Males</div>
-										<div class="widget-subtitle">Barangay <?php echo $f1['barangay']?></div>
-										<div class="widget-int"><?php echo $f1['total']?></div>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="widget widget-info">
-										<div class="widget-title">Most Females</div>
-										<div class="widget-subtitle">Barangay <?php echo $f2['barangay']?></div>
-										<div class="widget-int"><?php echo $f2['total']?></div>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="widget widget-info">
-										<div class="widget-title">Most Children</div>
-										<div class="widget-subtitle">Barangay <?php echo $f3['barangay']?></div>
-										<div class="widget-int"><?php echo $f3['total']?></div>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="widget widget-info">
-										<div class="widget-title">Most Adult</div>
-										<div class="widget-subtitle">Barangay <?php echo $f4['barangay']?></div>
-										<div class="widget-int"><?php echo $f4['total']?></div>
-									</div>
-								</div>
-							</div>
-							
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
 					</div>
 				</div>
 			</div>

@@ -84,7 +84,7 @@ require ('config.php');
 																		<td><center>
 																			<?php if ($f['total'] <= 0)echo "<a class = 'btn btn-danger btn-sm' href = '#'
 																			data-container='body' data-toggle='popover' data-placement='left' data-content='Patient not yet examined. Please submit laboratory request.'>Pending</a>";
-																			if ($f['total'] > 0)echo "<a class = 'btn btn-default btn-md' href = 'registration_form.php?id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'>Register</a>";
+				if ($f['total'] > 0)echo "<a class = 'btn btn-default btn-md' href = 'registration_form.php?id=".$fetch['patient_id']."&patient_name=".$fetch['patient_name']."'>Register</a>";
 																			?>
 																			</center>
 																		</td>
