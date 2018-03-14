@@ -21,7 +21,7 @@ while($fetch = $query->fetch_array()){
 									<div class="col-md-12 col-xs-12">
 										<input type="hidden" class="form-control" name="patient_id" value="<?php echo $fetch['patient_id'];?>" required>
 										<input type="hidden" class="form-control" name="patient_name" value="<?php echo $fetch['patient_name'];?>" required>
-										<input type="text" class="form-control datepicker" name="follow_up_date" data-toggle="tooltip" data-placement="bottom" title="Follow-up Date" required/>
+										<input type="text" class="form-control datepicker" id="follow_up_date" name="follow_up_date" data-toggle="tooltip" data-placement="bottom" title="Follow-up Date" required/>
 									</div>
 								</div>
 								<h5 class="push-up-1">Remarks</h5>
